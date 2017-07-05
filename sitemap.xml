@@ -8,13 +8,18 @@
   </url>
   
   <url>
-    <loc>https://hauyuchen.github.io/categories/</loc>
-    <priority>0</priority>
+    <loc>https://hauyuchen.github.io/post/post-title/</loc>
+    <lastmod>2016-08-07T11:19:06+08:00</lastmod>
   </url>
   
   <url>
     <loc>https://hauyuchen.github.io/</loc>
     <lastmod>2017-07-05T16:22:21+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://hauyuchen.github.io/categories/</loc>
     <priority>0</priority>
   </url>
   
@@ -25,7 +30,20 @@
   </url>
   
   <url>
+    <loc>https://hauyuchen.github.io/tags/tag1/</loc>
+    <lastmod>2016-08-07T11:19:06+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://hauyuchen.github.io/tags/tag2/</loc>
+    <lastmod>2016-08-07T11:19:06+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://hauyuchen.github.io/tags/</loc>
+    <lastmod>2016-08-07T11:19:06+08:00</lastmod>
     <priority>0</priority>
   </url>
   
