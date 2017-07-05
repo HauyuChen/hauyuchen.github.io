@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>My New Hugo Site</title>
+    <title>Hov&#39;s Blog</title>
     <link>https://hauyuchen.github.io/</link>
-    <description>Recent content on My New Hugo Site</description>
+    <description>Recent content on Hov&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Wed, 05 Jul 2017 16:22:21 +0800</lastBuildDate>
@@ -17,7 +17,7 @@
       <pubDate>Wed, 05 Jul 2017 16:22:21 +0800</pubDate>
       
       <guid>https://hauyuchen.github.io/post/test/</guid>
-      <description>Hello Hugo！测试内容</description>
+      <description>这是新的内容</description>
     </item>
     
   </channel>
