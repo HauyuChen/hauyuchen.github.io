@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>My New Hugo Site</title>
+    <link>https://hauyuchen.github.io/</link>
+    <description>Recent content on My New Hugo Site</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 05 Jul 2017 16:22:21 +0800</lastBuildDate>
+    
+	<atom:link href="https://hauyuchen.github.io/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Test</title>
+      <link>https://hauyuchen.github.io/post/test/</link>
+      <pubDate>Wed, 05 Jul 2017 16:22:21 +0800</pubDate>
+      
+      <guid>https://hauyuchen.github.io/post/test/</guid>
+      <description>Hello Hugo！测试内容</description>
+    </item>
+    
+  </channel>
+</rss>
