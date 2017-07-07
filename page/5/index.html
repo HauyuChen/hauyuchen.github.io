@@ -97,7 +97,7 @@
       
       
         <li class="pure-menu-item">
-          <a class="pure-menu-link" href="https://hauyuchen.github.io/about/"><i class='fa fa-user fa-fw'></i>关于我</a>
+          <a class="pure-menu-link" href=""><i class='fa fa-user fa-fw'></i>关于我</a>
       
         </li>
       
@@ -198,13 +198,8 @@
 
 
   <div>
-  <div class="small-print">
-    <small>&copy; 2017. All rights reserved.</small>
-  </div>
-  <div class="small-print">
-    <small>Built with&nbsp;<a href="https://gohugo.io/" target="_blank">Hugo</a></small>
-    <small>Theme&nbsp;<a href="https://github.com/yoshiharuyamashita/blackburn" target="_blank">Blackburn</a></small>
-  </div>
+
+
 </div>
 
 </div>
@@ -222,13 +217,13 @@
   
     <article>
   <header>
-    <h2><a href="https://hauyuchen.github.io/post/013-roman-to-integer/">13. Roman to Integer</a></h2>
+    <h2><a href="https://hauyuchen.github.io/post/191-number-of-1-bits/">191. Number of 1 Bits</a></h2>
 
     <div class="post-meta">
 
   <div>
     <i class="fa fa-calendar fa-fw"></i>
-    <time>2016-09-09</time>
+    <time>2017-03-03</time>
   </div>
 
   
@@ -252,9 +247,9 @@
   </header>
 
   <p>
-   题目描述：  Given a roman numeral, convert it to an integer.
-Input is guaranteed to be within the range from 1 to 3999.
- 代码实现： class Solution { public: int romanToInt(string s) { unordered_map&lt;char,int&gt; hm; hm.insert(pair&lt;char,int&gt;('I',1)); hm.insert(pair&lt;char,int&gt;('V',5)); hm.insert(pair&lt;char,int&gt;('X',10)); hm.insert(pair&lt;char,int&gt;('L',50)); hm.insert(pair&lt;char,int&gt;('C',100)); hm.insert(pair&lt;char,int&gt;('D',500)); hm.insert(pair&lt;char,int&gt;('M',1000)); int sum=hm[s[s.size()-1]]; for(int i=s.size()-1;i&gt;0;--i){ if(hm[s[i]]&gt;hm[s[i-1]]){ sum-=hm[s[i-1]]; }else{ sum+=hm[s[i-1]]; } } return sum; } };  
+   题目描述：  Write a function that takes an unsigned integer and returns the number of ’1&rsquo; bits it has (also known as the Hamming weight).
+For example, the 32-bit integer ’11&rsquo; has binary representation 00000000000000000000000000001011, so the function should return 3.
+ 代码实现： class Solution { public: int hammingWeight(uint32_t n) { int sum=0; while(n&gt;0){ if(n&amp;1==1){ sum++; } n=n&gt;&gt;1; } return sum; } };  
   </p>
 
   
@@ -263,13 +258,13 @@ Input is guaranteed to be within the range from 1 to 3999.
   
     <article>
   <header>
-    <h2><a href="https://hauyuchen.github.io/post/021-merge-two-sorted-lists/">21. Merge Two Sorted Lists</a></h2>
+    <h2><a href="https://hauyuchen.github.io/post/206-reverse-linked-list/">206. Reverse Linked List</a></h2>
 
     <div class="post-meta">
 
   <div>
     <i class="fa fa-calendar fa-fw"></i>
-    <time>2016-09-09</time>
+    <time>2017-03-03</time>
   </div>
 
   
@@ -293,13 +288,93 @@ Input is guaranteed to be within the range from 1 to 3999.
   </header>
 
   <p>
-  题目描述：  Merge two sorted linked lists and return it as a new list. The new list should be made by splicing together the nodes of the first two lists.
- 代码实现： /** * Definition for singly-linked list. * struct ListNode { * int val; * ListNode *next; * ListNode(int x) : val(x), next(NULL) {} * }; */ class Solution { public: ListNode* mergeTwoLists(ListNode* l1, ListNode* l2) { if(l1==nullptr&amp;&amp;l2==nullptr) return nullptr; if(l1==nullptr || l2==nullptr) return (l1==nullptr)?
+   题目描述：  Reverse a singly linked list.
+ 代码实现： /** * Definition for singly-linked list. * struct ListNode { * int val; * ListNode *next; * ListNode(int x) : val(x), next(NULL) {} * }; */ class Solution { public: ListNode* reverseList(ListNode* head) { ListNode* pPre=nullptr; ListNode* pNode=head; ListNode* pRet=nullptr; while(pNode!=nullptr){ ListNode* pNext=pNode-&gt;next; if(pNext==nullptr){ pRet=pNode; } pNode-&gt;next=pPre; pPre=pNode; pNode=pNext; } return pRet; } };  
+  </p>
+
+  
+</article>
+
+  
+    <article>
+  <header>
+    <h2><a href="https://hauyuchen.github.io/post/217-contains-duplicate/">217. Contains Duplicate</a></h2>
+
+    <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>2017-03-03</time>
+  </div>
+
+  
+
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-taxonomy-tag" href="https://hauyuchen.github.io/tags/leetcode">LeetCode</a>
+    
+  </div>
+  
+  
+
+</div>
+
+  </header>
+
+  <p>
+   题目描述：  Given an array of integers, find if the array contains any duplicates. Your function should return true if any value appears at least twice in the array, and it should return false if every element is distinct.
+ 代码实现： class Solution { public: bool containsDuplicate(vector&lt;int&gt;&amp; nums) { unordered_set&lt;int&gt; set; for(int num:nums){ if(set.count(num)){ return true; } set.insert(num); } return false; } };  
+  </p>
+
+  
+</article>
+
+  
+    <article>
+  <header>
+    <h2><a href="https://hauyuchen.github.io/post/226-invert-binary-tree/">226. Invert Binary Tree</a></h2>
+
+    <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>2017-03-03</time>
+  </div>
+
+  
+
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-taxonomy-tag" href="https://hauyuchen.github.io/tags/leetcode">LeetCode</a>
+    
+  </div>
+  
+  
+
+</div>
+
+  </header>
+
+  <p>
+  题目描述：  Invert a binary tree.
+ 4 / \ 2 7 / \ / \ 1 3 6 9 to 4 / \ 7 2 / \ / \ 9 6 3 1  Trivia: This problem was inspired by this original tweet by Max Howell: Google: 90% of our engineers use the software you wrote (Homebrew), but you can’t invert a binary tree on a whiteboard so fuck off.
   </p>
 
   
   <footer>
-    <a href="https://hauyuchen.github.io/post/021-merge-two-sorted-lists/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
+    <a href="https://hauyuchen.github.io/post/226-invert-binary-tree/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
   </footer>
   
 </article>
@@ -307,13 +382,13 @@ Input is guaranteed to be within the range from 1 to 3999.
   
     <article>
   <header>
-    <h2><a href="https://hauyuchen.github.io/post/053-maximum-subarray/">53. Maximum Subarray</a></h2>
+    <h2><a href="https://hauyuchen.github.io/post/231-power-of-two/">231. Power of Two</a></h2>
 
     <div class="post-meta">
 
   <div>
     <i class="fa fa-calendar fa-fw"></i>
-    <time>2016-09-09</time>
+    <time>2017-03-03</time>
   </div>
 
   
@@ -337,92 +412,8 @@ Input is guaranteed to be within the range from 1 to 3999.
   </header>
 
   <p>
-   题目描述：  Find the contiguous subarray within an array (containing at least one number) which has the largest sum.
-For example, given the array [-2,1,-3,4,-1,2,1,-5,4], the contiguous subarray [4,-1,2,1] has the largest sum = 6.
- 代码实现： int maxSubArray(int* nums, int numsSize) { int sum=0; int max=INT_MIN; for(int i=0;i&lt;numsSize;i++){ sum+=nums[i]; if(sum&gt;max){ max = sum; } if(sum&lt;0){ sum = 0; } } return max; }  
-  </p>
-
-  
-</article>
-
-  
-    <article>
-  <header>
-    <h2><a href="https://hauyuchen.github.io/post/069-sqrtx/">69. Sqrt(x)</a></h2>
-
-    <div class="post-meta">
-
-  <div>
-    <i class="fa fa-calendar fa-fw"></i>
-    <time>2016-09-09</time>
-  </div>
-
-  
-
-  
-
-  
-  
-  
-  <div>
-    <i class="fa fa-tags fa-fw"></i>
-    
-      <a class="post-taxonomy-tag" href="https://hauyuchen.github.io/tags/leetcode">LeetCode</a>
-    
-  </div>
-  
-  
-
-</div>
-
-  </header>
-
-  <p>
-   题目描述：  Implement int sqrt(int x).
-Compute and return the square root of x.
- 代码实现： class Solution { public: int mySqrt(int x) { if(x==0){ return 0; } int low=1,high=x; int mid; while(1){ mid = (low+high)/2; if(mid&gt;x/mid){ high = mid-1; } else{ if((mid+1)&gt;(x/(mid+1))){ return mid; } low = mid+1; } } } };  
-  </p>
-
-  
-</article>
-
-  
-    <article>
-  <header>
-    <h2><a href="https://hauyuchen.github.io/post/070-climbing-stairs/">70. Climbing Stairs</a></h2>
-
-    <div class="post-meta">
-
-  <div>
-    <i class="fa fa-calendar fa-fw"></i>
-    <time>2016-09-09</time>
-  </div>
-
-  
-
-  
-
-  
-  
-  
-  <div>
-    <i class="fa fa-tags fa-fw"></i>
-    
-      <a class="post-taxonomy-tag" href="https://hauyuchen.github.io/tags/leetcode">LeetCode</a>
-    
-  </div>
-  
-  
-
-</div>
-
-  </header>
-
-  <p>
-   题目描述：  You are climbing a stair case. It takes n steps to reach to the top.
-Each time you can either climb 1 or 2 steps. In how many distinct ways can you climb to the top?
- 思路：  这题本质上是斐波那契数列问题。这里采用数组暂存已有结果，以时间换空间，减少递归带来的重复计算。
- 代码实现： class Solution { public: int climbStairs(int n) { int f[n+1]; f[0]=1; f[1]=1; for(int i=2;i&lt;=n;++i){ f[i]=f[i-1]+f[i-2]; } return f[n]; } };  
+   题目描述：  Given an integer, write a function to determine if it is a power of two.
+ 代码实现： class Solution { public: bool isPowerOfTwo(int n) { int flag=0; if(n&lt;=0){ return false; } while(n&gt;0){ if(n&amp;1==1){ if(flag==1){ return false; } flag=1; } n=n&gt;&gt;1; } return true; } };  
   </p>
 
   
@@ -437,7 +428,7 @@ Each time you can either climb 1 or 2 steps. In how many distinct ways can you c
   
   <a href="https://hauyuchen.github.io/page/4/"><i class="fa fa-chevron-left"></i></a>
   
-  <span>&nbsp;5 / 6&nbsp;</span>
+  <span>&nbsp;5 / 9&nbsp;</span>
   
   <a href="https://hauyuchen.github.io/page/6/"><i class="fa fa-chevron-right"></i></a>
   

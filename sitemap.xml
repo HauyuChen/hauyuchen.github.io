@@ -3,6 +3,86 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://hauyuchen.github.io/post/292-nim-game/</loc>
+    <lastmod>2017-04-29T17:54:21+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hauyuchen.github.io/post/326-power-of-three/</loc>
+    <lastmod>2017-04-29T17:54:21+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hauyuchen.github.io/post/338-counting-bits/</loc>
+    <lastmod>2017-04-29T17:54:21+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hauyuchen.github.io/post/344-reverse-string/</loc>
+    <lastmod>2017-04-29T17:54:21+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hauyuchen.github.io/post/349-intersection-of-two-arrays/</loc>
+    <lastmod>2017-04-29T17:54:21+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hauyuchen.github.io/post/350-intersection-of-two-arrays-ii/</loc>
+    <lastmod>2017-04-29T17:54:21+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hauyuchen.github.io/post/371-sum-of-two-integers/</loc>
+    <lastmod>2017-04-29T17:54:21+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hauyuchen.github.io/post/383-ransom-note/</loc>
+    <lastmod>2017-04-29T17:54:21+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hauyuchen.github.io/post/387-first-unique-character-in-a-string/</loc>
+    <lastmod>2017-04-29T17:54:21+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hauyuchen.github.io/post/389-find-the-difference/</loc>
+    <lastmod>2017-04-29T17:54:21+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hauyuchen.github.io/post/401-binary-watch/</loc>
+    <lastmod>2017-04-29T17:54:21+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hauyuchen.github.io/post/404-sum-of-left-leaves/</loc>
+    <lastmod>2017-04-29T17:54:21+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hauyuchen.github.io/post/409-longest-palindrome/</loc>
+    <lastmod>2017-04-29T17:54:21+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hauyuchen.github.io/post/412-fizz-buzz/</loc>
+    <lastmod>2017-04-29T17:54:21+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hauyuchen.github.io/post/414-third-maximum-number/</loc>
+    <lastmod>2017-04-29T17:54:21+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://hauyuchen.github.io/post/415-add-strings/</loc>
+    <lastmod>2017-04-29T17:54:21+01:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://hauyuchen.github.io/post/136-single-number/</loc>
     <lastmod>2017-03-29T17:54:21+01:00</lastmod>
   </url>
@@ -149,25 +229,25 @@
   
   <url>
     <loc>https://hauyuchen.github.io/</loc>
-    <lastmod>2017-03-29T17:54:21+01:00</lastmod>
+    <lastmod>2017-04-29T17:54:21+01:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://hauyuchen.github.io/tags/leetcode/</loc>
-    <lastmod>2017-03-29T17:54:21+01:00</lastmod>
+    <lastmod>2017-04-29T17:54:21+01:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://hauyuchen.github.io/post/</loc>
-    <lastmod>2017-03-29T17:54:21+01:00</lastmod>
+    <lastmod>2017-04-29T17:54:21+01:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://hauyuchen.github.io/tags/</loc>
-    <lastmod>2017-03-29T17:54:21+01:00</lastmod>
+    <lastmod>2017-04-29T17:54:21+01:00</lastmod>
     <priority>0</priority>
   </url>
   

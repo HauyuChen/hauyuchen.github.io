@@ -97,7 +97,7 @@
       
       
         <li class="pure-menu-item">
-          <a class="pure-menu-link" href="https://hauyuchen.github.io/about/"><i class='fa fa-user fa-fw'></i>关于我</a>
+          <a class="pure-menu-link" href=""><i class='fa fa-user fa-fw'></i>关于我</a>
       
         </li>
       
@@ -198,13 +198,8 @@
 
 
   <div>
-  <div class="small-print">
-    <small>&copy; 2017. All rights reserved.</small>
-  </div>
-  <div class="small-print">
-    <small>Built with&nbsp;<a href="https://gohugo.io/" target="_blank">Hugo</a></small>
-    <small>Theme&nbsp;<a href="https://github.com/yoshiharuyamashita/blackburn" target="_blank">Blackburn</a></small>
-  </div>
+
+
 </div>
 
 </div>
@@ -222,13 +217,13 @@
   
     <article>
   <header>
-    <h2><a href="https://hauyuchen.github.io/post/001-two-sum/">1. Two Sum</a></h2>
+    <h2><a href="https://hauyuchen.github.io/post/415-add-strings/">415. Add Strings</a></h2>
 
     <div class="post-meta">
 
   <div>
     <i class="fa fa-calendar fa-fw"></i>
-    <time>2016-09-09</time>
+    <time>2017-04-04</time>
   </div>
 
   
@@ -252,16 +247,14 @@
   </header>
 
   <p>
-  题目描述：  Given an array of integers, return indices of the two numbers such that they add up to a specific target.
-You may assume that each input would have exactly one solution, and you may not use the same element twice.
-Example: Given nums = [2, 7, 11, 15], target = 9,
-Because nums[0] + nums[1] = 2 + 7 = 9, return [0, 1].
- 代码实现： class Solution { public: vector&lt;int&gt; twoSum(vector&lt;int&gt;&amp; nums, int target) { unordered_map&lt;int,int&gt; hm; for(int i=0;i&lt;nums.
+  题目描述：  Given two non-negative integers num1 and num2 represented as string, return the sum of num1 and num2.
+Note: The length of both num1 and num2 is &lt; 5100. Both num1 and num2 contains only digits 0-9. Both num1 and num2 does not contain any leading zero. You must not use any built-in BigInteger library or convert the inputs to integer directly.
+ 代码实现： class Solution { public: string addStrings(string num1, string num2) { string str; int index1=num1.
   </p>
 
   
   <footer>
-    <a href="https://hauyuchen.github.io/post/001-two-sum/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
+    <a href="https://hauyuchen.github.io/post/415-add-strings/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
   </footer>
   
 </article>
@@ -269,13 +262,13 @@ Because nums[0] + nums[1] = 2 + 7 = 9, return [0, 1].
   
     <article>
   <header>
-    <h2><a href="https://hauyuchen.github.io/post/100-same-tree/">100. Same Tree</a></h2>
+    <h2><a href="https://hauyuchen.github.io/post/136-single-number/">136. Single Number</a></h2>
 
     <div class="post-meta">
 
   <div>
     <i class="fa fa-calendar fa-fw"></i>
-    <time>2016-09-09</time>
+    <time>2017-03-03</time>
   </div>
 
   
@@ -299,14 +292,55 @@ Because nums[0] + nums[1] = 2 + 7 = 9, return [0, 1].
   </header>
 
   <p>
-  题目描述：  Given two binary trees, write a function to check if they are equal or not.
-Two binary trees are considered equal if they are structurally identical and the nodes have the same value.
- 代码实现： /** * Definition for a binary tree node. * struct TreeNode { * int val; * TreeNode *left; * TreeNode *right; * TreeNode(int x) : val(x), left(NULL), right(NULL) {} * }; */ class Solution { public: bool isSameTree(TreeNode* p, TreeNode* q) { if(p==nullptr &amp;&amp; q==nullptr){ return true; } else if(p==nullptr || q==nullptr){ return false; } if(p-&gt;val!
+   题目描述：  Given an array of integers, every element appears twice except for one. Find that single one.
+Note: Your algorithm should have a linear runtime complexity. Could you implement it without using extra memory?
+ 代码实现： class Solution { public: int singleNumber(vector&lt;int&gt;&amp; nums) { int ret = 0; for(int num:nums){ ret^=num; } return ret; } };  
+  </p>
+
+  
+</article>
+
+  
+    <article>
+  <header>
+    <h2><a href="https://hauyuchen.github.io/post/167-two-sum-ii-input-array-is-sorted/">167. Two Sum II - Input array is sorted</a></h2>
+
+    <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>2017-03-03</time>
+  </div>
+
+  
+
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-taxonomy-tag" href="https://hauyuchen.github.io/tags/leetcode">LeetCode</a>
+    
+  </div>
+  
+  
+
+</div>
+
+  </header>
+
+  <p>
+  题目描述：  Given an array of integers that is already sorted in ascending order, find two numbers such that they add up to a specific target number.
+The function twoSum should return indices of the two numbers such that they add up to the target, where index1 must be less than index2. Please note that your returned answers (both index1 and index2) are not zero-based.
+You may assume that each input would have exactly one solution and you may not use the same element twice.
   </p>
 
   
   <footer>
-    <a href="https://hauyuchen.github.io/post/100-same-tree/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
+    <a href="https://hauyuchen.github.io/post/167-two-sum-ii-input-array-is-sorted/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
   </footer>
   
 </article>
@@ -314,13 +348,13 @@ Two binary trees are considered equal if they are structurally identical and the
   
     <article>
   <header>
-    <h2><a href="https://hauyuchen.github.io/post/104-maximum-depth-of-binary-tree/">104. Maximum Depth of Binary Tree</a></h2>
+    <h2><a href="https://hauyuchen.github.io/post/169-majority-element/">169. Majority Element</a></h2>
 
     <div class="post-meta">
 
   <div>
     <i class="fa fa-calendar fa-fw"></i>
-    <time>2016-09-09</time>
+    <time>2017-03-03</time>
   </div>
 
   
@@ -344,28 +378,24 @@ Two binary trees are considered equal if they are structurally identical and the
   </header>
 
   <p>
-  题目描述：  Given a binary tree, find its maximum depth.
-The maximum depth is the number of nodes along the longest path from the root node down to the farthest leaf node.
- 代码实现： /** * Definition for binary tree * struct TreeNode { * int val; * TreeNode *left; * TreeNode *right; * TreeNode(int x) : val(x), left(NULL), right(NULL) {} * }; */ class Solution { public: int maxDepth(TreeNode *root) { int Ldepth=0,Rdepth=0; if(root==NULL){ return 0; } if(root-&gt;left==NULL &amp;&amp; root-&gt;right==NULL){ return 1; } Ldepth=maxDepth(root-&gt;left); Rdepth=maxDepth(root-&gt;right); return 1+(Ldepth&gt;Rdepth?
+   题目描述：  Given an array of size n, find the majority element. The majority element is the element that appears more than ⌊ n/2 ⌋ times.
+You may assume that the array is non-empty and the majority element always exist in the array.
+ 代码实现： class Solution { public: int majorityElement(vector&lt;int&gt;&amp; nums) { int major=nums[0]; int cnt=1; for(int num:nums){ if(num==major){ ++cnt; }else{ --cnt; } if(cnt==0){ ++cnt; major = num; } } return major; } };  
   </p>
 
-  
-  <footer>
-    <a href="https://hauyuchen.github.io/post/104-maximum-depth-of-binary-tree/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
-  </footer>
   
 </article>
 
   
     <article>
   <header>
-    <h2><a href="https://hauyuchen.github.io/post/121-best-time-to-buy-and-sell-stock/">121. Best Time to Buy and Sell Stock</a></h2>
+    <h2><a href="https://hauyuchen.github.io/post/171-excel-sheet-column-number/">171. Excel Sheet Column Number</a></h2>
 
     <div class="post-meta">
 
   <div>
     <i class="fa fa-calendar fa-fw"></i>
-    <time>2016-09-09</time>
+    <time>2017-03-03</time>
   </div>
 
   
@@ -389,60 +419,12 @@ The maximum depth is the number of nodes along the longest path from the root no
   </header>
 
   <p>
-  题目描述：  Say you have an array for which the ith element is the price of a given stock on day i.
-If you were only permitted to complete at most one transaction (ie, buy one and sell one share of the stock), design an algorithm to find the maximum profit.
-Example 1: Input: [7, 1, 5, 3, 6, 4] Output: 5
-max. difference = 6-1 = 5 (not 7-1 = 6, as selling price needs to be larger than buying price) Example 2: Input: [7, 6, 4, 3, 1] Output: 0
+   题目描述：  Related to question Excel Sheet Column Title
+Given a column title as appear in an Excel sheet, return its corresponding column number.
+For example:
+A -&gt; 1 B -&gt; 2 C -&gt; 3 ... Z -&gt; 26 AA -&gt; 27 AB -&gt; 28   代码实现： class Solution { public: int titleToNumber(string s) { int sum=0; for(int i=0;i&lt;s.length();i++){ sum = sum*26+(s[i]-'A'+1); } return sum; } };  
   </p>
 
-  
-  <footer>
-    <a href="https://hauyuchen.github.io/post/121-best-time-to-buy-and-sell-stock/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
-  </footer>
-  
-</article>
-
-  
-    <article>
-  <header>
-    <h2><a href="https://hauyuchen.github.io/post/122-best-time-to-buy-and-sell-stock-ii/">122. Best Time to Buy and Sell Stock II</a></h2>
-
-    <div class="post-meta">
-
-  <div>
-    <i class="fa fa-calendar fa-fw"></i>
-    <time>2016-09-09</time>
-  </div>
-
-  
-
-  
-
-  
-  
-  
-  <div>
-    <i class="fa fa-tags fa-fw"></i>
-    
-      <a class="post-taxonomy-tag" href="https://hauyuchen.github.io/tags/leetcode">LeetCode</a>
-    
-  </div>
-  
-  
-
-</div>
-
-  </header>
-
-  <p>
-  题目描述：  Say you have an array for which the ith element is the price of a given stock on day i.
-Design an algorithm to find the maximum profit. You may complete as many transactions as you like (ie, buy one and sell one share of the stock multiple times). However, you may not engage in multiple transactions at the same time (ie, you must sell the stock before you buy again).
-  </p>
-
-  
-  <footer>
-    <a href="https://hauyuchen.github.io/post/122-best-time-to-buy-and-sell-stock-ii/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
-  </footer>
   
 </article>
 
@@ -455,7 +437,7 @@ Design an algorithm to find the maximum profit. You may complete as many transac
   
   <a href="https://hauyuchen.github.io/page/3/"><i class="fa fa-chevron-left"></i></a>
   
-  <span>&nbsp;4 / 6&nbsp;</span>
+  <span>&nbsp;4 / 9&nbsp;</span>
   
   <a href="https://hauyuchen.github.io/page/5/"><i class="fa fa-chevron-right"></i></a>
   

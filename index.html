@@ -97,7 +97,7 @@
       
       
         <li class="pure-menu-item">
-          <a class="pure-menu-link" href="https://hauyuchen.github.io/about/"><i class='fa fa-user fa-fw'></i>关于我</a>
+          <a class="pure-menu-link" href=""><i class='fa fa-user fa-fw'></i>关于我</a>
       
         </li>
       
@@ -198,13 +198,8 @@
 
 
   <div>
-  <div class="small-print">
-    <small>&copy; 2017. All rights reserved.</small>
-  </div>
-  <div class="small-print">
-    <small>Built with&nbsp;<a href="https://gohugo.io/" target="_blank">Hugo</a></small>
-    <small>Theme&nbsp;<a href="https://github.com/yoshiharuyamashita/blackburn" target="_blank">Blackburn</a></small>
-  </div>
+
+
 </div>
 
 </div>
@@ -222,13 +217,13 @@
   
     <article>
   <header>
-    <h2><a href="https://hauyuchen.github.io/post/136-single-number/">136. Single Number</a></h2>
+    <h2><a href="https://hauyuchen.github.io/post/292-nim-game/">292. Nim Game</a></h2>
 
     <div class="post-meta">
 
   <div>
     <i class="fa fa-calendar fa-fw"></i>
-    <time>2017-03-03</time>
+    <time>2017-04-04</time>
   </div>
 
   
@@ -252,55 +247,13 @@
   </header>
 
   <p>
-   题目描述：  Given an array of integers, every element appears twice except for one. Find that single one.
-Note: Your algorithm should have a linear runtime complexity. Could you implement it without using extra memory?
- 代码实现： class Solution { public: int singleNumber(vector&lt;int&gt;&amp; nums) { int ret = 0; for(int num:nums){ ret^=num; } return ret; } };  
-  </p>
-
-  
-</article>
-
-  
-    <article>
-  <header>
-    <h2><a href="https://hauyuchen.github.io/post/167-two-sum-ii-input-array-is-sorted/">167. Two Sum II - Input array is sorted</a></h2>
-
-    <div class="post-meta">
-
-  <div>
-    <i class="fa fa-calendar fa-fw"></i>
-    <time>2017-03-03</time>
-  </div>
-
-  
-
-  
-
-  
-  
-  
-  <div>
-    <i class="fa fa-tags fa-fw"></i>
-    
-      <a class="post-taxonomy-tag" href="https://hauyuchen.github.io/tags/leetcode">LeetCode</a>
-    
-  </div>
-  
-  
-
-</div>
-
-  </header>
-
-  <p>
-  题目描述：  Given an array of integers that is already sorted in ascending order, find two numbers such that they add up to a specific target number.
-The function twoSum should return indices of the two numbers such that they add up to the target, where index1 must be less than index2. Please note that your returned answers (both index1 and index2) are not zero-based.
-You may assume that each input would have exactly one solution and you may not use the same element twice.
+  题目描述：  You are playing the following Nim Game with your friend: There is a heap of stones on the table, each time one of you take turns to remove 1 to 3 stones. The one who removes the last stone will be the winner. You will take the first turn to remove the stones.
+Both of you are very clever and have optimal strategies for the game. Write a function to determine whether you can win the game given the number of stones in the heap.
   </p>
 
   
   <footer>
-    <a href="https://hauyuchen.github.io/post/167-two-sum-ii-input-array-is-sorted/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
+    <a href="https://hauyuchen.github.io/post/292-nim-game/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
   </footer>
   
 </article>
@@ -308,13 +261,13 @@ You may assume that each input would have exactly one solution and you may not u
   
     <article>
   <header>
-    <h2><a href="https://hauyuchen.github.io/post/169-majority-element/">169. Majority Element</a></h2>
+    <h2><a href="https://hauyuchen.github.io/post/326-power-of-three/">326. Power of Three</a></h2>
 
     <div class="post-meta">
 
   <div>
     <i class="fa fa-calendar fa-fw"></i>
-    <time>2017-03-03</time>
+    <time>2017-04-04</time>
   </div>
 
   
@@ -338,9 +291,9 @@ You may assume that each input would have exactly one solution and you may not u
   </header>
 
   <p>
-   题目描述：  Given an array of size n, find the majority element. The majority element is the element that appears more than ⌊ n/2 ⌋ times.
-You may assume that the array is non-empty and the majority element always exist in the array.
- 代码实现： class Solution { public: int majorityElement(vector&lt;int&gt;&amp; nums) { int major=nums[0]; int cnt=1; for(int num:nums){ if(num==major){ ++cnt; }else{ --cnt; } if(cnt==0){ ++cnt; major = num; } } return major; } };  
+   题目描述：  Given an integer, write a function to determine if it is a power of three.
+Follow up: Could you do it without using any loop / recursion?
+ 代码实现： class Solution { public: bool isPowerOfThree(int n) { if(n&lt;=0){ return false; } while(n%3==0){ n/=3; } if(n==1){ return true; } return false; } };  
   </p>
 
   
@@ -349,13 +302,13 @@ You may assume that the array is non-empty and the majority element always exist
   
     <article>
   <header>
-    <h2><a href="https://hauyuchen.github.io/post/171-excel-sheet-column-number/">171. Excel Sheet Column Number</a></h2>
+    <h2><a href="https://hauyuchen.github.io/post/338-counting-bits/">338. Counting Bits</a></h2>
 
     <div class="post-meta">
 
   <div>
     <i class="fa fa-calendar fa-fw"></i>
-    <time>2017-03-03</time>
+    <time>2017-04-04</time>
   </div>
 
   
@@ -379,10 +332,54 @@ You may assume that the array is non-empty and the majority element always exist
   </header>
 
   <p>
-   题目描述：  Related to question Excel Sheet Column Title
-Given a column title as appear in an Excel sheet, return its corresponding column number.
-For example:
-A -&gt; 1 B -&gt; 2 C -&gt; 3 ... Z -&gt; 26 AA -&gt; 27 AB -&gt; 28   代码实现： class Solution { public: int titleToNumber(string s) { int sum=0; for(int i=0;i&lt;s.length();i++){ sum = sum*26+(s[i]-'A'+1); } return sum; } };  
+  题目描述：  Given a non negative integer number num. For every numbers i in the range 0 ≤ i ≤ num calculate the number of 1&rsquo;s in their binary representation and return them as an array.
+Example: For num = 5 you should return [0,1,1,2,1,2].
+Follow up: It is very easy to come up with a solution with run time O(n*sizeof(integer)). But can you do it in linear time O(n) /possibly in a single pass?
+  </p>
+
+  
+  <footer>
+    <a href="https://hauyuchen.github.io/post/338-counting-bits/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
+  </footer>
+  
+</article>
+
+  
+    <article>
+  <header>
+    <h2><a href="https://hauyuchen.github.io/post/344-reverse-string/">344. Reverse String</a></h2>
+
+    <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>2017-04-04</time>
+  </div>
+
+  
+
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-taxonomy-tag" href="https://hauyuchen.github.io/tags/leetcode">LeetCode</a>
+    
+  </div>
+  
+  
+
+</div>
+
+  </header>
+
+  <p>
+   题目描述：  Write a function that takes a string as input and returns the string reversed.
+Example: Given s = &ldquo;hello&rdquo;, return &ldquo;olleh&rdquo;.
+ 代码实现： class Solution { public: string reverseString(string s) { reverse(s.begin(),s.end()); return s; } };  
   </p>
 
   
@@ -391,13 +388,13 @@ A -&gt; 1 B -&gt; 2 C -&gt; 3 ... Z -&gt; 26 AA -&gt; 27 AB -&gt; 28   代码实
   
     <article>
   <header>
-    <h2><a href="https://hauyuchen.github.io/post/191-number-of-1-bits/">191. Number of 1 Bits</a></h2>
+    <h2><a href="https://hauyuchen.github.io/post/349-intersection-of-two-arrays/">349. Intersection of Two Arrays</a></h2>
 
     <div class="post-meta">
 
   <div>
     <i class="fa fa-calendar fa-fw"></i>
-    <time>2017-03-03</time>
+    <time>2017-04-04</time>
   </div>
 
   
@@ -421,9 +418,10 @@ A -&gt; 1 B -&gt; 2 C -&gt; 3 ... Z -&gt; 26 AA -&gt; 27 AB -&gt; 28   代码实
   </header>
 
   <p>
-   题目描述：  Write a function that takes an unsigned integer and returns the number of ’1&rsquo; bits it has (also known as the Hamming weight).
-For example, the 32-bit integer ’11&rsquo; has binary representation 00000000000000000000000000001011, so the function should return 3.
- 代码实现： class Solution { public: int hammingWeight(uint32_t n) { int sum=0; while(n&gt;0){ if(n&amp;1==1){ sum++; } n=n&gt;&gt;1; } return sum; } };  
+   题目描述：  Given two arrays, write a function to compute their intersection.
+Example: Given nums1 = [1, 2, 2, 1], nums2 = [2, 2], return [2].
+Note: Each element in the result must be unique. The result can be in any order.
+ 代码实现： class Solution { public: vector&lt;int&gt; intersection(vector&lt;int&gt;&amp; nums1, vector&lt;int&gt;&amp; nums2) { unordered_set&lt;int&gt; s; vector&lt;int&gt; ret; for(int num1:nums1){ if(s.count(num1)==0){ s.insert(num1); } } for(int num2:nums2){ if(s.count(num2)){ ret.push_back(num2); s.erase(num2); } } return ret; } };  
   </p>
 
   
@@ -438,7 +436,7 @@ For example, the 32-bit integer ’11&rsquo; has binary representation 000000000
   
   <i class="fa fa-chevron-left"></i>
   
-  <span>&nbsp;1 / 6&nbsp;</span>
+  <span>&nbsp;1 / 9&nbsp;</span>
   
   <a href="https://hauyuchen.github.io/page/2/"><i class="fa fa-chevron-right"></i></a>
   

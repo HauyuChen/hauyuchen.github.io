@@ -97,7 +97,7 @@
       
       
         <li class="pure-menu-item">
-          <a class="pure-menu-link" href="https://hauyuchen.github.io/about/"><i class='fa fa-user fa-fw'></i>关于我</a>
+          <a class="pure-menu-link" href=""><i class='fa fa-user fa-fw'></i>关于我</a>
       
         </li>
       
@@ -198,13 +198,8 @@
 
 
   <div>
-  <div class="small-print">
-    <small>&copy; 2017. All rights reserved.</small>
-  </div>
-  <div class="small-print">
-    <small>Built with&nbsp;<a href="https://gohugo.io/" target="_blank">Hugo</a></small>
-    <small>Theme&nbsp;<a href="https://github.com/yoshiharuyamashita/blackburn" target="_blank">Blackburn</a></small>
-  </div>
+
+
 </div>
 
 </div>
@@ -222,13 +217,13 @@
   
     <article>
   <header>
-    <h2><a href="https://hauyuchen.github.io/post/258-add-digits/">258. Add Digits</a></h2>
+    <h2><a href="https://hauyuchen.github.io/post/401-binary-watch/">401. Binary Watch</a></h2>
 
     <div class="post-meta">
 
   <div>
     <i class="fa fa-calendar fa-fw"></i>
-    <time>2017-03-03</time>
+    <time>2017-04-04</time>
   </div>
 
   
@@ -252,58 +247,15 @@
   </header>
 
   <p>
-   题目描述：  Given a non-negative integer num, repeatedly add all its digits until the result has only one digit.
-For example:
-Given num = 38, the process is like: 3 + 8 = 11, 1 + 1 = 2. Since 2 has only one digit, return it.
-Follow up: Could you do it without any loop/recursion in O(1) runtime?
- 代码实现： class Solution { public: int addDigits(int num) { return 1+(num-1)%9; } };  
-  </p>
-
-  
-</article>
-
-  
-    <article>
-  <header>
-    <h2><a href="https://hauyuchen.github.io/post/263-ugly-number/">263. Ugly Number</a></h2>
-
-    <div class="post-meta">
-
-  <div>
-    <i class="fa fa-calendar fa-fw"></i>
-    <time>2017-03-03</time>
-  </div>
-
-  
-
-  
-
-  
-  
-  
-  <div>
-    <i class="fa fa-tags fa-fw"></i>
-    
-      <a class="post-taxonomy-tag" href="https://hauyuchen.github.io/tags/leetcode">LeetCode</a>
-    
-  </div>
-  
-  
-
-</div>
-
-  </header>
-
-  <p>
-  题目描述：  Write a program to check whether a given number is an ugly number.
-Ugly numbers are positive numbers whose prime factors only include 2, 3, 5. For example, 6, 8 are ugly while 14 is not ugly since it includes another prime factor 7.
-Note that 1 is typically treated as an ugly number.
- 代码实现： class Solution { public: bool isUgly(int num) { if(num&lt;=0){ return false; } while(num%2==0){ num/=2; } while(num%3==0){ num/=3; } while(num%5==0){ num/=5; } return num==1?
+  题目描述：  A binary watch has 4 LEDs on the top which represent the hours (0-11), and the 6 LEDs on the bottom represent the minutes (0-59).
+Each LED represents a zero or one, with the least significant bit on the right.
+For example, the above binary watch reads &ldquo;3:25&rdquo;.
+Given a non-negative integer n which represents the number of LEDs that are currently on, return all possible times the watch could represent.
   </p>
 
   
   <footer>
-    <a href="https://hauyuchen.github.io/post/263-ugly-number/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
+    <a href="https://hauyuchen.github.io/post/401-binary-watch/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
   </footer>
   
 </article>
@@ -311,13 +263,13 @@ Note that 1 is typically treated as an ugly number.
   
     <article>
   <header>
-    <h2><a href="https://hauyuchen.github.io/post/268-missing-number/">268. Missing Number</a></h2>
+    <h2><a href="https://hauyuchen.github.io/post/404-sum-of-left-leaves/">404. Sum of Left Leaves</a></h2>
 
     <div class="post-meta">
 
   <div>
     <i class="fa fa-calendar fa-fw"></i>
-    <time>2017-03-03</time>
+    <time>2017-04-04</time>
   </div>
 
   
@@ -341,15 +293,60 @@ Note that 1 is typically treated as an ugly number.
   </header>
 
   <p>
-  题目描述：  Given an array containing n distinct numbers taken from 0, 1, 2, &hellip;, n, find the one that is missing from the array.
-For example, Given nums = [0, 1, 3] return 2.
-Note: Your algorithm should run in linear runtime complexity. Could you implement it using only constant extra space complexity?
- 代码实现： class Solution { public: int missingNumber(vector&lt;int&gt;&amp; nums) { int sum=0; int realsum=0; bool flag=false; for(int i=0;i&lt;nums.
+   题目描述：  Find the sum of all left leaves in a given binary tree.
+Example:
+ 3 / \ 9 20 / \ 15 7  There are two left leaves in the binary tree, with values 9 and 15 respectively. Return 24.
+ 代码实现： /** * Definition for a binary tree node. * struct TreeNode { * int val; * TreeNode *left; * TreeNode *right; * TreeNode(int x) : val(x), left(NULL), right(NULL) {} * }; */ class Solution { public: int sumOfLeftLeaves(TreeNode* root) { if(root==nullptr){ return 0; } int sum=0; if(root-&gt;left){ if(root-&gt;left-&gt;left==nullptr &amp;&amp; root-&gt;left-&gt;right==nullptr){ sum+=root-&gt;left-&gt;val; }else{ sum+=sumOfLeftLeaves(root-&gt;left); } } if(root-&gt;right){ sum+=sumOfLeftLeaves(root-&gt;right); } return sum; } };  
+  </p>
+
+  
+</article>
+
+  
+    <article>
+  <header>
+    <h2><a href="https://hauyuchen.github.io/post/409-longest-palindrome/">409. Longest Palindrome</a></h2>
+
+    <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>2017-04-04</time>
+  </div>
+
+  
+
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-taxonomy-tag" href="https://hauyuchen.github.io/tags/leetcode">LeetCode</a>
+    
+  </div>
+  
+  
+
+</div>
+
+  </header>
+
+  <p>
+  题目描述：  Given a string which consists of lowercase or uppercase letters, find the length of the longest palindromes that can be built with those letters.
+This is case sensitive, for example &ldquo;Aa&rdquo; is not considered a palindrome here.
+Note: Assume the length of given string will not exceed 1,010.
+Example:
+Input: &ldquo;abccccdd&rdquo;
+Output: 7
+Explanation: One longest palindrome that can be built is &ldquo;dccaccd&rdquo;, whose length is 7.
   </p>
 
   
   <footer>
-    <a href="https://hauyuchen.github.io/post/268-missing-number/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
+    <a href="https://hauyuchen.github.io/post/409-longest-palindrome/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
   </footer>
   
 </article>
@@ -357,13 +354,13 @@ Note: Your algorithm should run in linear runtime complexity. Could you implemen
   
     <article>
   <header>
-    <h2><a href="https://hauyuchen.github.io/post/283-move-zeroes/">283. Move Zeroes</a></h2>
+    <h2><a href="https://hauyuchen.github.io/post/412-fizz-buzz/">412. Fizz Buzz</a></h2>
 
     <div class="post-meta">
 
   <div>
     <i class="fa fa-calendar fa-fw"></i>
-    <time>2017-03-03</time>
+    <time>2017-04-04</time>
   </div>
 
   
@@ -387,15 +384,16 @@ Note: Your algorithm should run in linear runtime complexity. Could you implemen
   </header>
 
   <p>
-  题目描述：  Given an array nums, write a function to move all 0&rsquo;s to the end of it while maintaining the relative order of the non-zero elements.
-For example, given nums = [0, 1, 0, 3, 12], after calling your function, nums should be [1, 3, 12, 0, 0].
-Note: You must do this in-place without making a copy of the array. Minimize the total number of operations.
- 代码实现： class Solution { public: void moveZeroes(vector&lt;int&gt;&amp; nums) { int index=0; for(int i=0;i&lt;nums.
+  题目描述：  Write a program that outputs the string representation of numbers from 1 to n.
+But for multiples of three it should output “Fizz” instead of the number and for the multiples of five output “Buzz”. For numbers which are multiples of both three and five output “FizzBuzz”.
+Example:
+n = 15,
+Return: [ &ldquo;1&rdquo;, &ldquo;2&rdquo;, &ldquo;Fizz&rdquo;, &ldquo;4&rdquo;, &ldquo;Buzz&rdquo;, &ldquo;Fizz&rdquo;, &ldquo;7&rdquo;, &ldquo;8&rdquo;, &ldquo;Fizz&rdquo;, &ldquo;Buzz&rdquo;, &ldquo;11&rdquo;, &ldquo;Fizz&rdquo;, &ldquo;13&rdquo;, &ldquo;14&rdquo;, &ldquo;FizzBuzz&rdquo; ]
   </p>
 
   
   <footer>
-    <a href="https://hauyuchen.github.io/post/283-move-zeroes/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
+    <a href="https://hauyuchen.github.io/post/412-fizz-buzz/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
   </footer>
   
 </article>
@@ -403,13 +401,13 @@ Note: You must do this in-place without making a copy of the array. Minimize the
   
     <article>
   <header>
-    <h2><a href="https://hauyuchen.github.io/post/242-valid-anagram/">242. Valid Anagram</a></h2>
+    <h2><a href="https://hauyuchen.github.io/post/414-third-maximum-number/">414. Third Maximum Number</a></h2>
 
     <div class="post-meta">
 
   <div>
     <i class="fa fa-calendar fa-fw"></i>
-    <time>2017-03-03</time>
+    <time>2017-04-04</time>
   </div>
 
   
@@ -433,16 +431,17 @@ Note: You must do this in-place without making a copy of the array. Minimize the
   </header>
 
   <p>
-  题目描述：  Given two strings s and t, write a function to determine if t is an anagram of s.
-For example, s = &ldquo;anagram&rdquo;, t = &ldquo;nagaram&rdquo;, return true. s = &ldquo;rat&rdquo;, t = &ldquo;car&rdquo;, return false.
-Note: You may assume the string contains only lowercase alphabets.
-Follow up: What if the inputs contain unicode characters? How would you adapt your solution to such case?
- 代码实现： class Solution { public: bool isAnagram(string s, string t) { if(s.
+  题目描述：  Given a non-empty array of integers, return the third maximum number in this array. If it does not exist, return the maximum number. The time complexity must be in O(n).
+Example 1: Input: [3, 2, 1] Output: 1
+Explanation: The third maximum is 1.
+Example 2: Input: [1, 2] Output: 2
+Explanation: The third maximum does not exist, so the maximum (2) is returned instead.
+Example 3: Input: [2, 2, 3, 1] Output: 1
   </p>
 
   
   <footer>
-    <a href="https://hauyuchen.github.io/post/242-valid-anagram/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
+    <a href="https://hauyuchen.github.io/post/414-third-maximum-number/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
   </footer>
   
 </article>
@@ -456,7 +455,7 @@ Follow up: What if the inputs contain unicode characters? How would you adapt yo
   
   <a href="https://hauyuchen.github.io/page/2/"><i class="fa fa-chevron-left"></i></a>
   
-  <span>&nbsp;3 / 6&nbsp;</span>
+  <span>&nbsp;3 / 9&nbsp;</span>
   
   <a href="https://hauyuchen.github.io/page/4/"><i class="fa fa-chevron-right"></i></a>
   

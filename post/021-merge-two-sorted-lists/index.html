@@ -95,7 +95,7 @@
       
       
         <li class="pure-menu-item">
-          <a class="pure-menu-link" href="https://hauyuchen.github.io/about/"><i class='fa fa-user fa-fw'></i>关于我</a>
+          <a class="pure-menu-link" href=""><i class='fa fa-user fa-fw'></i>关于我</a>
       
         </li>
       
@@ -192,13 +192,8 @@
 
 
   <div>
-  <div class="small-print">
-    <small>&copy; 2017. All rights reserved.</small>
-  </div>
-  <div class="small-print">
-    <small>Built with&nbsp;<a href="https://gohugo.io/" target="_blank">Hugo</a></small>
-    <small>Theme&nbsp;<a href="https://github.com/yoshiharuyamashita/blackburn" target="_blank">Blackburn</a></small>
-  </div>
+
+
 </div>
 
 </div>
@@ -244,6 +239,16 @@
 
 <blockquote>
 <p>Merge two sorted linked lists and return it as a new list. The new list should be made by splicing together the nodes of the first two lists.</p>
+</blockquote>
+
+<h2 id="我的思路">我的思路：</h2>
+
+<blockquote>
+<ul>
+<li>通过一个指针newhead指示新的链表头部，比较链表l1和链表l2的第一个结点。</li>
+<li>若l1的第一个节点比l2小，则将其尾插进新链表，移动指针l1-&gt;next；若l2的第一个节点比l1小，同理。</li>
+<li>递归得解。</li>
+</ul>
 </blockquote>
 
 <h2 id="代码实现">代码实现：</h2>

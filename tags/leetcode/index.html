@@ -97,7 +97,7 @@
       
       
         <li class="pure-menu-item">
-          <a class="pure-menu-link" href="https://hauyuchen.github.io/about/"><i class='fa fa-user fa-fw'></i>关于我</a>
+          <a class="pure-menu-link" href=""><i class='fa fa-user fa-fw'></i>关于我</a>
       
         </li>
       
@@ -198,13 +198,8 @@
 
 
   <div>
-  <div class="small-print">
-    <small>&copy; 2017. All rights reserved.</small>
-  </div>
-  <div class="small-print">
-    <small>Built with&nbsp;<a href="https://gohugo.io/" target="_blank">Hugo</a></small>
-    <small>Theme&nbsp;<a href="https://github.com/yoshiharuyamashita/blackburn" target="_blank">Blackburn</a></small>
-  </div>
+
+
 </div>
 
 </div>
@@ -218,6 +213,722 @@
 </div>
 
 <div class="content">
+  
+    <article>
+  <header>
+    <h2><a href="https://hauyuchen.github.io/post/292-nim-game/">292. Nim Game</a></h2>
+
+    <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>2017-04-04</time>
+  </div>
+
+  
+
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-taxonomy-tag" href="https://hauyuchen.github.io/tags/leetcode">LeetCode</a>
+    
+  </div>
+  
+  
+
+</div>
+
+  </header>
+
+  <p>
+  题目描述：  You are playing the following Nim Game with your friend: There is a heap of stones on the table, each time one of you take turns to remove 1 to 3 stones. The one who removes the last stone will be the winner. You will take the first turn to remove the stones.
+Both of you are very clever and have optimal strategies for the game. Write a function to determine whether you can win the game given the number of stones in the heap.
+  </p>
+
+  
+  <footer>
+    <a href="https://hauyuchen.github.io/post/292-nim-game/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
+  </footer>
+  
+</article>
+
+  
+    <article>
+  <header>
+    <h2><a href="https://hauyuchen.github.io/post/326-power-of-three/">326. Power of Three</a></h2>
+
+    <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>2017-04-04</time>
+  </div>
+
+  
+
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-taxonomy-tag" href="https://hauyuchen.github.io/tags/leetcode">LeetCode</a>
+    
+  </div>
+  
+  
+
+</div>
+
+  </header>
+
+  <p>
+   题目描述：  Given an integer, write a function to determine if it is a power of three.
+Follow up: Could you do it without using any loop / recursion?
+ 代码实现： class Solution { public: bool isPowerOfThree(int n) { if(n&lt;=0){ return false; } while(n%3==0){ n/=3; } if(n==1){ return true; } return false; } };  
+  </p>
+
+  
+</article>
+
+  
+    <article>
+  <header>
+    <h2><a href="https://hauyuchen.github.io/post/338-counting-bits/">338. Counting Bits</a></h2>
+
+    <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>2017-04-04</time>
+  </div>
+
+  
+
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-taxonomy-tag" href="https://hauyuchen.github.io/tags/leetcode">LeetCode</a>
+    
+  </div>
+  
+  
+
+</div>
+
+  </header>
+
+  <p>
+  题目描述：  Given a non negative integer number num. For every numbers i in the range 0 ≤ i ≤ num calculate the number of 1&rsquo;s in their binary representation and return them as an array.
+Example: For num = 5 you should return [0,1,1,2,1,2].
+Follow up: It is very easy to come up with a solution with run time O(n*sizeof(integer)). But can you do it in linear time O(n) /possibly in a single pass?
+  </p>
+
+  
+  <footer>
+    <a href="https://hauyuchen.github.io/post/338-counting-bits/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
+  </footer>
+  
+</article>
+
+  
+    <article>
+  <header>
+    <h2><a href="https://hauyuchen.github.io/post/344-reverse-string/">344. Reverse String</a></h2>
+
+    <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>2017-04-04</time>
+  </div>
+
+  
+
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-taxonomy-tag" href="https://hauyuchen.github.io/tags/leetcode">LeetCode</a>
+    
+  </div>
+  
+  
+
+</div>
+
+  </header>
+
+  <p>
+   题目描述：  Write a function that takes a string as input and returns the string reversed.
+Example: Given s = &ldquo;hello&rdquo;, return &ldquo;olleh&rdquo;.
+ 代码实现： class Solution { public: string reverseString(string s) { reverse(s.begin(),s.end()); return s; } };  
+  </p>
+
+  
+</article>
+
+  
+    <article>
+  <header>
+    <h2><a href="https://hauyuchen.github.io/post/349-intersection-of-two-arrays/">349. Intersection of Two Arrays</a></h2>
+
+    <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>2017-04-04</time>
+  </div>
+
+  
+
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-taxonomy-tag" href="https://hauyuchen.github.io/tags/leetcode">LeetCode</a>
+    
+  </div>
+  
+  
+
+</div>
+
+  </header>
+
+  <p>
+   题目描述：  Given two arrays, write a function to compute their intersection.
+Example: Given nums1 = [1, 2, 2, 1], nums2 = [2, 2], return [2].
+Note: Each element in the result must be unique. The result can be in any order.
+ 代码实现： class Solution { public: vector&lt;int&gt; intersection(vector&lt;int&gt;&amp; nums1, vector&lt;int&gt;&amp; nums2) { unordered_set&lt;int&gt; s; vector&lt;int&gt; ret; for(int num1:nums1){ if(s.count(num1)==0){ s.insert(num1); } } for(int num2:nums2){ if(s.count(num2)){ ret.push_back(num2); s.erase(num2); } } return ret; } };  
+  </p>
+
+  
+</article>
+
+  
+    <article>
+  <header>
+    <h2><a href="https://hauyuchen.github.io/post/350-intersection-of-two-arrays-ii/">350. Intersection of Two Arrays II</a></h2>
+
+    <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>2017-04-04</time>
+  </div>
+
+  
+
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-taxonomy-tag" href="https://hauyuchen.github.io/tags/leetcode">LeetCode</a>
+    
+  </div>
+  
+  
+
+</div>
+
+  </header>
+
+  <p>
+  题目描述：  Given two arrays, write a function to compute their intersection.
+Example: Given nums1 = [1, 2, 2, 1], nums2 = [2, 2], return [2, 2].
+Note: Each element in the result should appear as many times as it shows in both arrays. The result can be in any order. Follow up: What if the given array is already sorted? How would you optimize your algorithm? What if nums1&rsquo;s size is small compared to nums2&rsquo;s size?
+  </p>
+
+  
+  <footer>
+    <a href="https://hauyuchen.github.io/post/350-intersection-of-two-arrays-ii/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
+  </footer>
+  
+</article>
+
+  
+    <article>
+  <header>
+    <h2><a href="https://hauyuchen.github.io/post/371-sum-of-two-integers/">371. Sum of Two Integers</a></h2>
+
+    <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>2017-04-04</time>
+  </div>
+
+  
+
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-taxonomy-tag" href="https://hauyuchen.github.io/tags/leetcode">LeetCode</a>
+    
+  </div>
+  
+  
+
+</div>
+
+  </header>
+
+  <p>
+   题目描述：  Calculate the sum of two integers a and b, but you are not allowed to use the operator + and -.
+Example: Given a = 1 and b = 2, return 3.
+ 代码实现： class Solution { public: int getSum(int a, int b) { return b==0?a:getSum(a^b,(a&amp;b)&lt;&lt;1); } };  
+  </p>
+
+  
+</article>
+
+  
+    <article>
+  <header>
+    <h2><a href="https://hauyuchen.github.io/post/383-ransom-note/">383. Ransom Note</a></h2>
+
+    <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>2017-04-04</time>
+  </div>
+
+  
+
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-taxonomy-tag" href="https://hauyuchen.github.io/tags/leetcode">LeetCode</a>
+    
+  </div>
+  
+  
+
+</div>
+
+  </header>
+
+  <p>
+  题目描述：  Given an arbitrary ransom note string and another string containing letters from all the magazines, write a function that will return true if the ransom note can be constructed from the magazines ; otherwise, it will return false.
+Each letter in the magazine string can only be used once in your ransom note.
+Note: You may assume that both strings contain only lowercase letters.
+ canConstruct(&ldquo;a&rdquo;, &ldquo;b&rdquo;) -&gt; false canConstruct(&ldquo;aa&rdquo;, &ldquo;ab&rdquo;) -&gt; false canConstruct(&ldquo;aa&rdquo;, &ldquo;aab&rdquo;) -&gt; true   代码实现： class Solution { public: bool canConstruct(string ransomNote, string magazine) { if(magazine.
+  </p>
+
+  
+  <footer>
+    <a href="https://hauyuchen.github.io/post/383-ransom-note/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
+  </footer>
+  
+</article>
+
+  
+    <article>
+  <header>
+    <h2><a href="https://hauyuchen.github.io/post/387-first-unique-character-in-a-string/">387. First Unique Character in a String</a></h2>
+
+    <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>2017-04-04</time>
+  </div>
+
+  
+
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-taxonomy-tag" href="https://hauyuchen.github.io/tags/leetcode">LeetCode</a>
+    
+  </div>
+  
+  
+
+</div>
+
+  </header>
+
+  <p>
+   题目描述：  Given a string, find the first non-repeating character in it and return it&rsquo;s index. If it doesn&rsquo;t exist, return -1.
+Examples:
+s = &ldquo;leetcode&rdquo; return 0.
+s = &ldquo;loveleetcode&rdquo;, return 2.
+Note: You may assume the string contain only lowercase letters.
+ 代码实现： class Solution { public: int firstUniqChar(string s) { int arr[26]; for(int i=0;i&lt;26;++i){ arr[i]=0; } for(int i=0;i&lt;s.size();++i){ ++arr[s[i]-'a']; } for(int i=0;i&lt;s.size();++i){ if(arr[s[i]-'a']==1){ return i; } } return -1; } };  
+  </p>
+
+  
+</article>
+
+  
+    <article>
+  <header>
+    <h2><a href="https://hauyuchen.github.io/post/389-find-the-difference/">389. Find the Difference</a></h2>
+
+    <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>2017-04-04</time>
+  </div>
+
+  
+
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-taxonomy-tag" href="https://hauyuchen.github.io/tags/leetcode">LeetCode</a>
+    
+  </div>
+  
+  
+
+</div>
+
+  </header>
+
+  <p>
+  题目描述：  Given two strings s and t which consist of only lowercase letters.
+String t is generated by random shuffling string s and then add one more letter at a random position.
+Find the letter that was added in t.
+Example:
+Input: s = &ldquo;abcd&rdquo; t = &ldquo;abcde&rdquo;
+Output: e
+Explanation: &lsquo;e&rsquo; is the letter that was added.
+ 代码实现： class Solution { public: char findTheDifference(string s, string t) { char ch = t[0]; for(int i=1;i&lt;t.
+  </p>
+
+  
+  <footer>
+    <a href="https://hauyuchen.github.io/post/389-find-the-difference/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
+  </footer>
+  
+</article>
+
+  
+    <article>
+  <header>
+    <h2><a href="https://hauyuchen.github.io/post/401-binary-watch/">401. Binary Watch</a></h2>
+
+    <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>2017-04-04</time>
+  </div>
+
+  
+
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-taxonomy-tag" href="https://hauyuchen.github.io/tags/leetcode">LeetCode</a>
+    
+  </div>
+  
+  
+
+</div>
+
+  </header>
+
+  <p>
+  题目描述：  A binary watch has 4 LEDs on the top which represent the hours (0-11), and the 6 LEDs on the bottom represent the minutes (0-59).
+Each LED represents a zero or one, with the least significant bit on the right.
+For example, the above binary watch reads &ldquo;3:25&rdquo;.
+Given a non-negative integer n which represents the number of LEDs that are currently on, return all possible times the watch could represent.
+  </p>
+
+  
+  <footer>
+    <a href="https://hauyuchen.github.io/post/401-binary-watch/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
+  </footer>
+  
+</article>
+
+  
+    <article>
+  <header>
+    <h2><a href="https://hauyuchen.github.io/post/404-sum-of-left-leaves/">404. Sum of Left Leaves</a></h2>
+
+    <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>2017-04-04</time>
+  </div>
+
+  
+
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-taxonomy-tag" href="https://hauyuchen.github.io/tags/leetcode">LeetCode</a>
+    
+  </div>
+  
+  
+
+</div>
+
+  </header>
+
+  <p>
+   题目描述：  Find the sum of all left leaves in a given binary tree.
+Example:
+ 3 / \ 9 20 / \ 15 7  There are two left leaves in the binary tree, with values 9 and 15 respectively. Return 24.
+ 代码实现： /** * Definition for a binary tree node. * struct TreeNode { * int val; * TreeNode *left; * TreeNode *right; * TreeNode(int x) : val(x), left(NULL), right(NULL) {} * }; */ class Solution { public: int sumOfLeftLeaves(TreeNode* root) { if(root==nullptr){ return 0; } int sum=0; if(root-&gt;left){ if(root-&gt;left-&gt;left==nullptr &amp;&amp; root-&gt;left-&gt;right==nullptr){ sum+=root-&gt;left-&gt;val; }else{ sum+=sumOfLeftLeaves(root-&gt;left); } } if(root-&gt;right){ sum+=sumOfLeftLeaves(root-&gt;right); } return sum; } };  
+  </p>
+
+  
+</article>
+
+  
+    <article>
+  <header>
+    <h2><a href="https://hauyuchen.github.io/post/409-longest-palindrome/">409. Longest Palindrome</a></h2>
+
+    <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>2017-04-04</time>
+  </div>
+
+  
+
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-taxonomy-tag" href="https://hauyuchen.github.io/tags/leetcode">LeetCode</a>
+    
+  </div>
+  
+  
+
+</div>
+
+  </header>
+
+  <p>
+  题目描述：  Given a string which consists of lowercase or uppercase letters, find the length of the longest palindromes that can be built with those letters.
+This is case sensitive, for example &ldquo;Aa&rdquo; is not considered a palindrome here.
+Note: Assume the length of given string will not exceed 1,010.
+Example:
+Input: &ldquo;abccccdd&rdquo;
+Output: 7
+Explanation: One longest palindrome that can be built is &ldquo;dccaccd&rdquo;, whose length is 7.
+  </p>
+
+  
+  <footer>
+    <a href="https://hauyuchen.github.io/post/409-longest-palindrome/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
+  </footer>
+  
+</article>
+
+  
+    <article>
+  <header>
+    <h2><a href="https://hauyuchen.github.io/post/412-fizz-buzz/">412. Fizz Buzz</a></h2>
+
+    <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>2017-04-04</time>
+  </div>
+
+  
+
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-taxonomy-tag" href="https://hauyuchen.github.io/tags/leetcode">LeetCode</a>
+    
+  </div>
+  
+  
+
+</div>
+
+  </header>
+
+  <p>
+  题目描述：  Write a program that outputs the string representation of numbers from 1 to n.
+But for multiples of three it should output “Fizz” instead of the number and for the multiples of five output “Buzz”. For numbers which are multiples of both three and five output “FizzBuzz”.
+Example:
+n = 15,
+Return: [ &ldquo;1&rdquo;, &ldquo;2&rdquo;, &ldquo;Fizz&rdquo;, &ldquo;4&rdquo;, &ldquo;Buzz&rdquo;, &ldquo;Fizz&rdquo;, &ldquo;7&rdquo;, &ldquo;8&rdquo;, &ldquo;Fizz&rdquo;, &ldquo;Buzz&rdquo;, &ldquo;11&rdquo;, &ldquo;Fizz&rdquo;, &ldquo;13&rdquo;, &ldquo;14&rdquo;, &ldquo;FizzBuzz&rdquo; ]
+  </p>
+
+  
+  <footer>
+    <a href="https://hauyuchen.github.io/post/412-fizz-buzz/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
+  </footer>
+  
+</article>
+
+  
+    <article>
+  <header>
+    <h2><a href="https://hauyuchen.github.io/post/414-third-maximum-number/">414. Third Maximum Number</a></h2>
+
+    <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>2017-04-04</time>
+  </div>
+
+  
+
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-taxonomy-tag" href="https://hauyuchen.github.io/tags/leetcode">LeetCode</a>
+    
+  </div>
+  
+  
+
+</div>
+
+  </header>
+
+  <p>
+  题目描述：  Given a non-empty array of integers, return the third maximum number in this array. If it does not exist, return the maximum number. The time complexity must be in O(n).
+Example 1: Input: [3, 2, 1] Output: 1
+Explanation: The third maximum is 1.
+Example 2: Input: [1, 2] Output: 2
+Explanation: The third maximum does not exist, so the maximum (2) is returned instead.
+Example 3: Input: [2, 2, 3, 1] Output: 1
+  </p>
+
+  
+  <footer>
+    <a href="https://hauyuchen.github.io/post/414-third-maximum-number/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
+  </footer>
+  
+</article>
+
+  
+    <article>
+  <header>
+    <h2><a href="https://hauyuchen.github.io/post/415-add-strings/">415. Add Strings</a></h2>
+
+    <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>2017-04-04</time>
+  </div>
+
+  
+
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-taxonomy-tag" href="https://hauyuchen.github.io/tags/leetcode">LeetCode</a>
+    
+  </div>
+  
+  
+
+</div>
+
+  </header>
+
+  <p>
+  题目描述：  Given two non-negative integers num1 and num2 represented as string, return the sum of num1 and num2.
+Note: The length of both num1 and num2 is &lt; 5100. Both num1 and num2 contains only digits 0-9. Both num1 and num2 does not contain any leading zero. You must not use any built-in BigInteger library or convert the inputs to integer directly.
+ 代码实现： class Solution { public: string addStrings(string num1, string num2) { string str; int index1=num1.
+  </p>
+
+  
+  <footer>
+    <a href="https://hauyuchen.github.io/post/415-add-strings/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
+  </footer>
+  
+</article>
+
   
     <article>
   <header>
@@ -898,7 +1609,7 @@ Follow up: What if the inputs contain unicode characters? How would you adapt yo
 You may assume that each input would have exactly one solution, and you may not use the same element twice.
 Example: Given nums = [2, 7, 11, 15], target = 9,
 Because nums[0] + nums[1] = 2 + 7 = 9, return [0, 1].
- 代码实现： class Solution { public: vector&lt;int&gt; twoSum(vector&lt;int&gt;&amp; nums, int target) { unordered_map&lt;int,int&gt; hm; for(int i=0;i&lt;nums.
+ 我的思路：   先用map存储每个元素对应的原始下标，方便后续查找特定元素。 从头开始查找符合条件的结果，用target减去nums[i]，得到两数之差t，在map中寻找是否存在t且元素t的索引不等于i,若是则为最终结果，否则继续查找nums[i+1]。   代码实现： class Solution { public: vector&lt;int&gt; twoSum(vector&lt;int&gt;&amp; nums, int target) { unordered_map&lt;int,int&gt; hm; for(int i=0;i&lt;nums.
   </p>
 
   
@@ -1123,6 +1834,8 @@ Design an algorithm to find the maximum profit. You may complete as many transac
   <p>
    题目描述：  Given a roman numeral, convert it to an integer.
 Input is guaranteed to be within the range from 1 to 3999.
+ 我的思路：  这是一道将罗马数字转换成整数的题目。搞清楚罗马数字的表示特点即可。
+参见维基百科：罗马数字
  代码实现： class Solution { public: int romanToInt(string s) { unordered_map&lt;char,int&gt; hm; hm.insert(pair&lt;char,int&gt;('I',1)); hm.insert(pair&lt;char,int&gt;('V',5)); hm.insert(pair&lt;char,int&gt;('X',10)); hm.insert(pair&lt;char,int&gt;('L',50)); hm.insert(pair&lt;char,int&gt;('C',100)); hm.insert(pair&lt;char,int&gt;('D',500)); hm.insert(pair&lt;char,int&gt;('M',1000)); int sum=hm[s[s.size()-1]]; for(int i=s.size()-1;i&gt;0;--i){ if(hm[s[i]]&gt;hm[s[i-1]]){ sum-=hm[s[i-1]]; }else{ sum+=hm[s[i-1]]; } } return sum; } };  
   </p>
 
@@ -1163,7 +1876,7 @@ Input is guaranteed to be within the range from 1 to 3999.
 
   <p>
   题目描述：  Merge two sorted linked lists and return it as a new list. The new list should be made by splicing together the nodes of the first two lists.
- 代码实现： /** * Definition for singly-linked list. * struct ListNode { * int val; * ListNode *next; * ListNode(int x) : val(x), next(NULL) {} * }; */ class Solution { public: ListNode* mergeTwoLists(ListNode* l1, ListNode* l2) { if(l1==nullptr&amp;&amp;l2==nullptr) return nullptr; if(l1==nullptr || l2==nullptr) return (l1==nullptr)?
+ 我的思路：   通过一个指针newhead指示新的链表头部，比较链表l1和链表l2的第一个结点。 若l1的第一个节点比l2小，则将其尾插进新链表，移动指针l1-&gt;next；若l2的第一个节点比l1小，同理。 递归得解。   代码实现： /** * Definition for singly-linked list. * struct ListNode { * int val; * ListNode *next; * ListNode(int x) : val(x), next(NULL) {} * }; */ class Solution { public: ListNode* mergeTwoLists(ListNode* l1, ListNode* l2) { if(l1==nullptr&amp;&amp;l2==nullptr) return nullptr; if(l1==nullptr || l2==nullptr) return (l1==nullptr)?
   </p>
 
   
@@ -1208,7 +1921,8 @@ Input is guaranteed to be within the range from 1 to 3999.
   <p>
    题目描述：  Find the contiguous subarray within an array (containing at least one number) which has the largest sum.
 For example, given the array [-2,1,-3,4,-1,2,1,-5,4], the contiguous subarray [4,-1,2,1] has the largest sum = 6.
- 代码实现： int maxSubArray(int* nums, int numsSize) { int sum=0; int max=INT_MIN; for(int i=0;i&lt;numsSize;i++){ sum+=nums[i]; if(sum&gt;max){ max = sum; } if(sum&lt;0){ sum = 0; } } return max; }  
+ 我的思路：  用sum保存连续序列之和，用max表示最大值，一次遍历即可，时间复杂度O(n)。
+ sum&lt;0,则舍弃前面的数 sum&gt;max,则更新最大值max   代码实现： int maxSubArray(int* nums, int numsSize) { int sum=0; int max=INT_MIN; for(int i=0;i&lt;numsSize;i++){ sum+=nums[i]; if(sum&gt;max){ max = sum; } if(sum&lt;0){ sum = 0; } } return max; }  
   </p>
 
   

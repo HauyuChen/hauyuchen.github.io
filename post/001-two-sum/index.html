@@ -95,7 +95,7 @@
       
       
         <li class="pure-menu-item">
-          <a class="pure-menu-link" href="https://hauyuchen.github.io/about/"><i class='fa fa-user fa-fw'></i>关于我</a>
+          <a class="pure-menu-link" href=""><i class='fa fa-user fa-fw'></i>关于我</a>
       
         </li>
       
@@ -192,13 +192,8 @@
 
 
   <div>
-  <div class="small-print">
-    <small>&copy; 2017. All rights reserved.</small>
-  </div>
-  <div class="small-print">
-    <small>Built with&nbsp;<a href="https://gohugo.io/" target="_blank">Hugo</a></small>
-    <small>Theme&nbsp;<a href="https://github.com/yoshiharuyamashita/blackburn" target="_blank">Blackburn</a></small>
-  </div>
+
+
 </div>
 
 </div>
@@ -252,6 +247,15 @@ Given nums = [2, 7, 11, 15], target = 9,</p>
 
 <p>Because nums[0] + nums[1] = 2 + 7 = 9,
 return [0, 1].</p>
+</blockquote>
+
+<h2 id="我的思路">我的思路：</h2>
+
+<blockquote>
+<ul>
+<li>先用map存储每个元素对应的原始下标，方便后续查找特定元素。</li>
+<li>从头开始查找符合条件的结果，用target减去nums[i]，得到两数之差t，在map中寻找是否存在t且元素t的索引不等于i,若是则为最终结果，否则继续查找nums[i+1]。</li>
+</ul>
 </blockquote>
 
 <h2 id="代码实现">代码实现：</h2>
