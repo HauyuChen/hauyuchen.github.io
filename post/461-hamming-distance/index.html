@@ -7,7 +7,7 @@
   <meta name="description" content="">
   <meta name="generator" content="Hugo 0.24.1" />
 
-  <title>Tags &middot; Hov&#39;s Blog</title>
+  <title>461. Hamming Distance &middot; Hov&#39;s Blog</title>
 
   
   
@@ -36,8 +36,6 @@
   <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet" type="text/css">
 
   
-  
-  <link rel="alternate" type="application/rss+xml" title="Hov&#39;s Blog" href="https://HauyuChen.github.io/tags/index.xml" />
   
 
   
@@ -113,10 +111,6 @@
   <div class="pure-menu social">
   <ul class="pure-menu-list">
 
-    
-    <li class="pure-menu-item">
-      <a class="pure-menu-link" href="https://HauyuChen.github.io/tags/index.xml"><i class="fa fa-rss fa-fw"></i>RSS</a>
-    </li>
     
 
     
@@ -209,18 +203,148 @@
 
 
 <div class="header">
-  <h1>Tags</h1>
+  <h1>461. Hamming Distance</h1>
+  <h2></h2>
 </div>
 <div class="content">
-  <ul>
+
+  <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>2017-05-05</time>
+  </div>
+
+  
+
+  
+
   
   
-    <li>
-      <a href="leetcode">leetcode</a>
-      <span>&#40;48&#41;</span>
-    </li>
   
-  </ul>
+  <div>
+    <i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-taxonomy-tag" href="https://HauyuChen.github.io/tags/leetcode">LeetCode</a>
+    
+  </div>
+  
+  
+
+</div>
+
+  
+
+<h2 id="题目描述">题目描述：</h2>
+
+<blockquote>
+<p>The Hamming distance between two integers is the number of positions at which the corresponding bits are different.</p>
+
+<p>Given two integers x and y, calculate the Hamming distance.</p>
+
+<p>Note:
+0 ≤ x, y &lt; 231.</p>
+
+<p>Example:</p>
+
+<p>Input: x = 1, y = 4</p>
+
+<p>Output: 2</p>
+
+<p>Explanation:</p>
+
+<pre><code>1   (0 0 0 1)
+4   (0 1 0 0)
+       ↑   ↑
+</code></pre>
+
+<p>The above arrows point to positions where the corresponding bits are different.</p>
+</blockquote>
+
+<h2 id="代码实现">代码实现：</h2>
+
+<pre><code>class Solution {
+public:
+    int hammingDistance(int x, int y) {
+        int cnt=0;
+        while(x&gt;0||y&gt;0){
+            if(x%2!=y%2){
+                cnt++;
+            }
+            x/=2;
+            y/=2;
+        }
+        while(x&gt;0){
+            if(x%2==1){
+                cnt++;
+            }
+            x/=2;
+        }
+        while(y&gt;0){
+            if(y%2==1){
+                cnt++;
+            }
+            y/=2;
+        }
+        return cnt;
+    }
+};
+</code></pre>
+
+
+  
+<div class="prev-next-post pure-g">
+  <div class="pure-u-1-24" style="text-align: left;">
+    
+    <a href="https://HauyuChen.github.io/post/292-nim-game/"><i class="fa fa-chevron-left"></i></a>
+    
+  </div>
+  <div class="pure-u-10-24">
+    
+    <nav class="prev">
+      <a href="https://HauyuChen.github.io/post/292-nim-game/">292. Nim Game</a>
+    </nav>
+    
+  </div>
+  <div class="pure-u-2-24">
+    &nbsp;
+  </div>
+  <div class="pure-u-10-24">
+    
+    <nav class="next">
+      <a href="https://HauyuChen.github.io/post/455-assign-cookies/">455. Assign Cookies</a>
+    </nav>
+    
+  </div>
+  <div class="pure-u-1-24" style="text-align: right;">
+    
+    <a href="https://HauyuChen.github.io/post/455-assign-cookies/"><i class="fa fa-chevron-right"></i></a>
+    
+  </div>
+</div>
+
+
+
+  
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+
+(function() {
+    
+    
+    if (window.location.hostname == "localhost")
+        return;
+
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    var disqus_shortname = 'Hov';
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com/" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
 </div>
 
 </div>
@@ -243,3 +367,4 @@
 
 </body>
 </html>
+
