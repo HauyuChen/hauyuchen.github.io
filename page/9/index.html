@@ -217,6 +217,50 @@
   
     <article>
   <header>
+    <h2><a href="https://HauyuChen.github.io/post/021-merge-two-sorted-lists/">21. Merge Two Sorted Lists</a></h2>
+
+    <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>2016-09-09</time>
+  </div>
+
+  
+
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-taxonomy-tag" href="https://HauyuChen.github.io/tags/leetcode">LeetCode</a>
+    
+  </div>
+  
+  
+
+</div>
+
+  </header>
+
+  <p>
+  题目描述：  Merge two sorted linked lists and return it as a new list. The new list should be made by splicing together the nodes of the first two lists.
+ 我的思路：   通过一个指针newhead指示新的链表头部，比较链表l1和链表l2的第一个结点。 若l1的第一个节点比l2小，则将其尾插进新链表，移动指针l1-&gt;next；若l2的第一个节点比l1小，同理。 递归得解。   代码实现： /** * Definition for singly-linked list. * struct ListNode { * int val; * ListNode *next; * ListNode(int x) : val(x), next(NULL) {} * }; */ class Solution { public: ListNode* mergeTwoLists(ListNode* l1, ListNode* l2) { if(l1==nullptr&amp;&amp;l2==nullptr) return nullptr; if(l1==nullptr || l2==nullptr) return (l1==nullptr)?
+  </p>
+
+  
+  <footer>
+    <a href="https://HauyuChen.github.io/post/021-merge-two-sorted-lists/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
+  </footer>
+  
+</article>
+
+  
+    <article>
+  <header>
     <h2><a href="https://HauyuChen.github.io/post/053-maximum-subarray/">53. Maximum Subarray</a></h2>
 
     <div class="post-meta">
@@ -386,50 +430,6 @@ Update (2015-02-10): The signature of the C++ function had been updated.
 </article>
 
   
-    <article>
-  <header>
-    <h2><a href="https://HauyuChen.github.io/post/202-happy-number/">202. Happy Number</a></h2>
-
-    <div class="post-meta">
-
-  <div>
-    <i class="fa fa-calendar fa-fw"></i>
-    <time>2016-08-08</time>
-  </div>
-
-  
-
-  
-
-  
-  
-  
-  <div>
-    <i class="fa fa-tags fa-fw"></i>
-    
-      <a class="post-taxonomy-tag" href="https://HauyuChen.github.io/tags/leetcode">LeetCode</a>
-    
-  </div>
-  
-  
-
-</div>
-
-  </header>
-
-  <p>
-  题目描述：  Write an algorithm to determine if a number is &ldquo;happy&rdquo;.
-A happy number is a number defined by the following process: Starting with any positive integer, replace the number by the sum of the squares of its digits, and repeat the process until the number equals 1 (where it will stay), or it loops endlessly in a cycle which does not include 1. Those numbers for which this process ends in 1 are happy numbers.
-  </p>
-
-  
-  <footer>
-    <a href="https://HauyuChen.github.io/post/202-happy-number/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
-  </footer>
-  
-</article>
-
-  
 
   
 
@@ -438,9 +438,9 @@ A happy number is a number defined by the following process: Starting with any p
   
   <a href="https://HauyuChen.github.io/page/8/"><i class="fa fa-chevron-left"></i></a>
   
-  <span>&nbsp;9 / 9&nbsp;</span>
+  <span>&nbsp;9 / 10&nbsp;</span>
   
-  <i class="fa fa-chevron-right"></i>
+  <a href="https://HauyuChen.github.io/page/10/"><i class="fa fa-chevron-right"></i></a>
   
 </nav>
 

@@ -37,6 +37,20 @@ Output: [5,6]</description>
     </item>
     
     <item>
+      <title>453. Minimum Moves to Equal Array Elements</title>
+      <link>https://HauyuChen.github.io/post/453-minimum-moves-to-equal-array-elements/</link>
+      <pubDate>Mon, 29 May 2017 17:54:21 +0100</pubDate>
+      
+      <guid>https://HauyuChen.github.io/post/453-minimum-moves-to-equal-array-elements/</guid>
+      <description>题目描述：  Given a non-empty integer array of size n, find the minimum number of moves required to make all array elements equal, where a move is incrementing n - 1 elements by 1.
+Example:
+Input: [1,2,3]
+Output: 3
+Explanation: Only three moves are needed (remember each move increments two elements): [1,2,3] =&amp;gt; [2,3,3] =&amp;gt; [3,4,3] =&amp;gt; [4,4,4]
+ 代码实现： class Solution { public: int minMoves(vector&amp;lt;int&amp;gt;&amp;amp; nums) { int min=INT_MAX; int sum=0; for(int num:nums){ min=min&amp;lt;num?</description>
+    </item>
+    
+    <item>
       <title>292. Nim Game</title>
       <link>https://HauyuChen.github.io/post/292-nim-game/</link>
       <pubDate>Sat, 29 Apr 2017 17:54:21 +0100</pubDate>
