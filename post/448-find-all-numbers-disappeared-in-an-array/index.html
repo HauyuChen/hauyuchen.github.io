@@ -7,7 +7,7 @@
   <meta name="description" content="">
   <meta name="generator" content="Hugo 0.24.1" />
 
-  <title>292. Nim Game &middot; Hov&#39;s Blog</title>
+  <title>448. Find All Numbers Disappeared in an Array &middot; Hov&#39;s Blog</title>
 
   
   
@@ -203,7 +203,7 @@
 
 
 <div class="header">
-  <h1>292. Nim Game</h1>
+  <h1>448. Find All Numbers Disappeared in an Array</h1>
   <h2></h2>
 </div>
 <div class="content">
@@ -212,7 +212,7 @@
 
   <div>
     <i class="fa fa-calendar fa-fw"></i>
-    <time>2017-04-04</time>
+    <time>2017-05-05</time>
   </div>
 
   
@@ -238,19 +238,40 @@
 <h2 id="题目描述">题目描述：</h2>
 
 <blockquote>
-<p>You are playing the following Nim Game with your friend: There is a heap of stones on the table, each time one of you take turns to remove 1 to 3 stones. The one who removes the last stone will be the winner. You will take the first turn to remove the stones.</p>
+<p>Given an array of integers where 1 ≤ a[i] ≤ n (n = size of array), some elements appear twice and others appear once.</p>
 
-<p>Both of you are very clever and have optimal strategies for the game. Write a function to determine whether you can win the game given the number of stones in the heap.</p>
+<p>Find all the elements of [1, n] inclusive that do not appear in this array.</p>
 
-<p>For example, if there are 4 stones in the heap, then you will never win the game: no matter 1, 2, or 3 stones you remove, the last stone will always be removed by your friend.</p>
+<p>Could you do it without extra space and in O(n) runtime? You may assume the returned list does not count as extra space.</p>
+
+<p>Example:</p>
+
+<p>Input:
+[4,3,2,7,8,2,3,1]</p>
+
+<p>Output:
+[5,6]</p>
 </blockquote>
 
 <h2 id="代码实现">代码实现：</h2>
 
 <pre><code>class Solution {
 public:
-    bool canWinNim(int n) {
-        return n%4;
+    vector&lt;int&gt; findDisappearedNumbers(vector&lt;int&gt;&amp; nums) {
+        vector&lt;int&gt; ret;
+        
+        for(int i=0;i&lt;nums.size();i++){
+            if(nums[nums[i]-1]!=nums[i]){
+                swap(nums[i],nums[nums[i]-1]);
+                i--;
+            }
+        }
+        for(int i=0;i&lt;nums.size();i++){
+            if(nums[i]!=(i+1)){
+                ret.push_back(i+1);
+            }
+        }
+        return ret;
     }
 };
 </code></pre>
@@ -260,13 +281,13 @@ public:
 <div class="prev-next-post pure-g">
   <div class="pure-u-1-24" style="text-align: left;">
     
-    <a href="https://HauyuChen.github.io/post/326-power-of-three/"><i class="fa fa-chevron-left"></i></a>
+    <a href="https://HauyuChen.github.io/post/292-nim-game/"><i class="fa fa-chevron-left"></i></a>
     
   </div>
   <div class="pure-u-10-24">
     
     <nav class="prev">
-      <a href="https://HauyuChen.github.io/post/326-power-of-three/">326. Power of Three</a>
+      <a href="https://HauyuChen.github.io/post/292-nim-game/">292. Nim Game</a>
     </nav>
     
   </div>
@@ -276,13 +297,13 @@ public:
   <div class="pure-u-10-24">
     
     <nav class="next">
-      <a href="https://HauyuChen.github.io/post/448-find-all-numbers-disappeared-in-an-array/">448. Find All Numbers Disappeared in an Array</a>
+      <a href="https://HauyuChen.github.io/post/447-number-of-boomerangs/">447. Number of Boomerangs</a>
     </nav>
     
   </div>
   <div class="pure-u-1-24" style="text-align: right;">
     
-    <a href="https://HauyuChen.github.io/post/448-find-all-numbers-disappeared-in-an-array/"><i class="fa fa-chevron-right"></i></a>
+    <a href="https://HauyuChen.github.io/post/447-number-of-boomerangs/"><i class="fa fa-chevron-right"></i></a>
     
   </div>
 </div>

@@ -217,6 +217,47 @@
   
     <article>
   <header>
+    <h2><a href="https://HauyuChen.github.io/post/344-reverse-string/">344. Reverse String</a></h2>
+
+    <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>2017-04-04</time>
+  </div>
+
+  
+
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-taxonomy-tag" href="https://HauyuChen.github.io/tags/leetcode">LeetCode</a>
+    
+  </div>
+  
+  
+
+</div>
+
+  </header>
+
+  <p>
+   题目描述：  Write a function that takes a string as input and returns the string reversed.
+Example: Given s = &ldquo;hello&rdquo;, return &ldquo;olleh&rdquo;.
+ 代码实现： class Solution { public: string reverseString(string s) { reverse(s.begin(),s.end()); return s; } };  
+  </p>
+
+  
+</article>
+
+  
+    <article>
+  <header>
     <h2><a href="https://HauyuChen.github.io/post/349-intersection-of-two-arrays/">349. Intersection of Two Arrays</a></h2>
 
     <div class="post-meta">
@@ -385,50 +426,6 @@ Note: You may assume that both strings contain only lowercase letters.
   <footer>
     <a href="https://HauyuChen.github.io/post/383-ransom-note/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
   </footer>
-  
-</article>
-
-  
-    <article>
-  <header>
-    <h2><a href="https://HauyuChen.github.io/post/387-first-unique-character-in-a-string/">387. First Unique Character in a String</a></h2>
-
-    <div class="post-meta">
-
-  <div>
-    <i class="fa fa-calendar fa-fw"></i>
-    <time>2017-04-04</time>
-  </div>
-
-  
-
-  
-
-  
-  
-  
-  <div>
-    <i class="fa fa-tags fa-fw"></i>
-    
-      <a class="post-taxonomy-tag" href="https://HauyuChen.github.io/tags/leetcode">LeetCode</a>
-    
-  </div>
-  
-  
-
-</div>
-
-  </header>
-
-  <p>
-   题目描述：  Given a string, find the first non-repeating character in it and return it&rsquo;s index. If it doesn&rsquo;t exist, return -1.
-Examples:
-s = &ldquo;leetcode&rdquo; return 0.
-s = &ldquo;loveleetcode&rdquo;, return 2.
-Note: You may assume the string contain only lowercase letters.
- 代码实现： class Solution { public: int firstUniqChar(string s) { int arr[26]; for(int i=0;i&lt;26;++i){ arr[i]=0; } for(int i=0;i&lt;s.size();++i){ ++arr[s[i]-'a']; } for(int i=0;i&lt;s.size();++i){ if(arr[s[i]-'a']==1){ return i; } } return -1; } };  
-  </p>
-
   
 </article>
 
