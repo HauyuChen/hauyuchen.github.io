@@ -7,7 +7,7 @@
   <meta name="description" content="">
   <meta name="generator" content="Hugo 0.24.1" />
 
-  <title>191. Number of 1 Bits &middot; Hov&#39;s Blog</title>
+  <title>447. Number of Boomerangs &middot; Hov&#39;s Blog</title>
 
   
   
@@ -203,7 +203,7 @@
 
 
 <div class="header">
-  <h1>191. Number of 1 Bits</h1>
+  <h1>447. Number of Boomerangs</h1>
   <h2></h2>
 </div>
 <div class="content">
@@ -212,7 +212,7 @@
 
   <div>
     <i class="fa fa-calendar fa-fw"></i>
-    <time>2017-03-03</time>
+    <time>2017-05-05</time>
   </div>
 
   
@@ -238,24 +238,39 @@
 <h2 id="题目描述">题目描述：</h2>
 
 <blockquote>
-<p>Write a function that takes an unsigned integer and returns the number of ’1&rsquo; bits it has (also known as the Hamming weight).</p>
+<p>Given n points in the plane that are all pairwise distinct, a &ldquo;boomerang&rdquo; is a tuple of points (i, j, k) such that the distance between i and j equals the distance between i and k (the order of the tuple matters).</p>
 
-<p>For example, the 32-bit integer ’11&rsquo; has binary representation 00000000000000000000000000001011, so the function should return 3.</p>
+<p>Find the number of boomerangs. You may assume that n will be at most 500 and coordinates of points are all in the range <a href="inclusive">-10000, 10000</a>.</p>
+
+<p>Example:
+Input:
+[[0,0],[1,0],[2,0]]</p>
+
+<p>Output:
+2</p>
+
+<p>Explanation:
+The two boomerangs are [[1,0],[0,0],[2,0]] and [[1,0],[2,0],[0,0]]</p>
 </blockquote>
 
 <h2 id="代码实现">代码实现：</h2>
 
 <pre><code>class Solution {
 public:
-    int hammingWeight(uint32_t n) {
-        int sum=0;
-        while(n&gt;0){
-            if(n&amp;1==1){
-                sum++;
+    int numberOfBoomerangs(vector&lt;pair&lt;int, int&gt;&gt;&amp; points) {
+        int ret=0;
+        for(int i=0;i&lt;points.size();++i){
+            unordered_map&lt;int,int&gt; hm;
+            for(int j=0;j&lt;points.size();++j){
+                int a=(points[j].first)-(points[i].first);
+                int b=(points[j].second)-(points[i].second);
+                hm[a*a+b*b]++;
             }
-            n=n&gt;&gt;1;
+            for(auto iter=hm.begin();iter!=hm.end();++iter){
+                ret+=iter-&gt;second*(iter-&gt;second-1);
+            }
         }
-        return sum;
+        return ret;
     }
 };
 </code></pre>
@@ -265,13 +280,13 @@ public:
 <div class="prev-next-post pure-g">
   <div class="pure-u-1-24" style="text-align: left;">
     
-    <a href="https://HauyuChen.github.io/post/206-reverse-linked-list/"><i class="fa fa-chevron-left"></i></a>
+    <a href="https://HauyuChen.github.io/post/292-nim-game/"><i class="fa fa-chevron-left"></i></a>
     
   </div>
   <div class="pure-u-10-24">
     
     <nav class="prev">
-      <a href="https://HauyuChen.github.io/post/206-reverse-linked-list/">206. Reverse Linked List</a>
+      <a href="https://HauyuChen.github.io/post/292-nim-game/">292. Nim Game</a>
     </nav>
     
   </div>
@@ -280,14 +295,8 @@ public:
   </div>
   <div class="pure-u-10-24">
     
-    <nav class="next">
-      <a href="https://HauyuChen.github.io/post/171-excel-sheet-column-number/">171. Excel Sheet Column Number</a>
-    </nav>
-    
   </div>
   <div class="pure-u-1-24" style="text-align: right;">
-    
-    <a href="https://HauyuChen.github.io/post/171-excel-sheet-column-number/"><i class="fa fa-chevron-right"></i></a>
     
   </div>
 </div>

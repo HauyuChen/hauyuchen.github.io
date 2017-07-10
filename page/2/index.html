@@ -21,13 +21,13 @@
   <!--<![endif]-->
 
   <!--[if lte IE 8]>
-  <link rel="stylesheet" href="https://hauyuchen.github.io/css/side-menu-old-ie.css">
+  <link rel="stylesheet" href="https://HauyuChen.github.io/css/side-menu-old-ie.css">
   <![endif]-->
   <!--[if gt IE 8]><!-->
-  <link rel="stylesheet" href="https://hauyuchen.github.io/css/side-menu.css">
+  <link rel="stylesheet" href="https://HauyuChen.github.io/css/side-menu.css">
   <!--<![endif]-->
 
-  <link rel="stylesheet" href="https://hauyuchen.github.io/css/blackburn.css">
+  <link rel="stylesheet" href="https://HauyuChen.github.io/css/blackburn.css">
 
   
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -37,7 +37,7 @@
 
   
   
-  <link rel="alternate" type="application/rss+xml" title="Hov&#39;s Blog" href="https://hauyuchen.github.io/index.xml" />
+  <link rel="alternate" type="application/rss+xml" title="Hov&#39;s Blog" href="https://HauyuChen.github.io/index.xml" />
   
 
   
@@ -46,7 +46,7 @@
   <script>hljs.initHighlightingOnLoad();</script>
   
 
-  <link rel="shortcut icon" href="https://hauyuchen.github.io/img/favicon.ico" type="image/x-icon" />
+  <link rel="shortcut icon" href="https://HauyuChen.github.io/img/favicon.ico" type="image/x-icon" />
 
   
   
@@ -64,8 +64,8 @@
 </a>
 <div id="menu">
 
-  <a class="pure-menu-heading brand" href="https://hauyuchen.github.io/">
-  <img src="https://hauyuchen.github.io/img/Hov.jpg" width="125px">
+  <a class="pure-menu-heading brand" href="https://HauyuChen.github.io/">
+  <img src="https://HauyuChen.github.io/img/Hov.jpg" width="125px">
 </a>
 
   <div class="pure-menu">
@@ -73,25 +73,25 @@
       
       
         <li class="pure-menu-item">
-          <a class="pure-menu-link" href="https://hauyuchen.github.io/"><i class='fa fa-home fa-fw'></i>主页</a>
+          <a class="pure-menu-link" href="https://HauyuChen.github.io/"><i class='fa fa-home fa-fw'></i>主页</a>
       
         </li>
       
       
         <li class="pure-menu-item">
-          <a class="pure-menu-link" href="https://hauyuchen.github.io/post/"><i class='fa fa-list fa-fw'></i>所有文章</a>
+          <a class="pure-menu-link" href="https://HauyuChen.github.io/post/"><i class='fa fa-list fa-fw'></i>所有文章</a>
       
         </li>
       
       
         <li class="pure-menu-item">
-          <a class="pure-menu-link" href="https://hauyuchen.github.io/tags/"><i class='fa fa-tags fa-fw'></i>分类</a>
+          <a class="pure-menu-link" href="https://HauyuChen.github.io/tags/"><i class='fa fa-tags fa-fw'></i>分类</a>
       
         </li>
       
       
         <li class="pure-menu-item">
-          <a class="pure-menu-link" href="https://hauyuchen.github.io/topics/"><i class='fa fa-folder fa-fw'></i>话题</a>
+          <a class="pure-menu-link" href="https://HauyuChen.github.io/topics/"><i class='fa fa-folder fa-fw'></i>话题</a>
       
         </li>
       
@@ -103,7 +103,7 @@
       
       
         <li class="pure-menu-item">
-          <a class="pure-menu-link" href="https://hauyuchen.github.io/contact/"><i class='fa fa-phone-square fa-fw'></i>联系我</a>
+          <a class="pure-menu-link" href="https://HauyuChen.github.io/contact/"><i class='fa fa-phone-square fa-fw'></i>联系我</a>
       
         </li>
       
@@ -115,7 +115,7 @@
 
     
     <li class="pure-menu-item">
-      <a class="pure-menu-link" href="https://hauyuchen.github.io/index.xml"><i class="fa fa-rss fa-fw"></i>RSS</a>
+      <a class="pure-menu-link" href="https://HauyuChen.github.io/index.xml"><i class="fa fa-rss fa-fw"></i>RSS</a>
     </li>
     
 
@@ -217,7 +217,7 @@
   
     <article>
   <header>
-    <h2><a href="https://hauyuchen.github.io/post/350-intersection-of-two-arrays-ii/">350. Intersection of Two Arrays II</a></h2>
+    <h2><a href="https://HauyuChen.github.io/post/349-intersection-of-two-arrays/">349. Intersection of Two Arrays</a></h2>
 
     <div class="post-meta">
 
@@ -236,7 +236,49 @@
   <div>
     <i class="fa fa-tags fa-fw"></i>
     
-      <a class="post-taxonomy-tag" href="https://hauyuchen.github.io/tags/leetcode">LeetCode</a>
+      <a class="post-taxonomy-tag" href="https://HauyuChen.github.io/tags/leetcode">LeetCode</a>
+    
+  </div>
+  
+  
+
+</div>
+
+  </header>
+
+  <p>
+   题目描述：  Given two arrays, write a function to compute their intersection.
+Example: Given nums1 = [1, 2, 2, 1], nums2 = [2, 2], return [2].
+Note: Each element in the result must be unique. The result can be in any order.
+ 代码实现： class Solution { public: vector&lt;int&gt; intersection(vector&lt;int&gt;&amp; nums1, vector&lt;int&gt;&amp; nums2) { unordered_set&lt;int&gt; s; vector&lt;int&gt; ret; for(int num1:nums1){ if(s.count(num1)==0){ s.insert(num1); } } for(int num2:nums2){ if(s.count(num2)){ ret.push_back(num2); s.erase(num2); } } return ret; } };  
+  </p>
+
+  
+</article>
+
+  
+    <article>
+  <header>
+    <h2><a href="https://HauyuChen.github.io/post/350-intersection-of-two-arrays-ii/">350. Intersection of Two Arrays II</a></h2>
+
+    <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>2017-04-04</time>
+  </div>
+
+  
+
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-taxonomy-tag" href="https://HauyuChen.github.io/tags/leetcode">LeetCode</a>
     
   </div>
   
@@ -254,7 +296,7 @@ Note: Each element in the result should appear as many times as it shows in both
 
   
   <footer>
-    <a href="https://hauyuchen.github.io/post/350-intersection-of-two-arrays-ii/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
+    <a href="https://HauyuChen.github.io/post/350-intersection-of-two-arrays-ii/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
   </footer>
   
 </article>
@@ -262,7 +304,7 @@ Note: Each element in the result should appear as many times as it shows in both
   
     <article>
   <header>
-    <h2><a href="https://hauyuchen.github.io/post/371-sum-of-two-integers/">371. Sum of Two Integers</a></h2>
+    <h2><a href="https://HauyuChen.github.io/post/371-sum-of-two-integers/">371. Sum of Two Integers</a></h2>
 
     <div class="post-meta">
 
@@ -281,7 +323,7 @@ Note: Each element in the result should appear as many times as it shows in both
   <div>
     <i class="fa fa-tags fa-fw"></i>
     
-      <a class="post-taxonomy-tag" href="https://hauyuchen.github.io/tags/leetcode">LeetCode</a>
+      <a class="post-taxonomy-tag" href="https://HauyuChen.github.io/tags/leetcode">LeetCode</a>
     
   </div>
   
@@ -303,7 +345,7 @@ Example: Given a = 1 and b = 2, return 3.
   
     <article>
   <header>
-    <h2><a href="https://hauyuchen.github.io/post/383-ransom-note/">383. Ransom Note</a></h2>
+    <h2><a href="https://HauyuChen.github.io/post/383-ransom-note/">383. Ransom Note</a></h2>
 
     <div class="post-meta">
 
@@ -322,7 +364,7 @@ Example: Given a = 1 and b = 2, return 3.
   <div>
     <i class="fa fa-tags fa-fw"></i>
     
-      <a class="post-taxonomy-tag" href="https://hauyuchen.github.io/tags/leetcode">LeetCode</a>
+      <a class="post-taxonomy-tag" href="https://HauyuChen.github.io/tags/leetcode">LeetCode</a>
     
   </div>
   
@@ -341,7 +383,7 @@ Note: You may assume that both strings contain only lowercase letters.
 
   
   <footer>
-    <a href="https://hauyuchen.github.io/post/383-ransom-note/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
+    <a href="https://HauyuChen.github.io/post/383-ransom-note/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
   </footer>
   
 </article>
@@ -349,7 +391,7 @@ Note: You may assume that both strings contain only lowercase letters.
   
     <article>
   <header>
-    <h2><a href="https://hauyuchen.github.io/post/387-first-unique-character-in-a-string/">387. First Unique Character in a String</a></h2>
+    <h2><a href="https://HauyuChen.github.io/post/387-first-unique-character-in-a-string/">387. First Unique Character in a String</a></h2>
 
     <div class="post-meta">
 
@@ -368,7 +410,7 @@ Note: You may assume that both strings contain only lowercase letters.
   <div>
     <i class="fa fa-tags fa-fw"></i>
     
-      <a class="post-taxonomy-tag" href="https://hauyuchen.github.io/tags/leetcode">LeetCode</a>
+      <a class="post-taxonomy-tag" href="https://HauyuChen.github.io/tags/leetcode">LeetCode</a>
     
   </div>
   
@@ -391,67 +433,17 @@ Note: You may assume the string contain only lowercase letters.
 </article>
 
   
-    <article>
-  <header>
-    <h2><a href="https://hauyuchen.github.io/post/389-find-the-difference/">389. Find the Difference</a></h2>
-
-    <div class="post-meta">
-
-  <div>
-    <i class="fa fa-calendar fa-fw"></i>
-    <time>2017-04-04</time>
-  </div>
-
-  
-
-  
-
-  
-  
-  
-  <div>
-    <i class="fa fa-tags fa-fw"></i>
-    
-      <a class="post-taxonomy-tag" href="https://hauyuchen.github.io/tags/leetcode">LeetCode</a>
-    
-  </div>
-  
-  
-
-</div>
-
-  </header>
-
-  <p>
-  题目描述：  Given two strings s and t which consist of only lowercase letters.
-String t is generated by random shuffling string s and then add one more letter at a random position.
-Find the letter that was added in t.
-Example:
-Input: s = &ldquo;abcd&rdquo; t = &ldquo;abcde&rdquo;
-Output: e
-Explanation: &lsquo;e&rsquo; is the letter that was added.
- 代码实现： class Solution { public: char findTheDifference(string s, string t) { char ch = t[0]; for(int i=1;i&lt;t.
-  </p>
-
-  
-  <footer>
-    <a href="https://hauyuchen.github.io/post/389-find-the-difference/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
-  </footer>
-  
-</article>
-
-  
 
   
 
 
 <nav class="pagination" role="pagination">
   
-  <a href="https://hauyuchen.github.io/"><i class="fa fa-chevron-left"></i></a>
+  <a href="https://HauyuChen.github.io/"><i class="fa fa-chevron-left"></i></a>
   
   <span>&nbsp;2 / 9&nbsp;</span>
   
-  <a href="https://hauyuchen.github.io/page/3/"><i class="fa fa-chevron-right"></i></a>
+  <a href="https://HauyuChen.github.io/page/3/"><i class="fa fa-chevron-right"></i></a>
   
 </nav>
 
@@ -461,7 +453,7 @@ Explanation: &lsquo;e&rsquo; is the letter that was added.
 
 </div>
 </div>
-<script src="https://hauyuchen.github.io/js/ui.js"></script>
+<script src="https://HauyuChen.github.io/js/ui.js"></script>
 
 
 <script>
