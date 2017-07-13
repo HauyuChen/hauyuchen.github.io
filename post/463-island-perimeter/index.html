@@ -7,7 +7,7 @@
   <meta name="description" content="">
   <meta name="generator" content="Hugo 0.24.1" />
 
-  <title>292. Nim Game &middot; Hov&#39;s Blog</title>
+  <title>463. Island Perimeter &middot; Hov&#39;s Blog</title>
 
   
   
@@ -203,7 +203,7 @@
 
 
 <div class="header">
-  <h1>292. Nim Game</h1>
+  <h1>463. Island Perimeter</h1>
   <h2></h2>
 </div>
 <div class="content">
@@ -212,7 +212,7 @@
 
   <div>
     <i class="fa fa-calendar fa-fw"></i>
-    <time>2017-04-04</time>
+    <time>2017-05-05</time>
   </div>
 
   
@@ -238,19 +238,38 @@
 <h2 id="题目描述">题目描述：</h2>
 
 <blockquote>
-<p>You are playing the following Nim Game with your friend: There is a heap of stones on the table, each time one of you take turns to remove 1 to 3 stones. The one who removes the last stone will be the winner. You will take the first turn to remove the stones.</p>
+<p>You are given a map in form of a two-dimensional integer grid where 1 represents land and 0 represents water. Grid cells are connected horizontally/vertically (not diagonally). The grid is completely surrounded by water, and there is exactly one island (i.e., one or more connected land cells). The island doesn&rsquo;t have &ldquo;lakes&rdquo; (water inside that isn&rsquo;t connected to the water around the island). One cell is a square with side length 1. The grid is rectangular, width and height don&rsquo;t exceed 100. Determine the perimeter of the island.</p>
 
-<p>Both of you are very clever and have optimal strategies for the game. Write a function to determine whether you can win the game given the number of stones in the heap.</p>
+<p>Example:</p>
 
-<p>For example, if there are 4 stones in the heap, then you will never win the game: no matter 1, 2, or 3 stones you remove, the last stone will always be removed by your friend.</p>
+<pre><code>[[0,1,0,0],
+ [1,1,1,0],
+ [0,1,0,0],
+ [1,1,0,0]]
+</code></pre>
+
+<p>Answer: 16
+Explanation: The perimeter is the 16 yellow stripes in the image below:</p>
 </blockquote>
 
 <h2 id="代码实现">代码实现：</h2>
 
 <pre><code>class Solution {
 public:
-    bool canWinNim(int n) {
-        return n%4;
+    int islandPerimeter(vector&lt;vector&lt;int&gt;&gt;&amp; grid) {
+        int sum=0;
+        
+        for(int i=0;i&lt;grid.size();i++){
+            for(int j=0;j&lt;grid[0].size();j++){
+                if(grid[i][j]==1){
+                    if(i==0||grid[i-1][j]==0)   sum++;
+                    if(i==grid.size()-1||grid[i+1][j]==0)   sum++;
+                    if(j==0||grid[i][j-1]==0)   sum++;
+                    if(j==grid[0].size()-1||grid[i][j+1]==0)   sum++;
+                }
+            }
+        }
+        return sum;
     }
 };
 </code></pre>
@@ -260,13 +279,13 @@ public:
 <div class="prev-next-post pure-g">
   <div class="pure-u-1-24" style="text-align: left;">
     
-    <a href="https://HauyuChen.github.io/post/326-power-of-three/"><i class="fa fa-chevron-left"></i></a>
+    <a href="https://HauyuChen.github.io/post/292-nim-game/"><i class="fa fa-chevron-left"></i></a>
     
   </div>
   <div class="pure-u-10-24">
     
     <nav class="prev">
-      <a href="https://HauyuChen.github.io/post/326-power-of-three/">326. Power of Three</a>
+      <a href="https://HauyuChen.github.io/post/292-nim-game/">292. Nim Game</a>
     </nav>
     
   </div>
@@ -276,13 +295,13 @@ public:
   <div class="pure-u-10-24">
     
     <nav class="next">
-      <a href="https://HauyuChen.github.io/post/463-island-perimeter/">463. Island Perimeter</a>
+      <a href="https://HauyuChen.github.io/post/461-hamming-distance/">461. Hamming Distance</a>
     </nav>
     
   </div>
   <div class="pure-u-1-24" style="text-align: right;">
     
-    <a href="https://HauyuChen.github.io/post/463-island-perimeter/"><i class="fa fa-chevron-right"></i></a>
+    <a href="https://HauyuChen.github.io/post/461-hamming-distance/"><i class="fa fa-chevron-right"></i></a>
     
   </div>
 </div>

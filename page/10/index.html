@@ -217,6 +217,47 @@
   
     <article>
   <header>
+    <h2><a href="https://HauyuChen.github.io/post/069-sqrtx/">69. Sqrt(x)</a></h2>
+
+    <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>2016-09-09</time>
+  </div>
+
+  
+
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-taxonomy-tag" href="https://HauyuChen.github.io/tags/leetcode">LeetCode</a>
+    
+  </div>
+  
+  
+
+</div>
+
+  </header>
+
+  <p>
+   题目描述：  Implement int sqrt(int x).
+Compute and return the square root of x.
+ 代码实现： class Solution { public: int mySqrt(int x) { if(x==0){ return 0; } int low=1,high=x; int mid; while(1){ mid = (low+high)/2; if(mid&gt;x/mid){ high = mid-1; } else{ if((mid+1)&gt;(x/(mid+1))){ return mid; } low = mid+1; } } } };  
+  </p>
+
+  
+</article>
+
+  
+    <article>
+  <header>
     <h2><a href="https://HauyuChen.github.io/post/070-climbing-stairs/">70. Climbing Stairs</a></h2>
 
     <div class="post-meta">
