@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://HauyuChen.github.io/post/java-string/</loc>
+    <lastmod>2017-06-29T17:54:21+01:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://HauyuChen.github.io/post/447-number-of-boomerangs/</loc>
     <lastmod>2017-05-29T17:54:21+01:00</lastmod>
   </url>
@@ -258,13 +263,30 @@
   </url>
   
   <url>
+    <loc>https://HauyuChen.github.io/zhihu/</loc>
+    <lastmod>2016-06-12T19:38:48+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://HauyuChen.github.io/about/</loc>
     <lastmod>2016-01-03T13:12:48+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://HauyuChen.github.io/</loc>
-    <lastmod>2017-05-29T17:54:21+01:00</lastmod>
+    <lastmod>2017-06-29T17:54:21+01:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://HauyuChen.github.io/tags/java/</loc>
+    <lastmod>2017-06-29T17:54:21+01:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://HauyuChen.github.io/topics/java/</loc>
+    <lastmod>2017-06-29T17:54:21+01:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -276,18 +298,31 @@
   
   <url>
     <loc>https://HauyuChen.github.io/post/</loc>
-    <lastmod>2017-05-29T17:54:21+01:00</lastmod>
+    <lastmod>2017-06-29T17:54:21+01:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://HauyuChen.github.io/topics/string/</loc>
+    <lastmod>2017-06-29T17:54:21+01:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://HauyuChen.github.io/tags/</loc>
-    <lastmod>2017-05-29T17:54:21+01:00</lastmod>
+    <lastmod>2017-06-29T17:54:21+01:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://HauyuChen.github.io/topics/</loc>
+    <lastmod>2017-06-29T17:54:21+01:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://HauyuChen.github.io/topics/%E5%AD%97%E7%AC%A6%E4%B8%B2/</loc>
+    <lastmod>2017-06-29T17:54:21+01:00</lastmod>
     <priority>0</priority>
   </url>
   

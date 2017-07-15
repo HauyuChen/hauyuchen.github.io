@@ -107,6 +107,12 @@
       
         </li>
       
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="https://HauyuChen.github.io/zhihu/"><i class='fa fa-phone-square fa-fw'></i>知乎</a>
+      
+        </li>
+      
     </ul>
   </div>
 
@@ -214,6 +220,52 @@
 </div>
 
 <div class="content">
+  
+    <article>
+  <header>
+    <h2><a href="https://HauyuChen.github.io/post/263-ugly-number/">263. Ugly Number</a></h2>
+
+    <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>2017-03-03</time>
+  </div>
+
+  
+
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-taxonomy-tag" href="https://HauyuChen.github.io/tags/leetcode">LeetCode</a>
+    
+  </div>
+  
+  
+
+</div>
+
+  </header>
+
+  <p>
+  题目描述：  Write a program to check whether a given number is an ugly number.
+Ugly numbers are positive numbers whose prime factors only include 2, 3, 5. For example, 6, 8 are ugly while 14 is not ugly since it includes another prime factor 7.
+Note that 1 is typically treated as an ugly number.
+ 代码实现： class Solution { public: bool isUgly(int num) { if(num&lt;=0){ return false; } while(num%2==0){ num/=2; } while(num%3==0){ num/=3; } while(num%5==0){ num/=5; } return num==1?
+  </p>
+
+  
+  <footer>
+    <a href="https://HauyuChen.github.io/post/263-ugly-number/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
+  </footer>
+  
+</article>
+
   
     <article>
   <header>
@@ -401,51 +453,6 @@ Because nums[0] + nums[1] = 2 + 7 = 9, return [0, 1].
 </article>
 
   
-    <article>
-  <header>
-    <h2><a href="https://HauyuChen.github.io/post/100-same-tree/">100. Same Tree</a></h2>
-
-    <div class="post-meta">
-
-  <div>
-    <i class="fa fa-calendar fa-fw"></i>
-    <time>2016-09-09</time>
-  </div>
-
-  
-
-  
-
-  
-  
-  
-  <div>
-    <i class="fa fa-tags fa-fw"></i>
-    
-      <a class="post-taxonomy-tag" href="https://HauyuChen.github.io/tags/leetcode">LeetCode</a>
-    
-  </div>
-  
-  
-
-</div>
-
-  </header>
-
-  <p>
-  题目描述：  Given two binary trees, write a function to check if they are equal or not.
-Two binary trees are considered equal if they are structurally identical and the nodes have the same value.
- 代码实现： /** * Definition for a binary tree node. * struct TreeNode { * int val; * TreeNode *left; * TreeNode *right; * TreeNode(int x) : val(x), left(NULL), right(NULL) {} * }; */ class Solution { public: bool isSameTree(TreeNode* p, TreeNode* q) { if(p==nullptr &amp;&amp; q==nullptr){ return true; } else if(p==nullptr || q==nullptr){ return false; } if(p-&gt;val!
-  </p>
-
-  
-  <footer>
-    <a href="https://HauyuChen.github.io/post/100-same-tree/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
-  </footer>
-  
-</article>
-
-  
 
   
 
@@ -454,7 +461,7 @@ Two binary trees are considered equal if they are structurally identical and the
   
   <a href="https://HauyuChen.github.io/page/7/"><i class="fa fa-chevron-left"></i></a>
   
-  <span>&nbsp;8 / 10&nbsp;</span>
+  <span>&nbsp;8 / 11&nbsp;</span>
   
   <a href="https://HauyuChen.github.io/page/9/"><i class="fa fa-chevron-right"></i></a>
   

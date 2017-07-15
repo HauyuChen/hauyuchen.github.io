@@ -7,10 +7,19 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2017. All rights reserved.</copyright>
-    <lastBuildDate>Mon, 29 May 2017 17:54:21 +0100</lastBuildDate>
+    <lastBuildDate>Thu, 29 Jun 2017 17:54:21 +0100</lastBuildDate>
     
 	<atom:link href="https://HauyuChen.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Java</title>
+      <link>https://HauyuChen.github.io/tags/java/</link>
+      <pubDate>Thu, 29 Jun 2017 17:54:21 +0100</pubDate>
+      
+      <guid>https://HauyuChen.github.io/tags/java/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>Leetcode</title>
