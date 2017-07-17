@@ -7,7 +7,7 @@
   <meta name="description" content="">
   <meta name="generator" content="Hugo 0.24.1" />
 
-  <title>Hov&#39;s Blog</title>
+  <title>485. Max Consecutive Ones &middot; Hov&#39;s Blog</title>
 
   
   
@@ -36,8 +36,6 @@
   <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet" type="text/css">
 
   
-  
-  <link rel="alternate" type="application/rss+xml" title="Hov&#39;s Blog" href="https://HauyuChen.github.io/index.xml" />
   
 
   
@@ -119,10 +117,6 @@
   <div class="pure-menu social">
   <ul class="pure-menu-list">
 
-    
-    <li class="pure-menu-item">
-      <a class="pure-menu-link" href="https://HauyuChen.github.io/index.xml"><i class="fa fa-rss fa-fw"></i>RSS</a>
-    </li>
     
 
     
@@ -215,21 +209,16 @@
 
 
 <div class="header">
-  <h1>Hov&#39;s Blog</h1>
-  <h2>To code,  To record,  To recall.</h2>
+  <h1>485. Max Consecutive Ones</h1>
+  <h2></h2>
 </div>
-
 <div class="content">
-  
-    <article>
-  <header>
-    <h2><a href="https://HauyuChen.github.io/post/008-string-to-integeratoi/">8. String to Integer (atoi)</a></h2>
 
-    <div class="post-meta">
+  <div class="post-meta">
 
   <div>
     <i class="fa fa-calendar fa-fw"></i>
-    <time>2016-09-09</time>
+    <time>2017-05-05</time>
   </div>
 
   
@@ -250,81 +239,96 @@
 
 </div>
 
-  </header>
-
-  <p>
-  题目描述：  Implement atoi to convert a string to an integer.
-Hint: Carefully consider all possible input cases. If you want a challenge, please do not see below and ask yourself what are the possible input cases.
-Notes: It is intended for this problem to be specified vaguely (ie, no given input specs). You are responsible to gather all the input requirements up front.
-Update (2015-02-10): The signature of the C++ function had been updated.
-  </p>
-
-  
-  <footer>
-    <a href="https://HauyuChen.github.io/post/008-string-to-integeratoi/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
-  </footer>
-  
-</article>
-
-  
-    <article>
-  <header>
-    <h2><a href="https://HauyuChen.github.io/post/202-happy-number/">202. Happy Number</a></h2>
-
-    <div class="post-meta">
-
-  <div>
-    <i class="fa fa-calendar fa-fw"></i>
-    <time>2016-08-08</time>
-  </div>
-
   
 
-  
+<h2 id="题目描述">题目描述：</h2>
+
+<blockquote>
+<p>Given a binary array, find the maximum number of consecutive 1s in this array.</p>
+
+<p>Example 1:
+Input: [1,1,0,1,1,1]
+Output: 3</p>
+
+<p>Explanation: The first two digits or the last three digits are consecutive 1s.
+    The maximum number of consecutive 1s is 3.</p>
+
+<p>Note:
+The input array will only contain 0 and 1.
+The length of input array is a positive integer and will not exceed 10,000</p>
+</blockquote>
+
+<h2 id="代码实现">代码实现：</h2>
+
+<pre><code>class Solution {
+public:
+    int findMaxConsecutiveOnes(vector&lt;int&gt;&amp; nums) {
+        int cnt=0,max=0;
+        for(int num:nums){
+            if(num==1){
+                cnt++;
+            }else{
+                cnt=0;
+            }
+            max = max&gt;cnt?max:cnt;
+        }
+        return max;
+    }
+};
+</code></pre>
+
 
   
-  
-  
-  <div>
-    <i class="fa fa-tags fa-fw"></i>
+<div class="prev-next-post pure-g">
+  <div class="pure-u-1-24" style="text-align: left;">
     
-      <a class="post-taxonomy-tag" href="https://HauyuChen.github.io/tags/leetcode">LeetCode</a>
+    <a href="https://HauyuChen.github.io/post/292-nim-game/"><i class="fa fa-chevron-left"></i></a>
     
   </div>
-  
-  
-
+  <div class="pure-u-10-24">
+    
+    <nav class="prev">
+      <a href="https://HauyuChen.github.io/post/292-nim-game/">292. Nim Game</a>
+    </nav>
+    
+  </div>
+  <div class="pure-u-2-24">
+    &nbsp;
+  </div>
+  <div class="pure-u-10-24">
+    
+    <nav class="next">
+      <a href="https://HauyuChen.github.io/post/476-number-complement/">476. Number Complement</a>
+    </nav>
+    
+  </div>
+  <div class="pure-u-1-24" style="text-align: right;">
+    
+    <a href="https://HauyuChen.github.io/post/476-number-complement/"><i class="fa fa-chevron-right"></i></a>
+    
+  </div>
 </div>
 
-  </header>
-
-  <p>
-  题目描述：  Write an algorithm to determine if a number is &ldquo;happy&rdquo;.
-A happy number is a number defined by the following process: Starting with any positive integer, replace the number by the sum of the squares of its digits, and repeat the process until the number equals 1 (where it will stay), or it loops endlessly in a cycle which does not include 1. Those numbers for which this process ends in 1 are happy numbers.
-  </p>
-
-  
-  <footer>
-    <a href="https://HauyuChen.github.io/post/202-happy-number/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
-  </footer>
-  
-</article>
-
-  
-
-  
 
 
-<nav class="pagination" role="pagination">
   
-  <a href="https://HauyuChen.github.io/page/10/"><i class="fa fa-chevron-left"></i></a>
-  
-  <span>&nbsp;11 / 11&nbsp;</span>
-  
-  <i class="fa fa-chevron-right"></i>
-  
-</nav>
+<div id="disqus_thread"></div>
+<script type="text/javascript">
 
+(function() {
+    
+    
+    if (window.location.hostname == "localhost")
+        return;
+
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    var disqus_shortname = 'Hov';
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com/" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
 
 
 </div>

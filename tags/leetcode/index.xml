@@ -97,6 +97,19 @@ Explanation: The binary representation of 5 is 101 (no leading zero bits), and i
     </item>
     
     <item>
+      <title>485. Max Consecutive Ones</title>
+      <link>https://HauyuChen.github.io/post/485-max-consecutive-ones/</link>
+      <pubDate>Mon, 29 May 2017 17:54:21 +0100</pubDate>
+      
+      <guid>https://HauyuChen.github.io/post/485-max-consecutive-ones/</guid>
+      <description>题目描述：  Given a binary array, find the maximum number of consecutive 1s in this array.
+Example 1: Input: [1,1,0,1,1,1] Output: 3
+Explanation: The first two digits or the last three digits are consecutive 1s. The maximum number of consecutive 1s is 3.
+Note: The input array will only contain 0 and 1. The length of input array is a positive integer and will not exceed 10,000
+ 代码实现： class Solution { public: int findMaxConsecutiveOnes(vector&amp;lt;int&amp;gt;&amp;amp; nums) { int cnt=0,max=0; for(int num:nums){ if(num==1){ cnt++; }else{ cnt=0; } max = max&amp;gt;cnt?</description>
+    </item>
+    
+    <item>
       <title>292. Nim Game</title>
       <link>https://HauyuChen.github.io/post/292-nim-game/</link>
       <pubDate>Sat, 29 Apr 2017 17:54:21 +0100</pubDate>
