@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Zigbee on Hov&#39;s Blog</title>
+    <link>https://HauyuChen.github.io/tags/zigbee/</link>
+    <description>Recent content in Zigbee on Hov&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>&amp;copy; 2017. All rights reserved.</copyright>
+    <lastBuildDate>Mon, 29 May 2017 17:54:21 +0100</lastBuildDate>
+    
+	<atom:link href="https://HauyuChen.github.io/tags/zigbee/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>无线风扇</title>
+      <link>https://HauyuChen.github.io/post/%E6%97%A0%E7%BA%BF%E9%A3%8E%E6%89%87/</link>
+      <pubDate>Mon, 29 May 2017 17:54:21 +0100</pubDate>
+      
+      <guid>https://HauyuChen.github.io/post/%E6%97%A0%E7%BA%BF%E9%A3%8E%E6%89%87/</guid>
+      <description>翻了下硬盘，无意中发现了在大二时写的这篇文章。无线风扇是本人在大二上学期在实验室期间实现的项目，实现了电风扇的无线控制。这也是我学习无线传感器网络实现的第一个项目，看着实验室的电风扇真的被代码操控着，感觉真的很奇妙。
+本文记录了项目的大体思路，希望对你有所帮助。
+转载请注明出处：Hov-http://hov.space
+ 0 简介 无线风扇是本人接触 ZigBee 协议栈后完成的一个项目。实现风扇的手动和自动两种模式的控制。
+ 手动模式，ZigBee 协调器接收指令后控制风扇的开关； 自动模式，风扇根据周围环境的温度自动控制风扇，比如当周围温度大于等于 26 摄氏度时自动打开风扇。  大体的思路是这样的： 通过两个 ZigBee 模块组成一个 ZigBee 网络；ZigBee终端外接温湿度传感器，外接继电器，继电器与风扇连接；ZigBee 协调器通过串口 RS232 与电脑连接（也可以通过 ZigBee 协调器与 GPRS 模块连接，实现手机控制的功能）。
+虽说是无线风扇功能，实质就是实现传感器数据采集和 IO 口控制。风扇控 制主要通过 IO 口导通继电器来实现，所以，如果继电器连接电灯，空调等等，那就可以实现不同功能了。
+1 功能阐述 1.1 串口通讯 （1）ZigBee 网络采集的温湿度数据、风扇状态通过 RS232 串口传送给电脑，在串口调试助手上显示相关数据。
+（2）电脑向 ZigBee 协调器发送指令，控制风扇的开关。
+1.2 温湿度数据采集 （1）ZigBee 终端外接 DHT11 温湿度传感器，通过传感器采集周围环境的温湿度信息；
+（2）ZigBee 终端采集到的温湿度数据通过 ZigBee 网络发送给 ZigBee 协调器；
+1.3 风扇控制 风扇控制分为两种模式：手动模式和自动模式
+手动模式：ZigBee 协调器接收到电脑发送的指令后根据指令控制电风扇。 如，当收到“FAN_Y”，电风扇打开；当受到“FAN_N”，电风扇关闭。
+自动模式：风扇状态根据周围环境的温度自动调节。当周围环境温度大 于等于 26 摄氏度时，电风扇自动打开；当周围环境小于 26 摄氏度时，电风扇自动关闭。</description>
+    </item>
+    
+  </channel>
+</rss>

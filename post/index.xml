@@ -131,6 +131,27 @@ Note: The input array will only contain 0 and 1. The length of input array is a 
     </item>
     
     <item>
+      <title>无线风扇</title>
+      <link>https://HauyuChen.github.io/post/%E6%97%A0%E7%BA%BF%E9%A3%8E%E6%89%87/</link>
+      <pubDate>Mon, 29 May 2017 17:54:21 +0100</pubDate>
+      
+      <guid>https://HauyuChen.github.io/post/%E6%97%A0%E7%BA%BF%E9%A3%8E%E6%89%87/</guid>
+      <description>翻了下硬盘，无意中发现了在大二时写的这篇文章。无线风扇是本人在大二上学期在实验室期间实现的项目，实现了电风扇的无线控制。这也是我学习无线传感器网络实现的第一个项目，看着实验室的电风扇真的被代码操控着，感觉真的很奇妙。
+本文记录了项目的大体思路，希望对你有所帮助。
+转载请注明出处：Hov-http://hov.space
+ 0 简介 无线风扇是本人接触 ZigBee 协议栈后完成的一个项目。实现风扇的手动和自动两种模式的控制。
+ 手动模式，ZigBee 协调器接收指令后控制风扇的开关； 自动模式，风扇根据周围环境的温度自动控制风扇，比如当周围温度大于等于 26 摄氏度时自动打开风扇。  大体的思路是这样的： 通过两个 ZigBee 模块组成一个 ZigBee 网络；ZigBee终端外接温湿度传感器，外接继电器，继电器与风扇连接；ZigBee 协调器通过串口 RS232 与电脑连接（也可以通过 ZigBee 协调器与 GPRS 模块连接，实现手机控制的功能）。
+虽说是无线风扇功能，实质就是实现传感器数据采集和 IO 口控制。风扇控 制主要通过 IO 口导通继电器来实现，所以，如果继电器连接电灯，空调等等，那就可以实现不同功能了。
+1 功能阐述 1.1 串口通讯 （1）ZigBee 网络采集的温湿度数据、风扇状态通过 RS232 串口传送给电脑，在串口调试助手上显示相关数据。
+（2）电脑向 ZigBee 协调器发送指令，控制风扇的开关。
+1.2 温湿度数据采集 （1）ZigBee 终端外接 DHT11 温湿度传感器，通过传感器采集周围环境的温湿度信息；
+（2）ZigBee 终端采集到的温湿度数据通过 ZigBee 网络发送给 ZigBee 协调器；
+1.3 风扇控制 风扇控制分为两种模式：手动模式和自动模式
+手动模式：ZigBee 协调器接收到电脑发送的指令后根据指令控制电风扇。 如，当收到“FAN_Y”，电风扇打开；当受到“FAN_N”，电风扇关闭。
+自动模式：风扇状态根据周围环境的温度自动调节。当周围环境温度大 于等于 26 摄氏度时，电风扇自动打开；当周围环境小于 26 摄氏度时，电风扇自动关闭。</description>
+    </item>
+    
+    <item>
       <title>292. Nim Game</title>
       <link>https://HauyuChen.github.io/post/292-nim-game/</link>
       <pubDate>Sat, 29 Apr 2017 17:54:21 +0100</pubDate>
@@ -324,6 +345,23 @@ Example 3: Input: [2, 2, 3, 1] Output: 1</description>
       <description>题目描述：  Given two non-negative integers num1 and num2 represented as string, return the sum of num1 and num2.
 Note: The length of both num1 and num2 is &amp;lt; 5100. Both num1 and num2 contains only digits 0-9. Both num1 and num2 does not contain any leading zero. You must not use any built-in BigInteger library or convert the inputs to integer directly.
  代码实现： class Solution { public: string addStrings(string num1, string num2) { string str; int index1=num1.</description>
+    </item>
+    
+    <item>
+      <title>Eclipse常用快捷键</title>
+      <link>https://HauyuChen.github.io/post/eclipse%E5%BF%AB%E6%8D%B7%E9%94%AE/</link>
+      <pubDate>Sat, 01 Apr 2017 17:54:21 +0800</pubDate>
+      
+      <guid>https://HauyuChen.github.io/post/eclipse%E5%BF%AB%E6%8D%B7%E9%94%AE/</guid>
+      <description>Hov：本文记录了一些Eclipse快捷键，其中“必记级别”真的很好用，一定要记住~~
+必记级别  Ctrl+1：快速修复，代码红色下划线用它就对了
+ Ctrl+D：删除当前整行
+ Alt+/：代码补全，例如输入syso后按Alt+/，将其补全成System.out.println();
+ Ctrl+/：注释代码（这个很重要）
+ Shift+Enter：换行（高级模式，可从代码中间跳至下一行，无需到行尾）
+ Ctrl+F11：快速运行项目（其实点小三角还是挺快的，不记也行）
+  快捷键大全  来源：http://blog.csdn.net/jmyue/article/details/16960199
+  Ctrl+Alt+↓：复制当前行到下一行 Ctrl+Alt+↑：复制当前行到上一行 Alt+↓：当前行和下面一行交互位置 Alt+↑：当前行和上面一行交互位置 Alt+←：前一个编辑的页面 Alt+→：下一个编辑的页面 Alt+Enter 显示当前选择资源(工程,or 文件 or文件)的属性 Shift+Ctrl+Enter 在当前行插入空行 Ctrl+Q 定位到最后编辑的地方 Ctrl+L 定位在某行 Ctrl+M 最大化当前的Edit或View Ctrl+O 快速显示 OutLine Ctrl+T 快速显示当前类的继承结构 Ctrl+W 关闭当前Editer Ctrl+K 参照选中的Word快速定位到下一个 Ctrl+E 快速显示当前Editer的下拉列表(如果当前页面没有显示的用黑体表示) Ctrl+/ (小键盘) 折叠当前类中的所有代码 Ctrl+×(小键盘) 展开当前类中的所有代码 Ctrl+Space 代码助手完成一些代码的插入(但一般和输入法有冲突,可以修改输入法的热键,也可以暂用Alt+/来代替) Ctrl+Shift+E 显示管理当前打开的所有的View的管理器(可以选择关闭,激活等操作) Ctrl+J 正向增量查找(按下Ctrl+J后,你所输入的每个字母编辑器都提供快速匹配定位到某个单词,如果没有,则在stutes line中显示没有找到了,查一个单词时,特别实用,这 个功能Idea两年前就有了) Ctrl+Shift+J 反向增量查找(和上条相同,只不过是从后往前查) Ctrl+Shift+F4 关闭所有打开的Editer Ctrl+Shift+X 把当前选中的文本全部变味小写 Ctrl+Shift+Y 把当前选中的文本全部变为小写 Ctrl+Shift+F 格式化当前代码 Ctrl+Shift+P 定位到对于的匹配符(譬如{}) (从前面定位后面时,光标要在匹配符里面,后面到前面,则反之) Alt+Shift+R 重命名 (是我自己最爱用的一个了,尤其是变量和类的Rename,比手工方法能节省很多劳动力) Alt+Shift+M 抽取方法 (这是重构里面最常用的方法之一了,尤其是对一大堆泥团代码有用) Alt+Shift+C 修改函数结构(比较实用,有N个函数调用了这个方法,修改一次搞定) Alt+Shift+L 抽取本地变量( 可以直接把一些魔法数字和字符串抽取成一个变量,尤其是多处调用的时候) Alt+Shift+F 把Class中的local变量变为field 变量 (比较实用的功能) Alt+Shift+I 合并变量(可能这样说有点不妥Inline) Alt+Shift+V 移动函数和变量(不怎么常用) Alt+Shift+Z 重构的后悔药(Undo)  注：下面这篇文章有动画讲解，推荐一下：）</description>
     </item>
     
     <item>

@@ -409,17 +409,31 @@ Note: The input array will only contain 0 and 1. The length of input array is a 
   
     <article>
   <header>
-    <h2><a href="https://HauyuChen.github.io/post/292-nim-game/">292. Nim Game</a></h2>
+    <h2><a href="https://HauyuChen.github.io/post/%E6%97%A0%E7%BA%BF%E9%A3%8E%E6%89%87/">无线风扇</a></h2>
 
     <div class="post-meta">
 
   <div>
     <i class="fa fa-calendar fa-fw"></i>
-    <time>2017-04-04</time>
+    <time>2017-05-05</time>
   </div>
 
   
 
+  
+  
+  
+  <div>
+    <i class="fa fa-folder fa-fw"></i>
+    
+      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/zigbee">ZigBee</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/%E7%89%A9%E8%81%94%E7%BD%91">物联网</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/%E6%97%A0%E7%BA%BF%E4%BC%A0%E6%84%9F%E5%99%A8">无线传感器</a>
+    
+  </div>
+  
   
 
   
@@ -428,7 +442,7 @@ Note: The input array will only contain 0 and 1. The length of input array is a 
   <div>
     <i class="fa fa-tags fa-fw"></i>
     
-      <a class="post-taxonomy-tag" href="https://HauyuChen.github.io/tags/leetcode">LeetCode</a>
+      <a class="post-taxonomy-tag" href="https://HauyuChen.github.io/tags/zigbee">ZigBee</a>
     
   </div>
   
@@ -439,13 +453,24 @@ Note: The input array will only contain 0 and 1. The length of input array is a 
   </header>
 
   <p>
-  题目描述：  You are playing the following Nim Game with your friend: There is a heap of stones on the table, each time one of you take turns to remove 1 to 3 stones. The one who removes the last stone will be the winner. You will take the first turn to remove the stones.
-Both of you are very clever and have optimal strategies for the game. Write a function to determine whether you can win the game given the number of stones in the heap.
+  翻了下硬盘，无意中发现了在大二时写的这篇文章。无线风扇是本人在大二上学期在实验室期间实现的项目，实现了电风扇的无线控制。这也是我学习无线传感器网络实现的第一个项目，看着实验室的电风扇真的被代码操控着，感觉真的很奇妙。
+本文记录了项目的大体思路，希望对你有所帮助。
+转载请注明出处：Hov-http://hov.space
+ 0 简介 无线风扇是本人接触 ZigBee 协议栈后完成的一个项目。实现风扇的手动和自动两种模式的控制。
+ 手动模式，ZigBee 协调器接收指令后控制风扇的开关； 自动模式，风扇根据周围环境的温度自动控制风扇，比如当周围温度大于等于 26 摄氏度时自动打开风扇。  大体的思路是这样的： 通过两个 ZigBee 模块组成一个 ZigBee 网络；ZigBee终端外接温湿度传感器，外接继电器，继电器与风扇连接；ZigBee 协调器通过串口 RS232 与电脑连接（也可以通过 ZigBee 协调器与 GPRS 模块连接，实现手机控制的功能）。
+虽说是无线风扇功能，实质就是实现传感器数据采集和 IO 口控制。风扇控 制主要通过 IO 口导通继电器来实现，所以，如果继电器连接电灯，空调等等，那就可以实现不同功能了。
+1 功能阐述 1.1 串口通讯 （1）ZigBee 网络采集的温湿度数据、风扇状态通过 RS232 串口传送给电脑，在串口调试助手上显示相关数据。
+（2）电脑向 ZigBee 协调器发送指令，控制风扇的开关。
+1.2 温湿度数据采集 （1）ZigBee 终端外接 DHT11 温湿度传感器，通过传感器采集周围环境的温湿度信息；
+（2）ZigBee 终端采集到的温湿度数据通过 ZigBee 网络发送给 ZigBee 协调器；
+1.3 风扇控制 风扇控制分为两种模式：手动模式和自动模式
+手动模式：ZigBee 协调器接收到电脑发送的指令后根据指令控制电风扇。 如，当收到“FAN_Y”，电风扇打开；当受到“FAN_N”，电风扇关闭。
+自动模式：风扇状态根据周围环境的温度自动调节。当周围环境温度大 于等于 26 摄氏度时，电风扇自动打开；当周围环境小于 26 摄氏度时，电风扇自动关闭。
   </p>
 
   
   <footer>
-    <a href="https://HauyuChen.github.io/post/292-nim-game/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
+    <a href="https://HauyuChen.github.io/post/%E6%97%A0%E7%BA%BF%E9%A3%8E%E6%89%87/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
   </footer>
   
 </article>

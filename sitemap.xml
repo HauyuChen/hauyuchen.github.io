@@ -48,6 +48,11 @@
   </url>
   
   <url>
+    <loc>https://HauyuChen.github.io/post/%E6%97%A0%E7%BA%BF%E9%A3%8E%E6%89%87/</loc>
+    <lastmod>2017-05-29T17:54:21+01:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://HauyuChen.github.io/post/292-nim-game/</loc>
     <lastmod>2017-04-29T17:54:21+01:00</lastmod>
   </url>
@@ -125,6 +130,11 @@
   <url>
     <loc>https://HauyuChen.github.io/post/415-add-strings/</loc>
     <lastmod>2017-04-29T17:54:21+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://HauyuChen.github.io/post/eclipse%E5%BF%AB%E6%8D%B7%E9%94%AE/</loc>
+    <lastmod>2017-04-01T17:54:21+08:00</lastmod>
   </url>
   
   <url>
@@ -278,6 +288,12 @@
   </url>
   
   <url>
+    <loc>https://HauyuChen.github.io/topics/eclipse/</loc>
+    <lastmod>2017-04-01T17:54:21+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://HauyuChen.github.io/</loc>
     <lastmod>2017-06-29T17:54:21+01:00</lastmod>
     <priority>0</priority>
@@ -292,6 +308,12 @@
   <url>
     <loc>https://HauyuChen.github.io/tags/java/</loc>
     <lastmod>2017-06-29T17:54:21+01:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://HauyuChen.github.io/topics/leetcode/</loc>
+    <lastmod>2016-09-29T17:54:21+01:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -321,13 +343,55 @@
   
   <url>
     <loc>https://HauyuChen.github.io/topics/</loc>
-    <lastmod>2017-06-29T17:54:21+01:00</lastmod>
+    <lastmod>2017-04-01T17:54:21+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://HauyuChen.github.io/topics/zigbee/</loc>
+    <lastmod>2017-05-29T17:54:21+01:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://HauyuChen.github.io/tags/zigbee/</loc>
+    <lastmod>2017-05-29T17:54:21+01:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://HauyuChen.github.io/topics/%E5%AD%97%E7%AC%A6%E4%B8%B2/</loc>
     <lastmod>2017-06-29T17:54:21+01:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://HauyuChen.github.io/topics/%E5%B7%A5%E5%85%B7/</loc>
+    <lastmod>2017-04-01T17:54:21+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://HauyuChen.github.io/tags/%E6%89%8B%E5%86%8C/</loc>
+    <lastmod>2017-04-01T17:54:21+08:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://HauyuChen.github.io/topics/%E6%97%A0%E7%BA%BF%E4%BC%A0%E6%84%9F%E5%99%A8/</loc>
+    <lastmod>2017-05-29T17:54:21+01:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://HauyuChen.github.io/topics/%E7%89%A9%E8%81%94%E7%BD%91/</loc>
+    <lastmod>2017-05-29T17:54:21+01:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://HauyuChen.github.io/topics/%E7%AE%97%E6%B3%95/</loc>
+    <lastmod>2016-09-29T17:54:21+01:00</lastmod>
     <priority>0</priority>
   </url>
   

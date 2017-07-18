@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>算法 on Hov&#39;s Blog</title>
+    <link>https://HauyuChen.github.io/topics/%E7%AE%97%E6%B3%95/</link>
+    <description>Recent content in 算法 on Hov&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>&amp;copy; 2017. All rights reserved.</copyright>
+    <lastBuildDate>Thu, 29 Sep 2016 17:54:21 +0100</lastBuildDate>
+    
+	<atom:link href="https://HauyuChen.github.io/topics/%E7%AE%97%E6%B3%95/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>1. Two Sum</title>
+      <link>https://HauyuChen.github.io/post/001-two-sum/</link>
+      <pubDate>Thu, 29 Sep 2016 17:54:21 +0100</pubDate>
+      
+      <guid>https://HauyuChen.github.io/post/001-two-sum/</guid>
+      <description>题目描述：  Given an array of integers, return indices of the two numbers such that they add up to a specific target.
+You may assume that each input would have exactly one solution, and you may not use the same element twice.
+Example: Given nums = [2, 7, 11, 15], target = 9,
+Because nums[0] + nums[1] = 2 + 7 = 9, return [0, 1].
+ 我的思路：   先用map存储每个元素对应的原始下标，方便后续查找特定元素。 从头开始查找符合条件的结果，用target减去nums[i]，得到两数之差t，在map中寻找是否存在t且元素t的索引不等于i,若是则为最终结果，否则继续查找nums[i+1]。   代码实现： class Solution { public: vector&amp;lt;int&amp;gt; twoSum(vector&amp;lt;int&amp;gt;&amp;amp; nums, int target) { unordered_map&amp;lt;int,int&amp;gt; hm; for(int i=0;i&amp;lt;nums.</description>
+    </item>
+    
+  </channel>
+</rss>
