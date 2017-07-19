@@ -235,98 +235,13 @@
   
     <article>
   <header>
-    <h2><a href="https://HauyuChen.github.io/post/292-nim-game/">292. Nim Game</a></h2>
-
-    <div class="post-meta">
-
-  <div>
-    <i class="fa fa-calendar fa-fw"></i>
-    <time>2017-04-04</time>
-  </div>
-
-  
-
-  
-
-  
-  
-  
-  <div>
-    <i class="fa fa-tags fa-fw"></i>
-    
-      <a class="post-taxonomy-tag" href="https://HauyuChen.github.io/tags/leetcode">LeetCode</a>
-    
-  </div>
-  
-  
-
-</div>
-
-  </header>
-
-  <p>
-  题目描述：  You are playing the following Nim Game with your friend: There is a heap of stones on the table, each time one of you take turns to remove 1 to 3 stones. The one who removes the last stone will be the winner. You will take the first turn to remove the stones.
-Both of you are very clever and have optimal strategies for the game. Write a function to determine whether you can win the game given the number of stones in the heap.
-  </p>
-
-  
-  <footer>
-    <a href="https://HauyuChen.github.io/post/292-nim-game/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
-  </footer>
-  
-</article>
-
-  
-    <article>
-  <header>
-    <h2><a href="https://HauyuChen.github.io/post/326-power-of-three/">326. Power of Three</a></h2>
-
-    <div class="post-meta">
-
-  <div>
-    <i class="fa fa-calendar fa-fw"></i>
-    <time>2017-04-04</time>
-  </div>
-
-  
-
-  
-
-  
-  
-  
-  <div>
-    <i class="fa fa-tags fa-fw"></i>
-    
-      <a class="post-taxonomy-tag" href="https://HauyuChen.github.io/tags/leetcode">LeetCode</a>
-    
-  </div>
-  
-  
-
-</div>
-
-  </header>
-
-  <p>
-   题目描述：  Given an integer, write a function to determine if it is a power of three.
-Follow up: Could you do it without using any loop / recursion?
- 代码实现： class Solution { public: bool isPowerOfThree(int n) { if(n&lt;=0){ return false; } while(n%3==0){ n/=3; } if(n==1){ return true; } return false; } };  
-  </p>
-
-  
-</article>
-
-  
-    <article>
-  <header>
     <h2><a href="https://HauyuChen.github.io/post/338-counting-bits/">338. Counting Bits</a></h2>
 
     <div class="post-meta">
 
   <div>
     <i class="fa fa-calendar fa-fw"></i>
-    <time>2017-04-04</time>
+    <time>2017-04-29</time>
   </div>
 
   
@@ -371,7 +286,7 @@ Follow up: It is very easy to come up with a solution with run time O(n*sizeof(i
 
   <div>
     <i class="fa fa-calendar fa-fw"></i>
-    <time>2017-04-04</time>
+    <time>2017-04-29</time>
   </div>
 
   
@@ -412,7 +327,7 @@ Example: Given s = &ldquo;hello&rdquo;, return &ldquo;olleh&rdquo;.
 
   <div>
     <i class="fa fa-calendar fa-fw"></i>
-    <time>2017-04-04</time>
+    <time>2017-04-29</time>
   </div>
 
   
@@ -440,6 +355,92 @@ Example: Given s = &ldquo;hello&rdquo;, return &ldquo;olleh&rdquo;.
 Example: Given nums1 = [1, 2, 2, 1], nums2 = [2, 2], return [2].
 Note: Each element in the result must be unique. The result can be in any order.
  代码实现： class Solution { public: vector&lt;int&gt; intersection(vector&lt;int&gt;&amp; nums1, vector&lt;int&gt;&amp; nums2) { unordered_set&lt;int&gt; s; vector&lt;int&gt; ret; for(int num1:nums1){ if(s.count(num1)==0){ s.insert(num1); } } for(int num2:nums2){ if(s.count(num2)){ ret.push_back(num2); s.erase(num2); } } return ret; } };  
+  </p>
+
+  
+</article>
+
+  
+    <article>
+  <header>
+    <h2><a href="https://HauyuChen.github.io/post/350-intersection-of-two-arrays-ii/">350. Intersection of Two Arrays II</a></h2>
+
+    <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>2017-04-29</time>
+  </div>
+
+  
+
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-taxonomy-tag" href="https://HauyuChen.github.io/tags/leetcode">LeetCode</a>
+    
+  </div>
+  
+  
+
+</div>
+
+  </header>
+
+  <p>
+  题目描述：  Given two arrays, write a function to compute their intersection.
+Example: Given nums1 = [1, 2, 2, 1], nums2 = [2, 2], return [2, 2].
+Note: Each element in the result should appear as many times as it shows in both arrays. The result can be in any order. Follow up: What if the given array is already sorted? How would you optimize your algorithm? What if nums1&rsquo;s size is small compared to nums2&rsquo;s size?
+  </p>
+
+  
+  <footer>
+    <a href="https://HauyuChen.github.io/post/350-intersection-of-two-arrays-ii/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
+  </footer>
+  
+</article>
+
+  
+    <article>
+  <header>
+    <h2><a href="https://HauyuChen.github.io/post/371-sum-of-two-integers/">371. Sum of Two Integers</a></h2>
+
+    <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>2017-04-29</time>
+  </div>
+
+  
+
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-taxonomy-tag" href="https://HauyuChen.github.io/tags/leetcode">LeetCode</a>
+    
+  </div>
+  
+  
+
+</div>
+
+  </header>
+
+  <p>
+   题目描述：  Calculate the sum of two integers a and b, but you are not allowed to use the operator + and -.
+Example: Given a = 1 and b = 2, return 3.
+ 代码实现： class Solution { public: int getSum(int a, int b) { return b==0?a:getSum(a^b,(a&amp;b)&lt;&lt;1); } };  
   </p>
 
   
