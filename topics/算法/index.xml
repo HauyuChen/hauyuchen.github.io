@@ -7,15 +7,600 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2017. All rights reserved.</copyright>
-    <lastBuildDate>Thu, 29 Sep 2016 17:54:21 +0100</lastBuildDate>
+    <lastBuildDate>Sun, 19 Mar 2017 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://HauyuChen.github.io/topics/%E7%AE%97%E6%B3%95/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
+      <title>492. Construct the Rectangle</title>
+      <link>https://HauyuChen.github.io/post/492-construct-the-rectangle/</link>
+      <pubDate>Sun, 19 Mar 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://HauyuChen.github.io/post/492-construct-the-rectangle/</guid>
+      <description>题目描述：  For a web developer, it is very important to know how to design a web page&amp;rsquo;s size. So, given a specific rectangular web page’s area, your job by now is to design a rectangular web page, whose length L and width W satisfy the following requirements:
+ The area of the rectangular web page you designed must equal to the given target area.
+ The width W should not be larger than the length L, which means L &amp;gt;= W.</description>
+    </item>
+    
+    <item>
+      <title>485. Max Consecutive Ones</title>
+      <link>https://HauyuChen.github.io/post/485-max-consecutive-ones/</link>
+      <pubDate>Sat, 18 Mar 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://HauyuChen.github.io/post/485-max-consecutive-ones/</guid>
+      <description>题目描述：  Given a binary array, find the maximum number of consecutive 1s in this array.
+Example 1: Input: [1,1,0,1,1,1] Output: 3
+Explanation: The first two digits or the last three digits are consecutive 1s. The maximum number of consecutive 1s is 3.
+Note: The input array will only contain 0 and 1. The length of input array is a positive integer and will not exceed 10,000
+ 代码实现： class Solution { public: int findMaxConsecutiveOnes(vector&amp;lt;int&amp;gt;&amp;amp; nums) { int cnt=0,max=0; for(int num:nums){ if(num==1){ cnt++; }else{ cnt=0; } max = max&amp;gt;cnt?</description>
+    </item>
+    
+    <item>
+      <title>476. Number Complement</title>
+      <link>https://HauyuChen.github.io/post/476-number-complement/</link>
+      <pubDate>Fri, 17 Mar 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://HauyuChen.github.io/post/476-number-complement/</guid>
+      <description>题目描述：  Given a positive integer, output its complement number. The complement strategy is to flip the bits of its binary representation.
+Note: The given integer is guaranteed to fit within the range of a 32-bit signed integer. You could assume no leading zero bit in the integer’s binary representation.
+Example 1: Input: 5 Output: 2
+Explanation: The binary representation of 5 is 101 (no leading zero bits), and its complement is 010.</description>
+    </item>
+    
+    <item>
+      <title>455. Assign Cookies</title>
+      <link>https://HauyuChen.github.io/post/455-assign-cookies/</link>
+      <pubDate>Thu, 16 Mar 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://HauyuChen.github.io/post/455-assign-cookies/</guid>
+      <description>题目描述：  Assume you are an awesome parent and want to give your children some cookies. But, you should give each child at most one cookie. Each child i has a greed factor gi, which is the minimum size of a cookie that the child will be content with; and each cookie j has a size sj. If sj &amp;gt;= gi, we can assign the cookie j to the child i, and the child i will be content.</description>
+    </item>
+    
+    <item>
+      <title>461. Hamming Distance</title>
+      <link>https://HauyuChen.github.io/post/461-hamming-distance/</link>
+      <pubDate>Thu, 16 Mar 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://HauyuChen.github.io/post/461-hamming-distance/</guid>
+      <description>题目描述：  The Hamming distance between two integers is the number of positions at which the corresponding bits are different.
+Given two integers x and y, calculate the Hamming distance.
+Note: 0 ≤ x, y &amp;lt; 231.
+Example:
+Input: x = 1, y = 4
+Output: 2
+Explanation:
+1 (0 0 0 1) 4 (0 1 0 0) ↑ ↑  The above arrows point to positions where the corresponding bits are different.</description>
+    </item>
+    
+    <item>
+      <title>463. Island Perimeter</title>
+      <link>https://HauyuChen.github.io/post/463-island-perimeter/</link>
+      <pubDate>Thu, 16 Mar 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://HauyuChen.github.io/post/463-island-perimeter/</guid>
+      <description>题目描述：  You are given a map in form of a two-dimensional integer grid where 1 represents land and 0 represents water. Grid cells are connected horizontally/vertically (not diagonally). The grid is completely surrounded by water, and there is exactly one island (i.e., one or more connected land cells). The island doesn&amp;rsquo;t have &amp;ldquo;lakes&amp;rdquo; (water inside that isn&amp;rsquo;t connected to the water around the island). One cell is a square with side length 1.</description>
+    </item>
+    
+    <item>
+      <title>453. Minimum Moves to Equal Array Elements</title>
+      <link>https://HauyuChen.github.io/post/453-minimum-moves-to-equal-array-elements/</link>
+      <pubDate>Wed, 15 Mar 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://HauyuChen.github.io/post/453-minimum-moves-to-equal-array-elements/</guid>
+      <description>题目描述：  Given a non-empty integer array of size n, find the minimum number of moves required to make all array elements equal, where a move is incrementing n - 1 elements by 1.
+Example:
+Input: [1,2,3]
+Output: 3
+Explanation: Only three moves are needed (remember each move increments two elements): [1,2,3] =&amp;gt; [2,3,3] =&amp;gt; [3,4,3] =&amp;gt; [4,4,4]
+ 代码实现： class Solution { public: int minMoves(vector&amp;lt;int&amp;gt;&amp;amp; nums) { int min=INT_MAX; int sum=0; for(int num:nums){ min=min&amp;lt;num?</description>
+    </item>
+    
+    <item>
+      <title>448. Find All Numbers Disappeared in an Array</title>
+      <link>https://HauyuChen.github.io/post/448-find-all-numbers-disappeared-in-an-array/</link>
+      <pubDate>Tue, 21 Feb 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://HauyuChen.github.io/post/448-find-all-numbers-disappeared-in-an-array/</guid>
+      <description>题目描述：  Given an array of integers where 1 ≤ a[i] ≤ n (n = size of array), some elements appear twice and others appear once.
+Find all the elements of [1, n] inclusive that do not appear in this array.
+Could you do it without extra space and in O(n) runtime? You may assume the returned list does not count as extra space.
+Example:
+Input: [4,3,2,7,8,2,3,1]
+Output: [5,6]</description>
+    </item>
+    
+    <item>
+      <title>447. Number of Boomerangs</title>
+      <link>https://HauyuChen.github.io/post/447-number-of-boomerangs/</link>
+      <pubDate>Mon, 20 Feb 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://HauyuChen.github.io/post/447-number-of-boomerangs/</guid>
+      <description>题目描述：  Given n points in the plane that are all pairwise distinct, a &amp;ldquo;boomerang&amp;rdquo; is a tuple of points (i, j, k) such that the distance between i and j equals the distance between i and k (the order of the tuple matters).
+Find the number of boomerangs. You may assume that n will be at most 500 and coordinates of points are all in the range -10000, 10000.</description>
+    </item>
+    
+    <item>
+      <title>414. Third Maximum Number</title>
+      <link>https://HauyuChen.github.io/post/414-third-maximum-number/</link>
+      <pubDate>Sun, 19 Feb 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://HauyuChen.github.io/post/414-third-maximum-number/</guid>
+      <description>题目描述：  Given a non-empty array of integers, return the third maximum number in this array. If it does not exist, return the maximum number. The time complexity must be in O(n).
+Example 1: Input: [3, 2, 1] Output: 1
+Explanation: The third maximum is 1.
+Example 2: Input: [1, 2] Output: 2
+Explanation: The third maximum does not exist, so the maximum (2) is returned instead.
+Example 3: Input: [2, 2, 3, 1] Output: 1</description>
+    </item>
+    
+    <item>
+      <title>415. Add Strings</title>
+      <link>https://HauyuChen.github.io/post/415-add-strings/</link>
+      <pubDate>Sun, 19 Feb 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://HauyuChen.github.io/post/415-add-strings/</guid>
+      <description>题目描述：  Given two non-negative integers num1 and num2 represented as string, return the sum of num1 and num2.
+Note: The length of both num1 and num2 is &amp;lt; 5100. Both num1 and num2 contains only digits 0-9. Both num1 and num2 does not contain any leading zero. You must not use any built-in BigInteger library or convert the inputs to integer directly.
+ 代码实现： class Solution { public: string addStrings(string num1, string num2) { string str; int index1=num1.</description>
+    </item>
+    
+    <item>
+      <title>412. Fizz Buzz</title>
+      <link>https://HauyuChen.github.io/post/412-fizz-buzz/</link>
+      <pubDate>Sat, 18 Feb 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://HauyuChen.github.io/post/412-fizz-buzz/</guid>
+      <description>题目描述：  Write a program that outputs the string representation of numbers from 1 to n.
+But for multiples of three it should output “Fizz” instead of the number and for the multiples of five output “Buzz”. For numbers which are multiples of both three and five output “FizzBuzz”.
+Example:
+n = 15,
+Return: [ &amp;ldquo;1&amp;rdquo;, &amp;ldquo;2&amp;rdquo;, &amp;ldquo;Fizz&amp;rdquo;, &amp;ldquo;4&amp;rdquo;, &amp;ldquo;Buzz&amp;rdquo;, &amp;ldquo;Fizz&amp;rdquo;, &amp;ldquo;7&amp;rdquo;, &amp;ldquo;8&amp;rdquo;, &amp;ldquo;Fizz&amp;rdquo;, &amp;ldquo;Buzz&amp;rdquo;, &amp;ldquo;11&amp;rdquo;, &amp;ldquo;Fizz&amp;rdquo;, &amp;ldquo;13&amp;rdquo;, &amp;ldquo;14&amp;rdquo;, &amp;ldquo;FizzBuzz&amp;rdquo; ]</description>
+    </item>
+    
+    <item>
+      <title>409. Longest Palindrome</title>
+      <link>https://HauyuChen.github.io/post/409-longest-palindrome/</link>
+      <pubDate>Fri, 17 Feb 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://HauyuChen.github.io/post/409-longest-palindrome/</guid>
+      <description>题目描述：  Given a string which consists of lowercase or uppercase letters, find the length of the longest palindromes that can be built with those letters.
+This is case sensitive, for example &amp;ldquo;Aa&amp;rdquo; is not considered a palindrome here.
+Note: Assume the length of given string will not exceed 1,010.
+Example:
+Input: &amp;ldquo;abccccdd&amp;rdquo;
+Output: 7
+Explanation: One longest palindrome that can be built is &amp;ldquo;dccaccd&amp;rdquo;, whose length is 7.</description>
+    </item>
+    
+    <item>
+      <title>401. Binary Watch</title>
+      <link>https://HauyuChen.github.io/post/401-binary-watch/</link>
+      <pubDate>Thu, 16 Feb 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://HauyuChen.github.io/post/401-binary-watch/</guid>
+      <description>题目描述：  A binary watch has 4 LEDs on the top which represent the hours (0-11), and the 6 LEDs on the bottom represent the minutes (0-59).
+Each LED represents a zero or one, with the least significant bit on the right.
+For example, the above binary watch reads &amp;ldquo;3:25&amp;rdquo;.
+Given a non-negative integer n which represents the number of LEDs that are currently on, return all possible times the watch could represent.</description>
+    </item>
+    
+    <item>
+      <title>404. Sum of Left Leaves</title>
+      <link>https://HauyuChen.github.io/post/404-sum-of-left-leaves/</link>
+      <pubDate>Thu, 16 Feb 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://HauyuChen.github.io/post/404-sum-of-left-leaves/</guid>
+      <description> 题目描述：  Find the sum of all left leaves in a given binary tree.
+Example:
+ 3 / \ 9 20 / \ 15 7  There are two left leaves in the binary tree, with values 9 and 15 respectively. Return 24.
+ 代码实现： /** * Definition for a binary tree node. * struct TreeNode { * int val; * TreeNode *left; * TreeNode *right; * TreeNode(int x) : val(x), left(NULL), right(NULL) {} * }; */ class Solution { public: int sumOfLeftLeaves(TreeNode* root) { if(root==nullptr){ return 0; } int sum=0; if(root-&amp;gt;left){ if(root-&amp;gt;left-&amp;gt;left==nullptr &amp;amp;&amp;amp; root-&amp;gt;left-&amp;gt;right==nullptr){ sum+=root-&amp;gt;left-&amp;gt;val; }else{ sum+=sumOfLeftLeaves(root-&amp;gt;left); } } if(root-&amp;gt;right){ sum+=sumOfLeftLeaves(root-&amp;gt;right); } return sum; } };  </description>
+    </item>
+    
+    <item>
+      <title>389. Find the Difference</title>
+      <link>https://HauyuChen.github.io/post/389-find-the-difference/</link>
+      <pubDate>Wed, 15 Feb 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://HauyuChen.github.io/post/389-find-the-difference/</guid>
+      <description>题目描述：  Given two strings s and t which consist of only lowercase letters.
+String t is generated by random shuffling string s and then add one more letter at a random position.
+Find the letter that was added in t.
+Example:
+Input: s = &amp;ldquo;abcd&amp;rdquo; t = &amp;ldquo;abcde&amp;rdquo;
+Output: e
+Explanation: &amp;lsquo;e&amp;rsquo; is the letter that was added.
+ 代码实现： class Solution { public: char findTheDifference(string s, string t) { char ch = t[0]; for(int i=1;i&amp;lt;t.</description>
+    </item>
+    
+    <item>
+      <title>387. First Unique Character in a String</title>
+      <link>https://HauyuChen.github.io/post/387-first-unique-character-in-a-string/</link>
+      <pubDate>Tue, 14 Feb 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://HauyuChen.github.io/post/387-first-unique-character-in-a-string/</guid>
+      <description> 题目描述：  Given a string, find the first non-repeating character in it and return it&amp;rsquo;s index. If it doesn&amp;rsquo;t exist, return -1.
+Examples:
+s = &amp;ldquo;leetcode&amp;rdquo; return 0.
+s = &amp;ldquo;loveleetcode&amp;rdquo;, return 2.
+Note: You may assume the string contain only lowercase letters.
+ 代码实现： class Solution { public: int firstUniqChar(string s) { int arr[26]; for(int i=0;i&amp;lt;26;++i){ arr[i]=0; } for(int i=0;i&amp;lt;s.size();++i){ ++arr[s[i]-&#39;a&#39;]; } for(int i=0;i&amp;lt;s.size();++i){ if(arr[s[i]-&#39;a&#39;]==1){ return i; } } return -1; } };  </description>
+    </item>
+    
+    <item>
+      <title>371. Sum of Two Integers</title>
+      <link>https://HauyuChen.github.io/post/371-sum-of-two-integers/</link>
+      <pubDate>Mon, 13 Feb 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://HauyuChen.github.io/post/371-sum-of-two-integers/</guid>
+      <description> 题目描述：  Calculate the sum of two integers a and b, but you are not allowed to use the operator + and -.
+Example: Given a = 1 and b = 2, return 3.
+ 代码实现： class Solution { public: int getSum(int a, int b) { return b==0?a:getSum(a^b,(a&amp;amp;b)&amp;lt;&amp;lt;1); } };  </description>
+    </item>
+    
+    <item>
+      <title>383. Ransom Note</title>
+      <link>https://HauyuChen.github.io/post/383-ransom-note/</link>
+      <pubDate>Mon, 13 Feb 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://HauyuChen.github.io/post/383-ransom-note/</guid>
+      <description>题目描述：  Given an arbitrary ransom note string and another string containing letters from all the magazines, write a function that will return true if the ransom note can be constructed from the magazines ; otherwise, it will return false.
+Each letter in the magazine string can only be used once in your ransom note.
+Note: You may assume that both strings contain only lowercase letters.
+ canConstruct(&amp;ldquo;a&amp;rdquo;, &amp;ldquo;b&amp;rdquo;) -&amp;gt; false canConstruct(&amp;ldquo;aa&amp;rdquo;, &amp;ldquo;ab&amp;rdquo;) -&amp;gt; false canConstruct(&amp;ldquo;aa&amp;rdquo;, &amp;ldquo;aab&amp;rdquo;) -&amp;gt; true   代码实现： class Solution { public: bool canConstruct(string ransomNote, string magazine) { if(magazine.</description>
+    </item>
+    
+    <item>
+      <title>349. Intersection of Two Arrays</title>
+      <link>https://HauyuChen.github.io/post/349-intersection-of-two-arrays/</link>
+      <pubDate>Sun, 15 Jan 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://HauyuChen.github.io/post/349-intersection-of-two-arrays/</guid>
+      <description> 题目描述：  Given two arrays, write a function to compute their intersection.
+Example: Given nums1 = [1, 2, 2, 1], nums2 = [2, 2], return [2].
+Note: Each element in the result must be unique. The result can be in any order.
+ 代码实现： class Solution { public: vector&amp;lt;int&amp;gt; intersection(vector&amp;lt;int&amp;gt;&amp;amp; nums1, vector&amp;lt;int&amp;gt;&amp;amp; nums2) { unordered_set&amp;lt;int&amp;gt; s; vector&amp;lt;int&amp;gt; ret; for(int num1:nums1){ if(s.count(num1)==0){ s.insert(num1); } } for(int num2:nums2){ if(s.count(num2)){ ret.push_back(num2); s.erase(num2); } } return ret; } };  </description>
+    </item>
+    
+    <item>
+      <title>350. Intersection of Two Arrays II</title>
+      <link>https://HauyuChen.github.io/post/350-intersection-of-two-arrays-ii/</link>
+      <pubDate>Sun, 15 Jan 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://HauyuChen.github.io/post/350-intersection-of-two-arrays-ii/</guid>
+      <description>题目描述：  Given two arrays, write a function to compute their intersection.
+Example: Given nums1 = [1, 2, 2, 1], nums2 = [2, 2], return [2, 2].
+Note: Each element in the result should appear as many times as it shows in both arrays. The result can be in any order. Follow up: What if the given array is already sorted? How would you optimize your algorithm? What if nums1&amp;rsquo;s size is small compared to nums2&amp;rsquo;s size?</description>
+    </item>
+    
+    <item>
+      <title>344. Reverse String</title>
+      <link>https://HauyuChen.github.io/post/344-reverse-string/</link>
+      <pubDate>Fri, 13 Jan 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://HauyuChen.github.io/post/344-reverse-string/</guid>
+      <description> 题目描述：  Write a function that takes a string as input and returns the string reversed.
+Example: Given s = &amp;ldquo;hello&amp;rdquo;, return &amp;ldquo;olleh&amp;rdquo;.
+ 代码实现： class Solution { public: string reverseString(string s) { reverse(s.begin(),s.end()); return s; } };  </description>
+    </item>
+    
+    <item>
+      <title>326. Power of Three</title>
+      <link>https://HauyuChen.github.io/post/326-power-of-three/</link>
+      <pubDate>Thu, 12 Jan 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://HauyuChen.github.io/post/326-power-of-three/</guid>
+      <description> 题目描述：  Given an integer, write a function to determine if it is a power of three.
+Follow up: Could you do it without using any loop / recursion?
+ 代码实现： class Solution { public: bool isPowerOfThree(int n) { if(n&amp;lt;=0){ return false; } while(n%3==0){ n/=3; } if(n==1){ return true; } return false; } };  </description>
+    </item>
+    
+    <item>
+      <title>338. Counting Bits</title>
+      <link>https://HauyuChen.github.io/post/338-counting-bits/</link>
+      <pubDate>Thu, 12 Jan 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://HauyuChen.github.io/post/338-counting-bits/</guid>
+      <description>题目描述：  Given a non negative integer number num. For every numbers i in the range 0 ≤ i ≤ num calculate the number of 1&amp;rsquo;s in their binary representation and return them as an array.
+Example: For num = 5 you should return [0,1,1,2,1,2].
+Follow up: It is very easy to come up with a solution with run time O(n*sizeof(integer)). But can you do it in linear time O(n) /possibly in a single pass?</description>
+    </item>
+    
+    <item>
+      <title>268. Missing Number</title>
+      <link>https://HauyuChen.github.io/post/268-missing-number/</link>
+      <pubDate>Wed, 11 Jan 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://HauyuChen.github.io/post/268-missing-number/</guid>
+      <description>题目描述：  Given an array containing n distinct numbers taken from 0, 1, 2, &amp;hellip;, n, find the one that is missing from the array.
+For example, Given nums = [0, 1, 3] return 2.
+Note: Your algorithm should run in linear runtime complexity. Could you implement it using only constant extra space complexity?
+ 代码实现： class Solution { public: int missingNumber(vector&amp;lt;int&amp;gt;&amp;amp; nums) { int sum=0; int realsum=0; bool flag=false; for(int i=0;i&amp;lt;nums.</description>
+    </item>
+    
+    <item>
+      <title>283. Move Zeroes</title>
+      <link>https://HauyuChen.github.io/post/283-move-zeroes/</link>
+      <pubDate>Wed, 11 Jan 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://HauyuChen.github.io/post/283-move-zeroes/</guid>
+      <description>题目描述：  Given an array nums, write a function to move all 0&amp;rsquo;s to the end of it while maintaining the relative order of the non-zero elements.
+For example, given nums = [0, 1, 0, 3, 12], after calling your function, nums should be [1, 3, 12, 0, 0].
+Note: You must do this in-place without making a copy of the array. Minimize the total number of operations.
+ 代码实现： class Solution { public: void moveZeroes(vector&amp;lt;int&amp;gt;&amp;amp; nums) { int index=0; for(int i=0;i&amp;lt;nums.</description>
+    </item>
+    
+    <item>
+      <title>292. Nim Game</title>
+      <link>https://HauyuChen.github.io/post/292-nim-game/</link>
+      <pubDate>Wed, 11 Jan 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://HauyuChen.github.io/post/292-nim-game/</guid>
+      <description>题目描述：  You are playing the following Nim Game with your friend: There is a heap of stones on the table, each time one of you take turns to remove 1 to 3 stones. The one who removes the last stone will be the winner. You will take the first turn to remove the stones.
+Both of you are very clever and have optimal strategies for the game. Write a function to determine whether you can win the game given the number of stones in the heap.</description>
+    </item>
+    
+    <item>
+      <title>258. Add Digits</title>
+      <link>https://HauyuChen.github.io/post/258-add-digits/</link>
+      <pubDate>Tue, 10 Jan 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://HauyuChen.github.io/post/258-add-digits/</guid>
+      <description> 题目描述：  Given a non-negative integer num, repeatedly add all its digits until the result has only one digit.
+For example:
+Given num = 38, the process is like: 3 + 8 = 11, 1 + 1 = 2. Since 2 has only one digit, return it.
+Follow up: Could you do it without any loop/recursion in O(1) runtime?
+ 代码实现： class Solution { public: int addDigits(int num) { return 1+(num-1)%9; } };  </description>
+    </item>
+    
+    <item>
+      <title>263. Ugly Number</title>
+      <link>https://HauyuChen.github.io/post/263-ugly-number/</link>
+      <pubDate>Tue, 10 Jan 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://HauyuChen.github.io/post/263-ugly-number/</guid>
+      <description>题目描述：  Write a program to check whether a given number is an ugly number.
+Ugly numbers are positive numbers whose prime factors only include 2, 3, 5. For example, 6, 8 are ugly while 14 is not ugly since it includes another prime factor 7.
+Note that 1 is typically treated as an ugly number.
+ 代码实现： class Solution { public: bool isUgly(int num) { if(num&amp;lt;=0){ return false; } while(num%2==0){ num/=2; } while(num%3==0){ num/=3; } while(num%5==0){ num/=5; } return num==1?</description>
+    </item>
+    
+    <item>
+      <title>231. Power of Two</title>
+      <link>https://HauyuChen.github.io/post/231-power-of-two/</link>
+      <pubDate>Mon, 09 Jan 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://HauyuChen.github.io/post/231-power-of-two/</guid>
+      <description> 题目描述：  Given an integer, write a function to determine if it is a power of two.
+ 代码实现： class Solution { public: bool isPowerOfTwo(int n) { int flag=0; if(n&amp;lt;=0){ return false; } while(n&amp;gt;0){ if(n&amp;amp;1==1){ if(flag==1){ return false; } flag=1; } n=n&amp;gt;&amp;gt;1; } return true; } };  </description>
+    </item>
+    
+    <item>
+      <title>237. Delete Node in a Linked List</title>
+      <link>https://HauyuChen.github.io/post/237-delete-node-in-a-linked-list/</link>
+      <pubDate>Mon, 09 Jan 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://HauyuChen.github.io/post/237-delete-node-in-a-linked-list/</guid>
+      <description> 题目描述：  Write a function to delete a node (except the tail) in a singly linked list, given only access to that node.
+Supposed the linked list is 1 -&amp;gt; 2 -&amp;gt; 3 -&amp;gt; 4 and you are given the third node with value 3, the linked list should become 1 -&amp;gt; 2 -&amp;gt; 4 after calling your function.
+ 代码实现： /** * Definition for singly-linked list. * struct ListNode { * int val; * ListNode *next; * ListNode(int x) : val(x), next(NULL) {} * }; */ class Solution { public: void deleteNode(ListNode* node) { auto next = node-&amp;gt;next; *node = *next; delete next; } };  </description>
+    </item>
+    
+    <item>
+      <title>242. Valid Anagram</title>
+      <link>https://HauyuChen.github.io/post/242-valid-anagram/</link>
+      <pubDate>Mon, 09 Jan 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://HauyuChen.github.io/post/242-valid-anagram/</guid>
+      <description>题目描述：  Given two strings s and t, write a function to determine if t is an anagram of s.
+For example, s = &amp;ldquo;anagram&amp;rdquo;, t = &amp;ldquo;nagaram&amp;rdquo;, return true. s = &amp;ldquo;rat&amp;rdquo;, t = &amp;ldquo;car&amp;rdquo;, return false.
+Note: You may assume the string contains only lowercase alphabets.
+Follow up: What if the inputs contain unicode characters? How would you adapt your solution to such case?
+ 代码实现： class Solution { public: bool isAnagram(string s, string t) { if(s.</description>
+    </item>
+    
+    <item>
+      <title>226. Invert Binary Tree</title>
+      <link>https://HauyuChen.github.io/post/226-invert-binary-tree/</link>
+      <pubDate>Sun, 08 Jan 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://HauyuChen.github.io/post/226-invert-binary-tree/</guid>
+      <description>题目描述：  Invert a binary tree.
+ 4 / \ 2 7 / \ / \ 1 3 6 9 to 4 / \ 7 2 / \ / \ 9 6 3 1  Trivia: This problem was inspired by this original tweet by Max Howell: Google: 90% of our engineers use the software you wrote (Homebrew), but you can’t invert a binary tree on a whiteboard so fuck off.</description>
+    </item>
+    
+    <item>
+      <title>206. Reverse Linked List</title>
+      <link>https://HauyuChen.github.io/post/206-reverse-linked-list/</link>
+      <pubDate>Sat, 07 Jan 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://HauyuChen.github.io/post/206-reverse-linked-list/</guid>
+      <description> 题目描述：  Reverse a singly linked list.
+ 代码实现： /** * Definition for singly-linked list. * struct ListNode { * int val; * ListNode *next; * ListNode(int x) : val(x), next(NULL) {} * }; */ class Solution { public: ListNode* reverseList(ListNode* head) { ListNode* pPre=nullptr; ListNode* pNode=head; ListNode* pRet=nullptr; while(pNode!=nullptr){ ListNode* pNext=pNode-&amp;gt;next; if(pNext==nullptr){ pRet=pNode; } pNode-&amp;gt;next=pPre; pPre=pNode; pNode=pNext; } return pRet; } };  </description>
+    </item>
+    
+    <item>
+      <title>217. Contains Duplicate</title>
+      <link>https://HauyuChen.github.io/post/217-contains-duplicate/</link>
+      <pubDate>Sat, 07 Jan 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://HauyuChen.github.io/post/217-contains-duplicate/</guid>
+      <description> 题目描述：  Given an array of integers, find if the array contains any duplicates. Your function should return true if any value appears at least twice in the array, and it should return false if every element is distinct.
+ 代码实现： class Solution { public: bool containsDuplicate(vector&amp;lt;int&amp;gt;&amp;amp; nums) { unordered_set&amp;lt;int&amp;gt; set; for(int num:nums){ if(set.count(num)){ return true; } set.insert(num); } return false; } };  </description>
+    </item>
+    
+    <item>
+      <title>191. Number of 1 Bits</title>
+      <link>https://HauyuChen.github.io/post/191-number-of-1-bits/</link>
+      <pubDate>Wed, 24 Aug 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://HauyuChen.github.io/post/191-number-of-1-bits/</guid>
+      <description> 题目描述：  Write a function that takes an unsigned integer and returns the number of ’1&amp;rsquo; bits it has (also known as the Hamming weight).
+For example, the 32-bit integer ’11&amp;rsquo; has binary representation 00000000000000000000000000001011, so the function should return 3.
+ 代码实现： class Solution { public: int hammingWeight(uint32_t n) { int sum=0; while(n&amp;gt;0){ if(n&amp;amp;1==1){ sum++; } n=n&amp;gt;&amp;gt;1; } return sum; } };  </description>
+    </item>
+    
+    <item>
+      <title>202. Happy Number</title>
+      <link>https://HauyuChen.github.io/post/202-happy-number/</link>
+      <pubDate>Wed, 24 Aug 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://HauyuChen.github.io/post/202-happy-number/</guid>
+      <description>题目描述：  Write an algorithm to determine if a number is &amp;ldquo;happy&amp;rdquo;.
+A happy number is a number defined by the following process: Starting with any positive integer, replace the number by the sum of the squares of its digits, and repeat the process until the number equals 1 (where it will stay), or it loops endlessly in a cycle which does not include 1. Those numbers for which this process ends in 1 are happy numbers.</description>
+    </item>
+    
+    <item>
+      <title>171. Excel Sheet Column Number</title>
+      <link>https://HauyuChen.github.io/post/171-excel-sheet-column-number/</link>
+      <pubDate>Tue, 23 Aug 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://HauyuChen.github.io/post/171-excel-sheet-column-number/</guid>
+      <description> 题目描述：  Related to question Excel Sheet Column Title
+Given a column title as appear in an Excel sheet, return its corresponding column number.
+For example:
+A -&amp;gt; 1 B -&amp;gt; 2 C -&amp;gt; 3 ... Z -&amp;gt; 26 AA -&amp;gt; 27 AB -&amp;gt; 28   代码实现： class Solution { public: int titleToNumber(string s) { int sum=0; for(int i=0;i&amp;lt;s.length();i++){ sum = sum*26+(s[i]-&#39;A&#39;+1); } return sum; } };  </description>
+    </item>
+    
+    <item>
+      <title>167. Two Sum II - Input array is sorted</title>
+      <link>https://HauyuChen.github.io/post/167-two-sum-ii-input-array-is-sorted/</link>
+      <pubDate>Sat, 20 Aug 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://HauyuChen.github.io/post/167-two-sum-ii-input-array-is-sorted/</guid>
+      <description>题目描述：  Given an array of integers that is already sorted in ascending order, find two numbers such that they add up to a specific target number.
+The function twoSum should return indices of the two numbers such that they add up to the target, where index1 must be less than index2. Please note that your returned answers (both index1 and index2) are not zero-based.
+You may assume that each input would have exactly one solution and you may not use the same element twice.</description>
+    </item>
+    
+    <item>
+      <title>169. Majority Element</title>
+      <link>https://HauyuChen.github.io/post/169-majority-element/</link>
+      <pubDate>Sat, 20 Aug 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://HauyuChen.github.io/post/169-majority-element/</guid>
+      <description> 题目描述：  Given an array of size n, find the majority element. The majority element is the element that appears more than ⌊ n/2 ⌋ times.
+You may assume that the array is non-empty and the majority element always exist in the array.
+ 代码实现： class Solution { public: int majorityElement(vector&amp;lt;int&amp;gt;&amp;amp; nums) { int major=nums[0]; int cnt=1; for(int num:nums){ if(num==major){ ++cnt; }else{ --cnt; } if(cnt==0){ ++cnt; major = num; } } return major; } };  </description>
+    </item>
+    
+    <item>
+      <title>121. Best Time to Buy and Sell Stock</title>
+      <link>https://HauyuChen.github.io/post/121-best-time-to-buy-and-sell-stock/</link>
+      <pubDate>Tue, 16 Aug 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://HauyuChen.github.io/post/121-best-time-to-buy-and-sell-stock/</guid>
+      <description>题目描述：  Say you have an array for which the ith element is the price of a given stock on day i.
+If you were only permitted to complete at most one transaction (ie, buy one and sell one share of the stock), design an algorithm to find the maximum profit.
+Example 1: Input: [7, 1, 5, 3, 6, 4] Output: 5
+max. difference = 6-1 = 5 (not 7-1 = 6, as selling price needs to be larger than buying price) Example 2: Input: [7, 6, 4, 3, 1] Output: 0</description>
+    </item>
+    
+    <item>
+      <title>122. Best Time to Buy and Sell Stock II</title>
+      <link>https://HauyuChen.github.io/post/122-best-time-to-buy-and-sell-stock-ii/</link>
+      <pubDate>Tue, 16 Aug 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://HauyuChen.github.io/post/122-best-time-to-buy-and-sell-stock-ii/</guid>
+      <description>题目描述：  Say you have an array for which the ith element is the price of a given stock on day i.
+Design an algorithm to find the maximum profit. You may complete as many transactions as you like (ie, buy one and sell one share of the stock multiple times). However, you may not engage in multiple transactions at the same time (ie, you must sell the stock before you buy again).</description>
+    </item>
+    
+    <item>
+      <title>136. Single Number</title>
+      <link>https://HauyuChen.github.io/post/136-single-number/</link>
+      <pubDate>Tue, 16 Aug 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://HauyuChen.github.io/post/136-single-number/</guid>
+      <description> 题目描述：  Given an array of integers, every element appears twice except for one. Find that single one.
+Note: Your algorithm should have a linear runtime complexity. Could you implement it without using extra memory?
+ 代码实现： class Solution { public: int singleNumber(vector&amp;lt;int&amp;gt;&amp;amp; nums) { int ret = 0; for(int num:nums){ ret^=num; } return ret; } };  </description>
+    </item>
+    
+    <item>
+      <title>104. Maximum Depth of Binary Tree</title>
+      <link>https://HauyuChen.github.io/post/104-maximum-depth-of-binary-tree/</link>
+      <pubDate>Mon, 15 Aug 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://HauyuChen.github.io/post/104-maximum-depth-of-binary-tree/</guid>
+      <description>题目描述：  Given a binary tree, find its maximum depth.
+The maximum depth is the number of nodes along the longest path from the root node down to the farthest leaf node.
+ 代码实现： /** * Definition for binary tree * struct TreeNode { * int val; * TreeNode *left; * TreeNode *right; * TreeNode(int x) : val(x), left(NULL), right(NULL) {} * }; */ class Solution { public: int maxDepth(TreeNode *root) { int Ldepth=0,Rdepth=0; if(root==NULL){ return 0; } if(root-&amp;gt;left==NULL &amp;amp;&amp;amp; root-&amp;gt;right==NULL){ return 1; } Ldepth=maxDepth(root-&amp;gt;left); Rdepth=maxDepth(root-&amp;gt;right); return 1+(Ldepth&amp;gt;Rdepth?</description>
+    </item>
+    
+    <item>
+      <title>100. Same Tree</title>
+      <link>https://HauyuChen.github.io/post/100-same-tree/</link>
+      <pubDate>Sun, 14 Aug 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://HauyuChen.github.io/post/100-same-tree/</guid>
+      <description>题目描述：  Given two binary trees, write a function to check if they are equal or not.
+Two binary trees are considered equal if they are structurally identical and the nodes have the same value.
+ 代码实现： /** * Definition for a binary tree node. * struct TreeNode { * int val; * TreeNode *left; * TreeNode *right; * TreeNode(int x) : val(x), left(NULL), right(NULL) {} * }; */ class Solution { public: bool isSameTree(TreeNode* p, TreeNode* q) { if(p==nullptr &amp;amp;&amp;amp; q==nullptr){ return true; } else if(p==nullptr || q==nullptr){ return false; } if(p-&amp;gt;val!</description>
+    </item>
+    
+    <item>
+      <title>70. Climbing Stairs</title>
+      <link>https://HauyuChen.github.io/post/070-climbing-stairs/</link>
+      <pubDate>Sun, 14 Aug 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://HauyuChen.github.io/post/070-climbing-stairs/</guid>
+      <description> 题目描述：  You are climbing a stair case. It takes n steps to reach to the top.
+Each time you can either climb 1 or 2 steps. In how many distinct ways can you climb to the top?
+ 思路：  这题本质上是斐波那契数列问题。这里采用数组暂存已有结果，以时间换空间，减少递归带来的重复计算。
+ 代码实现： class Solution { public: int climbStairs(int n) { int f[n+1]; f[0]=1; f[1]=1; for(int i=2;i&amp;lt;=n;++i){ f[i]=f[i-1]+f[i-2]; } return f[n]; } };  </description>
+    </item>
+    
+    <item>
+      <title>69. Sqrt(x)</title>
+      <link>https://HauyuChen.github.io/post/069-sqrtx/</link>
+      <pubDate>Sat, 13 Aug 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://HauyuChen.github.io/post/069-sqrtx/</guid>
+      <description> 题目描述：  Implement int sqrt(int x).
+Compute and return the square root of x.
+ 代码实现： class Solution { public: int mySqrt(int x) { if(x==0){ return 0; } int low=1,high=x; int mid; while(1){ mid = (low+high)/2; if(mid&amp;gt;x/mid){ high = mid-1; } else{ if((mid+1)&amp;gt;(x/(mid+1))){ return mid; } low = mid+1; } } } };  </description>
+    </item>
+    
+    <item>
+      <title>13. Roman to Integer</title>
+      <link>https://HauyuChen.github.io/post/013-roman-to-integer/</link>
+      <pubDate>Fri, 12 Aug 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://HauyuChen.github.io/post/013-roman-to-integer/</guid>
+      <description> 题目描述：  Given a roman numeral, convert it to an integer.
+Input is guaranteed to be within the range from 1 to 3999.
+ 我的思路：  这是一道将罗马数字转换成整数的题目。搞清楚罗马数字的表示特点即可。
+参见维基百科：罗马数字
+ 代码实现： class Solution { public: int romanToInt(string s) { unordered_map&amp;lt;char,int&amp;gt; hm; hm.insert(pair&amp;lt;char,int&amp;gt;(&#39;I&#39;,1)); hm.insert(pair&amp;lt;char,int&amp;gt;(&#39;V&#39;,5)); hm.insert(pair&amp;lt;char,int&amp;gt;(&#39;X&#39;,10)); hm.insert(pair&amp;lt;char,int&amp;gt;(&#39;L&#39;,50)); hm.insert(pair&amp;lt;char,int&amp;gt;(&#39;C&#39;,100)); hm.insert(pair&amp;lt;char,int&amp;gt;(&#39;D&#39;,500)); hm.insert(pair&amp;lt;char,int&amp;gt;(&#39;M&#39;,1000)); int sum=hm[s[s.size()-1]]; for(int i=s.size()-1;i&amp;gt;0;--i){ if(hm[s[i]]&amp;gt;hm[s[i-1]]){ sum-=hm[s[i-1]]; }else{ sum+=hm[s[i-1]]; } } return sum; } };  </description>
+    </item>
+    
+    <item>
+      <title>21. Merge Two Sorted Lists</title>
+      <link>https://HauyuChen.github.io/post/021-merge-two-sorted-lists/</link>
+      <pubDate>Fri, 12 Aug 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://HauyuChen.github.io/post/021-merge-two-sorted-lists/</guid>
+      <description>题目描述：  Merge two sorted linked lists and return it as a new list. The new list should be made by splicing together the nodes of the first two lists.
+ 我的思路：   通过一个指针newhead指示新的链表头部，比较链表l1和链表l2的第一个结点。 若l1的第一个节点比l2小，则将其尾插进新链表，移动指针l1-&amp;gt;next；若l2的第一个节点比l1小，同理。 递归得解。   代码实现： /** * Definition for singly-linked list. * struct ListNode { * int val; * ListNode *next; * ListNode(int x) : val(x), next(NULL) {} * }; */ class Solution { public: ListNode* mergeTwoLists(ListNode* l1, ListNode* l2) { if(l1==nullptr&amp;amp;&amp;amp;l2==nullptr) return nullptr; if(l1==nullptr || l2==nullptr) return (l1==nullptr)?</description>
+    </item>
+    
+    <item>
+      <title>53. Maximum Subarray</title>
+      <link>https://HauyuChen.github.io/post/053-maximum-subarray/</link>
+      <pubDate>Fri, 12 Aug 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://HauyuChen.github.io/post/053-maximum-subarray/</guid>
+      <description> 题目描述：  Find the contiguous subarray within an array (containing at least one number) which has the largest sum.
+For example, given the array [-2,1,-3,4,-1,2,1,-5,4], the contiguous subarray [4,-1,2,1] has the largest sum = 6.
+ 我的思路：  用sum保存连续序列之和，用max表示最大值，一次遍历即可，时间复杂度O(n)。
+ sum&amp;lt;0,则舍弃前面的数 sum&amp;gt;max,则更新最大值max   代码实现： int maxSubArray(int* nums, int numsSize) { int sum=0; int max=INT_MIN; for(int i=0;i&amp;lt;numsSize;i++){ sum+=nums[i]; if(sum&amp;gt;max){ max = sum; } if(sum&amp;lt;0){ sum = 0; } } return max; }  </description>
+    </item>
+    
+    <item>
       <title>1. Two Sum</title>
       <link>https://HauyuChen.github.io/post/001-two-sum/</link>
-      <pubDate>Thu, 29 Sep 2016 17:54:21 +0100</pubDate>
+      <pubDate>Thu, 11 Aug 2016 00:00:00 +0000</pubDate>
       
       <guid>https://HauyuChen.github.io/post/001-two-sum/</guid>
       <description>题目描述：  Given an array of integers, return indices of the two numbers such that they add up to a specific target.
@@ -23,6 +608,18 @@ You may assume that each input would have exactly one solution, and you may not 
 Example: Given nums = [2, 7, 11, 15], target = 9,
 Because nums[0] + nums[1] = 2 + 7 = 9, return [0, 1].
  我的思路：   先用map存储每个元素对应的原始下标，方便后续查找特定元素。 从头开始查找符合条件的结果，用target减去nums[i]，得到两数之差t，在map中寻找是否存在t且元素t的索引不等于i,若是则为最终结果，否则继续查找nums[i+1]。   代码实现： class Solution { public: vector&amp;lt;int&amp;gt; twoSum(vector&amp;lt;int&amp;gt;&amp;amp; nums, int target) { unordered_map&amp;lt;int,int&amp;gt; hm; for(int i=0;i&amp;lt;nums.</description>
+    </item>
+    
+    <item>
+      <title>8. String to Integer (atoi)</title>
+      <link>https://HauyuChen.github.io/post/008-string-to-integeratoi/</link>
+      <pubDate>Thu, 11 Aug 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://HauyuChen.github.io/post/008-string-to-integeratoi/</guid>
+      <description>题目描述：  Implement atoi to convert a string to an integer.
+Hint: Carefully consider all possible input cases. If you want a challenge, please do not see below and ask yourself what are the possible input cases.
+Notes: It is intended for this problem to be specified vaguely (ie, no given input specs). You are responsible to gather all the input requirements up front.
+Update (2015-02-10): The signature of the C++ function had been updated.</description>
     </item>
     
   </channel>

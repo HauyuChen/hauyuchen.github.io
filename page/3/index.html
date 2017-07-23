@@ -235,17 +235,29 @@
   
     <article>
   <header>
-    <h2><a href="https://HauyuChen.github.io/post/338-counting-bits/">338. Counting Bits</a></h2>
+    <h2><a href="https://HauyuChen.github.io/post/414-third-maximum-number/">414. Third Maximum Number</a></h2>
 
     <div class="post-meta">
 
   <div>
     <i class="fa fa-calendar fa-fw"></i>
-    <time>2017-04-29</time>
+    <time>2017-02-19</time>
   </div>
 
   
 
+  
+  
+  
+  <div>
+    <i class="fa fa-folder fa-fw"></i>
+    
+      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/%E7%AE%97%E6%B3%95">算法</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/leetcode">LeetCode</a>
+    
+  </div>
+  
   
 
   
@@ -265,14 +277,17 @@
   </header>
 
   <p>
-  题目描述：  Given a non negative integer number num. For every numbers i in the range 0 ≤ i ≤ num calculate the number of 1&rsquo;s in their binary representation and return them as an array.
-Example: For num = 5 you should return [0,1,1,2,1,2].
-Follow up: It is very easy to come up with a solution with run time O(n*sizeof(integer)). But can you do it in linear time O(n) /possibly in a single pass?
+  题目描述：  Given a non-empty array of integers, return the third maximum number in this array. If it does not exist, return the maximum number. The time complexity must be in O(n).
+Example 1: Input: [3, 2, 1] Output: 1
+Explanation: The third maximum is 1.
+Example 2: Input: [1, 2] Output: 2
+Explanation: The third maximum does not exist, so the maximum (2) is returned instead.
+Example 3: Input: [2, 2, 3, 1] Output: 1
   </p>
 
   
   <footer>
-    <a href="https://HauyuChen.github.io/post/338-counting-bits/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
+    <a href="https://HauyuChen.github.io/post/414-third-maximum-number/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
   </footer>
   
 </article>
@@ -280,17 +295,29 @@ Follow up: It is very easy to come up with a solution with run time O(n*sizeof(i
   
     <article>
   <header>
-    <h2><a href="https://HauyuChen.github.io/post/344-reverse-string/">344. Reverse String</a></h2>
+    <h2><a href="https://HauyuChen.github.io/post/415-add-strings/">415. Add Strings</a></h2>
 
     <div class="post-meta">
 
   <div>
     <i class="fa fa-calendar fa-fw"></i>
-    <time>2017-04-29</time>
+    <time>2017-02-19</time>
   </div>
 
   
 
+  
+  
+  
+  <div>
+    <i class="fa fa-folder fa-fw"></i>
+    
+      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/%E7%AE%97%E6%B3%95">算法</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/leetcode">LeetCode</a>
+    
+  </div>
+  
   
 
   
@@ -310,97 +337,14 @@ Follow up: It is very easy to come up with a solution with run time O(n*sizeof(i
   </header>
 
   <p>
-   题目描述：  Write a function that takes a string as input and returns the string reversed.
-Example: Given s = &ldquo;hello&rdquo;, return &ldquo;olleh&rdquo;.
- 代码实现： class Solution { public: string reverseString(string s) { reverse(s.begin(),s.end()); return s; } };  
-  </p>
-
-  
-</article>
-
-  
-    <article>
-  <header>
-    <h2><a href="https://HauyuChen.github.io/post/349-intersection-of-two-arrays/">349. Intersection of Two Arrays</a></h2>
-
-    <div class="post-meta">
-
-  <div>
-    <i class="fa fa-calendar fa-fw"></i>
-    <time>2017-04-29</time>
-  </div>
-
-  
-
-  
-
-  
-  
-  
-  <div>
-    <i class="fa fa-tags fa-fw"></i>
-    
-      <a class="post-taxonomy-tag" href="https://HauyuChen.github.io/tags/leetcode">LeetCode</a>
-    
-  </div>
-  
-  
-
-</div>
-
-  </header>
-
-  <p>
-   题目描述：  Given two arrays, write a function to compute their intersection.
-Example: Given nums1 = [1, 2, 2, 1], nums2 = [2, 2], return [2].
-Note: Each element in the result must be unique. The result can be in any order.
- 代码实现： class Solution { public: vector&lt;int&gt; intersection(vector&lt;int&gt;&amp; nums1, vector&lt;int&gt;&amp; nums2) { unordered_set&lt;int&gt; s; vector&lt;int&gt; ret; for(int num1:nums1){ if(s.count(num1)==0){ s.insert(num1); } } for(int num2:nums2){ if(s.count(num2)){ ret.push_back(num2); s.erase(num2); } } return ret; } };  
-  </p>
-
-  
-</article>
-
-  
-    <article>
-  <header>
-    <h2><a href="https://HauyuChen.github.io/post/350-intersection-of-two-arrays-ii/">350. Intersection of Two Arrays II</a></h2>
-
-    <div class="post-meta">
-
-  <div>
-    <i class="fa fa-calendar fa-fw"></i>
-    <time>2017-04-29</time>
-  </div>
-
-  
-
-  
-
-  
-  
-  
-  <div>
-    <i class="fa fa-tags fa-fw"></i>
-    
-      <a class="post-taxonomy-tag" href="https://HauyuChen.github.io/tags/leetcode">LeetCode</a>
-    
-  </div>
-  
-  
-
-</div>
-
-  </header>
-
-  <p>
-  题目描述：  Given two arrays, write a function to compute their intersection.
-Example: Given nums1 = [1, 2, 2, 1], nums2 = [2, 2], return [2, 2].
-Note: Each element in the result should appear as many times as it shows in both arrays. The result can be in any order. Follow up: What if the given array is already sorted? How would you optimize your algorithm? What if nums1&rsquo;s size is small compared to nums2&rsquo;s size?
+  题目描述：  Given two non-negative integers num1 and num2 represented as string, return the sum of num1 and num2.
+Note: The length of both num1 and num2 is &lt; 5100. Both num1 and num2 contains only digits 0-9. Both num1 and num2 does not contain any leading zero. You must not use any built-in BigInteger library or convert the inputs to integer directly.
+ 代码实现： class Solution { public: string addStrings(string num1, string num2) { string str; int index1=num1.
   </p>
 
   
   <footer>
-    <a href="https://HauyuChen.github.io/post/350-intersection-of-two-arrays-ii/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
+    <a href="https://HauyuChen.github.io/post/415-add-strings/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
   </footer>
   
 </article>
@@ -408,17 +352,29 @@ Note: Each element in the result should appear as many times as it shows in both
   
     <article>
   <header>
-    <h2><a href="https://HauyuChen.github.io/post/371-sum-of-two-integers/">371. Sum of Two Integers</a></h2>
+    <h2><a href="https://HauyuChen.github.io/post/412-fizz-buzz/">412. Fizz Buzz</a></h2>
 
     <div class="post-meta">
 
   <div>
     <i class="fa fa-calendar fa-fw"></i>
-    <time>2017-04-29</time>
+    <time>2017-02-18</time>
   </div>
 
   
 
+  
+  
+  
+  <div>
+    <i class="fa fa-folder fa-fw"></i>
+    
+      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/%E7%AE%97%E6%B3%95">算法</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/leetcode">LeetCode</a>
+    
+  </div>
+  
   
 
   
@@ -438,11 +394,136 @@ Note: Each element in the result should appear as many times as it shows in both
   </header>
 
   <p>
-   题目描述：  Calculate the sum of two integers a and b, but you are not allowed to use the operator + and -.
-Example: Given a = 1 and b = 2, return 3.
- 代码实现： class Solution { public: int getSum(int a, int b) { return b==0?a:getSum(a^b,(a&amp;b)&lt;&lt;1); } };  
+  题目描述：  Write a program that outputs the string representation of numbers from 1 to n.
+But for multiples of three it should output “Fizz” instead of the number and for the multiples of five output “Buzz”. For numbers which are multiples of both three and five output “FizzBuzz”.
+Example:
+n = 15,
+Return: [ &ldquo;1&rdquo;, &ldquo;2&rdquo;, &ldquo;Fizz&rdquo;, &ldquo;4&rdquo;, &ldquo;Buzz&rdquo;, &ldquo;Fizz&rdquo;, &ldquo;7&rdquo;, &ldquo;8&rdquo;, &ldquo;Fizz&rdquo;, &ldquo;Buzz&rdquo;, &ldquo;11&rdquo;, &ldquo;Fizz&rdquo;, &ldquo;13&rdquo;, &ldquo;14&rdquo;, &ldquo;FizzBuzz&rdquo; ]
   </p>
 
+  
+  <footer>
+    <a href="https://HauyuChen.github.io/post/412-fizz-buzz/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
+  </footer>
+  
+</article>
+
+  
+    <article>
+  <header>
+    <h2><a href="https://HauyuChen.github.io/post/409-longest-palindrome/">409. Longest Palindrome</a></h2>
+
+    <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>2017-02-17</time>
+  </div>
+
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-folder fa-fw"></i>
+    
+      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/%E7%AE%97%E6%B3%95">算法</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/leetcode">LeetCode</a>
+    
+  </div>
+  
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-taxonomy-tag" href="https://HauyuChen.github.io/tags/leetcode">LeetCode</a>
+    
+  </div>
+  
+  
+
+</div>
+
+  </header>
+
+  <p>
+  题目描述：  Given a string which consists of lowercase or uppercase letters, find the length of the longest palindromes that can be built with those letters.
+This is case sensitive, for example &ldquo;Aa&rdquo; is not considered a palindrome here.
+Note: Assume the length of given string will not exceed 1,010.
+Example:
+Input: &ldquo;abccccdd&rdquo;
+Output: 7
+Explanation: One longest palindrome that can be built is &ldquo;dccaccd&rdquo;, whose length is 7.
+  </p>
+
+  
+  <footer>
+    <a href="https://HauyuChen.github.io/post/409-longest-palindrome/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
+  </footer>
+  
+</article>
+
+  
+    <article>
+  <header>
+    <h2><a href="https://HauyuChen.github.io/post/401-binary-watch/">401. Binary Watch</a></h2>
+
+    <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>2017-02-16</time>
+  </div>
+
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-folder fa-fw"></i>
+    
+      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/%E7%AE%97%E6%B3%95">算法</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/leetcode">LeetCode</a>
+    
+  </div>
+  
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-taxonomy-tag" href="https://HauyuChen.github.io/tags/leetcode">LeetCode</a>
+    
+  </div>
+  
+  
+
+</div>
+
+  </header>
+
+  <p>
+  题目描述：  A binary watch has 4 LEDs on the top which represent the hours (0-11), and the 6 LEDs on the bottom represent the minutes (0-59).
+Each LED represents a zero or one, with the least significant bit on the right.
+For example, the above binary watch reads &ldquo;3:25&rdquo;.
+Given a non-negative integer n which represents the number of LEDs that are currently on, return all possible times the watch could represent.
+  </p>
+
+  
+  <footer>
+    <a href="https://HauyuChen.github.io/post/401-binary-watch/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
+  </footer>
   
 </article>
 
