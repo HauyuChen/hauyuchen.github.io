@@ -235,6 +235,65 @@
   
     <article>
   <header>
+    <h2><a href="https://HauyuChen.github.io/post/485-max-consecutive-ones/">485. Max Consecutive Ones</a></h2>
+
+    <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>2017-03-18</time>
+  </div>
+
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-folder fa-fw"></i>
+    
+      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/%E7%AE%97%E6%B3%95">算法</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/leetcode">LeetCode</a>
+    
+  </div>
+  
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-taxonomy-tag" href="https://HauyuChen.github.io/tags/leetcode">LeetCode</a>
+    
+  </div>
+  
+  
+
+</div>
+
+  </header>
+
+  <p>
+  题目描述：  Given a binary array, find the maximum number of consecutive 1s in this array.
+Example 1: Input: [1,1,0,1,1,1] Output: 3
+Explanation: The first two digits or the last three digits are consecutive 1s. The maximum number of consecutive 1s is 3.
+Note: The input array will only contain 0 and 1. The length of input array is a positive integer and will not exceed 10,000
+ 代码实现： class Solution { public: int findMaxConsecutiveOnes(vector&lt;int&gt;&amp; nums) { int cnt=0,max=0; for(int num:nums){ if(num==1){ cnt++; }else{ cnt=0; } max = max&gt;cnt?
+  </p>
+
+  
+  <footer>
+    <a href="https://HauyuChen.github.io/post/485-max-consecutive-ones/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
+  </footer>
+  
+</article>
+
+  
+    <article>
+  <header>
     <h2><a href="https://HauyuChen.github.io/post/476-number-complement/">476. Number Complement</a></h2>
 
     <div class="post-meta">
@@ -463,66 +522,6 @@ Explanation:
 </article>
 
   
-    <article>
-  <header>
-    <h2><a href="https://HauyuChen.github.io/post/453-minimum-moves-to-equal-array-elements/">453. Minimum Moves to Equal Array Elements</a></h2>
-
-    <div class="post-meta">
-
-  <div>
-    <i class="fa fa-calendar fa-fw"></i>
-    <time>2017-03-15</time>
-  </div>
-
-  
-
-  
-  
-  
-  <div>
-    <i class="fa fa-folder fa-fw"></i>
-    
-      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/%E7%AE%97%E6%B3%95">算法</a>&nbsp;&#47;
-    
-      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/leetcode">LeetCode</a>
-    
-  </div>
-  
-  
-
-  
-  
-  
-  <div>
-    <i class="fa fa-tags fa-fw"></i>
-    
-      <a class="post-taxonomy-tag" href="https://HauyuChen.github.io/tags/leetcode">LeetCode</a>
-    
-  </div>
-  
-  
-
-</div>
-
-  </header>
-
-  <p>
-  题目描述：  Given a non-empty integer array of size n, find the minimum number of moves required to make all array elements equal, where a move is incrementing n - 1 elements by 1.
-Example:
-Input: [1,2,3]
-Output: 3
-Explanation: Only three moves are needed (remember each move increments two elements): [1,2,3] =&gt; [2,3,3] =&gt; [3,4,3] =&gt; [4,4,4]
- 代码实现： class Solution { public: int minMoves(vector&lt;int&gt;&amp; nums) { int min=INT_MAX; int sum=0; for(int num:nums){ min=min&lt;num?
-  </p>
-
-  
-  <footer>
-    <a href="https://HauyuChen.github.io/post/453-minimum-moves-to-equal-array-elements/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
-  </footer>
-  
-</article>
-
-  
 
   
 
@@ -531,7 +530,7 @@ Explanation: Only three moves are needed (remember each move increments two elem
   
   <a href="https://HauyuChen.github.io/"><i class="fa fa-chevron-left"></i></a>
   
-  <span>&nbsp;2 / 11&nbsp;</span>
+  <span>&nbsp;2 / 12&nbsp;</span>
   
   <a href="https://HauyuChen.github.io/page/3/"><i class="fa fa-chevron-right"></i></a>
   

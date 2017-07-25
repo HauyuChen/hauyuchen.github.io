@@ -30,6 +30,17 @@
     </item>
     
     <item>
+      <title>506. Relative Ranks</title>
+      <link>https://HauyuChen.github.io/post/506-relative-ranks/</link>
+      <pubDate>Tue, 21 Mar 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://HauyuChen.github.io/post/506-relative-ranks/</guid>
+      <description>题目描述：  Given scores of N athletes, find their relative ranks and the people with the top three highest scores, who will be awarded medals: &amp;ldquo;Gold Medal&amp;rdquo;, &amp;ldquo;Silver Medal&amp;rdquo; and &amp;ldquo;Bronze Medal&amp;rdquo;.
+Example 1: Input: [5, 4, 3, 2, 1] Output: [&amp;ldquo;Gold Medal&amp;rdquo;, &amp;ldquo;Silver Medal&amp;rdquo;, &amp;ldquo;Bronze Medal&amp;rdquo;, &amp;ldquo;4&amp;rdquo;, &amp;ldquo;5&amp;rdquo;]
+Explanation: The first three athletes got the top three highest scores, so they got &amp;ldquo;Gold Medal&amp;rdquo;, &amp;ldquo;Silver Medal&amp;rdquo; and &amp;ldquo;Bronze Medal&amp;rdquo;.</description>
+    </item>
+    
+    <item>
       <title>496. Next Greater Element I</title>
       <link>https://HauyuChen.github.io/post/496-next-greater-element-i/</link>
       <pubDate>Mon, 20 Mar 2017 00:00:00 +0000</pubDate>
