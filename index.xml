@@ -7,10 +7,21 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2017. All rights reserved.</copyright>
-    <lastBuildDate>Sat, 01 Apr 2017 17:54:21 +0800</lastBuildDate>
+    <lastBuildDate>Sat, 15 Jul 2017 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://HauyuChen.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>520. Detect Capital</title>
+      <link>https://HauyuChen.github.io/post/520-detect-capital/</link>
+      <pubDate>Sat, 15 Jul 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://HauyuChen.github.io/post/520-detect-capital/</guid>
+      <description>题目描述：  Given a word, you need to judge whether the usage of capitals in it is right or not.
+We define the usage of capitals in a word to be right when one of the following cases holds:
+All letters in this word are capitals, like &amp;ldquo;USA&amp;rdquo;. All letters in this word are not capitals, like &amp;ldquo;leetcode&amp;rdquo;. Only the first letter in this word is capital if it has more than one letter, like &amp;ldquo;Google&amp;rdquo;.</description>
+    </item>
     
     <item>
       <title>Eclipse常用快捷键</title>
@@ -698,13 +709,16 @@ Zhihu</description>
     <item>
       <title>About</title>
       <link>https://HauyuChen.github.io/about/</link>
-      <pubDate>Sun, 03 Jan 2016 13:12:48 +0000</pubDate>
+      <pubDate>Wed, 01 Jun 2016 00:00:00 +0000</pubDate>
       
       <guid>https://HauyuChen.github.io/about/</guid>
-      <description>About me Hi there!
-My name is Yoshiharu Yamashita, Yoshi for short.
-I am originally from Japan but in 2001 I made one of the biggest decisions in my life and came to England to do a university degree course.
-Being so far from home was not easy to begin with but life in England has turned out to be better than I could ever have imagined when I made that decision.</description>
+      <description>关于我 我是陈浩宇，在读计算机专业学生，现居于广东。
+微信：893769393
+邮箱：Hauyu.Chen@Gmail.com
+
+关于本站 此博客主要记录一些个人学习笔记、技能要点。
+输出即获得，分享即反哺。
+希望对您也有所帮助。</description>
     </item>
     
   </channel>

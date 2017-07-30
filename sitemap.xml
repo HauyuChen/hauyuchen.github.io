@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://HauyuChen.github.io/post/520-detect-capital/</loc>
+    <lastmod>2017-07-15T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://HauyuChen.github.io/post/eclipse%E5%BF%AB%E6%8D%B7%E9%94%AE/</loc>
     <lastmod>2017-04-01T17:54:21+08:00</lastmod>
   </url>
@@ -294,7 +299,7 @@
   
   <url>
     <loc>https://HauyuChen.github.io/about/</loc>
-    <lastmod>2016-01-03T13:12:48+00:00</lastmod>
+    <lastmod>2016-06-01T00:00:00+00:00</lastmod>
   </url>
   
   <url>
@@ -305,7 +310,7 @@
   
   <url>
     <loc>https://HauyuChen.github.io/</loc>
-    <lastmod>2017-04-01T17:54:21+08:00</lastmod>
+    <lastmod>2017-07-15T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -317,13 +322,13 @@
   
   <url>
     <loc>https://HauyuChen.github.io/topics/leetcode/</loc>
-    <lastmod>2017-03-21T00:00:00+00:00</lastmod>
+    <lastmod>2017-07-15T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://HauyuChen.github.io/post/</loc>
-    <lastmod>2017-04-01T17:54:21+08:00</lastmod>
+    <lastmod>2017-07-15T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -353,7 +358,7 @@
   
   <url>
     <loc>https://HauyuChen.github.io/topics/%E7%AE%97%E6%B3%95/</loc>
-    <lastmod>2017-03-21T00:00:00+00:00</lastmod>
+    <lastmod>2017-07-15T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
