@@ -7,15 +7,15 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2017. All rights reserved.</copyright>
-    <lastBuildDate>Thu, 29 Jun 2017 17:54:21 +0100</lastBuildDate>
+    <lastBuildDate>Tue, 18 Jul 2017 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://HauyuChen.github.io/topics/string/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>String相关特性</title>
+      <title>String相关特性（不定时更新）</title>
       <link>https://HauyuChen.github.io/post/java-string/</link>
-      <pubDate>Thu, 29 Jun 2017 17:54:21 +0100</pubDate>
+      <pubDate>Tue, 18 Jul 2017 00:00:00 +0000</pubDate>
       
       <guid>https://HauyuChen.github.io/post/java-string/</guid>
       <description>声明：本文是我对Java中String的特性的一些笔记，描述较为简练，有误之处还望指正。

@@ -235,6 +235,63 @@
   
     <article>
   <header>
+    <h2><a href="https://HauyuChen.github.io/post/167-two-sum-ii-input-array-is-sorted/">167. Two Sum II - Input array is sorted</a></h2>
+
+    <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>2016-08-20</time>
+  </div>
+
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-folder fa-fw"></i>
+    
+      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/%E7%AE%97%E6%B3%95">算法</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/leetcode">LeetCode</a>
+    
+  </div>
+  
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-taxonomy-tag" href="https://HauyuChen.github.io/tags/leetcode">LeetCode</a>
+    
+  </div>
+  
+  
+
+</div>
+
+  </header>
+
+  <p>
+  题目描述：  Given an array of integers that is already sorted in ascending order, find two numbers such that they add up to a specific target number.
+The function twoSum should return indices of the two numbers such that they add up to the target, where index1 must be less than index2. Please note that your returned answers (both index1 and index2) are not zero-based.
+You may assume that each input would have exactly one solution and you may not use the same element twice.
+  </p>
+
+  
+  <footer>
+    <a href="https://HauyuChen.github.io/post/167-two-sum-ii-input-array-is-sorted/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
+  </footer>
+  
+</article>
+
+  
+    <article>
+  <header>
     <h2><a href="https://HauyuChen.github.io/post/169-majority-element/">169. Majority Element</a></h2>
 
     <div class="post-meta">
@@ -449,63 +506,6 @@ Note: Your algorithm should have a linear runtime complexity. Could you implemen
  代码实现： class Solution { public: int singleNumber(vector&lt;int&gt;&amp; nums) { int ret = 0; for(int num:nums){ ret^=num; } return ret; } };  
   </p>
 
-  
-</article>
-
-  
-    <article>
-  <header>
-    <h2><a href="https://HauyuChen.github.io/post/104-maximum-depth-of-binary-tree/">104. Maximum Depth of Binary Tree</a></h2>
-
-    <div class="post-meta">
-
-  <div>
-    <i class="fa fa-calendar fa-fw"></i>
-    <time>2016-08-15</time>
-  </div>
-
-  
-
-  
-  
-  
-  <div>
-    <i class="fa fa-folder fa-fw"></i>
-    
-      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/%E7%AE%97%E6%B3%95">算法</a>&nbsp;&#47;
-    
-      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/leetcode">LeetCode</a>
-    
-  </div>
-  
-  
-
-  
-  
-  
-  <div>
-    <i class="fa fa-tags fa-fw"></i>
-    
-      <a class="post-taxonomy-tag" href="https://HauyuChen.github.io/tags/leetcode">LeetCode</a>
-    
-  </div>
-  
-  
-
-</div>
-
-  </header>
-
-  <p>
-  题目描述：  Given a binary tree, find its maximum depth.
-The maximum depth is the number of nodes along the longest path from the root node down to the farthest leaf node.
- 代码实现： /** * Definition for binary tree * struct TreeNode { * int val; * TreeNode *left; * TreeNode *right; * TreeNode(int x) : val(x), left(NULL), right(NULL) {} * }; */ class Solution { public: int maxDepth(TreeNode *root) { int Ldepth=0,Rdepth=0; if(root==NULL){ return 0; } if(root-&gt;left==NULL &amp;&amp; root-&gt;right==NULL){ return 1; } Ldepth=maxDepth(root-&gt;left); Rdepth=maxDepth(root-&gt;right); return 1+(Ldepth&gt;Rdepth?
-  </p>
-
-  
-  <footer>
-    <a href="https://HauyuChen.github.io/post/104-maximum-depth-of-binary-tree/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
-  </footer>
   
 </article>
 
