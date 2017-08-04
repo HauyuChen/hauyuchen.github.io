@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Json on Hov&#39;s Blog</title>
+    <link>https://HauyuChen.github.io/topics/json/</link>
+    <description>Recent content in Json on Hov&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>&amp;copy; 2017. All rights reserved.</copyright>
+    <lastBuildDate>Tue, 01 Aug 2017 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://HauyuChen.github.io/topics/json/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>JSON相关操作（Java）</title>
+      <link>https://HauyuChen.github.io/post/1java-json/</link>
+      <pubDate>Tue, 01 Aug 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://HauyuChen.github.io/post/1java-json/</guid>
+      <description>Java中创建JSON import com.google.gson.JsonArray; import com.google.gson.JsonObject; public class CreateJSON { public static void main(String[] args) { JsonObject object = new JsonObject(); object.addProperty(&amp;quot;cat&amp;quot;, &amp;quot;it&amp;quot;); JsonArray array = new JsonArray(); JsonObject lan1 = new JsonObject(); lan1.addProperty(&amp;quot;id&amp;quot;, 1); lan1.addProperty(&amp;quot;name&amp;quot;, &amp;quot;Java&amp;quot;); lan1.addProperty(&amp;quot;ide&amp;quot;, &amp;quot;Eclipse&amp;quot;); array.add(lan1); JsonObject lan2 = new JsonObject(); lan2.addProperty(&amp;quot;id&amp;quot;, 2); lan2.addProperty(&amp;quot;name&amp;quot;, &amp;quot;Swift&amp;quot;); lan2.addProperty(&amp;quot;ide&amp;quot;, &amp;quot;XCode&amp;quot;); array.add(lan2); JsonObject lan3 = new JsonObject(); lan3.addProperty(&amp;quot;id&amp;quot;, 3); lan3.addProperty(&amp;quot;name&amp;quot;, &amp;quot;C#&amp;quot;); lan3.addProperty(&amp;quot;ide&amp;quot;, &amp;quot;Visual Studio&amp;quot;); array.add(lan3); object.add(&amp;quot;languages&amp;quot;, array); object.addProperty(&amp;quot;pop&amp;quot;, true); System.out.println(object.toString()); } }  将Console输出的文本保存成test.</description>
+    </item>
+    
+  </channel>
+</rss>

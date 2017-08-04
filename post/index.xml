@@ -7,10 +7,70 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2017. All rights reserved.</copyright>
-    <lastBuildDate>Tue, 18 Jul 2017 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 01 Aug 2017 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://HauyuChen.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>JSON相关操作（Java）</title>
+      <link>https://HauyuChen.github.io/post/1java-json/</link>
+      <pubDate>Tue, 01 Aug 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://HauyuChen.github.io/post/1java-json/</guid>
+      <description>Java中创建JSON import com.google.gson.JsonArray; import com.google.gson.JsonObject; public class CreateJSON { public static void main(String[] args) { JsonObject object = new JsonObject(); object.addProperty(&amp;quot;cat&amp;quot;, &amp;quot;it&amp;quot;); JsonArray array = new JsonArray(); JsonObject lan1 = new JsonObject(); lan1.addProperty(&amp;quot;id&amp;quot;, 1); lan1.addProperty(&amp;quot;name&amp;quot;, &amp;quot;Java&amp;quot;); lan1.addProperty(&amp;quot;ide&amp;quot;, &amp;quot;Eclipse&amp;quot;); array.add(lan1); JsonObject lan2 = new JsonObject(); lan2.addProperty(&amp;quot;id&amp;quot;, 2); lan2.addProperty(&amp;quot;name&amp;quot;, &amp;quot;Swift&amp;quot;); lan2.addProperty(&amp;quot;ide&amp;quot;, &amp;quot;XCode&amp;quot;); array.add(lan2); JsonObject lan3 = new JsonObject(); lan3.addProperty(&amp;quot;id&amp;quot;, 3); lan3.addProperty(&amp;quot;name&amp;quot;, &amp;quot;C#&amp;quot;); lan3.addProperty(&amp;quot;ide&amp;quot;, &amp;quot;Visual Studio&amp;quot;); array.add(lan3); object.add(&amp;quot;languages&amp;quot;, array); object.addProperty(&amp;quot;pop&amp;quot;, true); System.out.println(object.toString()); } }  将Console输出的文本保存成test.</description>
+    </item>
+    
+    <item>
+      <title>XML相关操作（Java）</title>
+      <link>https://HauyuChen.github.io/post/1java-xml/</link>
+      <pubDate>Tue, 01 Aug 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://HauyuChen.github.io/post/1java-xml/</guid>
+      <description>XML文件创建示例 import java.io.File; import java.io.StringWriter; import javax.xml.parsers.DocumentBuilder; import javax.xml.parsers.DocumentBuilderFactory; import javax.xml.parsers.ParserConfigurationException; import javax.xml.transform.Transformer; import javax.xml.transform.TransformerConfigurationException; import javax.xml.transform.TransformerException; import javax.xml.transform.TransformerFactory; import javax.xml.transform.dom.DOMSource; import javax.xml.transform.stream.StreamResult; import org.w3c.dom.Document; import org.w3c.dom.Element; public class CreateXML { public static void main(String[] args) { try { //DOM DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance(); DocumentBuilder builder = factory.newDocumentBuilder(); Document document = builder.newDocument(); //创建Languages标签 Element root = document.createElement(&amp;quot;Languages&amp;quot;); root.setAttribute(&amp;quot;cat&amp;quot;, &amp;quot;it&amp;quot;); //设置Languages标签的属性 //-----接下来创建Languages标签下的三个子标签lan1、lan2、lan3 //lan1 Element lan1 = document.createElement(&amp;quot;lan&amp;quot;); //lan标签 lan1.setAttribute(&amp;quot;id&amp;quot;, &amp;quot;1&amp;quot;); Element name1 = document.</description>
+    </item>
+    
+    <item>
+      <title>【机器学习系列】2. 梯度下降法</title>
+      <link>https://HauyuChen.github.io/post/gradientdescent/</link>
+      <pubDate>Wed, 26 Jul 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://HauyuChen.github.io/post/gradientdescent/</guid>
+      <description>作者注：机器学习系列是本人在学习机器学习相关内容时产生的笔记，希望也能对您有所帮助。值得注意的是，作者作为初学者，表述难免有误或不全面，望多批评指正。 如有任何问题，欢迎您随时与我联系：Hauyu.Chen@Gmail.com
+版权声明：本文由 Hov 所有，发布于 http://hov.space/ ，转载请注明出处。
+
+0 前言 上一篇讲到了线性回归，提到了代价函数（Cost Function）的概念，我们知道我们的目标是找到合适的 θ0、θ1 使得代价函数 J(θ0,θ1) 最小。 但是，若漫无目的地设定 θ0、θ1 的值， J(θ0,θ1) 可能会有无数的结果。 那我们要怎么更快地找到 J(θ0,θ1) 的最小值呢？ 本文将介绍一种重要的优化算法，Gradient Descent（梯度下降法）。
+
+1 什么是梯度？ 在讲解梯度下降法之前，我们必须先了解梯度的概念。 梯度是高等数学中的概念，梯度的指向即为函数增长最快的方向。同理，梯度的反方向即为函数下降最快的方向。 现在你知道为什么梯度下降法是优化算法了吧？它能使我们的代价函数下降的最快！
+
+2 原理 下图为代价函数的三维图形，分别以 θ0、θ1 为 X、Y 轴，以 J(θ0,θ1) 为 Z 轴。求解代价函数最小值的过程可看作是寻找“一座座山坡”中的最低点，因为在“山底”时 J(θ0,θ1)最小。
+假定我们随机站在某个山坡上，每次往某个方向向下走一步，怎么走才能最快到山底？这也就是梯度下降法所要解决的，沿着梯度方向最小化 J(θ0,θ1) 。
+ 确定向下一步的步伐大小，称之为 Learning Rate ； 任取 θ0,θ1 （随机站在某个山坡）； 沿着梯度的反方向，走一个步伐大小，更新 θ0、θ1 ，此时 J(θ0,θ1) 变小； 重复步骤3，当下降的高度小于某个定义的值（已经到山底），则停止下降。  
+3 算法  优化目标：J(θ0,θ1)
+ 优化参数：θ0、θ1</description>
+    </item>
+    
+    <item>
+      <title>【机器学习系列】1. 线性回归（单变量）</title>
+      <link>https://HauyuChen.github.io/post/linearregression-onevariables/</link>
+      <pubDate>Fri, 21 Jul 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://HauyuChen.github.io/post/linearregression-onevariables/</guid>
+      <description>作者注：机器学习系列是本人在学习机器学习相关内容时产生的笔记，希望也能对您有所帮助。值得注意的是，作者作为初学者，表述难免有误或不全面，望多批评指正。 如有任何问题，欢迎您随时与我联系：Hauyu.Chen@Gmail.com
+版权声明：本文由 Hov 所有，发布于 http://hov.space/ ，转载请注明出处。
+
+0 前言 上一篇提到了监督学习的概念，本文要讲的线性回归就属于监督学习。 本文通过单变量线性回归讲述线性回归思想。值得注意的是，特征x并非只能是一个，也可以有x1、x2、x3···，这就是多特征的问题了（后续会提到）。事实上，单特征和多特征的思想是一样的，本文讨论单特征（只有一个特征x）的情形。
+
+1 要点 1.1 单变量线性回归模型 上述公式（线性函数）为一个最简单的线性回归模型，hθ(x)为我们的假设函数，x是训练集中给的数据，θ0、θ1为未知参数，我们需要计算出合适的θ0、θ1的值。
+1.2 Cost Function（代价函数） 上述公式为代价函数的定义，hθ(x)是预测值，x(i)是训练集中第i组数据中的特征，y(i)是训练集中第i组数据中的结果，J(θ0,θ1)表示的是预测值与实际值的误差（方差），误差当然越小越好，所以我们的目标就是最小化Cost Function，即找出合适的θ0、 θ1使得J(θ0,θ1)最小，这样说明数据拟合得最好。
+
+2 思路 我们来引入一个场景，我们想实现房价的预测。
+ 房价取决于多方面的因素：面积、地段、楼层等等。为方便讨论，我们先不考虑多变量的情况，只考虑单变量。也就是在地段、楼层等因素一致的情况下，面积(x)对房价(y)的影响。 房价预测问题其实就是找出面积x和房价y的关系 hθ(x) = θ0 + θ1*x，即根据面积(x)去预测房价(y)。 所以问题的核心是找出合适的θ0、θ1，使得我们的预测 hθ(x) = θ0 + θ1*x 是合理的。 衡量 θ0、θ1 是否合适的标准就是代价函数J(θ0,θ1)，θ0、θ1应使得J(θ0,θ1)尽可能小。  假定我们已经有了一个训练集，里面包含面积x和对应的房价y。以横轴表示面积x，以竖轴表示房价y，根据训练集可绘制图形如下：
+注：图示并非真实数据，只作参考。
+线性回归要做的就是通过训练，找出面积x与房价y之间对应的关系（线性函数），通过训练，我们可以得出一条表示 hθ(x) 的直线，这就是我们的预测。
+
+3 结语 现在我们应该知道线性回归的思想了，就是通过训练集去计算出假设函数，通过假设函数可以实现对结果的预测。 假设函数最关键的就是找出未知参数 θ0、θ1 ，因为这两个未知参数决定我们预测是否准确。 未知参数 θ0、θ1 的选择通过代价函数 J(θ0,θ1) 来评定，我们要让 J(θ0,θ1) 尽可能小。 那我们怎么计算 θ0、θ1 的值呢？ 下篇将引入“梯度下降”的方法，通过此方法可更快地计算出 θ0、θ1 的值。</description>
+    </item>
     
     <item>
       <title>String相关特性（不定时更新）</title>
@@ -34,7 +94,7 @@ String str = &amp;quot;hello&amp;quot;; str = str + &amp;quot;world!&amp;quot;; 
     </item>
     
     <item>
-      <title>521. Longest Uncommon Subsequence I</title>
+      <title>【LeetCode】521. Longest Uncommon Subsequence I</title>
       <link>https://HauyuChen.github.io/post/521-longest-uncommon-subsequence-i/</link>
       <pubDate>Sun, 16 Jul 2017 00:00:00 +0000</pubDate>
       
@@ -44,7 +104,7 @@ A subsequence is a sequence that can be derived from one sequence by deleting so
     </item>
     
     <item>
-      <title>520. Detect Capital</title>
+      <title>【LeetCode】520. Detect Capital</title>
       <link>https://HauyuChen.github.io/post/520-detect-capital/</link>
       <pubDate>Sat, 15 Jul 2017 00:00:00 +0000</pubDate>
       
@@ -52,6 +112,24 @@ A subsequence is a sequence that can be derived from one sequence by deleting so
       <description>题目描述：  Given a word, you need to judge whether the usage of capitals in it is right or not.
 We define the usage of capitals in a word to be right when one of the following cases holds:
 All letters in this word are capitals, like &amp;ldquo;USA&amp;rdquo;. All letters in this word are not capitals, like &amp;ldquo;leetcode&amp;rdquo;. Only the first letter in this word is capital if it has more than one letter, like &amp;ldquo;Google&amp;rdquo;.</description>
+    </item>
+    
+    <item>
+      <title>【机器学习系列】0. 什么是机器学习</title>
+      <link>https://HauyuChen.github.io/post/machinelearning-introduction/</link>
+      <pubDate>Tue, 11 Jul 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://HauyuChen.github.io/post/machinelearning-introduction/</guid>
+      <description>作者注：机器学习系列是本人在学习机器学习相关内容时产生的笔记，希望也能对您有所帮助。值得注意的是，作者作为初学者，表述难免有误或不全面，望多批评指正。 如有任何问题，欢迎您随时与我联系：Hauyu.Chen@Gmail.com
+版权声明：本文由 Hov 所有，发布于 http://hov.space/ ，转载请注明出处。
+
+0 前言 AI 时代，作为计算机专业的学生，不了解点 AI 相关的知识似乎有点说不过去，尤其是机器学习。 我们一直在说机器学习，但是我们怎么理解机器学习？机器学习解决了什么问题？我们如何将机器学习应用到现实生活中的问题呢？ 本文是机器学习系列的开篇，给出了机器学习的经典定义，并介绍监督学习和无监督学习这两个重要的分支，后续将逐步深入。
+
+1 机器学习的定义 Tom Mitchell 给出了一个关于机器学习的定义，这也是一个被经常引用的定义。
+ Tom Mitchell:&amp;ldquo;A computer program is said to learn from experience E with respect to some class of tasks T and performance measure P, if its performance at tasks in T, as measured by P, improves with experience E.&amp;rdquo;
+ 这段话翻译过来就是：对于某类任务T和性能度量P，如果一个计算机程序在T上以P衡量的性能随着经验E而自我完善，那么我们称这个计算机程序在从经验E学习。
+举个栗子：AlphaGo下棋
+ 经验 E = AlphaGo从很多盘棋局获得的经验（学棋）； 任务 T = AlphaGo和对手下棋（下棋）； 性能 P = AlphaGo赢的可能性（赢棋）。</description>
     </item>
     
     <item>
@@ -67,12 +145,13 @@ All letters in this word are capitals, like &amp;ldquo;USA&amp;rdquo;. All lette
  Ctrl+/：注释代码（这个很重要）
  Shift+Enter：换行（高级模式，可从代码中间跳至下一行，无需到行尾）
  Ctrl+F11：快速运行项目（其实点小三角还是挺快的，不记也行）
+ Ctrl+Shift+F：格式化当前代码（谁用谁牛逼）
   快捷键大全  来源：http://blog.csdn.net/jmyue/article/details/16960199
-  Ctrl+Alt+↓：复制当前行到下一行 Ctrl+Alt+↑：复制当前行到上一行 Alt+↓：当前行和下面一行交互位置 Alt+↑：当前行和上面一行交互位置 Alt+←：前一个编辑的页面 Alt+→：下一个编辑的页面 Alt+Enter 显示当前选择资源(工程,or 文件 or文件)的属性 Shift+Ctrl+Enter 在当前行插入空行 Ctrl+Q 定位到最后编辑的地方 Ctrl+L 定位在某行 Ctrl+M 最大化当前的Edit或View Ctrl+O 快速显示 OutLine Ctrl+T 快速显示当前类的继承结构 Ctrl+W 关闭当前Editer Ctrl+K 参照选中的Word快速定位到下一个 Ctrl+E 快速显示当前Editer的下拉列表(如果当前页面没有显示的用黑体表示) Ctrl+/ (小键盘) 折叠当前类中的所有代码 Ctrl+×(小键盘) 展开当前类中的所有代码 Ctrl+Space 代码助手完成一些代码的插入(但一般和输入法有冲突,可以修改输入法的热键,也可以暂用Alt+/来代替) Ctrl+Shift+E 显示管理当前打开的所有的View的管理器(可以选择关闭,激活等操作) Ctrl+J 正向增量查找(按下Ctrl+J后,你所输入的每个字母编辑器都提供快速匹配定位到某个单词,如果没有,则在stutes line中显示没有找到了,查一个单词时,特别实用,这 个功能Idea两年前就有了) Ctrl+Shift+J 反向增量查找(和上条相同,只不过是从后往前查) Ctrl+Shift+F4 关闭所有打开的Editer Ctrl+Shift+X 把当前选中的文本全部变味小写 Ctrl+Shift+Y 把当前选中的文本全部变为小写 Ctrl+Shift+F 格式化当前代码 Ctrl+Shift+P 定位到对于的匹配符(譬如{}) (从前面定位后面时,光标要在匹配符里面,后面到前面,则反之) Alt+Shift+R 重命名 (是我自己最爱用的一个了,尤其是变量和类的Rename,比手工方法能节省很多劳动力) Alt+Shift+M 抽取方法 (这是重构里面最常用的方法之一了,尤其是对一大堆泥团代码有用) Alt+Shift+C 修改函数结构(比较实用,有N个函数调用了这个方法,修改一次搞定) Alt+Shift+L 抽取本地变量( 可以直接把一些魔法数字和字符串抽取成一个变量,尤其是多处调用的时候) Alt+Shift+F 把Class中的local变量变为field 变量 (比较实用的功能) Alt+Shift+I 合并变量(可能这样说有点不妥Inline) Alt+Shift+V 移动函数和变量(不怎么常用) Alt+Shift+Z 重构的后悔药(Undo)  注：下面这篇文章有动画讲解，推荐一下：）</description>
+  Ctrl+Alt+↓：复制当前行到下一行 Ctrl+Alt+↑：复制当前行到上一行 Alt+↓：当前行和下面一行交互位置 Alt+↑：当前行和上面一行交互位置 Alt+←：前一个编辑的页面 Alt+→：下一个编辑的页面 Alt+Enter 显示当前选择资源(工程,or 文件 or文件)的属性 Shift+Ctrl+Enter 在当前行插入空行 Ctrl+Q 定位到最后编辑的地方 Ctrl+L 定位在某行 Ctrl+M 最大化当前的Edit或View Ctrl+O 快速显示 OutLine Ctrl+T 快速显示当前类的继承结构 Ctrl+W 关闭当前Editer Ctrl+K 参照选中的Word快速定位到下一个 Ctrl+E 快速显示当前Editer的下拉列表(如果当前页面没有显示的用黑体表示) Ctrl+/ (小键盘) 折叠当前类中的所有代码 Ctrl+×(小键盘) 展开当前类中的所有代码 Ctrl+Space 代码助手完成一些代码的插入(但一般和输入法有冲突,可以修改输入法的热键,也可以暂用Alt+/来代替) Ctrl+Shift+E 显示管理当前打开的所有的View的管理器(可以选择关闭,激活等操作) Ctrl+J 正向增量查找(按下Ctrl+J后,你所输入的每个字母编辑器都提供快速匹配定位到某个单词,如果没有,则在stutes line中显示没有找到了,查一个单词时,特别实用,这 个功能Idea两年前就有了) Ctrl+Shift+J 反向增量查找(和上条相同,只不过是从后往前查) Ctrl+Shift+F4 关闭所有打开的Editer Ctrl+Shift+X 把当前选中的文本全部变味小写 Ctrl+Shift+Y 把当前选中的文本全部变为小写 Ctrl+Shift+P 定位到对于的匹配符(譬如{}) (从前面定位后面时,光标要在匹配符里面,后面到前面,则反之) Alt+Shift+R 重命名 (是我自己最爱用的一个了,尤其是变量和类的Rename,比手工方法能节省很多劳动力) Alt+Shift+M 抽取方法 (这是重构里面最常用的方法之一了,尤其是对一大堆泥团代码有用) Alt+Shift+C 修改函数结构(比较实用,有N个函数调用了这个方法,修改一次搞定) Alt+Shift+L 抽取本地变量( 可以直接把一些魔法数字和字符串抽取成一个变量,尤其是多处调用的时候) Alt+Shift+F 把Class中的local变量变为field 变量 (比较实用的功能) Alt+Shift+I 合并变量(可能这样说有点不妥Inline) Alt+Shift+V 移动函数和变量(不怎么常用) Alt+Shift+Z 重构的后悔药(Undo)  注：下面这篇文章有动画讲解，推荐一下：）</description>
     </item>
     
     <item>
-      <title>506. Relative Ranks</title>
+      <title>【LeetCode】506. Relative Ranks</title>
       <link>https://HauyuChen.github.io/post/506-relative-ranks/</link>
       <pubDate>Tue, 21 Mar 2017 00:00:00 +0000</pubDate>
       
@@ -83,7 +162,7 @@ Explanation: The first three athletes got the top three highest scores, so they 
     </item>
     
     <item>
-      <title>496. Next Greater Element I</title>
+      <title>【LeetCode】496. Next Greater Element I</title>
       <link>https://HauyuChen.github.io/post/496-next-greater-element-i/</link>
       <pubDate>Mon, 20 Mar 2017 00:00:00 +0000</pubDate>
       
@@ -94,7 +173,7 @@ Example 1: Input: nums1 = [4,1,2], nums2 = [1,3,4,2].</description>
     </item>
     
     <item>
-      <title>504. Base 7</title>
+      <title>【LeetCode】504. Base 7</title>
       <link>https://HauyuChen.github.io/post/504-base-7/</link>
       <pubDate>Mon, 20 Mar 2017 00:00:00 +0000</pubDate>
       
@@ -107,7 +186,7 @@ Note: The input will be in range of [-1e7, 1e7].
     </item>
     
     <item>
-      <title>492. Construct the Rectangle</title>
+      <title>【LeetCode】492. Construct the Rectangle</title>
       <link>https://HauyuChen.github.io/post/492-construct-the-rectangle/</link>
       <pubDate>Sun, 19 Mar 2017 00:00:00 +0000</pubDate>
       
@@ -118,7 +197,7 @@ Note: The input will be in range of [-1e7, 1e7].
     </item>
     
     <item>
-      <title>485. Max Consecutive Ones</title>
+      <title>【LeetCode】485. Max Consecutive Ones</title>
       <link>https://HauyuChen.github.io/post/485-max-consecutive-ones/</link>
       <pubDate>Sat, 18 Mar 2017 00:00:00 +0000</pubDate>
       
@@ -131,7 +210,7 @@ Note: The input array will only contain 0 and 1. The length of input array is a 
     </item>
     
     <item>
-      <title>476. Number Complement</title>
+      <title>【LeetCode】476. Number Complement</title>
       <link>https://HauyuChen.github.io/post/476-number-complement/</link>
       <pubDate>Fri, 17 Mar 2017 00:00:00 +0000</pubDate>
       
@@ -143,7 +222,7 @@ Explanation: The binary representation of 5 is 101 (no leading zero bits), and i
     </item>
     
     <item>
-      <title>455. Assign Cookies</title>
+      <title>【LeetCode】455. Assign Cookies</title>
       <link>https://HauyuChen.github.io/post/455-assign-cookies/</link>
       <pubDate>Thu, 16 Mar 2017 00:00:00 +0000</pubDate>
       
@@ -152,7 +231,7 @@ Explanation: The binary representation of 5 is 101 (no leading zero bits), and i
     </item>
     
     <item>
-      <title>461. Hamming Distance</title>
+      <title>【LeetCode】461. Hamming Distance</title>
       <link>https://HauyuChen.github.io/post/461-hamming-distance/</link>
       <pubDate>Thu, 16 Mar 2017 00:00:00 +0000</pubDate>
       
@@ -168,7 +247,7 @@ Explanation:
     </item>
     
     <item>
-      <title>463. Island Perimeter</title>
+      <title>【LeetCode】463. Island Perimeter</title>
       <link>https://HauyuChen.github.io/post/463-island-perimeter/</link>
       <pubDate>Thu, 16 Mar 2017 00:00:00 +0000</pubDate>
       
@@ -177,7 +256,7 @@ Explanation:
     </item>
     
     <item>
-      <title>453. Minimum Moves to Equal Array Elements</title>
+      <title>【LeetCode】453. Minimum Moves to Equal Array Elements</title>
       <link>https://HauyuChen.github.io/post/453-minimum-moves-to-equal-array-elements/</link>
       <pubDate>Wed, 15 Mar 2017 00:00:00 +0000</pubDate>
       
@@ -191,7 +270,7 @@ Explanation: Only three moves are needed (remember each move increments two elem
     </item>
     
     <item>
-      <title>448. Find All Numbers Disappeared in an Array</title>
+      <title>【LeetCode】448. Find All Numbers Disappeared in an Array</title>
       <link>https://HauyuChen.github.io/post/448-find-all-numbers-disappeared-in-an-array/</link>
       <pubDate>Tue, 21 Feb 2017 00:00:00 +0000</pubDate>
       
@@ -205,7 +284,7 @@ Output: [5,6]</description>
     </item>
     
     <item>
-      <title>447. Number of Boomerangs</title>
+      <title>【LeetCode】447. Number of Boomerangs</title>
       <link>https://HauyuChen.github.io/post/447-number-of-boomerangs/</link>
       <pubDate>Mon, 20 Feb 2017 00:00:00 +0000</pubDate>
       
@@ -215,7 +294,7 @@ Find the number of boomerangs. You may assume that n will be at most 500 and coo
     </item>
     
     <item>
-      <title>414. Third Maximum Number</title>
+      <title>【LeetCode】414. Third Maximum Number</title>
       <link>https://HauyuChen.github.io/post/414-third-maximum-number/</link>
       <pubDate>Sun, 19 Feb 2017 00:00:00 +0000</pubDate>
       
@@ -229,7 +308,7 @@ Example 3: Input: [2, 2, 3, 1] Output: 1</description>
     </item>
     
     <item>
-      <title>415. Add Strings</title>
+      <title>【LeetCode】415. Add Strings</title>
       <link>https://HauyuChen.github.io/post/415-add-strings/</link>
       <pubDate>Sun, 19 Feb 2017 00:00:00 +0000</pubDate>
       
@@ -240,7 +319,7 @@ Note: The length of both num1 and num2 is &amp;lt; 5100. Both num1 and num2 cont
     </item>
     
     <item>
-      <title>412. Fizz Buzz</title>
+      <title>【LeetCode】412. Fizz Buzz</title>
       <link>https://HauyuChen.github.io/post/412-fizz-buzz/</link>
       <pubDate>Sat, 18 Feb 2017 00:00:00 +0000</pubDate>
       
@@ -253,7 +332,7 @@ Return: [ &amp;ldquo;1&amp;rdquo;, &amp;ldquo;2&amp;rdquo;, &amp;ldquo;Fizz&amp;
     </item>
     
     <item>
-      <title>409. Longest Palindrome</title>
+      <title>【LeetCode】409. Longest Palindrome</title>
       <link>https://HauyuChen.github.io/post/409-longest-palindrome/</link>
       <pubDate>Fri, 17 Feb 2017 00:00:00 +0000</pubDate>
       
@@ -268,7 +347,7 @@ Explanation: One longest palindrome that can be built is &amp;ldquo;dccaccd&amp;
     </item>
     
     <item>
-      <title>401. Binary Watch</title>
+      <title>【LeetCode】401. Binary Watch</title>
       <link>https://HauyuChen.github.io/post/401-binary-watch/</link>
       <pubDate>Thu, 16 Feb 2017 00:00:00 +0000</pubDate>
       
@@ -280,7 +359,7 @@ Given a non-negative integer n which represents the number of LEDs that are curr
     </item>
     
     <item>
-      <title>404. Sum of Left Leaves</title>
+      <title>【LeetCode】404. Sum of Left Leaves</title>
       <link>https://HauyuChen.github.io/post/404-sum-of-left-leaves/</link>
       <pubDate>Thu, 16 Feb 2017 00:00:00 +0000</pubDate>
       
@@ -292,7 +371,7 @@ Example:
     </item>
     
     <item>
-      <title>389. Find the Difference</title>
+      <title>【LeetCode】389. Find the Difference</title>
       <link>https://HauyuChen.github.io/post/389-find-the-difference/</link>
       <pubDate>Wed, 15 Feb 2017 00:00:00 +0000</pubDate>
       
@@ -308,7 +387,7 @@ Explanation: &amp;lsquo;e&amp;rsquo; is the letter that was added.
     </item>
     
     <item>
-      <title>387. First Unique Character in a String</title>
+      <title>【LeetCode】387. First Unique Character in a String</title>
       <link>https://HauyuChen.github.io/post/387-first-unique-character-in-a-string/</link>
       <pubDate>Tue, 14 Feb 2017 00:00:00 +0000</pubDate>
       
@@ -322,7 +401,7 @@ Note: You may assume the string contain only lowercase letters.
     </item>
     
     <item>
-      <title>371. Sum of Two Integers</title>
+      <title>【LeetCode】371. Sum of Two Integers</title>
       <link>https://HauyuChen.github.io/post/371-sum-of-two-integers/</link>
       <pubDate>Mon, 13 Feb 2017 00:00:00 +0000</pubDate>
       
@@ -333,7 +412,7 @@ Example: Given a = 1 and b = 2, return 3.
     </item>
     
     <item>
-      <title>383. Ransom Note</title>
+      <title>【LeetCode】383. Ransom Note</title>
       <link>https://HauyuChen.github.io/post/383-ransom-note/</link>
       <pubDate>Mon, 13 Feb 2017 00:00:00 +0000</pubDate>
       
@@ -345,7 +424,7 @@ Note: You may assume that both strings contain only lowercase letters.
     </item>
     
     <item>
-      <title>349. Intersection of Two Arrays</title>
+      <title>【LeetCode】349. Intersection of Two Arrays</title>
       <link>https://HauyuChen.github.io/post/349-intersection-of-two-arrays/</link>
       <pubDate>Sun, 15 Jan 2017 00:00:00 +0000</pubDate>
       
@@ -357,7 +436,7 @@ Note: Each element in the result must be unique. The result can be in any order.
     </item>
     
     <item>
-      <title>350. Intersection of Two Arrays II</title>
+      <title>【LeetCode】350. Intersection of Two Arrays II</title>
       <link>https://HauyuChen.github.io/post/350-intersection-of-two-arrays-ii/</link>
       <pubDate>Sun, 15 Jan 2017 00:00:00 +0000</pubDate>
       
@@ -368,7 +447,7 @@ Note: Each element in the result should appear as many times as it shows in both
     </item>
     
     <item>
-      <title>344. Reverse String</title>
+      <title>【LeetCode】344. Reverse String</title>
       <link>https://HauyuChen.github.io/post/344-reverse-string/</link>
       <pubDate>Fri, 13 Jan 2017 00:00:00 +0000</pubDate>
       
@@ -379,7 +458,7 @@ Example: Given s = &amp;ldquo;hello&amp;rdquo;, return &amp;ldquo;olleh&amp;rdqu
     </item>
     
     <item>
-      <title>326. Power of Three</title>
+      <title>【LeetCode】326. Power of Three</title>
       <link>https://HauyuChen.github.io/post/326-power-of-three/</link>
       <pubDate>Thu, 12 Jan 2017 00:00:00 +0000</pubDate>
       
@@ -390,7 +469,7 @@ Follow up: Could you do it without using any loop / recursion?
     </item>
     
     <item>
-      <title>338. Counting Bits</title>
+      <title>【LeetCode】338. Counting Bits</title>
       <link>https://HauyuChen.github.io/post/338-counting-bits/</link>
       <pubDate>Thu, 12 Jan 2017 00:00:00 +0000</pubDate>
       
@@ -401,7 +480,7 @@ Follow up: It is very easy to come up with a solution with run time O(n*sizeof(i
     </item>
     
     <item>
-      <title>268. Missing Number</title>
+      <title>【LeetCode】268. Missing Number</title>
       <link>https://HauyuChen.github.io/post/268-missing-number/</link>
       <pubDate>Wed, 11 Jan 2017 00:00:00 +0000</pubDate>
       
@@ -413,7 +492,7 @@ Note: Your algorithm should run in linear runtime complexity. Could you implemen
     </item>
     
     <item>
-      <title>283. Move Zeroes</title>
+      <title>【LeetCode】283. Move Zeroes</title>
       <link>https://HauyuChen.github.io/post/283-move-zeroes/</link>
       <pubDate>Wed, 11 Jan 2017 00:00:00 +0000</pubDate>
       
@@ -425,7 +504,7 @@ Note: You must do this in-place without making a copy of the array. Minimize the
     </item>
     
     <item>
-      <title>292. Nim Game</title>
+      <title>【LeetCode】292. Nim Game</title>
       <link>https://HauyuChen.github.io/post/292-nim-game/</link>
       <pubDate>Wed, 11 Jan 2017 00:00:00 +0000</pubDate>
       
@@ -435,7 +514,7 @@ Both of you are very clever and have optimal strategies for the game. Write a fu
     </item>
     
     <item>
-      <title>258. Add Digits</title>
+      <title>【LeetCode】258. Add Digits</title>
       <link>https://HauyuChen.github.io/post/258-add-digits/</link>
       <pubDate>Tue, 10 Jan 2017 00:00:00 +0000</pubDate>
       
@@ -448,7 +527,7 @@ Follow up: Could you do it without any loop/recursion in O(1) runtime?
     </item>
     
     <item>
-      <title>263. Ugly Number</title>
+      <title>【LeetCode】263. Ugly Number</title>
       <link>https://HauyuChen.github.io/post/263-ugly-number/</link>
       <pubDate>Tue, 10 Jan 2017 00:00:00 +0000</pubDate>
       
@@ -460,7 +539,7 @@ Note that 1 is typically treated as an ugly number.
     </item>
     
     <item>
-      <title>231. Power of Two</title>
+      <title>【LeetCode】231. Power of Two</title>
       <link>https://HauyuChen.github.io/post/231-power-of-two/</link>
       <pubDate>Mon, 09 Jan 2017 00:00:00 +0000</pubDate>
       
@@ -470,7 +549,7 @@ Note that 1 is typically treated as an ugly number.
     </item>
     
     <item>
-      <title>237. Delete Node in a Linked List</title>
+      <title>【LeetCode】237. Delete Node in a Linked List</title>
       <link>https://HauyuChen.github.io/post/237-delete-node-in-a-linked-list/</link>
       <pubDate>Mon, 09 Jan 2017 00:00:00 +0000</pubDate>
       
@@ -481,7 +560,7 @@ Supposed the linked list is 1 -&amp;gt; 2 -&amp;gt; 3 -&amp;gt; 4 and you are gi
     </item>
     
     <item>
-      <title>242. Valid Anagram</title>
+      <title>【LeetCode】242. Valid Anagram</title>
       <link>https://HauyuChen.github.io/post/242-valid-anagram/</link>
       <pubDate>Mon, 09 Jan 2017 00:00:00 +0000</pubDate>
       
@@ -494,7 +573,7 @@ Follow up: What if the inputs contain unicode characters? How would you adapt yo
     </item>
     
     <item>
-      <title>226. Invert Binary Tree</title>
+      <title>【LeetCode】226. Invert Binary Tree</title>
       <link>https://HauyuChen.github.io/post/226-invert-binary-tree/</link>
       <pubDate>Sun, 08 Jan 2017 00:00:00 +0000</pubDate>
       
@@ -504,7 +583,7 @@ Follow up: What if the inputs contain unicode characters? How would you adapt yo
     </item>
     
     <item>
-      <title>206. Reverse Linked List</title>
+      <title>【LeetCode】206. Reverse Linked List</title>
       <link>https://HauyuChen.github.io/post/206-reverse-linked-list/</link>
       <pubDate>Sat, 07 Jan 2017 00:00:00 +0000</pubDate>
       
@@ -514,7 +593,7 @@ Follow up: What if the inputs contain unicode characters? How would you adapt yo
     </item>
     
     <item>
-      <title>217. Contains Duplicate</title>
+      <title>【LeetCode】217. Contains Duplicate</title>
       <link>https://HauyuChen.github.io/post/217-contains-duplicate/</link>
       <pubDate>Sat, 07 Jan 2017 00:00:00 +0000</pubDate>
       
@@ -524,7 +603,7 @@ Follow up: What if the inputs contain unicode characters? How would you adapt yo
     </item>
     
     <item>
-      <title>191. Number of 1 Bits</title>
+      <title>【LeetCode】191. Number of 1 Bits</title>
       <link>https://HauyuChen.github.io/post/191-number-of-1-bits/</link>
       <pubDate>Wed, 24 Aug 2016 00:00:00 +0000</pubDate>
       
@@ -535,7 +614,7 @@ For example, the 32-bit integer ’11&amp;rsquo; has binary representation 00000
     </item>
     
     <item>
-      <title>202. Happy Number</title>
+      <title>【LeetCode】202. Happy Number</title>
       <link>https://HauyuChen.github.io/post/202-happy-number/</link>
       <pubDate>Wed, 24 Aug 2016 00:00:00 +0000</pubDate>
       
@@ -545,7 +624,7 @@ A happy number is a number defined by the following process: Starting with any p
     </item>
     
     <item>
-      <title>171. Excel Sheet Column Number</title>
+      <title>【LeetCode】171. Excel Sheet Column Number</title>
       <link>https://HauyuChen.github.io/post/171-excel-sheet-column-number/</link>
       <pubDate>Tue, 23 Aug 2016 00:00:00 +0000</pubDate>
       
@@ -557,7 +636,7 @@ A -&amp;gt; 1 B -&amp;gt; 2 C -&amp;gt; 3 ... Z -&amp;gt; 26 AA -&amp;gt; 27 AB 
     </item>
     
     <item>
-      <title>167. Two Sum II - Input array is sorted</title>
+      <title>【LeetCode】167. Two Sum II - Input array is sorted</title>
       <link>https://HauyuChen.github.io/post/167-two-sum-ii-input-array-is-sorted/</link>
       <pubDate>Sat, 20 Aug 2016 00:00:00 +0000</pubDate>
       
@@ -568,7 +647,7 @@ You may assume that each input would have exactly one solution and you may not u
     </item>
     
     <item>
-      <title>169. Majority Element</title>
+      <title>【LeetCode】169. Majority Element</title>
       <link>https://HauyuChen.github.io/post/169-majority-element/</link>
       <pubDate>Sat, 20 Aug 2016 00:00:00 +0000</pubDate>
       
@@ -579,7 +658,7 @@ You may assume that the array is non-empty and the majority element always exist
     </item>
     
     <item>
-      <title>121. Best Time to Buy and Sell Stock</title>
+      <title>【LeetCode】121. Best Time to Buy and Sell Stock</title>
       <link>https://HauyuChen.github.io/post/121-best-time-to-buy-and-sell-stock/</link>
       <pubDate>Tue, 16 Aug 2016 00:00:00 +0000</pubDate>
       
@@ -591,7 +670,7 @@ max. difference = 6-1 = 5 (not 7-1 = 6, as selling price needs to be larger than
     </item>
     
     <item>
-      <title>122. Best Time to Buy and Sell Stock II</title>
+      <title>【LeetCode】122. Best Time to Buy and Sell Stock II</title>
       <link>https://HauyuChen.github.io/post/122-best-time-to-buy-and-sell-stock-ii/</link>
       <pubDate>Tue, 16 Aug 2016 00:00:00 +0000</pubDate>
       
@@ -601,7 +680,7 @@ Design an algorithm to find the maximum profit. You may complete as many transac
     </item>
     
     <item>
-      <title>136. Single Number</title>
+      <title>【LeetCode】136. Single Number</title>
       <link>https://HauyuChen.github.io/post/136-single-number/</link>
       <pubDate>Tue, 16 Aug 2016 00:00:00 +0000</pubDate>
       
@@ -612,7 +691,7 @@ Note: Your algorithm should have a linear runtime complexity. Could you implemen
     </item>
     
     <item>
-      <title>104. Maximum Depth of Binary Tree</title>
+      <title>【LeetCode】104. Maximum Depth of Binary Tree</title>
       <link>https://HauyuChen.github.io/post/104-maximum-depth-of-binary-tree/</link>
       <pubDate>Mon, 15 Aug 2016 00:00:00 +0000</pubDate>
       
@@ -623,7 +702,7 @@ The maximum depth is the number of nodes along the longest path from the root no
     </item>
     
     <item>
-      <title>100. Same Tree</title>
+      <title>【LeetCode】100. Same Tree</title>
       <link>https://HauyuChen.github.io/post/100-same-tree/</link>
       <pubDate>Sun, 14 Aug 2016 00:00:00 +0000</pubDate>
       
@@ -634,7 +713,7 @@ Two binary trees are considered equal if they are structurally identical and the
     </item>
     
     <item>
-      <title>70. Climbing Stairs</title>
+      <title>【LeetCode】70. Climbing Stairs</title>
       <link>https://HauyuChen.github.io/post/070-climbing-stairs/</link>
       <pubDate>Sun, 14 Aug 2016 00:00:00 +0000</pubDate>
       
@@ -646,7 +725,7 @@ Each time you can either climb 1 or 2 steps. In how many distinct ways can you c
     </item>
     
     <item>
-      <title>69. Sqrt(x)</title>
+      <title>【LeetCode】69. Sqrt(x)</title>
       <link>https://HauyuChen.github.io/post/069-sqrtx/</link>
       <pubDate>Sat, 13 Aug 2016 00:00:00 +0000</pubDate>
       
@@ -657,7 +736,7 @@ Compute and return the square root of x.
     </item>
     
     <item>
-      <title>13. Roman to Integer</title>
+      <title>【LeetCode】13. Roman to Integer</title>
       <link>https://HauyuChen.github.io/post/013-roman-to-integer/</link>
       <pubDate>Fri, 12 Aug 2016 00:00:00 +0000</pubDate>
       
@@ -670,7 +749,7 @@ Input is guaranteed to be within the range from 1 to 3999.
     </item>
     
     <item>
-      <title>21. Merge Two Sorted Lists</title>
+      <title>【LeetCode】21. Merge Two Sorted Lists</title>
       <link>https://HauyuChen.github.io/post/021-merge-two-sorted-lists/</link>
       <pubDate>Fri, 12 Aug 2016 00:00:00 +0000</pubDate>
       
@@ -680,7 +759,7 @@ Input is guaranteed to be within the range from 1 to 3999.
     </item>
     
     <item>
-      <title>53. Maximum Subarray</title>
+      <title>【LeetCode】53. Maximum Subarray</title>
       <link>https://HauyuChen.github.io/post/053-maximum-subarray/</link>
       <pubDate>Fri, 12 Aug 2016 00:00:00 +0000</pubDate>
       
@@ -692,7 +771,7 @@ For example, given the array [-2,1,-3,4,-1,2,1,-5,4], the contiguous subarray [4
     </item>
     
     <item>
-      <title>1. Two Sum</title>
+      <title>【LeetCode】1. Two Sum</title>
       <link>https://HauyuChen.github.io/post/001-two-sum/</link>
       <pubDate>Thu, 11 Aug 2016 00:00:00 +0000</pubDate>
       
@@ -705,7 +784,7 @@ Because nums[0] + nums[1] = 2 + 7 = 9, return [0, 1].
     </item>
     
     <item>
-      <title>8. String to Integer (atoi)</title>
+      <title>【LeetCode】8. String to Integer (atoi)</title>
       <link>https://HauyuChen.github.io/post/008-string-to-integeratoi/</link>
       <pubDate>Thu, 11 Aug 2016 00:00:00 +0000</pubDate>
       
@@ -714,6 +793,26 @@ Because nums[0] + nums[1] = 2 + 7 = 9, return [0, 1].
 Hint: Carefully consider all possible input cases. If you want a challenge, please do not see below and ask yourself what are the possible input cases.
 Notes: It is intended for this problem to be specified vaguely (ie, no given input specs). You are responsible to gather all the input requirements up front.
 Update (2015-02-10): The signature of the C++ function had been updated.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://HauyuChen.github.io/post/1linearregression-multiplevariables/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://HauyuChen.github.io/post/1linearregression-multiplevariables/</guid>
+      <description>0 前言 前面我们已经提到了单变量线性回归，现在讲讲多元线性回归（多变量线性回归）。 在讲解单变量线性回归时，我们引入了房价预测这个栗子。我们仅通过房屋面积来预测房价。事实上，影响房价的因素有很多，如面积、房间数量、楼层、房龄等等。 现在，我们想在进行房价预测时考虑面积、房间数量、楼层、房龄这几个因素，而不是单单只考虑面积。显然，单变量线性回归已不再适用，我们可以通过多元线性回归来解决。
+
+1 要点 1.1 多元线性回归模型 这条公式是否很熟悉呢？其实就是在单变量线性回归模型的基础上增加了其它的特征 x2、x3、x4 ··· xn。
+为方便计算，我们可以定义 x0=1 ，现在可以将公式转化成如下形式：
+令: 特征向量X = [x0,x1,x2, &amp;hellip; ,xn] 参数向量θ = [θ0,θ1,θ2, &amp;hellip; ,θn] X 和 θ 均为 n+1 维向量，所以
+最后，假设函数h可简化成以下形式：
+1.2 Cost Function（代价函数） 多元线性回归的代价函数和单变量线性回归的一致，不过增加了一些新的参数θ3、θ4、θ5···θn。
+1.3 Batch Gradient Descent（批量梯度下降） 批量梯度下降将梯度下降重复运用于每个特征x（n个特征）。
+
+2 思路 多元线性回归的思路和单变量线性回归大体一致，只不过我们需要对计算公式做一些微小改变。
+同样，还是通过房价预测的栗子来讲解：
+ 房价取决于多方面的因素，在这里我们考虑面积、房间数量、楼层、房龄这四个因素。所以，我们要搞清楚的就是面积 x1 、房间数量 x2 、楼层 x3 、房龄 x4 对房价 y 的影响。 显然，假设函数为 hθ(x) = θ0 + θ1*x1+ θ2*x2 + θ3*x3+ θ4*x4 。 令x0=1，将假设函数转换成 hθ(x) = θ0*x0 + θ1*x1+ θ2*x2 + θ3*x3+ θ4*x4。 令特征向量 X=[x0,x1,x2,x3,x4] ,参数向量 θ=[θ0,θ1,θ2,θ3,θ4] ,最终我们的假设函数为 hθ(x)=(θ^T)X 。 问题的核心还是找出合适的参数向量θ，使得我们的预测 hθ(x) 是合理的。 衡量参数向量θ是否合适的标准就是代价函数 J(0) ，θ 应使得 J(θ) 尽可能小。</description>
     </item>
     
   </channel>

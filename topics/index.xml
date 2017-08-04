@@ -24,9 +24,18 @@
     <item>
       <title>Java</title>
       <link>https://HauyuChen.github.io/topics/java/</link>
-      <pubDate>Tue, 18 Jul 2017 00:00:00 +0000</pubDate>
+      <pubDate>Tue, 01 Aug 2017 00:00:00 +0000</pubDate>
       
       <guid>https://HauyuChen.github.io/topics/java/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Json</title>
+      <link>https://HauyuChen.github.io/topics/json/</link>
+      <pubDate>Tue, 01 Aug 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://HauyuChen.github.io/topics/json/</guid>
       <description></description>
     </item>
     
@@ -49,6 +58,15 @@
     </item>
     
     <item>
+      <title>Xml</title>
+      <link>https://HauyuChen.github.io/topics/xml/</link>
+      <pubDate>Tue, 01 Aug 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://HauyuChen.github.io/topics/xml/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>字符串</title>
       <link>https://HauyuChen.github.io/topics/%E5%AD%97%E7%AC%A6%E4%B8%B2/</link>
       <pubDate>Tue, 18 Jul 2017 00:00:00 +0000</pubDate>
@@ -58,11 +76,47 @@
     </item>
     
     <item>
-      <title>工具</title>
-      <link>https://HauyuChen.github.io/topics/%E5%B7%A5%E5%85%B7/</link>
+      <title>手册</title>
+      <link>https://HauyuChen.github.io/topics/%E6%89%8B%E5%86%8C/</link>
       <pubDate>Sat, 01 Apr 2017 17:54:21 +0800</pubDate>
       
-      <guid>https://HauyuChen.github.io/topics/%E5%B7%A5%E5%85%B7/</guid>
+      <guid>https://HauyuChen.github.io/topics/%E6%89%8B%E5%86%8C/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>无监督学习</title>
+      <link>https://HauyuChen.github.io/topics/%E6%97%A0%E7%9B%91%E7%9D%A3%E5%AD%A6%E4%B9%A0/</link>
+      <pubDate>Tue, 11 Jul 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://HauyuChen.github.io/topics/%E6%97%A0%E7%9B%91%E7%9D%A3%E5%AD%A6%E4%B9%A0/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>机器学习</title>
+      <link>https://HauyuChen.github.io/topics/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/</link>
+      <pubDate>Wed, 26 Jul 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://HauyuChen.github.io/topics/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>梯度下降</title>
+      <link>https://HauyuChen.github.io/topics/%E6%A2%AF%E5%BA%A6%E4%B8%8B%E9%99%8D/</link>
+      <pubDate>Wed, 26 Jul 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://HauyuChen.github.io/topics/%E6%A2%AF%E5%BA%A6%E4%B8%8B%E9%99%8D/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>监督学习</title>
+      <link>https://HauyuChen.github.io/topics/%E7%9B%91%E7%9D%A3%E5%AD%A6%E4%B9%A0/</link>
+      <pubDate>Wed, 26 Jul 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://HauyuChen.github.io/topics/%E7%9B%91%E7%9D%A3%E5%AD%A6%E4%B9%A0/</guid>
       <description></description>
     </item>
     
@@ -72,6 +126,15 @@
       <pubDate>Sun, 16 Jul 2017 00:00:00 +0000</pubDate>
       
       <guid>https://HauyuChen.github.io/topics/%E7%AE%97%E6%B3%95/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>线性回归</title>
+      <link>https://HauyuChen.github.io/topics/%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92/</link>
+      <pubDate>Fri, 21 Jul 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://HauyuChen.github.io/topics/%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92/</guid>
       <description></description>
     </item>
     

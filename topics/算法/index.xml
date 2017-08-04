@@ -13,7 +13,7 @@
     
     
     <item>
-      <title>521. Longest Uncommon Subsequence I</title>
+      <title>【LeetCode】521. Longest Uncommon Subsequence I</title>
       <link>https://HauyuChen.github.io/post/521-longest-uncommon-subsequence-i/</link>
       <pubDate>Sun, 16 Jul 2017 00:00:00 +0000</pubDate>
       
@@ -23,7 +23,7 @@ A subsequence is a sequence that can be derived from one sequence by deleting so
     </item>
     
     <item>
-      <title>520. Detect Capital</title>
+      <title>【LeetCode】520. Detect Capital</title>
       <link>https://HauyuChen.github.io/post/520-detect-capital/</link>
       <pubDate>Sat, 15 Jul 2017 00:00:00 +0000</pubDate>
       
@@ -34,7 +34,7 @@ All letters in this word are capitals, like &amp;ldquo;USA&amp;rdquo;. All lette
     </item>
     
     <item>
-      <title>506. Relative Ranks</title>
+      <title>【LeetCode】506. Relative Ranks</title>
       <link>https://HauyuChen.github.io/post/506-relative-ranks/</link>
       <pubDate>Tue, 21 Mar 2017 00:00:00 +0000</pubDate>
       
@@ -45,7 +45,7 @@ Explanation: The first three athletes got the top three highest scores, so they 
     </item>
     
     <item>
-      <title>496. Next Greater Element I</title>
+      <title>【LeetCode】496. Next Greater Element I</title>
       <link>https://HauyuChen.github.io/post/496-next-greater-element-i/</link>
       <pubDate>Mon, 20 Mar 2017 00:00:00 +0000</pubDate>
       
@@ -56,7 +56,7 @@ Example 1: Input: nums1 = [4,1,2], nums2 = [1,3,4,2].</description>
     </item>
     
     <item>
-      <title>504. Base 7</title>
+      <title>【LeetCode】504. Base 7</title>
       <link>https://HauyuChen.github.io/post/504-base-7/</link>
       <pubDate>Mon, 20 Mar 2017 00:00:00 +0000</pubDate>
       
@@ -69,7 +69,7 @@ Note: The input will be in range of [-1e7, 1e7].
     </item>
     
     <item>
-      <title>492. Construct the Rectangle</title>
+      <title>【LeetCode】492. Construct the Rectangle</title>
       <link>https://HauyuChen.github.io/post/492-construct-the-rectangle/</link>
       <pubDate>Sun, 19 Mar 2017 00:00:00 +0000</pubDate>
       
@@ -80,7 +80,7 @@ Note: The input will be in range of [-1e7, 1e7].
     </item>
     
     <item>
-      <title>485. Max Consecutive Ones</title>
+      <title>【LeetCode】485. Max Consecutive Ones</title>
       <link>https://HauyuChen.github.io/post/485-max-consecutive-ones/</link>
       <pubDate>Sat, 18 Mar 2017 00:00:00 +0000</pubDate>
       
@@ -93,7 +93,7 @@ Note: The input array will only contain 0 and 1. The length of input array is a 
     </item>
     
     <item>
-      <title>476. Number Complement</title>
+      <title>【LeetCode】476. Number Complement</title>
       <link>https://HauyuChen.github.io/post/476-number-complement/</link>
       <pubDate>Fri, 17 Mar 2017 00:00:00 +0000</pubDate>
       
@@ -105,7 +105,7 @@ Explanation: The binary representation of 5 is 101 (no leading zero bits), and i
     </item>
     
     <item>
-      <title>455. Assign Cookies</title>
+      <title>【LeetCode】455. Assign Cookies</title>
       <link>https://HauyuChen.github.io/post/455-assign-cookies/</link>
       <pubDate>Thu, 16 Mar 2017 00:00:00 +0000</pubDate>
       
@@ -114,7 +114,7 @@ Explanation: The binary representation of 5 is 101 (no leading zero bits), and i
     </item>
     
     <item>
-      <title>461. Hamming Distance</title>
+      <title>【LeetCode】461. Hamming Distance</title>
       <link>https://HauyuChen.github.io/post/461-hamming-distance/</link>
       <pubDate>Thu, 16 Mar 2017 00:00:00 +0000</pubDate>
       
@@ -130,7 +130,7 @@ Explanation:
     </item>
     
     <item>
-      <title>463. Island Perimeter</title>
+      <title>【LeetCode】463. Island Perimeter</title>
       <link>https://HauyuChen.github.io/post/463-island-perimeter/</link>
       <pubDate>Thu, 16 Mar 2017 00:00:00 +0000</pubDate>
       
@@ -139,7 +139,7 @@ Explanation:
     </item>
     
     <item>
-      <title>453. Minimum Moves to Equal Array Elements</title>
+      <title>【LeetCode】453. Minimum Moves to Equal Array Elements</title>
       <link>https://HauyuChen.github.io/post/453-minimum-moves-to-equal-array-elements/</link>
       <pubDate>Wed, 15 Mar 2017 00:00:00 +0000</pubDate>
       
@@ -153,7 +153,7 @@ Explanation: Only three moves are needed (remember each move increments two elem
     </item>
     
     <item>
-      <title>448. Find All Numbers Disappeared in an Array</title>
+      <title>【LeetCode】448. Find All Numbers Disappeared in an Array</title>
       <link>https://HauyuChen.github.io/post/448-find-all-numbers-disappeared-in-an-array/</link>
       <pubDate>Tue, 21 Feb 2017 00:00:00 +0000</pubDate>
       
@@ -167,7 +167,7 @@ Output: [5,6]</description>
     </item>
     
     <item>
-      <title>447. Number of Boomerangs</title>
+      <title>【LeetCode】447. Number of Boomerangs</title>
       <link>https://HauyuChen.github.io/post/447-number-of-boomerangs/</link>
       <pubDate>Mon, 20 Feb 2017 00:00:00 +0000</pubDate>
       
@@ -177,7 +177,7 @@ Find the number of boomerangs. You may assume that n will be at most 500 and coo
     </item>
     
     <item>
-      <title>414. Third Maximum Number</title>
+      <title>【LeetCode】414. Third Maximum Number</title>
       <link>https://HauyuChen.github.io/post/414-third-maximum-number/</link>
       <pubDate>Sun, 19 Feb 2017 00:00:00 +0000</pubDate>
       
@@ -191,7 +191,7 @@ Example 3: Input: [2, 2, 3, 1] Output: 1</description>
     </item>
     
     <item>
-      <title>415. Add Strings</title>
+      <title>【LeetCode】415. Add Strings</title>
       <link>https://HauyuChen.github.io/post/415-add-strings/</link>
       <pubDate>Sun, 19 Feb 2017 00:00:00 +0000</pubDate>
       
@@ -202,7 +202,7 @@ Note: The length of both num1 and num2 is &amp;lt; 5100. Both num1 and num2 cont
     </item>
     
     <item>
-      <title>412. Fizz Buzz</title>
+      <title>【LeetCode】412. Fizz Buzz</title>
       <link>https://HauyuChen.github.io/post/412-fizz-buzz/</link>
       <pubDate>Sat, 18 Feb 2017 00:00:00 +0000</pubDate>
       
@@ -215,7 +215,7 @@ Return: [ &amp;ldquo;1&amp;rdquo;, &amp;ldquo;2&amp;rdquo;, &amp;ldquo;Fizz&amp;
     </item>
     
     <item>
-      <title>409. Longest Palindrome</title>
+      <title>【LeetCode】409. Longest Palindrome</title>
       <link>https://HauyuChen.github.io/post/409-longest-palindrome/</link>
       <pubDate>Fri, 17 Feb 2017 00:00:00 +0000</pubDate>
       
@@ -230,7 +230,7 @@ Explanation: One longest palindrome that can be built is &amp;ldquo;dccaccd&amp;
     </item>
     
     <item>
-      <title>401. Binary Watch</title>
+      <title>【LeetCode】401. Binary Watch</title>
       <link>https://HauyuChen.github.io/post/401-binary-watch/</link>
       <pubDate>Thu, 16 Feb 2017 00:00:00 +0000</pubDate>
       
@@ -242,7 +242,7 @@ Given a non-negative integer n which represents the number of LEDs that are curr
     </item>
     
     <item>
-      <title>404. Sum of Left Leaves</title>
+      <title>【LeetCode】404. Sum of Left Leaves</title>
       <link>https://HauyuChen.github.io/post/404-sum-of-left-leaves/</link>
       <pubDate>Thu, 16 Feb 2017 00:00:00 +0000</pubDate>
       
@@ -254,7 +254,7 @@ Example:
     </item>
     
     <item>
-      <title>389. Find the Difference</title>
+      <title>【LeetCode】389. Find the Difference</title>
       <link>https://HauyuChen.github.io/post/389-find-the-difference/</link>
       <pubDate>Wed, 15 Feb 2017 00:00:00 +0000</pubDate>
       
@@ -270,7 +270,7 @@ Explanation: &amp;lsquo;e&amp;rsquo; is the letter that was added.
     </item>
     
     <item>
-      <title>387. First Unique Character in a String</title>
+      <title>【LeetCode】387. First Unique Character in a String</title>
       <link>https://HauyuChen.github.io/post/387-first-unique-character-in-a-string/</link>
       <pubDate>Tue, 14 Feb 2017 00:00:00 +0000</pubDate>
       
@@ -284,7 +284,7 @@ Note: You may assume the string contain only lowercase letters.
     </item>
     
     <item>
-      <title>371. Sum of Two Integers</title>
+      <title>【LeetCode】371. Sum of Two Integers</title>
       <link>https://HauyuChen.github.io/post/371-sum-of-two-integers/</link>
       <pubDate>Mon, 13 Feb 2017 00:00:00 +0000</pubDate>
       
@@ -295,7 +295,7 @@ Example: Given a = 1 and b = 2, return 3.
     </item>
     
     <item>
-      <title>383. Ransom Note</title>
+      <title>【LeetCode】383. Ransom Note</title>
       <link>https://HauyuChen.github.io/post/383-ransom-note/</link>
       <pubDate>Mon, 13 Feb 2017 00:00:00 +0000</pubDate>
       
@@ -307,7 +307,7 @@ Note: You may assume that both strings contain only lowercase letters.
     </item>
     
     <item>
-      <title>349. Intersection of Two Arrays</title>
+      <title>【LeetCode】349. Intersection of Two Arrays</title>
       <link>https://HauyuChen.github.io/post/349-intersection-of-two-arrays/</link>
       <pubDate>Sun, 15 Jan 2017 00:00:00 +0000</pubDate>
       
@@ -319,7 +319,7 @@ Note: Each element in the result must be unique. The result can be in any order.
     </item>
     
     <item>
-      <title>350. Intersection of Two Arrays II</title>
+      <title>【LeetCode】350. Intersection of Two Arrays II</title>
       <link>https://HauyuChen.github.io/post/350-intersection-of-two-arrays-ii/</link>
       <pubDate>Sun, 15 Jan 2017 00:00:00 +0000</pubDate>
       
@@ -330,7 +330,7 @@ Note: Each element in the result should appear as many times as it shows in both
     </item>
     
     <item>
-      <title>344. Reverse String</title>
+      <title>【LeetCode】344. Reverse String</title>
       <link>https://HauyuChen.github.io/post/344-reverse-string/</link>
       <pubDate>Fri, 13 Jan 2017 00:00:00 +0000</pubDate>
       
@@ -341,7 +341,7 @@ Example: Given s = &amp;ldquo;hello&amp;rdquo;, return &amp;ldquo;olleh&amp;rdqu
     </item>
     
     <item>
-      <title>326. Power of Three</title>
+      <title>【LeetCode】326. Power of Three</title>
       <link>https://HauyuChen.github.io/post/326-power-of-three/</link>
       <pubDate>Thu, 12 Jan 2017 00:00:00 +0000</pubDate>
       
@@ -352,7 +352,7 @@ Follow up: Could you do it without using any loop / recursion?
     </item>
     
     <item>
-      <title>338. Counting Bits</title>
+      <title>【LeetCode】338. Counting Bits</title>
       <link>https://HauyuChen.github.io/post/338-counting-bits/</link>
       <pubDate>Thu, 12 Jan 2017 00:00:00 +0000</pubDate>
       
@@ -363,7 +363,7 @@ Follow up: It is very easy to come up with a solution with run time O(n*sizeof(i
     </item>
     
     <item>
-      <title>268. Missing Number</title>
+      <title>【LeetCode】268. Missing Number</title>
       <link>https://HauyuChen.github.io/post/268-missing-number/</link>
       <pubDate>Wed, 11 Jan 2017 00:00:00 +0000</pubDate>
       
@@ -375,7 +375,7 @@ Note: Your algorithm should run in linear runtime complexity. Could you implemen
     </item>
     
     <item>
-      <title>283. Move Zeroes</title>
+      <title>【LeetCode】283. Move Zeroes</title>
       <link>https://HauyuChen.github.io/post/283-move-zeroes/</link>
       <pubDate>Wed, 11 Jan 2017 00:00:00 +0000</pubDate>
       
@@ -387,7 +387,7 @@ Note: You must do this in-place without making a copy of the array. Minimize the
     </item>
     
     <item>
-      <title>292. Nim Game</title>
+      <title>【LeetCode】292. Nim Game</title>
       <link>https://HauyuChen.github.io/post/292-nim-game/</link>
       <pubDate>Wed, 11 Jan 2017 00:00:00 +0000</pubDate>
       
@@ -397,7 +397,7 @@ Both of you are very clever and have optimal strategies for the game. Write a fu
     </item>
     
     <item>
-      <title>258. Add Digits</title>
+      <title>【LeetCode】258. Add Digits</title>
       <link>https://HauyuChen.github.io/post/258-add-digits/</link>
       <pubDate>Tue, 10 Jan 2017 00:00:00 +0000</pubDate>
       
@@ -410,7 +410,7 @@ Follow up: Could you do it without any loop/recursion in O(1) runtime?
     </item>
     
     <item>
-      <title>263. Ugly Number</title>
+      <title>【LeetCode】263. Ugly Number</title>
       <link>https://HauyuChen.github.io/post/263-ugly-number/</link>
       <pubDate>Tue, 10 Jan 2017 00:00:00 +0000</pubDate>
       
@@ -422,7 +422,7 @@ Note that 1 is typically treated as an ugly number.
     </item>
     
     <item>
-      <title>231. Power of Two</title>
+      <title>【LeetCode】231. Power of Two</title>
       <link>https://HauyuChen.github.io/post/231-power-of-two/</link>
       <pubDate>Mon, 09 Jan 2017 00:00:00 +0000</pubDate>
       
@@ -432,7 +432,7 @@ Note that 1 is typically treated as an ugly number.
     </item>
     
     <item>
-      <title>237. Delete Node in a Linked List</title>
+      <title>【LeetCode】237. Delete Node in a Linked List</title>
       <link>https://HauyuChen.github.io/post/237-delete-node-in-a-linked-list/</link>
       <pubDate>Mon, 09 Jan 2017 00:00:00 +0000</pubDate>
       
@@ -443,7 +443,7 @@ Supposed the linked list is 1 -&amp;gt; 2 -&amp;gt; 3 -&amp;gt; 4 and you are gi
     </item>
     
     <item>
-      <title>242. Valid Anagram</title>
+      <title>【LeetCode】242. Valid Anagram</title>
       <link>https://HauyuChen.github.io/post/242-valid-anagram/</link>
       <pubDate>Mon, 09 Jan 2017 00:00:00 +0000</pubDate>
       
@@ -456,7 +456,7 @@ Follow up: What if the inputs contain unicode characters? How would you adapt yo
     </item>
     
     <item>
-      <title>226. Invert Binary Tree</title>
+      <title>【LeetCode】226. Invert Binary Tree</title>
       <link>https://HauyuChen.github.io/post/226-invert-binary-tree/</link>
       <pubDate>Sun, 08 Jan 2017 00:00:00 +0000</pubDate>
       
@@ -466,7 +466,7 @@ Follow up: What if the inputs contain unicode characters? How would you adapt yo
     </item>
     
     <item>
-      <title>206. Reverse Linked List</title>
+      <title>【LeetCode】206. Reverse Linked List</title>
       <link>https://HauyuChen.github.io/post/206-reverse-linked-list/</link>
       <pubDate>Sat, 07 Jan 2017 00:00:00 +0000</pubDate>
       
@@ -476,7 +476,7 @@ Follow up: What if the inputs contain unicode characters? How would you adapt yo
     </item>
     
     <item>
-      <title>217. Contains Duplicate</title>
+      <title>【LeetCode】217. Contains Duplicate</title>
       <link>https://HauyuChen.github.io/post/217-contains-duplicate/</link>
       <pubDate>Sat, 07 Jan 2017 00:00:00 +0000</pubDate>
       
@@ -486,7 +486,7 @@ Follow up: What if the inputs contain unicode characters? How would you adapt yo
     </item>
     
     <item>
-      <title>191. Number of 1 Bits</title>
+      <title>【LeetCode】191. Number of 1 Bits</title>
       <link>https://HauyuChen.github.io/post/191-number-of-1-bits/</link>
       <pubDate>Wed, 24 Aug 2016 00:00:00 +0000</pubDate>
       
@@ -497,7 +497,7 @@ For example, the 32-bit integer ’11&amp;rsquo; has binary representation 00000
     </item>
     
     <item>
-      <title>202. Happy Number</title>
+      <title>【LeetCode】202. Happy Number</title>
       <link>https://HauyuChen.github.io/post/202-happy-number/</link>
       <pubDate>Wed, 24 Aug 2016 00:00:00 +0000</pubDate>
       
@@ -507,7 +507,7 @@ A happy number is a number defined by the following process: Starting with any p
     </item>
     
     <item>
-      <title>171. Excel Sheet Column Number</title>
+      <title>【LeetCode】171. Excel Sheet Column Number</title>
       <link>https://HauyuChen.github.io/post/171-excel-sheet-column-number/</link>
       <pubDate>Tue, 23 Aug 2016 00:00:00 +0000</pubDate>
       
@@ -519,7 +519,7 @@ A -&amp;gt; 1 B -&amp;gt; 2 C -&amp;gt; 3 ... Z -&amp;gt; 26 AA -&amp;gt; 27 AB 
     </item>
     
     <item>
-      <title>167. Two Sum II - Input array is sorted</title>
+      <title>【LeetCode】167. Two Sum II - Input array is sorted</title>
       <link>https://HauyuChen.github.io/post/167-two-sum-ii-input-array-is-sorted/</link>
       <pubDate>Sat, 20 Aug 2016 00:00:00 +0000</pubDate>
       
@@ -530,7 +530,7 @@ You may assume that each input would have exactly one solution and you may not u
     </item>
     
     <item>
-      <title>169. Majority Element</title>
+      <title>【LeetCode】169. Majority Element</title>
       <link>https://HauyuChen.github.io/post/169-majority-element/</link>
       <pubDate>Sat, 20 Aug 2016 00:00:00 +0000</pubDate>
       
@@ -541,7 +541,7 @@ You may assume that the array is non-empty and the majority element always exist
     </item>
     
     <item>
-      <title>121. Best Time to Buy and Sell Stock</title>
+      <title>【LeetCode】121. Best Time to Buy and Sell Stock</title>
       <link>https://HauyuChen.github.io/post/121-best-time-to-buy-and-sell-stock/</link>
       <pubDate>Tue, 16 Aug 2016 00:00:00 +0000</pubDate>
       
@@ -553,7 +553,7 @@ max. difference = 6-1 = 5 (not 7-1 = 6, as selling price needs to be larger than
     </item>
     
     <item>
-      <title>122. Best Time to Buy and Sell Stock II</title>
+      <title>【LeetCode】122. Best Time to Buy and Sell Stock II</title>
       <link>https://HauyuChen.github.io/post/122-best-time-to-buy-and-sell-stock-ii/</link>
       <pubDate>Tue, 16 Aug 2016 00:00:00 +0000</pubDate>
       
@@ -563,7 +563,7 @@ Design an algorithm to find the maximum profit. You may complete as many transac
     </item>
     
     <item>
-      <title>136. Single Number</title>
+      <title>【LeetCode】136. Single Number</title>
       <link>https://HauyuChen.github.io/post/136-single-number/</link>
       <pubDate>Tue, 16 Aug 2016 00:00:00 +0000</pubDate>
       
@@ -574,7 +574,7 @@ Note: Your algorithm should have a linear runtime complexity. Could you implemen
     </item>
     
     <item>
-      <title>104. Maximum Depth of Binary Tree</title>
+      <title>【LeetCode】104. Maximum Depth of Binary Tree</title>
       <link>https://HauyuChen.github.io/post/104-maximum-depth-of-binary-tree/</link>
       <pubDate>Mon, 15 Aug 2016 00:00:00 +0000</pubDate>
       
@@ -585,7 +585,7 @@ The maximum depth is the number of nodes along the longest path from the root no
     </item>
     
     <item>
-      <title>100. Same Tree</title>
+      <title>【LeetCode】100. Same Tree</title>
       <link>https://HauyuChen.github.io/post/100-same-tree/</link>
       <pubDate>Sun, 14 Aug 2016 00:00:00 +0000</pubDate>
       
@@ -596,7 +596,7 @@ Two binary trees are considered equal if they are structurally identical and the
     </item>
     
     <item>
-      <title>70. Climbing Stairs</title>
+      <title>【LeetCode】70. Climbing Stairs</title>
       <link>https://HauyuChen.github.io/post/070-climbing-stairs/</link>
       <pubDate>Sun, 14 Aug 2016 00:00:00 +0000</pubDate>
       
@@ -608,7 +608,7 @@ Each time you can either climb 1 or 2 steps. In how many distinct ways can you c
     </item>
     
     <item>
-      <title>69. Sqrt(x)</title>
+      <title>【LeetCode】69. Sqrt(x)</title>
       <link>https://HauyuChen.github.io/post/069-sqrtx/</link>
       <pubDate>Sat, 13 Aug 2016 00:00:00 +0000</pubDate>
       
@@ -619,7 +619,7 @@ Compute and return the square root of x.
     </item>
     
     <item>
-      <title>13. Roman to Integer</title>
+      <title>【LeetCode】13. Roman to Integer</title>
       <link>https://HauyuChen.github.io/post/013-roman-to-integer/</link>
       <pubDate>Fri, 12 Aug 2016 00:00:00 +0000</pubDate>
       
@@ -632,7 +632,7 @@ Input is guaranteed to be within the range from 1 to 3999.
     </item>
     
     <item>
-      <title>21. Merge Two Sorted Lists</title>
+      <title>【LeetCode】21. Merge Two Sorted Lists</title>
       <link>https://HauyuChen.github.io/post/021-merge-two-sorted-lists/</link>
       <pubDate>Fri, 12 Aug 2016 00:00:00 +0000</pubDate>
       
@@ -642,7 +642,7 @@ Input is guaranteed to be within the range from 1 to 3999.
     </item>
     
     <item>
-      <title>53. Maximum Subarray</title>
+      <title>【LeetCode】53. Maximum Subarray</title>
       <link>https://HauyuChen.github.io/post/053-maximum-subarray/</link>
       <pubDate>Fri, 12 Aug 2016 00:00:00 +0000</pubDate>
       
@@ -654,7 +654,7 @@ For example, given the array [-2,1,-3,4,-1,2,1,-5,4], the contiguous subarray [4
     </item>
     
     <item>
-      <title>1. Two Sum</title>
+      <title>【LeetCode】1. Two Sum</title>
       <link>https://HauyuChen.github.io/post/001-two-sum/</link>
       <pubDate>Thu, 11 Aug 2016 00:00:00 +0000</pubDate>
       
@@ -667,7 +667,7 @@ Because nums[0] + nums[1] = 2 + 7 = 9, return [0, 1].
     </item>
     
     <item>
-      <title>8. String to Integer (atoi)</title>
+      <title>【LeetCode】8. String to Integer (atoi)</title>
       <link>https://HauyuChen.github.io/post/008-string-to-integeratoi/</link>
       <pubDate>Thu, 11 Aug 2016 00:00:00 +0000</pubDate>
       

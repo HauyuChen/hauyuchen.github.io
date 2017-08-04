@@ -97,7 +97,7 @@
       
       
         <li class="pure-menu-item">
-          <a class="pure-menu-link" href="https://HauyuChen.github.io/tags/"><i class='fa fa-tags fa-fw'></i>分类</a>
+          <a class="pure-menu-link" href="https://HauyuChen.github.io/tags/"><i class='fa fa-tags fa-fw'></i>文章分类</a>
       
         </li>
       
@@ -115,13 +115,7 @@
       
       
         <li class="pure-menu-item">
-          <a class="pure-menu-link" href="https://HauyuChen.github.io/contact/"><i class='fa fa-phone-square fa-fw'></i>联系我</a>
-      
-        </li>
-      
-      
-        <li class="pure-menu-item">
-          <a class="pure-menu-link" href="https://HauyuChen.github.io/zhihu/"><i class='fa fa-phone-square fa-fw'></i>知乎</a>
+          <a class="pure-menu-link" href="https://HauyuChen.github.io/contact/"><i class='fa fa-home fa-fw'></i>关于本站</a>
       
         </li>
       
@@ -235,13 +229,13 @@
   
     <article>
   <header>
-    <h2><a href="https://HauyuChen.github.io/post/206-reverse-linked-list/">206. Reverse Linked List</a></h2>
+    <h2><a href="https://HauyuChen.github.io/post/263-ugly-number/">【LeetCode】263. Ugly Number</a></h2>
 
     <div class="post-meta">
 
   <div>
     <i class="fa fa-calendar fa-fw"></i>
-    <time>2017-01-07</time>
+    <time>2017-01-10</time>
   </div>
 
   
@@ -277,170 +271,15 @@
   </header>
 
   <p>
-   题目描述：  Reverse a singly linked list.
- 代码实现： /** * Definition for singly-linked list. * struct ListNode { * int val; * ListNode *next; * ListNode(int x) : val(x), next(NULL) {} * }; */ class Solution { public: ListNode* reverseList(ListNode* head) { ListNode* pPre=nullptr; ListNode* pNode=head; ListNode* pRet=nullptr; while(pNode!=nullptr){ ListNode* pNext=pNode-&gt;next; if(pNext==nullptr){ pRet=pNode; } pNode-&gt;next=pPre; pPre=pNode; pNode=pNext; } return pRet; } };  
-  </p>
-
-  
-</article>
-
-  
-    <article>
-  <header>
-    <h2><a href="https://HauyuChen.github.io/post/217-contains-duplicate/">217. Contains Duplicate</a></h2>
-
-    <div class="post-meta">
-
-  <div>
-    <i class="fa fa-calendar fa-fw"></i>
-    <time>2017-01-07</time>
-  </div>
-
-  
-
-  
-  
-  
-  <div>
-    <i class="fa fa-folder fa-fw"></i>
-    
-      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/%E7%AE%97%E6%B3%95">算法</a>&nbsp;&#47;
-    
-      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/leetcode">LeetCode</a>
-    
-  </div>
-  
-  
-
-  
-  
-  
-  <div>
-    <i class="fa fa-tags fa-fw"></i>
-    
-      <a class="post-taxonomy-tag" href="https://HauyuChen.github.io/tags/leetcode">LeetCode</a>
-    
-  </div>
-  
-  
-
-</div>
-
-  </header>
-
-  <p>
-   题目描述：  Given an array of integers, find if the array contains any duplicates. Your function should return true if any value appears at least twice in the array, and it should return false if every element is distinct.
- 代码实现： class Solution { public: bool containsDuplicate(vector&lt;int&gt;&amp; nums) { unordered_set&lt;int&gt; set; for(int num:nums){ if(set.count(num)){ return true; } set.insert(num); } return false; } };  
-  </p>
-
-  
-</article>
-
-  
-    <article>
-  <header>
-    <h2><a href="https://HauyuChen.github.io/post/191-number-of-1-bits/">191. Number of 1 Bits</a></h2>
-
-    <div class="post-meta">
-
-  <div>
-    <i class="fa fa-calendar fa-fw"></i>
-    <time>2016-08-24</time>
-  </div>
-
-  
-
-  
-  
-  
-  <div>
-    <i class="fa fa-folder fa-fw"></i>
-    
-      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/%E7%AE%97%E6%B3%95">算法</a>&nbsp;&#47;
-    
-      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/leetcode">LeetCode</a>
-    
-  </div>
-  
-  
-
-  
-  
-  
-  <div>
-    <i class="fa fa-tags fa-fw"></i>
-    
-      <a class="post-taxonomy-tag" href="https://HauyuChen.github.io/tags/leetcode">LeetCode</a>
-    
-  </div>
-  
-  
-
-</div>
-
-  </header>
-
-  <p>
-   题目描述：  Write a function that takes an unsigned integer and returns the number of ’1&rsquo; bits it has (also known as the Hamming weight).
-For example, the 32-bit integer ’11&rsquo; has binary representation 00000000000000000000000000001011, so the function should return 3.
- 代码实现： class Solution { public: int hammingWeight(uint32_t n) { int sum=0; while(n&gt;0){ if(n&amp;1==1){ sum++; } n=n&gt;&gt;1; } return sum; } };  
-  </p>
-
-  
-</article>
-
-  
-    <article>
-  <header>
-    <h2><a href="https://HauyuChen.github.io/post/202-happy-number/">202. Happy Number</a></h2>
-
-    <div class="post-meta">
-
-  <div>
-    <i class="fa fa-calendar fa-fw"></i>
-    <time>2016-08-24</time>
-  </div>
-
-  
-
-  
-  
-  
-  <div>
-    <i class="fa fa-folder fa-fw"></i>
-    
-      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/%E7%AE%97%E6%B3%95">算法</a>&nbsp;&#47;
-    
-      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/leetcode">LeetCode</a>
-    
-  </div>
-  
-  
-
-  
-  
-  
-  <div>
-    <i class="fa fa-tags fa-fw"></i>
-    
-      <a class="post-taxonomy-tag" href="https://HauyuChen.github.io/tags/leetcode">LeetCode</a>
-    
-  </div>
-  
-  
-
-</div>
-
-  </header>
-
-  <p>
-  题目描述：  Write an algorithm to determine if a number is &ldquo;happy&rdquo;.
-A happy number is a number defined by the following process: Starting with any positive integer, replace the number by the sum of the squares of its digits, and repeat the process until the number equals 1 (where it will stay), or it loops endlessly in a cycle which does not include 1. Those numbers for which this process ends in 1 are happy numbers.
+  题目描述：  Write a program to check whether a given number is an ugly number.
+Ugly numbers are positive numbers whose prime factors only include 2, 3, 5. For example, 6, 8 are ugly while 14 is not ugly since it includes another prime factor 7.
+Note that 1 is typically treated as an ugly number.
+ 代码实现： class Solution { public: bool isUgly(int num) { if(num&lt;=0){ return false; } while(num%2==0){ num/=2; } while(num%3==0){ num/=3; } while(num%5==0){ num/=5; } return num==1?
   </p>
 
   
   <footer>
-    <a href="https://HauyuChen.github.io/post/202-happy-number/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
+    <a href="https://HauyuChen.github.io/post/263-ugly-number/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
   </footer>
   
 </article>
@@ -448,13 +287,13 @@ A happy number is a number defined by the following process: Starting with any p
   
     <article>
   <header>
-    <h2><a href="https://HauyuChen.github.io/post/171-excel-sheet-column-number/">171. Excel Sheet Column Number</a></h2>
+    <h2><a href="https://HauyuChen.github.io/post/231-power-of-two/">【LeetCode】231. Power of Two</a></h2>
 
     <div class="post-meta">
 
   <div>
     <i class="fa fa-calendar fa-fw"></i>
-    <time>2016-08-23</time>
+    <time>2017-01-09</time>
   </div>
 
   
@@ -490,12 +329,178 @@ A happy number is a number defined by the following process: Starting with any p
   </header>
 
   <p>
-   题目描述：  Related to question Excel Sheet Column Title
-Given a column title as appear in an Excel sheet, return its corresponding column number.
-For example:
-A -&gt; 1 B -&gt; 2 C -&gt; 3 ... Z -&gt; 26 AA -&gt; 27 AB -&gt; 28   代码实现： class Solution { public: int titleToNumber(string s) { int sum=0; for(int i=0;i&lt;s.length();i++){ sum = sum*26+(s[i]-'A'+1); } return sum; } };  
+   题目描述：  Given an integer, write a function to determine if it is a power of two.
+ 代码实现： class Solution { public: bool isPowerOfTwo(int n) { int flag=0; if(n&lt;=0){ return false; } while(n&gt;0){ if(n&amp;1==1){ if(flag==1){ return false; } flag=1; } n=n&gt;&gt;1; } return true; } };  
   </p>
 
+  
+</article>
+
+  
+    <article>
+  <header>
+    <h2><a href="https://HauyuChen.github.io/post/237-delete-node-in-a-linked-list/">【LeetCode】237. Delete Node in a Linked List</a></h2>
+
+    <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>2017-01-09</time>
+  </div>
+
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-folder fa-fw"></i>
+    
+      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/%E7%AE%97%E6%B3%95">算法</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/leetcode">LeetCode</a>
+    
+  </div>
+  
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-taxonomy-tag" href="https://HauyuChen.github.io/tags/leetcode">LeetCode</a>
+    
+  </div>
+  
+  
+
+</div>
+
+  </header>
+
+  <p>
+   题目描述：  Write a function to delete a node (except the tail) in a singly linked list, given only access to that node.
+Supposed the linked list is 1 -&gt; 2 -&gt; 3 -&gt; 4 and you are given the third node with value 3, the linked list should become 1 -&gt; 2 -&gt; 4 after calling your function.
+ 代码实现： /** * Definition for singly-linked list. * struct ListNode { * int val; * ListNode *next; * ListNode(int x) : val(x), next(NULL) {} * }; */ class Solution { public: void deleteNode(ListNode* node) { auto next = node-&gt;next; *node = *next; delete next; } };  
+  </p>
+
+  
+</article>
+
+  
+    <article>
+  <header>
+    <h2><a href="https://HauyuChen.github.io/post/242-valid-anagram/">【LeetCode】242. Valid Anagram</a></h2>
+
+    <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>2017-01-09</time>
+  </div>
+
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-folder fa-fw"></i>
+    
+      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/%E7%AE%97%E6%B3%95">算法</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/leetcode">LeetCode</a>
+    
+  </div>
+  
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-taxonomy-tag" href="https://HauyuChen.github.io/tags/leetcode">LeetCode</a>
+    
+  </div>
+  
+  
+
+</div>
+
+  </header>
+
+  <p>
+  题目描述：  Given two strings s and t, write a function to determine if t is an anagram of s.
+For example, s = &ldquo;anagram&rdquo;, t = &ldquo;nagaram&rdquo;, return true. s = &ldquo;rat&rdquo;, t = &ldquo;car&rdquo;, return false.
+Note: You may assume the string contains only lowercase alphabets.
+Follow up: What if the inputs contain unicode characters? How would you adapt your solution to such case?
+ 代码实现： class Solution { public: bool isAnagram(string s, string t) { if(s.
+  </p>
+
+  
+  <footer>
+    <a href="https://HauyuChen.github.io/post/242-valid-anagram/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
+  </footer>
+  
+</article>
+
+  
+    <article>
+  <header>
+    <h2><a href="https://HauyuChen.github.io/post/226-invert-binary-tree/">【LeetCode】226. Invert Binary Tree</a></h2>
+
+    <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>2017-01-08</time>
+  </div>
+
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-folder fa-fw"></i>
+    
+      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/%E7%AE%97%E6%B3%95">算法</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/leetcode">LeetCode</a>
+    
+  </div>
+  
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-taxonomy-tag" href="https://HauyuChen.github.io/tags/leetcode">LeetCode</a>
+    
+  </div>
+  
+  
+
+</div>
+
+  </header>
+
+  <p>
+  题目描述：  Invert a binary tree.
+ 4 / \ 2 7 / \ / \ 1 3 6 9 to 4 / \ 7 2 / \ / \ 9 6 3 1  Trivia: This problem was inspired by this original tweet by Max Howell: Google: 90% of our engineers use the software you wrote (Homebrew), but you can’t invert a binary tree on a whiteboard so fuck off.
+  </p>
+
+  
+  <footer>
+    <a href="https://HauyuChen.github.io/post/226-invert-binary-tree/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
+  </footer>
   
 </article>
 
@@ -508,7 +513,7 @@ A -&gt; 1 B -&gt; 2 C -&gt; 3 ... Z -&gt; 26 AA -&gt; 27 AB -&gt; 28   代码实
   
   <a href="https://HauyuChen.github.io/page/8/"><i class="fa fa-chevron-left"></i></a>
   
-  <span>&nbsp;9 / 12&nbsp;</span>
+  <span>&nbsp;9 / 13&nbsp;</span>
   
   <a href="https://HauyuChen.github.io/page/10/"><i class="fa fa-chevron-right"></i></a>
   
