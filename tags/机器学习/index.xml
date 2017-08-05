@@ -13,7 +13,7 @@
     
     
     <item>
-      <title>【机器学习系列】0. 什么是机器学习</title>
+      <title>【机器学习笔记】0. 什么是机器学习</title>
       <link>https://HauyuChen.github.io/post/machinelearning-introduction/</link>
       <pubDate>Tue, 11 Jul 2017 00:00:00 +0000</pubDate>
       
@@ -31,7 +31,7 @@
     </item>
     
     <item>
-      <title>【机器学习系列】1. 线性回归（单变量）</title>
+      <title>【机器学习笔记】1. 线性回归（单变量）</title>
       <link>https://HauyuChen.github.io/post/linearregression-onevariables/</link>
       <pubDate>Fri, 21 Jul 2017 00:00:00 +0000</pubDate>
       
@@ -53,7 +53,7 @@
     </item>
     
     <item>
-      <title>【机器学习系列】2. 梯度下降法</title>
+      <title>【机器学习笔记】2. 梯度下降法</title>
       <link>https://HauyuChen.github.io/post/gradientdescent/</link>
       <pubDate>Wed, 26 Jul 2017 00:00:00 +0000</pubDate>
       
