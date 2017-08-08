@@ -109,7 +109,7 @@
       
       
         <li class="pure-menu-item">
-          <a class="pure-menu-link" href=""><i class='fa fa-user fa-fw'></i>关于我</a>
+          <a class="pure-menu-link" href="https://HauyuChen.github.io/about/"><i class='fa fa-user fa-fw'></i>关于我</a>
       
         </li>
       
@@ -228,7 +228,161 @@
   
     <article>
   <header>
-    <h2><a href="https://HauyuChen.github.io/post/gradientdescent/">【机器学习笔记】2. 梯度下降法</a></h2>
+    <h2><a href="https://HauyuChen.github.io/post/ml-4-logisticregression/">【机器学习笔记】4. 逻辑回归</a></h2>
+
+    <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>2017-08-03</time>
+  </div>
+
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-folder fa-fw"></i>
+    
+      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0">机器学习</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92">逻辑回归</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/%E7%9B%91%E7%9D%A3%E5%AD%A6%E4%B9%A0">监督学习</a>
+    
+  </div>
+  
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-taxonomy-tag" href="https://HauyuChen.github.io/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0">机器学习</a>
+    
+  </div>
+  
+  
+
+</div>
+
+  </header>
+
+  <p>
+  作者注：机器学习系列是本人在学习机器学习相关内容时产生的笔记，希望也能对您有所帮助。值得注意的是，作者作为初学者，表述难免有误或不全面，望多批评指正。 如有任何问题，欢迎您随时与我联系：Hauyu.Chen@Gmail.com
+版权声明：本文由 Hov 所有，发布于 http://hov.space/ ，转载请注明出处。
+
+0 前言 本文要讲的逻辑回归属于分类算法，它是对线性回归的改进。
+在处理二分类问题的时候，我们可将所有预测 y 映射成某个值。假设，若该值大于等于0.5，则结果为1；若该值小于0.5，则结果为0。这样，我们就将所有样本分为两类了。
+若用线性回归去处理分类问题， y 的值可能远大于1或小于0，这样会造成较大的误差，所以能否让 y 的值处于0到1之间呢？
+逻辑回归实现的就是这样的功能，将预测值映射到某个固定的区间，通过决策边界，实现二分类问题。
+
+1 要点 1.1 逻辑函数（Sigmoid函数） 逻辑回归中的逻辑函数其实就是线性回归中的假设函数，只不过在假设函数的基础上进行一个函数映射。
+（1）线性回归中的假设函数
+（2）逻辑回归中的逻辑函数
+逻辑函数对应的图像如下：
+可见，逻辑函数将所有预测映射到（0，1）区间。
+1.2 Decision Boundary（决策边界） 为了对输出结果进行0和1的分类，我们假设认为 hθ(x) 大于等于0.5，则结果 y=1 ；若 hθ(x) 小于0.5，则结果 y=0 ，即：
+根据逻辑函数的图像，有：
+即：
+所以，决策边界就是将结果分为 y=0 和 y=1 的分界，不同的参数向量 θ ，可对应不同的决策边界。
+举个栗子：
+这个栗子中，决策边界为 x=5 ，因为在其左边，y=1；在其右边，y=0。
+当然，决策边界并非只能是直线，也可能是复杂的曲线。
+1.3 Cost Function（代价函数） 上述公式可简化如下：
+向量化如下：
+1.4 Gradient Descent（梯度下降） 
+2 思路 假设，我们要实现邮件的分类（垃圾邮件、非垃圾邮件）
+ 借助线性回归的思路，我们可以设定假设函数 hθ(x)=θ0*x0+θ1*x1+⋯+θn*xn ，但 hθ(x) 的结果可能在 (−∞,+∞) 之间。 所以，我们通过构造逻辑回归将预测值映射到（0，1）区间，预测值表示该邮件是垃圾邮件的概率。 构造代价函数。 通过梯度下降来最优化特征向量 θ ，求得决策边界。
+  </p>
+
+  
+  <footer>
+    <a href="https://HauyuChen.github.io/post/ml-4-logisticregression/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
+  </footer>
+  
+</article>
+
+  
+    <article>
+  <header>
+    <h2><a href="https://HauyuChen.github.io/post/ml-3-linearregression-multiplevariables/">【机器学习笔记】3. 线性回归（多变量）</a></h2>
+
+    <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>2017-07-31</time>
+  </div>
+
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-folder fa-fw"></i>
+    
+      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0">机器学习</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92">线性回归</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/%E7%9B%91%E7%9D%A3%E5%AD%A6%E4%B9%A0">监督学习</a>
+    
+  </div>
+  
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-taxonomy-tag" href="https://HauyuChen.github.io/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0">机器学习</a>
+    
+  </div>
+  
+  
+
+</div>
+
+  </header>
+
+  <p>
+  作者注：机器学习系列是本人在学习机器学习相关内容时产生的笔记，希望也能对您有所帮助。值得注意的是，作者作为初学者，表述难免有误或不全面，望多批评指正。 如有任何问题，欢迎您随时与我联系：Hauyu.Chen@Gmail.com
+版权声明：本文由 Hov 所有，发布于 http://hov.space/ ，转载请注明出处。
+
+0 前言 前面我们已经提到了单变量线性回归，现在讲讲多元线性回归（多变量线性回归）。
+在讲解单变量线性回归时，我们引入了房价预测这个栗子，仅通过房屋面积来预测房价。事实上，影响房价的因素有很多，如面积、房间数量、楼层、房龄等等。
+现在，我们想在进行房价预测时考虑面积、房间数量、楼层、房龄这几个因素，而不是单单只考虑面积。
+显然，单变量线性回归已不再适用，我们可以通过多元线性回归来解决。
+
+1 要点 1.1 多元线性回归模型 这条公式是否很熟悉呢？其实就是在单变量线性回归模型的基础上增加了其它的特征 x2、x3、x4 ··· xn。
+为方便计算，我们可以定义 x0=1 ，现在可以将公式转化成如下形式：
+令： 特征向量X = [x0,x1,x2, &hellip; ,xn] 参数向量θ = [θ0,θ1,θ2, &hellip; ,θn] X 和 θ 均为 n+1 维向量，有：
+最后，假设函数h可简化成以下形式：
+1.2 Cost Function（代价函数） 注：多元线性回归的代价函数和单变量线性回归的一致，不过增加了一些新的参数θ3、θ4、θ5···θn。
+1.3 Batch Gradient Descent（批量梯度下降） 
+2 思路 多元线性回归的思路和单变量线性回归大体一致，只不过我们需要对计算公式做一些微小改变。
+同样，还是通过房价预测的栗子来讲解：
+ 房价取决于多方面的因素，在这里我们考虑面积、房间数量、楼层、房龄这四个因素。所以，我们要搞清楚的就是面积 x1 、房间数量 x2 、楼层 x3 、房龄 x4 对房价 y 的影响。 所以，假设函数为 hθ(x) = θ0 + θ1*x1+ θ2*x2 + θ3*x3+ θ4*x4 。 令 x0=1 ，将假设函数转换成 hθ(x) = θ0*x0 + θ1*x1+ θ2*x2 + θ3*x3+ θ4*x4 。 令特征向量 X=[x0,x1,x2,x3,x4] ,参数向量 θ=[θ0,θ1,θ2,θ3,θ4] ,最终我们的假设函数为 hθ(x)=(θ^T)X 。 问题的核心还是找出合适的参数向量θ，使得我们的预测 hθ(x) 是合理的。 衡量参数向量 θ 是否合适的标准就是代价函数 J(0) ，θ 应使得 J(θ) 尽可能小。
+  </p>
+
+  
+  <footer>
+    <a href="https://HauyuChen.github.io/post/ml-3-linearregression-multiplevariables/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
+  </footer>
+  
+</article>
+
+  
+    <article>
+  <header>
+    <h2><a href="https://HauyuChen.github.io/post/ml-2-gradientdescent/">【机器学习笔记】2. 梯度下降法</a></h2>
 
     <div class="post-meta">
 
@@ -288,7 +442,7 @@
 
   
   <footer>
-    <a href="https://HauyuChen.github.io/post/gradientdescent/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
+    <a href="https://HauyuChen.github.io/post/ml-2-gradientdescent/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
   </footer>
   
 </article>
@@ -296,7 +450,7 @@
   
     <article>
   <header>
-    <h2><a href="https://HauyuChen.github.io/post/linearregression-onevariables/">【机器学习笔记】1. 线性回归（单变量）</a></h2>
+    <h2><a href="https://HauyuChen.github.io/post/ml-1-linearregression-onevariables/">【机器学习笔记】1. 线性回归（单变量）</a></h2>
 
     <div class="post-meta">
 
@@ -358,7 +512,7 @@
 
   
   <footer>
-    <a href="https://HauyuChen.github.io/post/linearregression-onevariables/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
+    <a href="https://HauyuChen.github.io/post/ml-1-linearregression-onevariables/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
   </footer>
   
 </article>
@@ -366,7 +520,7 @@
   
     <article>
   <header>
-    <h2><a href="https://HauyuChen.github.io/post/machinelearning-introduction/">【机器学习笔记】0. 什么是机器学习</a></h2>
+    <h2><a href="https://HauyuChen.github.io/post/ml-0-machinelearning-introduction/">【机器学习笔记】0. 什么是机器学习</a></h2>
 
     <div class="post-meta">
 
@@ -424,7 +578,7 @@
 
   
   <footer>
-    <a href="https://HauyuChen.github.io/post/machinelearning-introduction/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
+    <a href="https://HauyuChen.github.io/post/ml-0-machinelearning-introduction/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
   </footer>
   
 </article>
@@ -437,16 +591,7 @@
 <script src="https://HauyuChen.github.io/js/ui.js"></script>
 
 
-<script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-  ga('create', 'UA-72514969-1', 'auto');
-  ga('send', 'pageview');
-
-</script>
 
 
 

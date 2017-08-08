@@ -109,7 +109,7 @@
       
       
         <li class="pure-menu-item">
-          <a class="pure-menu-link" href=""><i class='fa fa-user fa-fw'></i>关于我</a>
+          <a class="pure-menu-link" href="https://HauyuChen.github.io/about/"><i class='fa fa-user fa-fw'></i>关于我</a>
       
         </li>
       
@@ -229,13 +229,13 @@
   
     <article>
   <header>
-    <h2><a href="https://HauyuChen.github.io/post/237-delete-node-in-a-linked-list/">【LeetCode】237. Delete Node in a Linked List</a></h2>
+    <h2><a href="https://HauyuChen.github.io/post/338-counting-bits/">【LeetCode】338. Counting Bits</a></h2>
 
     <div class="post-meta">
 
   <div>
     <i class="fa fa-calendar fa-fw"></i>
-    <time>2017-01-09</time>
+    <time>2017-01-12</time>
   </div>
 
   
@@ -271,69 +271,14 @@
   </header>
 
   <p>
-   题目描述：  Write a function to delete a node (except the tail) in a singly linked list, given only access to that node.
-Supposed the linked list is 1 -&gt; 2 -&gt; 3 -&gt; 4 and you are given the third node with value 3, the linked list should become 1 -&gt; 2 -&gt; 4 after calling your function.
- 代码实现： /** * Definition for singly-linked list. * struct ListNode { * int val; * ListNode *next; * ListNode(int x) : val(x), next(NULL) {} * }; */ class Solution { public: void deleteNode(ListNode* node) { auto next = node-&gt;next; *node = *next; delete next; } };  
-  </p>
-
-  
-</article>
-
-  
-    <article>
-  <header>
-    <h2><a href="https://HauyuChen.github.io/post/242-valid-anagram/">【LeetCode】242. Valid Anagram</a></h2>
-
-    <div class="post-meta">
-
-  <div>
-    <i class="fa fa-calendar fa-fw"></i>
-    <time>2017-01-09</time>
-  </div>
-
-  
-
-  
-  
-  
-  <div>
-    <i class="fa fa-folder fa-fw"></i>
-    
-      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/%E7%AE%97%E6%B3%95">算法</a>&nbsp;&#47;
-    
-      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/leetcode">LeetCode</a>
-    
-  </div>
-  
-  
-
-  
-  
-  
-  <div>
-    <i class="fa fa-tags fa-fw"></i>
-    
-      <a class="post-taxonomy-tag" href="https://HauyuChen.github.io/tags/leetcode">LeetCode</a>
-    
-  </div>
-  
-  
-
-</div>
-
-  </header>
-
-  <p>
-  题目描述：  Given two strings s and t, write a function to determine if t is an anagram of s.
-For example, s = &ldquo;anagram&rdquo;, t = &ldquo;nagaram&rdquo;, return true. s = &ldquo;rat&rdquo;, t = &ldquo;car&rdquo;, return false.
-Note: You may assume the string contains only lowercase alphabets.
-Follow up: What if the inputs contain unicode characters? How would you adapt your solution to such case?
- 代码实现： class Solution { public: bool isAnagram(string s, string t) { if(s.
+  题目描述：  Given a non negative integer number num. For every numbers i in the range 0 ≤ i ≤ num calculate the number of 1&rsquo;s in their binary representation and return them as an array.
+Example: For num = 5 you should return [0,1,1,2,1,2].
+Follow up: It is very easy to come up with a solution with run time O(n*sizeof(integer)). But can you do it in linear time O(n) /possibly in a single pass?
   </p>
 
   
   <footer>
-    <a href="https://HauyuChen.github.io/post/242-valid-anagram/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
+    <a href="https://HauyuChen.github.io/post/338-counting-bits/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
   </footer>
   
 </article>
@@ -341,13 +286,13 @@ Follow up: What if the inputs contain unicode characters? How would you adapt yo
   
     <article>
   <header>
-    <h2><a href="https://HauyuChen.github.io/post/226-invert-binary-tree/">【LeetCode】226. Invert Binary Tree</a></h2>
+    <h2><a href="https://HauyuChen.github.io/post/268-missing-number/">【LeetCode】268. Missing Number</a></h2>
 
     <div class="post-meta">
 
   <div>
     <i class="fa fa-calendar fa-fw"></i>
-    <time>2017-01-08</time>
+    <time>2017-01-11</time>
   </div>
 
   
@@ -383,13 +328,15 @@ Follow up: What if the inputs contain unicode characters? How would you adapt yo
   </header>
 
   <p>
-  题目描述：  Invert a binary tree.
- 4 / \ 2 7 / \ / \ 1 3 6 9 to 4 / \ 7 2 / \ / \ 9 6 3 1  Trivia: This problem was inspired by this original tweet by Max Howell: Google: 90% of our engineers use the software you wrote (Homebrew), but you can’t invert a binary tree on a whiteboard so fuck off.
+  题目描述：  Given an array containing n distinct numbers taken from 0, 1, 2, &hellip;, n, find the one that is missing from the array.
+For example, Given nums = [0, 1, 3] return 2.
+Note: Your algorithm should run in linear runtime complexity. Could you implement it using only constant extra space complexity?
+ 代码实现： class Solution { public: int missingNumber(vector&lt;int&gt;&amp; nums) { int sum=0; int realsum=0; bool flag=false; for(int i=0;i&lt;nums.
   </p>
 
   
   <footer>
-    <a href="https://HauyuChen.github.io/post/226-invert-binary-tree/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
+    <a href="https://HauyuChen.github.io/post/268-missing-number/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
   </footer>
   
 </article>
@@ -397,13 +344,13 @@ Follow up: What if the inputs contain unicode characters? How would you adapt yo
   
     <article>
   <header>
-    <h2><a href="https://HauyuChen.github.io/post/206-reverse-linked-list/">【LeetCode】206. Reverse Linked List</a></h2>
+    <h2><a href="https://HauyuChen.github.io/post/283-move-zeroes/">【LeetCode】283. Move Zeroes</a></h2>
 
     <div class="post-meta">
 
   <div>
     <i class="fa fa-calendar fa-fw"></i>
-    <time>2017-01-07</time>
+    <time>2017-01-11</time>
   </div>
 
   
@@ -439,23 +386,29 @@ Follow up: What if the inputs contain unicode characters? How would you adapt yo
   </header>
 
   <p>
-   题目描述：  Reverse a singly linked list.
- 代码实现： /** * Definition for singly-linked list. * struct ListNode { * int val; * ListNode *next; * ListNode(int x) : val(x), next(NULL) {} * }; */ class Solution { public: ListNode* reverseList(ListNode* head) { ListNode* pPre=nullptr; ListNode* pNode=head; ListNode* pRet=nullptr; while(pNode!=nullptr){ ListNode* pNext=pNode-&gt;next; if(pNext==nullptr){ pRet=pNode; } pNode-&gt;next=pPre; pPre=pNode; pNode=pNext; } return pRet; } };  
+  题目描述：  Given an array nums, write a function to move all 0&rsquo;s to the end of it while maintaining the relative order of the non-zero elements.
+For example, given nums = [0, 1, 0, 3, 12], after calling your function, nums should be [1, 3, 12, 0, 0].
+Note: You must do this in-place without making a copy of the array. Minimize the total number of operations.
+ 代码实现： class Solution { public: void moveZeroes(vector&lt;int&gt;&amp; nums) { int index=0; for(int i=0;i&lt;nums.
   </p>
 
+  
+  <footer>
+    <a href="https://HauyuChen.github.io/post/283-move-zeroes/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
+  </footer>
   
 </article>
 
   
     <article>
   <header>
-    <h2><a href="https://HauyuChen.github.io/post/217-contains-duplicate/">【LeetCode】217. Contains Duplicate</a></h2>
+    <h2><a href="https://HauyuChen.github.io/post/292-nim-game/">【LeetCode】292. Nim Game</a></h2>
 
     <div class="post-meta">
 
   <div>
     <i class="fa fa-calendar fa-fw"></i>
-    <time>2017-01-07</time>
+    <time>2017-01-11</time>
   </div>
 
   
@@ -491,8 +444,67 @@ Follow up: What if the inputs contain unicode characters? How would you adapt yo
   </header>
 
   <p>
-   题目描述：  Given an array of integers, find if the array contains any duplicates. Your function should return true if any value appears at least twice in the array, and it should return false if every element is distinct.
- 代码实现： class Solution { public: bool containsDuplicate(vector&lt;int&gt;&amp; nums) { unordered_set&lt;int&gt; set; for(int num:nums){ if(set.count(num)){ return true; } set.insert(num); } return false; } };  
+  题目描述：  You are playing the following Nim Game with your friend: There is a heap of stones on the table, each time one of you take turns to remove 1 to 3 stones. The one who removes the last stone will be the winner. You will take the first turn to remove the stones.
+Both of you are very clever and have optimal strategies for the game. Write a function to determine whether you can win the game given the number of stones in the heap.
+  </p>
+
+  
+  <footer>
+    <a href="https://HauyuChen.github.io/post/292-nim-game/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
+  </footer>
+  
+</article>
+
+  
+    <article>
+  <header>
+    <h2><a href="https://HauyuChen.github.io/post/258-add-digits/">【LeetCode】258. Add Digits</a></h2>
+
+    <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>2017-01-10</time>
+  </div>
+
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-folder fa-fw"></i>
+    
+      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/%E7%AE%97%E6%B3%95">算法</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/leetcode">LeetCode</a>
+    
+  </div>
+  
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-taxonomy-tag" href="https://HauyuChen.github.io/tags/leetcode">LeetCode</a>
+    
+  </div>
+  
+  
+
+</div>
+
+  </header>
+
+  <p>
+   题目描述：  Given a non-negative integer num, repeatedly add all its digits until the result has only one digit.
+For example:
+Given num = 38, the process is like: 3 + 8 = 11, 1 + 1 = 2. Since 2 has only one digit, return it.
+Follow up: Could you do it without any loop/recursion in O(1) runtime?
+ 代码实现： class Solution { public: int addDigits(int num) { return 1+(num-1)%9; } };  
   </p>
 
   
@@ -507,7 +519,7 @@ Follow up: What if the inputs contain unicode characters? How would you adapt yo
   
   <a href="https://HauyuChen.github.io/page/8/"><i class="fa fa-chevron-left"></i></a>
   
-  <span>&nbsp;9 / 13&nbsp;</span>
+  <span>&nbsp;9 / 15&nbsp;</span>
   
   <a href="https://HauyuChen.github.io/page/10/"><i class="fa fa-chevron-right"></i></a>
   
@@ -522,16 +534,7 @@ Follow up: What if the inputs contain unicode characters? How would you adapt yo
 <script src="https://HauyuChen.github.io/js/ui.js"></script>
 
 
-<script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-  ga('create', 'UA-72514969-1', 'auto');
-  ga('send', 'pageview');
-
-</script>
 
 
 

@@ -109,7 +109,7 @@
       
       
         <li class="pure-menu-item">
-          <a class="pure-menu-link" href=""><i class='fa fa-user fa-fw'></i>关于我</a>
+          <a class="pure-menu-link" href="https://HauyuChen.github.io/about/"><i class='fa fa-user fa-fw'></i>关于我</a>
       
         </li>
       
@@ -229,13 +229,13 @@
   
     <article>
   <header>
-    <h2><a href="https://HauyuChen.github.io/post/121-best-time-to-buy-and-sell-stock/">【LeetCode】121. Best Time to Buy and Sell Stock</a></h2>
+    <h2><a href="https://HauyuChen.github.io/post/206-reverse-linked-list/">【LeetCode】206. Reverse Linked List</a></h2>
 
     <div class="post-meta">
 
   <div>
     <i class="fa fa-calendar fa-fw"></i>
-    <time>2016-08-16</time>
+    <time>2017-01-07</time>
   </div>
 
   
@@ -271,123 +271,8 @@
   </header>
 
   <p>
-  题目描述：  Say you have an array for which the ith element is the price of a given stock on day i.
-If you were only permitted to complete at most one transaction (ie, buy one and sell one share of the stock), design an algorithm to find the maximum profit.
-Example 1: Input: [7, 1, 5, 3, 6, 4] Output: 5
-max. difference = 6-1 = 5 (not 7-1 = 6, as selling price needs to be larger than buying price) Example 2: Input: [7, 6, 4, 3, 1] Output: 0
-  </p>
-
-  
-  <footer>
-    <a href="https://HauyuChen.github.io/post/121-best-time-to-buy-and-sell-stock/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
-  </footer>
-  
-</article>
-
-  
-    <article>
-  <header>
-    <h2><a href="https://HauyuChen.github.io/post/122-best-time-to-buy-and-sell-stock-ii/">【LeetCode】122. Best Time to Buy and Sell Stock II</a></h2>
-
-    <div class="post-meta">
-
-  <div>
-    <i class="fa fa-calendar fa-fw"></i>
-    <time>2016-08-16</time>
-  </div>
-
-  
-
-  
-  
-  
-  <div>
-    <i class="fa fa-folder fa-fw"></i>
-    
-      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/%E7%AE%97%E6%B3%95">算法</a>&nbsp;&#47;
-    
-      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/leetcode">LeetCode</a>
-    
-  </div>
-  
-  
-
-  
-  
-  
-  <div>
-    <i class="fa fa-tags fa-fw"></i>
-    
-      <a class="post-taxonomy-tag" href="https://HauyuChen.github.io/tags/leetcode">LeetCode</a>
-    
-  </div>
-  
-  
-
-</div>
-
-  </header>
-
-  <p>
-  题目描述：  Say you have an array for which the ith element is the price of a given stock on day i.
-Design an algorithm to find the maximum profit. You may complete as many transactions as you like (ie, buy one and sell one share of the stock multiple times). However, you may not engage in multiple transactions at the same time (ie, you must sell the stock before you buy again).
-  </p>
-
-  
-  <footer>
-    <a href="https://HauyuChen.github.io/post/122-best-time-to-buy-and-sell-stock-ii/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
-  </footer>
-  
-</article>
-
-  
-    <article>
-  <header>
-    <h2><a href="https://HauyuChen.github.io/post/136-single-number/">【LeetCode】136. Single Number</a></h2>
-
-    <div class="post-meta">
-
-  <div>
-    <i class="fa fa-calendar fa-fw"></i>
-    <time>2016-08-16</time>
-  </div>
-
-  
-
-  
-  
-  
-  <div>
-    <i class="fa fa-folder fa-fw"></i>
-    
-      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/%E7%AE%97%E6%B3%95">算法</a>&nbsp;&#47;
-    
-      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/leetcode">LeetCode</a>
-    
-  </div>
-  
-  
-
-  
-  
-  
-  <div>
-    <i class="fa fa-tags fa-fw"></i>
-    
-      <a class="post-taxonomy-tag" href="https://HauyuChen.github.io/tags/leetcode">LeetCode</a>
-    
-  </div>
-  
-  
-
-</div>
-
-  </header>
-
-  <p>
-   题目描述：  Given an array of integers, every element appears twice except for one. Find that single one.
-Note: Your algorithm should have a linear runtime complexity. Could you implement it without using extra memory?
- 代码实现： class Solution { public: int singleNumber(vector&lt;int&gt;&amp; nums) { int ret = 0; for(int num:nums){ ret^=num; } return ret; } };  
+   题目描述：  Reverse a singly linked list.
+ 代码实现： /** * Definition for singly-linked list. * struct ListNode { * int val; * ListNode *next; * ListNode(int x) : val(x), next(NULL) {} * }; */ class Solution { public: ListNode* reverseList(ListNode* head) { ListNode* pPre=nullptr; ListNode* pNode=head; ListNode* pRet=nullptr; while(pNode!=nullptr){ ListNode* pNext=pNode-&gt;next; if(pNext==nullptr){ pRet=pNode; } pNode-&gt;next=pPre; pPre=pNode; pNode=pNext; } return pRet; } };  
   </p>
 
   
@@ -396,13 +281,13 @@ Note: Your algorithm should have a linear runtime complexity. Could you implemen
   
     <article>
   <header>
-    <h2><a href="https://HauyuChen.github.io/post/104-maximum-depth-of-binary-tree/">【LeetCode】104. Maximum Depth of Binary Tree</a></h2>
+    <h2><a href="https://HauyuChen.github.io/post/217-contains-duplicate/">【LeetCode】217. Contains Duplicate</a></h2>
 
     <div class="post-meta">
 
   <div>
     <i class="fa fa-calendar fa-fw"></i>
-    <time>2016-08-15</time>
+    <time>2017-01-07</time>
   </div>
 
   
@@ -438,14 +323,118 @@ Note: Your algorithm should have a linear runtime complexity. Could you implemen
   </header>
 
   <p>
-  题目描述：  Given a binary tree, find its maximum depth.
-The maximum depth is the number of nodes along the longest path from the root node down to the farthest leaf node.
- 代码实现： /** * Definition for binary tree * struct TreeNode { * int val; * TreeNode *left; * TreeNode *right; * TreeNode(int x) : val(x), left(NULL), right(NULL) {} * }; */ class Solution { public: int maxDepth(TreeNode *root) { int Ldepth=0,Rdepth=0; if(root==NULL){ return 0; } if(root-&gt;left==NULL &amp;&amp; root-&gt;right==NULL){ return 1; } Ldepth=maxDepth(root-&gt;left); Rdepth=maxDepth(root-&gt;right); return 1+(Ldepth&gt;Rdepth?
+   题目描述：  Given an array of integers, find if the array contains any duplicates. Your function should return true if any value appears at least twice in the array, and it should return false if every element is distinct.
+ 代码实现： class Solution { public: bool containsDuplicate(vector&lt;int&gt;&amp; nums) { unordered_set&lt;int&gt; set; for(int num:nums){ if(set.count(num)){ return true; } set.insert(num); } return false; } };  
+  </p>
+
+  
+</article>
+
+  
+    <article>
+  <header>
+    <h2><a href="https://HauyuChen.github.io/post/191-number-of-1-bits/">【LeetCode】191. Number of 1 Bits</a></h2>
+
+    <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>2016-08-24</time>
+  </div>
+
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-folder fa-fw"></i>
+    
+      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/%E7%AE%97%E6%B3%95">算法</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/leetcode">LeetCode</a>
+    
+  </div>
+  
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-taxonomy-tag" href="https://HauyuChen.github.io/tags/leetcode">LeetCode</a>
+    
+  </div>
+  
+  
+
+</div>
+
+  </header>
+
+  <p>
+   题目描述：  Write a function that takes an unsigned integer and returns the number of ’1&rsquo; bits it has (also known as the Hamming weight).
+For example, the 32-bit integer ’11&rsquo; has binary representation 00000000000000000000000000001011, so the function should return 3.
+ 代码实现： class Solution { public: int hammingWeight(uint32_t n) { int sum=0; while(n&gt;0){ if(n&amp;1==1){ sum++; } n=n&gt;&gt;1; } return sum; } };  
+  </p>
+
+  
+</article>
+
+  
+    <article>
+  <header>
+    <h2><a href="https://HauyuChen.github.io/post/202-happy-number/">【LeetCode】202. Happy Number</a></h2>
+
+    <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>2016-08-24</time>
+  </div>
+
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-folder fa-fw"></i>
+    
+      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/%E7%AE%97%E6%B3%95">算法</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/leetcode">LeetCode</a>
+    
+  </div>
+  
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-taxonomy-tag" href="https://HauyuChen.github.io/tags/leetcode">LeetCode</a>
+    
+  </div>
+  
+  
+
+</div>
+
+  </header>
+
+  <p>
+  题目描述：  Write an algorithm to determine if a number is &ldquo;happy&rdquo;.
+A happy number is a number defined by the following process: Starting with any positive integer, replace the number by the sum of the squares of its digits, and repeat the process until the number equals 1 (where it will stay), or it loops endlessly in a cycle which does not include 1. Those numbers for which this process ends in 1 are happy numbers.
   </p>
 
   
   <footer>
-    <a href="https://HauyuChen.github.io/post/104-maximum-depth-of-binary-tree/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
+    <a href="https://HauyuChen.github.io/post/202-happy-number/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
   </footer>
   
 </article>
@@ -453,13 +442,13 @@ The maximum depth is the number of nodes along the longest path from the root no
   
     <article>
   <header>
-    <h2><a href="https://HauyuChen.github.io/post/100-same-tree/">【LeetCode】100. Same Tree</a></h2>
+    <h2><a href="https://HauyuChen.github.io/post/171-excel-sheet-column-number/">【LeetCode】171. Excel Sheet Column Number</a></h2>
 
     <div class="post-meta">
 
   <div>
     <i class="fa fa-calendar fa-fw"></i>
-    <time>2016-08-14</time>
+    <time>2016-08-23</time>
   </div>
 
   
@@ -495,15 +484,12 @@ The maximum depth is the number of nodes along the longest path from the root no
   </header>
 
   <p>
-  题目描述：  Given two binary trees, write a function to check if they are equal or not.
-Two binary trees are considered equal if they are structurally identical and the nodes have the same value.
- 代码实现： /** * Definition for a binary tree node. * struct TreeNode { * int val; * TreeNode *left; * TreeNode *right; * TreeNode(int x) : val(x), left(NULL), right(NULL) {} * }; */ class Solution { public: bool isSameTree(TreeNode* p, TreeNode* q) { if(p==nullptr &amp;&amp; q==nullptr){ return true; } else if(p==nullptr || q==nullptr){ return false; } if(p-&gt;val!
+   题目描述：  Related to question Excel Sheet Column Title
+Given a column title as appear in an Excel sheet, return its corresponding column number.
+For example:
+A -&gt; 1 B -&gt; 2 C -&gt; 3 ... Z -&gt; 26 AA -&gt; 27 AB -&gt; 28   代码实现： class Solution { public: int titleToNumber(string s) { int sum=0; for(int i=0;i&lt;s.length();i++){ sum = sum*26+(s[i]-'A'+1); } return sum; } };  
   </p>
 
-  
-  <footer>
-    <a href="https://HauyuChen.github.io/post/100-same-tree/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
-  </footer>
   
 </article>
 
@@ -516,7 +502,7 @@ Two binary trees are considered equal if they are structurally identical and the
   
   <a href="https://HauyuChen.github.io/page/10/"><i class="fa fa-chevron-left"></i></a>
   
-  <span>&nbsp;11 / 13&nbsp;</span>
+  <span>&nbsp;11 / 15&nbsp;</span>
   
   <a href="https://HauyuChen.github.io/page/12/"><i class="fa fa-chevron-right"></i></a>
   
@@ -531,16 +517,7 @@ Two binary trees are considered equal if they are structurally identical and the
 <script src="https://HauyuChen.github.io/js/ui.js"></script>
 
 
-<script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-  ga('create', 'UA-72514969-1', 'auto');
-  ga('send', 'pageview');
-
-</script>
 
 
 

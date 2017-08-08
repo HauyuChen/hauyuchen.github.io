@@ -7,17 +7,133 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2017. All rights reserved.</copyright>
-    <lastBuildDate>Wed, 26 Jul 2017 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 08 Aug 2017 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://HauyuChen.github.io/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
+      <title>Java相关特性</title>
+      <link>https://HauyuChen.github.io/post/java-trap/</link>
+      <pubDate>Tue, 08 Aug 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://HauyuChen.github.io/post/java-trap/</guid>
+      <description>Java备忘  float 和 double 不能进行精确运算，因为计算机不能表示所有的小数，采用 BigDecimal 来解决（String）。
+ switch 语句不能作用在 long 和 String 上。
+ true 、 false 、 null 不是严格意义上的关键字，而是文字常量（literals）。
+ float f = 2.5；不正确，因为精度不准确。正确写法：float f = (float)2.5;
+ try｛ ｝里面的 return 语句，紧跟着 finally｛ ｝里的代码会在 return 前先执行。</description>
+    </item>
+    
+    <item>
+      <title>SQL优化</title>
+      <link>https://HauyuChen.github.io/post/sql%E4%BC%98%E5%8C%96/</link>
+      <pubDate>Mon, 07 Aug 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://HauyuChen.github.io/post/sql%E4%BC%98%E5%8C%96/</guid>
+      <description>SQL 语句优化  尽量选择较小的列； 将 where 中用的比较频繁的字段建立索引； select 子句中避免使用‘ * ’； 避免在索引列上使用运算符、 not 、 in 、 &amp;lt; 、 &amp;gt; 等操作； 当只需要一行数据的时候使用 limit1； 保证表单数据不超过 200w ，适时分割表。</description>
+    </item>
+    
+    <item>
+      <title>Elasticsearch操作实例</title>
+      <link>https://HauyuChen.github.io/post/es-elasticsearch-manu/</link>
+      <pubDate>Sat, 05 Aug 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://HauyuChen.github.io/post/es-elasticsearch-manu/</guid>
+      <description>0 前言 本文通过电商网站商品管理的栗子来熟悉Elasticsearch操作。
+栗子中新增了三种品牌的牙膏“高露洁牙膏”、“佳洁士牙膏”、“中华牙膏”，并对这些数据进行增删改查、数据搜索、数据分析等操作。
+
+1 文档增删改查（CRUD） 1.1 新增文档，建立索引 格式：
+PUT /index/type/id { //JSON }  实例：新增商品（三种品牌的牙膏信息）。
+PUT /ecommerce/product/1 { &amp;quot;name&amp;quot;:&amp;quot;gaolujie yagao&amp;quot;, &amp;quot;desc&amp;quot;:&amp;quot;gaoxiao meibai&amp;quot;, &amp;quot;price&amp;quot;:30, &amp;quot;producer&amp;quot;:&amp;quot;gaolujie producer&amp;quot;, &amp;quot;tags&amp;quot;:[&amp;quot;meibai&amp;quot;,&amp;quot;fangzhu&amp;quot;] } PUT /ecommerce/product/2 { &amp;quot;name&amp;quot;:&amp;quot;jiajieshi yagao&amp;quot;, &amp;quot;desc&amp;quot;:&amp;quot;youxiao fangzhu&amp;quot;, &amp;quot;price&amp;quot;:25, &amp;quot;producer&amp;quot;:&amp;quot;jiajieshi producer&amp;quot;, &amp;quot;tags&amp;quot;:[&amp;quot;fangzhu&amp;quot;] } PUT /ecommerce/product/3 { &amp;quot;name&amp;quot;:&amp;quot;zhonghua yagao&amp;quot;, &amp;quot;desc&amp;quot;:&amp;quot;caoben zhiwu&amp;quot;, &amp;quot;price&amp;quot;:40, &amp;quot;producer&amp;quot;:&amp;quot;zhonghua producer&amp;quot;, &amp;quot;tags&amp;quot;:[&amp;quot;qingxin&amp;quot;] }  
+1.2 检索文档 格式：
+GET /index/type/id  实例：查询商品。
+GET /ecommerce/product/1  
+1.3 替换文档 实例：修改商品，将name的“gaolujie yagao”改成“jiaqiangban gaolujie yagao”。</description>
+    </item>
+    
+    <item>
+      <title>【机器学习笔记】4. 逻辑回归</title>
+      <link>https://HauyuChen.github.io/post/ml-4-logisticregression/</link>
+      <pubDate>Thu, 03 Aug 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://HauyuChen.github.io/post/ml-4-logisticregression/</guid>
+      <description>作者注：机器学习系列是本人在学习机器学习相关内容时产生的笔记，希望也能对您有所帮助。值得注意的是，作者作为初学者，表述难免有误或不全面，望多批评指正。 如有任何问题，欢迎您随时与我联系：Hauyu.Chen@Gmail.com
+版权声明：本文由 Hov 所有，发布于 http://hov.space/ ，转载请注明出处。
+
+0 前言 本文要讲的逻辑回归属于分类算法，它是对线性回归的改进。
+在处理二分类问题的时候，我们可将所有预测 y 映射成某个值。假设，若该值大于等于0.5，则结果为1；若该值小于0.5，则结果为0。这样，我们就将所有样本分为两类了。
+若用线性回归去处理分类问题， y 的值可能远大于1或小于0，这样会造成较大的误差，所以能否让 y 的值处于0到1之间呢？
+逻辑回归实现的就是这样的功能，将预测值映射到某个固定的区间，通过决策边界，实现二分类问题。
+
+1 要点 1.1 逻辑函数（Sigmoid函数） 逻辑回归中的逻辑函数其实就是线性回归中的假设函数，只不过在假设函数的基础上进行一个函数映射。
+（1）线性回归中的假设函数
+（2）逻辑回归中的逻辑函数
+逻辑函数对应的图像如下：
+可见，逻辑函数将所有预测映射到（0，1）区间。
+1.2 Decision Boundary（决策边界） 为了对输出结果进行0和1的分类，我们假设认为 hθ(x) 大于等于0.5，则结果 y=1 ；若 hθ(x) 小于0.5，则结果 y=0 ，即：
+根据逻辑函数的图像，有：
+即：
+所以，决策边界就是将结果分为 y=0 和 y=1 的分界，不同的参数向量 θ ，可对应不同的决策边界。
+举个栗子：
+这个栗子中，决策边界为 x=5 ，因为在其左边，y=1；在其右边，y=0。
+当然，决策边界并非只能是直线，也可能是复杂的曲线。
+1.3 Cost Function（代价函数） 上述公式可简化如下：
+向量化如下：
+1.4 Gradient Descent（梯度下降） 
+2 思路 假设，我们要实现邮件的分类（垃圾邮件、非垃圾邮件）
+ 借助线性回归的思路，我们可以设定假设函数 hθ(x)=θ0*x0+θ1*x1+⋯+θn*xn ，但 hθ(x) 的结果可能在 (−∞,+∞) 之间。 所以，我们通过构造逻辑回归将预测值映射到（0，1）区间，预测值表示该邮件是垃圾邮件的概率。 构造代价函数。 通过梯度下降来最优化特征向量 θ ，求得决策边界。</description>
+    </item>
+    
+    <item>
+      <title>JSON相关操作（Java）</title>
+      <link>https://HauyuChen.github.io/post/java-json/</link>
+      <pubDate>Tue, 01 Aug 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://HauyuChen.github.io/post/java-json/</guid>
+      <description>1 Java中创建JSON import com.google.gson.JsonArray; import com.google.gson.JsonObject; public class CreateJSON { public static void main(String[] args) { JsonObject object = new JsonObject(); object.addProperty(&amp;quot;cat&amp;quot;, &amp;quot;it&amp;quot;); JsonArray array = new JsonArray(); JsonObject lan1 = new JsonObject(); lan1.addProperty(&amp;quot;id&amp;quot;, 1); lan1.addProperty(&amp;quot;name&amp;quot;, &amp;quot;Java&amp;quot;); lan1.addProperty(&amp;quot;ide&amp;quot;, &amp;quot;Eclipse&amp;quot;); array.add(lan1); JsonObject lan2 = new JsonObject(); lan2.addProperty(&amp;quot;id&amp;quot;, 2); lan2.addProperty(&amp;quot;name&amp;quot;, &amp;quot;Swift&amp;quot;); lan2.addProperty(&amp;quot;ide&amp;quot;, &amp;quot;XCode&amp;quot;); array.add(lan2); JsonObject lan3 = new JsonObject(); lan3.addProperty(&amp;quot;id&amp;quot;, 3); lan3.addProperty(&amp;quot;name&amp;quot;, &amp;quot;C#&amp;quot;); lan3.addProperty(&amp;quot;ide&amp;quot;, &amp;quot;Visual Studio&amp;quot;); array.add(lan3); object.add(&amp;quot;languages&amp;quot;, array); object.addProperty(&amp;quot;pop&amp;quot;, true); System.</description>
+    </item>
+    
+    <item>
+      <title>XML相关操作（Java）</title>
+      <link>https://HauyuChen.github.io/post/java-xml/</link>
+      <pubDate>Tue, 01 Aug 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://HauyuChen.github.io/post/java-xml/</guid>
+      <description>1 XML文件创建示例 import java.io.File; import java.io.StringWriter; import javax.xml.parsers.DocumentBuilder; import javax.xml.parsers.DocumentBuilderFactory; import javax.xml.parsers.ParserConfigurationException; import javax.xml.transform.Transformer; import javax.xml.transform.TransformerConfigurationException; import javax.xml.transform.TransformerException; import javax.xml.transform.TransformerFactory; import javax.xml.transform.dom.DOMSource; import javax.xml.transform.stream.StreamResult; import org.w3c.dom.Document; import org.w3c.dom.Element; public class CreateXML { public static void main(String[] args) { try { //DOM DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance(); DocumentBuilder builder = factory.newDocumentBuilder(); Document document = builder.newDocument(); //创建Languages标签 Element root = document.createElement(&amp;quot;Languages&amp;quot;); root.setAttribute(&amp;quot;cat&amp;quot;, &amp;quot;it&amp;quot;); //设置Languages标签的属性 //-----接下来创建Languages标签下的三个子标签lan1、lan2、lan3 //lan1 Element lan1 = document.createElement(&amp;quot;lan&amp;quot;); //lan标签 lan1.setAttribute(&amp;quot;id&amp;quot;, &amp;quot;1&amp;quot;); Element name1 = document.</description>
+    </item>
+    
+    <item>
+      <title>【机器学习笔记】3. 线性回归（多变量）</title>
+      <link>https://HauyuChen.github.io/post/ml-3-linearregression-multiplevariables/</link>
+      <pubDate>Mon, 31 Jul 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://HauyuChen.github.io/post/ml-3-linearregression-multiplevariables/</guid>
+      <description>作者注：机器学习系列是本人在学习机器学习相关内容时产生的笔记，希望也能对您有所帮助。值得注意的是，作者作为初学者，表述难免有误或不全面，望多批评指正。 如有任何问题，欢迎您随时与我联系：Hauyu.Chen@Gmail.com
+版权声明：本文由 Hov 所有，发布于 http://hov.space/ ，转载请注明出处。
+
+0 前言 前面我们已经提到了单变量线性回归，现在讲讲多元线性回归（多变量线性回归）。
+在讲解单变量线性回归时，我们引入了房价预测这个栗子，仅通过房屋面积来预测房价。事实上，影响房价的因素有很多，如面积、房间数量、楼层、房龄等等。
+现在，我们想在进行房价预测时考虑面积、房间数量、楼层、房龄这几个因素，而不是单单只考虑面积。
+显然，单变量线性回归已不再适用，我们可以通过多元线性回归来解决。
+
+1 要点 1.1 多元线性回归模型 这条公式是否很熟悉呢？其实就是在单变量线性回归模型的基础上增加了其它的特征 x2、x3、x4 ··· xn。
+为方便计算，我们可以定义 x0=1 ，现在可以将公式转化成如下形式：
+令： 特征向量X = [x0,x1,x2, &amp;hellip; ,xn] 参数向量θ = [θ0,θ1,θ2, &amp;hellip; ,θn] X 和 θ 均为 n+1 维向量，有：
+最后，假设函数h可简化成以下形式：
+1.2 Cost Function（代价函数） 注：多元线性回归的代价函数和单变量线性回归的一致，不过增加了一些新的参数θ3、θ4、θ5···θn。
+1.3 Batch Gradient Descent（批量梯度下降） 
+2 思路 多元线性回归的思路和单变量线性回归大体一致，只不过我们需要对计算公式做一些微小改变。
+同样，还是通过房价预测的栗子来讲解：
+ 房价取决于多方面的因素，在这里我们考虑面积、房间数量、楼层、房龄这四个因素。所以，我们要搞清楚的就是面积 x1 、房间数量 x2 、楼层 x3 、房龄 x4 对房价 y 的影响。 所以，假设函数为 hθ(x) = θ0 + θ1*x1+ θ2*x2 + θ3*x3+ θ4*x4 。 令 x0=1 ，将假设函数转换成 hθ(x) = θ0*x0 + θ1*x1+ θ2*x2 + θ3*x3+ θ4*x4 。 令特征向量 X=[x0,x1,x2,x3,x4] ,参数向量 θ=[θ0,θ1,θ2,θ3,θ4] ,最终我们的假设函数为 hθ(x)=(θ^T)X 。 问题的核心还是找出合适的参数向量θ，使得我们的预测 hθ(x) 是合理的。 衡量参数向量 θ 是否合适的标准就是代价函数 J(0) ，θ 应使得 J(θ) 尽可能小。</description>
+    </item>
+    
+    <item>
       <title>【机器学习笔记】2. 梯度下降法</title>
-      <link>https://HauyuChen.github.io/post/gradientdescent/</link>
+      <link>https://HauyuChen.github.io/post/ml-2-gradientdescent/</link>
       <pubDate>Wed, 26 Jul 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://HauyuChen.github.io/post/gradientdescent/</guid>
+      <guid>https://HauyuChen.github.io/post/ml-2-gradientdescent/</guid>
       <description>作者注：机器学习系列是本人在学习机器学习相关内容时产生的笔记，希望也能对您有所帮助。值得注意的是，作者作为初学者，表述难免有误或不全面，望多批评指正。 如有任何问题，欢迎您随时与我联系：Hauyu.Chen@Gmail.com
 版权声明：本文由 Hov 所有，发布于 http://hov.space/ ，转载请注明出处。
 
@@ -34,10 +150,10 @@
     
     <item>
       <title>【机器学习笔记】1. 线性回归（单变量）</title>
-      <link>https://HauyuChen.github.io/post/linearregression-onevariables/</link>
+      <link>https://HauyuChen.github.io/post/ml-1-linearregression-onevariables/</link>
       <pubDate>Fri, 21 Jul 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://HauyuChen.github.io/post/linearregression-onevariables/</guid>
+      <guid>https://HauyuChen.github.io/post/ml-1-linearregression-onevariables/</guid>
       <description>作者注：机器学习系列是本人在学习机器学习相关内容时产生的笔记，希望也能对您有所帮助。值得注意的是，作者作为初学者，表述难免有误或不全面，望多批评指正。 如有任何问题，欢迎您随时与我联系：Hauyu.Chen@Gmail.com
 版权声明：本文由 Hov 所有，发布于 http://hov.space/ ，转载请注明出处。
 
@@ -98,10 +214,10 @@ All letters in this word are capitals, like &amp;ldquo;USA&amp;rdquo;. All lette
     
     <item>
       <title>【机器学习笔记】0. 什么是机器学习</title>
-      <link>https://HauyuChen.github.io/post/machinelearning-introduction/</link>
+      <link>https://HauyuChen.github.io/post/ml-0-machinelearning-introduction/</link>
       <pubDate>Tue, 11 Jul 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://HauyuChen.github.io/post/machinelearning-introduction/</guid>
+      <guid>https://HauyuChen.github.io/post/ml-0-machinelearning-introduction/</guid>
       <description>作者注：机器学习系列是本人在学习机器学习相关内容时产生的笔记，希望也能对您有所帮助。值得注意的是，作者作为初学者，表述难免有误或不全面，望多批评指正。 如有任何问题，欢迎您随时与我联系：Hauyu.Chen@Gmail.com
 版权声明：本文由 Hov 所有，发布于 http://hov.space/ ，转载请注明出处。
 
@@ -809,30 +925,58 @@ Build with HUGO , Theme blackburn</description>
 现居于广东。
 此博客主要记录一些个人学习笔记、技术文章。
 输出即获得，分享即反哺。
-希望对您也有所帮助。
+希望对您也有所帮助：）
 
-联系我 微信：ODkzNzY5Mzkz （base64）
+联系我 Q Q：ODkzNzY5Mzkz （base64）
 邮箱：Hauyu.Chen@Gmail.com</description>
     </item>
     
     <item>
       <title></title>
-      <link>https://HauyuChen.github.io/post/1linearregression-multiplevariables/</link>
+      <link>https://HauyuChen.github.io/post/1zigbee-guide/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://HauyuChen.github.io/post/1linearregression-multiplevariables/</guid>
-      <description>0 前言 前面我们已经提到了单变量线性回归，现在讲讲多元线性回归（多变量线性回归）。 在讲解单变量线性回归时，我们引入了房价预测这个栗子。我们仅通过房屋面积来预测房价。事实上，影响房价的因素有很多，如面积、房间数量、楼层、房龄等等。 现在，我们想在进行房价预测时考虑面积、房间数量、楼层、房龄这几个因素，而不是单单只考虑面积。显然，单变量线性回归已不再适用，我们可以通过多元线性回归来解决。
+      <guid>https://HauyuChen.github.io/post/1zigbee-guide/</guid>
+      <description>注：大一暑假，我开始学习ZigBee。大一暑假结束，我写下了这篇文章。 本文是我接触ZigBee后的一些见解，建议大家自己看过例程后作参考之用。这样看起来会容易点。若本文中有不合理的地方，还望指点：）
+本文基于TI Stack 的例程SampleApp。
+0 前言 写过程序的人都知道每个程序都是从main函数开始执行的，在ZigBee中也不例外。在一个Zigbee工程中，程序从main执行，经过几个函数调用（一些系统功能的初始化，建议看一下从main函数到SampleApp_ProcessEvent函数的过程），程序最终来到了SampleApp_ProcessEvent函数， SampleApp_ProcessEvent(uint8 task_id,uint16 events)是一个颇为重要的函数，整个工程更像是围绕着这个函数运行。
+说白了，通过这个函数来处理所有事件。
+比如： if ( events &amp;amp; SYS_EVENT_MSG ) 处理系统事件，if ( events &amp;amp; SAMPLEAPP_SEND_PERIODIC_MSG_EVT ) 是用户定义的事件。接着，通过一个SWITCH语句把所要处理的任务分成几个case来处理，在每个case里面调用相应的函数，我们可以通过定义这些函数执行我们想要的功能。
+其实，这就是如何在Zigbee工程里面的添加我们所需的功能的解决思路，按流水线分类，一个一个处理、执行相应的代码。
+一个Zigbee工程就是这么简单，接下来以SampleApp例程进行讲解。
+###ZigBee-1-01###
 
-1 要点 1.1 多元线性回归模型 这条公式是否很熟悉呢？其实就是在单变量线性回归模型的基础上增加了其它的特征 x2、x3、x4 ··· xn。
-为方便计算，我们可以定义 x0=1 ，现在可以将公式转化成如下形式：
-令: 特征向量X = [x0,x1,x2, &amp;hellip; ,xn] 参数向量θ = [θ0,θ1,θ2, &amp;hellip; ,θn] X 和 θ 均为 n+1 维向量，所以
-最后，假设函数h可简化成以下形式：
-1.2 Cost Function（代价函数） 多元线性回归的代价函数和单变量线性回归的一致，不过增加了一些新的参数θ3、θ4、θ5···θn。
-1.3 Batch Gradient Descent（批量梯度下降） 批量梯度下降将梯度下降重复运用于每个特征x（n个特征）。
+1 ZigBee工程结构 1.1 结构体 通过定义一个结构体来声明所有的簇ID，这些簇ID在ZigBee工程中扮演十分重要的角色。这个结构体存在于每个Zigbee工程中，作为发送数据的标识符。
+const cId_t SampleApp_ClusterList[SAMPLEAPP_MAX_CLUSTERS] = { //标识符，重要，工程会根据标识符执行不同的操作。 SAMPLEAPP_PERIODIC_CLUSTERID, //标识符名称 SAMPLEAPP_FLASH_CLUSTERID //标识符名称 };  1.2 函数 1.2.1 SampleApp_Init函数 在SampleApp_Init函数里面主要写一些初始化代码。比如要用到串口通讯，那么可以在这个函数里面添加相应的串口初始化代码，串口初始化代码如下：
+void SampleApp_Init(uint8 task_id) //初始化函数 ｛ /* 串口配置结构体 */ halUARTCfg_t uartConfig; /* 串口初始化 */ uartConfig.configured = TRUE; uartConfig.baudRate = HAL_UART_BR_38400; //波特率设置为38400 uartConfig.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://HauyuChen.github.io/post/1zigbee-parking/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://HauyuChen.github.io/post/1zigbee-parking/</guid>
+      <description>0 前言 智能停车系统是本人在大二下学期做的一个小项目。项目难度不大，主要涉及传感器数据采集、ZigBee组网、GPRS传输数据、数据库服务器程序的编写、微信公众账号开发，我们还做了一个小模型用来展示。
+ZB-P-01 在本文中将着重讲述ZigBee部分，如何通过ZigBee网络采集数据并将数据发送给远程数据库服务器。
+本文侧重讲的是实现思路，具体的技术细节可参考源代码。
 
-2 思路 多元线性回归的思路和单变量线性回归大体一致，只不过我们需要对计算公式做一些微小改变。
-同样，还是通过房价预测的栗子来讲解：
- 房价取决于多方面的因素，在这里我们考虑面积、房间数量、楼层、房龄这四个因素。所以，我们要搞清楚的就是面积 x1 、房间数量 x2 、楼层 x3 、房龄 x4 对房价 y 的影响。 显然，假设函数为 hθ(x) = θ0 + θ1*x1+ θ2*x2 + θ3*x3+ θ4*x4 。 令x0=1，将假设函数转换成 hθ(x) = θ0*x0 + θ1*x1+ θ2*x2 + θ3*x3+ θ4*x4。 令特征向量 X=[x0,x1,x2,x3,x4] ,参数向量 θ=[θ0,θ1,θ2,θ3,θ4] ,最终我们的假设函数为 hθ(x)=(θ^T)X 。 问题的核心还是找出合适的参数向量θ，使得我们的预测 hθ(x) 是合理的。 衡量参数向量θ是否合适的标准就是代价函数 J(0) ，θ 应使得 J(θ) 尽可能小。</description>
+1 项目简介 智能停车系统通过无线传感器网络监测停车场内的车位状态和亮度信息等数据，并对数据进行处理和存储，实现停车引导、防盗提醒和灯光控制等功能。
+系统通过ZigBee结合GPRS无线网络将数据发送并存储到数据库服务器，最终通过客户端、移动终端等方式实现交互。用户还可以关注本停车系统的微信公众账号实时地了解停车场内的信息。本系统旨在提升停车场管理效率，改善用户体验。
+
+2 项目思路 ZigBee部分主要完成的是传感器数据的采集和数据的传输,大体的思路是这样的：通过ZigBee终端节点上外接的传感器实现数据监测，并通过ZigBee网络将数据发送至ZigBee协调器，ZigBee协调器通过RS232串口线连接GPRS模块，通过AT指令将数据发送至远程数据库服务器。
+2.1 ZigBee协调器 ZigBee协调器主要完成以下功能：
+ 组建ZigBee网络，供ZigBee终端等节点连接； 接收ZigBee终端发送的数据，经过处理后通过RS232串口发送给与之相连接的GPRS模块。如将停车场内的车位数据和亮度数据发送给远程数据库服务器。 根据空闲车位的数量，控制车位指示屏 2.2 ZigBee终端 ZigBee终端节点主要负责以下功能：
+ 采集车位数据（红外传感器）、采集亮度数据（光照数字传感器）、控制车位状态灯（LED灯）；
+ 将采集到的数据通过ZigBee网络发送给ZigBee协调器。
+ 接收ZigBee协调器发送过来的数据，并进行相应的处理，如开关灯操作。
+  2.3 GPRS模块 要把 ZigBee 网络采集到的数据发送给远程数据库服务器，可选用 GPRS 模块。通过SIM卡，利用 GPRS 网络将数据发送出去。GPRS模块主要完成以下功能：
+ 建立TCP连接，连接到远程服务器。 发送数据给远程服务器，接收远程服务器返回的数据； 发送防盗提醒短信给用户。  
+3 实现细节 3.1 ZigBee终端 前面已经提到ZigBee终端节点负责的功能，下面说说ZigBee终端如何实现这些功能。
+3.1.1 数据采集 ZigBee终端通过外接传感器采集数据，比如在本项目中用到的传感器主要是红外传感器、光照数字传感器。 （1）红外传感器 红外传感器采用黑白对管红外避障模块，有三个引脚，VCC。GND、OUT。探测距离可调，当前方有障碍物时OUT口输出1，否则输出0。使用较为方便，但是稳定性不足，也可考虑用超声波探测模块来替换。 如何探测车位状态。其实很简单，将传感器的OUT口连接到ZigBee终端的一个IO口，通过判断这个IO口的值来模拟车位是否被占用，控制车位状态灯（IO口）。当车位被占用，OUT口输出1；车位空闲，OUT口输出0。 实现代码参考附录的源代码（ParkingStatus.c）
+（2）光照数字传感器 光照数字传感器用来采集停车场内的亮度数据，该传感器可以采集到周围环境的亮度值。该传感器采用IIC总线方式，有四个引脚（VCC、GND、SCL、SDA），将其与ZigBee终端连接即可，采集到的数据将通过ZigBee网络发送至ZigBee协调器。 实现代码参考附录的源代码（LightControl.c）
+3.1.2 发送数据 在ZigBee网络中如何发送数据呢？看过协议栈例程的都应该清楚。ZigBee协议栈中发送数据的函数是 AF_DataRequest 。在此函数中我们主要考虑三个参数：簇ID（标识符）、数据大小、数据存放位置（数组名）。
+下面是ZigBee终端发送车位数据给ZigBee协调器的代码：</description>
     </item>
     
   </channel>

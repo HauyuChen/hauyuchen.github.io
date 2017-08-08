@@ -109,7 +109,7 @@
       
       
         <li class="pure-menu-item">
-          <a class="pure-menu-link" href=""><i class='fa fa-user fa-fw'></i>关于我</a>
+          <a class="pure-menu-link" href="https://HauyuChen.github.io/about/"><i class='fa fa-user fa-fw'></i>关于我</a>
       
         </li>
       
@@ -229,13 +229,13 @@
   
     <article>
   <header>
-    <h2><a href="https://HauyuChen.github.io/post/415-add-strings/">【LeetCode】415. Add Strings</a></h2>
+    <h2><a href="https://HauyuChen.github.io/post/455-assign-cookies/">【LeetCode】455. Assign Cookies</a></h2>
 
     <div class="post-meta">
 
   <div>
     <i class="fa fa-calendar fa-fw"></i>
-    <time>2017-02-19</time>
+    <time>2017-03-16</time>
   </div>
 
   
@@ -271,14 +271,12 @@
   </header>
 
   <p>
-  题目描述：  Given two non-negative integers num1 and num2 represented as string, return the sum of num1 and num2.
-Note: The length of both num1 and num2 is &lt; 5100. Both num1 and num2 contains only digits 0-9. Both num1 and num2 does not contain any leading zero. You must not use any built-in BigInteger library or convert the inputs to integer directly.
- 代码实现： class Solution { public: string addStrings(string num1, string num2) { string str; int index1=num1.
+  题目描述：  Assume you are an awesome parent and want to give your children some cookies. But, you should give each child at most one cookie. Each child i has a greed factor gi, which is the minimum size of a cookie that the child will be content with; and each cookie j has a size sj. If sj &gt;= gi, we can assign the cookie j to the child i, and the child i will be content.
   </p>
 
   
   <footer>
-    <a href="https://HauyuChen.github.io/post/415-add-strings/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
+    <a href="https://HauyuChen.github.io/post/455-assign-cookies/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
   </footer>
   
 </article>
@@ -286,13 +284,13 @@ Note: The length of both num1 and num2 is &lt; 5100. Both num1 and num2 contains
   
     <article>
   <header>
-    <h2><a href="https://HauyuChen.github.io/post/412-fizz-buzz/">【LeetCode】412. Fizz Buzz</a></h2>
+    <h2><a href="https://HauyuChen.github.io/post/461-hamming-distance/">【LeetCode】461. Hamming Distance</a></h2>
 
     <div class="post-meta">
 
   <div>
     <i class="fa fa-calendar fa-fw"></i>
-    <time>2017-02-18</time>
+    <time>2017-03-16</time>
   </div>
 
   
@@ -328,16 +326,19 @@ Note: The length of both num1 and num2 is &lt; 5100. Both num1 and num2 contains
   </header>
 
   <p>
-  题目描述：  Write a program that outputs the string representation of numbers from 1 to n.
-But for multiples of three it should output “Fizz” instead of the number and for the multiples of five output “Buzz”. For numbers which are multiples of both three and five output “FizzBuzz”.
+  题目描述：  The Hamming distance between two integers is the number of positions at which the corresponding bits are different.
+Given two integers x and y, calculate the Hamming distance.
+Note: 0 ≤ x, y &lt; 231.
 Example:
-n = 15,
-Return: [ &ldquo;1&rdquo;, &ldquo;2&rdquo;, &ldquo;Fizz&rdquo;, &ldquo;4&rdquo;, &ldquo;Buzz&rdquo;, &ldquo;Fizz&rdquo;, &ldquo;7&rdquo;, &ldquo;8&rdquo;, &ldquo;Fizz&rdquo;, &ldquo;Buzz&rdquo;, &ldquo;11&rdquo;, &ldquo;Fizz&rdquo;, &ldquo;13&rdquo;, &ldquo;14&rdquo;, &ldquo;FizzBuzz&rdquo; ]
+Input: x = 1, y = 4
+Output: 2
+Explanation:
+1 (0 0 0 1) 4 (0 1 0 0) ↑ ↑  The above arrows point to positions where the corresponding bits are different.
   </p>
 
   
   <footer>
-    <a href="https://HauyuChen.github.io/post/412-fizz-buzz/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
+    <a href="https://HauyuChen.github.io/post/461-hamming-distance/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
   </footer>
   
 </article>
@@ -345,13 +346,13 @@ Return: [ &ldquo;1&rdquo;, &ldquo;2&rdquo;, &ldquo;Fizz&rdquo;, &ldquo;4&rdquo;,
   
     <article>
   <header>
-    <h2><a href="https://HauyuChen.github.io/post/409-longest-palindrome/">【LeetCode】409. Longest Palindrome</a></h2>
+    <h2><a href="https://HauyuChen.github.io/post/463-island-perimeter/">【LeetCode】463. Island Perimeter</a></h2>
 
     <div class="post-meta">
 
   <div>
     <i class="fa fa-calendar fa-fw"></i>
-    <time>2017-02-17</time>
+    <time>2017-03-16</time>
   </div>
 
   
@@ -387,18 +388,72 @@ Return: [ &ldquo;1&rdquo;, &ldquo;2&rdquo;, &ldquo;Fizz&rdquo;, &ldquo;4&rdquo;,
   </header>
 
   <p>
-  题目描述：  Given a string which consists of lowercase or uppercase letters, find the length of the longest palindromes that can be built with those letters.
-This is case sensitive, for example &ldquo;Aa&rdquo; is not considered a palindrome here.
-Note: Assume the length of given string will not exceed 1,010.
+  题目描述：  You are given a map in form of a two-dimensional integer grid where 1 represents land and 0 represents water. Grid cells are connected horizontally/vertically (not diagonally). The grid is completely surrounded by water, and there is exactly one island (i.e., one or more connected land cells). The island doesn&rsquo;t have &ldquo;lakes&rdquo; (water inside that isn&rsquo;t connected to the water around the island). One cell is a square with side length 1.
+  </p>
+
+  
+  <footer>
+    <a href="https://HauyuChen.github.io/post/463-island-perimeter/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
+  </footer>
+  
+</article>
+
+  
+    <article>
+  <header>
+    <h2><a href="https://HauyuChen.github.io/post/453-minimum-moves-to-equal-array-elements/">【LeetCode】453. Minimum Moves to Equal Array Elements</a></h2>
+
+    <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>2017-03-15</time>
+  </div>
+
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-folder fa-fw"></i>
+    
+      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/%E7%AE%97%E6%B3%95">算法</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/leetcode">LeetCode</a>
+    
+  </div>
+  
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-taxonomy-tag" href="https://HauyuChen.github.io/tags/leetcode">LeetCode</a>
+    
+  </div>
+  
+  
+
+</div>
+
+  </header>
+
+  <p>
+  题目描述：  Given a non-empty integer array of size n, find the minimum number of moves required to make all array elements equal, where a move is incrementing n - 1 elements by 1.
 Example:
-Input: &ldquo;abccccdd&rdquo;
-Output: 7
-Explanation: One longest palindrome that can be built is &ldquo;dccaccd&rdquo;, whose length is 7.
+Input: [1,2,3]
+Output: 3
+Explanation: Only three moves are needed (remember each move increments two elements): [1,2,3] =&gt; [2,3,3] =&gt; [3,4,3] =&gt; [4,4,4]
+ 代码实现： class Solution { public: int minMoves(vector&lt;int&gt;&amp; nums) { int min=INT_MAX; int sum=0; for(int num:nums){ min=min&lt;num?
   </p>
 
   
   <footer>
-    <a href="https://HauyuChen.github.io/post/409-longest-palindrome/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
+    <a href="https://HauyuChen.github.io/post/453-minimum-moves-to-equal-array-elements/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
   </footer>
   
 </article>
@@ -406,13 +461,13 @@ Explanation: One longest palindrome that can be built is &ldquo;dccaccd&rdquo;, 
   
     <article>
   <header>
-    <h2><a href="https://HauyuChen.github.io/post/401-binary-watch/">【LeetCode】401. Binary Watch</a></h2>
+    <h2><a href="https://HauyuChen.github.io/post/448-find-all-numbers-disappeared-in-an-array/">【LeetCode】448. Find All Numbers Disappeared in an Array</a></h2>
 
     <div class="post-meta">
 
   <div>
     <i class="fa fa-calendar fa-fw"></i>
-    <time>2017-02-16</time>
+    <time>2017-02-21</time>
   </div>
 
   
@@ -448,70 +503,18 @@ Explanation: One longest palindrome that can be built is &ldquo;dccaccd&rdquo;, 
   </header>
 
   <p>
-  题目描述：  A binary watch has 4 LEDs on the top which represent the hours (0-11), and the 6 LEDs on the bottom represent the minutes (0-59).
-Each LED represents a zero or one, with the least significant bit on the right.
-For example, the above binary watch reads &ldquo;3:25&rdquo;.
-Given a non-negative integer n which represents the number of LEDs that are currently on, return all possible times the watch could represent.
-  </p>
-
-  
-  <footer>
-    <a href="https://HauyuChen.github.io/post/401-binary-watch/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
-  </footer>
-  
-</article>
-
-  
-    <article>
-  <header>
-    <h2><a href="https://HauyuChen.github.io/post/404-sum-of-left-leaves/">【LeetCode】404. Sum of Left Leaves</a></h2>
-
-    <div class="post-meta">
-
-  <div>
-    <i class="fa fa-calendar fa-fw"></i>
-    <time>2017-02-16</time>
-  </div>
-
-  
-
-  
-  
-  
-  <div>
-    <i class="fa fa-folder fa-fw"></i>
-    
-      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/%E7%AE%97%E6%B3%95">算法</a>&nbsp;&#47;
-    
-      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/leetcode">LeetCode</a>
-    
-  </div>
-  
-  
-
-  
-  
-  
-  <div>
-    <i class="fa fa-tags fa-fw"></i>
-    
-      <a class="post-taxonomy-tag" href="https://HauyuChen.github.io/tags/leetcode">LeetCode</a>
-    
-  </div>
-  
-  
-
-</div>
-
-  </header>
-
-  <p>
-   题目描述：  Find the sum of all left leaves in a given binary tree.
+  题目描述：  Given an array of integers where 1 ≤ a[i] ≤ n (n = size of array), some elements appear twice and others appear once.
+Find all the elements of [1, n] inclusive that do not appear in this array.
+Could you do it without extra space and in O(n) runtime? You may assume the returned list does not count as extra space.
 Example:
- 3 / \ 9 20 / \ 15 7  There are two left leaves in the binary tree, with values 9 and 15 respectively. Return 24.
- 代码实现： /** * Definition for a binary tree node. * struct TreeNode { * int val; * TreeNode *left; * TreeNode *right; * TreeNode(int x) : val(x), left(NULL), right(NULL) {} * }; */ class Solution { public: int sumOfLeftLeaves(TreeNode* root) { if(root==nullptr){ return 0; } int sum=0; if(root-&gt;left){ if(root-&gt;left-&gt;left==nullptr &amp;&amp; root-&gt;left-&gt;right==nullptr){ sum+=root-&gt;left-&gt;val; }else{ sum+=sumOfLeftLeaves(root-&gt;left); } } if(root-&gt;right){ sum+=sumOfLeftLeaves(root-&gt;right); } return sum; } };  
+Input: [4,3,2,7,8,2,3,1]
+Output: [5,6]
   </p>
 
+  
+  <footer>
+    <a href="https://HauyuChen.github.io/post/448-find-all-numbers-disappeared-in-an-array/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
+  </footer>
   
 </article>
 
@@ -524,7 +527,7 @@ Example:
   
   <a href="https://HauyuChen.github.io/page/4/"><i class="fa fa-chevron-left"></i></a>
   
-  <span>&nbsp;5 / 13&nbsp;</span>
+  <span>&nbsp;5 / 15&nbsp;</span>
   
   <a href="https://HauyuChen.github.io/page/6/"><i class="fa fa-chevron-right"></i></a>
   
@@ -539,16 +542,7 @@ Example:
 <script src="https://HauyuChen.github.io/js/ui.js"></script>
 
 
-<script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-  ga('create', 'UA-72514969-1', 'auto');
-  ga('send', 'pageview');
-
-</script>
 
 
 

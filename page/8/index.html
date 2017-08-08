@@ -109,7 +109,7 @@
       
       
         <li class="pure-menu-item">
-          <a class="pure-menu-link" href=""><i class='fa fa-user fa-fw'></i>关于我</a>
+          <a class="pure-menu-link" href="https://HauyuChen.github.io/about/"><i class='fa fa-user fa-fw'></i>关于我</a>
       
         </li>
       
@@ -229,13 +229,13 @@
   
     <article>
   <header>
-    <h2><a href="https://HauyuChen.github.io/post/283-move-zeroes/">【LeetCode】283. Move Zeroes</a></h2>
+    <h2><a href="https://HauyuChen.github.io/post/383-ransom-note/">【LeetCode】383. Ransom Note</a></h2>
 
     <div class="post-meta">
 
   <div>
     <i class="fa fa-calendar fa-fw"></i>
-    <time>2017-01-11</time>
+    <time>2017-02-13</time>
   </div>
 
   
@@ -271,15 +271,15 @@
   </header>
 
   <p>
-  题目描述：  Given an array nums, write a function to move all 0&rsquo;s to the end of it while maintaining the relative order of the non-zero elements.
-For example, given nums = [0, 1, 0, 3, 12], after calling your function, nums should be [1, 3, 12, 0, 0].
-Note: You must do this in-place without making a copy of the array. Minimize the total number of operations.
- 代码实现： class Solution { public: void moveZeroes(vector&lt;int&gt;&amp; nums) { int index=0; for(int i=0;i&lt;nums.
+  题目描述：  Given an arbitrary ransom note string and another string containing letters from all the magazines, write a function that will return true if the ransom note can be constructed from the magazines ; otherwise, it will return false.
+Each letter in the magazine string can only be used once in your ransom note.
+Note: You may assume that both strings contain only lowercase letters.
+ canConstruct(&ldquo;a&rdquo;, &ldquo;b&rdquo;) -&gt; false canConstruct(&ldquo;aa&rdquo;, &ldquo;ab&rdquo;) -&gt; false canConstruct(&ldquo;aa&rdquo;, &ldquo;aab&rdquo;) -&gt; true   代码实现： class Solution { public: bool canConstruct(string ransomNote, string magazine) { if(magazine.
   </p>
 
   
   <footer>
-    <a href="https://HauyuChen.github.io/post/283-move-zeroes/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
+    <a href="https://HauyuChen.github.io/post/383-ransom-note/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
   </footer>
   
 </article>
@@ -287,13 +287,13 @@ Note: You must do this in-place without making a copy of the array. Minimize the
   
     <article>
   <header>
-    <h2><a href="https://HauyuChen.github.io/post/292-nim-game/">【LeetCode】292. Nim Game</a></h2>
+    <h2><a href="https://HauyuChen.github.io/post/349-intersection-of-two-arrays/">【LeetCode】349. Intersection of Two Arrays</a></h2>
 
     <div class="post-meta">
 
   <div>
     <i class="fa fa-calendar fa-fw"></i>
-    <time>2017-01-11</time>
+    <time>2017-01-15</time>
   </div>
 
   
@@ -329,13 +329,68 @@ Note: You must do this in-place without making a copy of the array. Minimize the
   </header>
 
   <p>
-  题目描述：  You are playing the following Nim Game with your friend: There is a heap of stones on the table, each time one of you take turns to remove 1 to 3 stones. The one who removes the last stone will be the winner. You will take the first turn to remove the stones.
-Both of you are very clever and have optimal strategies for the game. Write a function to determine whether you can win the game given the number of stones in the heap.
+   题目描述：  Given two arrays, write a function to compute their intersection.
+Example: Given nums1 = [1, 2, 2, 1], nums2 = [2, 2], return [2].
+Note: Each element in the result must be unique. The result can be in any order.
+ 代码实现： class Solution { public: vector&lt;int&gt; intersection(vector&lt;int&gt;&amp; nums1, vector&lt;int&gt;&amp; nums2) { unordered_set&lt;int&gt; s; vector&lt;int&gt; ret; for(int num1:nums1){ if(s.count(num1)==0){ s.insert(num1); } } for(int num2:nums2){ if(s.count(num2)){ ret.push_back(num2); s.erase(num2); } } return ret; } };  
+  </p>
+
+  
+</article>
+
+  
+    <article>
+  <header>
+    <h2><a href="https://HauyuChen.github.io/post/350-intersection-of-two-arrays-ii/">【LeetCode】350. Intersection of Two Arrays II</a></h2>
+
+    <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>2017-01-15</time>
+  </div>
+
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-folder fa-fw"></i>
+    
+      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/%E7%AE%97%E6%B3%95">算法</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/leetcode">LeetCode</a>
+    
+  </div>
+  
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-taxonomy-tag" href="https://HauyuChen.github.io/tags/leetcode">LeetCode</a>
+    
+  </div>
+  
+  
+
+</div>
+
+  </header>
+
+  <p>
+  题目描述：  Given two arrays, write a function to compute their intersection.
+Example: Given nums1 = [1, 2, 2, 1], nums2 = [2, 2], return [2, 2].
+Note: Each element in the result should appear as many times as it shows in both arrays. The result can be in any order. Follow up: What if the given array is already sorted? How would you optimize your algorithm? What if nums1&rsquo;s size is small compared to nums2&rsquo;s size?
   </p>
 
   
   <footer>
-    <a href="https://HauyuChen.github.io/post/292-nim-game/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
+    <a href="https://HauyuChen.github.io/post/350-intersection-of-two-arrays-ii/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
   </footer>
   
 </article>
@@ -343,13 +398,13 @@ Both of you are very clever and have optimal strategies for the game. Write a fu
   
     <article>
   <header>
-    <h2><a href="https://HauyuChen.github.io/post/258-add-digits/">【LeetCode】258. Add Digits</a></h2>
+    <h2><a href="https://HauyuChen.github.io/post/344-reverse-string/">【LeetCode】344. Reverse String</a></h2>
 
     <div class="post-meta">
 
   <div>
     <i class="fa fa-calendar fa-fw"></i>
-    <time>2017-01-10</time>
+    <time>2017-01-13</time>
   </div>
 
   
@@ -385,11 +440,9 @@ Both of you are very clever and have optimal strategies for the game. Write a fu
   </header>
 
   <p>
-   题目描述：  Given a non-negative integer num, repeatedly add all its digits until the result has only one digit.
-For example:
-Given num = 38, the process is like: 3 + 8 = 11, 1 + 1 = 2. Since 2 has only one digit, return it.
-Follow up: Could you do it without any loop/recursion in O(1) runtime?
- 代码实现： class Solution { public: int addDigits(int num) { return 1+(num-1)%9; } };  
+   题目描述：  Write a function that takes a string as input and returns the string reversed.
+Example: Given s = &ldquo;hello&rdquo;, return &ldquo;olleh&rdquo;.
+ 代码实现： class Solution { public: string reverseString(string s) { reverse(s.begin(),s.end()); return s; } };  
   </p>
 
   
@@ -398,13 +451,13 @@ Follow up: Could you do it without any loop/recursion in O(1) runtime?
   
     <article>
   <header>
-    <h2><a href="https://HauyuChen.github.io/post/263-ugly-number/">【LeetCode】263. Ugly Number</a></h2>
+    <h2><a href="https://HauyuChen.github.io/post/326-power-of-three/">【LeetCode】326. Power of Three</a></h2>
 
     <div class="post-meta">
 
   <div>
     <i class="fa fa-calendar fa-fw"></i>
-    <time>2017-01-10</time>
+    <time>2017-01-12</time>
   </div>
 
   
@@ -440,66 +493,9 @@ Follow up: Could you do it without any loop/recursion in O(1) runtime?
   </header>
 
   <p>
-  题目描述：  Write a program to check whether a given number is an ugly number.
-Ugly numbers are positive numbers whose prime factors only include 2, 3, 5. For example, 6, 8 are ugly while 14 is not ugly since it includes another prime factor 7.
-Note that 1 is typically treated as an ugly number.
- 代码实现： class Solution { public: bool isUgly(int num) { if(num&lt;=0){ return false; } while(num%2==0){ num/=2; } while(num%3==0){ num/=3; } while(num%5==0){ num/=5; } return num==1?
-  </p>
-
-  
-  <footer>
-    <a href="https://HauyuChen.github.io/post/263-ugly-number/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
-  </footer>
-  
-</article>
-
-  
-    <article>
-  <header>
-    <h2><a href="https://HauyuChen.github.io/post/231-power-of-two/">【LeetCode】231. Power of Two</a></h2>
-
-    <div class="post-meta">
-
-  <div>
-    <i class="fa fa-calendar fa-fw"></i>
-    <time>2017-01-09</time>
-  </div>
-
-  
-
-  
-  
-  
-  <div>
-    <i class="fa fa-folder fa-fw"></i>
-    
-      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/%E7%AE%97%E6%B3%95">算法</a>&nbsp;&#47;
-    
-      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/leetcode">LeetCode</a>
-    
-  </div>
-  
-  
-
-  
-  
-  
-  <div>
-    <i class="fa fa-tags fa-fw"></i>
-    
-      <a class="post-taxonomy-tag" href="https://HauyuChen.github.io/tags/leetcode">LeetCode</a>
-    
-  </div>
-  
-  
-
-</div>
-
-  </header>
-
-  <p>
-   题目描述：  Given an integer, write a function to determine if it is a power of two.
- 代码实现： class Solution { public: bool isPowerOfTwo(int n) { int flag=0; if(n&lt;=0){ return false; } while(n&gt;0){ if(n&amp;1==1){ if(flag==1){ return false; } flag=1; } n=n&gt;&gt;1; } return true; } };  
+   题目描述：  Given an integer, write a function to determine if it is a power of three.
+Follow up: Could you do it without using any loop / recursion?
+ 代码实现： class Solution { public: bool isPowerOfThree(int n) { if(n&lt;=0){ return false; } while(n%3==0){ n/=3; } if(n==1){ return true; } return false; } };  
   </p>
 
   
@@ -514,7 +510,7 @@ Note that 1 is typically treated as an ugly number.
   
   <a href="https://HauyuChen.github.io/page/7/"><i class="fa fa-chevron-left"></i></a>
   
-  <span>&nbsp;8 / 13&nbsp;</span>
+  <span>&nbsp;8 / 15&nbsp;</span>
   
   <a href="https://HauyuChen.github.io/page/9/"><i class="fa fa-chevron-right"></i></a>
   
@@ -529,16 +525,7 @@ Note that 1 is typically treated as an ugly number.
 <script src="https://HauyuChen.github.io/js/ui.js"></script>
 
 
-<script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-  ga('create', 'UA-72514969-1', 'auto');
-  ga('send', 'pageview');
-
-</script>
 
 
 

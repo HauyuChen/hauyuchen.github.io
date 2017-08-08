@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="机器学习系列-第 4 篇">
+  <meta name="generator" content="Hugo 0.24.1" />
+
+  <title>【机器学习笔记】4. 逻辑回归 &middot; Hov&#39;s Blog</title>
+
+  <script>
+	var _hmt = _hmt || [];
+	(function() {
+	  var hm = document.createElement("script");
+	  hm.src = "https://hm.baidu.com/hm.js?d7c2422a9ffd23fc812aa13dcfbccd84";
+	  var s = document.getElementsByTagName("script")[0]; 
+	  s.parentNode.insertBefore(hm, s);
+	})();
+	</script>
+  
+  
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/0.6.2/pure-min.css">
+
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/0.6.2/grids-responsive-old-ie-min.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/0.6.2/grids-responsive-min.css">
+  <!--<![endif]-->
+
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="https://HauyuChen.github.io/css/side-menu-old-ie.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="https://HauyuChen.github.io/css/side-menu.css">
+  <!--<![endif]-->
+
+  <link rel="stylesheet" href="https://HauyuChen.github.io/css/blackburn.css">
+
+  
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  
+  <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet" type="text/css">
+
+  
+  
+
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/styles/androidstudio.min.css">
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  
+
+  <link rel="shortcut icon" href="https://HauyuChen.github.io/img/favicon.ico" type="image/x-icon" />
+
+  
+  
+
+	
+
+</head>
+
+
+<body>
+<div id="layout">
+
+  
+<a href="#menu" id="menuLink" class="menu-link">
+  
+  <span></span>
+</a>
+<div id="menu">
+
+  <a class="pure-menu-heading brand" href="https://HauyuChen.github.io/">
+  <img src="https://HauyuChen.github.io/img/Hov.jpg" width="125px">
+</a>
+
+  <div class="pure-menu">
+    <ul class="pure-menu-list">
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="https://HauyuChen.github.io/"><i class='fa fa-home fa-fw'></i>主页</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="https://HauyuChen.github.io/post/"><i class='fa fa-list fa-fw'></i>所有文章</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="https://HauyuChen.github.io/tags/"><i class='fa fa-tags fa-fw'></i>文章分类</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="https://HauyuChen.github.io/topics/"><i class='fa fa-folder fa-fw'></i>关键词</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="https://HauyuChen.github.io/about/"><i class='fa fa-user fa-fw'></i>关于我</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="https://HauyuChen.github.io/contact/"><i class='fa fa-home fa-fw'></i>关于本站</a>
+      
+        </li>
+      
+    </ul>
+  </div>
+
+  <div class="pure-menu social">
+  <ul class="pure-menu-list">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://github.com/HauyuChen" target="_blank"><i class="fa fa-github-square fa-fw"></i>GitHub</a>
+    </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+  </ul>
+</div>
+
+
+  <div>
+
+
+</div>
+
+</div>
+
+
+  <div id="main">
+
+
+<div class="header">
+  <h1>【机器学习笔记】4. 逻辑回归</h1>
+  <h2>机器学习系列-第 4 篇</h2>
+</div>
+<div class="content">
+
+  <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>2017-08-03</time>
+  </div>
+
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-folder fa-fw"></i>
+    
+      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0">机器学习</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92">逻辑回归</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/%E7%9B%91%E7%9D%A3%E5%AD%A6%E4%B9%A0">监督学习</a>
+    
+  </div>
+  
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-taxonomy-tag" href="https://HauyuChen.github.io/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0">机器学习</a>
+    
+  </div>
+  
+  
+
+</div>
+
+  
+
+<hr />
+
+<p><em>作者注：机器学习系列是本人在学习机器学习相关内容时产生的笔记，希望也能对您有所帮助。值得注意的是，作者作为初学者，表述难免有误或不全面，望多批评指正。<br/>
+如有任何问题，欢迎您随时与我联系：Hauyu.Chen@Gmail.com</em></p>
+
+<p><em>版权声明：本文由 Hov 所有，发布于 <a href="http://hov.space/">http://hov.space/</a> ，转载请注明出处。<br/></em></p>
+
+<hr />
+
+<p><br/></p>
+
+<h1 id="0-前言">0 前言</h1>
+
+<p>本文要讲的逻辑回归属于分类算法，它是对线性回归的改进。</p>
+
+<p>在处理二分类问题的时候，我们可将所有预测 y 映射成某个值。假设，若该值大于等于0.5，则结果为1；若该值小于0.5，则结果为0。这样，我们就将所有样本分为两类了。<br/></p>
+
+<p>若用线性回归去处理分类问题， y 的值可能远大于1或小于0，这样会造成较大的误差，所以能否让 y 的值处于0到1之间呢？<br/></p>
+
+<p>逻辑回归实现的就是这样的功能，将预测值映射到某个固定的区间，通过决策边界，实现二分类问题。</p>
+
+<p><br/></p>
+
+<h1 id="1-要点">1 要点</h1>
+
+<h2 id="1-1-逻辑函数-sigmoid函数">1.1 逻辑函数（Sigmoid函数）</h2>
+
+<p>逻辑回归中的逻辑函数其实就是线性回归中的假设函数，只不过在假设函数的基础上进行一个函数映射。</p>
+
+<p>（1）线性回归中的假设函数</p>
+
+<p><img src="https://raw.githubusercontent.com/HauyuChen/PicsBox/master/LGR-01.PNG" alt="" /></p>
+
+<p>（2）逻辑回归中的逻辑函数</p>
+
+<p><img src="https://raw.githubusercontent.com/HauyuChen/PicsBox/master/LGR-02.PNG" alt="" /></p>
+
+<p><img src="https://raw.githubusercontent.com/HauyuChen/PicsBox/master/LGR-03.PNG" alt="" /></p>
+
+<p>逻辑函数对应的图像如下：</p>
+
+<p><img src="https://raw.githubusercontent.com/HauyuChen/PicsBox/master/LGR-04.PNG" alt="" /></p>
+
+<p>可见，逻辑函数将所有预测映射到（0，1）区间。</p>
+
+<h2 id="1-2-decision-boundary-决策边界">1.2 Decision Boundary（决策边界）</h2>
+
+<p>为了对输出结果进行0和1的分类，我们假设认为 hθ(x) 大于等于0.5，则结果 y=1 ；若 hθ(x) 小于0.5，则结果 y=0 ，即：</p>
+
+<p><img src="https://raw.githubusercontent.com/HauyuChen/PicsBox/master/LGR-05.PNG" alt="" /></p>
+
+<p>根据逻辑函数的图像，有：</p>
+
+<p><img src="https://raw.githubusercontent.com/HauyuChen/PicsBox/master/LGR-06.PNG" alt="" /></p>
+
+<p>即：</p>
+
+<p><img src="https://raw.githubusercontent.com/HauyuChen/PicsBox/master/LGR-07.PNG" alt="" /></p>
+
+<p><img src="https://raw.githubusercontent.com/HauyuChen/PicsBox/master/LGR-08.PNG" alt="" /></p>
+
+<p>所以，决策边界就是将结果分为 y=0 和 y=1 的分界，不同的参数向量 θ ，可对应不同的决策边界。</p>
+
+<p>举个栗子：</p>
+
+<p><img src="https://raw.githubusercontent.com/HauyuChen/PicsBox/master/LGR-09.PNG" alt="" /></p>
+
+<p>这个栗子中，决策边界为 x=5 ，因为在其左边，y=1；在其右边，y=0。</p>
+
+<p>当然，决策边界并非只能是直线，也可能是复杂的曲线。</p>
+
+<h2 id="1-3-cost-function-代价函数">1.3 Cost Function（代价函数）</h2>
+
+<p><img src="https://raw.githubusercontent.com/HauyuChen/PicsBox/master/LGR-10.PNG" alt="" /></p>
+
+<p>上述公式可简化如下：</p>
+
+<p><img src="https://raw.githubusercontent.com/HauyuChen/PicsBox/master/LGR-11.PNG" alt="" /></p>
+
+<p>向量化如下：</p>
+
+<p><img src="https://raw.githubusercontent.com/HauyuChen/PicsBox/master/LGR-12.PNG" alt="" /></p>
+
+<h2 id="1-4-gradient-descent-梯度下降">1.4 Gradient Descent（梯度下降）</h2>
+
+<p><img src="https://raw.githubusercontent.com/HauyuChen/PicsBox/master/LGR-13.PNG" alt="" /></p>
+
+<p><br/></p>
+
+<h1 id="2-思路">2 思路</h1>
+
+<p>假设，我们要实现邮件的分类（垃圾邮件、非垃圾邮件）</p>
+
+<ol>
+<li>借助线性回归的思路，我们可以设定假设函数 hθ(x)=θ0*x0+θ1*x1+⋯+θn*xn ，但 hθ(x) 的结果可能在 (−∞,+∞) 之间。</li>
+<li>所以，我们通过构造逻辑回归将预测值映射到（0，1）区间，预测值表示该邮件是垃圾邮件的概率。</li>
+<li>构造代价函数。</li>
+<li>通过梯度下降来最优化特征向量 θ ，求得决策边界。</li>
+</ol>
+
+<p><br/></p>
+
+<h1 id="3-结语">3 结语</h1>
+
+<ol>
+<li>逻辑回归名字中虽然有回归二字，但它不是回归算法，而是分类算法，主要用于解决二分类问题。</li>
+<li>逻辑回归比较重要的概念是将假设函数映射到一个区间内，这是和线性回归最大的不同。</li>
+<li>在逻辑回归中，逻辑函数就是假设函数，</li>
+<li>逻辑回归中的代价函数的定义和线性回归有所差别，其它的实现思路大体一致，即定义出假设函数、代价函数，通过代价函数来拟合假设函数，逻辑回归最后训练出决策边界，将数据一份为二。</li>
+</ol>
+
+<p><br/></p>
+
+
+  
+<div class="prev-next-post pure-g">
+  <div class="pure-u-1-24" style="text-align: left;">
+    
+    <a href="https://HauyuChen.github.io/post/java-json/"><i class="fa fa-chevron-left"></i></a>
+    
+  </div>
+  <div class="pure-u-10-24">
+    
+    <nav class="prev">
+      <a href="https://HauyuChen.github.io/post/java-json/">JSON相关操作（Java）</a>
+    </nav>
+    
+  </div>
+  <div class="pure-u-2-24">
+    &nbsp;
+  </div>
+  <div class="pure-u-10-24">
+    
+    <nav class="next">
+      <a href="https://HauyuChen.github.io/post/es-elasticsearch-manu/">Elasticsearch操作实例</a>
+    </nav>
+    
+  </div>
+  <div class="pure-u-1-24" style="text-align: right;">
+    
+    <a href="https://HauyuChen.github.io/post/es-elasticsearch-manu/"><i class="fa fa-chevron-right"></i></a>
+    
+  </div>
+</div>
+
+
+
+  
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+
+(function() {
+    
+    
+    if (window.location.hostname == "localhost")
+        return;
+
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    var disqus_shortname = "http-hov-space";
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com/" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+</div>
+
+</div>
+</div>
+<script src="https://HauyuChen.github.io/js/ui.js"></script>
+
+
+
+
+
+
+</body>
+</html>
+

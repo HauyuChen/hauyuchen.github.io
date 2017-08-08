@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="机器学习系列-第 0 篇">
+  <meta name="generator" content="Hugo 0.24.1" />
+
+  <title>【机器学习笔记】0. 什么是机器学习 &middot; Hov&#39;s Blog</title>
+
+  <script>
+	var _hmt = _hmt || [];
+	(function() {
+	  var hm = document.createElement("script");
+	  hm.src = "https://hm.baidu.com/hm.js?d7c2422a9ffd23fc812aa13dcfbccd84";
+	  var s = document.getElementsByTagName("script")[0]; 
+	  s.parentNode.insertBefore(hm, s);
+	})();
+	</script>
+  
+  
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/0.6.2/pure-min.css">
+
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/0.6.2/grids-responsive-old-ie-min.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/0.6.2/grids-responsive-min.css">
+  <!--<![endif]-->
+
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="https://HauyuChen.github.io/css/side-menu-old-ie.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="https://HauyuChen.github.io/css/side-menu.css">
+  <!--<![endif]-->
+
+  <link rel="stylesheet" href="https://HauyuChen.github.io/css/blackburn.css">
+
+  
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  
+  <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet" type="text/css">
+
+  
+  
+
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/styles/androidstudio.min.css">
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  
+
+  <link rel="shortcut icon" href="https://HauyuChen.github.io/img/favicon.ico" type="image/x-icon" />
+
+  
+  
+
+	
+
+</head>
+
+
+<body>
+<div id="layout">
+
+  
+<a href="#menu" id="menuLink" class="menu-link">
+  
+  <span></span>
+</a>
+<div id="menu">
+
+  <a class="pure-menu-heading brand" href="https://HauyuChen.github.io/">
+  <img src="https://HauyuChen.github.io/img/Hov.jpg" width="125px">
+</a>
+
+  <div class="pure-menu">
+    <ul class="pure-menu-list">
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="https://HauyuChen.github.io/"><i class='fa fa-home fa-fw'></i>主页</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="https://HauyuChen.github.io/post/"><i class='fa fa-list fa-fw'></i>所有文章</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="https://HauyuChen.github.io/tags/"><i class='fa fa-tags fa-fw'></i>文章分类</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="https://HauyuChen.github.io/topics/"><i class='fa fa-folder fa-fw'></i>关键词</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="https://HauyuChen.github.io/about/"><i class='fa fa-user fa-fw'></i>关于我</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="https://HauyuChen.github.io/contact/"><i class='fa fa-home fa-fw'></i>关于本站</a>
+      
+        </li>
+      
+    </ul>
+  </div>
+
+  <div class="pure-menu social">
+  <ul class="pure-menu-list">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://github.com/HauyuChen" target="_blank"><i class="fa fa-github-square fa-fw"></i>GitHub</a>
+    </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+  </ul>
+</div>
+
+
+  <div>
+
+
+</div>
+
+</div>
+
+
+  <div id="main">
+
+
+<div class="header">
+  <h1>【机器学习笔记】0. 什么是机器学习</h1>
+  <h2>机器学习系列-第 0 篇</h2>
+</div>
+<div class="content">
+
+  <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>2017-07-11</time>
+  </div>
+
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-folder fa-fw"></i>
+    
+      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0">机器学习</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/%E7%9B%91%E7%9D%A3%E5%AD%A6%E4%B9%A0">监督学习</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/%E6%97%A0%E7%9B%91%E7%9D%A3%E5%AD%A6%E4%B9%A0">无监督学习</a>
+    
+  </div>
+  
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-taxonomy-tag" href="https://HauyuChen.github.io/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0">机器学习</a>
+    
+  </div>
+  
+  
+
+</div>
+
+  
+
+<hr />
+
+<p><em>作者注：机器学习系列是本人在学习机器学习相关内容时产生的笔记，希望也能对您有所帮助。值得注意的是，作者作为初学者，表述难免有误或不全面，望多批评指正。<br/>
+如有任何问题，欢迎您随时与我联系：Hauyu.Chen@Gmail.com</em></p>
+
+<p><em>版权声明：本文由 Hov 所有，发布于 <a href="http://hov.space/">http://hov.space/</a> ，转载请注明出处。<br/></em></p>
+
+<hr />
+
+<p><br/></p>
+
+<h1 id="0-前言">0 前言</h1>
+
+<p>AI 时代，作为计算机专业的学生，不了解点 AI 相关的知识似乎有点说不过去，尤其是机器学习。<br/>
+我们一直在说机器学习，但是我们怎么理解机器学习？机器学习解决了什么问题？我们如何将机器学习应用到现实生活中的问题呢？<br/>
+本文是机器学习系列的开篇，给出了机器学习的经典定义，并介绍监督学习和无监督学习这两个重要的分支，后续将逐步深入。</p>
+
+<p><br/></p>
+
+<h1 id="1-机器学习的定义">1 机器学习的定义</h1>
+
+<p>Tom Mitchell 给出了一个关于机器学习的定义，这也是一个被经常引用的定义。<br/></p>
+
+<blockquote>
+<p>Tom Mitchell:&ldquo;A computer program is said to learn from experience E with respect to some class of tasks T and performance measure P, if its performance at tasks in T, as measured by P, improves with experience E.&rdquo;</p>
+</blockquote>
+
+<p>这段话翻译过来就是：对于某类任务T和性能度量P，如果一个计算机程序在T上以P衡量的性能随着经验E而自我完善，那么我们称这个计算机程序在从经验E学习。</p>
+
+<p>举个栗子：AlphaGo下棋</p>
+
+<ul>
+<li>经验 E = AlphaGo从很多盘棋局获得的经验（学棋）；</li>
+<li>任务 T = AlphaGo和对手下棋（下棋）；</li>
+<li>性能 P = AlphaGo赢的可能性（赢棋）。</li>
+</ul>
+
+<p><br/></p>
+
+<h1 id="2-机器学习的分类">2 机器学习的分类</h1>
+
+<h2 id="2-1-监督学习">2.1 监督学习</h2>
+
+<p>通过给定一个训练集，其中包括输入和预期输出两个内容。监督学习需要人工干预，通过训练集告知学习算法什么样的输入对应什么样的结果。监督学习的核心在于找出输入和输出之间的关系，从而实现对新的输入进行结果的预测。</p>
+
+<p>监督学习可分为回归（Regression）和分类（Classification）两个子问题。</p>
+
+<ul>
+<li><p>回归（Regression）：拟合出（x，y）之间对应的连续函数，实现对结果的预测。</p></li>
+
+<li><p>分类（Classification）：与回归问题去预测一个具体的输出不同，分类问题将输入映射到不同的分类中去。</p></li>
+</ul>
+
+<p>举个栗子来解释回归和分类：<br/>
+栗子1：<br/>
+（1）预测房价，因为房价是关于特征x（如面积、地段等）的连续函数f(x)，所以这是一个回归问题。<br/>
+（2）如果我们想要预测的不是房价具体的数值，而是房价是否高于某个数值。这就是分类问题，因为它把问题分成“高于”和“不高于”两类。<br/></p>
+
+<p>栗子2：<br/>
+（1）根据某个人的照片预测其年龄，这是一个回归问题。<br/>
+（2）根据肿瘤的大小预测其是恶性还是良性，这是一个分类问题。<br/></p>
+
+<h2 id="2-2-无监督学习">2.2 无监督学习</h2>
+
+<p>无监督学习不需要我们知道输入数据的预期结果，而是让计算机自己去学习。<br/>
+栗子：<br/>
+给出一百万个不同的基因，根据不同特征把这些基因分成不同的相似组，如位置、作用等特征。我们并没有告诉程序哪些基因在同一相似组，而是让程序根据基因的特征去自动将它们归类。</p>
+
+<p><br/></p>
+
+<h1 id="3-总结">3 总结</h1>
+
+<ul>
+<li>机器学习是程序通过以往数据实现自我改进，从而发挥更好的性能方法。</li>
+<li>机器学习可分为监督学习和无监督学习两个重要的分支。</li>
+<li>监督学习必须有训练集（注意与训练数据区别开来），通过训练集找出输入和输出间的规律，从而对不同的测试样本进行预测。</li>
+<li>无监督学习没有训练集，通过训练数据，由计算机自己寻找规律（不一定是分类，可以使数据集的某些特性）。</li>
+</ul>
+
+<p><br/></p>
+
+
+  
+<div class="prev-next-post pure-g">
+  <div class="pure-u-1-24" style="text-align: left;">
+    
+    <a href="https://HauyuChen.github.io/post/eclipse%E5%BF%AB%E6%8D%B7%E9%94%AE/"><i class="fa fa-chevron-left"></i></a>
+    
+  </div>
+  <div class="pure-u-10-24">
+    
+    <nav class="prev">
+      <a href="https://HauyuChen.github.io/post/eclipse%E5%BF%AB%E6%8D%B7%E9%94%AE/">Eclipse常用快捷键</a>
+    </nav>
+    
+  </div>
+  <div class="pure-u-2-24">
+    &nbsp;
+  </div>
+  <div class="pure-u-10-24">
+    
+    <nav class="next">
+      <a href="https://HauyuChen.github.io/post/520-detect-capital/">【LeetCode】520. Detect Capital</a>
+    </nav>
+    
+  </div>
+  <div class="pure-u-1-24" style="text-align: right;">
+    
+    <a href="https://HauyuChen.github.io/post/520-detect-capital/"><i class="fa fa-chevron-right"></i></a>
+    
+  </div>
+</div>
+
+
+
+  
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+
+(function() {
+    
+    
+    if (window.location.hostname == "localhost")
+        return;
+
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    var disqus_shortname = "http-hov-space";
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com/" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+</div>
+
+</div>
+</div>
+<script src="https://HauyuChen.github.io/js/ui.js"></script>
+
+
+
+
+
+
+</body>
+</html>
+
