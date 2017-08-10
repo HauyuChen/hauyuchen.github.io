@@ -13,11 +13,11 @@
 	var _hmt = _hmt || [];
 	(function() {
 	  var hm = document.createElement("script");
-	  hm.src = "https://hm.baidu.com/hm.js?d7c2422a9ffd23fc812aa13dcfbccd84";
+	  hm.src = "https://hm.baidu.com/hm.js?dd096f3aba9332e2640cda59d3786695";
 	  var s = document.getElementsByTagName("script")[0]; 
 	  s.parentNode.insertBefore(hm, s);
 	})();
-	</script>
+	</script>	
   
   
   
@@ -226,6 +226,67 @@
 </div>
 
 <div class="content">
+  
+    <article>
+  <header>
+    <h2><a href="https://HauyuChen.github.io/post/409-longest-palindrome/">【LeetCode】409. Longest Palindrome</a></h2>
+
+    <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>2017-02-17</time>
+  </div>
+
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-folder fa-fw"></i>
+    
+      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/%E7%AE%97%E6%B3%95">算法</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/leetcode">LeetCode</a>
+    
+  </div>
+  
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-taxonomy-tag" href="https://HauyuChen.github.io/tags/leetcode">LeetCode</a>
+    
+  </div>
+  
+  
+
+</div>
+
+  </header>
+
+  <p>
+  题目描述：  Given a string which consists of lowercase or uppercase letters, find the length of the longest palindromes that can be built with those letters.
+This is case sensitive, for example &ldquo;Aa&rdquo; is not considered a palindrome here.
+Note: Assume the length of given string will not exceed 1,010.
+Example:
+Input: &ldquo;abccccdd&rdquo;
+Output: 7
+Explanation: One longest palindrome that can be built is &ldquo;dccaccd&rdquo;, whose length is 7.
+  </p>
+
+  
+  <footer>
+    <a href="https://HauyuChen.github.io/post/409-longest-palindrome/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
+  </footer>
+  
+</article>
+
   
     <article>
   <header>
@@ -451,59 +512,6 @@ s = &ldquo;leetcode&rdquo; return 0.
 s = &ldquo;loveleetcode&rdquo;, return 2.
 Note: You may assume the string contain only lowercase letters.
  代码实现： class Solution { public: int firstUniqChar(string s) { int arr[26]; for(int i=0;i&lt;26;++i){ arr[i]=0; } for(int i=0;i&lt;s.size();++i){ ++arr[s[i]-'a']; } for(int i=0;i&lt;s.size();++i){ if(arr[s[i]-'a']==1){ return i; } } return -1; } };  
-  </p>
-
-  
-</article>
-
-  
-    <article>
-  <header>
-    <h2><a href="https://HauyuChen.github.io/post/371-sum-of-two-integers/">【LeetCode】371. Sum of Two Integers</a></h2>
-
-    <div class="post-meta">
-
-  <div>
-    <i class="fa fa-calendar fa-fw"></i>
-    <time>2017-02-13</time>
-  </div>
-
-  
-
-  
-  
-  
-  <div>
-    <i class="fa fa-folder fa-fw"></i>
-    
-      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/%E7%AE%97%E6%B3%95">算法</a>&nbsp;&#47;
-    
-      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/leetcode">LeetCode</a>
-    
-  </div>
-  
-  
-
-  
-  
-  
-  <div>
-    <i class="fa fa-tags fa-fw"></i>
-    
-      <a class="post-taxonomy-tag" href="https://HauyuChen.github.io/tags/leetcode">LeetCode</a>
-    
-  </div>
-  
-  
-
-</div>
-
-  </header>
-
-  <p>
-   题目描述：  Calculate the sum of two integers a and b, but you are not allowed to use the operator + and -.
-Example: Given a = 1 and b = 2, return 3.
- 代码实现： class Solution { public: int getSum(int a, int b) { return b==0?a:getSum(a^b,(a&amp;b)&lt;&lt;1); } };  
   </p>
 
   

@@ -13,11 +13,11 @@
 	var _hmt = _hmt || [];
 	(function() {
 	  var hm = document.createElement("script");
-	  hm.src = "https://hm.baidu.com/hm.js?d7c2422a9ffd23fc812aa13dcfbccd84";
+	  hm.src = "https://hm.baidu.com/hm.js?dd096f3aba9332e2640cda59d3786695";
 	  var s = document.getElementsByTagName("script")[0]; 
 	  s.parentNode.insertBefore(hm, s);
 	})();
-	</script>
+	</script>	
   
   
   
@@ -229,6 +229,71 @@
   
     <article>
   <header>
+    <h2><a href="https://HauyuChen.github.io/post/java-string/">String相关特性（不定时更新）</a></h2>
+
+    <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>2017-07-18</time>
+  </div>
+
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-folder fa-fw"></i>
+    
+      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/string">String</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/java">Java</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/%E5%AD%97%E7%AC%A6%E4%B8%B2">字符串</a>
+    
+  </div>
+  
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-taxonomy-tag" href="https://HauyuChen.github.io/tags/java">Java</a>
+    
+  </div>
+  
+  
+
+</div>
+
+  </header>
+
+  <p>
+  声明：本文是我对Java中String的特性的一些笔记，描述较为简练，有误之处还望指正。
+ 1.字符串实例化两种方式的区别 String的实例化方式有两种，一种是直接赋值，另一种是通过new关键字实例化。
+（1）直接赋值
+String str1 = &quot;hello&quot;;  （2）new关键字
+String str2 = new String(&quot;hello&quot;);  两种方式都能实例化新的字符串，那我们用哪种方式比较好呢？ 这要先弄清楚他们之间的区别。
+ str1是通过直接赋值，str1将直接指向一个存放“hello”的内存空间，因此至占用一个内存空间。 str2是通过new关键字实例化，通过new关键字将开辟一个新的内存空间，赋值后将开辟一个新的内存空间存放str2，也就是说使用new关键字实例化字符串总共开辟了两个内存空间。  综上，使用直接赋值的方法较好，毕竟可以避免占用多余的内存空间。
+
+2.字符串比较“==”与equals的区别 字符串比较是较为常用的功能，Java中主要提供了两种字符串比较方式，“==”和equals，如下：
+String str1 = &quot;hello&quot;; String str2 = new String(&quot;hello&quot;); System.out.println(str1==str2); //false System.out.println(str1.equals(str2)); //true  奇怪，明明str1和str2是一样的，为什么“==”会是false呢？
+这是因为，“==”比较的是内存单元地址，equals比较的是内容。由前一小节可知，new关键字实例化方式会开辟两个内存空间，str1和str2虽然都是hello，但他们存放的内存空间是不一样的。
+
+3.String内容不可变 假设：
+String str = &quot;hello&quot;; str = str + &quot;world!&quot;;  分析：原先str指向的是存放“hello”的内存空间，经过重新赋值，并不会将内存空间的“hello”改成“helloworld!”,而是开辟了新的内存空间存放“helloworld!”，将str重新指向存放“helloworld!”的内存空间。
+  </p>
+
+  
+</article>
+
+  
+    <article>
+  <header>
     <h2><a href="https://HauyuChen.github.io/post/521-longest-uncommon-subsequence-i/">【LeetCode】521. Longest Uncommon Subsequence I</a></h2>
 
     <div class="post-meta">
@@ -387,7 +452,7 @@ All letters in this word are capitals, like &ldquo;USA&rdquo;. All letters in th
 
   <p>
   作者注：机器学习系列是本人在学习机器学习相关内容时产生的笔记，希望也能对您有所帮助。值得注意的是，作者作为初学者，表述难免有误或不全面，望多批评指正。 如有任何问题，欢迎您随时与我联系：Hauyu.Chen@Gmail.com
-版权声明：本文由 Hov 所有，发布于 http://hov.space/ ，转载请注明出处。
+版权声明：本文由 Hov 所有，发布于 http://chenhy.com ，转载请注明出处。
 
 0 前言 AI 时代，作为计算机专业的学生，不了解点 AI 相关的知识似乎有点说不过去，尤其是机器学习。 我们一直在说机器学习，但是我们怎么理解机器学习？机器学习解决了什么问题？我们如何将机器学习应用到现实生活中的问题呢？ 本文是机器学习系列的开篇，给出了机器学习的经典定义，并介绍监督学习和无监督学习这两个重要的分支，后续将逐步深入。
 
@@ -465,63 +530,6 @@ All letters in this word are capitals, like &ldquo;USA&rdquo;. All letters in th
   
   <footer>
     <a href="https://HauyuChen.github.io/post/eclipse%E5%BF%AB%E6%8D%B7%E9%94%AE/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
-  </footer>
-  
-</article>
-
-  
-    <article>
-  <header>
-    <h2><a href="https://HauyuChen.github.io/post/506-relative-ranks/">【LeetCode】506. Relative Ranks</a></h2>
-
-    <div class="post-meta">
-
-  <div>
-    <i class="fa fa-calendar fa-fw"></i>
-    <time>2017-03-21</time>
-  </div>
-
-  
-
-  
-  
-  
-  <div>
-    <i class="fa fa-folder fa-fw"></i>
-    
-      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/%E7%AE%97%E6%B3%95">算法</a>&nbsp;&#47;
-    
-      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/leetcode">LeetCode</a>
-    
-  </div>
-  
-  
-
-  
-  
-  
-  <div>
-    <i class="fa fa-tags fa-fw"></i>
-    
-      <a class="post-taxonomy-tag" href="https://HauyuChen.github.io/tags/leetcode">LeetCode</a>
-    
-  </div>
-  
-  
-
-</div>
-
-  </header>
-
-  <p>
-  题目描述：  Given scores of N athletes, find their relative ranks and the people with the top three highest scores, who will be awarded medals: &ldquo;Gold Medal&rdquo;, &ldquo;Silver Medal&rdquo; and &ldquo;Bronze Medal&rdquo;.
-Example 1: Input: [5, 4, 3, 2, 1] Output: [&ldquo;Gold Medal&rdquo;, &ldquo;Silver Medal&rdquo;, &ldquo;Bronze Medal&rdquo;, &ldquo;4&rdquo;, &ldquo;5&rdquo;]
-Explanation: The first three athletes got the top three highest scores, so they got &ldquo;Gold Medal&rdquo;, &ldquo;Silver Medal&rdquo; and &ldquo;Bronze Medal&rdquo;.
-  </p>
-
-  
-  <footer>
-    <a href="https://HauyuChen.github.io/post/506-relative-ranks/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
   </footer>
   
 </article>

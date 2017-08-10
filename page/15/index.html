@@ -13,11 +13,11 @@
 	var _hmt = _hmt || [];
 	(function() {
 	  var hm = document.createElement("script");
-	  hm.src = "https://hm.baidu.com/hm.js?d7c2422a9ffd23fc812aa13dcfbccd84";
+	  hm.src = "https://hm.baidu.com/hm.js?dd096f3aba9332e2640cda59d3786695";
 	  var s = document.getElementsByTagName("script")[0]; 
 	  s.parentNode.insertBefore(hm, s);
 	})();
-	</script>
+	</script>	
   
   
   
@@ -226,6 +226,50 @@
 </div>
 
 <div class="content">
+  
+    <article>
+  <header>
+    <h2><a href="https://HauyuChen.github.io/post/1zigbee-guide/"></a></h2>
+
+    <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>0001-01-01</time>
+  </div>
+
+  
+
+  
+
+  
+
+</div>
+
+  </header>
+
+  <p>
+  注：大一暑假，我开始学习ZigBee。大一暑假结束，我写下了这篇文章。 本文是我接触ZigBee后的一些见解，建议大家自己看过例程后作参考之用。这样看起来会容易点。若本文中有不合理的地方，还望指点：）
+本文基于TI Stack 的例程SampleApp。
+0 前言 写过程序的人都知道每个程序都是从main函数开始执行的，在ZigBee中也不例外。在一个Zigbee工程中，程序从main执行，经过几个函数调用（一些系统功能的初始化，建议看一下从main函数到SampleApp_ProcessEvent函数的过程），程序最终来到了SampleApp_ProcessEvent函数， SampleApp_ProcessEvent(uint8 task_id,uint16 events)是一个颇为重要的函数，整个工程更像是围绕着这个函数运行。
+说白了，通过这个函数来处理所有事件。
+比如： if ( events &amp; SYS_EVENT_MSG ) 处理系统事件，if ( events &amp; SAMPLEAPP_SEND_PERIODIC_MSG_EVT ) 是用户定义的事件。接着，通过一个SWITCH语句把所要处理的任务分成几个case来处理，在每个case里面调用相应的函数，我们可以通过定义这些函数执行我们想要的功能。
+其实，这就是如何在Zigbee工程里面的添加我们所需的功能的解决思路，按流水线分类，一个一个处理、执行相应的代码。
+一个Zigbee工程就是这么简单，接下来以SampleApp例程进行讲解。
+###ZigBee-1-01###
+
+1 ZigBee工程结构 1.1 结构体 通过定义一个结构体来声明所有的簇ID，这些簇ID在ZigBee工程中扮演十分重要的角色。这个结构体存在于每个Zigbee工程中，作为发送数据的标识符。
+const cId_t SampleApp_ClusterList[SAMPLEAPP_MAX_CLUSTERS] = { //标识符，重要，工程会根据标识符执行不同的操作。 SAMPLEAPP_PERIODIC_CLUSTERID, //标识符名称 SAMPLEAPP_FLASH_CLUSTERID //标识符名称 };  1.2 函数 1.2.1 SampleApp_Init函数 在SampleApp_Init函数里面主要写一些初始化代码。比如要用到串口通讯，那么可以在这个函数里面添加相应的串口初始化代码，串口初始化代码如下：
+void SampleApp_Init(uint8 task_id) //初始化函数 ｛ /* 串口配置结构体 */ halUARTCfg_t uartConfig; /* 串口初始化 */ uartConfig.configured = TRUE; uartConfig.baudRate = HAL_UART_BR_38400; //波特率设置为38400 uartConfig.
+  </p>
+
+  
+  <footer>
+    <a href="https://HauyuChen.github.io/post/1zigbee-guide/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
+  </footer>
+  
+</article>
+
   
     <article>
   <header>

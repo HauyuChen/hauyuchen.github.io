@@ -13,11 +13,11 @@
 	var _hmt = _hmt || [];
 	(function() {
 	  var hm = document.createElement("script");
-	  hm.src = "https://hm.baidu.com/hm.js?d7c2422a9ffd23fc812aa13dcfbccd84";
+	  hm.src = "https://hm.baidu.com/hm.js?dd096f3aba9332e2640cda59d3786695";
 	  var s = document.getElementsByTagName("script")[0]; 
 	  s.parentNode.insertBefore(hm, s);
 	})();
-	</script>
+	</script>	
   
   
   
@@ -229,6 +229,61 @@
   
     <article>
   <header>
+    <h2><a href="https://HauyuChen.github.io/post/java-json/">JSON相关操作（Java）</a></h2>
+
+    <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>2017-08-01</time>
+  </div>
+
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-folder fa-fw"></i>
+    
+      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/json">JSON</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/java">Java</a>
+    
+  </div>
+  
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-taxonomy-tag" href="https://HauyuChen.github.io/tags/java">Java</a>
+    
+  </div>
+  
+  
+
+</div>
+
+  </header>
+
+  <p>
+  1 Java中创建JSON import com.google.gson.JsonArray; import com.google.gson.JsonObject; public class CreateJSON { public static void main(String[] args) { JsonObject object = new JsonObject(); object.addProperty(&quot;cat&quot;, &quot;it&quot;); JsonArray array = new JsonArray(); JsonObject lan1 = new JsonObject(); lan1.addProperty(&quot;id&quot;, 1); lan1.addProperty(&quot;name&quot;, &quot;Java&quot;); lan1.addProperty(&quot;ide&quot;, &quot;Eclipse&quot;); array.add(lan1); JsonObject lan2 = new JsonObject(); lan2.addProperty(&quot;id&quot;, 2); lan2.addProperty(&quot;name&quot;, &quot;Swift&quot;); lan2.addProperty(&quot;ide&quot;, &quot;XCode&quot;); array.add(lan2); JsonObject lan3 = new JsonObject(); lan3.addProperty(&quot;id&quot;, 3); lan3.addProperty(&quot;name&quot;, &quot;C#&quot;); lan3.addProperty(&quot;ide&quot;, &quot;Visual Studio&quot;); array.add(lan3); object.add(&quot;languages&quot;, array); object.addProperty(&quot;pop&quot;, true); System.
+  </p>
+
+  
+  <footer>
+    <a href="https://HauyuChen.github.io/post/java-json/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
+  </footer>
+  
+</article>
+
+  
+    <article>
+  <header>
     <h2><a href="https://HauyuChen.github.io/post/java-xml/">XML相关操作（Java）</a></h2>
 
     <div class="post-meta">
@@ -329,7 +384,7 @@
 
   <p>
   作者注：机器学习系列是本人在学习机器学习相关内容时产生的笔记，希望也能对您有所帮助。值得注意的是，作者作为初学者，表述难免有误或不全面，望多批评指正。 如有任何问题，欢迎您随时与我联系：Hauyu.Chen@Gmail.com
-版权声明：本文由 Hov 所有，发布于 http://hov.space/ ，转载请注明出处。
+版权声明：本文由 Hov 所有，发布于 http://chenhy.com ，转载请注明出处。
 
 0 前言 前面我们已经提到了单变量线性回归，现在讲讲多元线性回归（多变量线性回归）。
 在讲解单变量线性回归时，我们引入了房价预测这个栗子，仅通过房屋面积来预测房价。事实上，影响房价的因素有很多，如面积、房间数量、楼层、房龄等等。
@@ -402,7 +457,7 @@
 
   <p>
   作者注：机器学习系列是本人在学习机器学习相关内容时产生的笔记，希望也能对您有所帮助。值得注意的是，作者作为初学者，表述难免有误或不全面，望多批评指正。 如有任何问题，欢迎您随时与我联系：Hauyu.Chen@Gmail.com
-版权声明：本文由 Hov 所有，发布于 http://hov.space/ ，转载请注明出处。
+版权声明：本文由 Hov 所有，发布于 http://chenhy.com ，转载请注明出处。
 
 0 前言 上一篇讲到了线性回归，提到了代价函数（Cost Function）的概念，我们知道我们的目标是找到合适的 θ0、θ1 使得代价函数 J(θ0,θ1) 最小。 但是，若漫无目的地设定 θ0、θ1 的值， J(θ0,θ1) 可能会有无数的结果。 那我们要怎么更快地找到 J(θ0,θ1) 的最小值呢？ 本文将介绍一种重要的优化算法，Gradient Descent（梯度下降法）。
 
@@ -470,7 +525,7 @@
 
   <p>
   作者注：机器学习系列是本人在学习机器学习相关内容时产生的笔记，希望也能对您有所帮助。值得注意的是，作者作为初学者，表述难免有误或不全面，望多批评指正。 如有任何问题，欢迎您随时与我联系：Hauyu.Chen@Gmail.com
-版权声明：本文由 Hov 所有，发布于 http://hov.space/ ，转载请注明出处。
+版权声明：本文由 Hov 所有，发布于 http://chenhy.com ，转载请注明出处。
 
 0 前言 上一篇提到了监督学习的概念，本文要讲的线性回归就属于监督学习。 本文通过单变量线性回归讲述线性回归思想。值得注意的是，特征x并非只能是一个，也可以有x1、x2、x3···，这就是多特征的问题了（后续会提到）。事实上，单特征和多特征的思想是一样的，本文讨论单特征（只有一个特征x）的情形。
 
@@ -489,71 +544,6 @@
   <footer>
     <a href="https://HauyuChen.github.io/post/ml-1-linearregression-onevariables/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
   </footer>
-  
-</article>
-
-  
-    <article>
-  <header>
-    <h2><a href="https://HauyuChen.github.io/post/java-string/">String相关特性（不定时更新）</a></h2>
-
-    <div class="post-meta">
-
-  <div>
-    <i class="fa fa-calendar fa-fw"></i>
-    <time>2017-07-18</time>
-  </div>
-
-  
-
-  
-  
-  
-  <div>
-    <i class="fa fa-folder fa-fw"></i>
-    
-      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/string">String</a>&nbsp;&#47;
-    
-      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/java">Java</a>&nbsp;&#47;
-    
-      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/%E5%AD%97%E7%AC%A6%E4%B8%B2">字符串</a>
-    
-  </div>
-  
-  
-
-  
-  
-  
-  <div>
-    <i class="fa fa-tags fa-fw"></i>
-    
-      <a class="post-taxonomy-tag" href="https://HauyuChen.github.io/tags/java">Java</a>
-    
-  </div>
-  
-  
-
-</div>
-
-  </header>
-
-  <p>
-  声明：本文是我对Java中String的特性的一些笔记，描述较为简练，有误之处还望指正。
- 1.字符串实例化两种方式的区别 String的实例化方式有两种，一种是直接赋值，另一种是通过new关键字实例化。
-（1）直接赋值
-String str1 = &quot;hello&quot;;  （2）new关键字
-String str2 = new String(&quot;hello&quot;);  两种方式都能实例化新的字符串，那我们用哪种方式比较好呢？ 这要先弄清楚他们之间的区别。
- str1是通过直接赋值，str1将直接指向一个存放“hello”的内存空间，因此至占用一个内存空间。 str2是通过new关键字实例化，通过new关键字将开辟一个新的内存空间，赋值后将开辟一个新的内存空间存放str2，也就是说使用new关键字实例化字符串总共开辟了两个内存空间。  综上，使用直接赋值的方法较好，毕竟可以避免占用多余的内存空间。
-
-2.字符串比较“==”与equals的区别 字符串比较是较为常用的功能，Java中主要提供了两种字符串比较方式，“==”和equals，如下：
-String str1 = &quot;hello&quot;; String str2 = new String(&quot;hello&quot;); System.out.println(str1==str2); //false System.out.println(str1.equals(str2)); //true  奇怪，明明str1和str2是一样的，为什么“==”会是false呢？
-这是因为，“==”比较的是内存单元地址，equals比较的是内容。由前一小节可知，new关键字实例化方式会开辟两个内存空间，str1和str2虽然都是hello，但他们存放的内存空间是不一样的。
-
-3.String内容不可变 假设：
-String str = &quot;hello&quot;; str = str + &quot;world!&quot;;  分析：原先str指向的是存放“hello”的内存空间，经过重新赋值，并不会将内存空间的“hello”改成“helloworld!”,而是开辟了新的内存空间存放“helloworld!”，将str重新指向存放“helloworld!”的内存空间。
-  </p>
-
   
 </article>
 

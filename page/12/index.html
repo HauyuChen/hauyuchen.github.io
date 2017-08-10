@@ -13,11 +13,11 @@
 	var _hmt = _hmt || [];
 	(function() {
 	  var hm = document.createElement("script");
-	  hm.src = "https://hm.baidu.com/hm.js?d7c2422a9ffd23fc812aa13dcfbccd84";
+	  hm.src = "https://hm.baidu.com/hm.js?dd096f3aba9332e2640cda59d3786695";
 	  var s = document.getElementsByTagName("script")[0]; 
 	  s.parentNode.insertBefore(hm, s);
 	})();
-	</script>
+	</script>	
   
   
   
@@ -226,6 +226,60 @@
 </div>
 
 <div class="content">
+  
+    <article>
+  <header>
+    <h2><a href="https://HauyuChen.github.io/post/171-excel-sheet-column-number/">【LeetCode】171. Excel Sheet Column Number</a></h2>
+
+    <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>2016-08-23</time>
+  </div>
+
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-folder fa-fw"></i>
+    
+      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/%E7%AE%97%E6%B3%95">算法</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/leetcode">LeetCode</a>
+    
+  </div>
+  
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-taxonomy-tag" href="https://HauyuChen.github.io/tags/leetcode">LeetCode</a>
+    
+  </div>
+  
+  
+
+</div>
+
+  </header>
+
+  <p>
+   题目描述：  Related to question Excel Sheet Column Title
+Given a column title as appear in an Excel sheet, return its corresponding column number.
+For example:
+A -&gt; 1 B -&gt; 2 C -&gt; 3 ... Z -&gt; 26 AA -&gt; 27 AB -&gt; 28   代码实现： class Solution { public: int titleToNumber(string s) { int sum=0; for(int i=0;i&lt;s.length();i++){ sum = sum*26+(s[i]-'A'+1); } return sum; } };  
+  </p>
+
+  
+</article>
+
   
     <article>
   <header>
@@ -447,59 +501,6 @@ Design an algorithm to find the maximum profit. You may complete as many transac
   <footer>
     <a href="https://HauyuChen.github.io/post/122-best-time-to-buy-and-sell-stock-ii/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
   </footer>
-  
-</article>
-
-  
-    <article>
-  <header>
-    <h2><a href="https://HauyuChen.github.io/post/136-single-number/">【LeetCode】136. Single Number</a></h2>
-
-    <div class="post-meta">
-
-  <div>
-    <i class="fa fa-calendar fa-fw"></i>
-    <time>2016-08-16</time>
-  </div>
-
-  
-
-  
-  
-  
-  <div>
-    <i class="fa fa-folder fa-fw"></i>
-    
-      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/%E7%AE%97%E6%B3%95">算法</a>&nbsp;&#47;
-    
-      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/leetcode">LeetCode</a>
-    
-  </div>
-  
-  
-
-  
-  
-  
-  <div>
-    <i class="fa fa-tags fa-fw"></i>
-    
-      <a class="post-taxonomy-tag" href="https://HauyuChen.github.io/tags/leetcode">LeetCode</a>
-    
-  </div>
-  
-  
-
-</div>
-
-  </header>
-
-  <p>
-   题目描述：  Given an array of integers, every element appears twice except for one. Find that single one.
-Note: Your algorithm should have a linear runtime complexity. Could you implement it without using extra memory?
- 代码实现： class Solution { public: int singleNumber(vector&lt;int&gt;&amp; nums) { int ret = 0; for(int num:nums){ ret^=num; } return ret; } };  
-  </p>
-
   
 </article>
 

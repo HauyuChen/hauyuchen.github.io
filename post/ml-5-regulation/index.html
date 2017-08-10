@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="机器学习系列-第 5 篇">
+  <meta name="generator" content="Hugo 0.24.1" />
+
+  <title>【机器学习笔记】5. 正则化 &middot; Hov&#39;s Blog</title>
+
+  <script>
+	var _hmt = _hmt || [];
+	(function() {
+	  var hm = document.createElement("script");
+	  hm.src = "https://hm.baidu.com/hm.js?dd096f3aba9332e2640cda59d3786695";
+	  var s = document.getElementsByTagName("script")[0]; 
+	  s.parentNode.insertBefore(hm, s);
+	})();
+	</script>	
+  
+  
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/0.6.2/pure-min.css">
+
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/0.6.2/grids-responsive-old-ie-min.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/0.6.2/grids-responsive-min.css">
+  <!--<![endif]-->
+
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="https://HauyuChen.github.io/css/side-menu-old-ie.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="https://HauyuChen.github.io/css/side-menu.css">
+  <!--<![endif]-->
+
+  <link rel="stylesheet" href="https://HauyuChen.github.io/css/blackburn.css">
+
+  
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  
+  <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet" type="text/css">
+
+  
+  
+
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/styles/androidstudio.min.css">
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  
+
+  <link rel="shortcut icon" href="https://HauyuChen.github.io/img/favicon.ico" type="image/x-icon" />
+
+  
+  
+
+	
+
+</head>
+
+
+<body>
+<div id="layout">
+
+  
+<a href="#menu" id="menuLink" class="menu-link">
+  
+  <span></span>
+</a>
+<div id="menu">
+
+  <a class="pure-menu-heading brand" href="https://HauyuChen.github.io/">
+  <img src="https://HauyuChen.github.io/img/Hov.jpg" width="125px">
+</a>
+
+  <div class="pure-menu">
+    <ul class="pure-menu-list">
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="https://HauyuChen.github.io/"><i class='fa fa-home fa-fw'></i>主页</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="https://HauyuChen.github.io/post/"><i class='fa fa-list fa-fw'></i>所有文章</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="https://HauyuChen.github.io/tags/"><i class='fa fa-tags fa-fw'></i>文章分类</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="https://HauyuChen.github.io/topics/"><i class='fa fa-folder fa-fw'></i>关键词</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="https://HauyuChen.github.io/about/"><i class='fa fa-user fa-fw'></i>关于我</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="https://HauyuChen.github.io/contact/"><i class='fa fa-home fa-fw'></i>关于本站</a>
+      
+        </li>
+      
+    </ul>
+  </div>
+
+  <div class="pure-menu social">
+  <ul class="pure-menu-list">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://github.com/HauyuChen" target="_blank"><i class="fa fa-github-square fa-fw"></i>GitHub</a>
+    </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+  </ul>
+</div>
+
+
+  <div>
+
+
+</div>
+
+</div>
+
+
+  <div id="main">
+
+
+<div class="header">
+  <h1>【机器学习笔记】5. 正则化</h1>
+  <h2>机器学习系列-第 5 篇</h2>
+</div>
+<div class="content">
+
+  <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>2017-08-10</time>
+  </div>
+
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-folder fa-fw"></i>
+    
+      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0">机器学习</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92">线性回归</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92">逻辑回归</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/%E6%AD%A3%E5%88%99%E5%8C%96">正则化</a>
+    
+  </div>
+  
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-taxonomy-tag" href="https://HauyuChen.github.io/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0">机器学习</a>
+    
+  </div>
+  
+  
+
+</div>
+
+  
+
+<hr />
+
+<p><em>作者注：机器学习系列是本人在学习机器学习相关内容时产生的笔记，希望也能对您有所帮助。值得注意的是，作者作为初学者，表述难免有误或不全面，望多批评指正。<br/>
+如有任何问题，欢迎您随时与我联系：Hauyu.Chen@Gmail.com</em></p>
+
+<p><em>版权声明：本文由 Hov 所有，发布于 <a href="http://chenhy.com">http://chenhy.com</a> ，转载请注明出处。<br/></em></p>
+
+<hr />
+
+<p><br/></p>
+
+<h1 id="0-前言">0 前言</h1>
+
+<p>前面我们已经提到了线性回归、 逻辑回归的概念。我们通过假设函数去拟合训练集，事实上，在拟合的过程中可能会出现 Overfitting （过拟合）的情况，本文要讲的 Regulation （正则化）是解决 Overfitting 的主要方法之一。</p>
+
+<p><br/></p>
+
+<h1 id="1-拟合问题">1 拟合问题</h1>
+
+<p>在讲解正则化之前，我们需要先了解一下拟合的概念。</p>
+
+<p>还记得房价预测的栗子吗？我们通过房屋面积预测房价，给定一个训练集，我们要用假设函数去拟合这些数据。但其实房屋面积和房价的关系并非线性关系，不能简单地用一条直线来表示。</p>
+
+<p>（1）Underfitting（欠拟合）</p>
+
+<p>下图所示，蓝色直线（假设函数）并不能很好地拟合样本数据，我们将这种情况称为 Underfitting （欠拟合），也可以称为 High bias （高偏差）。</p>
+
+<p><img src="https://raw.githubusercontent.com/HauyuChen/PicsBox/master/REG-01.PNG" alt="" /></p>
+
+<p>（2）Just Right（刚好拟合）</p>
+
+<p>在原有的假设函数上增加一个二次项，原来的线性函数变成了二次函数，下图为拟合效果，显然，比之前的拟合得更好。蓝色的直线较好地拟合了样本数据，我们可以认为其刚好拟合。</p>
+
+<p><img src="https://raw.githubusercontent.com/HauyuChen/PicsBox/master/REG-02.PNG" alt="" /></p>
+
+<p>（3）Overfitting（过拟合）</p>
+
+<p>从前两种情况，我们发现增加了新的参数（增加了一个二次项），数据拟合得更好了。现在，我们增加一个三次项和四次项，拟合效果将如下所示，蓝色的线经过了每一个点，而且上下扭曲。这就属于 Overfitting （过拟合），也可称之为 High Variance （高方差）。</p>
+
+<p>你也许会问，我们不是说要让假设函数尽量拟合吗？为什么现在每个数据都拟合了，我们还要去处理它呢？</p>
+
+<p>这是因为，尽管现在的数据拟合得很完美，但它只是和训练样本的拟合，如果我们加入新的测试样本，这样的假设函数往往预测的效果很糟糕。</p>
+
+<p>也就是说，这种模型无法泛化到新的数据，无法预测新的数据。（泛化：指一个假设模型应用到新样本的能力）</p>
+
+<p><img src="https://raw.githubusercontent.com/HauyuChen/PicsBox/master/REG-03.PNG" alt="" /></p>
+
+<p>同理，在逻辑回归中也存在欠拟合和过拟合的情况。</p>
+
+<p>（1）逻辑回归中的欠拟合</p>
+
+<p><img src="https://raw.githubusercontent.com/HauyuChen/PicsBox/master/REG-04.PNG" alt="" /></p>
+
+<p>（2）逻辑回归中的刚好拟合</p>
+
+<p><img src="https://raw.githubusercontent.com/HauyuChen/PicsBox/master/REG-05.PNG" alt="" /></p>
+
+<p>（3）逻辑回归中的过拟合</p>
+
+<p><img src="https://raw.githubusercontent.com/HauyuChen/PicsBox/master/REG-06.PNG" alt="" /></p>
+
+<p><br/></p>
+
+<h2 id="2-regulation-正则化">2 Regulation（正则化）</h2>
+
+<p>前面我们提到，我们应该避免出现过拟合的情况，因为这样会使得我们的预测不准确。解决过拟合问题有两种主要的方法：一种是通过减少特征数量；另一种是正则化。</p>
+
+<p>正则化可以保持特征数量不变，通过设置参数的权重来解决过拟合问题。</p>
+
+<h2 id="2-1-正则化线性回归">2.1 正则化线性回归</h2>
+
+<h3 id="2-1-1-cost-function-代价函数">2.1.1 Cost Function（代价函数）</h3>
+
+<p><img src="https://raw.githubusercontent.com/HauyuChen/PicsBox/master/REG-07.PNG" alt="" /></p>
+
+<p>上面的公式为正则化线性回归的代价函数，蓝色方块为一般线性回归的代价函数，红色方块为正则化项，而 λ 为正则化参数。</p>
+
+<p>正则化参数 λ 需要我们自行选择一个合适的数值，如 λ=1 。</p>
+
+<h3 id="2-1-2-gradient-descent-梯度下降">2.1.2 Gradient Descent（梯度下降）</h3>
+
+<p><img src="https://raw.githubusercontent.com/HauyuChen/PicsBox/master/REG-08.PNG" alt="" /></p>
+
+<p>注： θ0 应单独计算，因为不需要惩罚参数 θ0 ，惩罚参数从 θ1 开始。<img src="https://raw.githubusercontent.com/HauyuChen/PicsBox/master/REG-09.PNG" alt="" />即为正则化操作。</p>
+
+<p>θj也可进一步转换成：</p>
+
+<p><img src="https://raw.githubusercontent.com/HauyuChen/PicsBox/master/REG-10.PNG" alt="" /></p>
+
+<p>值得注意的是，<img src="https://raw.githubusercontent.com/HauyuChen/PicsBox/master/REG-11.PNG" alt="" />的值总是小于1，所以每次更新 θ ， θ 都会变小。</p>
+
+<p>综上，正则化实际就是对每一个需要被正则化的参数 θ 乘以一个比1小的数，使得 θ 的权值变小。</p>
+
+<h3 id="2-1-3-normal-equation-正规方程">2.1.3 Normal Equation（正规方程）</h3>
+
+<p>正规方程同样也可以应用正则化，如下：</p>
+
+<p>（1）原始正规方程：</p>
+
+<p><img src="https://raw.githubusercontent.com/HauyuChen/PicsBox/master/REG-12.PNG" alt="" /></p>
+
+<p>（2）正则化正规方程：</p>
+
+<p><img src="https://raw.githubusercontent.com/HauyuChen/PicsBox/master/REG-13.PNG" alt="" /></p>
+
+<p>值得注意的是，<img src="https://raw.githubusercontent.com/HauyuChen/PicsBox/master/REG-14.PNG" alt="" />是不可逆的，而<img src="https://raw.githubusercontent.com/HauyuChen/PicsBox/master/REG-15.PNG" alt="" />是可逆的。因此，正则化还可以解决<img src="https://raw.githubusercontent.com/HauyuChen/PicsBox/master/REG-14.PNG" alt="" />不可逆问题。</p>
+
+<h2 id="2-2-正则化逻辑回归">2.2 正则化逻辑回归</h2>
+
+<p>同样，正则化也可以应用于逻辑回归。</p>
+
+<h3 id="2-2-1-cost-function-代价函数">2.2.1 Cost Function（代价函数）</h3>
+
+<p>（1）一般逻辑回归的代价函数：</p>
+
+<p><img src="https://raw.githubusercontent.com/HauyuChen/PicsBox/master/REG-16.PNG" alt="" /></p>
+
+<p>（2）正则化逻辑回归的代价函数：</p>
+
+<p><img src="https://raw.githubusercontent.com/HauyuChen/PicsBox/master/REG-17.PNG" alt="" /></p>
+
+<p><br/></p>
+
+<h1 id="3-结语">3 结语</h1>
+
+<ol>
+<li>防止过拟合的方法主要有：减少特征数量、正则化。</li>
+<li>正则化通过改变每个参数的权值来避免过拟合，而不需要减少特征数量。</li>
+<li>正则化可以应用于线性回归、逻辑回归中，通过增加正则化参数来改变参数 θ 的大小，从而影响对应特征的权值。</li>
+<li>正则化还可以解决正规方程中<img src="https://raw.githubusercontent.com/HauyuChen/PicsBox/master/REG-14.PNG" alt="" />不可逆问题。</li>
+</ol>
+
+<p><br/></p>
+
+
+  
+<div class="prev-next-post pure-g">
+  <div class="pure-u-1-24" style="text-align: left;">
+    
+    <a href="https://HauyuChen.github.io/post/java-trap/"><i class="fa fa-chevron-left"></i></a>
+    
+  </div>
+  <div class="pure-u-10-24">
+    
+    <nav class="prev">
+      <a href="https://HauyuChen.github.io/post/java-trap/">Java相关特性</a>
+    </nav>
+    
+  </div>
+  <div class="pure-u-2-24">
+    &nbsp;
+  </div>
+  <div class="pure-u-10-24">
+    
+  </div>
+  <div class="pure-u-1-24" style="text-align: right;">
+    
+  </div>
+</div>
+
+
+
+  
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+
+(function() {
+    
+    
+    if (window.location.hostname == "localhost")
+        return;
+
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    var disqus_shortname = "http-hov-space";
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com/" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+</div>
+
+</div>
+</div>
+<script src="https://HauyuChen.github.io/js/ui.js"></script>
+
+
+
+
+
+
+</body>
+</html>
+
