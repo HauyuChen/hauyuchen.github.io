@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://HauyuChen.github.io/post/543-diameter-of-binary-tree/</loc>
+    <lastmod>2017-08-14T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://HauyuChen.github.io/post/530-minimum-absolute-difference-in-bst/</loc>
     <lastmod>2017-08-13T00:00:00+00:00</lastmod>
   </url>
@@ -406,7 +411,7 @@
   
   <url>
     <loc>https://HauyuChen.github.io/</loc>
-    <lastmod>2017-08-13T00:00:00+00:00</lastmod>
+    <lastmod>2017-08-14T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -436,13 +441,13 @@
   
   <url>
     <loc>https://HauyuChen.github.io/topics/leetcode/</loc>
-    <lastmod>2017-08-13T00:00:00+00:00</lastmod>
+    <lastmod>2017-08-14T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://HauyuChen.github.io/post/</loc>
-    <lastmod>2017-08-13T00:00:00+00:00</lastmod>
+    <lastmod>2017-08-14T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -562,7 +567,7 @@
   
   <url>
     <loc>https://HauyuChen.github.io/topics/%E7%AE%97%E6%B3%95/</loc>
-    <lastmod>2017-08-13T00:00:00+00:00</lastmod>
+    <lastmod>2017-08-14T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
