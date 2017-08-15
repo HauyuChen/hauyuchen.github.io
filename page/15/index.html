@@ -229,6 +229,61 @@
   
     <article>
   <header>
+    <h2><a href="https://HauyuChen.github.io/post/013-roman-to-integer/">【LeetCode】13. Roman to Integer</a></h2>
+
+    <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>2016-08-12</time>
+  </div>
+
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-folder fa-fw"></i>
+    
+      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/%E7%AE%97%E6%B3%95">算法</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/leetcode">LeetCode</a>
+    
+  </div>
+  
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-taxonomy-tag" href="https://HauyuChen.github.io/tags/leetcode">LeetCode</a>
+    
+  </div>
+  
+  
+
+</div>
+
+  </header>
+
+  <p>
+   题目描述：  Given a roman numeral, convert it to an integer.
+Input is guaranteed to be within the range from 1 to 3999.
+ 我的思路：  这是一道将罗马数字转换成整数的题目。搞清楚罗马数字的表示特点即可。
+参见维基百科：罗马数字
+ 代码实现： class Solution { public: int romanToInt(string s) { unordered_map&lt;char,int&gt; hm; hm.insert(pair&lt;char,int&gt;('I',1)); hm.insert(pair&lt;char,int&gt;('V',5)); hm.insert(pair&lt;char,int&gt;('X',10)); hm.insert(pair&lt;char,int&gt;('L',50)); hm.insert(pair&lt;char,int&gt;('C',100)); hm.insert(pair&lt;char,int&gt;('D',500)); hm.insert(pair&lt;char,int&gt;('M',1000)); int sum=hm[s[s.size()-1]]; for(int i=s.size()-1;i&gt;0;--i){ if(hm[s[i]]&gt;hm[s[i-1]]){ sum-=hm[s[i-1]]; }else{ sum+=hm[s[i-1]]; } } return sum; } };  
+  </p>
+
+  
+</article>
+
+  
+    <article>
+  <header>
     <h2><a href="https://HauyuChen.github.io/post/021-merge-two-sorted-lists/">【LeetCode】21. Merge Two Sorted Lists</a></h2>
 
     <div class="post-meta">
@@ -454,58 +509,6 @@ Update (2015-02-10): The signature of the C++ function had been updated.
 </article>
 
   
-    <article>
-  <header>
-    <h2><a href="https://HauyuChen.github.io/post/1zigbee-parking/"></a></h2>
-
-    <div class="post-meta">
-
-  <div>
-    <i class="fa fa-calendar fa-fw"></i>
-    <time>0001-01-01</time>
-  </div>
-
-  
-
-  
-
-  
-
-</div>
-
-  </header>
-
-  <p>
-  0 前言 智能停车系统是本人在大二下学期做的一个小项目。项目难度不大，主要涉及传感器数据采集、ZigBee组网、GPRS传输数据、数据库服务器程序的编写、微信公众账号开发，我们还做了一个小模型用来展示。
-ZB-P-01 在本文中将着重讲述ZigBee部分，如何通过ZigBee网络采集数据并将数据发送给远程数据库服务器。
-本文侧重讲的是实现思路，具体的技术细节可参考源代码。
-
-1 项目简介 智能停车系统通过无线传感器网络监测停车场内的车位状态和亮度信息等数据，并对数据进行处理和存储，实现停车引导、防盗提醒和灯光控制等功能。
-系统通过ZigBee结合GPRS无线网络将数据发送并存储到数据库服务器，最终通过客户端、移动终端等方式实现交互。用户还可以关注本停车系统的微信公众账号实时地了解停车场内的信息。本系统旨在提升停车场管理效率，改善用户体验。
-
-2 项目思路 ZigBee部分主要完成的是传感器数据的采集和数据的传输,大体的思路是这样的：通过ZigBee终端节点上外接的传感器实现数据监测，并通过ZigBee网络将数据发送至ZigBee协调器，ZigBee协调器通过RS232串口线连接GPRS模块，通过AT指令将数据发送至远程数据库服务器。
-2.1 ZigBee协调器 ZigBee协调器主要完成以下功能：
- 组建ZigBee网络，供ZigBee终端等节点连接； 接收ZigBee终端发送的数据，经过处理后通过RS232串口发送给与之相连接的GPRS模块。如将停车场内的车位数据和亮度数据发送给远程数据库服务器。 根据空闲车位的数量，控制车位指示屏 2.2 ZigBee终端 ZigBee终端节点主要负责以下功能：
- 采集车位数据（红外传感器）、采集亮度数据（光照数字传感器）、控制车位状态灯（LED灯）；
- 将采集到的数据通过ZigBee网络发送给ZigBee协调器。
- 接收ZigBee协调器发送过来的数据，并进行相应的处理，如开关灯操作。
-  2.3 GPRS模块 要把 ZigBee 网络采集到的数据发送给远程数据库服务器，可选用 GPRS 模块。通过SIM卡，利用 GPRS 网络将数据发送出去。GPRS模块主要完成以下功能：
- 建立TCP连接，连接到远程服务器。 发送数据给远程服务器，接收远程服务器返回的数据； 发送防盗提醒短信给用户。  
-3 实现细节 3.1 ZigBee终端 前面已经提到ZigBee终端节点负责的功能，下面说说ZigBee终端如何实现这些功能。
-3.1.1 数据采集 ZigBee终端通过外接传感器采集数据，比如在本项目中用到的传感器主要是红外传感器、光照数字传感器。 （1）红外传感器 红外传感器采用黑白对管红外避障模块，有三个引脚，VCC。GND、OUT。探测距离可调，当前方有障碍物时OUT口输出1，否则输出0。使用较为方便，但是稳定性不足，也可考虑用超声波探测模块来替换。 如何探测车位状态。其实很简单，将传感器的OUT口连接到ZigBee终端的一个IO口，通过判断这个IO口的值来模拟车位是否被占用，控制车位状态灯（IO口）。当车位被占用，OUT口输出1；车位空闲，OUT口输出0。 实现代码参考附录的源代码（ParkingStatus.c）
-（2）光照数字传感器 光照数字传感器用来采集停车场内的亮度数据，该传感器可以采集到周围环境的亮度值。该传感器采用IIC总线方式，有四个引脚（VCC、GND、SCL、SDA），将其与ZigBee终端连接即可，采集到的数据将通过ZigBee网络发送至ZigBee协调器。 实现代码参考附录的源代码（LightControl.c）
-3.1.2 发送数据 在ZigBee网络中如何发送数据呢？看过协议栈例程的都应该清楚。ZigBee协议栈中发送数据的函数是 AF_DataRequest 。在此函数中我们主要考虑三个参数：簇ID（标识符）、数据大小、数据存放位置（数组名）。
-下面是ZigBee终端发送车位数据给ZigBee协调器的代码：
-  </p>
-
-  
-  <footer>
-    <a href="https://HauyuChen.github.io/post/1zigbee-parking/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
-  </footer>
-  
-</article>
-
-  
 
   
 
@@ -514,9 +517,9 @@ ZB-P-01 在本文中将着重讲述ZigBee部分，如何通过ZigBee网络采集
   
   <a href="https://HauyuChen.github.io/page/14/"><i class="fa fa-chevron-left"></i></a>
   
-  <span>&nbsp;15 / 15&nbsp;</span>
+  <span>&nbsp;15 / 16&nbsp;</span>
   
-  <i class="fa fa-chevron-right"></i>
+  <a href="https://HauyuChen.github.io/page/16/"><i class="fa fa-chevron-right"></i></a>
   
 </nav>
 

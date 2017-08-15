@@ -229,6 +229,59 @@
   
     <article>
   <header>
+    <h2><a href="https://HauyuChen.github.io/post/136-single-number/">【LeetCode】136. Single Number</a></h2>
+
+    <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>2016-08-16</time>
+  </div>
+
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-folder fa-fw"></i>
+    
+      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/%E7%AE%97%E6%B3%95">算法</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/leetcode">LeetCode</a>
+    
+  </div>
+  
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-taxonomy-tag" href="https://HauyuChen.github.io/tags/leetcode">LeetCode</a>
+    
+  </div>
+  
+  
+
+</div>
+
+  </header>
+
+  <p>
+   题目描述：  Given an array of integers, every element appears twice except for one. Find that single one.
+Note: Your algorithm should have a linear runtime complexity. Could you implement it without using extra memory?
+ 代码实现： class Solution { public: int singleNumber(vector&lt;int&gt;&amp; nums) { int ret = 0; for(int num:nums){ ret^=num; } return ret; } };  
+  </p>
+
+  
+</article>
+
+  
+    <article>
+  <header>
     <h2><a href="https://HauyuChen.github.io/post/104-maximum-depth-of-binary-tree/">【LeetCode】104. Maximum Depth of Binary Tree</a></h2>
 
     <div class="post-meta">
@@ -448,61 +501,6 @@ Compute and return the square root of x.
 </article>
 
   
-    <article>
-  <header>
-    <h2><a href="https://HauyuChen.github.io/post/013-roman-to-integer/">【LeetCode】13. Roman to Integer</a></h2>
-
-    <div class="post-meta">
-
-  <div>
-    <i class="fa fa-calendar fa-fw"></i>
-    <time>2016-08-12</time>
-  </div>
-
-  
-
-  
-  
-  
-  <div>
-    <i class="fa fa-folder fa-fw"></i>
-    
-      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/%E7%AE%97%E6%B3%95">算法</a>&nbsp;&#47;
-    
-      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/leetcode">LeetCode</a>
-    
-  </div>
-  
-  
-
-  
-  
-  
-  <div>
-    <i class="fa fa-tags fa-fw"></i>
-    
-      <a class="post-taxonomy-tag" href="https://HauyuChen.github.io/tags/leetcode">LeetCode</a>
-    
-  </div>
-  
-  
-
-</div>
-
-  </header>
-
-  <p>
-   题目描述：  Given a roman numeral, convert it to an integer.
-Input is guaranteed to be within the range from 1 to 3999.
- 我的思路：  这是一道将罗马数字转换成整数的题目。搞清楚罗马数字的表示特点即可。
-参见维基百科：罗马数字
- 代码实现： class Solution { public: int romanToInt(string s) { unordered_map&lt;char,int&gt; hm; hm.insert(pair&lt;char,int&gt;('I',1)); hm.insert(pair&lt;char,int&gt;('V',5)); hm.insert(pair&lt;char,int&gt;('X',10)); hm.insert(pair&lt;char,int&gt;('L',50)); hm.insert(pair&lt;char,int&gt;('C',100)); hm.insert(pair&lt;char,int&gt;('D',500)); hm.insert(pair&lt;char,int&gt;('M',1000)); int sum=hm[s[s.size()-1]]; for(int i=s.size()-1;i&gt;0;--i){ if(hm[s[i]]&gt;hm[s[i-1]]){ sum-=hm[s[i-1]]; }else{ sum+=hm[s[i-1]]; } } return sum; } };  
-  </p>
-
-  
-</article>
-
-  
 
   
 
@@ -511,7 +509,7 @@ Input is guaranteed to be within the range from 1 to 3999.
   
   <a href="https://HauyuChen.github.io/page/13/"><i class="fa fa-chevron-left"></i></a>
   
-  <span>&nbsp;14 / 15&nbsp;</span>
+  <span>&nbsp;14 / 16&nbsp;</span>
   
   <a href="https://HauyuChen.github.io/page/15/"><i class="fa fa-chevron-right"></i></a>
   
