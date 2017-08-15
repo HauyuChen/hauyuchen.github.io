@@ -7,7 +7,7 @@
   <meta name="description" content="">
   <meta name="generator" content="Hugo 0.24.1" />
 
-  <title>Tags &middot; Hov&#39;s Blog</title>
+  <title>【LeetCode】530. Minimum Absolute Difference in BST &middot; Hov&#39;s Blog</title>
 
   <script>
 	var _hmt = _hmt || [];
@@ -46,8 +46,6 @@
   <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet" type="text/css">
 
   
-  
-  <link rel="alternate" type="application/rss+xml" title="Hov&#39;s Blog" href="https://HauyuChen.github.io/tags/index.xml" />
   
 
   
@@ -125,10 +123,6 @@
   <div class="pure-menu social">
   <ul class="pure-menu-list">
 
-    
-    <li class="pure-menu-item">
-      <a class="pure-menu-link" href="https://HauyuChen.github.io/tags/index.xml"><i class="fa fa-rss fa-fw"></i>RSS</a>
-    </li>
     
 
     
@@ -221,43 +215,158 @@
 
 
 <div class="header">
-  <h1>Tags</h1>
+  <h1>【LeetCode】530. Minimum Absolute Difference in BST</h1>
+  <h2></h2>
 </div>
 <div class="content">
-  <ul>
+
+  <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>2017-08-13</time>
+  </div>
+
+  
+
   
   
-    <li>
-      <a href="leetcode">leetcode</a>
-      <span>&#40;58&#41;</span>
-    </li>
   
-    <li>
-      <a href="%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0">机器学习</a>
-      <span>&#40;6&#41;</span>
-    </li>
+  <div>
+    <i class="fa fa-folder fa-fw"></i>
+    
+      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/%E7%AE%97%E6%B3%95">算法</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/leetcode">LeetCode</a>
+    
+  </div>
   
-    <li>
-      <a href="java">java</a>
-      <span>&#40;4&#41;</span>
-    </li>
   
-    <li>
-      <a href="elasticsearch">elasticsearch</a>
-      <span>&#40;1&#41;</span>
-    </li>
+
   
-    <li>
-      <a href="%E6%89%8B%E5%86%8C">手册</a>
-      <span>&#40;1&#41;</span>
-    </li>
   
-    <li>
-      <a href="%E6%95%B0%E6%8D%AE%E5%BA%93">数据库</a>
-      <span>&#40;1&#41;</span>
-    </li>
   
-  </ul>
+  <div>
+    <i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-taxonomy-tag" href="https://HauyuChen.github.io/tags/leetcode">LeetCode</a>
+    
+  </div>
+  
+  
+
+</div>
+
+  
+
+<h2 id="题目描述">题目描述：</h2>
+
+<blockquote>
+<p>Given a binary search tree with non-negative values, find the minimum absolute difference between values of any two nodes.</p>
+
+<p>Example:</p>
+
+<p>Input:</p>
+
+<pre><code>   1
+    \
+     3
+    /
+   2
+</code></pre>
+
+<p>Output:
+1</p>
+
+<p>Explanation:
+The minimum absolute difference is 1, which is the difference between 2 and 1 (or between 2 and 3).
+Note: There are at least two nodes in this BST.</p>
+</blockquote>
+
+<h2 id="代码实现">代码实现：</h2>
+
+<pre><code>/**
+ * Definition for a binary tree node.
+ * struct TreeNode {
+ *     int val;
+ *     TreeNode *left;
+ *     TreeNode *right;
+ *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}
+ * };
+ */
+class Solution {
+public:
+    vector&lt;int&gt; ret;
+    int getMinimumDifference(TreeNode* root) {
+        travPush(root);
+        sort(ret.begin(),ret.end());
+        int dis = ret[1]-ret[0];
+        for(int i=2;i&lt;ret.size();i++){
+            dis = min(dis,ret[i]-ret[i-1]);
+        }
+        return dis;
+    }
+    
+private:
+    void travPush(TreeNode* root){
+        if(root==NULL){
+            return ;
+        }
+        ret.push_back(root-&gt;val);
+        travPush(root-&gt;left);
+        travPush(root-&gt;right);
+    }
+};
+</code></pre>
+
+
+  
+<div class="prev-next-post pure-g">
+  <div class="pure-u-1-24" style="text-align: left;">
+    
+    <a href="https://HauyuChen.github.io/post/ml-5-regulation/"><i class="fa fa-chevron-left"></i></a>
+    
+  </div>
+  <div class="pure-u-10-24">
+    
+    <nav class="prev">
+      <a href="https://HauyuChen.github.io/post/ml-5-regulation/">【机器学习笔记】5. 正则化</a>
+    </nav>
+    
+  </div>
+  <div class="pure-u-2-24">
+    &nbsp;
+  </div>
+  <div class="pure-u-10-24">
+    
+  </div>
+  <div class="pure-u-1-24" style="text-align: right;">
+    
+  </div>
+</div>
+
+
+
+  
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+
+(function() {
+    
+    
+    if (window.location.hostname == "localhost")
+        return;
+
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    var disqus_shortname = "http-hov-space";
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com/" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
 </div>
 
 </div>
@@ -271,3 +380,4 @@
 
 </body>
 </html>
+
