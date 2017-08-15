@@ -229,6 +229,61 @@
   
     <article>
   <header>
+    <h2><a href="https://HauyuChen.github.io/post/504-base-7/">【LeetCode】504. Base 7</a></h2>
+
+    <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>2017-03-20</time>
+  </div>
+
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-folder fa-fw"></i>
+    
+      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/%E7%AE%97%E6%B3%95">算法</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/leetcode">LeetCode</a>
+    
+  </div>
+  
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-taxonomy-tag" href="https://HauyuChen.github.io/tags/leetcode">LeetCode</a>
+    
+  </div>
+  
+  
+
+</div>
+
+  </header>
+
+  <p>
+   题目描述：  Given an integer, return its base 7 string representation.
+Example 1: Input: 100 Output: &ldquo;202&rdquo;
+Example 2: Input: -7 Output: &ldquo;-10&rdquo;
+Note: The input will be in range of [-1e7, 1e7].
+ 代码实现： class Solution { public: string convertToBase7(int num) { string str=&quot;&quot;; int nega=0; if(num&lt;0){ nega = 1; num = abs(num); } while(num/7){ str+=to_string(num%7); num/=7; } str+=to_string(num%7); if(nega){ str+=&quot;-&quot;; } reverse(str.begin(),str.end()); return str; } };  
+  </p>
+
+  
+</article>
+
+  
+    <article>
+  <header>
     <h2><a href="https://HauyuChen.github.io/post/492-construct-the-rectangle/">【LeetCode】492. Construct the Rectangle</a></h2>
 
     <div class="post-meta">
@@ -451,68 +506,6 @@ Explanation: The binary representation of 5 is 101 (no leading zero bits), and i
   
   <footer>
     <a href="https://HauyuChen.github.io/post/455-assign-cookies/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
-  </footer>
-  
-</article>
-
-  
-    <article>
-  <header>
-    <h2><a href="https://HauyuChen.github.io/post/461-hamming-distance/">【LeetCode】461. Hamming Distance</a></h2>
-
-    <div class="post-meta">
-
-  <div>
-    <i class="fa fa-calendar fa-fw"></i>
-    <time>2017-03-16</time>
-  </div>
-
-  
-
-  
-  
-  
-  <div>
-    <i class="fa fa-folder fa-fw"></i>
-    
-      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/%E7%AE%97%E6%B3%95">算法</a>&nbsp;&#47;
-    
-      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/leetcode">LeetCode</a>
-    
-  </div>
-  
-  
-
-  
-  
-  
-  <div>
-    <i class="fa fa-tags fa-fw"></i>
-    
-      <a class="post-taxonomy-tag" href="https://HauyuChen.github.io/tags/leetcode">LeetCode</a>
-    
-  </div>
-  
-  
-
-</div>
-
-  </header>
-
-  <p>
-  题目描述：  The Hamming distance between two integers is the number of positions at which the corresponding bits are different.
-Given two integers x and y, calculate the Hamming distance.
-Note: 0 ≤ x, y &lt; 231.
-Example:
-Input: x = 1, y = 4
-Output: 2
-Explanation:
-1 (0 0 0 1) 4 (0 1 0 0) ↑ ↑  The above arrows point to positions where the corresponding bits are different.
-  </p>
-
-  
-  <footer>
-    <a href="https://HauyuChen.github.io/post/461-hamming-distance/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
   </footer>
   
 </article>
