@@ -1,0 +1,1006 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="ZigBee原创系列-第 1 篇">
+  <meta name="generator" content="Hugo 0.24.1" />
+
+  <title>【ZigBee系列】1.浅析ZigBee工程 &middot; Hov&#39;s Blog</title>
+
+  <script>
+	var _hmt = _hmt || [];
+	(function() {
+	  var hm = document.createElement("script");
+	  hm.src = "https://hm.baidu.com/hm.js?dd096f3aba9332e2640cda59d3786695";
+	  var s = document.getElementsByTagName("script")[0]; 
+	  s.parentNode.insertBefore(hm, s);
+	})();
+	</script>	
+  
+  
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/0.6.2/pure-min.css">
+
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/0.6.2/grids-responsive-old-ie-min.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/0.6.2/grids-responsive-min.css">
+  <!--<![endif]-->
+
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="https://HauyuChen.github.io/css/side-menu-old-ie.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="https://HauyuChen.github.io/css/side-menu.css">
+  <!--<![endif]-->
+
+  <link rel="stylesheet" href="https://HauyuChen.github.io/css/blackburn.css">
+
+  
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  
+  <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet" type="text/css">
+
+  
+  
+
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/styles/androidstudio.min.css">
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  
+
+  <link rel="shortcut icon" href="https://HauyuChen.github.io/img/favicon.ico" type="image/x-icon" />
+
+  
+  
+
+
+</head>
+
+
+<body>
+
+<div id="layout">
+
+  
+<a href="#menu" id="menuLink" class="menu-link">
+  
+  <span></span>
+</a>
+<div id="menu">
+
+  <a class="pure-menu-heading brand" href="https://HauyuChen.github.io/">
+  <img src="https://HauyuChen.github.io/img/Hov.jpg" width="125px">
+</a>
+
+  <div class="pure-menu">
+    <ul class="pure-menu-list">
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="https://HauyuChen.github.io/"><i class='fa fa-home fa-fw'></i>主页</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="https://HauyuChen.github.io/post/"><i class='fa fa-list fa-fw'></i>所有文章</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="https://HauyuChen.github.io/tags/"><i class='fa fa-tags fa-fw'></i>文章分类</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="https://HauyuChen.github.io/topics/"><i class='fa fa-folder fa-fw'></i>关键词</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="https://HauyuChen.github.io/about/"><i class='fa fa-user fa-fw'></i>关于我</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="https://HauyuChen.github.io/contact/"><i class='fa fa-home fa-fw'></i>关于本站</a>
+      
+        </li>
+      
+    </ul>
+  </div>
+
+  <div class="pure-menu social">
+
+  <ul class="pure-menu-list">
+	
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://github.com/HauyuChen" target="_blank"><i class="fa fa-github-square fa-fw"></i>GitHub</a>
+    </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+  </ul>
+  
+</div>
+
+
+  <div>
+
+
+</div>
+
+</div>
+
+
+  <div id="main">
+
+
+<div class="header">
+  <h1>【ZigBee系列】1.浅析ZigBee工程</h1>
+  <h2>ZigBee原创系列-第 1 篇</h2>
+</div>
+<div class="content">
+
+  <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>2017-05-17</time>
+  </div>
+
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-folder fa-fw"></i>
+    
+      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/zigbee">ZigBee</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/%E7%89%A9%E8%81%94%E7%BD%91">物联网</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/%E6%97%A0%E7%BA%BF%E4%BC%A0%E6%84%9F%E5%99%A8">无线传感器</a>
+    
+  </div>
+  
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-taxonomy-tag" href="https://HauyuChen.github.io/tags/zigbee">ZigBee</a>
+    
+  </div>
+  
+  
+
+</div>
+
+  
+
+<hr />
+
+<p>作者注： ZigBee 系列共三篇，首先讲解 ZigBee 工程的结构，然后通过两个具体项目熟悉 ZigBee 的应用。在学习本系列内容前，您需要掌握单片机相关知识、 ZigBee 基础知识，希望本系列教程能对您开发 ZigBee 项目有所启发。如有任何问题，欢迎您随时与我联系：Hauyu.Chen@Gmail.com</p>
+
+<p><em>版权声明：本文由 Hov 所有，发布于 <a href="http://chenhy.com">http://chenhy.com</a> ，转载请注明出处。<br/></em></p>
+
+<hr />
+
+<p><br/></p>
+
+<h1 id="0-写在前面">0 写在前面</h1>
+
+<p>大一暑假，我开始学习ZigBee技术。这篇文章是在大一暑假结束后完成的，主要是想写一下在学习ZigBee过程中的思路，以及一个ZigBee工程中的核心内容。因为在刚学习ZigBee的时候，面对着大量的代码，有种无从下手的感觉。</p>
+
+<p>本文基于 Z-Stack 的例程 SampleApp 展开，旨在突出在一个ZigBee工程中比较核心的部分，建议大家看过 Z-Stack 中的例程后作参考之用。</p>
+
+<p>注：Z-Stack 安装文件：<a href="https://github.com/HauyuChen/Z-Stack">https://github.com/HauyuChen/Z-Stack</a></p>
+
+<p><br/></p>
+
+<h1 id="1-概述">1 概述</h1>
+
+<p>写过程序的人都知道每个程序都是从 main 函数开始执行的，在 ZigBee 程序中也不例外。在一个 Zigbee 工程中，程序从 main 函数开始执行，经过一步一步的函数调用（一些系统功能的初始化，建议跟踪一下从 main 函数到 SampleApp_ProcessEvent 函数的过程），程序最终来到了 SampleApp_ProcessEvent 函数，  SampleApp_ProcessEvent(uint8 task_id,uint16 events)  是一个颇为重要的函数，整个工程更像是围绕着这个函数运行。</p>
+
+<p>说白了，我们要通过这个函数来处理所有事件。</p>
+
+<p>比如：<br/>
+if ( events &amp; SYS_EVENT_MSG ) 处理系统事件，if ( events &amp; SAMPLEAPP_SEND_PERIODIC_MSG_EVT ) 处理用户定义的事件。在不同的事件处理代码中，通过一个 switch 语句把所要处理的任务分成几个 case 来处理，在每个 case 里面调用相应的函数，我们通过定义这些函数执行我们想要的功能即可。</p>
+
+<p>其实，这就是如何在Zigbee工程里面的添加我们所需功能的解决思路，在不同的事件下添加我们的处理代码。我们要做的就是围绕事件处理函数修改代码，接下来以SampleApp例程进行讲解。</p>
+
+<p>SampleApp代码结构如下：</p>
+
+<p><br/></p>
+
+<p><img src="https://raw.githubusercontent.com/HauyuChen/PicsBox/master/ZigBee-1-01.PNG" alt="" /></p>
+
+<p><br/></p>
+
+<h1 id="2-zigbee工程的核心内容">2 ZigBee工程的核心内容</h1>
+
+<p>要想通过ZigBee协议栈实现我们需要的功能，最简单的方式就是基于协议栈提供的例程进行修改。那么我们应该修改哪些代码呢？其实，只要关注ZigBee工程中核心的内容即可，下面将逐个介绍ZigBee工程中比较重要的部分，我们要实现自己想要的功能，基本上只要修改这些代码即可。</p>
+
+<h2 id="2-1-簇id">2.1 簇ID</h2>
+
+<p>簇 ID 在 ZigBee 工程中作为数据收发的标识符，十分重要。在 ZigBee 程序中，通过定义一个结构体来声明本程序要用到的所有簇 ID 。</p>
+
+<pre><code>const cId_t SampleApp_ClusterList[SAMPLEAPP_MAX_CLUSTERS] =
+{
+    //簇ID：区分不同的消息
+    SAMPLEAPP_PERIODIC_CLUSTERID,   //自定义的标识符名称
+    SAMPLEAPP_FLASH_CLUSTERID       //自定义的标识符名称
+};
+</code></pre>
+
+<h2 id="2-2-初始化函数">2.2 初始化函数</h2>
+
+<p>在 SampleApp 例程中， SampleApp_Init 函数为整个工程的初始化函数。在 SampleApp_Init 函数里面主要写一些初始化代码，比如程序中要用到串口通讯，那么可以在 SampleApp_Init 函数里面添加相应的串口初始化代码，这样在程序中我们才能执行与串口相关的操作。串口初始化代码如下：</p>
+
+<pre><code>/**
+* 初始化函数：SampleApp_Init
+*/
+void SampleApp_Init(uint8 task_id)  
+{
+    /* 串口配置结构体 */
+    halUARTCfg_t uartConfig;
+    /* 串口初始化 */
+    uartConfig.configured = TRUE;
+    uartConfig.baudRate = HAL_UART_BR_38400;    //波特率设置为38400
+    uartConfig.flowControl = FALSE;
+    uartConfig.flowControlThreshold = 64;
+    uartConfig.rx.maxBufSize        = 128;
+    uartConfig.tx.maxBufSize        = 128;
+    uartConfig.idleTimeout          = 6;
+    uartConfig.intEnable            = TRUE;
+    uartConfig.callBackFunc = UART_CallBack;    //UART_CallBack是自定义的串口回调函数名称，对串口接收的数据进行处理
+    HalUARTOpen(0,&amp;uartConfig);                 //启动串口
+｝
+</code></pre>
+
+<h2 id="2-3-事件处理函数">2.3 事件处理函数</h2>
+
+<p>在 SampleApp 例程中， SampleApp_ProcessEvent 函数是整个工程的事件处理函数。 SampleApp_ProcessEvent 函数是一个 Zigbee 工程中最重要的函数，负责处理不同的事件，如系统事件、自定义事件。</p>
+
+<ul>
+<li>系统事件：绑定请求、处理按键、接受空中消息等；</li>
+<li>自定义事件：串口发送数据、传感器数据获取等。</li>
+</ul>
+
+<pre><code>/**
+* 事件处理函数：SampleApp_ProcessEvent
+*/
+uint16 SampleApp_ProcessEvent( uint8 task_id, uint16 events )
+{
+    if ( events &amp; SYS_EVENT_MSG )               //系统事件
+    {
+        while ( MSGpkt )
+        {
+            switch ( MSGpkt-&gt;hdr.event )
+            {
+                case KEY_CHANGE:                //按键操作
+                    SampleApp_HandleKeys( ((keyChange_t *)MSGpkt)-&gt;state,
+                    ((keyChange_t *)MSGpkt)-&gt;keys );        //按键处理函数：对按键操作进行处理
+                break;
+
+                case AF_INCOMING_MSG_CMD:       //接收到空中消息
+                    SampleApp_MessageMSGCB( MSGpkt );   //消息处理函数：对接受到的数据进行处理
+                break;
+
+                case ZDO_STATE_CHANGE:          //设备状态发生改变
+                    //执行我们想要的操作，不同的设备（协调器、路由、终端）可以执行不同的事件
+                break;
+
+                default:
+                break;
+            }
+        return (events ^ SYS_EVENT_MSG);
+    }
+  
+    if ( events &amp; SAMPLEAPP_SEND_PERIODIC_MSG_EVT )     //自定义事件
+    {  
+        Function（）； //执行我们想要的操作，比如传感器数据采集
+        osal_start_timerEx(SampleApp_TaskID,SAMPLEAPP_SEND_PERIODIC_MSG_EVT,
+        (SAMPLEAPP_SEND_PERIODIC_MSG_TIMEOUT + (osal_rand() &amp; 0x00FF)) ); 
+        //通过osal_start_timerEx函数定时执行事件，如定时采集传感器的数据
+        return (events ^ SAMPLEAPP_SEND_PERIODIC_MSG_EVT);
+    }
+    return 0;
+}
+</code></pre>
+
+<h2 id="2-4-消息处理函数">2.4 消息处理函数</h2>
+
+<p>在 SampleApp 例程中， SampleApp_MessageMSGCB 函数负责对所有接收的消息进行处理，比如 ZigBee 终端向 ZigBee 协调器发送数据， ZigBee 协调器根据不同的数据进行处理。</p>
+
+<pre><code>/**
+* 消息处理函数：SampleApp_MessageMSGCB
+*/
+void SampleApp_MessageMSGCB( afIncomingMSGPacket_t *pkt )
+{
+    uint16 flashTime;
+    switch ( pkt-&gt;clusterId )
+    {
+        //看到这个簇ID吗？在前面我们自己定义的，当然你也可以改成任意名字，但是要和发送的簇ID相对应，这里是接受的簇ID。如ID1…
+        //如果收到簇ID为 SAMPLEAPP_PERIODIC_CLUSTERID 的消息
+        case SAMPLEAPP_PERIODIC_CLUSTERID:      
+            //执行我们想要的操作，比如调用一个函数，在这个函数定义里面添加我们想要的功能代码，IO控制、串口发送数据等
+        break;
+
+        //如果收到簇ID为 SAMPLEAPP_FLASH_CLUSTERID 的消息
+        case SAMPLEAPP_FLASH_CLUSTERID:     
+            //这里执行了一个闪灯的功能
+            flashTime = BUILD_UINT16(pkt-&gt;cmd.Data[1], pkt-&gt;cmd.Data[2] );
+            HalLedBlink( HAL_LED_4, 4, 50, (flashTime / 4) );
+        break;
+    }
+}
+</code></pre>
+
+<h2 id="2-5-数据发送函数">2.5 数据发送函数</h2>
+
+<p>通过调用 AF_DataRequest 函数把一个节点的数据通过 ZigBee 网络无线发送至目标节点，重点关注目的地址、 clusterID 、发送内容、数据大小。</p>
+
+<p>下面这个函数发送一个簇ID为 SAMPLEAPP_SEND_DATA_PTOP_CLUSTERID ，内容为 NAME 的消息。</p>
+
+<pre><code>void SampleApp_SendPointToPointMessage( void )
+{
+    uint8 NAME[5];                  //数据定义
+    if ( AF_DataRequest( &amp;Point_To_Point_DstAddr,           //目的地址
+                       &amp;SampleApp_epDesc,
+                       SAMPLEAPP_SEND_DATA_PTOP_CLUSTERID,  //簇ID，发送标识符
+                       5,           //数据长度
+                       NAME,        //数据数组
+                       &amp;SampleApp_TransID,
+                       AF_DISCV_ROUTE,
+                       AF_DEFAULT_RADIUS ) == afStatus_SUCCESS ){
+    }
+    else
+    {
+        // Error occurred in request to send.
+    }
+}
+
+</code></pre>
+
+<p><br/></p>
+
+<h1 id="3-结语">3 结语</h1>
+
+<p>上面提到的都是在 ZigBee 工程中我们需要注意的东西，我们根据项目需求作相应的修改。</p>
+
+<p>虽然一个 ZigBee 工程的代码不少，但是大多数都是封装好的，不需要我们去考虑，我们要解决的是在合适的地方添加我们的代码，可以利用修改例程来实现我们想要的功能。</p>
+
+<p>在刚接触 ZigBee 协议栈的时候，建议大家理解 ZigBee 工程中的主文件的执行流程，看懂主文件的代码是什么意思，看懂后基本就可以在例程上修改代码实现我们自己的项目了。</p>
+
+<p><br/></p>
+
+<h1 id="附录">附录</h1>
+
+<p>SerialApp 工程的详细注释，SerialApp 实现 ZigBee 协议栈中的串口通信。</p>
+
+<pre><code>/********************************************
+** 总结
+** 在这个实验中，先绑定两个ZDO设备，组成ZigBee网络；
+** 两个设备绑定后，串口通信的发送接受流程分成了九步（如注释）
+**    第一步：SerialApp_CallBack（），当串口有数据时此函数即被调用。
+**    第二步：在SerialApp_CallBack（）调用SerialApp_Send(void)，这是一个消息发送函数，实现将数据发送到ZigBee网络中的其他节点。
+**    第三步：在SerialApp_Send(void)中，通过AF_DataRequest()函数，将数据从空中发送出去，簇ID为SERIALAPP_CLUSTERID1
+**    第四步：SerialApp_ProcessMSGCmd（）对从空中捕获到的信号进行处理，接收到发送过来的信息簇ID为 SERIALAPP_CLUSTERID1
+**    第五步：case SERIALAPP_CLUSTERID1:HalUARTWrite通过串口发送数据到PC机
+**    第六步：收到数据后，向节点1发送一个响应事件SERIALAPP_RESP_EVT，跳到SerialApp_ProcessEvent()执行
+**    第七步：if ( events &amp; SERIALAPP_RESP_EVT )  //串口响应事件，表示成功接受来自节点1的数据，此时调用SerialApp_Resp()
+**    第八步：在SerialApp_Resp()中，通过AF_DataRequest函数，将接收成功响应从空中发送出去，簇ID为SERIALAPP_CLUSTERID2
+**    第九步：同第四步，接收到发送过来的信息簇ID为 SERIALAPP_CLUSTERID2，所以不再继续发送
+** 以上为该例程的功能流程。
+*/
+
+/********************************************
+** 预处理：这里可以参照基础实验，直接在自己的程序中复制。
+*/
+#include &quot;AF.h&quot;
+#include &quot;OnBoard.h&quot;
+#include &quot;OSAL_Tasks.h&quot;
+#include &quot;SerialApp.h&quot;
+#include &quot;ZDApp.h&quot;
+#include &quot;ZDObject.h&quot;
+#include &quot;ZDProfile.h&quot;
+
+#include &quot;hal_drivers.h&quot;
+#include &quot;hal_key.h&quot;
+#if defined ( LCD_SUPPORTED )
+  #include &quot;hal_lcd.h&quot;
+#endif
+#include &quot;hal_led.h&quot;
+#include &quot;hal_uart.h&quot;
+
+
+#if !defined( SERIAL_APP_PORT )
+#define SERIAL_APP_PORT  0
+#endif
+
+#if !defined( SERIAL_APP_BAUD )
+#define SERIAL_APP_BAUD  HAL_UART_BR_38400
+//#define SERIAL_APP_BAUD  HAL_UART_BR_115200
+#endif
+
+// When the Rx buf space is less than this threshold, invoke the Rx callback.
+#if !defined( SERIAL_APP_THRESH )
+#define SERIAL_APP_THRESH  64
+#endif
+
+#if !defined( SERIAL_APP_RX_SZ )
+#define SERIAL_APP_RX_SZ  128
+#endif
+
+#if !defined( SERIAL_APP_TX_SZ )
+#define SERIAL_APP_TX_SZ  128
+#endif
+
+// Millisecs of idle time after a byte is received before invoking Rx callback.
+#if !defined( SERIAL_APP_IDLE )
+#define SERIAL_APP_IDLE  6
+#endif
+
+// Loopback Rx bytes to Tx for throughput testing.
+#if !defined( SERIAL_APP_LOOPBACK )
+#define SERIAL_APP_LOOPBACK  FALSE
+#endif
+
+// This is the max byte count per OTA message.
+#if !defined( SERIAL_APP_TX_MAX )
+#define SERIAL_APP_TX_MAX  80
+#endif
+
+#define SERIAL_APP_RSP_CNT  4
+
+
+/********************************************
+** 结构体
+*/
+const cId_t SerialApp_ClusterList[SERIALAPP_MAX_CLUSTERS] =
+{
+    /* 函数所要用到的簇ID */
+    SERIALAPP_CLUSTERID1,
+    SERIALAPP_CLUSTERID2
+};
+ 
+const SimpleDescriptionFormat_t SerialApp_SimpleDesc =
+{
+  SERIALAPP_ENDPOINT,              //  int   Endpoint;
+  SERIALAPP_PROFID,                //  uint16 AppProfId[2];
+  SERIALAPP_DEVICEID,              //  uint16 AppDeviceId[2];
+  SERIALAPP_DEVICE_VERSION,        //  int   AppDevVer:4;
+  SERIALAPP_FLAGS,                 //  int   AppFlags:4;
+  SERIALAPP_MAX_CLUSTERS,          //  byte  AppNumInClusters;
+  (cId_t *)SerialApp_ClusterList,  //  byte *pAppInClusterList;
+  SERIALAPP_MAX_CLUSTERS,          //  byte  AppNumOutClusters;
+  (cId_t *)SerialApp_ClusterList   //  byte *pAppOutClusterList;
+};
+ 
+const endPointDesc_t SerialApp_epDesc =
+{
+  SERIALAPP_ENDPOINT,
+ &amp;SerialApp_TaskID,
+  (SimpleDescriptionFormat_t *)&amp;SerialApp_SimpleDesc,
+  noLatencyReqs
+};
+
+
+/********************************************
+** 变量
+*/
+uint8 SerialApp_TaskID;    // Task ID for internal task/event processing.
+
+static uint8 SerialApp_MsgID;
+
+static afAddrType_t SerialApp_TxAddr;
+static uint8 SerialApp_TxSeq;
+static uint8 SerialApp_TxBuf[SERIAL_APP_TX_MAX+1];
+static uint8 SerialApp_TxLen;
+
+static afAddrType_t SerialApp_RxAddr;
+static uint8 SerialApp_RxSeq;
+static uint8 SerialApp_RspBuf[SERIAL_APP_RSP_CNT];
+
+/********************************************
+** 函数声明
+*/
+static void SerialApp_ProcessZDOMsgs( zdoIncomingMsg_t *inMsg );
+static void SerialApp_HandleKeys( uint8 shift, uint8 keys );
+static void SerialApp_ProcessMSGCmd( afIncomingMSGPacket_t *pkt );
+static void SerialApp_Send(void);
+static void SerialApp_Resp(void);
+static void SerialApp_CallBack(uint8 port, uint8 event);
+
+
+/********************************************
+** 函数定义
+*/
+
+//初始化函数
+void SerialApp_Init( uint8 task_id )    
+{
+    SerialApp_TaskID = task_id;     //任务ID
+    SerialApp_RxSeq = 0xC3;     //接收序列号
+
+    afRegister( (endPointDesc_t *)&amp;SerialApp_epDesc );  //注册端口描述符
+
+    RegisterForKeys( task_id );   //注册按键事件
+
+    halUARTCfg_t uartConfig;    //串口配置结构体
+    uartConfig.configured           = TRUE;              // don't care 
+    uartConfig.baudRate             = SERIAL_APP_BAUD;    //波特率
+    uartConfig.flowControl          = TRUE;               // don't care
+    uartConfig.flowControlThreshold = SERIAL_APP_THRESH;    // don't care
+    uartConfig.rx.maxBufSize        = SERIAL_APP_RX_SZ;  //最大接收量
+    uartConfig.tx.maxBufSize        = SERIAL_APP_TX_SZ;  //最大发送量
+    uartConfig.idleTimeout          = SERIAL_APP_IDLE;   // don't care
+    uartConfig.intEnable            = TRUE;              // don't care 
+    //SerialApp_CallBack：当串口接收到数据后会自动执行这个函数
+    uartConfig.callBackFunc= SerialApp_CallBack;    //接收回调函数  
+    HalUARTOpen (SERIAL_APP_PORT, &amp;uartConfig);   //打开串口
+
+    #if defined ( LCD_SUPPORTED )
+        HalLcdWriteString( &quot;SerialApp&quot;, HAL_LCD_LINE_2 );
+    #endif
+  
+    ZDO_RegisterForZDOMsg( SerialApp_TaskID, End_Device_Bind_rsp ); //注册绑定
+    ZDO_RegisterForZDOMsg( SerialApp_TaskID, Match_Desc_rsp );      //注册相关事件
+}
+
+//事件处理函数
+UINT16 SerialApp_ProcessEvent( uint8 task_id, UINT16 events )
+{
+    (void)task_id;  // Intentionally unreferenced parameter
+
+    if ( events &amp; SYS_EVENT_MSG )       //系统事件
+    {
+        afIncomingMSGPacket_t *MSGpkt;
+        while((MSGpkt=(afIncomingMSGPacket_t*)osal_msg_receive( SerialApp_TaskID )) )
+        {
+            switch ( MSGpkt-&gt;hdr.event )
+            {
+                case ZDO_CB_MSG:  //ZDO层接收到消息
+                    SerialApp_ProcessZDOMsgs( (zdoIncomingMsg_t *)MSGpkt ); //响应消息函数
+                break;
+          
+                case KEY_CHANGE:  //按键改变
+                    SerialApp_HandleKeys(((keyChange_t*)MSGpkt)-&gt;state,((keyChange_t *)MSGpkt)-&gt;keys );     //按键处理函数
+                break;
+
+                case AF_INCOMING_MSG_CMD:   //接收到命令，然后执行
+                    SerialApp_ProcessMSGCmd( MSGpkt );  //执行进来消息命令的回调函数
+                break;
+
+                default:    //默认
+                break;
+            }
+            osal_msg_deallocate( (uint8 *)MSGpkt );   //释放内存
+        }
+        return ( events ^ SYS_EVENT_MSG );  //返回未处理的事件
+    }
+
+    if ( events &amp; SERIALAPP_SEND_EVT )  //自定义事件：串口发送事件
+    {
+        SerialApp_Send();  //向节点1发送成功接受的response
+        return ( events ^ SERIALAPP_SEND_EVT );
+    }
+    
+    ////step 7////
+    if ( events &amp; SERIALAPP_RESP_EVT )  //自定义事件：串口响应事件，表示成功接受来自节点1的数据
+    {
+        SerialApp_Resp();
+        return ( events ^ SERIALAPP_RESP_EVT );
+    }
+    return ( 0 );  // Discard unknown events.
+}
+
+//ZigBee设备对象消息处理
+static void SerialApp_ProcessZDOMsgs( zdoIncomingMsg_t *inMsg )
+{
+    switch ( inMsg-&gt;clusterID )
+    {
+        case End_Device_Bind_rsp:   //终端绑定请求
+            if ( ZDO_ParseBindRsp( inMsg ) == ZSuccess )  //绑定成功
+            {
+                HalLedSet( HAL_LED_4, HAL_LED_MODE_ON );  //LED1常亮
+            }
+            #if defined(BLINK_LEDS)
+            else  //绑定失败
+            {
+                HalLedSet ( HAL_LED_4, HAL_LED_MODE_FLASH );  //LED1闪烁
+            }
+            #endif
+        break;
+      
+        case Match_Desc_rsp:   //匹配描述符响应（自动匹配消息）
+        {
+            ZDO_ActiveEndpointRsp_t *pRsp = ZDO_ParseEPListRsp( inMsg );
+            if ( pRsp )
+            {
+                if ( pRsp-&gt;status == ZSuccess &amp;&amp; pRsp-&gt;cnt )
+                {
+                    SerialApp_TxAddr.addrMode = (afAddrMode_t)Addr16Bit;
+                    SerialApp_TxAddr.addr.shortAddr = pRsp-&gt;nwkAddr;
+                    // Take the first endpoint, Can be changed to search through endpoints
+                    SerialApp_TxAddr.endPoint = pRsp-&gt;epList[0];
+            
+                    HalLedSet( HAL_LED_4, HAL_LED_MODE_ON );
+                }
+                osal_mem_free( pRsp );
+            }
+        }
+        break;
+    }
+}
+
+//按键处理
+void SerialApp_HandleKeys( uint8 shift, uint8 keys )
+{
+    zAddrType_t txAddr;
+  
+    if ( shift )
+    {
+        if ( keys &amp; HAL_KEY_SW_1 )
+        {
+        }
+        if ( keys &amp; HAL_KEY_SW_2 )
+        {
+        }
+        if ( keys &amp; HAL_KEY_SW_3 )
+        {
+        }
+        if ( keys &amp; HAL_KEY_SW_4 )
+        {
+        }
+    }
+    else
+    {
+        if ( keys &amp; HAL_KEY_SW_1 )
+        {
+        }
+
+        if ( keys &amp; HAL_KEY_SW_2 )      //如果Joystick向右的按键被按下
+        {
+            HalLedSet ( HAL_LED_4, HAL_LED_MODE_OFF );
+            //执行绑定
+            txAddr.addrMode = Addr16Bit;
+            txAddr.addr.shortAddr = 0x0000; // Coordinator
+      
+            //终端绑定请求
+            ZDP_EndDeviceBindReq( &amp;txAddr, NLME_GetShortAddr(), 
+                            SerialApp_epDesc.endPoint,
+                            SERIALAPP_PROFID,
+                            SERIALAPP_MAX_CLUSTERS,(cId_t *)SerialApp_ClusterList,
+                            SERIALAPP_MAX_CLUSTERS,(cId_t *)SerialApp_ClusterList,
+                            FALSE );
+        }
+        if ( keys &amp; HAL_KEY_SW_3 )
+        {
+        }
+        if ( keys &amp; HAL_KEY_SW_4 )  // Joystick向左的按键被按下
+        {
+            HalLedSet ( HAL_LED_4, HAL_LED_MODE_OFF );
+      
+            // Initiate a Match Description Request (Service Discovery)
+            txAddr.addrMode = AddrBroadcast;
+            txAddr.addr.shortAddr = NWK_BROADCAST_SHORTADDR;
+      
+            //自动匹配
+            ZDP_MatchDescReq( &amp;txAddr, NWK_BROADCAST_SHORTADDR,
+                        SERIALAPP_PROFID,
+                        SERIALAPP_MAX_CLUSTERS,(cId_t *)SerialApp_ClusterList,
+                        SERIALAPP_MAX_CLUSTERS,(cId_t *)SerialApp_ClusterList,
+                        FALSE );
+        }
+    }
+}
+
+//空中消息处理
+void SerialApp_ProcessMSGCmd( afIncomingMSGPacket_t *pkt )
+{
+    uint8 stat;
+    uint8 seqnb;
+    uint8 delay;
+
+    switch ( pkt-&gt;clusterId )
+    {
+        ////step 4////
+        case SERIALAPP_CLUSTERID1:  //接收到无线数据，发送过来的信息簇ID为 SERIALAPP_CLUSTERID1
+            osal_memcpy(&amp;SerialApp_RxAddr, &amp;(pkt-&gt;srcAddr), sizeof( afAddrType_t ));
+
+            seqnb = pkt-&gt;cmd.Data[0];
+
+            // Keep message if not a repeat packet
+            if ( (seqnb &gt; SerialApp_RxSeq) ||                    // Normal
+            ((seqnb &lt; 0x80 ) &amp;&amp; ( SerialApp_RxSeq &gt; 0x80)) ) // Wrap-around
+            {
+                ////step 5////
+                ////通过串口发送数据到PC机
+                if(HalUARTWrite(SERIAL_APP_PORT,pkt-&gt;cmd.Data+1,(pkt-&gt;cmd.DataLength-1) ) )
+                {
+                    // Save for next incoming message
+                    SerialApp_RxSeq = seqnb;
+                    stat = OTA_SUCCESS;
+                }
+                else
+                {
+                    stat = OTA_SER_BUSY;  //没写成功状态信号
+                }
+            }
+            else
+            {
+                stat = OTA_DUP_MSG;     //有重复数据
+            }
+
+            // Select approproiate OTA flow-control delay.
+            delay=(stat==OTA_SER_BUSY)?SERIALAPP_NAK_DELAY:SERIALAPP_ACK_DELAY;
+
+            SerialApp_RspBuf[0] = stat;
+            SerialApp_RspBuf[1] = seqnb;
+            SerialApp_RspBuf[2] = LO_UINT16( delay );
+            SerialApp_RspBuf[3] = HI_UINT16( delay );
+            ////step 6////
+            //收到数据后，向节点1发送一个响应事件,跳到SerialApp_ProcessEvent()
+            osal_set_event( SerialApp_TaskID, SERIALAPP_RESP_EVT ); //SERIALAPP_RESP_EVT
+            osal_stop_timerEx(SerialApp_TaskID, SERIALAPP_RESP_EVT);
+        break;
+  
+        ////step 9////
+        //SERIALAPP_CLUSTERID2代表接收到发送成功的response，取消自动重发，如果不，自动重发
+        case SERIALAPP_CLUSTERID2:  //接收到响应，发送过来的信息簇ID为 SERIALAPP_CLUSTERID2
+            if ((pkt-&gt;cmd.Data[1] == SerialApp_TxSeq) &amp;&amp;
+            ((pkt-&gt;cmd.Data[0]==OTA_SUCCESS)||(pkt-&gt;cmd.Data[0]== OTA_DUP_MSG)))
+            {
+                SerialApp_TxLen = 0;
+                //当收到发送成功的response，停止自动重发
+                osal_stop_timerEx(SerialApp_TaskID, SERIALAPP_SEND_EVT);
+            }
+            else
+            {
+                delay = BUILD_UINT16( pkt-&gt;cmd.Data[2], pkt-&gt;cmd.Data[3] );
+                //没有收到成功的response，自动重发
+                osal_start_timerEx( SerialApp_TaskID, SERIALAPP_SEND_EVT, delay );
+            }
+        break;
+
+        default:
+        break;
+    }
+}
+
+////step 2////
+//串口发送函数，将从串口接受到的数据发送出去
+static void SerialApp_Send(void)  
+{
+    #if SERIAL_APP_LOOPBACK         //false，下面的if不执行，此段跳过
+    if (SerialApp_TxLen &lt; SERIAL_APP_TX_MAX)
+    {
+        SerialApp_TxLen+=HalUARTRead(SERIAL_APP_PORT,SerialApp_TxBuf+SerialApp_TxLen+1,                                                    SERIAL_APP_TX_MAX-SerialApp_TxLen);
+    }
+
+    if (SerialApp_TxLen)
+    {
+        (void)SerialApp_TxAddr;
+        if (HalUARTWrite(SERIAL_APP_PORT, SerialApp_TxBuf+1, SerialApp_TxLen))
+        {
+            SerialApp_TxLen = 0;
+        }
+        else
+        {
+            osal_set_event(SerialApp_TaskID, SERIALAPP_SEND_EVT);
+        }
+    }
+    #else //执行此段
+
+    //只有当SerialApp_TxLen为0时，才有可能条件为真，不执行
+    if (!SerialApp_TxLen &amp;&amp; (SerialApp_TxLen = HalUARTRead(SERIAL_APP_PORT, SerialApp_TxBuf+1, SERIAL_APP_TX_MAX)))
+    {
+        SerialApp_TxBuf[0] = ++SerialApp_TxSeq;
+    }
+
+    ////step 3////
+    if (SerialApp_TxLen)  //通过AF_DataRequest()函数，将数据从空中发送出去
+    {
+        if (afStatus_SUCCESS != AF_DataRequest  (&amp;SerialApp_TxAddr,
+            (endPointDesc_t *)&amp;SerialApp_epDesc,
+            SERIALAPP_CLUSTERID1,
+            SerialApp_TxLen+1, SerialApp_TxBuf,
+            &amp;SerialApp_MsgID, 0, AF_DEFAULT_RADIUS))
+        {
+            //发送不成功，才执行此段代码，重新发送
+            osal_set_event(SerialApp_TaskID, SERIALAPP_SEND_EVT);
+            HalLedSet ( HAL_LED_2, HAL_LED_MODE_FLASH );
+        }
+    }
+    #endif
+}
+
+////step 8////
+//响应函数
+static void SerialApp_Resp(void)
+{
+    //通过AF_DataRequest函数，将接收成功响应从空中发送出去
+    if (afStatus_SUCCESS != AF_DataRequest(&amp;SerialApp_RxAddr,
+        (endPointDesc_t *)&amp;SerialApp_epDesc,
+        SERIALAPP_CLUSTERID2,
+        SERIAL_APP_RSP_CNT, SerialApp_RspBuf,
+        &amp;SerialApp_MsgID, 0, AF_DEFAULT_RADIUS))
+    {
+        osal_set_event(SerialApp_TaskID, SERIALAPP_RESP_EVT); //如果发送失败，重新发送
+    }
+}
+
+////step 1////
+static void SerialApp_CallBack(uint8 port, uint8 event)
+{
+    (void)port;
+    //如果 DMA 中接收到了数据
+    if ((event &amp; (HAL_UART_RX_FULL | HAL_UART_RX_ABOUT_FULL | HAL_UART_RX_TIMEOUT)) &amp;&amp;
+    #if SERIAL_APP_LOOPBACK
+      (SerialApp_TxLen &lt; SERIAL_APP_TX_MAX))
+    #else
+      !SerialApp_TxLen)
+    #endif
+    {
+        SerialApp_Send();    //调用串口发送函数，将从串口接受到的数据，发送出去
+    }
+}
+</code></pre>
+
+<p><br/></p>
+
+
+  
+<div class="prev-next-post pure-g">
+  <div class="pure-u-1-24" style="text-align: left;">
+    
+    <a href="https://HauyuChen.github.io/post/506-relative-ranks/"><i class="fa fa-chevron-left"></i></a>
+    
+  </div>
+  <div class="pure-u-10-24">
+    
+    <nav class="prev">
+      <a href="https://HauyuChen.github.io/post/506-relative-ranks/">【LeetCode】506. Relative Ranks</a>
+    </nav>
+    
+  </div>
+  <div class="pure-u-2-24">
+    &nbsp;
+  </div>
+  <div class="pure-u-10-24">
+    
+    <nav class="next">
+      <a href="https://HauyuChen.github.io/post/zb-zigbee-wirelessfan/">【ZigBee系列】2.无线风扇项目</a>
+    </nav>
+    
+  </div>
+  <div class="pure-u-1-24" style="text-align: right;">
+    
+    <a href="https://HauyuChen.github.io/post/zb-zigbee-wirelessfan/"><i class="fa fa-chevron-right"></i></a>
+    
+  </div>
+</div>
+
+
+
+  
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+
+(function() {
+    
+    
+    if (window.location.hostname == "localhost")
+        return;
+
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    var disqus_shortname = "http-hov-space";
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com/" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+</div>
+
+</div>
+</div>
+<script src="https://HauyuChen.github.io/js/ui.js"></script>
+
+
+
+
+
+
+</body>
+</html>
+
