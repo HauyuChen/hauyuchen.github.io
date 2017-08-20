@@ -97,13 +97,13 @@
       
       
         <li class="pure-menu-item">
-          <a class="pure-menu-link" href="https://HauyuChen.github.io/tags/"><i class='fa fa-tags fa-fw'></i>文章分类</a>
+          <a class="pure-menu-link" href="https://HauyuChen.github.io/tags/"><i class='fa fa-folder fa-fw'></i>文章分类</a>
       
         </li>
       
       
         <li class="pure-menu-item">
-          <a class="pure-menu-link" href="https://HauyuChen.github.io/topics/"><i class='fa fa-folder fa-fw'></i>关键词</a>
+          <a class="pure-menu-link" href="https://HauyuChen.github.io/topics/"><i class='fa fa-tags fa-fw'></i>关键词</a>
       
         </li>
       
@@ -230,13 +230,13 @@
   
     <article>
   <header>
-    <h2><a href="https://HauyuChen.github.io/post/es-elasticsearch-manu/">Elasticsearch操作实例</a></h2>
+    <h2><a href="https://HauyuChen.github.io/post/es-elasticsearch-manu/">Elasticsearch 初探</a></h2>
 
     <div class="post-meta">
 
   <div>
     <i class="fa fa-calendar fa-fw"></i>
-    <time>2017-08-05</time>
+    <time>2017-08-20</time>
   </div>
 
   
@@ -251,7 +251,9 @@
     
       <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/%E5%88%86%E5%B8%83%E5%BC%8F%E6%90%9C%E7%B4%A2">分布式搜索</a>&nbsp;&#47;
     
-      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90">数据分析</a>
+      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90">数据分析</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/kibana">Kibana</a>
     
   </div>
   
@@ -274,16 +276,15 @@
   </header>
 
   <p>
-  0 前言 本文通过电商网站商品管理的栗子来熟悉Elasticsearch操作。
+  版权声明：本文由 Hov 所有，发布于 http://chenhy.com ，转载请注明出处。
+
+0 前言 本文是我接触 Elasticsearch 后写下的第一篇文章，旨在通过电商网站商品管理的栗子来熟悉 Elasticsearch 的相关操作，可以说是学习 Elasticsearch 的第一个“Hello World”吧，后续将逐步深入 Elasticsearch 相关内容。
 栗子中新增了三种品牌的牙膏“高露洁牙膏”、“佳洁士牙膏”、“中华牙膏”，并对这些数据进行增删改查、数据搜索、数据分析等操作。
+注：本文操作环境为 Elasticsearch + Kibana 。
 
 1 文档增删改查（CRUD） 1.1 新增文档，建立索引 格式：
 PUT /index/type/id { //JSON }  实例：新增商品（三种品牌的牙膏信息）。
-PUT /ecommerce/product/1 { &quot;name&quot;:&quot;gaolujie yagao&quot;, &quot;desc&quot;:&quot;gaoxiao meibai&quot;, &quot;price&quot;:30, &quot;producer&quot;:&quot;gaolujie producer&quot;, &quot;tags&quot;:[&quot;meibai&quot;,&quot;fangzhu&quot;] } PUT /ecommerce/product/2 { &quot;name&quot;:&quot;jiajieshi yagao&quot;, &quot;desc&quot;:&quot;youxiao fangzhu&quot;, &quot;price&quot;:25, &quot;producer&quot;:&quot;jiajieshi producer&quot;, &quot;tags&quot;:[&quot;fangzhu&quot;] } PUT /ecommerce/product/3 { &quot;name&quot;:&quot;zhonghua yagao&quot;, &quot;desc&quot;:&quot;caoben zhiwu&quot;, &quot;price&quot;:40, &quot;producer&quot;:&quot;zhonghua producer&quot;, &quot;tags&quot;:[&quot;qingxin&quot;] }  
-1.2 检索文档 格式：
-GET /index/type/id  实例：查询商品。
-GET /ecommerce/product/1  
-1.3 替换文档 实例：修改商品，将name的“gaolujie yagao”改成“jiaqiangban gaolujie yagao”。
+PUT /ecommerce/product/1 { &quot;name&quot;:&quot;gaolujie yagao&quot;, &quot;desc&quot;:&quot;gaoxiao meibai&quot;, &quot;price&quot;:30, &quot;producer&quot;:&quot;gaolujie producer&quot;, &quot;tags&quot;:[&quot;meibai&quot;,&quot;fangzhu&quot;] } PUT /ecommerce/product/2 { &quot;name&quot;:&quot;jiajieshi yagao&quot;, &quot;desc&quot;:&quot;youxiao fangzhu&quot;, &quot;price&quot;:25, &quot;producer&quot;:&quot;jiajieshi producer&quot;, &quot;tags&quot;:[&quot;fangzhu&quot;] } PUT /ecommerce/product/3 { &quot;name&quot;:&quot;zhonghua yagao&quot;, &quot;desc&quot;:&quot;caoben zhiwu&quot;, &quot;price&quot;:40, &quot;producer&quot;:&quot;zhonghua producer&quot;, &quot;tags&quot;:[&quot;qingxin&quot;] }
   </p>
 
   

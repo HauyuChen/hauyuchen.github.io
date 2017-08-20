@@ -7,17 +7,34 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2017. All rights reserved.</copyright>
-    <lastBuildDate>Thu, 17 Aug 2017 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 20 Aug 2017 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://HauyuChen.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>【设计模式】1.策略模式</title>
-      <link>https://HauyuChen.github.io/post/dp-%E7%AD%96%E7%95%A5%E6%A8%A1%E5%BC%8F/</link>
-      <pubDate>Thu, 17 Aug 2017 00:00:00 +0000</pubDate>
+      <title>Elasticsearch 初探</title>
+      <link>https://HauyuChen.github.io/post/es-elasticsearch-manu/</link>
+      <pubDate>Sun, 20 Aug 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://HauyuChen.github.io/post/dp-%E7%AD%96%E7%95%A5%E6%A8%A1%E5%BC%8F/</guid>
+      <guid>https://HauyuChen.github.io/post/es-elasticsearch-manu/</guid>
+      <description>版权声明：本文由 Hov 所有，发布于 http://chenhy.com ，转载请注明出处。
+
+0 前言 本文是我接触 Elasticsearch 后写下的第一篇文章，旨在通过电商网站商品管理的栗子来熟悉 Elasticsearch 的相关操作，可以说是学习 Elasticsearch 的第一个“Hello World”吧，后续将逐步深入 Elasticsearch 相关内容。
+栗子中新增了三种品牌的牙膏“高露洁牙膏”、“佳洁士牙膏”、“中华牙膏”，并对这些数据进行增删改查、数据搜索、数据分析等操作。
+注：本文操作环境为 Elasticsearch + Kibana 。
+
+1 文档增删改查（CRUD） 1.1 新增文档，建立索引 格式：
+PUT /index/type/id { //JSON }  实例：新增商品（三种品牌的牙膏信息）。
+PUT /ecommerce/product/1 { &amp;quot;name&amp;quot;:&amp;quot;gaolujie yagao&amp;quot;, &amp;quot;desc&amp;quot;:&amp;quot;gaoxiao meibai&amp;quot;, &amp;quot;price&amp;quot;:30, &amp;quot;producer&amp;quot;:&amp;quot;gaolujie producer&amp;quot;, &amp;quot;tags&amp;quot;:[&amp;quot;meibai&amp;quot;,&amp;quot;fangzhu&amp;quot;] } PUT /ecommerce/product/2 { &amp;quot;name&amp;quot;:&amp;quot;jiajieshi yagao&amp;quot;, &amp;quot;desc&amp;quot;:&amp;quot;youxiao fangzhu&amp;quot;, &amp;quot;price&amp;quot;:25, &amp;quot;producer&amp;quot;:&amp;quot;jiajieshi producer&amp;quot;, &amp;quot;tags&amp;quot;:[&amp;quot;fangzhu&amp;quot;] } PUT /ecommerce/product/3 { &amp;quot;name&amp;quot;:&amp;quot;zhonghua yagao&amp;quot;, &amp;quot;desc&amp;quot;:&amp;quot;caoben zhiwu&amp;quot;, &amp;quot;price&amp;quot;:40, &amp;quot;producer&amp;quot;:&amp;quot;zhonghua producer&amp;quot;, &amp;quot;tags&amp;quot;:[&amp;quot;qingxin&amp;quot;] }</description>
+    </item>
+    
+    <item>
+      <title>【设计模式】2.策略模式</title>
+      <link>https://HauyuChen.github.io/post/dp-2-%E7%AD%96%E7%95%A5%E6%A8%A1%E5%BC%8F/</link>
+      <pubDate>Sat, 19 Aug 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://HauyuChen.github.io/post/dp-2-%E7%AD%96%E7%95%A5%E6%A8%A1%E5%BC%8F/</guid>
       <description>版权声明：本文由 Hov 所有，发布于 http://chenhy.com ，转载请注明出处。
 
 1 策略模式 1.1 简介 策略模式作为一种软件设计模式，指对象有某个行为，但是在不同的场景中，该行为有不同的实现算法。
@@ -32,6 +49,54 @@
 根据需求，借助面向对象思维，我们可以设计如下代码：
 （1）首先设计一个抽象类：鸭子
 /* Duck.java */ public abstract class Duck{ public Duck(){ } public abstract void display(); //外观 public void Quack(){ //嘎嘎叫 System.out.println(&amp;quot;--gaga--&amp;quot;); } public void swim(){ //游泳 System.</description>
+    </item>
+    
+    <item>
+      <title>【设计模式】1.单例模式</title>
+      <link>https://HauyuChen.github.io/post/dp-1-%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F/</link>
+      <pubDate>Thu, 17 Aug 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://HauyuChen.github.io/post/dp-1-%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F/</guid>
+      <description>版权声明：本文由 Hov 所有，发布于 http://chenhy.com ，转载请注明出处。
+
+1 单例模式 1.1 简介 单例模式是一种基本的常用的软件设计模式。单例模式的核心是确保一个类最多只有一个实例，并提供一个全局访问点。
+1.2 思路 一个类只能返回对象的一个引用（始终为同一个）和一个获得此实例的方法（静态方法，通常用 getInstance 命名）。当我们调用 getInstance 方法，如果类保持的引用不为空，则返回此引用；如果类保持的引用为空，则创建该类的实例，并将实例的引用赋予该类保持的引用。 同时，我们还将该类的构造函数定义为私有方法，这样其它地方的代码就无法通过该类的构造函数来实例化该类的对象，只有通过该类提供的静态方法得到该类的唯一实例。
+1.3 使用场景  需要频繁实例化然后销毁的对象； 创建对象时耗时过多或耗费资源过多，但又经常用到的对象； 有状态的工具类对象； 频繁访问数据库或文件的对象；  1.4 优缺点 优点：
+ 在内存中只有一个对象，节省内存空间； 避免频繁创建销毁对象，可提高性能； 避免对共享资源的多重占用； 可以全局访问。  缺点：
+ 多线程情况下，应注意线程安全问题； 只能通过单例类提供的方法创建单例对象，不能使用反射；  
+2 经典实现 这是最简单的最经典的单例模式实现方式，又称为懒汉式（线程不安全）。由于该方式存在不少弊端，通常不采用。但是，我们还是有必要了解，因为它是后面几个优化方式的基础。
+注：
+ 懒汉式：指全局的单例实例在第一次使用时被构建； 饿汉式：指全局的单例实例在类装载时就被构建。  /* Singleton.java */ public class Singleton { private static Singleton uniqeInstance = null; private Singleton() { }; public static Singleton getInstance() { if(uniqeInstance == null) { uniqeInstance = new Singleton(); } return uniqeInstance; } }</description>
+    </item>
+    
+    <item>
+      <title>【机器学习笔记】7. 神经网络（一）：概述</title>
+      <link>https://HauyuChen.github.io/post/ml-7-neuralnetworks/</link>
+      <pubDate>Wed, 16 Aug 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://HauyuChen.github.io/post/ml-7-neuralnetworks/</guid>
+      <description>作者注：机器学习系列是本人在学习机器学习相关内容时产生的笔记，希望也能对您有所帮助。值得注意的是，作者作为初学者，表述难免有误或不全面，望多批评指正。 如有任何问题，欢迎您随时与我联系：Hauyu.Chen@Gmail.com
+版权声明：本文由 Hov 所有，发布于 http://chenhy.com ，转载请注明出处。
+
+0 前言 前面我们已经掌握了机器学习的基本套路，通过模型、目标函数、优化算法实现一些简单的任务。
+本文我们要开始学习神经网络，神经网络是非常重要的机器学习算法。我们将通过学习神经网络，了解如何将单独的单元按照一定的规则连接，从而实现更加复杂的任务。
+
+1 简介 对人类而言，我们的视觉、听觉由大脑的神经中枢产生，而神经中枢由大量的神经元相互连接而成。一个神经元通过树突（Dendrite）接收其它神经元传来的化学物质（信息），从而改变该神经元的电位，当电位到达某一阈值（Threshold）时，该神经元被激活，即“兴奋”起来，从而通过轴突（Axon terminal）向其它神经元发送化学物质（信息）。
+下图为一个神经元。
+
+
+顾名思义，神经网络是一种模拟大脑的算法。神经网络中最基本的成分是神经元模型（ Neural Model ，又称 Logistic Unit ）。神经元模型就是模拟上述神经元接收信息并传递信息的过程，一个神经元为一层。神经网络将多个单一的“神经元”联结在一起，一个“神经元”的输出可以作为另一个“神经元”的输入。
+
+2 神经网络模型 在监督学习中，我们有一组训练数据 ( x( i ), y( i ) ) ，神经网络算法能提供一种复杂的非线性的假设模型 hθ(x) ，以参数 θ 来拟合我们的数据。
+一个简单的神经网络如下所示：
+
+
+上面的神经网络只有一个“神经元”，最左的一层（蓝色圆圈）为输入层，最右的一层为输出层，中间为隐藏层。 x1、x2、x3 为输入单元， a1、a2、a3 为隐藏单元， hθ(x) 为输出单元。特别的， x0、a0 是我们单独增加的偏置单元。
+在隐藏层中，为激励单元。为第 j 层的第 i 个激励单元。
+在本文中，我们选用 sigmoid 函数作为激活函数，即神经元的输入 - 输出的映射关系为逻辑回归。
+举个栗子：
+如果隐藏层只有一层，如下：
+其中， x1、x2、x3 是训练数据中的输入， x0 是偏置单元。</description>
     </item>
     
     <item>
@@ -96,11 +161,11 @@ Example: Input: s = &amp;ldquo;abcdefg&amp;rdquo;, k = 2 Output: &amp;ldquo;bacd
     </item>
     
     <item>
-      <title>【机器学习笔记】5. 正则化</title>
-      <link>https://HauyuChen.github.io/post/ml-5-regulation/</link>
+      <title>【机器学习笔记】6. 正则化</title>
+      <link>https://HauyuChen.github.io/post/ml-6-regulation/</link>
       <pubDate>Thu, 10 Aug 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://HauyuChen.github.io/post/ml-5-regulation/</guid>
+      <guid>https://HauyuChen.github.io/post/ml-6-regulation/</guid>
       <description>作者注：机器学习系列是本人在学习机器学习相关内容时产生的笔记，希望也能对您有所帮助。值得注意的是，作者作为初学者，表述难免有误或不全面，望多批评指正。 如有任何问题，欢迎您随时与我联系：Hauyu.Chen@Gmail.com
 版权声明：本文由 Hov 所有，发布于 http://chenhy.com ，转载请注明出处。
 
@@ -152,29 +217,11 @@ Example: Input: s = &amp;ldquo;abcdefg&amp;rdquo;, k = 2 Output: &amp;ldquo;bacd
     </item>
     
     <item>
-      <title>Elasticsearch操作实例</title>
-      <link>https://HauyuChen.github.io/post/es-elasticsearch-manu/</link>
-      <pubDate>Sat, 05 Aug 2017 00:00:00 +0000</pubDate>
-      
-      <guid>https://HauyuChen.github.io/post/es-elasticsearch-manu/</guid>
-      <description>0 前言 本文通过电商网站商品管理的栗子来熟悉Elasticsearch操作。
-栗子中新增了三种品牌的牙膏“高露洁牙膏”、“佳洁士牙膏”、“中华牙膏”，并对这些数据进行增删改查、数据搜索、数据分析等操作。
-
-1 文档增删改查（CRUD） 1.1 新增文档，建立索引 格式：
-PUT /index/type/id { //JSON }  实例：新增商品（三种品牌的牙膏信息）。
-PUT /ecommerce/product/1 { &amp;quot;name&amp;quot;:&amp;quot;gaolujie yagao&amp;quot;, &amp;quot;desc&amp;quot;:&amp;quot;gaoxiao meibai&amp;quot;, &amp;quot;price&amp;quot;:30, &amp;quot;producer&amp;quot;:&amp;quot;gaolujie producer&amp;quot;, &amp;quot;tags&amp;quot;:[&amp;quot;meibai&amp;quot;,&amp;quot;fangzhu&amp;quot;] } PUT /ecommerce/product/2 { &amp;quot;name&amp;quot;:&amp;quot;jiajieshi yagao&amp;quot;, &amp;quot;desc&amp;quot;:&amp;quot;youxiao fangzhu&amp;quot;, &amp;quot;price&amp;quot;:25, &amp;quot;producer&amp;quot;:&amp;quot;jiajieshi producer&amp;quot;, &amp;quot;tags&amp;quot;:[&amp;quot;fangzhu&amp;quot;] } PUT /ecommerce/product/3 { &amp;quot;name&amp;quot;:&amp;quot;zhonghua yagao&amp;quot;, &amp;quot;desc&amp;quot;:&amp;quot;caoben zhiwu&amp;quot;, &amp;quot;price&amp;quot;:40, &amp;quot;producer&amp;quot;:&amp;quot;zhonghua producer&amp;quot;, &amp;quot;tags&amp;quot;:[&amp;quot;qingxin&amp;quot;] }  
-1.2 检索文档 格式：
-GET /index/type/id  实例：查询商品。
-GET /ecommerce/product/1  
-1.3 替换文档 实例：修改商品，将name的“gaolujie yagao”改成“jiaqiangban gaolujie yagao”。</description>
-    </item>
-    
-    <item>
-      <title>【机器学习笔记】4. 逻辑回归</title>
-      <link>https://HauyuChen.github.io/post/ml-4-logisticregression/</link>
+      <title>【机器学习笔记】5. 逻辑回归</title>
+      <link>https://HauyuChen.github.io/post/ml-5-logisticregression/</link>
       <pubDate>Thu, 03 Aug 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://HauyuChen.github.io/post/ml-4-logisticregression/</guid>
+      <guid>https://HauyuChen.github.io/post/ml-5-logisticregression/</guid>
       <description>作者注：机器学习系列是本人在学习机器学习相关内容时产生的笔记，希望也能对您有所帮助。值得注意的是，作者作为初学者，表述难免有误或不全面，望多批评指正。 如有任何问题，欢迎您随时与我联系：Hauyu.Chen@Gmail.com
 版权声明：本文由 Hov 所有，发布于 http://chenhy.com ，转载请注明出处。
 
@@ -221,11 +268,11 @@ GET /ecommerce/product/1
     </item>
     
     <item>
-      <title>【机器学习笔记】3. 线性回归（多变量）</title>
-      <link>https://HauyuChen.github.io/post/ml-3-linearregression-multiplevariables/</link>
+      <title>【机器学习笔记】4. 线性回归（多变量）</title>
+      <link>https://HauyuChen.github.io/post/ml-4-linearregression-multiplevariables/</link>
       <pubDate>Mon, 31 Jul 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://HauyuChen.github.io/post/ml-3-linearregression-multiplevariables/</guid>
+      <guid>https://HauyuChen.github.io/post/ml-4-linearregression-multiplevariables/</guid>
       <description>作者注：机器学习系列是本人在学习机器学习相关内容时产生的笔记，希望也能对您有所帮助。值得注意的是，作者作为初学者，表述难免有误或不全面，望多批评指正。 如有任何问题，欢迎您随时与我联系：Hauyu.Chen@Gmail.com
 版权声明：本文由 Hov 所有，发布于 http://chenhy.com ，转载请注明出处。
 
@@ -246,11 +293,11 @@ GET /ecommerce/product/1
     </item>
     
     <item>
-      <title>【机器学习笔记】2. 梯度下降法</title>
-      <link>https://HauyuChen.github.io/post/ml-2-gradientdescent/</link>
+      <title>【机器学习笔记】3. 梯度下降法</title>
+      <link>https://HauyuChen.github.io/post/ml-3-gradientdescent/</link>
       <pubDate>Wed, 26 Jul 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://HauyuChen.github.io/post/ml-2-gradientdescent/</guid>
+      <guid>https://HauyuChen.github.io/post/ml-3-gradientdescent/</guid>
       <description>作者注：机器学习系列是本人在学习机器学习相关内容时产生的笔记，希望也能对您有所帮助。值得注意的是，作者作为初学者，表述难免有误或不全面，望多批评指正。 如有任何问题，欢迎您随时与我联系：Hauyu.Chen@Gmail.com
 版权声明：本文由 Hov 所有，发布于 http://chenhy.com ，转载请注明出处。
 
@@ -266,11 +313,11 @@ GET /ecommerce/product/1
     </item>
     
     <item>
-      <title>【机器学习笔记】1. 线性回归（单变量）</title>
-      <link>https://HauyuChen.github.io/post/ml-1-linearregression-onevariables/</link>
+      <title>【机器学习笔记】2. 线性回归（单变量）</title>
+      <link>https://HauyuChen.github.io/post/ml-2-linearregression-onevariables/</link>
       <pubDate>Fri, 21 Jul 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://HauyuChen.github.io/post/ml-1-linearregression-onevariables/</guid>
+      <guid>https://HauyuChen.github.io/post/ml-2-linearregression-onevariables/</guid>
       <description>作者注：机器学习系列是本人在学习机器学习相关内容时产生的笔记，希望也能对您有所帮助。值得注意的是，作者作为初学者，表述难免有误或不全面，望多批评指正。 如有任何问题，欢迎您随时与我联系：Hauyu.Chen@Gmail.com
 版权声明：本文由 Hov 所有，发布于 http://chenhy.com ，转载请注明出处。
 
@@ -348,11 +395,11 @@ All letters in this word are capitals, like &amp;ldquo;USA&amp;rdquo;. All lette
     </item>
     
     <item>
-      <title>【机器学习笔记】0. 什么是机器学习</title>
-      <link>https://HauyuChen.github.io/post/ml-0-machinelearning-introduction/</link>
+      <title>【机器学习笔记】1. 什么是机器学习</title>
+      <link>https://HauyuChen.github.io/post/ml-1-machinelearning-introduction/</link>
       <pubDate>Tue, 11 Jul 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://HauyuChen.github.io/post/ml-0-machinelearning-introduction/</guid>
+      <guid>https://HauyuChen.github.io/post/ml-1-machinelearning-introduction/</guid>
       <description>作者注：机器学习系列是本人在学习机器学习相关内容时产生的笔记，希望也能对您有所帮助。值得注意的是，作者作为初学者，表述难免有误或不全面，望多批评指正。 如有任何问题，欢迎您随时与我联系：Hauyu.Chen@Gmail.com
 版权声明：本文由 Hov 所有，发布于 http://chenhy.com ，转载请注明出处。
 

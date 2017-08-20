@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="设计模式学习笔记">
+  <meta name="generator" content="Hugo 0.24.1" />
+
+  <title>【设计模式】1.单例模式 &middot; Hov&#39;s Blog</title>
+
+  <script>
+	var _hmt = _hmt || [];
+	(function() {
+	  var hm = document.createElement("script");
+	  hm.src = "https://hm.baidu.com/hm.js?dd096f3aba9332e2640cda59d3786695";
+	  var s = document.getElementsByTagName("script")[0]; 
+	  s.parentNode.insertBefore(hm, s);
+	})();
+	</script>	
+  
+  
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/0.6.2/pure-min.css">
+
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/0.6.2/grids-responsive-old-ie-min.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/0.6.2/grids-responsive-min.css">
+  <!--<![endif]-->
+
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="https://HauyuChen.github.io/css/side-menu-old-ie.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="https://HauyuChen.github.io/css/side-menu.css">
+  <!--<![endif]-->
+
+  <link rel="stylesheet" href="https://HauyuChen.github.io/css/blackburn.css">
+
+  
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  
+  <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet" type="text/css">
+
+  
+  
+
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/styles/androidstudio.min.css">
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  
+
+  <link rel="shortcut icon" href="https://HauyuChen.github.io/img/favicon.ico" type="image/x-icon" />
+
+  
+  
+
+
+</head>
+
+
+<body>
+
+<div id="layout">
+
+  
+<a href="#menu" id="menuLink" class="menu-link">
+  
+  <span></span>
+</a>
+<div id="menu">
+
+  <a class="pure-menu-heading brand" href="https://HauyuChen.github.io/">
+  <img src="https://HauyuChen.github.io/img/Hov.jpg" width="125px">
+</a>
+
+  <div class="pure-menu">
+    <ul class="pure-menu-list">
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="https://HauyuChen.github.io/"><i class='fa fa-home fa-fw'></i>主页</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="https://HauyuChen.github.io/post/"><i class='fa fa-list fa-fw'></i>所有文章</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="https://HauyuChen.github.io/tags/"><i class='fa fa-folder fa-fw'></i>文章分类</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="https://HauyuChen.github.io/topics/"><i class='fa fa-tags fa-fw'></i>关键词</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="https://HauyuChen.github.io/about/"><i class='fa fa-user fa-fw'></i>关于我</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="https://HauyuChen.github.io/contact/"><i class='fa fa-home fa-fw'></i>关于本站</a>
+      
+        </li>
+      
+    </ul>
+  </div>
+
+  <div class="pure-menu social">
+
+  <ul class="pure-menu-list">
+	
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://github.com/HauyuChen" target="_blank"><i class="fa fa-github-square fa-fw"></i>GitHub</a>
+    </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+  </ul>
+  
+</div>
+
+
+  <div>
+
+
+</div>
+
+</div>
+
+
+  <div id="main">
+
+
+<div class="header">
+  <h1>【设计模式】1.单例模式</h1>
+  <h2>设计模式学习笔记</h2>
+</div>
+<div class="content">
+
+  <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>2017-08-17</time>
+  </div>
+
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-folder fa-fw"></i>
+    
+      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F">设计模式</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F">单例模式</a>
+    
+  </div>
+  
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-taxonomy-tag" href="https://HauyuChen.github.io/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F">设计模式</a>
+    
+  </div>
+  
+  
+
+</div>
+
+  
+
+<hr />
+
+<p><em>版权声明：本文由 Hov 所有，发布于 <a href="http://chenhy.com">http://chenhy.com</a> ，转载请注明出处。<br/></em></p>
+
+<hr />
+
+<p><br/></p>
+
+<h1 id="1-单例模式">1 单例模式</h1>
+
+<h2 id="1-1-简介">1.1 简介</h2>
+
+<p>单例模式是一种基本的常用的软件设计模式。单例模式的核心是确保一个类最多只有一个实例，并提供一个全局访问点。</p>
+
+<h2 id="1-2-思路">1.2 思路</h2>
+
+<p>一个类只能返回对象的一个引用（始终为同一个）和一个获得此实例的方法（静态方法，通常用 getInstance 命名）。当我们调用 getInstance 方法，如果类保持的引用不为空，则返回此引用；如果类保持的引用为空，则创建该类的实例，并将实例的引用赋予该类保持的引用。<br/>
+同时，我们还将该类的构造函数定义为私有方法，这样其它地方的代码就无法通过该类的构造函数来实例化该类的对象，只有通过该类提供的静态方法得到该类的唯一实例。</p>
+
+<h2 id="1-3-使用场景">1.3 使用场景</h2>
+
+<ul>
+<li>需要频繁实例化然后销毁的对象；</li>
+<li>创建对象时耗时过多或耗费资源过多，但又经常用到的对象；</li>
+<li>有状态的工具类对象；</li>
+<li>频繁访问数据库或文件的对象；</li>
+</ul>
+
+<h2 id="1-4-优缺点">1.4 优缺点</h2>
+
+<p>优点：</p>
+
+<ol>
+<li>在内存中只有一个对象，节省内存空间；</li>
+<li>避免频繁创建销毁对象，可提高性能；</li>
+<li>避免对共享资源的多重占用；</li>
+<li>可以全局访问。</li>
+</ol>
+
+<p>缺点：</p>
+
+<ol>
+<li>多线程情况下，应注意线程安全问题；</li>
+<li>只能通过单例类提供的方法创建单例对象，不能使用反射；</li>
+</ol>
+
+<p><br/></p>
+
+<h1 id="2-经典实现">2 经典实现</h1>
+
+<p>这是最简单的最经典的单例模式实现方式，又称为懒汉式（线程不安全）。由于该方式存在不少弊端，通常不采用。但是，我们还是有必要了解，因为它是后面几个优化方式的基础。</p>
+
+<p>注：</p>
+
+<ul>
+<li>懒汉式：指全局的单例实例在第一次使用时被构建；</li>
+<li>饿汉式：指全局的单例实例在类装载时就被构建。</li>
+</ul>
+
+<pre><code>/* Singleton.java */
+
+public class Singleton {
+    private static Singleton uniqeInstance = null;
+    
+    private Singleton() {
+        
+    };
+    
+    public static Singleton getInstance() {
+        if(uniqeInstance == null) {
+            uniqeInstance = new Singleton();
+        }
+        return uniqeInstance;
+    }
+}
+</code></pre>
+
+<p><br/></p>
+
+<h1 id="3-优化">3 优化</h1>
+
+<p>单例模式的经典实现方式存在不少弊端，比如多线程情况下，两个线程同时调用 getInstance 方法，这样将创建两个实例。</p>
+
+<p>下面提出４种优化的单例模式实现方法，它们各有优缺点，应视项目实际情况作出选择。</p>
+
+<ol>
+<li>同步锁</li>
+<li>“急切”创建实例（饿汉式）</li>
+<li>双重检查加锁</li>
+<li>静态内部类（登记式）</li>
+</ol>
+
+<h2 id="3-1-同步锁">3.1 同步锁</h2>
+
+<p>通过 synchronized 对 getInstance() 方法进行加锁，这样 getInstance() 方法只有在一个线程执行完毕后才能被另一个线程执行，从而保证线程安全。</p>
+
+<p>缺点：同步锁是比较耗费资源的操作，如果我们要频繁调用 getInstance() 方法，那效率是比较糟糕的。因为我们在大多数情况下并不需要同步操作。</p>
+
+<pre><code>/* Singleton.java */
+
+public class Singleton {
+    private static Singleton uniqeInstance = null;
+    
+    private Singleton() {
+        
+    };
+    
+    public static synchronized Singleton getInstance() {        // synchronized 同步锁
+        if(uniqeInstance == null) {
+            uniqeInstance = new Singleton();
+        }
+        return uniqeInstance;
+    }
+}
+</code></pre>
+
+<h2 id="3-2-急切-创建实例-饿汉式">3.2 “急切”创建实例（饿汉式）</h2>
+
+<p>饿汉式避免了多线程同步问题，因为 uniqeInstance 在类装载的时候就被实例化了，所以就算是两个线程同时执行，在类里面早就存在 uniqeInstance 对象了，自然不会发生线程安全问题。</p>
+
+<p>缺点：因为饿汉式在类装载时就初始化实例，但如果我们的程序从头到尾都不需要用到该实例，这样就白白浪费了内存资源。</p>
+
+<pre><code>/* Singleton.java */
+
+public class Singleton {
+    private static Singleton uniqeInstance = new Singleton();   //类装载时将构造实例
+    
+    private Singleton() {
+        
+    };
+    
+    public static Singleton getInstance() {         //不用加同步锁
+        if(uniqeInstance == null) {
+            uniqeInstance = new Singleton();
+        }
+        return uniqeInstance;
+    }
+}
+</code></pre>
+
+<h2 id="3-3-双重检查加锁">3.3 双重检查加锁</h2>
+
+<p>双重检查加锁和普通同步锁（见３.１）的方式不同，不再对 getInstance() 方法直接加锁，而是在方法里面才加锁，这样在安全且多线程的情况下保持高性能。</p>
+
+<pre><code>/* Singleton.java */
+
+public class Singleton {
+    private volatile static Singleton uniqeInstance = null; //注意volatile关键词
+    
+    private Singleton() {
+        
+    };
+    
+    public static Singleton getInstance() {
+        if(uniqeInstance == null) {     
+            synchronized (Singleton.class) {        //在方法里面才加锁
+                if(uniqeInstance == null) {
+                    uniqeInstance = new Singleton();
+                }
+            }
+        }
+        return uniqeInstance;
+    }
+}
+</code></pre>
+
+<h2 id="3-4-静态内部类-登记式">3.4 静态内部类（登记式）</h2>
+
+<p>前面提到的饿汉式在类装载时，对象就被实例化，没有达到懒加载的效果。<br/>
+登记式下，即使 Singleton 类被装载了， uniqeInstance 对象也不一定被实例化。因为 SingletonHolder 类并没有被主动使用，只有调用 getInstance 方法才会装载 SingletonHolder 类，从而实例化 uniqeInstance 对象。所以，登记式下不会在类装载时就直接构造实例，比饿汉式要合理一些。</p>
+
+<pre><code>public class Singleton {  
+    private static class SingletonHolder {          //SingletonHolder类
+        private static final Singleton uniqeInstance = new Singleton();  
+    }  
+
+    private Singleton (){
+
+    }  
+
+    public static final Singleton getInstance() {  //调用getInstance方法将装载SingletonHolder类
+        return SingletonHolder.uniqeInstance; 
+    }  
+}
+</code></pre>
+
+<p><br/></p>
+
+<h1 id="4-结语">4 结语</h1>
+
+<p>前面我们提到了两种懒汉式和两种饿汉式的单例模式实现。</p>
+
+<ul>
+<li>懒汉式代码书写相对复杂，而且需要用同步锁，比较耗费资源。</li>
+<li>普通饿汉式代码书写简单，但浪费内存空间。</li>
+<li>静态内部类是对普通饿汉式的改进，较好地克服了内存空间浪费问题。</li>
+</ul>
+
+<p><br/></p>
+
+
+  
+<div class="prev-next-post pure-g">
+  <div class="pure-u-1-24" style="text-align: left;">
+    
+    <a href="https://HauyuChen.github.io/post/ml-7-neuralnetworks/"><i class="fa fa-chevron-left"></i></a>
+    
+  </div>
+  <div class="pure-u-10-24">
+    
+    <nav class="prev">
+      <a href="https://HauyuChen.github.io/post/ml-7-neuralnetworks/">【机器学习笔记】7. 神经网络（一）：概述</a>
+    </nav>
+    
+  </div>
+  <div class="pure-u-2-24">
+    &nbsp;
+  </div>
+  <div class="pure-u-10-24">
+    
+    <nav class="next">
+      <a href="https://HauyuChen.github.io/post/dp-2-%E7%AD%96%E7%95%A5%E6%A8%A1%E5%BC%8F/">【设计模式】2.策略模式</a>
+    </nav>
+    
+  </div>
+  <div class="pure-u-1-24" style="text-align: right;">
+    
+    <a href="https://HauyuChen.github.io/post/dp-2-%E7%AD%96%E7%95%A5%E6%A8%A1%E5%BC%8F/"><i class="fa fa-chevron-right"></i></a>
+    
+  </div>
+</div>
+
+
+
+  
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+
+(function() {
+    
+    
+    if (window.location.hostname == "localhost")
+        return;
+
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    var disqus_shortname = "http-hov-space";
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com/" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+</div>
+
+</div>
+</div>
+<script src="https://HauyuChen.github.io/js/ui.js"></script>
+
+
+
+
+
+
+</body>
+</html>
+
