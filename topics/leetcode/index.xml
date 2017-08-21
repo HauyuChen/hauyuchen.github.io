@@ -7,10 +7,24 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2017. All rights reserved.</copyright>
-    <lastBuildDate>Tue, 15 Aug 2017 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 21 Aug 2017 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://HauyuChen.github.io/topics/leetcode/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>【LeetCode】557. Reverse Words in a String III</title>
+      <link>https://HauyuChen.github.io/post/557-reverse-words-in-a-string-iii/</link>
+      <pubDate>Mon, 21 Aug 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://HauyuChen.github.io/post/557-reverse-words-in-a-string-iii/</guid>
+      <description>题目描述：  Given a string, you need to reverse the order of characters in each word within a sentence while still preserving whitespace and initial word order.
+Example 1:
+Input: &amp;ldquo;Let&amp;rsquo;s take LeetCode contest&amp;rdquo;
+Output: &amp;ldquo;s&amp;rsquo;teL ekat edoCteeL tsetnoc&amp;rdquo;
+Note: In the string, each word is separated by single space and there will not be any extra space in the string.
+ 代码实现： class Solution { public: string reverseWords(string s) { vector&amp;lt;int&amp;gt; stack; int index = 0; for(int i=0;i&amp;lt;s.</description>
+    </item>
     
     <item>
       <title>【LeetCode】551. Student Attendance Record I</title>
@@ -549,7 +563,7 @@ Follow up: What if the inputs contain unicode characters? How would you adapt yo
     <item>
       <title>【LeetCode】191. Number of 1 Bits</title>
       <link>https://HauyuChen.github.io/post/191-number-of-1-bits/</link>
-      <pubDate>Wed, 24 Aug 2016 00:00:00 +0000</pubDate>
+      <pubDate>Fri, 24 Jun 2016 00:00:00 +0000</pubDate>
       
       <guid>https://HauyuChen.github.io/post/191-number-of-1-bits/</guid>
       <description> 题目描述：  Write a function that takes an unsigned integer and returns the number of ’1&amp;rsquo; bits it has (also known as the Hamming weight).
@@ -560,7 +574,7 @@ For example, the 32-bit integer ’11&amp;rsquo; has binary representation 00000
     <item>
       <title>【LeetCode】202. Happy Number</title>
       <link>https://HauyuChen.github.io/post/202-happy-number/</link>
-      <pubDate>Wed, 24 Aug 2016 00:00:00 +0000</pubDate>
+      <pubDate>Fri, 24 Jun 2016 00:00:00 +0000</pubDate>
       
       <guid>https://HauyuChen.github.io/post/202-happy-number/</guid>
       <description>题目描述：  Write an algorithm to determine if a number is &amp;ldquo;happy&amp;rdquo;.
@@ -570,7 +584,7 @@ A happy number is a number defined by the following process: Starting with any p
     <item>
       <title>【LeetCode】171. Excel Sheet Column Number</title>
       <link>https://HauyuChen.github.io/post/171-excel-sheet-column-number/</link>
-      <pubDate>Tue, 23 Aug 2016 00:00:00 +0000</pubDate>
+      <pubDate>Thu, 23 Jun 2016 00:00:00 +0000</pubDate>
       
       <guid>https://HauyuChen.github.io/post/171-excel-sheet-column-number/</guid>
       <description> 题目描述：  Related to question Excel Sheet Column Title
@@ -582,7 +596,7 @@ A -&amp;gt; 1 B -&amp;gt; 2 C -&amp;gt; 3 ... Z -&amp;gt; 26 AA -&amp;gt; 27 AB 
     <item>
       <title>【LeetCode】167. Two Sum II - Input array is sorted</title>
       <link>https://HauyuChen.github.io/post/167-two-sum-ii-input-array-is-sorted/</link>
-      <pubDate>Sat, 20 Aug 2016 00:00:00 +0000</pubDate>
+      <pubDate>Mon, 20 Jun 2016 00:00:00 +0000</pubDate>
       
       <guid>https://HauyuChen.github.io/post/167-two-sum-ii-input-array-is-sorted/</guid>
       <description>题目描述：  Given an array of integers that is already sorted in ascending order, find two numbers such that they add up to a specific target number.
@@ -593,7 +607,7 @@ You may assume that each input would have exactly one solution and you may not u
     <item>
       <title>【LeetCode】169. Majority Element</title>
       <link>https://HauyuChen.github.io/post/169-majority-element/</link>
-      <pubDate>Sat, 20 Aug 2016 00:00:00 +0000</pubDate>
+      <pubDate>Mon, 20 Jun 2016 00:00:00 +0000</pubDate>
       
       <guid>https://HauyuChen.github.io/post/169-majority-element/</guid>
       <description> 题目描述：  Given an array of size n, find the majority element. The majority element is the element that appears more than ⌊ n/2 ⌋ times.
@@ -604,7 +618,7 @@ You may assume that the array is non-empty and the majority element always exist
     <item>
       <title>【LeetCode】121. Best Time to Buy and Sell Stock</title>
       <link>https://HauyuChen.github.io/post/121-best-time-to-buy-and-sell-stock/</link>
-      <pubDate>Tue, 16 Aug 2016 00:00:00 +0000</pubDate>
+      <pubDate>Thu, 16 Jun 2016 00:00:00 +0000</pubDate>
       
       <guid>https://HauyuChen.github.io/post/121-best-time-to-buy-and-sell-stock/</guid>
       <description>题目描述：  Say you have an array for which the ith element is the price of a given stock on day i.
@@ -616,7 +630,7 @@ max. difference = 6-1 = 5 (not 7-1 = 6, as selling price needs to be larger than
     <item>
       <title>【LeetCode】122. Best Time to Buy and Sell Stock II</title>
       <link>https://HauyuChen.github.io/post/122-best-time-to-buy-and-sell-stock-ii/</link>
-      <pubDate>Tue, 16 Aug 2016 00:00:00 +0000</pubDate>
+      <pubDate>Thu, 16 Jun 2016 00:00:00 +0000</pubDate>
       
       <guid>https://HauyuChen.github.io/post/122-best-time-to-buy-and-sell-stock-ii/</guid>
       <description>题目描述：  Say you have an array for which the ith element is the price of a given stock on day i.
@@ -626,7 +640,7 @@ Design an algorithm to find the maximum profit. You may complete as many transac
     <item>
       <title>【LeetCode】136. Single Number</title>
       <link>https://HauyuChen.github.io/post/136-single-number/</link>
-      <pubDate>Tue, 16 Aug 2016 00:00:00 +0000</pubDate>
+      <pubDate>Thu, 16 Jun 2016 00:00:00 +0000</pubDate>
       
       <guid>https://HauyuChen.github.io/post/136-single-number/</guid>
       <description> 题目描述：  Given an array of integers, every element appears twice except for one. Find that single one.
@@ -637,7 +651,7 @@ Note: Your algorithm should have a linear runtime complexity. Could you implemen
     <item>
       <title>【LeetCode】104. Maximum Depth of Binary Tree</title>
       <link>https://HauyuChen.github.io/post/104-maximum-depth-of-binary-tree/</link>
-      <pubDate>Mon, 15 Aug 2016 00:00:00 +0000</pubDate>
+      <pubDate>Wed, 15 Jun 2016 00:00:00 +0000</pubDate>
       
       <guid>https://HauyuChen.github.io/post/104-maximum-depth-of-binary-tree/</guid>
       <description>题目描述：  Given a binary tree, find its maximum depth.
@@ -648,7 +662,7 @@ The maximum depth is the number of nodes along the longest path from the root no
     <item>
       <title>【LeetCode】100. Same Tree</title>
       <link>https://HauyuChen.github.io/post/100-same-tree/</link>
-      <pubDate>Sun, 14 Aug 2016 00:00:00 +0000</pubDate>
+      <pubDate>Tue, 14 Jun 2016 00:00:00 +0000</pubDate>
       
       <guid>https://HauyuChen.github.io/post/100-same-tree/</guid>
       <description>题目描述：  Given two binary trees, write a function to check if they are equal or not.
@@ -659,7 +673,7 @@ Two binary trees are considered equal if they are structurally identical and the
     <item>
       <title>【LeetCode】70. Climbing Stairs</title>
       <link>https://HauyuChen.github.io/post/070-climbing-stairs/</link>
-      <pubDate>Sun, 14 Aug 2016 00:00:00 +0000</pubDate>
+      <pubDate>Tue, 14 Jun 2016 00:00:00 +0000</pubDate>
       
       <guid>https://HauyuChen.github.io/post/070-climbing-stairs/</guid>
       <description> 题目描述：  You are climbing a stair case. It takes n steps to reach to the top.
@@ -671,7 +685,7 @@ Each time you can either climb 1 or 2 steps. In how many distinct ways can you c
     <item>
       <title>【LeetCode】69. Sqrt(x)</title>
       <link>https://HauyuChen.github.io/post/069-sqrtx/</link>
-      <pubDate>Sat, 13 Aug 2016 00:00:00 +0000</pubDate>
+      <pubDate>Mon, 13 Jun 2016 00:00:00 +0000</pubDate>
       
       <guid>https://HauyuChen.github.io/post/069-sqrtx/</guid>
       <description> 题目描述：  Implement int sqrt(int x).
@@ -682,7 +696,7 @@ Compute and return the square root of x.
     <item>
       <title>【LeetCode】13. Roman to Integer</title>
       <link>https://HauyuChen.github.io/post/013-roman-to-integer/</link>
-      <pubDate>Fri, 12 Aug 2016 00:00:00 +0000</pubDate>
+      <pubDate>Sun, 12 Jun 2016 00:00:00 +0000</pubDate>
       
       <guid>https://HauyuChen.github.io/post/013-roman-to-integer/</guid>
       <description> 题目描述：  Given a roman numeral, convert it to an integer.
@@ -695,7 +709,7 @@ Input is guaranteed to be within the range from 1 to 3999.
     <item>
       <title>【LeetCode】21. Merge Two Sorted Lists</title>
       <link>https://HauyuChen.github.io/post/021-merge-two-sorted-lists/</link>
-      <pubDate>Fri, 12 Aug 2016 00:00:00 +0000</pubDate>
+      <pubDate>Sun, 12 Jun 2016 00:00:00 +0000</pubDate>
       
       <guid>https://HauyuChen.github.io/post/021-merge-two-sorted-lists/</guid>
       <description>题目描述：  Merge two sorted linked lists and return it as a new list. The new list should be made by splicing together the nodes of the first two lists.
@@ -705,7 +719,7 @@ Input is guaranteed to be within the range from 1 to 3999.
     <item>
       <title>【LeetCode】53. Maximum Subarray</title>
       <link>https://HauyuChen.github.io/post/053-maximum-subarray/</link>
-      <pubDate>Fri, 12 Aug 2016 00:00:00 +0000</pubDate>
+      <pubDate>Sun, 12 Jun 2016 00:00:00 +0000</pubDate>
       
       <guid>https://HauyuChen.github.io/post/053-maximum-subarray/</guid>
       <description> 题目描述：  Find the contiguous subarray within an array (containing at least one number) which has the largest sum.
@@ -717,7 +731,7 @@ For example, given the array [-2,1,-3,4,-1,2,1,-5,4], the contiguous subarray [4
     <item>
       <title>【LeetCode】1. Two Sum</title>
       <link>https://HauyuChen.github.io/post/001-two-sum/</link>
-      <pubDate>Thu, 11 Aug 2016 00:00:00 +0000</pubDate>
+      <pubDate>Sat, 11 Jun 2016 00:00:00 +0000</pubDate>
       
       <guid>https://HauyuChen.github.io/post/001-two-sum/</guid>
       <description>题目描述：  Given an array of integers, return indices of the two numbers such that they add up to a specific target.
@@ -730,7 +744,7 @@ Because nums[0] + nums[1] = 2 + 7 = 9, return [0, 1].
     <item>
       <title>【LeetCode】8. String to Integer (atoi)</title>
       <link>https://HauyuChen.github.io/post/008-string-to-integeratoi/</link>
-      <pubDate>Thu, 11 Aug 2016 00:00:00 +0000</pubDate>
+      <pubDate>Sat, 11 Jun 2016 00:00:00 +0000</pubDate>
       
       <guid>https://HauyuChen.github.io/post/008-string-to-integeratoi/</guid>
       <description>题目描述：  Implement atoi to convert a string to an integer.

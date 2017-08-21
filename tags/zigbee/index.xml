@@ -7,7 +7,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2017. All rights reserved.</copyright>
-    <lastBuildDate>Wed, 17 May 2017 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 17 May 2016 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://HauyuChen.github.io/tags/zigbee/index.xml" rel="self" type="application/rss+xml" />
     
@@ -15,7 +15,7 @@
     <item>
       <title>【ZigBee系列】1.浅析ZigBee工程</title>
       <link>https://HauyuChen.github.io/post/zb-zigbee-guide/</link>
-      <pubDate>Wed, 17 May 2017 00:00:00 +0000</pubDate>
+      <pubDate>Tue, 17 May 2016 00:00:00 +0000</pubDate>
       
       <guid>https://HauyuChen.github.io/post/zb-zigbee-guide/</guid>
       <description>作者注： ZigBee 系列共三篇，首先讲解 ZigBee 工程的结构，然后通过两个具体项目熟悉 ZigBee 的应用。在学习本系列内容前，您需要掌握单片机相关知识、 ZigBee 基础知识，希望本系列教程能对您开发 ZigBee 项目有所启发。如有任何问题，欢迎您随时与我联系：Hauyu.Chen@Gmail.com
@@ -33,7 +33,7 @@
     <item>
       <title>【ZigBee系列】2.无线风扇项目</title>
       <link>https://HauyuChen.github.io/post/zb-zigbee-wirelessfan/</link>
-      <pubDate>Fri, 19 May 2017 00:00:00 +0000</pubDate>
+      <pubDate>Thu, 19 May 2016 00:00:00 +0000</pubDate>
       
       <guid>https://HauyuChen.github.io/post/zb-zigbee-wirelessfan/</guid>
       <description>作者注： ZigBee 系列共三篇，首先讲解 ZigBee 工程的结构，然后通过两个具体项目熟悉 ZigBee 的应用。在学习本系列内容前，您需要掌握单片机相关知识、 ZigBee 基础知识，希望本系列教程能对您开发 ZigBee 项目有所启发。如有任何问题，欢迎您随时与我联系：Hauyu.Chen@Gmail.com
@@ -54,7 +54,7 @@
     <item>
       <title>【ZigBee系列】3.智能停车系统项目</title>
       <link>https://HauyuChen.github.io/post/zb-zigbee-parking/</link>
-      <pubDate>Mon, 22 May 2017 00:00:00 +0000</pubDate>
+      <pubDate>Sun, 22 May 2016 00:00:00 +0000</pubDate>
       
       <guid>https://HauyuChen.github.io/post/zb-zigbee-parking/</guid>
       <description>作者注： ZigBee 系列共三篇，首先讲解 ZigBee 工程的结构，然后通过两个具体项目熟悉 ZigBee 的应用。在学习本系列内容前，您需要掌握单片机相关知识、 ZigBee 基础知识，希望本系列教程能对您开发 ZigBee 项目有所启发。如有任何问题，欢迎您随时与我联系：Hauyu.Chen@Gmail.com

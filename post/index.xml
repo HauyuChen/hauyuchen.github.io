@@ -7,10 +7,24 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2017. All rights reserved.</copyright>
-    <lastBuildDate>Sun, 20 Aug 2017 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 21 Aug 2017 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://HauyuChen.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>【LeetCode】557. Reverse Words in a String III</title>
+      <link>https://HauyuChen.github.io/post/557-reverse-words-in-a-string-iii/</link>
+      <pubDate>Mon, 21 Aug 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://HauyuChen.github.io/post/557-reverse-words-in-a-string-iii/</guid>
+      <description>题目描述：  Given a string, you need to reverse the order of characters in each word within a sentence while still preserving whitespace and initial word order.
+Example 1:
+Input: &amp;ldquo;Let&amp;rsquo;s take LeetCode contest&amp;rdquo;
+Output: &amp;ldquo;s&amp;rsquo;teL ekat edoCteeL tsetnoc&amp;rdquo;
+Note: In the string, each word is separated by single space and there will not be any extra space in the string.
+ 代码实现： class Solution { public: string reverseWords(string s) { vector&amp;lt;int&amp;gt; stack; int index = 0; for(int i=0;i&amp;lt;s.</description>
+    </item>
     
     <item>
       <title>Elasticsearch 初探</title>
@@ -410,67 +424,6 @@ All letters in this word are capitals, like &amp;ldquo;USA&amp;rdquo;. All lette
  这段话翻译过来就是：对于某类任务T和性能度量P，如果一个计算机程序在T上以P衡量的性能随着经验E而自我完善，那么我们称这个计算机程序在从经验E学习。
 举个栗子：AlphaGo下棋
  经验 E = AlphaGo从很多盘棋局获得的经验（学棋）； 任务 T = AlphaGo和对手下棋（下棋）； 性能 P = AlphaGo赢的可能性（赢棋）。</description>
-    </item>
-    
-    <item>
-      <title>【ZigBee系列】3.智能停车系统项目</title>
-      <link>https://HauyuChen.github.io/post/zb-zigbee-parking/</link>
-      <pubDate>Mon, 22 May 2017 00:00:00 +0000</pubDate>
-      
-      <guid>https://HauyuChen.github.io/post/zb-zigbee-parking/</guid>
-      <description>作者注： ZigBee 系列共三篇，首先讲解 ZigBee 工程的结构，然后通过两个具体项目熟悉 ZigBee 的应用。在学习本系列内容前，您需要掌握单片机相关知识、 ZigBee 基础知识，希望本系列教程能对您开发 ZigBee 项目有所启发。如有任何问题，欢迎您随时与我联系：Hauyu.Chen@Gmail.com
-版权声明：本文由 Hov 所有，发布于 http://chenhy.com ，转载请注明出处。
-
-0 写在前面 智能停车系统是本人在大二下学期做的一个项目。项目主要涉及传感器数据采集、 ZigBee 组网、 GPRS 数据传输、数据库服务器程序开发、微信公众账号开发。
-项目视频演示如下：
- 本文将着重讲述 ZigBee 部分，即如何通过 ZigBee 网络采集数据，并通过 GPRS 模块将数据发送给远程数据库服务器。后续有时间将对整个项目进行完整的讲解。
-本文侧重讲的是实现思路，具体的技术细节可参考源代码。希望阅读完这篇文章，能让您对ZigBee的实际应用有所启发。
-项目完整源码：https://github.com/HauyuChen/Parking-System
-如果对您有帮助，欢迎您在GitHub上给我 Follow 或 Stars ：）
-
-1 项目简介 智能停车系统通过 ZigBee 无线传感器网络实现停车场内部车位、亮度等数据的采集与传输；借助 GPRS 模块实现数据远程传输；利用数据库服务器实现数据的处理与存储；通过 PC 客户端和微信公众帐号实现数据交互，为停车场管理人员提供监控服务，为用户提供自助服务。系统实现停车引导、防盗提醒和灯光控制等功能，用户还可以关注本停车系统的微信公众账号实时地了解停车场内的信息。
-项目实物模型如下：
-
-2 ZigBee无线传感系统 ZigBee 部分主要完成的是传感器数据的采集和数据的传输，大体的思路是这样的：通过 ZigBee 终端节点上外接的传感器实现数据监测，并通过 ZigBee 网络将数据发送至 ZigBee 协调器， ZigBee 协调器通过 RS232 串口线连接 GPRS 模块，通过 AT 指令将数据发送至远程数据库服务器。</description>
-    </item>
-    
-    <item>
-      <title>【ZigBee系列】2.无线风扇项目</title>
-      <link>https://HauyuChen.github.io/post/zb-zigbee-wirelessfan/</link>
-      <pubDate>Fri, 19 May 2017 00:00:00 +0000</pubDate>
-      
-      <guid>https://HauyuChen.github.io/post/zb-zigbee-wirelessfan/</guid>
-      <description>作者注： ZigBee 系列共三篇，首先讲解 ZigBee 工程的结构，然后通过两个具体项目熟悉 ZigBee 的应用。在学习本系列内容前，您需要掌握单片机相关知识、 ZigBee 基础知识，希望本系列教程能对您开发 ZigBee 项目有所启发。如有任何问题，欢迎您随时与我联系：Hauyu.Chen@Gmail.com
-版权声明：本文由 Hov 所有，发布于 http://chenhy.com ，转载请注明出处。
-
-0 写在前面 无线风扇是本人在大二上学期在实验室期间实现的项目，实现了电风扇的无线控制。这也是我学习无线传感器网络实现的第一个项目，看着实验室的电风扇真的被代码操控着，感觉真的很奇妙。
-无线风扇项目完整源码：https://github.com/HauyuChen/ZigBee-WirelessFan
-如果对您有帮助，欢迎您在GitHub上给我 Follow 或 Stars ：）
-
-1 简介 无线风扇项目实现了风扇的手动、自动两种模式的控制。
- 手动模式：根据指令控制风扇的开关； 自动模式：根据周围环境的温度自动控制风扇，比如当周围温度大于等于 26 摄氏度时自动打开风扇。  大体的思路是这样的： 通过两个 ZigBee 模块组成一个 ZigBee 网络；ZigBee终端外接温湿度传感器、继电器，继电器与风扇连接；ZigBee 协调器通过串口（RS232） 与电脑连接（也可以通过 ZigBee 协调器与 GPRS 模块连接，实现手机控制的功能）。
-连接示意图如下：
-虽说是无线风扇功能，实质就是实现传感器数据采集和模块 IO 口控制。风扇控制主要通过 IO 口导通继电器来实现。所以，如果继电器连接电灯、空调等，那就可以实现不同功能了。
-
-2 功能需求 2.1 串口通信  ZigBee 协调器接收温湿度、风扇状态等数据，并通过串口传送给电脑，在串口调试助手上显示相关数据。 电脑通过串口向 ZigBee 协调器发送指令，控制风扇的开关。  2.2 温湿度数据采集  ZigBee 终端外接 DHT11 温湿度传感器，通过传感器采集周围环境的温湿度信息； ZigBee 终端采集到的温湿度数据通过 ZigBee 网络发送给 ZigBee 协调器；  2.</description>
-    </item>
-    
-    <item>
-      <title>【ZigBee系列】1.浅析ZigBee工程</title>
-      <link>https://HauyuChen.github.io/post/zb-zigbee-guide/</link>
-      <pubDate>Wed, 17 May 2017 00:00:00 +0000</pubDate>
-      
-      <guid>https://HauyuChen.github.io/post/zb-zigbee-guide/</guid>
-      <description>作者注： ZigBee 系列共三篇，首先讲解 ZigBee 工程的结构，然后通过两个具体项目熟悉 ZigBee 的应用。在学习本系列内容前，您需要掌握单片机相关知识、 ZigBee 基础知识，希望本系列教程能对您开发 ZigBee 项目有所启发。如有任何问题，欢迎您随时与我联系：Hauyu.Chen@Gmail.com
-版权声明：本文由 Hov 所有，发布于 http://chenhy.com ，转载请注明出处。
-
-0 写在前面 大一暑假，我开始学习ZigBee技术。这篇文章是在大一暑假结束后完成的，主要是想写一下在学习ZigBee过程中的思路，以及一个ZigBee工程中的核心内容。因为在刚学习ZigBee的时候，面对着大量的代码，有种无从下手的感觉。
-本文基于 Z-Stack 的例程 SampleApp 展开，旨在突出在一个ZigBee工程中比较核心的部分，建议大家看过 Z-Stack 中的例程后作参考之用。
-注：Z-Stack 安装文件：https://github.com/HauyuChen/Z-Stack
-
-1 概述 写过程序的人都知道每个程序都是从 main 函数开始执行的，在 ZigBee 程序中也不例外。在一个 Zigbee 工程中，程序从 main 函数开始执行，经过一步一步的函数调用（一些系统功能的初始化，建议跟踪一下从 main 函数到 SampleApp_ProcessEvent 函数的过程），程序最终来到了 SampleApp_ProcessEvent 函数， SampleApp_ProcessEvent(uint8 task_id,uint16 events) 是一个颇为重要的函数，整个工程更像是围绕着这个函数运行。
-说白了，我们要通过这个函数来处理所有事件。
-比如： if ( events &amp;amp; SYS_EVENT_MSG ) 处理系统事件，if ( events &amp;amp; SAMPLEAPP_SEND_PERIODIC_MSG_EVT ) 处理用户定义的事件。在不同的事件处理代码中，通过一个 switch 语句把所要处理的任务分成几个 case 来处理，在每个 case 里面调用相应的函数，我们通过定义这些函数执行我们想要的功能即可。</description>
     </item>
     
     <item>
@@ -928,7 +881,7 @@ Follow up: What if the inputs contain unicode characters? How would you adapt yo
     <item>
       <title>【LeetCode】191. Number of 1 Bits</title>
       <link>https://HauyuChen.github.io/post/191-number-of-1-bits/</link>
-      <pubDate>Wed, 24 Aug 2016 00:00:00 +0000</pubDate>
+      <pubDate>Fri, 24 Jun 2016 00:00:00 +0000</pubDate>
       
       <guid>https://HauyuChen.github.io/post/191-number-of-1-bits/</guid>
       <description> 题目描述：  Write a function that takes an unsigned integer and returns the number of ’1&amp;rsquo; bits it has (also known as the Hamming weight).
@@ -939,7 +892,7 @@ For example, the 32-bit integer ’11&amp;rsquo; has binary representation 00000
     <item>
       <title>【LeetCode】202. Happy Number</title>
       <link>https://HauyuChen.github.io/post/202-happy-number/</link>
-      <pubDate>Wed, 24 Aug 2016 00:00:00 +0000</pubDate>
+      <pubDate>Fri, 24 Jun 2016 00:00:00 +0000</pubDate>
       
       <guid>https://HauyuChen.github.io/post/202-happy-number/</guid>
       <description>题目描述：  Write an algorithm to determine if a number is &amp;ldquo;happy&amp;rdquo;.
@@ -949,7 +902,7 @@ A happy number is a number defined by the following process: Starting with any p
     <item>
       <title>【LeetCode】171. Excel Sheet Column Number</title>
       <link>https://HauyuChen.github.io/post/171-excel-sheet-column-number/</link>
-      <pubDate>Tue, 23 Aug 2016 00:00:00 +0000</pubDate>
+      <pubDate>Thu, 23 Jun 2016 00:00:00 +0000</pubDate>
       
       <guid>https://HauyuChen.github.io/post/171-excel-sheet-column-number/</guid>
       <description> 题目描述：  Related to question Excel Sheet Column Title
@@ -961,7 +914,7 @@ A -&amp;gt; 1 B -&amp;gt; 2 C -&amp;gt; 3 ... Z -&amp;gt; 26 AA -&amp;gt; 27 AB 
     <item>
       <title>【LeetCode】167. Two Sum II - Input array is sorted</title>
       <link>https://HauyuChen.github.io/post/167-two-sum-ii-input-array-is-sorted/</link>
-      <pubDate>Sat, 20 Aug 2016 00:00:00 +0000</pubDate>
+      <pubDate>Mon, 20 Jun 2016 00:00:00 +0000</pubDate>
       
       <guid>https://HauyuChen.github.io/post/167-two-sum-ii-input-array-is-sorted/</guid>
       <description>题目描述：  Given an array of integers that is already sorted in ascending order, find two numbers such that they add up to a specific target number.
@@ -972,7 +925,7 @@ You may assume that each input would have exactly one solution and you may not u
     <item>
       <title>【LeetCode】169. Majority Element</title>
       <link>https://HauyuChen.github.io/post/169-majority-element/</link>
-      <pubDate>Sat, 20 Aug 2016 00:00:00 +0000</pubDate>
+      <pubDate>Mon, 20 Jun 2016 00:00:00 +0000</pubDate>
       
       <guid>https://HauyuChen.github.io/post/169-majority-element/</guid>
       <description> 题目描述：  Given an array of size n, find the majority element. The majority element is the element that appears more than ⌊ n/2 ⌋ times.
@@ -983,7 +936,7 @@ You may assume that the array is non-empty and the majority element always exist
     <item>
       <title>【LeetCode】121. Best Time to Buy and Sell Stock</title>
       <link>https://HauyuChen.github.io/post/121-best-time-to-buy-and-sell-stock/</link>
-      <pubDate>Tue, 16 Aug 2016 00:00:00 +0000</pubDate>
+      <pubDate>Thu, 16 Jun 2016 00:00:00 +0000</pubDate>
       
       <guid>https://HauyuChen.github.io/post/121-best-time-to-buy-and-sell-stock/</guid>
       <description>题目描述：  Say you have an array for which the ith element is the price of a given stock on day i.
@@ -995,7 +948,7 @@ max. difference = 6-1 = 5 (not 7-1 = 6, as selling price needs to be larger than
     <item>
       <title>【LeetCode】122. Best Time to Buy and Sell Stock II</title>
       <link>https://HauyuChen.github.io/post/122-best-time-to-buy-and-sell-stock-ii/</link>
-      <pubDate>Tue, 16 Aug 2016 00:00:00 +0000</pubDate>
+      <pubDate>Thu, 16 Jun 2016 00:00:00 +0000</pubDate>
       
       <guid>https://HauyuChen.github.io/post/122-best-time-to-buy-and-sell-stock-ii/</guid>
       <description>题目描述：  Say you have an array for which the ith element is the price of a given stock on day i.
@@ -1005,7 +958,7 @@ Design an algorithm to find the maximum profit. You may complete as many transac
     <item>
       <title>【LeetCode】136. Single Number</title>
       <link>https://HauyuChen.github.io/post/136-single-number/</link>
-      <pubDate>Tue, 16 Aug 2016 00:00:00 +0000</pubDate>
+      <pubDate>Thu, 16 Jun 2016 00:00:00 +0000</pubDate>
       
       <guid>https://HauyuChen.github.io/post/136-single-number/</guid>
       <description> 题目描述：  Given an array of integers, every element appears twice except for one. Find that single one.
@@ -1016,7 +969,7 @@ Note: Your algorithm should have a linear runtime complexity. Could you implemen
     <item>
       <title>【LeetCode】104. Maximum Depth of Binary Tree</title>
       <link>https://HauyuChen.github.io/post/104-maximum-depth-of-binary-tree/</link>
-      <pubDate>Mon, 15 Aug 2016 00:00:00 +0000</pubDate>
+      <pubDate>Wed, 15 Jun 2016 00:00:00 +0000</pubDate>
       
       <guid>https://HauyuChen.github.io/post/104-maximum-depth-of-binary-tree/</guid>
       <description>题目描述：  Given a binary tree, find its maximum depth.
@@ -1027,7 +980,7 @@ The maximum depth is the number of nodes along the longest path from the root no
     <item>
       <title>【LeetCode】100. Same Tree</title>
       <link>https://HauyuChen.github.io/post/100-same-tree/</link>
-      <pubDate>Sun, 14 Aug 2016 00:00:00 +0000</pubDate>
+      <pubDate>Tue, 14 Jun 2016 00:00:00 +0000</pubDate>
       
       <guid>https://HauyuChen.github.io/post/100-same-tree/</guid>
       <description>题目描述：  Given two binary trees, write a function to check if they are equal or not.
@@ -1038,7 +991,7 @@ Two binary trees are considered equal if they are structurally identical and the
     <item>
       <title>【LeetCode】70. Climbing Stairs</title>
       <link>https://HauyuChen.github.io/post/070-climbing-stairs/</link>
-      <pubDate>Sun, 14 Aug 2016 00:00:00 +0000</pubDate>
+      <pubDate>Tue, 14 Jun 2016 00:00:00 +0000</pubDate>
       
       <guid>https://HauyuChen.github.io/post/070-climbing-stairs/</guid>
       <description> 题目描述：  You are climbing a stair case. It takes n steps to reach to the top.
@@ -1050,7 +1003,7 @@ Each time you can either climb 1 or 2 steps. In how many distinct ways can you c
     <item>
       <title>【LeetCode】69. Sqrt(x)</title>
       <link>https://HauyuChen.github.io/post/069-sqrtx/</link>
-      <pubDate>Sat, 13 Aug 2016 00:00:00 +0000</pubDate>
+      <pubDate>Mon, 13 Jun 2016 00:00:00 +0000</pubDate>
       
       <guid>https://HauyuChen.github.io/post/069-sqrtx/</guid>
       <description> 题目描述：  Implement int sqrt(int x).
@@ -1061,7 +1014,7 @@ Compute and return the square root of x.
     <item>
       <title>【LeetCode】13. Roman to Integer</title>
       <link>https://HauyuChen.github.io/post/013-roman-to-integer/</link>
-      <pubDate>Fri, 12 Aug 2016 00:00:00 +0000</pubDate>
+      <pubDate>Sun, 12 Jun 2016 00:00:00 +0000</pubDate>
       
       <guid>https://HauyuChen.github.io/post/013-roman-to-integer/</guid>
       <description> 题目描述：  Given a roman numeral, convert it to an integer.
@@ -1074,7 +1027,7 @@ Input is guaranteed to be within the range from 1 to 3999.
     <item>
       <title>【LeetCode】21. Merge Two Sorted Lists</title>
       <link>https://HauyuChen.github.io/post/021-merge-two-sorted-lists/</link>
-      <pubDate>Fri, 12 Aug 2016 00:00:00 +0000</pubDate>
+      <pubDate>Sun, 12 Jun 2016 00:00:00 +0000</pubDate>
       
       <guid>https://HauyuChen.github.io/post/021-merge-two-sorted-lists/</guid>
       <description>题目描述：  Merge two sorted linked lists and return it as a new list. The new list should be made by splicing together the nodes of the first two lists.
@@ -1084,7 +1037,7 @@ Input is guaranteed to be within the range from 1 to 3999.
     <item>
       <title>【LeetCode】53. Maximum Subarray</title>
       <link>https://HauyuChen.github.io/post/053-maximum-subarray/</link>
-      <pubDate>Fri, 12 Aug 2016 00:00:00 +0000</pubDate>
+      <pubDate>Sun, 12 Jun 2016 00:00:00 +0000</pubDate>
       
       <guid>https://HauyuChen.github.io/post/053-maximum-subarray/</guid>
       <description> 题目描述：  Find the contiguous subarray within an array (containing at least one number) which has the largest sum.
@@ -1096,7 +1049,7 @@ For example, given the array [-2,1,-3,4,-1,2,1,-5,4], the contiguous subarray [4
     <item>
       <title>【LeetCode】1. Two Sum</title>
       <link>https://HauyuChen.github.io/post/001-two-sum/</link>
-      <pubDate>Thu, 11 Aug 2016 00:00:00 +0000</pubDate>
+      <pubDate>Sat, 11 Jun 2016 00:00:00 +0000</pubDate>
       
       <guid>https://HauyuChen.github.io/post/001-two-sum/</guid>
       <description>题目描述：  Given an array of integers, return indices of the two numbers such that they add up to a specific target.
@@ -1109,13 +1062,74 @@ Because nums[0] + nums[1] = 2 + 7 = 9, return [0, 1].
     <item>
       <title>【LeetCode】8. String to Integer (atoi)</title>
       <link>https://HauyuChen.github.io/post/008-string-to-integeratoi/</link>
-      <pubDate>Thu, 11 Aug 2016 00:00:00 +0000</pubDate>
+      <pubDate>Sat, 11 Jun 2016 00:00:00 +0000</pubDate>
       
       <guid>https://HauyuChen.github.io/post/008-string-to-integeratoi/</guid>
       <description>题目描述：  Implement atoi to convert a string to an integer.
 Hint: Carefully consider all possible input cases. If you want a challenge, please do not see below and ask yourself what are the possible input cases.
 Notes: It is intended for this problem to be specified vaguely (ie, no given input specs). You are responsible to gather all the input requirements up front.
 Update (2015-02-10): The signature of the C++ function had been updated.</description>
+    </item>
+    
+    <item>
+      <title>【ZigBee系列】3.智能停车系统项目</title>
+      <link>https://HauyuChen.github.io/post/zb-zigbee-parking/</link>
+      <pubDate>Sun, 22 May 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://HauyuChen.github.io/post/zb-zigbee-parking/</guid>
+      <description>作者注： ZigBee 系列共三篇，首先讲解 ZigBee 工程的结构，然后通过两个具体项目熟悉 ZigBee 的应用。在学习本系列内容前，您需要掌握单片机相关知识、 ZigBee 基础知识，希望本系列教程能对您开发 ZigBee 项目有所启发。如有任何问题，欢迎您随时与我联系：Hauyu.Chen@Gmail.com
+版权声明：本文由 Hov 所有，发布于 http://chenhy.com ，转载请注明出处。
+
+0 写在前面 智能停车系统是本人在大二下学期做的一个项目。项目主要涉及传感器数据采集、 ZigBee 组网、 GPRS 数据传输、数据库服务器程序开发、微信公众账号开发。
+项目视频演示如下：
+ 本文将着重讲述 ZigBee 部分，即如何通过 ZigBee 网络采集数据，并通过 GPRS 模块将数据发送给远程数据库服务器。后续有时间将对整个项目进行完整的讲解。
+本文侧重讲的是实现思路，具体的技术细节可参考源代码。希望阅读完这篇文章，能让您对ZigBee的实际应用有所启发。
+项目完整源码：https://github.com/HauyuChen/Parking-System
+如果对您有帮助，欢迎您在GitHub上给我 Follow 或 Stars ：）
+
+1 项目简介 智能停车系统通过 ZigBee 无线传感器网络实现停车场内部车位、亮度等数据的采集与传输；借助 GPRS 模块实现数据远程传输；利用数据库服务器实现数据的处理与存储；通过 PC 客户端和微信公众帐号实现数据交互，为停车场管理人员提供监控服务，为用户提供自助服务。系统实现停车引导、防盗提醒和灯光控制等功能，用户还可以关注本停车系统的微信公众账号实时地了解停车场内的信息。
+项目实物模型如下：
+
+2 ZigBee无线传感系统 ZigBee 部分主要完成的是传感器数据的采集和数据的传输，大体的思路是这样的：通过 ZigBee 终端节点上外接的传感器实现数据监测，并通过 ZigBee 网络将数据发送至 ZigBee 协调器， ZigBee 协调器通过 RS232 串口线连接 GPRS 模块，通过 AT 指令将数据发送至远程数据库服务器。</description>
+    </item>
+    
+    <item>
+      <title>【ZigBee系列】2.无线风扇项目</title>
+      <link>https://HauyuChen.github.io/post/zb-zigbee-wirelessfan/</link>
+      <pubDate>Thu, 19 May 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://HauyuChen.github.io/post/zb-zigbee-wirelessfan/</guid>
+      <description>作者注： ZigBee 系列共三篇，首先讲解 ZigBee 工程的结构，然后通过两个具体项目熟悉 ZigBee 的应用。在学习本系列内容前，您需要掌握单片机相关知识、 ZigBee 基础知识，希望本系列教程能对您开发 ZigBee 项目有所启发。如有任何问题，欢迎您随时与我联系：Hauyu.Chen@Gmail.com
+版权声明：本文由 Hov 所有，发布于 http://chenhy.com ，转载请注明出处。
+
+0 写在前面 无线风扇是本人在大二上学期在实验室期间实现的项目，实现了电风扇的无线控制。这也是我学习无线传感器网络实现的第一个项目，看着实验室的电风扇真的被代码操控着，感觉真的很奇妙。
+无线风扇项目完整源码：https://github.com/HauyuChen/ZigBee-WirelessFan
+如果对您有帮助，欢迎您在GitHub上给我 Follow 或 Stars ：）
+
+1 简介 无线风扇项目实现了风扇的手动、自动两种模式的控制。
+ 手动模式：根据指令控制风扇的开关； 自动模式：根据周围环境的温度自动控制风扇，比如当周围温度大于等于 26 摄氏度时自动打开风扇。  大体的思路是这样的： 通过两个 ZigBee 模块组成一个 ZigBee 网络；ZigBee终端外接温湿度传感器、继电器，继电器与风扇连接；ZigBee 协调器通过串口（RS232） 与电脑连接（也可以通过 ZigBee 协调器与 GPRS 模块连接，实现手机控制的功能）。
+连接示意图如下：
+虽说是无线风扇功能，实质就是实现传感器数据采集和模块 IO 口控制。风扇控制主要通过 IO 口导通继电器来实现。所以，如果继电器连接电灯、空调等，那就可以实现不同功能了。
+
+2 功能需求 2.1 串口通信  ZigBee 协调器接收温湿度、风扇状态等数据，并通过串口传送给电脑，在串口调试助手上显示相关数据。 电脑通过串口向 ZigBee 协调器发送指令，控制风扇的开关。  2.2 温湿度数据采集  ZigBee 终端外接 DHT11 温湿度传感器，通过传感器采集周围环境的温湿度信息； ZigBee 终端采集到的温湿度数据通过 ZigBee 网络发送给 ZigBee 协调器；  2.</description>
+    </item>
+    
+    <item>
+      <title>【ZigBee系列】1.浅析ZigBee工程</title>
+      <link>https://HauyuChen.github.io/post/zb-zigbee-guide/</link>
+      <pubDate>Tue, 17 May 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://HauyuChen.github.io/post/zb-zigbee-guide/</guid>
+      <description>作者注： ZigBee 系列共三篇，首先讲解 ZigBee 工程的结构，然后通过两个具体项目熟悉 ZigBee 的应用。在学习本系列内容前，您需要掌握单片机相关知识、 ZigBee 基础知识，希望本系列教程能对您开发 ZigBee 项目有所启发。如有任何问题，欢迎您随时与我联系：Hauyu.Chen@Gmail.com
+版权声明：本文由 Hov 所有，发布于 http://chenhy.com ，转载请注明出处。
+
+0 写在前面 大一暑假，我开始学习ZigBee技术。这篇文章是在大一暑假结束后完成的，主要是想写一下在学习ZigBee过程中的思路，以及一个ZigBee工程中的核心内容。因为在刚学习ZigBee的时候，面对着大量的代码，有种无从下手的感觉。
+本文基于 Z-Stack 的例程 SampleApp 展开，旨在突出在一个ZigBee工程中比较核心的部分，建议大家看过 Z-Stack 中的例程后作参考之用。
+注：Z-Stack 安装文件：https://github.com/HauyuChen/Z-Stack
+
+1 概述 写过程序的人都知道每个程序都是从 main 函数开始执行的，在 ZigBee 程序中也不例外。在一个 Zigbee 工程中，程序从 main 函数开始执行，经过一步一步的函数调用（一些系统功能的初始化，建议跟踪一下从 main 函数到 SampleApp_ProcessEvent 函数的过程），程序最终来到了 SampleApp_ProcessEvent 函数， SampleApp_ProcessEvent(uint8 task_id,uint16 events) 是一个颇为重要的函数，整个工程更像是围绕着这个函数运行。
+说白了，我们要通过这个函数来处理所有事件。
+比如： if ( events &amp;amp; SYS_EVENT_MSG ) 处理系统事件，if ( events &amp;amp; SAMPLEAPP_SEND_PERIODIC_MSG_EVT ) 处理用户定义的事件。在不同的事件处理代码中，通过一个 switch 语句把所要处理的任务分成几个 case 来处理，在每个 case 里面调用相应的函数，我们通过定义这些函数执行我们想要的功能即可。</description>
     </item>
     
   </channel>
