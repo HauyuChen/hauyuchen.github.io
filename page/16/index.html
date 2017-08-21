@@ -232,6 +232,61 @@
   
     <article>
   <header>
+    <h2><a href="https://HauyuChen.github.io/post/013-roman-to-integer/">【LeetCode】13. Roman to Integer</a></h2>
+
+    <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>2016-06-12</time>
+  </div>
+
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-folder fa-fw"></i>
+    
+      <a class="post-taxonomy-tag" href="https://HauyuChen.github.io/tags/leetcode">LeetCode</a>
+    
+  </div>
+  
+  
+
+  
+  
+  
+  <div>
+	<i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/%E7%AE%97%E6%B3%95">算法</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/leetcode">LeetCode</a>
+    
+  </div>
+  
+  
+  
+</div>
+
+  </header>
+
+  <p>
+   题目描述：  Given a roman numeral, convert it to an integer.
+Input is guaranteed to be within the range from 1 to 3999.
+ 我的思路：  这是一道将罗马数字转换成整数的题目。搞清楚罗马数字的表示特点即可。
+参见维基百科：罗马数字
+ 代码实现： class Solution { public: int romanToInt(string s) { unordered_map&lt;char,int&gt; hm; hm.insert(pair&lt;char,int&gt;('I',1)); hm.insert(pair&lt;char,int&gt;('V',5)); hm.insert(pair&lt;char,int&gt;('X',10)); hm.insert(pair&lt;char,int&gt;('L',50)); hm.insert(pair&lt;char,int&gt;('C',100)); hm.insert(pair&lt;char,int&gt;('D',500)); hm.insert(pair&lt;char,int&gt;('M',1000)); int sum=hm[s[s.size()-1]]; for(int i=s.size()-1;i&gt;0;--i){ if(hm[s[i]]&gt;hm[s[i-1]]){ sum-=hm[s[i-1]]; }else{ sum+=hm[s[i-1]]; } } return sum; } };  
+  </p>
+
+  
+</article>
+
+  
+    <article>
+  <header>
     <h2><a href="https://HauyuChen.github.io/post/021-merge-two-sorted-lists/">【LeetCode】21. Merge Two Sorted Lists</a></h2>
 
     <div class="post-meta">
@@ -452,76 +507,6 @@ Update (2015-02-10): The signature of the C++ function had been updated.
   
   <footer>
     <a href="https://HauyuChen.github.io/post/008-string-to-integeratoi/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
-  </footer>
-  
-</article>
-
-  
-    <article>
-  <header>
-    <h2><a href="https://HauyuChen.github.io/post/zb-zigbee-parking/">【ZigBee系列】3.智能停车系统项目</a></h2>
-
-    <div class="post-meta">
-
-  <div>
-    <i class="fa fa-calendar fa-fw"></i>
-    <time>2016-05-22</time>
-  </div>
-
-  
-
-  
-  
-  
-  <div>
-    <i class="fa fa-folder fa-fw"></i>
-    
-      <a class="post-taxonomy-tag" href="https://HauyuChen.github.io/tags/zigbee">ZigBee</a>
-    
-  </div>
-  
-  
-
-  
-  
-  
-  <div>
-	<i class="fa fa-tags fa-fw"></i>
-    
-      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/zigbee">ZigBee</a>&nbsp;&#47;
-    
-      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/%E7%89%A9%E8%81%94%E7%BD%91">物联网</a>&nbsp;&#47;
-    
-      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/%E6%97%A0%E7%BA%BF%E4%BC%A0%E6%84%9F%E5%99%A8">无线传感器</a>
-    
-  </div>
-  
-  
-  
-</div>
-
-  </header>
-
-  <p>
-  作者注： ZigBee 系列共三篇，首先讲解 ZigBee 工程的结构，然后通过两个具体项目熟悉 ZigBee 的应用。在学习本系列内容前，您需要掌握单片机相关知识、 ZigBee 基础知识，希望本系列教程能对您开发 ZigBee 项目有所启发。如有任何问题，欢迎您随时与我联系：Hauyu.Chen@Gmail.com
-版权声明：本文由 Hov 所有，发布于 http://chenhy.com ，转载请注明出处。
-
-0 写在前面 智能停车系统是本人在大二下学期做的一个项目。项目主要涉及传感器数据采集、 ZigBee 组网、 GPRS 数据传输、数据库服务器程序开发、微信公众账号开发。
-项目视频演示如下：
- 本文将着重讲述 ZigBee 部分，即如何通过 ZigBee 网络采集数据，并通过 GPRS 模块将数据发送给远程数据库服务器。后续有时间将对整个项目进行完整的讲解。
-本文侧重讲的是实现思路，具体的技术细节可参考源代码。希望阅读完这篇文章，能让您对ZigBee的实际应用有所启发。
-项目完整源码：https://github.com/HauyuChen/Parking-System
-如果对您有帮助，欢迎您在GitHub上给我 Follow 或 Stars ：）
-
-1 项目简介 智能停车系统通过 ZigBee 无线传感器网络实现停车场内部车位、亮度等数据的采集与传输；借助 GPRS 模块实现数据远程传输；利用数据库服务器实现数据的处理与存储；通过 PC 客户端和微信公众帐号实现数据交互，为停车场管理人员提供监控服务，为用户提供自助服务。系统实现停车引导、防盗提醒和灯光控制等功能，用户还可以关注本停车系统的微信公众账号实时地了解停车场内的信息。
-项目实物模型如下：
-
-2 ZigBee无线传感系统 ZigBee 部分主要完成的是传感器数据的采集和数据的传输，大体的思路是这样的：通过 ZigBee 终端节点上外接的传感器实现数据监测，并通过 ZigBee 网络将数据发送至 ZigBee 协调器， ZigBee 协调器通过 RS232 串口线连接 GPRS 模块，通过 AT 指令将数据发送至远程数据库服务器。
-  </p>
-
-  
-  <footer>
-    <a href="https://HauyuChen.github.io/post/zb-zigbee-parking/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
   </footer>
   
 </article>
