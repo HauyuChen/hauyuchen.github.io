@@ -232,6 +232,59 @@
   
     <article>
   <header>
+    <h2><a href="https://HauyuChen.github.io/post/sql%E4%BC%98%E5%8C%96/">SQL优化</a></h2>
+
+    <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>2017-08-07</time>
+  </div>
+
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-folder fa-fw"></i>
+    
+      <a class="post-taxonomy-tag" href="https://HauyuChen.github.io/tags/%E6%95%B0%E6%8D%AE%E5%BA%93">数据库</a>
+    
+  </div>
+  
+  
+
+  
+  
+  
+  <div>
+	<i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/%E6%95%B0%E6%8D%AE%E5%BA%93">数据库</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/%E5%9F%BA%E7%A1%80">基础</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/%E4%BC%98%E5%8C%96">优化</a>
+    
+  </div>
+  
+  
+  
+</div>
+
+  </header>
+
+  <p>
+  SQL 语句优化  尽量选择较小的列； 将 where 中用的比较频繁的字段建立索引； select 子句中避免使用‘ * ’； 避免在索引列上使用运算符、 not 、 in 、 &lt; 、 &gt; 等操作； 当只需要一行数据的时候使用 limit1； 保证表单数据不超过 200w ，适时分割表。
+  </p>
+
+  
+</article>
+
+  
+    <article>
+  <header>
     <h2><a href="https://HauyuChen.github.io/post/ml-5-logisticregression/">【机器学习笔记】5. 逻辑回归</a></h2>
 
     <div class="post-meta">
@@ -489,74 +542,6 @@
   
   <footer>
     <a href="https://HauyuChen.github.io/post/ml-4-linearregression-multiplevariables/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
-  </footer>
-  
-</article>
-
-  
-    <article>
-  <header>
-    <h2><a href="https://HauyuChen.github.io/post/ml-3-gradientdescent/">【机器学习笔记】3. 梯度下降法</a></h2>
-
-    <div class="post-meta">
-
-  <div>
-    <i class="fa fa-calendar fa-fw"></i>
-    <time>2017-07-26</time>
-  </div>
-
-  
-
-  
-  
-  
-  <div>
-    <i class="fa fa-folder fa-fw"></i>
-    
-      <a class="post-taxonomy-tag" href="https://HauyuChen.github.io/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0">机器学习</a>
-    
-  </div>
-  
-  
-
-  
-  
-  
-  <div>
-	<i class="fa fa-tags fa-fw"></i>
-    
-      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0">机器学习</a>&nbsp;&#47;
-    
-      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/%E7%9B%91%E7%9D%A3%E5%AD%A6%E4%B9%A0">监督学习</a>&nbsp;&#47;
-    
-      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/%E6%A2%AF%E5%BA%A6%E4%B8%8B%E9%99%8D">梯度下降</a>
-    
-  </div>
-  
-  
-  
-</div>
-
-  </header>
-
-  <p>
-  作者注：机器学习系列是本人在学习机器学习相关内容时产生的笔记，希望也能对您有所帮助。值得注意的是，作者作为初学者，表述难免有误或不全面，望多批评指正。 如有任何问题，欢迎您随时与我联系：Hauyu.Chen@Gmail.com
-版权声明：本文由 Hov 所有，发布于 http://chenhy.com ，转载请注明出处。
-
-0 前言 上一篇讲到了线性回归，提到了代价函数（Cost Function）的概念，我们知道我们的目标是找到合适的 θ0、θ1 使得代价函数 J(θ0,θ1) 最小。 但是，若漫无目的地设定 θ0、θ1 的值， J(θ0,θ1) 可能会有无数的结果。 那我们要怎么更快地找到 J(θ0,θ1) 的最小值呢？ 本文将介绍一种重要的优化算法，Gradient Descent（梯度下降法）。
-
-1 什么是梯度？ 在讲解梯度下降法之前，我们必须先了解梯度的概念。 梯度是高等数学中的概念，梯度的指向即为函数增长最快的方向。同理，梯度的反方向即为函数下降最快的方向。 现在你知道为什么梯度下降法是优化算法了吧？它能使我们的代价函数下降的最快！
-
-2 原理 下图为代价函数的三维图形，分别以 θ0、θ1 为 X、Y 轴，以 J(θ0,θ1) 为 Z 轴。求解代价函数最小值的过程可看作是寻找“一座座山坡”中的最低点，因为在“山底”时 J(θ0,θ1)最小。
-假定我们随机站在某个山坡上，每次往某个方向向下走一步，怎么走才能最快到山底？这也就是梯度下降法所要解决的，沿着梯度方向最小化 J(θ0,θ1) 。
- 确定向下一步的步伐大小，称之为 Learning Rate ； 任取 θ0,θ1 （随机站在某个山坡）； 沿着梯度的反方向，走一个步伐大小，更新 θ0、θ1 ，此时 J(θ0,θ1) 变小； 重复步骤3，当下降的高度小于某个定义的值（已经到山底），则停止下降。  
-3 算法  优化目标：J(θ0,θ1)
- 优化参数：θ0、θ1
-  </p>
-
-  
-  <footer>
-    <a href="https://HauyuChen.github.io/post/ml-3-gradientdescent/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
   </footer>
   
 </article>

@@ -232,6 +232,60 @@
   
     <article>
   <header>
+    <h2><a href="https://HauyuChen.github.io/post/070-climbing-stairs/">【LeetCode】70. Climbing Stairs</a></h2>
+
+    <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>2016-06-14</time>
+  </div>
+
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-folder fa-fw"></i>
+    
+      <a class="post-taxonomy-tag" href="https://HauyuChen.github.io/tags/leetcode">LeetCode</a>
+    
+  </div>
+  
+  
+
+  
+  
+  
+  <div>
+	<i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/%E7%AE%97%E6%B3%95">算法</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/leetcode">LeetCode</a>
+    
+  </div>
+  
+  
+  
+</div>
+
+  </header>
+
+  <p>
+   题目描述：  You are climbing a stair case. It takes n steps to reach to the top.
+Each time you can either climb 1 or 2 steps. In how many distinct ways can you climb to the top?
+ 思路：  这题本质上是斐波那契数列问题。这里采用数组暂存已有结果，以时间换空间，减少递归带来的重复计算。
+ 代码实现： class Solution { public: int climbStairs(int n) { int f[n+1]; f[0]=1; f[1]=1; for(int i=2;i&lt;=n;++i){ f[i]=f[i-1]+f[i-2]; } return f[n]; } };  
+  </p>
+
+  
+</article>
+
+  
+    <article>
+  <header>
     <h2><a href="https://HauyuChen.github.io/post/069-sqrtx/">【LeetCode】69. Sqrt(x)</a></h2>
 
     <div class="post-meta">
@@ -444,65 +498,6 @@ For example, given the array [-2,1,-3,4,-1,2,1,-5,4], the contiguous subarray [4
  sum&lt;0,则舍弃前面的数 sum&gt;max,则更新最大值max   代码实现： int maxSubArray(int* nums, int numsSize) { int sum=0; int max=INT_MIN; for(int i=0;i&lt;numsSize;i++){ sum+=nums[i]; if(sum&gt;max){ max = sum; } if(sum&lt;0){ sum = 0; } } return max; }  
   </p>
 
-  
-</article>
-
-  
-    <article>
-  <header>
-    <h2><a href="https://HauyuChen.github.io/post/001-two-sum/">【LeetCode】1. Two Sum</a></h2>
-
-    <div class="post-meta">
-
-  <div>
-    <i class="fa fa-calendar fa-fw"></i>
-    <time>2016-06-11</time>
-  </div>
-
-  
-
-  
-  
-  
-  <div>
-    <i class="fa fa-folder fa-fw"></i>
-    
-      <a class="post-taxonomy-tag" href="https://HauyuChen.github.io/tags/leetcode">LeetCode</a>
-    
-  </div>
-  
-  
-
-  
-  
-  
-  <div>
-	<i class="fa fa-tags fa-fw"></i>
-    
-      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/%E7%AE%97%E6%B3%95">算法</a>&nbsp;&#47;
-    
-      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/leetcode">LeetCode</a>
-    
-  </div>
-  
-  
-  
-</div>
-
-  </header>
-
-  <p>
-  题目描述：  Given an array of integers, return indices of the two numbers such that they add up to a specific target.
-You may assume that each input would have exactly one solution, and you may not use the same element twice.
-Example: Given nums = [2, 7, 11, 15], target = 9,
-Because nums[0] + nums[1] = 2 + 7 = 9, return [0, 1].
- 我的思路：   先用map存储每个元素对应的原始下标，方便后续查找特定元素。 从头开始查找符合条件的结果，用target减去nums[i]，得到两数之差t，在map中寻找是否存在t且元素t的索引不等于i,若是则为最终结果，否则继续查找nums[i+1]。   代码实现： class Solution { public: vector&lt;int&gt; twoSum(vector&lt;int&gt;&amp; nums, int target) { unordered_map&lt;int,int&gt; hm; for(int i=0;i&lt;nums.
-  </p>
-
-  
-  <footer>
-    <a href="https://HauyuChen.github.io/post/001-two-sum/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
-  </footer>
   
 </article>
 
