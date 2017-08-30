@@ -7,28 +7,15 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2017. All rights reserved.</copyright>
-    <lastBuildDate>Fri, 25 Aug 2017 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 30 Aug 2017 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://HauyuChen.github.io/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>【LeetCode】563. Binary Tree Tilt</title>
-      <link>https://HauyuChen.github.io/post/563-binary-tree-tilt/</link>
-      <pubDate>Fri, 25 Aug 2017 00:00:00 +0000</pubDate>
-      
-      <guid>https://HauyuChen.github.io/post/563-binary-tree-tilt/</guid>
-      <description>题目描述：  Given a binary tree, return the tilt of the whole tree.
-The tilt of a tree node is defined as the absolute difference between the sum of all left subtree node values and the sum of all right subtree node values. Null node has tilt 0.
-The tilt of the whole tree is defined as the sum of all nodes&amp;rsquo; tilt.
-Example: Input:
- 1 / \ 2 3  Output: 1</description>
-    </item>
-    
-    <item>
       <title>【设计模式】3.装饰者模式</title>
       <link>https://HauyuChen.github.io/post/dp-3-%E8%A3%85%E9%A5%B0%E8%80%85%E6%A8%A1%E5%BC%8F/</link>
-      <pubDate>Tue, 22 Aug 2017 00:00:00 +0000</pubDate>
+      <pubDate>Wed, 30 Aug 2017 00:00:00 +0000</pubDate>
       
       <guid>https://HauyuChen.github.io/post/dp-3-%E8%A3%85%E9%A5%B0%E8%80%85%E6%A8%A1%E5%BC%8F/</guid>
       <description>版权声明：本文由 Hov 所有，发布于 http://chenhy.com ，转载请注明出处。
@@ -44,6 +31,30 @@ Example: Input:
 不同的咖啡和配料可以搭配成不同的饮品，比如 Decaf 、 Espresso 、 Decaf + Chocalate 、 Decaf + Milk 、 Espresso + Chocalate 、 Espresso + Milk 六种不同的饮品。
 我们要写个程序来计算不同饮品的价格，比如客户点了一杯 Espresso + Chocalate ，输出饮品的价格和描述信息。
 2.1 糟糕的解决方案 设计超类 Drink ，继承自超类 Drink 的子类 Decaf 、 Espresso 、 Decaf + Chocalate 、 Decaf + Milk 、 Espresso + Chocalate 、 Espresso + Milk 。</description>
+    </item>
+    
+    <item>
+      <title>【LeetCode】566. Reshape the Matrix</title>
+      <link>https://HauyuChen.github.io/post/566-reshape-the-matrix/</link>
+      <pubDate>Fri, 25 Aug 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://HauyuChen.github.io/post/566-reshape-the-matrix/</guid>
+      <description>题目描述：  In MATLAB, there is a very useful function called &amp;lsquo;reshape&amp;rsquo;, which can reshape a matrix into a new one with different size but keep its original data.
+You&amp;rsquo;re given a matrix represented by a two-dimensional array, and two positive integers r and c representing the row number and column number of the wanted reshaped matrix, respectively.
+The reshaped matrix need to be filled with all the elements of the original matrix in the same row-traversing order as they were.</description>
+    </item>
+    
+    <item>
+      <title>【LeetCode】563. Binary Tree Tilt</title>
+      <link>https://HauyuChen.github.io/post/563-binary-tree-tilt/</link>
+      <pubDate>Tue, 22 Aug 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://HauyuChen.github.io/post/563-binary-tree-tilt/</guid>
+      <description>题目描述：  Given a binary tree, return the tilt of the whole tree.
+The tilt of a tree node is defined as the absolute difference between the sum of all left subtree node values and the sum of all right subtree node values. Null node has tilt 0.
+The tilt of the whole tree is defined as the sum of all nodes&amp;rsquo; tilt.
+Example: Input:
+ 1 / \ 2 3  Output: 1</description>
     </item>
     
     <item>
