@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>工具 on Hov&#39;s Blog</title>
+    <link>https://HauyuChen.github.io/tags/%E5%B7%A5%E5%85%B7/</link>
+    <description>Recent content in 工具 on Hov&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>&amp;copy; 2017. All rights reserved.</copyright>
+    <lastBuildDate>Wed, 19 Jul 2017 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://HauyuChen.github.io/tags/%E5%B7%A5%E5%85%B7/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Eclipse常用快捷键</title>
+      <link>https://HauyuChen.github.io/post/eclipse%E5%BF%AB%E6%8D%B7%E9%94%AE/</link>
+      <pubDate>Wed, 19 Jul 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://HauyuChen.github.io/post/eclipse%E5%BF%AB%E6%8D%B7%E9%94%AE/</guid>
+      <description>Hov：本文记录了一些Eclipse快捷键，其中“必记级别”真的很好用，一定要记住~~
+必记级别  Ctrl+1：快速修复，代码红色下划线用它就对了
+ Ctrl+D：删除当前整行
+ Alt+/：代码补全，例如输入syso后按Alt+/，将其补全成System.out.println();
+ Ctrl+/：注释代码（这个很重要）
+ Shift+Enter：换行（高级模式，可从代码中间跳至下一行，无需到行尾）
+ Ctrl+F11：快速运行项目（其实点小三角还是挺快的，不记也行）
+ Ctrl+Shift+F：格式化当前代码（谁用谁牛逼）
+  快捷键大全  来源：http://blog.csdn.net/jmyue/article/details/16960199
+  Ctrl+Alt+↓：复制当前行到下一行 Ctrl+Alt+↑：复制当前行到上一行 Alt+↓：当前行和下面一行交互位置 Alt+↑：当前行和上面一行交互位置 Alt+←：前一个编辑的页面 Alt+→：下一个编辑的页面 Alt+Enter 显示当前选择资源(工程,or 文件 or文件)的属性 Shift+Ctrl+Enter 在当前行插入空行 Ctrl+Q 定位到最后编辑的地方 Ctrl+L 定位在某行 Ctrl+M 最大化当前的Edit或View Ctrl+O 快速显示 OutLine Ctrl+T 快速显示当前类的继承结构 Ctrl+W 关闭当前Editer Ctrl+K 参照选中的Word快速定位到下一个 Ctrl+E 快速显示当前Editer的下拉列表(如果当前页面没有显示的用黑体表示) Ctrl+/ (小键盘) 折叠当前类中的所有代码 Ctrl+×(小键盘) 展开当前类中的所有代码 Ctrl+Space 代码助手完成一些代码的插入(但一般和输入法有冲突,可以修改输入法的热键,也可以暂用Alt+/来代替) Ctrl+Shift+E 显示管理当前打开的所有的View的管理器(可以选择关闭,激活等操作) Ctrl+J 正向增量查找(按下Ctrl+J后,你所输入的每个字母编辑器都提供快速匹配定位到某个单词,如果没有,则在stutes line中显示没有找到了,查一个单词时,特别实用,这 个功能Idea两年前就有了) Ctrl+Shift+J 反向增量查找(和上条相同,只不过是从后往前查) Ctrl+Shift+F4 关闭所有打开的Editer Ctrl+Shift+X 把当前选中的文本全部变味小写 Ctrl+Shift+Y 把当前选中的文本全部变为小写 Ctrl+Shift+P 定位到对于的匹配符(譬如{}) (从前面定位后面时,光标要在匹配符里面,后面到前面,则反之) Alt+Shift+R 重命名 (是我自己最爱用的一个了,尤其是变量和类的Rename,比手工方法能节省很多劳动力) Alt+Shift+M 抽取方法 (这是重构里面最常用的方法之一了,尤其是对一大堆泥团代码有用) Alt+Shift+C 修改函数结构(比较实用,有N个函数调用了这个方法,修改一次搞定) Alt+Shift+L 抽取本地变量( 可以直接把一些魔法数字和字符串抽取成一个变量,尤其是多处调用的时候) Alt+Shift+F 把Class中的local变量变为field 变量 (比较实用的功能) Alt+Shift+I 合并变量(可能这样说有点不妥Inline) Alt+Shift+V 移动函数和变量(不怎么常用) Alt+Shift+Z 重构的后悔药(Undo)  注：下面这篇文章有动画讲解，推荐一下：）</description>
+    </item>
+    
+  </channel>
+</rss>

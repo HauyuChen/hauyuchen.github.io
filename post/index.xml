@@ -7,15 +7,46 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2017. All rights reserved.</copyright>
-    <lastBuildDate>Wed, 30 Aug 2017 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 01 Sep 2017 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://HauyuChen.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
+      <title>并发控制（乐观锁、悲观锁）</title>
+      <link>https://HauyuChen.github.io/post/1%E5%B9%B6%E5%8F%91%E6%8E%A7%E5%88%B6%E6%9C%BA%E5%88%B6%E6%82%B2%E8%A7%82%E9%94%81%E5%92%8C%E4%B9%90%E8%A7%82%E9%94%81/</link>
+      <pubDate>Fri, 01 Sep 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://HauyuChen.github.io/post/1%E5%B9%B6%E5%8F%91%E6%8E%A7%E5%88%B6%E6%9C%BA%E5%88%B6%E6%82%B2%E8%A7%82%E9%94%81%E5%92%8C%E4%B9%90%E8%A7%82%E9%94%81/</guid>
+      <description>0 前言 乐观锁、悲观锁是人们定义出来的概念，可认为是一种思想。也就是说其不依赖于某个特定的数据库，不仅仅是关系型数据库系统有乐观锁和悲观锁，像 memcache 、 Hibernate 等也有类似的概念。乐观锁、悲观锁是用来保证数据并发安全的方法。
+
+1 悲观锁 1.1 简介 悲观锁并发控制方案，在各种情况下都上锁。上锁之后，就只有一个线程可以操作这一数据。
+1.2 实例 牙膏库存为 100 件，用户 A （线程 A ）和用户 B （线程 B ）同时购买一件牙膏。
+ 线程 A 读取牙膏库存（ 100 件，并对数据加锁），此时线程 B 无法读取牙膏库存数据； 线程 A 将牙膏库存减 1 ，库存为 100-1=99 件； 线程 A 将数据更新至数据库，数据库牙膏库存为 99 件，数据解锁； 因为数据解锁了，线程 B 可以读取牙膏库存数据（ 99 件，并对数据加锁）； 线程 B 将牙膏库存减 1 ，库存为 99-1=98 件； 线程 B 将数据更新至数据库，数据库中牙膏库存变为 98 件，数据解锁。  注：执行顺序为绿色 → 蓝色 → 红色</description>
+    </item>
+    
+    <item>
+      <title>重写、重载的区别</title>
+      <link>https://HauyuChen.github.io/post/%E9%87%8D%E5%86%99%E4%B8%8E%E9%87%8D%E8%BD%BD%E7%9A%84%E5%8C%BA%E5%88%AB/</link>
+      <pubDate>Thu, 31 Aug 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://HauyuChen.github.io/post/%E9%87%8D%E5%86%99%E4%B8%8E%E9%87%8D%E8%BD%BD%E7%9A%84%E5%8C%BA%E5%88%AB/</guid>
+      <description>0 写在前面 重写和重载是面向对象程序设计中十分重要的两个概念，其中重写又称为覆盖。 通俗的理解就是，重写就是将一个方法的实现过程再写一遍，覆盖原有方法；重载就是增加一个方法的不同实现，而不覆盖原有的方法。
+
+1 重写（覆盖） 重写是子类对父类方法的实现过程的重新编写。重写的方法应与被重写的方法具有完全一致的返回值、方法名称、参数列表，也就是外壳完全一样，实现过程发生改变。
+重写规则：
+ 参数列表必须与原有方法完全相同； 返回类型必须与原有方法相同； 访问权限不能比父类中被重写的方法的访问权限更低； 父类成员方法只能被其子类重写； 声明为 final 的方法不能被重写； 声明为 static 的方法不能被重写，但能够被再次声明； 构造方法不能重写。  
+2 重载 重载与重写不同之处在于重载与原有方法具有同样的名称，但参数列表可以不同。重载的方法虽然名称和原有方法一样，但是可以认为它们是不同的方法。
+重载规则：
+ 重载的方法必须改变参数列表； 重载的方法可以改变返回类型； 重载的方法可以改变访问修饰符； 方法能在同一个类中或在一个子类中被重载。  
+3 对比 
+参考资料：http://www.runoob.com/java/java-override-overload.html</description>
+    </item>
+    
+    <item>
       <title>【设计模式】3.装饰者模式</title>
       <link>https://HauyuChen.github.io/post/dp-3-%E8%A3%85%E9%A5%B0%E8%80%85%E6%A8%A1%E5%BC%8F/</link>
-      <pubDate>Wed, 30 Aug 2017 00:00:00 +0000</pubDate>
+      <pubDate>Tue, 29 Aug 2017 00:00:00 +0000</pubDate>
       
       <guid>https://HauyuChen.github.io/post/dp-3-%E8%A3%85%E9%A5%B0%E8%80%85%E6%A8%A1%E5%BC%8F/</guid>
       <description>版权声明：本文由 Hov 所有，发布于 http://chenhy.com ，转载请注明出处。

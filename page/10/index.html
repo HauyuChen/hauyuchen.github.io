@@ -109,13 +109,13 @@
       
       
         <li class="pure-menu-item">
-          <a class="pure-menu-link" href="https://HauyuChen.github.io/about/"><i class='fa fa-user fa-fw'></i>关于我</a>
+          <a class="pure-menu-link" href="https://HauyuChen.github.io/about-me/"><i class='fa fa-user fa-fw'></i>关于我</a>
       
         </li>
       
       
         <li class="pure-menu-item">
-          <a class="pure-menu-link" href="https://HauyuChen.github.io/contact/"><i class='fa fa-home fa-fw'></i>关于本站</a>
+          <a class="pure-menu-link" href="https://HauyuChen.github.io/about-site/"><i class='fa fa-home fa-fw'></i>关于本站</a>
       
         </li>
       
@@ -233,6 +233,125 @@
 </div>
 
 <div class="content">
+  
+    <article>
+  <header>
+    <h2><a href="https://HauyuChen.github.io/post/409-longest-palindrome/">【LeetCode】409. Longest Palindrome</a></h2>
+
+    <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>2017-02-17</time>
+  </div>
+
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-folder fa-fw"></i>
+    
+      <a class="post-taxonomy-tag" href="https://HauyuChen.github.io/tags/leetcode">LeetCode</a>
+    
+  </div>
+  
+  
+
+  
+  
+  
+  <div>
+	<i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/%E7%AE%97%E6%B3%95">算法</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/leetcode">LeetCode</a>
+    
+  </div>
+  
+  
+  
+</div>
+
+  </header>
+
+  <p>
+  题目描述：  Given a string which consists of lowercase or uppercase letters, find the length of the longest palindromes that can be built with those letters.
+This is case sensitive, for example &ldquo;Aa&rdquo; is not considered a palindrome here.
+Note: Assume the length of given string will not exceed 1,010.
+Example:
+Input: &ldquo;abccccdd&rdquo;
+Output: 7
+Explanation: One longest palindrome that can be built is &ldquo;dccaccd&rdquo;, whose length is 7.
+  </p>
+
+  
+  <footer>
+    <a href="https://HauyuChen.github.io/post/409-longest-palindrome/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
+  </footer>
+  
+</article>
+
+  
+    <article>
+  <header>
+    <h2><a href="https://HauyuChen.github.io/post/401-binary-watch/">【LeetCode】401. Binary Watch</a></h2>
+
+    <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>2017-02-16</time>
+  </div>
+
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-folder fa-fw"></i>
+    
+      <a class="post-taxonomy-tag" href="https://HauyuChen.github.io/tags/leetcode">LeetCode</a>
+    
+  </div>
+  
+  
+
+  
+  
+  
+  <div>
+	<i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/%E7%AE%97%E6%B3%95">算法</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/leetcode">LeetCode</a>
+    
+  </div>
+  
+  
+  
+</div>
+
+  </header>
+
+  <p>
+  题目描述：  A binary watch has 4 LEDs on the top which represent the hours (0-11), and the 6 LEDs on the bottom represent the minutes (0-59).
+Each LED represents a zero or one, with the least significant bit on the right.
+For example, the above binary watch reads &ldquo;3:25&rdquo;.
+Given a non-negative integer n which represents the number of LEDs that are currently on, return all possible times the watch could represent.
+  </p>
+
+  
+  <footer>
+    <a href="https://HauyuChen.github.io/post/401-binary-watch/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
+  </footer>
+  
+</article>
+
   
     <article>
   <header>
@@ -402,117 +521,6 @@ Note: You may assume the string contain only lowercase letters.
  代码实现： class Solution { public: int firstUniqChar(string s) { int arr[26]; for(int i=0;i&lt;26;++i){ arr[i]=0; } for(int i=0;i&lt;s.size();++i){ ++arr[s[i]-'a']; } for(int i=0;i&lt;s.size();++i){ if(arr[s[i]-'a']==1){ return i; } } return -1; } };  
   </p>
 
-  
-</article>
-
-  
-    <article>
-  <header>
-    <h2><a href="https://HauyuChen.github.io/post/371-sum-of-two-integers/">【LeetCode】371. Sum of Two Integers</a></h2>
-
-    <div class="post-meta">
-
-  <div>
-    <i class="fa fa-calendar fa-fw"></i>
-    <time>2017-02-13</time>
-  </div>
-
-  
-
-  
-  
-  
-  <div>
-    <i class="fa fa-folder fa-fw"></i>
-    
-      <a class="post-taxonomy-tag" href="https://HauyuChen.github.io/tags/leetcode">LeetCode</a>
-    
-  </div>
-  
-  
-
-  
-  
-  
-  <div>
-	<i class="fa fa-tags fa-fw"></i>
-    
-      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/%E7%AE%97%E6%B3%95">算法</a>&nbsp;&#47;
-    
-      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/leetcode">LeetCode</a>
-    
-  </div>
-  
-  
-  
-</div>
-
-  </header>
-
-  <p>
-   题目描述：  Calculate the sum of two integers a and b, but you are not allowed to use the operator + and -.
-Example: Given a = 1 and b = 2, return 3.
- 代码实现： class Solution { public: int getSum(int a, int b) { return b==0?a:getSum(a^b,(a&amp;b)&lt;&lt;1); } };  
-  </p>
-
-  
-</article>
-
-  
-    <article>
-  <header>
-    <h2><a href="https://HauyuChen.github.io/post/383-ransom-note/">【LeetCode】383. Ransom Note</a></h2>
-
-    <div class="post-meta">
-
-  <div>
-    <i class="fa fa-calendar fa-fw"></i>
-    <time>2017-02-13</time>
-  </div>
-
-  
-
-  
-  
-  
-  <div>
-    <i class="fa fa-folder fa-fw"></i>
-    
-      <a class="post-taxonomy-tag" href="https://HauyuChen.github.io/tags/leetcode">LeetCode</a>
-    
-  </div>
-  
-  
-
-  
-  
-  
-  <div>
-	<i class="fa fa-tags fa-fw"></i>
-    
-      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/%E7%AE%97%E6%B3%95">算法</a>&nbsp;&#47;
-    
-      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/leetcode">LeetCode</a>
-    
-  </div>
-  
-  
-  
-</div>
-
-  </header>
-
-  <p>
-  题目描述：  Given an arbitrary ransom note string and another string containing letters from all the magazines, write a function that will return true if the ransom note can be constructed from the magazines ; otherwise, it will return false.
-Each letter in the magazine string can only be used once in your ransom note.
-Note: You may assume that both strings contain only lowercase letters.
- canConstruct(&ldquo;a&rdquo;, &ldquo;b&rdquo;) -&gt; false canConstruct(&ldquo;aa&rdquo;, &ldquo;ab&rdquo;) -&gt; false canConstruct(&ldquo;aa&rdquo;, &ldquo;aab&rdquo;) -&gt; true   代码实现： class Solution { public: bool canConstruct(string ransomNote, string magazine) { if(magazine.
-  </p>
-
-  
-  <footer>
-    <a href="https://HauyuChen.github.io/post/383-ransom-note/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
-  </footer>
   
 </article>
 
