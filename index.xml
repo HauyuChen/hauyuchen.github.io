@@ -7,10 +7,27 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2017. All rights reserved.</copyright>
-    <lastBuildDate>Fri, 01 Sep 2017 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 03 Sep 2017 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://HauyuChen.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Elasticsearch的乐观并发控制</title>
+      <link>https://HauyuChen.github.io/post/es-es%E7%9A%84%E4%B9%90%E8%A7%82%E5%B9%B6%E5%8F%91%E6%8E%A7%E5%88%B6/</link>
+      <pubDate>Sun, 03 Sep 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://HauyuChen.github.io/post/es-es%E7%9A%84%E4%B9%90%E8%A7%82%E5%B9%B6%E5%8F%91%E6%8E%A7%E5%88%B6/</guid>
+      <description>0 前言 Elasticsearch 采用的是乐观锁并发控制，基于 Elasticsearch 提供的 _version 字段或我们自己定义的外部版本号，可以方便地实现乐观并发控制。
+扩展阅读：并发控制（乐观锁、悲观锁）
+
+1 基于 _version 的乐观并发控制 1.1 _version _version 是 ES 中提供的一个字段，它表明当前数据的版本号。我们可根据它来对比数据的版本是否一致。
+1.2 操作实例 （1）构造一条数据。
+PUT test_index/test_type/7 { &amp;quot;test_field&amp;quot;:&amp;quot;test test&amp;quot; }  （2）模拟两个客户端，获取同一条数据。
+GET test_index/test_type/7  执行结果：两个客户端都能读到 id 为 7 的数据，版本号为 1 。
+{ &amp;quot;_index&amp;quot;: &amp;quot;test_index&amp;quot;, &amp;quot;_type&amp;quot;: &amp;quot;test_type&amp;quot;, &amp;quot;_id&amp;quot;: &amp;quot;7&amp;quot;, &amp;quot;_version&amp;quot;: 1, &amp;quot;found&amp;quot;: true, &amp;quot;_source&amp;quot;: { &amp;quot;test_field&amp;quot;: &amp;quot;test test&amp;quot; } }  （3）一个客户端先更新数据，同时带上数据的版本号（?version=1）。确保 ES 中的数据版本号与客户端中的数据版本号是相同的才能修改。
+PUT test_index/test_type/7?version=1 { &amp;quot;test_field&amp;quot;:&amp;quot;test client 1&amp;quot; }  执行结果：修改成功，数据的版本号变为 2 。</description>
+    </item>
     
     <item>
       <title>并发控制（乐观锁、悲观锁）</title>
@@ -1257,6 +1274,28 @@ Update (2015-02-10): The signature of the C++ function had been updated.</descri
 1 概述 写过程序的人都知道每个程序都是从 main 函数开始执行的，在 ZigBee 程序中也不例外。在一个 Zigbee 工程中，程序从 main 函数开始执行，经过一步一步的函数调用（一些系统功能的初始化，建议跟踪一下从 main 函数到 SampleApp_ProcessEvent 函数的过程），程序最终来到了 SampleApp_ProcessEvent 函数， SampleApp_ProcessEvent(uint8 task_id,uint16 events) 是一个颇为重要的函数，整个工程更像是围绕着这个函数运行。
 说白了，我们要通过这个函数来处理所有事件。
 比如： if ( events &amp;amp; SYS_EVENT_MSG ) 处理系统事件，if ( events &amp;amp; SAMPLEAPP_SEND_PERIODIC_MSG_EVT ) 处理用户定义的事件。在不同的事件处理代码中，通过一个 switch 语句把所要处理的任务分成几个 case 来处理，在每个 case 里面调用相应的函数，我们通过定义这些函数执行我们想要的功能即可。</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://HauyuChen.github.io/post/2java%E8%BF%9B%E7%A8%8B%E9%80%9A%E4%BF%A1%E5%85%B1%E4%BA%AB%E5%86%85%E5%AD%98/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://HauyuChen.github.io/post/2java%E8%BF%9B%E7%A8%8B%E9%80%9A%E4%BF%A1%E5%85%B1%E4%BA%AB%E5%86%85%E5%AD%98/</guid>
+      <description>0 写在前面 说到进程通信，第一个想到的想必是经典的Socket通信。但像Socket这样的网络通信会增加额外的网络负担，同时也增加了一定的代码量。
+共享内存方式具有数据共享，系统快速查询、动态配置、减少资源耗费等优点。
+共享内存特点：
+ 可被多个进程打开访问； 读写操作的进程在执行读写操作时，其他进程不能进行写操作； 多个进程可以交替对某一共享内存执行写操作； 一个进程执行了内存的写操作后，不影响其他进程对该内存的访问，同时其他进程对更新后的内存具有可见性；  Java进程间的共享内存通过内存映射文件 NIO （MappedByteBuffer）实现，不同进程的内存映射文件关联到同一物理文件。该文件通常为随机存取文件对象，实现文件和内存的映射，即时双向同步。
+1 要点 1.1 MappedByteBuffer Java IO 操作的BufferedReader、BufferedInputStream等相信大家都很熟悉，不过Java NIO 中引入了一种基于MappedByteBuffer操作大文件的方式，其读写性能极高。
+MappedByteBuffer为共享内存缓冲区，实际上是一个磁盘文件的内存映射，实现内存与文件的同步变化，有效地保证共享内存的实现。
+1.2 FileChannel FileChannel 是将共享内存和磁盘文件建立联系的文件通道类。FileChannel 类的加入是JDK为了统一对外设备（文件、网络接口等）的访问方法，并加强了多线程对同一文件进行存取的安全性。
+我们在这里用它来建立共享内存和磁盘文件间的一个通道。
+1.3 RandomAccessFile RandomAccessFile是Java IO 体系中功能最丰富的文件内容访问类，它提供很多方法来操作文件，包括读写支持，与普通的IO流相比，它最大的特别之处就是支持任意访问的方式，程序可以直接跳到任意地方来读写数据。
+举个栗子：
+现有如下的一个需求，向已存在1G数据的txt文本里末尾追加一行文字，内容如下“Lucene是一款非常优秀的全文检索库”。可能大多数朋友会觉得这个需求很easy，说实话，确实easy，然后XXX君开始实现了，直接使用Java中的流读取了txt文本里原来所有的数据转成字符串后，然后拼接了“Lucene是一款非常优秀的全文检索库”，又写回文本里了，至此，大功告成。后来需求改了，向5G数据的txt文本里追加了，结果XXX君傻了，他内存只有4G，如果强制读取所有的数据并追加，会报内存溢出的异常。
+其实上面的需求很简单，如果我们使用JAVA IO体系中的RandomAccessFile类来完成的话，可以实现零内存追加。其实这就是支持任意位置读写类的强大之处。
+2 Java进程共享内存实例 (1)写进程
+/* NIOWrite.java */ import java.io.RandomAccessFile; import java.nio.MappedByteBuffer; import java.nio.channels.FileChannel; import java.nio.channels.FileChannel.MapMode; public class NIOWrite { private static RandomAccessFile raf; public static void main(String[] args) throws Exception { //建立文件和内存的映射，即时双向同步 raf = new RandomAccessFile(&amp;quot;D:/tmp/swap.</description>
     </item>
     
   </channel>

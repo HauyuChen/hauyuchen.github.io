@@ -234,6 +234,69 @@
   
     <article>
   <header>
+    <h2><a href="https://HauyuChen.github.io/post/es-es%E7%9A%84%E4%B9%90%E8%A7%82%E5%B9%B6%E5%8F%91%E6%8E%A7%E5%88%B6/">Elasticsearch的乐观并发控制</a></h2>
+
+    <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>2017-09-03</time>
+  </div>
+
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-folder fa-fw"></i>
+    
+      <a class="post-taxonomy-tag" href="https://HauyuChen.github.io/tags/elasticsearch">Elasticsearch</a>
+    
+  </div>
+  
+  
+
+  
+  
+  
+  <div>
+	<i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/elasticsearch">Elasticsearch</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/%E5%B9%B6%E5%8F%91%E6%8E%A7%E5%88%B6">并发控制</a>
+    
+  </div>
+  
+  
+  
+</div>
+
+  </header>
+
+  <p>
+  0 前言 Elasticsearch 采用的是乐观锁并发控制，基于 Elasticsearch 提供的 _version 字段或我们自己定义的外部版本号，可以方便地实现乐观并发控制。
+扩展阅读：并发控制（乐观锁、悲观锁）
+
+1 基于 _version 的乐观并发控制 1.1 _version _version 是 ES 中提供的一个字段，它表明当前数据的版本号。我们可根据它来对比数据的版本是否一致。
+1.2 操作实例 （1）构造一条数据。
+PUT test_index/test_type/7 { &quot;test_field&quot;:&quot;test test&quot; }  （2）模拟两个客户端，获取同一条数据。
+GET test_index/test_type/7  执行结果：两个客户端都能读到 id 为 7 的数据，版本号为 1 。
+{ &quot;_index&quot;: &quot;test_index&quot;, &quot;_type&quot;: &quot;test_type&quot;, &quot;_id&quot;: &quot;7&quot;, &quot;_version&quot;: 1, &quot;found&quot;: true, &quot;_source&quot;: { &quot;test_field&quot;: &quot;test test&quot; } }  （3）一个客户端先更新数据，同时带上数据的版本号（?version=1）。确保 ES 中的数据版本号与客户端中的数据版本号是相同的才能修改。
+PUT test_index/test_type/7?version=1 { &quot;test_field&quot;:&quot;test client 1&quot; }  执行结果：修改成功，数据的版本号变为 2 。
+  </p>
+
+  
+  <footer>
+    <a href="https://HauyuChen.github.io/post/es-es%E7%9A%84%E4%B9%90%E8%A7%82%E5%B9%B6%E5%8F%91%E6%8E%A7%E5%88%B6/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
+  </footer>
+  
+</article>
+
+  
+    <article>
+  <header>
     <h2><a href="https://HauyuChen.github.io/post/%E5%B9%B6%E5%8F%91%E6%8E%A7%E5%88%B6%E6%82%B2%E8%A7%82%E9%94%81%E4%B9%90%E8%A7%82%E9%94%81/">并发控制（乐观锁、悲观锁）</a></h2>
 
     <div class="post-meta">
