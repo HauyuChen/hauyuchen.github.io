@@ -7,10 +7,30 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2017. All rights reserved.</copyright>
-    <lastBuildDate>Tue, 01 Aug 2017 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 06 Sep 2017 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://HauyuChen.github.io/tags/java/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Java 进程通信（共享内存）</title>
+      <link>https://HauyuChen.github.io/post/java-%E8%BF%9B%E7%A8%8B%E9%80%9A%E4%BF%A1%E5%85%B1%E4%BA%AB%E5%86%85%E5%AD%98/</link>
+      <pubDate>Wed, 06 Sep 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://HauyuChen.github.io/post/java-%E8%BF%9B%E7%A8%8B%E9%80%9A%E4%BF%A1%E5%85%B1%E4%BA%AB%E5%86%85%E5%AD%98/</guid>
+      <description>0 写在前面 说到进程通信，我们很轻易就能想到经典的 Socket 通信。但像 Socket 这样的网络通信会增加额外的网络负担，同时也增加了一定的代码量。
+共享内存方式是实现进程通信的另外一种方式，其具有数据共享，系统快速查询、动态配置、减少资源耗费等优点。
+共享内存特点：
+ 可被多个进程打开访问； 读写操作的进程在执行读写操作时，其他进程不能进行写操作； 多个进程可以交替对某一共享内存执行写操作； 一个进程执行内存写操作后，不影响其他进程对该内存的访问，同时其他进程对更新后的内存具有可见性；  Java 进程间的共享内存通过内存映射文件 NIO （MappedByteBuffer）实现，不同进程的内存映射文件关联到同一物理文件。该文件通常为随机存取文件对象，实现文件和内存的映射，即时双向同步。
+
+1 要点 1.1 MappedByteBuffer Java IO 操作的 BufferedReader 、 BufferedInputStream 等相信大家都很熟悉，不过在 Java NIO 中引入了一种基于 MappedByteBuffer 操作大文件的方式，其读写性能极高。
+MappedByteBuffer 为共享内存缓冲区，实际上是一个磁盘文件的内存映射，实现内存与文件的同步变化，可有效地保证共享内存的实现。
+1.2 FileChannel FileChannel 是将共享内存和磁盘文件建立联系的文件通道类。FileChannel 类的加入是 JDK 为了统一对外设备（文件、网络接口等）的访问方法，并加强了多线程对同一文件进行存取的安全性。我们在这里用它来建立共享内存和磁盘文件间的一个通道。
+1.3 RandomAccessFile RandomAccessFile 是 Java IO 体系中功能最丰富的文件内容访问类，它提供很多方法来操作文件，包括读写支持，与普通的IO流相比，它最大的特别之处就是支持任意访问的方式，程序可以直接跳到任意地方来读写数据。
+举个栗子：
+如果我们要向已存在的大小为 1G 的 txt 文本里末尾追加一行文字，内容如下“ Lucene 是一款非常优秀的全文检索库”。其实直接使用 Java 中的流读取 txt 文本里所有的数据转成字符串后，然后拼接“ Lucene 是一款非常优秀的全文检索库”，又写回文本即可。
+但如果需求改了，我们要想向大小为 5G 的 txt 文本里追加数据。如果我们电脑的内存只有 4G ，强制读取所有的数据并追加，将会报内存溢出的异常。显然，上面的方法不再合适。</description>
+    </item>
     
     <item>
       <title>JSON相关操作（Java）</title>
