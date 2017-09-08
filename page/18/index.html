@@ -236,6 +236,60 @@
   
     <article>
   <header>
+    <h2><a href="https://HauyuChen.github.io/post/053-maximum-subarray/">【LeetCode】53. Maximum Subarray</a></h2>
+
+    <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>2016-06-12</time>
+  </div>
+
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-folder fa-fw"></i>
+    
+      <a class="post-taxonomy-tag" href="https://HauyuChen.github.io/tags/leetcode">LeetCode</a>
+    
+  </div>
+  
+  
+
+  
+  
+  
+  <div>
+	<i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/%E7%AE%97%E6%B3%95">算法</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/leetcode">LeetCode</a>
+    
+  </div>
+  
+  
+  
+</div>
+
+  </header>
+
+  <p>
+   题目描述：  Find the contiguous subarray within an array (containing at least one number) which has the largest sum.
+For example, given the array [-2,1,-3,4,-1,2,1,-5,4], the contiguous subarray [4,-1,2,1] has the largest sum = 6.
+ 我的思路：  用sum保存连续序列之和，用max表示最大值，一次遍历即可，时间复杂度O(n)。
+ sum&lt;0,则舍弃前面的数 sum&gt;max,则更新最大值max   代码实现： int maxSubArray(int* nums, int numsSize) { int sum=0; int max=INT_MIN; for(int i=0;i&lt;numsSize;i++){ sum+=nums[i]; if(sum&gt;max){ max = sum; } if(sum&lt;0){ sum = 0; } } return max; }  
+  </p>
+
+  
+</article>
+
+  
+    <article>
+  <header>
     <h2><a href="https://HauyuChen.github.io/post/001-two-sum/">【LeetCode】1. Two Sum</a></h2>
 
     <div class="post-meta">
@@ -490,72 +544,6 @@ Update (2015-02-10): The signature of the C++ function had been updated.
 </article>
 
   
-    <article>
-  <header>
-    <h2><a href="https://HauyuChen.github.io/post/zb-zigbee-guide/">【ZigBee系列】1.浅析ZigBee工程</a></h2>
-
-    <div class="post-meta">
-
-  <div>
-    <i class="fa fa-calendar fa-fw"></i>
-    <time>2016-05-17</time>
-  </div>
-
-  
-
-  
-  
-  
-  <div>
-    <i class="fa fa-folder fa-fw"></i>
-    
-      <a class="post-taxonomy-tag" href="https://HauyuChen.github.io/tags/zigbee">ZigBee</a>
-    
-  </div>
-  
-  
-
-  
-  
-  
-  <div>
-	<i class="fa fa-tags fa-fw"></i>
-    
-      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/zigbee">ZigBee</a>&nbsp;&#47;
-    
-      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/%E7%89%A9%E8%81%94%E7%BD%91">物联网</a>&nbsp;&#47;
-    
-      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/%E6%97%A0%E7%BA%BF%E4%BC%A0%E6%84%9F%E5%99%A8">无线传感器</a>
-    
-  </div>
-  
-  
-  
-</div>
-
-  </header>
-
-  <p>
-  作者注： ZigBee 系列共三篇，首先讲解 ZigBee 工程的结构，然后通过两个具体项目熟悉 ZigBee 的应用。在学习本系列内容前，您需要掌握单片机相关知识、 ZigBee 基础知识，希望本系列教程能对您开发 ZigBee 项目有所启发。如有任何问题，欢迎您随时与我联系：Hauyu.Chen@Gmail.com
-版权声明：本文由 Hov 所有，发布于 http://chenhy.com ，转载请注明出处。
-
-0 写在前面 大一暑假，我开始学习ZigBee技术。这篇文章是在大一暑假结束后完成的，主要是想写一下在学习ZigBee过程中的思路，以及一个ZigBee工程中的核心内容。因为在刚学习ZigBee的时候，面对着大量的代码，有种无从下手的感觉。
-本文基于 Z-Stack 的例程 SampleApp 展开，旨在突出在一个ZigBee工程中比较核心的部分，建议大家看过 Z-Stack 中的例程后作参考之用。
-注：Z-Stack 安装文件：https://github.com/HauyuChen/Z-Stack
-
-1 概述 写过程序的人都知道每个程序都是从 main 函数开始执行的，在 ZigBee 程序中也不例外。在一个 Zigbee 工程中，程序从 main 函数开始执行，经过一步一步的函数调用（一些系统功能的初始化，建议跟踪一下从 main 函数到 SampleApp_ProcessEvent 函数的过程），程序最终来到了 SampleApp_ProcessEvent 函数， SampleApp_ProcessEvent(uint8 task_id,uint16 events) 是一个颇为重要的函数，整个工程更像是围绕着这个函数运行。
-说白了，我们要通过这个函数来处理所有事件。
-比如： if ( events &amp; SYS_EVENT_MSG ) 处理系统事件，if ( events &amp; SAMPLEAPP_SEND_PERIODIC_MSG_EVT ) 处理用户定义的事件。在不同的事件处理代码中，通过一个 switch 语句把所要处理的任务分成几个 case 来处理，在每个 case 里面调用相应的函数，我们通过定义这些函数执行我们想要的功能即可。
-  </p>
-
-  
-  <footer>
-    <a href="https://HauyuChen.github.io/post/zb-zigbee-guide/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
-  </footer>
-  
-</article>
-
-  
 
   
 
@@ -564,9 +552,9 @@ Update (2015-02-10): The signature of the C++ function had been updated.
   
   <a href="https://HauyuChen.github.io/page/17/"><i class="fa fa-chevron-left"></i></a>
   
-  <span>&nbsp;18 / 18&nbsp;</span>
+  <span>&nbsp;18 / 19&nbsp;</span>
   
-  <i class="fa fa-chevron-right"></i>
+  <a href="https://HauyuChen.github.io/page/19/"><i class="fa fa-chevron-right"></i></a>
   
 </nav>
 

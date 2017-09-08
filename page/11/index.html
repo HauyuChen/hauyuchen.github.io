@@ -236,6 +236,60 @@
   
     <article>
   <header>
+    <h2><a href="https://HauyuChen.github.io/post/404-sum-of-left-leaves/">【LeetCode】404. Sum of Left Leaves</a></h2>
+
+    <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>2017-02-16</time>
+  </div>
+
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-folder fa-fw"></i>
+    
+      <a class="post-taxonomy-tag" href="https://HauyuChen.github.io/tags/leetcode">LeetCode</a>
+    
+  </div>
+  
+  
+
+  
+  
+  
+  <div>
+	<i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/%E7%AE%97%E6%B3%95">算法</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/leetcode">LeetCode</a>
+    
+  </div>
+  
+  
+  
+</div>
+
+  </header>
+
+  <p>
+   题目描述：  Find the sum of all left leaves in a given binary tree.
+Example:
+ 3 / \ 9 20 / \ 15 7  There are two left leaves in the binary tree, with values 9 and 15 respectively. Return 24.
+ 代码实现： /** * Definition for a binary tree node. * struct TreeNode { * int val; * TreeNode *left; * TreeNode *right; * TreeNode(int x) : val(x), left(NULL), right(NULL) {} * }; */ class Solution { public: int sumOfLeftLeaves(TreeNode* root) { if(root==nullptr){ return 0; } int sum=0; if(root-&gt;left){ if(root-&gt;left-&gt;left==nullptr &amp;&amp; root-&gt;left-&gt;right==nullptr){ sum+=root-&gt;left-&gt;val; }else{ sum+=sumOfLeftLeaves(root-&gt;left); } } if(root-&gt;right){ sum+=sumOfLeftLeaves(root-&gt;right); } return sum; } };  
+  </p>
+
+  
+</article>
+
+  
+    <article>
+  <header>
     <h2><a href="https://HauyuChen.github.io/post/389-find-the-difference/">【LeetCode】389. Find the Difference</a></h2>
 
     <div class="post-meta">
@@ -463,60 +517,6 @@ Note: You may assume that both strings contain only lowercase letters.
 </article>
 
   
-    <article>
-  <header>
-    <h2><a href="https://HauyuChen.github.io/post/349-intersection-of-two-arrays/">【LeetCode】349. Intersection of Two Arrays</a></h2>
-
-    <div class="post-meta">
-
-  <div>
-    <i class="fa fa-calendar fa-fw"></i>
-    <time>2017-01-15</time>
-  </div>
-
-  
-
-  
-  
-  
-  <div>
-    <i class="fa fa-folder fa-fw"></i>
-    
-      <a class="post-taxonomy-tag" href="https://HauyuChen.github.io/tags/leetcode">LeetCode</a>
-    
-  </div>
-  
-  
-
-  
-  
-  
-  <div>
-	<i class="fa fa-tags fa-fw"></i>
-    
-      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/%E7%AE%97%E6%B3%95">算法</a>&nbsp;&#47;
-    
-      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/leetcode">LeetCode</a>
-    
-  </div>
-  
-  
-  
-</div>
-
-  </header>
-
-  <p>
-   题目描述：  Given two arrays, write a function to compute their intersection.
-Example: Given nums1 = [1, 2, 2, 1], nums2 = [2, 2], return [2].
-Note: Each element in the result must be unique. The result can be in any order.
- 代码实现： class Solution { public: vector&lt;int&gt; intersection(vector&lt;int&gt;&amp; nums1, vector&lt;int&gt;&amp; nums2) { unordered_set&lt;int&gt; s; vector&lt;int&gt; ret; for(int num1:nums1){ if(s.count(num1)==0){ s.insert(num1); } } for(int num2:nums2){ if(s.count(num2)){ ret.push_back(num2); s.erase(num2); } } return ret; } };  
-  </p>
-
-  
-</article>
-
-  
 
   
 
@@ -525,7 +525,7 @@ Note: Each element in the result must be unique. The result can be in any order.
   
   <a href="https://HauyuChen.github.io/page/10/"><i class="fa fa-chevron-left"></i></a>
   
-  <span>&nbsp;11 / 18&nbsp;</span>
+  <span>&nbsp;11 / 19&nbsp;</span>
   
   <a href="https://HauyuChen.github.io/page/12/"><i class="fa fa-chevron-right"></i></a>
   
