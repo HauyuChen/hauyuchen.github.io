@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://HauyuChen.github.io/post/es-bulk/</loc>
+    <lastmod>2017-09-09T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://HauyuChen.github.io/post/es-mget/</loc>
     <lastmod>2017-09-08T00:00:00+00:00</lastmod>
   </url>
@@ -473,7 +478,15 @@
   </url>
   
   <url>
+    <loc>https://HauyuChen.github.io/post/2java%E5%85%B3%E9%94%AE%E5%AD%97thissuperstaticfinal/</loc>
+  </url>
+  
+  <url>
     <loc>https://HauyuChen.github.io/post/2%E4%BB%A3%E7%A0%81%E8%B0%83%E8%AF%95/</loc>
+  </url>
+  
+  <url>
+    <loc>https://HauyuChen.github.io/post/2%E6%8A%BD%E8%B1%A1%E7%B1%BB%E4%B8%8E%E6%8E%A5%E5%8F%A3/</loc>
   </url>
   
   <url>
@@ -487,31 +500,31 @@
   </url>
   
   <url>
-    <loc>https://HauyuChen.github.io/topics/elasticsearch/</loc>
-    <lastmod>2017-09-08T00:00:00+00:00</lastmod>
+    <loc>https://HauyuChen.github.io/tags/elasticsearch/</loc>
+    <lastmod>2017-09-09T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://HauyuChen.github.io/tags/elasticsearch/</loc>
-    <lastmod>2017-09-08T00:00:00+00:00</lastmod>
+    <loc>https://HauyuChen.github.io/topics/elasticsearch/</loc>
+    <lastmod>2017-09-09T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://HauyuChen.github.io/</loc>
-    <lastmod>2017-09-08T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://HauyuChen.github.io/topics/java/</loc>
-    <lastmod>2017-09-06T00:00:00+00:00</lastmod>
+    <lastmod>2017-09-09T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://HauyuChen.github.io/tags/java/</loc>
+    <lastmod>2017-09-06T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://HauyuChen.github.io/topics/java/</loc>
     <lastmod>2017-09-06T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
@@ -524,13 +537,7 @@
   
   <url>
     <loc>https://HauyuChen.github.io/topics/kibana/</loc>
-    <lastmod>2017-09-08T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://HauyuChen.github.io/topics/leetcode/</loc>
-    <lastmod>2017-08-25T00:00:00+00:00</lastmod>
+    <lastmod>2017-09-09T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -541,8 +548,14 @@
   </url>
   
   <url>
+    <loc>https://HauyuChen.github.io/topics/leetcode/</loc>
+    <lastmod>2017-08-25T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://HauyuChen.github.io/post/</loc>
-    <lastmod>2017-09-08T00:00:00+00:00</lastmod>
+    <lastmod>2017-09-09T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -554,7 +567,7 @@
   
   <url>
     <loc>https://HauyuChen.github.io/tags/</loc>
-    <lastmod>2017-09-08T00:00:00+00:00</lastmod>
+    <lastmod>2017-09-09T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -571,14 +584,14 @@
   </url>
   
   <url>
-    <loc>https://HauyuChen.github.io/topics/zigbee/</loc>
-    <lastmod>2016-05-22T00:00:00+00:00</lastmod>
+    <loc>https://HauyuChen.github.io/tags/zigbee/</loc>
+    <lastmod>2016-05-17T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://HauyuChen.github.io/tags/zigbee/</loc>
-    <lastmod>2016-05-17T00:00:00+00:00</lastmod>
+    <loc>https://HauyuChen.github.io/topics/zigbee/</loc>
+    <lastmod>2016-05-22T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -596,7 +609,7 @@
   
   <url>
     <loc>https://HauyuChen.github.io/topics/%E5%88%86%E5%B8%83%E5%BC%8F%E6%90%9C%E7%B4%A2/</loc>
-    <lastmod>2017-09-08T00:00:00+00:00</lastmod>
+    <lastmod>2017-09-09T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -619,13 +632,13 @@
   </url>
   
   <url>
-    <loc>https://HauyuChen.github.io/topics/%E5%B7%A5%E5%85%B7/</loc>
+    <loc>https://HauyuChen.github.io/tags/%E5%B7%A5%E5%85%B7/</loc>
     <lastmod>2017-07-19T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://HauyuChen.github.io/tags/%E5%B7%A5%E5%85%B7/</loc>
+    <loc>https://HauyuChen.github.io/topics/%E5%B7%A5%E5%85%B7/</loc>
     <lastmod>2017-07-19T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
@@ -643,13 +656,13 @@
   </url>
   
   <url>
-    <loc>https://HauyuChen.github.io/topics/%E6%95%B0%E6%8D%AE%E5%BA%93/</loc>
+    <loc>https://HauyuChen.github.io/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/</loc>
     <lastmod>2017-09-01T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://HauyuChen.github.io/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/</loc>
+    <loc>https://HauyuChen.github.io/topics/%E6%95%B0%E6%8D%AE%E5%BA%93/</loc>
     <lastmod>2017-09-01T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
@@ -667,14 +680,14 @@
   </url>
   
   <url>
-    <loc>https://HauyuChen.github.io/topics/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/</loc>
-    <lastmod>2017-08-16T00:00:00+00:00</lastmod>
+    <loc>https://HauyuChen.github.io/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/</loc>
+    <lastmod>2017-07-11T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://HauyuChen.github.io/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/</loc>
-    <lastmod>2017-07-11T00:00:00+00:00</lastmod>
+    <loc>https://HauyuChen.github.io/topics/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/</loc>
+    <lastmod>2017-08-16T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -733,14 +746,14 @@
   </url>
   
   <url>
-    <loc>https://HauyuChen.github.io/topics/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/</loc>
-    <lastmod>2017-08-29T00:00:00+00:00</lastmod>
+    <loc>https://HauyuChen.github.io/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/</loc>
+    <lastmod>2017-08-17T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://HauyuChen.github.io/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/</loc>
-    <lastmod>2017-08-17T00:00:00+00:00</lastmod>
+    <loc>https://HauyuChen.github.io/topics/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/</loc>
+    <lastmod>2017-08-29T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   

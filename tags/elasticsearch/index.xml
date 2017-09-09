@@ -7,10 +7,25 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2017. All rights reserved.</copyright>
-    <lastBuildDate>Fri, 08 Sep 2017 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 09 Sep 2017 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://HauyuChen.github.io/tags/elasticsearch/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Elasticsearch实现批量更新</title>
+      <link>https://HauyuChen.github.io/post/es-bulk/</link>
+      <pubDate>Sat, 09 Sep 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://HauyuChen.github.io/post/es-bulk/</guid>
+      <description>1 bulk 前面我们已经提到批量查询 mget ，那么如果我们想要批量导入数据呢？当然也有解决方法，那就是我们现在要讲的 bulk 。 bulk 允许我们使用单一请求来实现多个文档的 create 、 index 、 update 或 delete ，这在我们平时的应用中是很重要的。
+
+2 bulk 语法 bulk API 对 JSON 的语法有严格的要求，具体要求：bulk 中每一个操作要两个 JSON 串，每个 JSON 串不能换行，只能放在同一行，而 JSON 串和 JSON 串之间，必须有一个换行。
+bulk 允许我们批量执行不同的操作，常用操作如下：
+ delete：删除文档，delete比较特殊，只需1个 JSON 串即可； create：相当于 PUT /index/type/id/_create，只不过是强制创建； index：普通的 PUT 操作，可以是创建文档，也可以是全量替换文档； update：执行 partial update 操作。  语法格式如下：
+POST /_bulk { {&amp;quot;action&amp;quot;: {&amp;quot;metadata&amp;quot;}} //一个操作需两个JSON，delete除外 {&amp;quot;data&amp;quot;} }  举个栗子：
+我们要创建一个文档，其中 index 为 &amp;ldquo;test_index&amp;rdquo; ， type 为 &amp;ldquo;test_type&amp;rdquo; ， id 为 1 ; field 有两个，分别是 test_field1 为 &amp;ldquo;test1&amp;rdquo; 、 test_field2 为 &amp;ldquo;test2&amp;rdquo; 。</description>
+    </item>
     
     <item>
       <title>Elasticsearch实现批量查询</title>

@@ -236,6 +236,63 @@
   
     <article>
   <header>
+    <h2><a href="https://HauyuChen.github.io/post/551-student-attendance-record-i/">【LeetCode】551. Student Attendance Record I</a></h2>
+
+    <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>2017-08-15</time>
+  </div>
+
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-folder fa-fw"></i>
+    
+      <a class="post-taxonomy-tag" href="https://HauyuChen.github.io/tags/leetcode">LeetCode</a>
+    
+  </div>
+  
+  
+
+  
+  
+  
+  <div>
+	<i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/%E7%AE%97%E6%B3%95">算法</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/leetcode">LeetCode</a>
+    
+  </div>
+  
+  
+  
+</div>
+
+  </header>
+
+  <p>
+  题目描述：  You are given a string representing an attendance record for a student. The record only contains the following three characters:
+ &lsquo;A&rsquo; : Absent. &lsquo;L&rsquo; : Late. &lsquo;P&rsquo; : Present.  A student could be rewarded if his attendance record doesn&rsquo;t contain more than one &lsquo;A&rsquo; (absent) or more than two continuous &lsquo;L&rsquo; (late).
+You need to return whether the student could be rewarded according to his attendance record.
+  </p>
+
+  
+  <footer>
+    <a href="https://HauyuChen.github.io/post/551-student-attendance-record-i/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
+  </footer>
+  
+</article>
+
+  
+    <article>
+  <header>
     <h2><a href="https://HauyuChen.github.io/post/543-diameter-of-binary-tree/">【LeetCode】543. Diameter of Binary Tree</a></h2>
 
     <div class="post-meta">
@@ -468,90 +525,6 @@ Example: Input: s = &ldquo;abcdefg&rdquo;, k = 2 Output: &ldquo;bacdfeg&rdquo;
 </article>
 
   
-    <article>
-  <header>
-    <h2><a href="https://HauyuChen.github.io/post/ml-6-regulation/">【机器学习笔记】6. 正则化</a></h2>
-
-    <div class="post-meta">
-
-  <div>
-    <i class="fa fa-calendar fa-fw"></i>
-    <time>2017-08-10</time>
-  </div>
-
-  
-
-  
-  
-  
-  <div>
-    <i class="fa fa-folder fa-fw"></i>
-    
-      <a class="post-taxonomy-tag" href="https://HauyuChen.github.io/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0">机器学习</a>
-    
-  </div>
-  
-  
-
-  
-  
-  
-  <div>
-	<i class="fa fa-tags fa-fw"></i>
-    
-      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0">机器学习</a>&nbsp;&#47;
-    
-      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92">线性回归</a>&nbsp;&#47;
-    
-      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92">逻辑回归</a>&nbsp;&#47;
-    
-      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/%E6%AD%A3%E5%88%99%E5%8C%96">正则化</a>
-    
-  </div>
-  
-  
-  
-</div>
-
-  </header>
-
-  <p>
-  作者注：机器学习系列是本人在学习机器学习相关内容时产生的笔记，希望也能对您有所帮助。值得注意的是，作者作为初学者，表述难免有误或不全面，望多批评指正。 如有任何问题，欢迎您随时与我联系：Hauyu.Chen@Gmail.com
-版权声明：本文由 Hov 所有，发布于 http://chenhy.com ，转载请注明出处。
-
-0 前言 前面我们已经提到了线性回归、 逻辑回归的概念。我们通过假设函数去拟合训练集，事实上，在拟合的过程中可能会出现 Overfitting （过拟合）的情况，本文要讲的 Regulation （正则化）是解决 Overfitting 的主要方法之一。
-
-1 拟合问题 在讲解正则化之前，我们需要先了解一下拟合的概念。
-还记得房价预测的栗子吗？我们通过房屋面积预测房价，给定一个训练集，我们要用假设函数去拟合这些数据。但其实房屋面积和房价的关系并非线性关系，不能简单地用一条直线来表示。
-（1）Underfitting（欠拟合）
-下图所示，蓝色直线（假设函数）并不能很好地拟合样本数据，我们将这种情况称为 Underfitting （欠拟合），也可以称为 High bias （高偏差）。
-（2）Just Right（刚好拟合）
-在原有的假设函数上增加一个二次项，原来的线性函数变成了二次函数，下图为拟合效果，显然，比之前的拟合得更好。蓝色的直线较好地拟合了样本数据，我们可以认为其刚好拟合。
-（3）Overfitting（过拟合）
-从前两种情况，我们发现增加了新的参数（增加了一个二次项），数据拟合得更好了。现在，我们增加一个三次项和四次项，拟合效果将如下所示，蓝色的线经过了每一个点，而且上下扭曲。这就属于 Overfitting （过拟合），也可称之为 High Variance （高方差）。
-你也许会问，我们不是说要让假设函数尽量拟合吗？为什么现在每个数据都拟合了，我们还要去处理它呢？
-这是因为，尽管现在的数据拟合得很完美，但它只是和训练样本的拟合，如果我们加入新的测试样本，这样的假设函数往往预测的效果很糟糕。
-也就是说，这种模型无法泛化到新的数据，无法预测新的数据。（泛化：指一个假设模型应用到新样本的能力）
-同理，在逻辑回归中也存在欠拟合和过拟合的情况。
-（1）逻辑回归中的欠拟合
-（2）逻辑回归中的刚好拟合
-（3）逻辑回归中的过拟合
-
-2 Regulation（正则化） 前面我们提到，我们应该避免出现过拟合的情况，因为这样会使得我们的预测不准确。解决过拟合问题有两种主要的方法：一种是通过减少特征数量；另一种是正则化。
-正则化可以保持特征数量不变，通过设置参数的权重来解决过拟合问题。
-2.1 正则化线性回归 2.1.1 Cost Function（代价函数） 上面的公式为正则化线性回归的代价函数，蓝色方块为一般线性回归的代价函数，红色方块为正则化项，而 λ 为正则化参数。
-正则化参数 λ 需要我们自行选择一个合适的数值，如 λ=1 。
-2.1.2 Gradient Descent（梯度下降） 注： θ0 应单独计算，因为不需要惩罚参数 θ0 ，惩罚参数从 θ1 开始。即为正则化操作。
-  </p>
-
-  
-  <footer>
-    <a href="https://HauyuChen.github.io/post/ml-6-regulation/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
-  </footer>
-  
-</article>
-
-  
 
   
 
@@ -560,7 +533,7 @@ Example: Input: s = &ldquo;abcdefg&rdquo;, k = 2 Output: &ldquo;bacdfeg&rdquo;
   
   <a href="https://HauyuChen.github.io/page/3/"><i class="fa fa-chevron-left"></i></a>
   
-  <span>&nbsp;4 / 19&nbsp;</span>
+  <span>&nbsp;4 / 20&nbsp;</span>
   
   <a href="https://HauyuChen.github.io/page/5/"><i class="fa fa-chevron-right"></i></a>
   

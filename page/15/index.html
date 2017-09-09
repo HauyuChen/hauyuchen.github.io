@@ -236,6 +236,58 @@
   
     <article>
   <header>
+    <h2><a href="https://HauyuChen.github.io/post/206-reverse-linked-list/">【LeetCode】206. Reverse Linked List</a></h2>
+
+    <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>2017-01-07</time>
+  </div>
+
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-folder fa-fw"></i>
+    
+      <a class="post-taxonomy-tag" href="https://HauyuChen.github.io/tags/leetcode">LeetCode</a>
+    
+  </div>
+  
+  
+
+  
+  
+  
+  <div>
+	<i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/%E7%AE%97%E6%B3%95">算法</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/leetcode">LeetCode</a>
+    
+  </div>
+  
+  
+  
+</div>
+
+  </header>
+
+  <p>
+   题目描述：  Reverse a singly linked list.
+ 代码实现： /** * Definition for singly-linked list. * struct ListNode { * int val; * ListNode *next; * ListNode(int x) : val(x), next(NULL) {} * }; */ class Solution { public: ListNode* reverseList(ListNode* head) { ListNode* pPre=nullptr; ListNode* pNode=head; ListNode* pRet=nullptr; while(pNode!=nullptr){ ListNode* pNext=pNode-&gt;next; if(pNext==nullptr){ pRet=pNode; } pNode-&gt;next=pPre; pPre=pNode; pNode=pNext; } return pRet; } };  
+  </p>
+
+  
+</article>
+
+  
+    <article>
+  <header>
     <h2><a href="https://HauyuChen.github.io/post/217-contains-duplicate/">【LeetCode】217. Contains Duplicate</a></h2>
 
     <div class="post-meta">
@@ -449,63 +501,6 @@ A -&gt; 1 B -&gt; 2 C -&gt; 3 ... Z -&gt; 26 AA -&gt; 27 AB -&gt; 28   代码实
 </article>
 
   
-    <article>
-  <header>
-    <h2><a href="https://HauyuChen.github.io/post/167-two-sum-ii-input-array-is-sorted/">【LeetCode】167. Two Sum II - Input array is sorted</a></h2>
-
-    <div class="post-meta">
-
-  <div>
-    <i class="fa fa-calendar fa-fw"></i>
-    <time>2016-06-20</time>
-  </div>
-
-  
-
-  
-  
-  
-  <div>
-    <i class="fa fa-folder fa-fw"></i>
-    
-      <a class="post-taxonomy-tag" href="https://HauyuChen.github.io/tags/leetcode">LeetCode</a>
-    
-  </div>
-  
-  
-
-  
-  
-  
-  <div>
-	<i class="fa fa-tags fa-fw"></i>
-    
-      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/%E7%AE%97%E6%B3%95">算法</a>&nbsp;&#47;
-    
-      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/leetcode">LeetCode</a>
-    
-  </div>
-  
-  
-  
-</div>
-
-  </header>
-
-  <p>
-  题目描述：  Given an array of integers that is already sorted in ascending order, find two numbers such that they add up to a specific target number.
-The function twoSum should return indices of the two numbers such that they add up to the target, where index1 must be less than index2. Please note that your returned answers (both index1 and index2) are not zero-based.
-You may assume that each input would have exactly one solution and you may not use the same element twice.
-  </p>
-
-  
-  <footer>
-    <a href="https://HauyuChen.github.io/post/167-two-sum-ii-input-array-is-sorted/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
-  </footer>
-  
-</article>
-
-  
 
   
 
@@ -514,7 +509,7 @@ You may assume that each input would have exactly one solution and you may not u
   
   <a href="https://HauyuChen.github.io/page/14/"><i class="fa fa-chevron-left"></i></a>
   
-  <span>&nbsp;15 / 19&nbsp;</span>
+  <span>&nbsp;15 / 20&nbsp;</span>
   
   <a href="https://HauyuChen.github.io/page/16/"><i class="fa fa-chevron-right"></i></a>
   

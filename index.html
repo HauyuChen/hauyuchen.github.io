@@ -236,6 +236,69 @@
   
     <article>
   <header>
+    <h2><a href="https://HauyuChen.github.io/post/es-bulk/">Elasticsearch实现批量更新</a></h2>
+
+    <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>2017-09-09</time>
+  </div>
+
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-folder fa-fw"></i>
+    
+      <a class="post-taxonomy-tag" href="https://HauyuChen.github.io/tags/elasticsearch">Elasticsearch</a>
+    
+  </div>
+  
+  
+
+  
+  
+  
+  <div>
+	<i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/elasticsearch">Elasticsearch</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/%E5%88%86%E5%B8%83%E5%BC%8F%E6%90%9C%E7%B4%A2">分布式搜索</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/kibana">Kibana</a>
+    
+  </div>
+  
+  
+  
+</div>
+
+  </header>
+
+  <p>
+  1 bulk 前面我们已经提到批量查询 mget ，那么如果我们想要批量导入数据呢？当然也有解决方法，那就是我们现在要讲的 bulk 。 bulk 允许我们使用单一请求来实现多个文档的 create 、 index 、 update 或 delete ，这在我们平时的应用中是很重要的。
+
+2 bulk 语法 bulk API 对 JSON 的语法有严格的要求，具体要求：bulk 中每一个操作要两个 JSON 串，每个 JSON 串不能换行，只能放在同一行，而 JSON 串和 JSON 串之间，必须有一个换行。
+bulk 允许我们批量执行不同的操作，常用操作如下：
+ delete：删除文档，delete比较特殊，只需1个 JSON 串即可； create：相当于 PUT /index/type/id/_create，只不过是强制创建； index：普通的 PUT 操作，可以是创建文档，也可以是全量替换文档； update：执行 partial update 操作。  语法格式如下：
+POST /_bulk { {&quot;action&quot;: {&quot;metadata&quot;}} //一个操作需两个JSON，delete除外 {&quot;data&quot;} }  举个栗子：
+我们要创建一个文档，其中 index 为 &ldquo;test_index&rdquo; ， type 为 &ldquo;test_type&rdquo; ， id 为 1 ; field 有两个，分别是 test_field1 为 &ldquo;test1&rdquo; 、 test_field2 为 &ldquo;test2&rdquo; 。
+  </p>
+
+  
+  <footer>
+    <a href="https://HauyuChen.github.io/post/es-bulk/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
+  </footer>
+  
+</article>
+
+  
+    <article>
+  <header>
     <h2><a href="https://HauyuChen.github.io/post/es-mget/">Elasticsearch实现批量查询</a></h2>
 
     <div class="post-meta">
@@ -494,66 +557,6 @@ PUT test_index/test_type/7?version=1 { &quot;test_field&quot;:&quot;test client 
 </article>
 
   
-    <article>
-  <header>
-    <h2><a href="https://HauyuChen.github.io/post/%E9%87%8D%E5%86%99%E4%B8%8E%E9%87%8D%E8%BD%BD%E7%9A%84%E5%8C%BA%E5%88%AB/">重写、重载的区别</a></h2>
-
-    <div class="post-meta">
-
-  <div>
-    <i class="fa fa-calendar fa-fw"></i>
-    <time>2017-08-31</time>
-  </div>
-
-  
-
-  
-  
-  
-  <div>
-    <i class="fa fa-folder fa-fw"></i>
-    
-      <a class="post-taxonomy-tag" href="https://HauyuChen.github.io/tags/java">Java</a>
-    
-  </div>
-  
-  
-
-  
-  
-  
-  <div>
-	<i class="fa fa-tags fa-fw"></i>
-    
-      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/java">Java</a>&nbsp;&#47;
-    
-      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/%E5%9F%BA%E7%A1%80">基础</a>
-    
-  </div>
-  
-  
-  
-</div>
-
-  </header>
-
-  <p>
-  0 写在前面 重写和重载是面向对象程序设计中十分重要的两个概念，其中重写又称为覆盖。 通俗的理解就是，重写就是将一个方法的实现过程再写一遍，覆盖原有方法；重载就是增加一个方法的不同实现，而不覆盖原有的方法。
-
-1 重写（覆盖） 重写是子类对父类方法的实现过程的重新编写。重写的方法应与被重写的方法具有完全一致的返回值、方法名称、参数列表，也就是外壳完全一样，实现过程发生改变。
-重写规则：
- 参数列表必须与原有方法完全相同； 返回类型必须与原有方法相同； 访问权限不能比父类中被重写的方法的访问权限更低； 父类成员方法只能被其子类重写； 声明为 final 的方法不能被重写； 声明为 static 的方法不能被重写，但能够被再次声明； 构造方法不能重写。  
-2 重载 重载与重写不同之处在于重载与原有方法具有同样的名称，但参数列表可以不同。重载的方法虽然名称和原有方法一样，但是可以认为它们是不同的方法。
-重载规则：
- 重载的方法必须改变参数列表； 重载的方法可以改变返回类型； 重载的方法可以改变访问修饰符； 方法能在同一个类中或在一个子类中被重载。  
-3 对比 
-参考资料：http://www.runoob.com/java/java-override-overload.html
-  </p>
-
-  
-</article>
-
-  
 
   
 
@@ -562,7 +565,7 @@ PUT test_index/test_type/7?version=1 { &quot;test_field&quot;:&quot;test client 
   
   <i class="fa fa-chevron-left"></i>
   
-  <span>&nbsp;1 / 19&nbsp;</span>
+  <span>&nbsp;1 / 20&nbsp;</span>
   
   <a href="https://HauyuChen.github.io/page/2/"><i class="fa fa-chevron-right"></i></a>
   
