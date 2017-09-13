@@ -236,6 +236,127 @@
   
     <article>
   <header>
+    <h2><a href="https://HauyuChen.github.io/post/%E4%BB%A3%E7%A0%81%E8%B0%83%E8%AF%95/">代码调试基本操作</a></h2>
+
+    <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>2017-07-05</time>
+  </div>
+
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-folder fa-fw"></i>
+    
+      <a class="post-taxonomy-tag" href="https://HauyuChen.github.io/tags/%E5%B7%A5%E5%85%B7">工具</a>
+    
+  </div>
+  
+  
+
+  
+  
+  
+  <div>
+	<i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/intellij-idea">Intellij IDEA</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/%E4%BB%A3%E7%A0%81%E8%B0%83%E8%AF%95">代码调试</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/debug">Debug</a>
+    
+  </div>
+  
+  
+  
+</div>
+
+  </header>
+
+  <p>
+  0 写在前面 Debug 是程序员必备的技能。当我们自己写的程序出现异常，我们可以通过 Debug 模式去分析异常。再者，现如今开源代码层出不穷，作者最近正好在研究开源代码， Debug 模式对跟踪代码也起到了很大的帮助。因为面对复杂的代码，我们靠一个一个查找，要找到相应的执行流程、执行方法不太容易。通过Debug模式，我们可以跟踪程序的执行流程，这样，某项业务的执行步骤便一目了然了。
+本文所用 IDE 为 Intellij IDEA ，但其它的 IDE 与此基本相似。
+
+1 基本用法 1.1 组件1 这组组件共八个按钮，从左至右编号1、2、3、4、5、6、7、8。
+ Show Execution Point：点击此按钮可将光标定位到当前代码执行处； Step Over：步过，一行一行往下执行。如果该行上有方法，不会进入方法； Step Into：步入，一行一行往下执行。如果该行上有方法，进入方法内部执行，但一般只进入自定义方法，不会进入官方类库的方法； Force Step Into：强制步入，可进入任何方法，查看底层源码是可通过这个进入官方类库的方法； Step Out：步出，从步入的方法内退出到方法调用处； Drop Frame：回退断点，默认无； Run to Cursor：运行至光标处，将光标定位到需要查看的那一行，代码会运行至光标行，无需打断点； Evaluate Expression：计算表达式。  
+1.2 组件2 这组组件共七个按钮，从上至下编号1、2、3、4、5、6、7。
+ Rerun ：重新运行程序，会关闭服务后重新启动程序； Update：更新程序，在代码改动后可执行这个功能来应用更新； Resume Program：恢复程序，点击该按钮将运行至下一个断点。比如我们在程序设置在代码第10行设置一个断点，在代码第20行设置一个断点，现在代码运行到第10行，点击按钮，代码将运行至下一个断点（第20行），若后面无断点，则运行完整个流程； Pause Program：暂停程序，启用 Debug ； Stop：连续按两下，关闭程序； View Breakpoints：查看所有断点； Mute Breakpoints：消除断点，点击该按钮将消除所有断点，断点将变为灰色，断点失效；再次点击，断点将变为红色，断点有效；如果只想对单个断点执行操作，直接在断点上右键选择相应的操作。  
+2 结语 通过这些基本操作我们已经可以初步地 Debug 程序，来跟踪程序的执行。当然， Debug 模式还有更多强大的功能，比如变量查看、智能步入、多线程调试等。下面这篇文章对 Debug 模式进行了详细的描述，推荐给大家。
+  </p>
+
+  
+  <footer>
+    <a href="https://HauyuChen.github.io/post/%E4%BB%A3%E7%A0%81%E8%B0%83%E8%AF%95/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
+  </footer>
+  
+</article>
+
+  
+    <article>
+  <header>
+    <h2><a href="https://HauyuChen.github.io/post/506-relative-ranks/">【LeetCode】506. Relative Ranks</a></h2>
+
+    <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>2017-03-21</time>
+  </div>
+
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-folder fa-fw"></i>
+    
+      <a class="post-taxonomy-tag" href="https://HauyuChen.github.io/tags/leetcode">LeetCode</a>
+    
+  </div>
+  
+  
+
+  
+  
+  
+  <div>
+	<i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/%E7%AE%97%E6%B3%95">算法</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/leetcode">LeetCode</a>
+    
+  </div>
+  
+  
+  
+</div>
+
+  </header>
+
+  <p>
+  题目描述：  Given scores of N athletes, find their relative ranks and the people with the top three highest scores, who will be awarded medals: &ldquo;Gold Medal&rdquo;, &ldquo;Silver Medal&rdquo; and &ldquo;Bronze Medal&rdquo;.
+Example 1: Input: [5, 4, 3, 2, 1] Output: [&ldquo;Gold Medal&rdquo;, &ldquo;Silver Medal&rdquo;, &ldquo;Bronze Medal&rdquo;, &ldquo;4&rdquo;, &ldquo;5&rdquo;]
+Explanation: The first three athletes got the top three highest scores, so they got &ldquo;Gold Medal&rdquo;, &ldquo;Silver Medal&rdquo; and &ldquo;Bronze Medal&rdquo;.
+  </p>
+
+  
+  <footer>
+    <a href="https://HauyuChen.github.io/post/506-relative-ranks/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
+  </footer>
+  
+</article>
+
+  
+    <article>
+  <header>
     <h2><a href="https://HauyuChen.github.io/post/496-next-greater-element-i/">【LeetCode】496. Next Greater Element I</a></h2>
 
     <div class="post-meta">
@@ -403,123 +524,6 @@ Note: The input will be in range of [-1e7, 1e7].
 </article>
 
   
-    <article>
-  <header>
-    <h2><a href="https://HauyuChen.github.io/post/485-max-consecutive-ones/">【LeetCode】485. Max Consecutive Ones</a></h2>
-
-    <div class="post-meta">
-
-  <div>
-    <i class="fa fa-calendar fa-fw"></i>
-    <time>2017-03-18</time>
-  </div>
-
-  
-
-  
-  
-  
-  <div>
-    <i class="fa fa-folder fa-fw"></i>
-    
-      <a class="post-taxonomy-tag" href="https://HauyuChen.github.io/tags/leetcode">LeetCode</a>
-    
-  </div>
-  
-  
-
-  
-  
-  
-  <div>
-	<i class="fa fa-tags fa-fw"></i>
-    
-      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/%E7%AE%97%E6%B3%95">算法</a>&nbsp;&#47;
-    
-      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/leetcode">LeetCode</a>
-    
-  </div>
-  
-  
-  
-</div>
-
-  </header>
-
-  <p>
-  题目描述：  Given a binary array, find the maximum number of consecutive 1s in this array.
-Example 1: Input: [1,1,0,1,1,1] Output: 3
-Explanation: The first two digits or the last three digits are consecutive 1s. The maximum number of consecutive 1s is 3.
-Note: The input array will only contain 0 and 1. The length of input array is a positive integer and will not exceed 10,000
- 代码实现： class Solution { public: int findMaxConsecutiveOnes(vector&lt;int&gt;&amp; nums) { int cnt=0,max=0; for(int num:nums){ if(num==1){ cnt++; }else{ cnt=0; } max = max&gt;cnt?
-  </p>
-
-  
-  <footer>
-    <a href="https://HauyuChen.github.io/post/485-max-consecutive-ones/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
-  </footer>
-  
-</article>
-
-  
-    <article>
-  <header>
-    <h2><a href="https://HauyuChen.github.io/post/476-number-complement/">【LeetCode】476. Number Complement</a></h2>
-
-    <div class="post-meta">
-
-  <div>
-    <i class="fa fa-calendar fa-fw"></i>
-    <time>2017-03-17</time>
-  </div>
-
-  
-
-  
-  
-  
-  <div>
-    <i class="fa fa-folder fa-fw"></i>
-    
-      <a class="post-taxonomy-tag" href="https://HauyuChen.github.io/tags/leetcode">LeetCode</a>
-    
-  </div>
-  
-  
-
-  
-  
-  
-  <div>
-	<i class="fa fa-tags fa-fw"></i>
-    
-      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/%E7%AE%97%E6%B3%95">算法</a>&nbsp;&#47;
-    
-      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/leetcode">LeetCode</a>
-    
-  </div>
-  
-  
-  
-</div>
-
-  </header>
-
-  <p>
-  题目描述：  Given a positive integer, output its complement number. The complement strategy is to flip the bits of its binary representation.
-Note: The given integer is guaranteed to fit within the range of a 32-bit signed integer. You could assume no leading zero bit in the integer’s binary representation.
-Example 1: Input: 5 Output: 2
-Explanation: The binary representation of 5 is 101 (no leading zero bits), and its complement is 010.
-  </p>
-
-  
-  <footer>
-    <a href="https://HauyuChen.github.io/post/476-number-complement/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
-  </footer>
-  
-</article>
-
-  
 
   
 
@@ -528,7 +532,7 @@ Explanation: The binary representation of 5 is 101 (no leading zero bits), and i
   
   <a href="https://HauyuChen.github.io/page/7/"><i class="fa fa-chevron-left"></i></a>
   
-  <span>&nbsp;8 / 20&nbsp;</span>
+  <span>&nbsp;8 / 19&nbsp;</span>
   
   <a href="https://HauyuChen.github.io/page/9/"><i class="fa fa-chevron-right"></i></a>
   

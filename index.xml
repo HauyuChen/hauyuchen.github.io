@@ -387,6 +387,16 @@ Example: Input: s = &amp;ldquo;abcdefg&amp;rdquo;, k = 2 Output: &amp;ldquo;bacd
     </item>
     
     <item>
+      <title>Java关键字this、super、static、final</title>
+      <link>https://HauyuChen.github.io/post/java-%E5%85%B3%E9%94%AE%E5%AD%97thissuperstaticfinal/</link>
+      <pubDate>Sat, 05 Aug 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://HauyuChen.github.io/post/java-%E5%85%B3%E9%94%AE%E5%AD%97thissuperstaticfinal/</guid>
+      <description>0 写在前面 本文主要讲讲 Java 中比较常见的关键字，如 this 、 super 、 static 、 final ，它们在程序中出现频率较高。
+1 this  表示类中的属性，比如 this.username = username; 强调调用的是本类的方法； 调用本类的构造方法，如 this(); 调用本类的无参构造方法； 表示当前对象（调用方法的对象）。  2 super  调用父类的构造方法； 调用父类的普通方法； 调用父类的属性。  3 static  static 修饰类： static 修饰的类称为静态类，静态类作为类的静态成员存在于某个类中，静态成员类可以不创建父类对象直接创建静态类的对象。 static 修饰变量： static 修饰的变量称为静态变量或类变量，而没有被 static 修饰的变量称为实例变量。静态变量在内存中只有一个拷贝， JVM 只为静态变量分配一次内存，且在加载类的过程中完成静态变量的内存分配；而实例变量每创建一个实例就分配一次内存，实例变量在内存中有多个拷贝，互补影响。 static 修饰方法： static 修饰的方法称为类方法，否则为实例方法，实例方法只有生成对象时才分配内存。类方法可以通过类名直接调用，实例方法只能通过类对象调用。  4 final  final 修饰类：被 final 修饰的类表示最终类，其不能被继承，不能当父类； final 修饰变量：被 final 修饰的变量为最终变量，即常量，其值不能修改，在定义时必须赋值； final 修饰方法： final 修饰的方法为最终方法，父类包含最终方法时，子类不能重写该方法。</description>
+    </item>
+    
+    <item>
       <title>【机器学习笔记】5. 逻辑回归</title>
       <link>https://HauyuChen.github.io/post/ml-5-logisticregression/</link>
       <pubDate>Thu, 03 Aug 2017 00:00:00 +0000</pubDate>
@@ -580,6 +590,22 @@ All letters in this word are capitals, like &amp;ldquo;USA&amp;rdquo;. All lette
  这段话翻译过来就是：对于某类任务T和性能度量P，如果一个计算机程序在T上以P衡量的性能随着经验E而自我完善，那么我们称这个计算机程序在从经验E学习。
 举个栗子：AlphaGo下棋
  经验 E = AlphaGo从很多盘棋局获得的经验（学棋）； 任务 T = AlphaGo和对手下棋（下棋）； 性能 P = AlphaGo赢的可能性（赢棋）。</description>
+    </item>
+    
+    <item>
+      <title>代码调试基本操作</title>
+      <link>https://HauyuChen.github.io/post/%E4%BB%A3%E7%A0%81%E8%B0%83%E8%AF%95/</link>
+      <pubDate>Wed, 05 Jul 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://HauyuChen.github.io/post/%E4%BB%A3%E7%A0%81%E8%B0%83%E8%AF%95/</guid>
+      <description>0 写在前面 Debug 是程序员必备的技能。当我们自己写的程序出现异常，我们可以通过 Debug 模式去分析异常。再者，现如今开源代码层出不穷，作者最近正好在研究开源代码， Debug 模式对跟踪代码也起到了很大的帮助。因为面对复杂的代码，我们靠一个一个查找，要找到相应的执行流程、执行方法不太容易。通过Debug模式，我们可以跟踪程序的执行流程，这样，某项业务的执行步骤便一目了然了。
+本文所用 IDE 为 Intellij IDEA ，但其它的 IDE 与此基本相似。
+
+1 基本用法 1.1 组件1 这组组件共八个按钮，从左至右编号1、2、3、4、5、6、7、8。
+ Show Execution Point：点击此按钮可将光标定位到当前代码执行处； Step Over：步过，一行一行往下执行。如果该行上有方法，不会进入方法； Step Into：步入，一行一行往下执行。如果该行上有方法，进入方法内部执行，但一般只进入自定义方法，不会进入官方类库的方法； Force Step Into：强制步入，可进入任何方法，查看底层源码是可通过这个进入官方类库的方法； Step Out：步出，从步入的方法内退出到方法调用处； Drop Frame：回退断点，默认无； Run to Cursor：运行至光标处，将光标定位到需要查看的那一行，代码会运行至光标行，无需打断点； Evaluate Expression：计算表达式。  
+1.2 组件2 这组组件共七个按钮，从上至下编号1、2、3、4、5、6、7。
+ Rerun ：重新运行程序，会关闭服务后重新启动程序； Update：更新程序，在代码改动后可执行这个功能来应用更新； Resume Program：恢复程序，点击该按钮将运行至下一个断点。比如我们在程序设置在代码第10行设置一个断点，在代码第20行设置一个断点，现在代码运行到第10行，点击按钮，代码将运行至下一个断点（第20行），若后面无断点，则运行完整个流程； Pause Program：暂停程序，启用 Debug ； Stop：连续按两下，关闭程序； View Breakpoints：查看所有断点； Mute Breakpoints：消除断点，点击该按钮将消除所有断点，断点将变为灰色，断点失效；再次点击，断点将变为红色，断点有效；如果只想对单个断点执行操作，直接在断点上右键选择相应的操作。  
+2 结语 通过这些基本操作我们已经可以初步地 Debug 程序，来跟踪程序的执行。当然， Debug 模式还有更多强大的功能，比如变量查看、智能步入、多线程调试等。下面这篇文章对 Debug 模式进行了详细的描述，推荐给大家。</description>
     </item>
     
     <item>
@@ -1260,8 +1286,10 @@ Update (2015-02-10): The signature of the C++ function had been updated.</descri
 此博客主要记录一些个人学习笔记、技术文章。
 希望对您也有所帮助：）
 
-联系我 Q Q：ODkzNzY5Mzkz （Base64）
-邮箱：Hauyu.Chen@Gmail.com</description>
+联系我 QQ：ODkzNzY5Mzkz （Base64）
+E-Mail：Hauyu.Chen@Gmail.com
+GitHub：HauyuChen
+Telegram：@chenhy</description>
     </item>
     
     <item>
@@ -1323,50 +1351,6 @@ Update (2015-02-10): The signature of the C++ function had been updated.</descri
 1 概述 写过程序的人都知道每个程序都是从 main 函数开始执行的，在 ZigBee 程序中也不例外。在一个 Zigbee 工程中，程序从 main 函数开始执行，经过一步一步的函数调用（一些系统功能的初始化，建议跟踪一下从 main 函数到 SampleApp_ProcessEvent 函数的过程），程序最终来到了 SampleApp_ProcessEvent 函数， SampleApp_ProcessEvent(uint8 task_id,uint16 events) 是一个颇为重要的函数，整个工程更像是围绕着这个函数运行。
 说白了，我们要通过这个函数来处理所有事件。
 比如： if ( events &amp;amp; SYS_EVENT_MSG ) 处理系统事件，if ( events &amp;amp; SAMPLEAPP_SEND_PERIODIC_MSG_EVT ) 处理用户定义的事件。在不同的事件处理代码中，通过一个 switch 语句把所要处理的任务分成几个 case 来处理，在每个 case 里面调用相应的函数，我们通过定义这些函数执行我们想要的功能即可。</description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>https://HauyuChen.github.io/post/2java%E5%85%B3%E9%94%AE%E5%AD%97thissuperstaticfinal/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://HauyuChen.github.io/post/2java%E5%85%B3%E9%94%AE%E5%AD%97thissuperstaticfinal/</guid>
-      <description> 0 写在前面 本文主要讲讲Java中比较常见的关键字，如this、super、static、final，它们出现频率较高。
-1 this  表示类中的属性，比如 this.username = username; 强调调用的是本类的方法； 调用本类的构造方法，如this();调用本类的无参构造方法； 表示当前对象（调用方法的对象）。  2 super  调用父类的构造方法； 调用父类的普通方法； 调用父类的属性。  3 static  static修饰类：static修饰的类成为静态类，静态类作为类的静态成员存在于某个类中，静态成员类可以不创建父类对象直接创建静态类的对象。 static修饰变量：static修饰的变量称为静态变量或类变量，而没有被static修饰的变量成为实例变量。静态变量在内存中只有一个拷贝，JVM只为静态变量分配一次内存，且在加载类的过程中完成静态变量的内存分配；而实例变量每创建一个实例就分配一次内存，实例变量在内存中有多个拷贝，互补影响。 static修饰方法：static修饰的方法为类方法，否则为实例方法。实例方法只有生成对象时才分配内存。类方法可以通过类名直接调用，实例方法只能通过类对象调用。  4 final  final修饰类：被final修饰的类表示最终类，其不能被继承，不能当父类； final修饰变量：被final修饰的变量为最终变量，即常量；其值不能修改，在定义时必须赋值； final修饰方法：final修饰的方法为最终方法，父类包含最终方法时，子类不能重写该方法。  </description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>https://HauyuChen.github.io/post/2%E4%BB%A3%E7%A0%81%E8%B0%83%E8%AF%95/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://HauyuChen.github.io/post/2%E4%BB%A3%E7%A0%81%E8%B0%83%E8%AF%95/</guid>
-      <description>0 写在前面 Debug 是程序员十分重要的技能，比如我们自己写的程序出现异常，我们可以通过Debug模式去分析异常。
-再者，现如今开源代码层出不穷，作者最近正好在分析开源代码。Debug在这里起到了很重要的作用。面对复杂的代码，我们要找到相对的执行流程、执行方法不太容易。
-通过Debug模式，我们可以跟踪程序的执行流程，这样，某项业务的执行步骤便一目了然了。
-1 基本用法 本文使用环境为 Intellij IDEA ，但其它的IDE与此大同小异。
-1.1 组件1 这组组件共八个按钮，从左至右编号1、2、3、4、5、6、7、8。
-###zujian1###
- Show Execution Point：点击此按钮可将光标定位到当前代码执行处； Step Over：步过，一行一行往下执行，如果该行上有方法，不会进入方法； Step Into：步入，一行一行往下执行，如果该行上有方法，进入方法内部执行，当一般进入自定义方法，不会进入官方类库的方法； Force Step Into：强制步入，能进入任何方法，查看底层源码是可通过这个进入官方类库的方法； Step Out：步出，从步入的方法内退出到方法调用处； Drop Frame：回退断点，默认无； Run to Cursor：运行至光标处，将光标定位到需要查看的那一行，代码会运行至光标行，无需打断点； Evaluate Expression：计算表达式。  1.2 组件2 这组组件共七个按钮，从上至下编号1、2、3、4、5、6、7。
-###zujian2###
- Rerun &amp;lsquo;xxxx&amp;rsquo;：重新运行程序，会关闭服务后重新启动程序； Update：更新程序，在代码改动后可执行这个功能来应用更新； Resume Program：恢复程序，点击该按钮将运行至下一个断点。比如我们在程序设置在代码第10行设置一个断点，在代码第20行设置一个断点，现在但马运行到第10行，点击按钮，代码将运行至下一个断点（第20行），若后面无断点，则运行完整个流程； Pause Program：暂停程序，启用Debug； Stop：连续按两下，关闭程序； View Breakpoints：查看所有断点； Mute Breakpoints：消除断点，点击该按钮将消除所有断点，断点将变为灰色，断点失效；再次点击，断点将变为红色，断点有效；如果只想对单个断点执行操作，直接在断点上右键选择相应的操作；  2 结语 通过基本操作我们已经可以初步的Debug我们的程序，来跟踪程序的执行。当然，Debug模式还有更多强大的功能，比如变量查看、智能步入、多线程调试等。下面这篇文章对Debug模式进行了详细的描述，推荐给大家。
-在Intellij IDEA中使用Debug</description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>https://HauyuChen.github.io/post/2%E6%8A%BD%E8%B1%A1%E7%B1%BB%E4%B8%8E%E6%8E%A5%E5%8F%A3/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://HauyuChen.github.io/post/2%E6%8A%BD%E8%B1%A1%E7%B1%BB%E4%B8%8E%E6%8E%A5%E5%8F%A3/</guid>
-      <description>0 写在前面 抽象类和接口有共同点但也有区别，在平时的应用中，经常会不知道在抽象类和接口中做何种选择。所以，我们有必要了解抽象类和接口间的区别，对以后在二者之间的选择将更有依据。
-
-1 抽象类 在面向对象中，我们通过类来描绘对象，但并不是所有的类都是用来描绘对象的。如果一个类中没有包含足够的信息来描绘一个具体的对象，这样的类就是抽象类。
-抽象类是实现多态的一种机制，抽象类可以包含具体方法，也可以包含抽象方法（由继承它的子类实现这些方法）。
-抽象类的特性总结如下：
- 抽象类不能被实例化； 抽象类可以有构造方法； 抽象方法必须由其子类重写（Override）； 只要包含有一个抽象方法的类，就必须定义为抽象类； 抽象类可以包含有具体实现的方法，也可以不包含抽象方法； 子类的抽象方法不能与父类的抽象方法重名； abstract不能与private、static、final、native并列修饰同一个方法。  举个栗子：
-Duck是一个抽象类，里面包含构造方法、抽象方法、具体方法；GreenHeadDuck继承自抽象类Duck，所以它必须重写抽象类Duck的抽象方法display，而具体方法Quack、swim不需要重写。
-/* Duck.java */ public abstract class Duck{ //抽象类Duck public Duck(){ //构造方法 } public abstract void display(); //抽象方法：外观 public void Quack(){ //具体方法：嘎嘎叫 System.out.println(&amp;quot;--gaga--&amp;quot;); } public void swim(){ //具体方法：游泳 System.out.println(&amp;quot;--swimming--&amp;quot;); } }  /* GreenHeadDuck.java */ public class GreenHeadDuck extends Duck{ //继承自抽象类Duck @Override public void display(){ //重写父类的抽象方法 System.out.println(&amp;quot;**GreenHeadDuck**&amp;quot;); //我是绿头鸭 } }</description>
     </item>
     
     <item>

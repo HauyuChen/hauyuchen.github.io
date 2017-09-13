@@ -4,10 +4,10 @@
 <head>
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="不定期更新 SQL 优化相关内容">
+  <meta name="description" content="">
   <meta name="generator" content="Hugo 0.24.1" />
 
-  <title>SQL优化 &middot; Hov&#39;s Blog</title>
+  <title>Java关键字this、super、static、final &middot; Hov&#39;s Blog</title>
 
   <script>
 	var _hmt = _hmt || [];
@@ -221,8 +221,8 @@
 
 
 <div class="header">
-  <h1>SQL优化</h1>
-  <h2>不定期更新 SQL 优化相关内容</h2>
+  <h1>Java关键字this、super、static、final</h1>
+  <h2></h2>
 </div>
 <div class="content">
 
@@ -230,7 +230,7 @@
 
   <div>
     <i class="fa fa-calendar fa-fw"></i>
-    <time>2017-08-07</time>
+    <time>2017-08-05</time>
   </div>
 
   
@@ -241,7 +241,7 @@
   <div>
     <i class="fa fa-folder fa-fw"></i>
     
-      <a class="post-taxonomy-tag" href="https://HauyuChen.github.io/tags/%E6%95%B0%E6%8D%AE%E5%BA%93">数据库</a>
+      <a class="post-taxonomy-tag" href="https://HauyuChen.github.io/tags/java">Java</a>
     
   </div>
   
@@ -253,11 +253,9 @@
   <div>
 	<i class="fa fa-tags fa-fw"></i>
     
-      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/%E6%95%B0%E6%8D%AE%E5%BA%93">数据库</a>&nbsp;&#47;
+      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/java">Java</a>&nbsp;&#47;
     
-      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/%E5%9F%BA%E7%A1%80">基础</a>&nbsp;&#47;
-    
-      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/%E4%BC%98%E5%8C%96">优化</a>
+      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/%E5%9F%BA%E7%A1%80">基础</a>
     
   </div>
   
@@ -271,16 +269,42 @@
 
 <p><br/></p>
 
-<h1 id="sql-语句优化">SQL 语句优化</h1>
+<h1 id="0-写在前面">0 写在前面</h1>
 
-<ol>
-<li>尽量选择较小的列；</li>
-<li>将 where 中用的比较频繁的字段建立索引；</li>
-<li>select 子句中避免使用‘ * ’；</li>
-<li>避免在索引列上使用运算符、 not 、 in 、 &lt; 、 &gt; 等操作；</li>
-<li>当只需要一行数据的时候使用 limit1；</li>
-<li>保证表单数据不超过 200w ，适时分割表。</li>
-</ol>
+<p>本文主要讲讲 Java 中比较常见的关键字，如 this 、 super 、 static 、 final ，它们在程序中出现频率较高。</p>
+
+<h1 id="1-this">1 this</h1>
+
+<ul>
+<li>表示类中的属性，比如 this.username = username;</li>
+<li>强调调用的是本类的方法；</li>
+<li>调用本类的构造方法，如 this(); 调用本类的无参构造方法；</li>
+<li>表示当前对象（调用方法的对象）。</li>
+</ul>
+
+<h1 id="2-super">2 super</h1>
+
+<ul>
+<li>调用父类的构造方法；</li>
+<li>调用父类的普通方法；</li>
+<li>调用父类的属性。</li>
+</ul>
+
+<h1 id="3-static">3 static</h1>
+
+<ul>
+<li>static 修饰类： static 修饰的类称为静态类，静态类作为类的静态成员存在于某个类中，静态成员类可以不创建父类对象直接创建静态类的对象。</li>
+<li>static 修饰变量： static 修饰的变量称为静态变量或类变量，而没有被 static 修饰的变量称为实例变量。静态变量在内存中只有一个拷贝， JVM 只为静态变量分配一次内存，且在加载类的过程中完成静态变量的内存分配；而实例变量每创建一个实例就分配一次内存，实例变量在内存中有多个拷贝，互补影响。</li>
+<li>static 修饰方法： static 修饰的方法称为类方法，否则为实例方法，实例方法只有生成对象时才分配内存。类方法可以通过类名直接调用，实例方法只能通过类对象调用。</li>
+</ul>
+
+<h1 id="4-final">4 final</h1>
+
+<ul>
+<li>final 修饰类：被 final 修饰的类表示最终类，其不能被继承，不能当父类；</li>
+<li>final 修饰变量：被 final 修饰的变量为最终变量，即常量，其值不能修改，在定义时必须赋值；</li>
+<li>final 修饰方法： final 修饰的方法为最终方法，父类包含最终方法时，子类不能重写该方法。</li>
+</ul>
 
 <p><br/></p>
 
@@ -289,13 +313,13 @@
 <div class="prev-next-post pure-g">
   <div class="pure-u-1-24" style="text-align: left;">
     
-    <a href="https://HauyuChen.github.io/post/java-%E5%85%B3%E9%94%AE%E5%AD%97thissuperstaticfinal/"><i class="fa fa-chevron-left"></i></a>
+    <a href="https://HauyuChen.github.io/post/ml-5-logisticregression/"><i class="fa fa-chevron-left"></i></a>
     
   </div>
   <div class="pure-u-10-24">
     
     <nav class="prev">
-      <a href="https://HauyuChen.github.io/post/java-%E5%85%B3%E9%94%AE%E5%AD%97thissuperstaticfinal/">Java关键字this、super、static、final</a>
+      <a href="https://HauyuChen.github.io/post/ml-5-logisticregression/">【机器学习笔记】5. 逻辑回归</a>
     </nav>
     
   </div>
@@ -305,13 +329,13 @@
   <div class="pure-u-10-24">
     
     <nav class="next">
-      <a href="https://HauyuChen.github.io/post/java-trap/">Java相关特性</a>
+      <a href="https://HauyuChen.github.io/post/sql%E4%BC%98%E5%8C%96/">SQL优化</a>
     </nav>
     
   </div>
   <div class="pure-u-1-24" style="text-align: right;">
     
-    <a href="https://HauyuChen.github.io/post/java-trap/"><i class="fa fa-chevron-right"></i></a>
+    <a href="https://HauyuChen.github.io/post/sql%E4%BC%98%E5%8C%96/"><i class="fa fa-chevron-right"></i></a>
     
   </div>
 </div>

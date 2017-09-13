@@ -428,6 +428,58 @@
   
     <article>
   <header>
+    <h2><a href="https://HauyuChen.github.io/post/java-%E5%85%B3%E9%94%AE%E5%AD%97thissuperstaticfinal/">Java关键字this、super、static、final</a></h2>
+
+    <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>2017-08-05</time>
+  </div>
+
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-folder fa-fw"></i>
+    
+      <a class="post-taxonomy-tag" href="https://HauyuChen.github.io/tags/java">Java</a>
+    
+  </div>
+  
+  
+
+  
+  
+  
+  <div>
+	<i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/java">Java</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/%E5%9F%BA%E7%A1%80">基础</a>
+    
+  </div>
+  
+  
+  
+</div>
+
+  </header>
+
+  <p>
+  0 写在前面 本文主要讲讲 Java 中比较常见的关键字，如 this 、 super 、 static 、 final ，它们在程序中出现频率较高。
+1 this  表示类中的属性，比如 this.username = username; 强调调用的是本类的方法； 调用本类的构造方法，如 this(); 调用本类的无参构造方法； 表示当前对象（调用方法的对象）。  2 super  调用父类的构造方法； 调用父类的普通方法； 调用父类的属性。  3 static  static 修饰类： static 修饰的类称为静态类，静态类作为类的静态成员存在于某个类中，静态成员类可以不创建父类对象直接创建静态类的对象。 static 修饰变量： static 修饰的变量称为静态变量或类变量，而没有被 static 修饰的变量称为实例变量。静态变量在内存中只有一个拷贝， JVM 只为静态变量分配一次内存，且在加载类的过程中完成静态变量的内存分配；而实例变量每创建一个实例就分配一次内存，实例变量在内存中有多个拷贝，互补影响。 static 修饰方法： static 修饰的方法称为类方法，否则为实例方法，实例方法只有生成对象时才分配内存。类方法可以通过类名直接调用，实例方法只能通过类对象调用。  4 final  final 修饰类：被 final 修饰的类表示最终类，其不能被继承，不能当父类； final 修饰变量：被 final 修饰的变量为最终变量，即常量，其值不能修改，在定义时必须赋值； final 修饰方法： final 修饰的方法为最终方法，父类包含最终方法时，子类不能重写该方法。
+  </p>
+
+  
+</article>
+
+  
+    <article>
+  <header>
     <h2><a href="https://HauyuChen.github.io/post/ml-5-logisticregression/">【机器学习笔记】5. 逻辑回归</a></h2>
 
     <div class="post-meta">
@@ -507,61 +559,6 @@
 </article>
 
   
-    <article>
-  <header>
-    <h2><a href="https://HauyuChen.github.io/post/java-json/">JSON相关操作（Java）</a></h2>
-
-    <div class="post-meta">
-
-  <div>
-    <i class="fa fa-calendar fa-fw"></i>
-    <time>2017-08-01</time>
-  </div>
-
-  
-
-  
-  
-  
-  <div>
-    <i class="fa fa-folder fa-fw"></i>
-    
-      <a class="post-taxonomy-tag" href="https://HauyuChen.github.io/tags/java">Java</a>
-    
-  </div>
-  
-  
-
-  
-  
-  
-  <div>
-	<i class="fa fa-tags fa-fw"></i>
-    
-      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/json">JSON</a>&nbsp;&#47;
-    
-      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/java">Java</a>
-    
-  </div>
-  
-  
-  
-</div>
-
-  </header>
-
-  <p>
-  1 Java中创建JSON import com.google.gson.JsonArray; import com.google.gson.JsonObject; public class CreateJSON { public static void main(String[] args) { JsonObject object = new JsonObject(); object.addProperty(&quot;cat&quot;, &quot;it&quot;); JsonArray array = new JsonArray(); JsonObject lan1 = new JsonObject(); lan1.addProperty(&quot;id&quot;, 1); lan1.addProperty(&quot;name&quot;, &quot;Java&quot;); lan1.addProperty(&quot;ide&quot;, &quot;Eclipse&quot;); array.add(lan1); JsonObject lan2 = new JsonObject(); lan2.addProperty(&quot;id&quot;, 2); lan2.addProperty(&quot;name&quot;, &quot;Swift&quot;); lan2.addProperty(&quot;ide&quot;, &quot;XCode&quot;); array.add(lan2); JsonObject lan3 = new JsonObject(); lan3.addProperty(&quot;id&quot;, 3); lan3.addProperty(&quot;name&quot;, &quot;C#&quot;); lan3.addProperty(&quot;ide&quot;, &quot;Visual Studio&quot;); array.add(lan3); object.add(&quot;languages&quot;, array); object.addProperty(&quot;pop&quot;, true); System.
-  </p>
-
-  
-  <footer>
-    <a href="https://HauyuChen.github.io/post/java-json/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
-  </footer>
-  
-</article>
-
-  
 
   
 
@@ -570,7 +567,7 @@
   
   <a href="https://HauyuChen.github.io/page/4/"><i class="fa fa-chevron-left"></i></a>
   
-  <span>&nbsp;5 / 20&nbsp;</span>
+  <span>&nbsp;5 / 19&nbsp;</span>
   
   <a href="https://HauyuChen.github.io/page/6/"><i class="fa fa-chevron-right"></i></a>
   

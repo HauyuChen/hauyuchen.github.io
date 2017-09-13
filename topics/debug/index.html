@@ -4,10 +4,10 @@
 <head>
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="不定期更新 SQL 优化相关内容">
+  <meta name="description" content="">
   <meta name="generator" content="Hugo 0.24.1" />
 
-  <title>SQL优化 &middot; Hov&#39;s Blog</title>
+  <title>Debug &middot; Hov&#39;s Blog</title>
 
   <script>
 	var _hmt = _hmt || [];
@@ -46,6 +46,8 @@
   <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet" type="text/css">
 
   
+  
+  <link rel="alternate" type="application/rss+xml" title="Hov&#39;s Blog" href="https://HauyuChen.github.io/topics/debug/index.xml" />
   
 
   
@@ -123,6 +125,10 @@
   <div class="pure-menu social">
 
   <ul class="pure-menu-list">
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://HauyuChen.github.io/topics/debug/index.xml"><i class="fa fa-rss fa-fw"></i>RSS</a>
+    </li>
     
 
     
@@ -221,16 +227,20 @@
 
 
 <div class="header">
-  <h1>SQL优化</h1>
-  <h2>不定期更新 SQL 优化相关内容</h2>
+  <h1>Debug</h1>
 </div>
-<div class="content">
 
-  <div class="post-meta">
+<div class="content">
+  
+    <article>
+  <header>
+    <h2><a href="https://HauyuChen.github.io/post/%E4%BB%A3%E7%A0%81%E8%B0%83%E8%AF%95/">代码调试基本操作</a></h2>
+
+    <div class="post-meta">
 
   <div>
     <i class="fa fa-calendar fa-fw"></i>
-    <time>2017-08-07</time>
+    <time>2017-07-05</time>
   </div>
 
   
@@ -241,7 +251,7 @@
   <div>
     <i class="fa fa-folder fa-fw"></i>
     
-      <a class="post-taxonomy-tag" href="https://HauyuChen.github.io/tags/%E6%95%B0%E6%8D%AE%E5%BA%93">数据库</a>
+      <a class="post-taxonomy-tag" href="https://HauyuChen.github.io/tags/%E5%B7%A5%E5%85%B7">工具</a>
     
   </div>
   
@@ -253,11 +263,11 @@
   <div>
 	<i class="fa fa-tags fa-fw"></i>
     
-      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/%E6%95%B0%E6%8D%AE%E5%BA%93">数据库</a>&nbsp;&#47;
+      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/intellij-idea">Intellij IDEA</a>&nbsp;&#47;
     
-      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/%E5%9F%BA%E7%A1%80">基础</a>&nbsp;&#47;
+      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/%E4%BB%A3%E7%A0%81%E8%B0%83%E8%AF%95">代码调试</a>&nbsp;&#47;
     
-      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/%E4%BC%98%E5%8C%96">优化</a>
+      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/debug">Debug</a>
     
   </div>
   
@@ -265,79 +275,27 @@
   
 </div>
 
-  
+  </header>
 
-<hr />
+  <p>
+  0 写在前面 Debug 是程序员必备的技能。当我们自己写的程序出现异常，我们可以通过 Debug 模式去分析异常。再者，现如今开源代码层出不穷，作者最近正好在研究开源代码， Debug 模式对跟踪代码也起到了很大的帮助。因为面对复杂的代码，我们靠一个一个查找，要找到相应的执行流程、执行方法不太容易。通过Debug模式，我们可以跟踪程序的执行流程，这样，某项业务的执行步骤便一目了然了。
+本文所用 IDE 为 Intellij IDEA ，但其它的 IDE 与此基本相似。
 
-<p><br/></p>
-
-<h1 id="sql-语句优化">SQL 语句优化</h1>
-
-<ol>
-<li>尽量选择较小的列；</li>
-<li>将 where 中用的比较频繁的字段建立索引；</li>
-<li>select 子句中避免使用‘ * ’；</li>
-<li>避免在索引列上使用运算符、 not 、 in 、 &lt; 、 &gt; 等操作；</li>
-<li>当只需要一行数据的时候使用 limit1；</li>
-<li>保证表单数据不超过 200w ，适时分割表。</li>
-</ol>
-
-<p><br/></p>
-
+1 基本用法 1.1 组件1 这组组件共八个按钮，从左至右编号1、2、3、4、5、6、7、8。
+ Show Execution Point：点击此按钮可将光标定位到当前代码执行处； Step Over：步过，一行一行往下执行。如果该行上有方法，不会进入方法； Step Into：步入，一行一行往下执行。如果该行上有方法，进入方法内部执行，但一般只进入自定义方法，不会进入官方类库的方法； Force Step Into：强制步入，可进入任何方法，查看底层源码是可通过这个进入官方类库的方法； Step Out：步出，从步入的方法内退出到方法调用处； Drop Frame：回退断点，默认无； Run to Cursor：运行至光标处，将光标定位到需要查看的那一行，代码会运行至光标行，无需打断点； Evaluate Expression：计算表达式。  
+1.2 组件2 这组组件共七个按钮，从上至下编号1、2、3、4、5、6、7。
+ Rerun ：重新运行程序，会关闭服务后重新启动程序； Update：更新程序，在代码改动后可执行这个功能来应用更新； Resume Program：恢复程序，点击该按钮将运行至下一个断点。比如我们在程序设置在代码第10行设置一个断点，在代码第20行设置一个断点，现在代码运行到第10行，点击按钮，代码将运行至下一个断点（第20行），若后面无断点，则运行完整个流程； Pause Program：暂停程序，启用 Debug ； Stop：连续按两下，关闭程序； View Breakpoints：查看所有断点； Mute Breakpoints：消除断点，点击该按钮将消除所有断点，断点将变为灰色，断点失效；再次点击，断点将变为红色，断点有效；如果只想对单个断点执行操作，直接在断点上右键选择相应的操作。  
+2 结语 通过这些基本操作我们已经可以初步地 Debug 程序，来跟踪程序的执行。当然， Debug 模式还有更多强大的功能，比如变量查看、智能步入、多线程调试等。下面这篇文章对 Debug 模式进行了详细的描述，推荐给大家。
+  </p>
 
   
-<div class="prev-next-post pure-g">
-  <div class="pure-u-1-24" style="text-align: left;">
-    
-    <a href="https://HauyuChen.github.io/post/java-%E5%85%B3%E9%94%AE%E5%AD%97thissuperstaticfinal/"><i class="fa fa-chevron-left"></i></a>
-    
-  </div>
-  <div class="pure-u-10-24">
-    
-    <nav class="prev">
-      <a href="https://HauyuChen.github.io/post/java-%E5%85%B3%E9%94%AE%E5%AD%97thissuperstaticfinal/">Java关键字this、super、static、final</a>
-    </nav>
-    
-  </div>
-  <div class="pure-u-2-24">
-    &nbsp;
-  </div>
-  <div class="pure-u-10-24">
-    
-    <nav class="next">
-      <a href="https://HauyuChen.github.io/post/java-trap/">Java相关特性</a>
-    </nav>
-    
-  </div>
-  <div class="pure-u-1-24" style="text-align: right;">
-    
-    <a href="https://HauyuChen.github.io/post/java-trap/"><i class="fa fa-chevron-right"></i></a>
-    
-  </div>
-</div>
-
-
+  <footer>
+    <a href="https://HauyuChen.github.io/post/%E4%BB%A3%E7%A0%81%E8%B0%83%E8%AF%95/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
+  </footer>
+  
+</article>
 
   
-<div id="disqus_thread"></div>
-<script type="text/javascript">
-
-(function() {
-    
-    
-    if (window.location.hostname == "localhost")
-        return;
-
-    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-    var disqus_shortname = "http-hov-space";
-    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-})();
-</script>
-<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-<a href="http://disqus.com/" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
-
-
 </div>
 
 </div>
@@ -351,4 +309,3 @@
 
 </body>
 </html>
-

@@ -236,6 +236,134 @@
   
     <article>
   <header>
+    <h2><a href="https://HauyuChen.github.io/post/008-string-to-integeratoi/">【LeetCode】8. String to Integer (atoi)</a></h2>
+
+    <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>2016-06-11</time>
+  </div>
+
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-folder fa-fw"></i>
+    
+      <a class="post-taxonomy-tag" href="https://HauyuChen.github.io/tags/leetcode">LeetCode</a>
+    
+  </div>
+  
+  
+
+  
+  
+  
+  <div>
+	<i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/%E7%AE%97%E6%B3%95">算法</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/leetcode">LeetCode</a>
+    
+  </div>
+  
+  
+  
+</div>
+
+  </header>
+
+  <p>
+  题目描述：  Implement atoi to convert a string to an integer.
+Hint: Carefully consider all possible input cases. If you want a challenge, please do not see below and ask yourself what are the possible input cases.
+Notes: It is intended for this problem to be specified vaguely (ie, no given input specs). You are responsible to gather all the input requirements up front.
+Update (2015-02-10): The signature of the C++ function had been updated.
+  </p>
+
+  
+  <footer>
+    <a href="https://HauyuChen.github.io/post/008-string-to-integeratoi/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
+  </footer>
+  
+</article>
+
+  
+    <article>
+  <header>
+    <h2><a href="https://HauyuChen.github.io/post/zb-zigbee-parking/">【ZigBee系列】3.智能停车系统项目</a></h2>
+
+    <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>2016-05-22</time>
+  </div>
+
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-folder fa-fw"></i>
+    
+      <a class="post-taxonomy-tag" href="https://HauyuChen.github.io/tags/zigbee">ZigBee</a>
+    
+  </div>
+  
+  
+
+  
+  
+  
+  <div>
+	<i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/zigbee">ZigBee</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/%E7%89%A9%E8%81%94%E7%BD%91">物联网</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/%E6%97%A0%E7%BA%BF%E4%BC%A0%E6%84%9F%E5%99%A8">无线传感器</a>
+    
+  </div>
+  
+  
+  
+</div>
+
+  </header>
+
+  <p>
+  作者注： ZigBee 系列共三篇，首先讲解 ZigBee 工程的结构，然后通过两个具体项目熟悉 ZigBee 的应用。在学习本系列内容前，您需要掌握单片机相关知识、 ZigBee 基础知识，希望本系列教程能对您开发 ZigBee 项目有所启发。如有任何问题，欢迎您随时与我联系：Hauyu.Chen@Gmail.com
+版权声明：本文由 Hov 所有，发布于 http://chenhy.com ，转载请注明出处。
+
+0 写在前面 智能停车系统是本人在大二下学期做的一个项目。项目主要涉及传感器数据采集、 ZigBee 组网、 GPRS 数据传输、数据库服务器程序开发、微信公众账号开发。
+项目视频演示如下：
+ 本文将着重讲述 ZigBee 部分，即如何通过 ZigBee 网络采集数据，并通过 GPRS 模块将数据发送给远程数据库服务器。后续有时间将对整个项目进行完整的讲解。
+本文侧重讲的是实现思路，具体的技术细节可参考源代码。希望阅读完这篇文章，能让您对ZigBee的实际应用有所启发。
+项目完整源码：https://github.com/HauyuChen/Parking-System
+如果对您有帮助，欢迎您在GitHub上给我 Follow 或 Stars ：）
+
+1 项目简介 智能停车系统通过 ZigBee 无线传感器网络实现停车场内部车位、亮度等数据的采集与传输；借助 GPRS 模块实现数据远程传输；利用数据库服务器实现数据的处理与存储；通过 PC 客户端和微信公众帐号实现数据交互，为停车场管理人员提供监控服务，为用户提供自助服务。系统实现停车引导、防盗提醒和灯光控制等功能，用户还可以关注本停车系统的微信公众账号实时地了解停车场内的信息。
+项目实物模型如下：
+
+2 ZigBee无线传感系统 ZigBee 部分主要完成的是传感器数据的采集和数据的传输，大体的思路是这样的：通过 ZigBee 终端节点上外接的传感器实现数据监测，并通过 ZigBee 网络将数据发送至 ZigBee 协调器， ZigBee 协调器通过 RS232 串口线连接 GPRS 模块，通过 AT 指令将数据发送至远程数据库服务器。
+  </p>
+
+  
+  <footer>
+    <a href="https://HauyuChen.github.io/post/zb-zigbee-parking/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
+  </footer>
+  
+</article>
+
+  
+    <article>
+  <header>
     <h2><a href="https://HauyuChen.github.io/post/zb-zigbee-wirelessfan/">【ZigBee系列】2.无线风扇项目</a></h2>
 
     <div class="post-meta">
@@ -371,7 +499,7 @@
   
     <article>
   <header>
-    <h2><a href="https://HauyuChen.github.io/post/2java%E5%85%B3%E9%94%AE%E5%AD%97thissuperstaticfinal/"></a></h2>
+    <h2><a href="https://HauyuChen.github.io/post/3javaio/"></a></h2>
 
     <div class="post-meta">
 
@@ -391,87 +519,22 @@
   </header>
 
   <p>
-   0 写在前面 本文主要讲讲Java中比较常见的关键字，如this、super、static、final，它们出现频率较高。
-1 this  表示类中的属性，比如 this.username = username; 强调调用的是本类的方法； 调用本类的构造方法，如this();调用本类的无参构造方法； 表示当前对象（调用方法的对象）。  2 super  调用父类的构造方法； 调用父类的普通方法； 调用父类的属性。  3 static  static修饰类：static修饰的类成为静态类，静态类作为类的静态成员存在于某个类中，静态成员类可以不创建父类对象直接创建静态类的对象。 static修饰变量：static修饰的变量称为静态变量或类变量，而没有被static修饰的变量成为实例变量。静态变量在内存中只有一个拷贝，JVM只为静态变量分配一次内存，且在加载类的过程中完成静态变量的内存分配；而实例变量每创建一个实例就分配一次内存，实例变量在内存中有多个拷贝，互补影响。 static修饰方法：static修饰的方法为类方法，否则为实例方法。实例方法只有生成对象时才分配内存。类方法可以通过类名直接调用，实例方法只能通过类对象调用。  4 final  final修饰类：被final修饰的类表示最终类，其不能被继承，不能当父类； final修饰变量：被final修饰的变量为最终变量，即常量；其值不能修改，在定义时必须赋值； final修饰方法：final修饰的方法为最终方法，父类包含最终方法时，子类不能重写该方法。  
-  </p>
-
-  
-</article>
-
-  
-    <article>
-  <header>
-    <h2><a href="https://HauyuChen.github.io/post/2%E4%BB%A3%E7%A0%81%E8%B0%83%E8%AF%95/"></a></h2>
-
-    <div class="post-meta">
-
-  <div>
-    <i class="fa fa-calendar fa-fw"></i>
-    <time>0001-01-01</time>
-  </div>
-
-  
-
-  
-
-  
-  
-</div>
-
-  </header>
-
-  <p>
-  0 写在前面 Debug 是程序员十分重要的技能，比如我们自己写的程序出现异常，我们可以通过Debug模式去分析异常。
-再者，现如今开源代码层出不穷，作者最近正好在分析开源代码。Debug在这里起到了很重要的作用。面对复杂的代码，我们要找到相对的执行流程、执行方法不太容易。
-通过Debug模式，我们可以跟踪程序的执行流程，这样，某项业务的执行步骤便一目了然了。
-1 基本用法 本文使用环境为 Intellij IDEA ，但其它的IDE与此大同小异。
-1.1 组件1 这组组件共八个按钮，从左至右编号1、2、3、4、5、6、7、8。
-###zujian1###
- Show Execution Point：点击此按钮可将光标定位到当前代码执行处； Step Over：步过，一行一行往下执行，如果该行上有方法，不会进入方法； Step Into：步入，一行一行往下执行，如果该行上有方法，进入方法内部执行，当一般进入自定义方法，不会进入官方类库的方法； Force Step Into：强制步入，能进入任何方法，查看底层源码是可通过这个进入官方类库的方法； Step Out：步出，从步入的方法内退出到方法调用处； Drop Frame：回退断点，默认无； Run to Cursor：运行至光标处，将光标定位到需要查看的那一行，代码会运行至光标行，无需打断点； Evaluate Expression：计算表达式。  1.2 组件2 这组组件共七个按钮，从上至下编号1、2、3、4、5、6、7。
-###zujian2###
- Rerun &lsquo;xxxx&rsquo;：重新运行程序，会关闭服务后重新启动程序； Update：更新程序，在代码改动后可执行这个功能来应用更新； Resume Program：恢复程序，点击该按钮将运行至下一个断点。比如我们在程序设置在代码第10行设置一个断点，在代码第20行设置一个断点，现在但马运行到第10行，点击按钮，代码将运行至下一个断点（第20行），若后面无断点，则运行完整个流程； Pause Program：暂停程序，启用Debug； Stop：连续按两下，关闭程序； View Breakpoints：查看所有断点； Mute Breakpoints：消除断点，点击该按钮将消除所有断点，断点将变为灰色，断点失效；再次点击，断点将变为红色，断点有效；如果只想对单个断点执行操作，直接在断点上右键选择相应的操作；  2 结语 通过基本操作我们已经可以初步的Debug我们的程序，来跟踪程序的执行。当然，Debug模式还有更多强大的功能，比如变量查看、智能步入、多线程调试等。下面这篇文章对Debug模式进行了详细的描述，推荐给大家。
-在Intellij IDEA中使用Debug
-  </p>
-
-  
-</article>
-
-  
-    <article>
-  <header>
-    <h2><a href="https://HauyuChen.github.io/post/2%E6%8A%BD%E8%B1%A1%E7%B1%BB%E4%B8%8E%E6%8E%A5%E5%8F%A3/"></a></h2>
-
-    <div class="post-meta">
-
-  <div>
-    <i class="fa fa-calendar fa-fw"></i>
-    <time>0001-01-01</time>
-  </div>
-
-  
-
-  
-
-  
-  
-</div>
-
-  </header>
-
-  <p>
-  0 写在前面 抽象类和接口有共同点但也有区别，在平时的应用中，经常会不知道在抽象类和接口中做何种选择。所以，我们有必要了解抽象类和接口间的区别，对以后在二者之间的选择将更有依据。
-
-1 抽象类 在面向对象中，我们通过类来描绘对象，但并不是所有的类都是用来描绘对象的。如果一个类中没有包含足够的信息来描绘一个具体的对象，这样的类就是抽象类。
-抽象类是实现多态的一种机制，抽象类可以包含具体方法，也可以包含抽象方法（由继承它的子类实现这些方法）。
-抽象类的特性总结如下：
- 抽象类不能被实例化； 抽象类可以有构造方法； 抽象方法必须由其子类重写（Override）； 只要包含有一个抽象方法的类，就必须定义为抽象类； 抽象类可以包含有具体实现的方法，也可以不包含抽象方法； 子类的抽象方法不能与父类的抽象方法重名； abstract不能与private、static、final、native并列修饰同一个方法。  举个栗子：
-Duck是一个抽象类，里面包含构造方法、抽象方法、具体方法；GreenHeadDuck继承自抽象类Duck，所以它必须重写抽象类Duck的抽象方法display，而具体方法Quack、swim不需要重写。
-/* Duck.java */ public abstract class Duck{ //抽象类Duck public Duck(){ //构造方法 } public abstract void display(); //抽象方法：外观 public void Quack(){ //具体方法：嘎嘎叫 System.out.println(&quot;--gaga--&quot;); } public void swim(){ //具体方法：游泳 System.out.println(&quot;--swimming--&quot;); } }  /* GreenHeadDuck.java */ public class GreenHeadDuck extends Duck{ //继承自抽象类Duck @Override public void display(){ //重写父类的抽象方法 System.out.println(&quot;**GreenHeadDuck**&quot;); //我是绿头鸭 } }
+  0 写在前面 Java IO 是以流为基础进行输入输出的，流中保存的实际上全是字节文件。程序从输入流中读取数据，通过输出流输出数据。
+Java IO 流可分为字节流和字符流两大类，两种流都可以实现输入输出操作。其中，字节流继承自InputStream和OutputStream，字符流继承自InputStreamReader和OutputStreamReader。
+###iostream###
+1 字节流 字节流主要是操作byte类型数据，以byte数组为准，主要操作类就是OutputStream、InputStream
+1.1 字节输出流：OutputStream OutputStream是整个IO包中字节输出流的最大父类，此类的定义如下：
+public abstract class OutputStream extends Object implements Closeable,Flushable  从以上的定义可以发现，此类是一个抽象类，如果想要使用此类的话，则首先必须通过子类实例化对象，那么如果现在要操作的是一个文件，则可以使用：FileOutputStream类。通过向上转型之后，可以为OutputStream实例化
+Closeable表示可以关闭的操作，因为程序运行到最后肯定要关闭
+Flushable：表示刷新，清空内存中的数据
+FileOutputStream类的构造方法如下：
+public FileOutputStream(File file)throws FileNotFoundException  写数据：
+import java.io.File; import java.io.FileOutputStream; import java.io.IOException; import java.io.OutputStream; public class Test11 { public static void main(String[] args) throws IOException { File f = new File(&quot;d:&quot; + File.separator+&quot;test.txt&quot;); OutputStream out=new FileOutputStream(f);//如果文件不存在会自动创建 String str=&quot;Hello World&quot;; byte[] b=str.getBytes(); out.
   </p>
 
   
   <footer>
-    <a href="https://HauyuChen.github.io/post/2%E6%8A%BD%E8%B1%A1%E7%B1%BB%E4%B8%8E%E6%8E%A5%E5%8F%A3/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
+    <a href="https://HauyuChen.github.io/post/3javaio/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
   </footer>
   
 </article>
@@ -485,9 +548,9 @@ Duck是一个抽象类，里面包含构造方法、抽象方法、具体方法�
   
   <a href="https://HauyuChen.github.io/page/18/"><i class="fa fa-chevron-left"></i></a>
   
-  <span>&nbsp;19 / 20&nbsp;</span>
+  <span>&nbsp;19 / 19&nbsp;</span>
   
-  <a href="https://HauyuChen.github.io/page/20/"><i class="fa fa-chevron-right"></i></a>
+  <i class="fa fa-chevron-right"></i>
   
 </nav>
 

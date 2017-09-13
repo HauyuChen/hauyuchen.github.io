@@ -7,10 +7,19 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2017. All rights reserved.</copyright>
-    <lastBuildDate>Wed, 19 Jul 2017 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 05 Jul 2017 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://HauyuChen.github.io/topics/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Debug</title>
+      <link>https://HauyuChen.github.io/topics/debug/</link>
+      <pubDate>Wed, 05 Jul 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://HauyuChen.github.io/topics/debug/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>Eclipse</title>
@@ -27,6 +36,15 @@
       <pubDate>Sat, 09 Sep 2017 00:00:00 +0000</pubDate>
       
       <guid>https://HauyuChen.github.io/topics/elasticsearch/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Intellij Idea</title>
+      <link>https://HauyuChen.github.io/topics/intellij-idea/</link>
+      <pubDate>Wed, 05 Jul 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://HauyuChen.github.io/topics/intellij-idea/</guid>
       <description></description>
     </item>
     
@@ -90,6 +108,15 @@
       <pubDate>Sun, 22 May 2016 00:00:00 +0000</pubDate>
       
       <guid>https://HauyuChen.github.io/topics/zigbee/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>代码调试</title>
+      <link>https://HauyuChen.github.io/topics/%E4%BB%A3%E7%A0%81%E8%B0%83%E8%AF%95/</link>
+      <pubDate>Wed, 05 Jul 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://HauyuChen.github.io/topics/%E4%BB%A3%E7%A0%81%E8%B0%83%E8%AF%95/</guid>
       <description></description>
     </item>
     
