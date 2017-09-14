@@ -7,30 +7,30 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2017. All rights reserved.</copyright>
-    <lastBuildDate>Tue, 18 Jul 2017 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 14 Sep 2017 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://HauyuChen.github.io/topics/%E5%AD%97%E7%AC%A6%E4%B8%B2/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>String相关特性（不定时更新）</title>
+      <title>String相关特性</title>
       <link>https://HauyuChen.github.io/post/java-string/</link>
-      <pubDate>Tue, 18 Jul 2017 00:00:00 +0000</pubDate>
+      <pubDate>Thu, 14 Sep 2017 00:00:00 +0000</pubDate>
       
       <guid>https://HauyuChen.github.io/post/java-string/</guid>
-      <description>声明：本文是我对Java中String的特性的一些笔记，描述较为简练，有误之处还望指正。
- 1.字符串实例化两种方式的区别 String的实例化方式有两种，一种是直接赋值，另一种是通过new关键字实例化。
-（1）直接赋值
-String str1 = &amp;quot;hello&amp;quot;;  （2）new关键字
-String str2 = new String(&amp;quot;hello&amp;quot;);  两种方式都能实例化新的字符串，那我们用哪种方式比较好呢？ 这要先弄清楚他们之间的区别。
- str1是通过直接赋值，str1将直接指向一个存放“hello”的内存空间，因此至占用一个内存空间。 str2是通过new关键字实例化，通过new关键字将开辟一个新的内存空间，赋值后将开辟一个新的内存空间存放str2，也就是说使用new关键字实例化字符串总共开辟了两个内存空间。  综上，使用直接赋值的方法较好，毕竟可以避免占用多余的内存空间。
+      <description>1 字符串实例化两种方式的区别 String 的实例化方式有两种，一种是直接赋值，另一种是通过 new 关键字实例化字符串。
+1.1 直接赋值 String str1 = &amp;quot;hello&amp;quot;;  使用直接赋值方式，只要以后声明的字符串内容相同，则不会再开辟新的内存空间。这是Java中共享设计的思想，Java 通过创建一个字符串池，字符串池中保存了多个字符串对象。若新实例化的字符串对象已经在对象池中，则不再重新定义，直接从对象池中取出使用。
+具体到例子， str1 通过直接赋值，因为字符串池不存在“hello”，所以创建一个新的实例置入字符串池，并在栈中开辟一个内存空间直接指向“hello”。
+如果我们声明新的字符串 str2=“hello”， str2 将指向“hello”存放的内存空间，不会再开辟一个新的内存空间。这是因为，JVM会先到字符串池中查找，如果有的话返回字符串池中这个实例的引用，否则才创建一个新的实例并置入字符串对象池。因此，通过直接赋值可以只占用一个内存空间。
+1.2 new关键字 String newstr1 = new String(&amp;quot;hello&amp;quot;);  使用 new 关键字实例化字符串，不管如何都将在堆中开辟一个新的空间。 new 创建字符串实例时会先在对象池中查找是否有相同值的字符串，如果有，则拷贝一份到堆中，然后返回堆中的地址。如果没有，则在堆中创建一份，然后返回堆中的地址。
+具体到例子， newstr1 通过 new 关键字实例化，无论对象池是否存在相同值的字符串，都会在堆中开辟一个新的内存空间，赋值后将在栈中开辟一个新的空间存放 newstr1 ，也就是说使用 new 关键字实例化字符串总共开辟了两个内存空间。因为多出了从字符串池拷贝到堆内存的操作。
+1.3 字符串池 字符串池的优点是避免了相同字符串的创建，节省内存，省去创建相同字符串的时间；另一方面，字符串池的缺点是牺牲了 JVM 在常量池中遍历对象所需要的时间，不过时间成本相比之下较低。
+1.4 小结 直接赋值只需一个内存空间，相同的字符串可以重复指向同一个内存空间；
+new 创建字符串实例无论如何会在堆中开辟一个新的内存空间，因此总共占用两个内存空间。
+综上，使用直接赋值的方法较好，可以避免占用多余的内存空间。
 
-2.字符串比较“==”与equals的区别 字符串比较是较为常用的功能，Java中主要提供了两种字符串比较方式，“==”和equals，如下：
-String str1 = &amp;quot;hello&amp;quot;; String str2 = new String(&amp;quot;hello&amp;quot;); System.out.println(str1==str2); //false System.out.println(str1.equals(str2)); //true  奇怪，明明str1和str2是一样的，为什么“==”会是false呢？
-这是因为，“==”比较的是内存单元地址，equals比较的是内容。由前一小节可知，new关键字实例化方式会开辟两个内存空间，str1和str2虽然都是hello，但他们存放的内存空间是不一样的。
-
-3.String内容不可变 假设：
-String str = &amp;quot;hello&amp;quot;; str = str + &amp;quot;world!&amp;quot;;  分析：原先str指向的是存放“hello”的内存空间，经过重新赋值，并不会将内存空间的“hello”改成“helloworld!”,而是开辟了新的内存空间存放“helloworld!”，将str重新指向存放“helloworld!”的内存空间。</description>
+2 字符串比较“==”与 equals 的区别 字符串比较是较为常用的功能， Java 中主要提供了两种字符串比较方式，“==”和 equals ，如下：
+String str1 = &amp;quot;hello&amp;quot;; String str2 = new String(&amp;quot;hello&amp;quot;); System.</description>
     </item>
     
   </channel>

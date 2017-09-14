@@ -7,7 +7,7 @@
   <meta name="description" content="">
   <meta name="generator" content="Hugo 0.24.1" />
 
-  <title>String相关特性（不定时更新） &middot; Hov&#39;s Blog</title>
+  <title>String相关特性 &middot; Hov&#39;s Blog</title>
 
   <script>
 	var _hmt = _hmt || [];
@@ -221,7 +221,7 @@
 
 
 <div class="header">
-  <h1>String相关特性（不定时更新）</h1>
+  <h1>String相关特性</h1>
   <h2></h2>
 </div>
 <div class="content">
@@ -230,7 +230,7 @@
 
   <div>
     <i class="fa fa-calendar fa-fw"></i>
-    <time>2017-07-18</time>
+    <time>2017-09-14</time>
   </div>
 
   
@@ -253,11 +253,11 @@
   <div>
 	<i class="fa fa-tags fa-fw"></i>
     
-      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/string">String</a>&nbsp;&#47;
-    
       <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/java">Java</a>&nbsp;&#47;
     
-      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/%E5%AD%97%E7%AC%A6%E4%B8%B2">字符串</a>
+      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/%E5%AD%97%E7%AC%A6%E4%B8%B2">字符串</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/%E5%9F%BA%E7%A1%80">基础</a>
     
   </div>
   
@@ -267,47 +267,55 @@
 
   
 
-<blockquote>
-<p>声明：本文是我对Java中String的特性的一些笔记，描述较为简练，有误之处还望指正。</p>
-</blockquote>
-
 <hr />
 
-<h1 id="1-字符串实例化两种方式的区别">1.字符串实例化两种方式的区别</h1>
+<p><br/></p>
 
-<p>String的实例化方式有两种，一种是直接赋值，另一种是通过new关键字实例化。</p>
+<h1 id="1-字符串实例化两种方式的区别">1 字符串实例化两种方式的区别</h1>
 
-<p><strong>（1）直接赋值</strong></p>
+<p>String 的实例化方式有两种，一种是直接赋值，另一种是通过 new 关键字实例化字符串。</p>
+
+<h2 id="1-1-直接赋值">1.1 直接赋值</h2>
 
 <pre><code>String str1 = &quot;hello&quot;;
 </code></pre>
 
+<p>使用直接赋值方式，只要以后声明的字符串内容相同，则不会再开辟新的内存空间。这是Java中共享设计的思想，Java 通过创建一个字符串池，字符串池中保存了多个字符串对象。若新实例化的字符串对象已经在对象池中，则不再重新定义，直接从对象池中取出使用。</p>
+
+<p>具体到例子， str1 通过直接赋值，因为字符串池不存在“hello”，所以创建一个新的实例置入字符串池，并在栈中开辟一个内存空间直接指向“hello”。</p>
+
+<p>如果我们声明新的字符串 str2=“hello”， str2 将指向“hello”存放的内存空间，不会再开辟一个新的内存空间。这是因为，JVM会先到字符串池中查找，如果有的话返回字符串池中这个实例的引用，否则才创建一个新的实例并置入字符串对象池。因此，通过直接赋值可以只占用一个内存空间。</p>
+
 <p><img src="https://raw.githubusercontent.com/HauyuChen/PicsBox/master/String1.jpg" alt="" /></p>
 
-<p><strong>（2）new关键字</strong></p>
+<h2 id="1-2-new关键字">1.2 new关键字</h2>
 
-<pre><code>String str2 = new String(&quot;hello&quot;);
+<pre><code>String newstr1 = new String(&quot;hello&quot;);
 </code></pre>
+
+<p>使用 new 关键字实例化字符串，不管如何都将在堆中开辟一个新的空间。 new 创建字符串实例时会先在对象池中查找是否有相同值的字符串，如果有，则拷贝一份到堆中，然后返回堆中的地址。如果没有，则在堆中创建一份，然后返回堆中的地址。</p>
+
+<p>具体到例子， newstr1 通过 new 关键字实例化，无论对象池是否存在相同值的字符串，都会在堆中开辟一个新的内存空间，赋值后将在栈中开辟一个新的空间存放 newstr1 ，也就是说使用 new 关键字实例化字符串总共开辟了两个内存空间。因为多出了从字符串池拷贝到堆内存的操作。</p>
 
 <p><img src="https://raw.githubusercontent.com/HauyuChen/PicsBox/master/String2.jpg" alt="" /></p>
 
-<p>两种方式都能实例化新的字符串，那我们用哪种方式比较好呢？
-这要先弄清楚他们之间的区别。</p>
+<h2 id="1-3-字符串池">1.3 字符串池</h2>
 
-<ul>
-<li>str1是通过直接赋值，str1将直接指向一个存放“hello”的内存空间，因此至<strong>占用一个内存空间</strong>。</li>
-<li>str2是通过new关键字实例化，通过new关键字将开辟一个新的内存空间，赋值后将开辟一个新的内存空间存放str2，也就是说<strong>使用new关键字实例化字符串总共开辟了两个内存空间</strong>。</li>
-</ul>
+<p>字符串池的优点是避免了相同字符串的创建，节省内存，省去创建相同字符串的时间；另一方面，字符串池的缺点是牺牲了 JVM 在常量池中遍历对象所需要的时间，不过时间成本相比之下较低。</p>
 
-<p>综上，使用直接赋值的方法较好，毕竟可以避免占用多余的内存空间。</p>
+<h2 id="1-4-小结">1.4 小结</h2>
 
-<p><br></p>
+<p>直接赋值只需一个内存空间，相同的字符串可以重复指向同一个内存空间；</p>
 
-<hr />
+<p>new 创建字符串实例无论如何会在堆中开辟一个新的内存空间，因此总共占用两个内存空间。</p>
 
-<h1 id="2-字符串比较-与equals的区别">2.字符串比较“==”与equals的区别</h1>
+<p>综上，使用直接赋值的方法较好，可以避免占用多余的内存空间。</p>
 
-<p>字符串比较是较为常用的功能，Java中主要提供了两种字符串比较方式，“==”和equals，如下：</p>
+<p><br/></p>
+
+<h1 id="2-字符串比较-与-equals-的区别">2 字符串比较“==”与 equals 的区别</h1>
+
+<p>字符串比较是较为常用的功能， Java 中主要提供了两种字符串比较方式，“==”和 equals ，如下：</p>
 
 <pre><code>String str1 = &quot;hello&quot;;
 String str2 = new String(&quot;hello&quot;);
@@ -315,15 +323,17 @@ System.out.println(str1==str2);             //false
 System.out.println(str1.equals(str2));      //true
 </code></pre>
 
-<p>奇怪，明明str1和str2是一样的，为什么“==”会是false呢？</p>
+<p>奇怪，明明 str1 和 str2 是一样的，为什么“==”会是 false 呢？</p>
 
-<p>这是因为，<strong>“==”比较的是内存单元地址，equals比较的是内容</strong>。由前一小节可知，new关键字实例化方式会开辟两个内存空间，str1和str2虽然都是hello，但他们存放的内存空间是不一样的。</p>
+<p>这是因为，在 String 中，<strong>“==”比较的是内存单元地址， equals 比较的是字符串的值</strong>。通俗的说，“==”是判断两个对象是不是同一个东西，而 equals 是判断两个对象的值是否相同。</p>
 
-<p><br></p>
+<p>由前一小节可知， new 关键字实例化方式会开辟两个内存空间， str1 和 str2 虽然都是“hello”，但它们存放的内存空间地址是不一样的。因此，“==”会认为它们不等，因为它们的地址不同（或者说不是同一个对象）； equals 会认为它们相等，因为他们的值都是“hello”。</p>
 
-<hr />
+<p><strong>注：</strong> Java 中所有的类都继承自 Object 这个基类， equals 是 Object 中定义的一个方法，这里的 equals 比较的是对象的内存地址，你可以认为这里的 equals 等同于“==”。值得注意的是， String 类中的 equals 重写了 Object 中的 equals 方法，它有自己的实现，而不再是比较内存地址。因此，才有了“==”和 equals 在字符串比较中的区别。</p>
 
-<h1 id="3-string内容不可变">3.String内容不可变</h1>
+<p><br/></p>
+
+<h1 id="3-string内容不可变">3 String内容不可变</h1>
 
 <p>假设：</p>
 
@@ -333,20 +343,36 @@ str = str + &quot;world!&quot;;
 
 <p><img src="https://raw.githubusercontent.com/HauyuChen/PicsBox/master/String3.jpg" alt="" /></p>
 
-<p><strong>分析：</strong>原先str指向的是存放“hello”的内存空间，经过重新赋值，并不会将内存空间的“hello”改成“helloworld!”,而是开辟了新的内存空间存放“helloworld!”，将str重新指向存放“helloworld!”的内存空间。</p>
+<p><strong>分析：</strong>原先 str 指向的是存放“hello”的内存空间，经过重新赋值，并不会将内存空间的“hello”改成“helloworld!”,而是开辟了新的内存空间存放“helloworld!”，将 str 重新指向存放“helloworld!”的内存空间， str 不再指向存放“hello”的内存空间。</p>
+
+<p><br/></p>
+
+<p><strong>致谢：</strong></p>
+
+<ul>
+<li>勋仔</li>
+</ul>
+
+<p><strong>参考资料：</strong></p>
+
+<ul>
+<li><a href="http://www.cnblogs.com/acm-bingzi/p/javaStringStatic.html">http://www.cnblogs.com/acm-bingzi/p/javaStringStatic.html</a></li>
+</ul>
+
+<p><br/></p>
 
 
   
 <div class="prev-next-post pure-g">
   <div class="pure-u-1-24" style="text-align: left;">
     
-    <a href="https://HauyuChen.github.io/post/521-longest-uncommon-subsequence-i/"><i class="fa fa-chevron-left"></i></a>
+    <a href="https://HauyuChen.github.io/post/java-%E6%8A%BD%E8%B1%A1%E7%B1%BB%E4%B8%8E%E6%8E%A5%E5%8F%A3/"><i class="fa fa-chevron-left"></i></a>
     
   </div>
   <div class="pure-u-10-24">
     
     <nav class="prev">
-      <a href="https://HauyuChen.github.io/post/521-longest-uncommon-subsequence-i/">【LeetCode】521. Longest Uncommon Subsequence I</a>
+      <a href="https://HauyuChen.github.io/post/java-%E6%8A%BD%E8%B1%A1%E7%B1%BB%E4%B8%8E%E6%8E%A5%E5%8F%A3/">抽象类与接口的区别</a>
     </nav>
     
   </div>
@@ -355,14 +381,8 @@ str = str + &quot;world!&quot;;
   </div>
   <div class="pure-u-10-24">
     
-    <nav class="next">
-      <a href="https://HauyuChen.github.io/post/eclipse%E5%BF%AB%E6%8D%B7%E9%94%AE/">Eclipse常用快捷键</a>
-    </nav>
-    
   </div>
   <div class="pure-u-1-24" style="text-align: right;">
-    
-    <a href="https://HauyuChen.github.io/post/eclipse%E5%BF%AB%E6%8D%B7%E9%94%AE/"><i class="fa fa-chevron-right"></i></a>
     
   </div>
 </div>
