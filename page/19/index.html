@@ -236,6 +236,65 @@
   
     <article>
   <header>
+    <h2><a href="https://HauyuChen.github.io/post/001-two-sum/">【LeetCode】1. Two Sum</a></h2>
+
+    <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>2016-06-11</time>
+  </div>
+
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-folder fa-fw"></i>
+    
+      <a class="post-taxonomy-tag" href="https://HauyuChen.github.io/tags/leetcode">LeetCode</a>
+    
+  </div>
+  
+  
+
+  
+  
+  
+  <div>
+	<i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/%E7%AE%97%E6%B3%95">算法</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/leetcode">LeetCode</a>
+    
+  </div>
+  
+  
+  
+</div>
+
+  </header>
+
+  <p>
+  题目描述：  Given an array of integers, return indices of the two numbers such that they add up to a specific target.
+You may assume that each input would have exactly one solution, and you may not use the same element twice.
+Example: Given nums = [2, 7, 11, 15], target = 9,
+Because nums[0] + nums[1] = 2 + 7 = 9, return [0, 1].
+ 我的思路：   先用map存储每个元素对应的原始下标，方便后续查找特定元素。 从头开始查找符合条件的结果，用target减去nums[i]，得到两数之差t，在map中寻找是否存在t且元素t的索引不等于i,若是则为最终结果，否则继续查找nums[i+1]。   代码实现： class Solution { public: vector&lt;int&gt; twoSum(vector&lt;int&gt;&amp; nums, int target) { unordered_map&lt;int,int&gt; hm; for(int i=0;i&lt;nums.
+  </p>
+
+  
+  <footer>
+    <a href="https://HauyuChen.github.io/post/001-two-sum/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
+  </footer>
+  
+</article>
+
+  
+    <article>
+  <header>
     <h2><a href="https://HauyuChen.github.io/post/008-string-to-integeratoi/">【LeetCode】8. String to Integer (atoi)</a></h2>
 
     <div class="post-meta">
@@ -497,49 +556,6 @@ Update (2015-02-10): The signature of the C++ function had been updated.
 </article>
 
   
-    <article>
-  <header>
-    <h2><a href="https://HauyuChen.github.io/post/3javaio/"></a></h2>
-
-    <div class="post-meta">
-
-  <div>
-    <i class="fa fa-calendar fa-fw"></i>
-    <time>0001-01-01</time>
-  </div>
-
-  
-
-  
-
-  
-  
-</div>
-
-  </header>
-
-  <p>
-  0 写在前面 Java IO 是以流为基础进行输入输出的，流中保存的实际上全是字节文件。程序从输入流中读取数据，通过输出流输出数据。
-Java IO 流可分为字节流和字符流两大类，两种流都可以实现输入输出操作。其中，字节流继承自InputStream和OutputStream，字符流继承自InputStreamReader和OutputStreamReader。
-###iostream###
-1 字节流 字节流主要是操作byte类型数据，以byte数组为准，主要操作类就是OutputStream、InputStream
-1.1 字节输出流：OutputStream OutputStream是整个IO包中字节输出流的最大父类，此类的定义如下：
-public abstract class OutputStream extends Object implements Closeable,Flushable  从以上的定义可以发现，此类是一个抽象类，如果想要使用此类的话，则首先必须通过子类实例化对象，那么如果现在要操作的是一个文件，则可以使用：FileOutputStream类。通过向上转型之后，可以为OutputStream实例化
-Closeable表示可以关闭的操作，因为程序运行到最后肯定要关闭
-Flushable：表示刷新，清空内存中的数据
-FileOutputStream类的构造方法如下：
-public FileOutputStream(File file)throws FileNotFoundException  写数据：
-import java.io.File; import java.io.FileOutputStream; import java.io.IOException; import java.io.OutputStream; public class Test11 { public static void main(String[] args) throws IOException { File f = new File(&quot;d:&quot; + File.separator+&quot;test.txt&quot;); OutputStream out=new FileOutputStream(f);//如果文件不存在会自动创建 String str=&quot;Hello World&quot;; byte[] b=str.getBytes(); out.
-  </p>
-
-  
-  <footer>
-    <a href="https://HauyuChen.github.io/post/3javaio/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
-  </footer>
-  
-</article>
-
-  
 
   
 
@@ -548,9 +564,9 @@ import java.io.File; import java.io.FileOutputStream; import java.io.IOException
   
   <a href="https://HauyuChen.github.io/page/18/"><i class="fa fa-chevron-left"></i></a>
   
-  <span>&nbsp;19 / 19&nbsp;</span>
+  <span>&nbsp;19 / 20&nbsp;</span>
   
-  <i class="fa fa-chevron-right"></i>
+  <a href="https://HauyuChen.github.io/page/20/"><i class="fa fa-chevron-right"></i></a>
   
 </nav>
 

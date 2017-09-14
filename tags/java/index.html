@@ -234,6 +234,69 @@
   
     <article>
   <header>
+    <h2><a href="https://HauyuChen.github.io/post/java-%E6%8A%BD%E8%B1%A1%E7%B1%BB%E4%B8%8E%E6%8E%A5%E5%8F%A3/">抽象类与接口的区别</a></h2>
+
+    <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>2017-09-14</time>
+  </div>
+
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-folder fa-fw"></i>
+    
+      <a class="post-taxonomy-tag" href="https://HauyuChen.github.io/tags/java">Java</a>
+    
+  </div>
+  
+  
+
+  
+  
+  
+  <div>
+	<i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/java">Java</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/%E5%9F%BA%E7%A1%80">基础</a>
+    
+  </div>
+  
+  
+  
+</div>
+
+  </header>
+
+  <p>
+  0 写在前面 抽象类和接口有共同点，也有不同点。在实际应用中，我们有时会不知道什么时候用抽象类，什么时候用接口。因此，我们有必要了解抽象类和接口的相关知识以及它们之间的区别，这样以后在二者之间的选择将更有依据。
+
+1 抽象类 在面向对象中，我们通过类来描绘对象，但并不是所有的类都是用来描绘对象的。如果一个类中没有包含足够的信息来描绘一个具体的对象，这样的类就是抽象类。
+抽象类是实现多态的一种机制，抽象类可以包含具体方法，也可以包含抽象方法（由继承它的子类实现这些方法）。
+抽象类的特性总结如下：
+ 抽象类不能被实例化； 抽象类可以有构造方法； 抽象方法必须由其子类重写（Override）； 只要包含有一个抽象方法的类，就必须定义为抽象类； 抽象类可以包含有具体实现的方法，也可以不包含抽象方法； 子类的抽象方法不能与父类的抽象方法重名； abstract 不能与 private 、 static 、 final 、 native 并列修饰同一个方法。  举个栗子：
+Duck 是一个抽象类，里面包含构造方法、抽象方法、具体方法。
+GreenHeadDuck 继承自抽象类 Duck ，所以它必须重写抽象类 Duck 的抽象方法 display ，而具体方法 Quack 、 Swim 可以不重写。
+/* Duck.java */ public abstract class Duck{ //抽象类Duck public Duck(){ //构造方法 } public abstract void display(); //抽象方法：外观 public void Quack(){ //具体方法：嘎嘎叫 System.out.println(&quot;--gaga--&quot;); } public void Swim(){ //具体方法：游泳 System.
+  </p>
+
+  
+  <footer>
+    <a href="https://HauyuChen.github.io/post/java-%E6%8A%BD%E8%B1%A1%E7%B1%BB%E4%B8%8E%E6%8E%A5%E5%8F%A3/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
+  </footer>
+  
+</article>
+
+  
+    <article>
+  <header>
     <h2><a href="https://HauyuChen.github.io/post/java-%E8%BF%9B%E7%A8%8B%E9%80%9A%E4%BF%A1%E5%85%B1%E4%BA%AB%E5%86%85%E5%AD%98/">Java 进程通信（共享内存）</a></h2>
 
     <div class="post-meta">
