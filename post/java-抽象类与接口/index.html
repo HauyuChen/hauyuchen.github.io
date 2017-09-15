@@ -293,6 +293,10 @@
 <li>abstract 不能与 private 、 static 、 final 、 native 并列修饰同一个方法。</li>
 </ol>
 
+<p><strong>注：关于子类实例化时抽象类是否被实例化的问题</strong></p>
+
+<p>抽象类不能实例化，子类实例化时会初始化父类，因为子类继承了父类的变量、方法等，但初始化不等同于实例化。实例化是指用类创建对象，为对象开辟内存空间。</p>
+
 <p><strong>举个栗子：</strong></p>
 
 <p>Duck 是一个抽象类，里面包含构造方法、抽象方法、具体方法。</p>
@@ -344,7 +348,7 @@ public class GreenHeadDuck extends Duck{    //GreenHeadDuck继承自抽象类Duc
 <li>接口不能有构造方法；</li>
 <li>接口的所有方法自动被声明为 public ，而且只能为 public ；如果使用 protected 、 private 将导致编译错误；</li>
 <li>接口可以定义“成员变量”，并自动转为 public final static ，即常量；</li>
-<li>接口中的所有方法都是抽象方法，不能包含有具体实现的方法，也不能包含静态方法；</li>
+<li>Java 8 之前接口只能有抽象方法，Java 8 之后允许接口有非抽象方法实现，需要用 default 关键字，这种特征又叫做扩展方法；</li>
 <li>实现接口的非抽象类必须实现接口的所有方法，而抽象类不需要；</li>
 <li>不能实例化接口，但可以声明一个接口变量，它必须引用一个实现该接口的类的对象，可以使用 instanceOf 来判断一个类是否实现了某个接口，如:</li>
 </ol>
@@ -374,6 +378,17 @@ public interface Behavior {      //接口Behavior
         System.out.println(&quot;--GoodFly--&quot;);  
     }
 
+}
+</code></pre>
+
+<p><strong>注：Java 8 新特性：接口允许有非抽象方法。</strong></p>
+
+<pre><code>interface Formula {
+    double calculate(int a);
+
+    default double sqrt(int a) {
+        return Math.sqrt(a);
+    }
 }
 </code></pre>
 
