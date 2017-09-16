@@ -236,6 +236,60 @@
   
     <article>
   <header>
+    <h2><a href="https://HauyuChen.github.io/post/349-intersection-of-two-arrays/">【LeetCode】349. Intersection of Two Arrays</a></h2>
+
+    <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>2017-01-15</time>
+  </div>
+
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-folder fa-fw"></i>
+    
+      <a class="post-taxonomy-tag" href="https://HauyuChen.github.io/tags/leetcode">LeetCode</a>
+    
+  </div>
+  
+  
+
+  
+  
+  
+  <div>
+	<i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/%E7%AE%97%E6%B3%95">算法</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/leetcode">LeetCode</a>
+    
+  </div>
+  
+  
+  
+</div>
+
+  </header>
+
+  <p>
+   题目描述：  Given two arrays, write a function to compute their intersection.
+Example: Given nums1 = [1, 2, 2, 1], nums2 = [2, 2], return [2].
+Note: Each element in the result must be unique. The result can be in any order.
+ 代码实现： class Solution { public: vector&lt;int&gt; intersection(vector&lt;int&gt;&amp; nums1, vector&lt;int&gt;&amp; nums2) { unordered_set&lt;int&gt; s; vector&lt;int&gt; ret; for(int num1:nums1){ if(s.count(num1)==0){ s.insert(num1); } } for(int num2:nums2){ if(s.count(num2)){ ret.push_back(num2); s.erase(num2); } } return ret; } };  
+  </p>
+
+  
+</article>
+
+  
+    <article>
+  <header>
     <h2><a href="https://HauyuChen.github.io/post/350-intersection-of-two-arrays-ii/">【LeetCode】350. Intersection of Two Arrays II</a></h2>
 
     <div class="post-meta">
@@ -449,64 +503,6 @@ Follow up: It is very easy to come up with a solution with run time O(n*sizeof(i
   
   <footer>
     <a href="https://HauyuChen.github.io/post/338-counting-bits/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
-  </footer>
-  
-</article>
-
-  
-    <article>
-  <header>
-    <h2><a href="https://HauyuChen.github.io/post/268-missing-number/">【LeetCode】268. Missing Number</a></h2>
-
-    <div class="post-meta">
-
-  <div>
-    <i class="fa fa-calendar fa-fw"></i>
-    <time>2017-01-11</time>
-  </div>
-
-  
-
-  
-  
-  
-  <div>
-    <i class="fa fa-folder fa-fw"></i>
-    
-      <a class="post-taxonomy-tag" href="https://HauyuChen.github.io/tags/leetcode">LeetCode</a>
-    
-  </div>
-  
-  
-
-  
-  
-  
-  <div>
-	<i class="fa fa-tags fa-fw"></i>
-    
-      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/%E7%AE%97%E6%B3%95">算法</a>&nbsp;&#47;
-    
-      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/leetcode">LeetCode</a>
-    
-  </div>
-  
-  
-  
-</div>
-
-  </header>
-
-  <p>
-  题目描述：  Given an array containing n distinct numbers taken from 0, 1, 2, &hellip;, n, find the one that is missing from the array.
-For example, Given nums = [0, 1, 3] return 2.
-Note: Your algorithm should run in linear runtime complexity. Could you implement it using only constant extra space complexity?
- 代码实现： class Solution { public: int missingNumber(vector&lt;int&gt;&amp; nums) { int sum=0; int realsum=0; bool flag=false; for(int i=0;i&lt;nums.
-  </p>
-
-  
-  <footer>
-    <a href="https://HauyuChen.github.io/post/268-missing-number/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
   </footer>
   
 </article>

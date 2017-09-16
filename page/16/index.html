@@ -236,6 +236,58 @@
   
     <article>
   <header>
+    <h2><a href="https://HauyuChen.github.io/post/217-contains-duplicate/">【LeetCode】217. Contains Duplicate</a></h2>
+
+    <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>2017-01-07</time>
+  </div>
+
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-folder fa-fw"></i>
+    
+      <a class="post-taxonomy-tag" href="https://HauyuChen.github.io/tags/leetcode">LeetCode</a>
+    
+  </div>
+  
+  
+
+  
+  
+  
+  <div>
+	<i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/%E7%AE%97%E6%B3%95">算法</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/leetcode">LeetCode</a>
+    
+  </div>
+  
+  
+  
+</div>
+
+  </header>
+
+  <p>
+   题目描述：  Given an array of integers, find if the array contains any duplicates. Your function should return true if any value appears at least twice in the array, and it should return false if every element is distinct.
+ 代码实现： class Solution { public: bool containsDuplicate(vector&lt;int&gt;&amp; nums) { unordered_set&lt;int&gt; set; for(int num:nums){ if(set.count(num)){ return true; } set.insert(num); } return false; } };  
+  </p>
+
+  
+</article>
+
+  
+    <article>
+  <header>
     <h2><a href="https://HauyuChen.github.io/post/191-number-of-1-bits/">【LeetCode】191. Number of 1 Bits</a></h2>
 
     <div class="post-meta">
@@ -450,59 +502,6 @@ You may assume that each input would have exactly one solution and you may not u
   <footer>
     <a href="https://HauyuChen.github.io/post/167-two-sum-ii-input-array-is-sorted/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
   </footer>
-  
-</article>
-
-  
-    <article>
-  <header>
-    <h2><a href="https://HauyuChen.github.io/post/169-majority-element/">【LeetCode】169. Majority Element</a></h2>
-
-    <div class="post-meta">
-
-  <div>
-    <i class="fa fa-calendar fa-fw"></i>
-    <time>2016-06-20</time>
-  </div>
-
-  
-
-  
-  
-  
-  <div>
-    <i class="fa fa-folder fa-fw"></i>
-    
-      <a class="post-taxonomy-tag" href="https://HauyuChen.github.io/tags/leetcode">LeetCode</a>
-    
-  </div>
-  
-  
-
-  
-  
-  
-  <div>
-	<i class="fa fa-tags fa-fw"></i>
-    
-      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/%E7%AE%97%E6%B3%95">算法</a>&nbsp;&#47;
-    
-      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/leetcode">LeetCode</a>
-    
-  </div>
-  
-  
-  
-</div>
-
-  </header>
-
-  <p>
-   题目描述：  Given an array of size n, find the majority element. The majority element is the element that appears more than ⌊ n/2 ⌋ times.
-You may assume that the array is non-empty and the majority element always exist in the array.
- 代码实现： class Solution { public: int majorityElement(vector&lt;int&gt;&amp; nums) { int major=nums[0]; int cnt=1; for(int num:nums){ if(num==major){ ++cnt; }else{ --cnt; } if(cnt==0){ ++cnt; major = num; } } return major; } };  
-  </p>
-
   
 </article>
 

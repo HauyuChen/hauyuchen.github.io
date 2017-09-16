@@ -7,7 +7,7 @@
   <meta name="description" content="">
   <meta name="generator" content="Hugo 0.24.1" />
 
-  <title>Topics &middot; Hov&#39;s Blog</title>
+  <title>【LeetCode】575. Distribute Candies &middot; Hov&#39;s Blog</title>
 
   <script>
 	var _hmt = _hmt || [];
@@ -46,8 +46,6 @@
   <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet" type="text/css">
 
   
-  
-  <link rel="alternate" type="application/rss+xml" title="Hov&#39;s Blog" href="https://HauyuChen.github.io/topics/index.xml" />
   
 
   
@@ -125,10 +123,6 @@
   <div class="pure-menu social">
 
   <ul class="pure-menu-list">
-    
-    <li class="pure-menu-item">
-      <a class="pure-menu-link" href="https://HauyuChen.github.io/topics/index.xml"><i class="fa fa-rss fa-fw"></i>RSS</a>
-    </li>
     
 
     
@@ -227,193 +221,157 @@
 
 
 <div class="header">
-  <h1>Topics</h1>
+  <h1>【LeetCode】575. Distribute Candies</h1>
+  <h2></h2>
 </div>
 <div class="content">
-  <ul>
+
+  <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>2017-08-26</time>
+  </div>
+
+  
+
   
   
-    <li>
-      <a href="leetcode">leetcode</a>
-      <span>&#40;67&#41;</span>
-    </li>
   
-    <li>
-      <a href="%E7%AE%97%E6%B3%95">算法</a>
-      <span>&#40;67&#41;</span>
-    </li>
+  <div>
+    <i class="fa fa-folder fa-fw"></i>
+    
+      <a class="post-taxonomy-tag" href="https://HauyuChen.github.io/tags/leetcode">LeetCode</a>
+    
+  </div>
   
-    <li>
-      <a href="java">java</a>
-      <span>&#40;11&#41;</span>
-    </li>
   
-    <li>
-      <a href="%E5%9F%BA%E7%A1%80">基础</a>
-      <span>&#40;7&#41;</span>
-    </li>
+
   
-    <li>
-      <a href="%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0">机器学习</a>
-      <span>&#40;7&#41;</span>
-    </li>
   
-    <li>
-      <a href="%E7%9B%91%E7%9D%A3%E5%AD%A6%E4%B9%A0">监督学习</a>
-      <span>&#40;6&#41;</span>
-    </li>
   
-    <li>
-      <a href="elasticsearch">elasticsearch</a>
-      <span>&#40;4&#41;</span>
-    </li>
+  <div>
+	<i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/%E7%AE%97%E6%B3%95">算法</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/leetcode">LeetCode</a>
+    
+  </div>
   
-    <li>
-      <a href="kibana">kibana</a>
-      <span>&#40;4&#41;</span>
-    </li>
   
-    <li>
-      <a href="%E5%88%86%E5%B8%83%E5%BC%8F%E6%90%9C%E7%B4%A2">分布式搜索</a>
-      <span>&#40;4&#41;</span>
-    </li>
   
-    <li>
-      <a href="zigbee">zigbee</a>
-      <span>&#40;3&#41;</span>
-    </li>
+</div>
+
   
-    <li>
-      <a href="%E6%97%A0%E7%BA%BF%E4%BC%A0%E6%84%9F%E5%99%A8">无线传感器</a>
-      <span>&#40;3&#41;</span>
-    </li>
+
+<hr />
+
+<h2 id="题目描述">题目描述：</h2>
+
+<blockquote>
+<p>Given an integer array with even length, where different numbers in this array represent different kinds of candies. Each number means one candy of the corresponding kind. You need to distribute these candies equally in number to brother and sister. Return the maximum number of kinds of candies the sister could gain.</p>
+
+<p>Example 1:
+Input: candies = [1,1,2,2,3,3]
+Output: 3</p>
+
+<p>Explanation:
+There are three different kinds of candies (1, 2 and 3), and two candies for each kind.
+Optimal distribution: The sister has candies [1,2,3] and the brother has candies [1,2,3], too.
+The sister has three different kinds of candies.</p>
+
+<p>Example 2:
+Input: candies = [1,1,2,3]
+Output: 2</p>
+
+<p>Explanation: For example, the sister has candies [2,3] and the brother has candies [1,1].
+The sister has two different kinds of candies, the brother has only one kind of candies.</p>
+
+<p>Note:
+The length of the given array is in range [2, 10,000], and will be even.
+The number in given array is in range [-100,000, 100,000].</p>
+</blockquote>
+
+<h2 id="代码实现">代码实现：</h2>
+
+<pre><code>class Solution {
+public:
+    int distributeCandies(vector&lt;int&gt;&amp; candies) {
+        int num = candies.size();
+        int cnt=1;
+        
+        sort(candies.begin(),candies.end());
+        for(int i=0;i&lt;num-1;i++){
+            if(candies[i]!=candies[i+1]){
+                cnt++;
+            }
+        }
+        if(cnt&gt;num/2){
+            return num/2;
+        }else{
+            return cnt;
+        }
+    }
+};
+</code></pre>
+
+<p><br/></p>
+
+
   
-    <li>
-      <a href="%E7%89%A9%E8%81%94%E7%BD%91">物联网</a>
-      <span>&#40;3&#41;</span>
-    </li>
+<div class="prev-next-post pure-g">
+  <div class="pure-u-1-24" style="text-align: left;">
+    
+    <a href="https://HauyuChen.github.io/post/566-reshape-the-matrix/"><i class="fa fa-chevron-left"></i></a>
+    
+  </div>
+  <div class="pure-u-10-24">
+    
+    <nav class="prev">
+      <a href="https://HauyuChen.github.io/post/566-reshape-the-matrix/">【LeetCode】566. Reshape the Matrix</a>
+    </nav>
+    
+  </div>
+  <div class="pure-u-2-24">
+    &nbsp;
+  </div>
+  <div class="pure-u-10-24">
+    
+    <nav class="next">
+      <a href="https://HauyuChen.github.io/post/dp-3-%E8%A3%85%E9%A5%B0%E8%80%85%E6%A8%A1%E5%BC%8F/">【设计模式】3.装饰者模式</a>
+    </nav>
+    
+  </div>
+  <div class="pure-u-1-24" style="text-align: right;">
+    
+    <a href="https://HauyuChen.github.io/post/dp-3-%E8%A3%85%E9%A5%B0%E8%80%85%E6%A8%A1%E5%BC%8F/"><i class="fa fa-chevron-right"></i></a>
+    
+  </div>
+</div>
+
+
+
   
-    <li>
-      <a href="%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92">线性回归</a>
-      <span>&#40;3&#41;</span>
-    </li>
-  
-    <li>
-      <a href="%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F">设计模式</a>
-      <span>&#40;3&#41;</span>
-    </li>
-  
-    <li>
-      <a href="%E5%B9%B6%E5%8F%91%E6%8E%A7%E5%88%B6">并发控制</a>
-      <span>&#40;2&#41;</span>
-    </li>
-  
-    <li>
-      <a href="%E6%95%B0%E6%8D%AE%E5%BA%93">数据库</a>
-      <span>&#40;2&#41;</span>
-    </li>
-  
-    <li>
-      <a href="%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92">逻辑回归</a>
-      <span>&#40;2&#41;</span>
-    </li>
-  
-    <li>
-      <a href="debug">debug</a>
-      <span>&#40;1&#41;</span>
-    </li>
-  
-    <li>
-      <a href="eclipse">eclipse</a>
-      <span>&#40;1&#41;</span>
-    </li>
-  
-    <li>
-      <a href="intellij-idea">intellij-idea</a>
-      <span>&#40;1&#41;</span>
-    </li>
-  
-    <li>
-      <a href="json">json</a>
-      <span>&#40;1&#41;</span>
-    </li>
-  
-    <li>
-      <a href="xml">xml</a>
-      <span>&#40;1&#41;</span>
-    </li>
-  
-    <li>
-      <a href="%E4%BB%A3%E7%A0%81%E8%B0%83%E8%AF%95">代码调试</a>
-      <span>&#40;1&#41;</span>
-    </li>
-  
-    <li>
-      <a href="%E4%BC%98%E5%8C%96">优化</a>
-      <span>&#40;1&#41;</span>
-    </li>
-  
-    <li>
-      <a href="%E5%85%B1%E4%BA%AB%E5%86%85%E5%AD%98">共享内存</a>
-      <span>&#40;1&#41;</span>
-    </li>
-  
-    <li>
-      <a href="%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F">单例模式</a>
-      <span>&#40;1&#41;</span>
-    </li>
-  
-    <li>
-      <a href="%E5%AD%97%E7%AC%A6%E4%B8%B2">字符串</a>
-      <span>&#40;1&#41;</span>
-    </li>
-  
-    <li>
-      <a href="%E5%B7%A5%E5%85%B7">工具</a>
-      <span>&#40;1&#41;</span>
-    </li>
-  
-    <li>
-      <a href="%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90">数据分析</a>
-      <span>&#40;1&#41;</span>
-    </li>
-  
-    <li>
-      <a href="%E6%97%A0%E7%9B%91%E7%9D%A3%E5%AD%A6%E4%B9%A0">无监督学习</a>
-      <span>&#40;1&#41;</span>
-    </li>
-  
-    <li>
-      <a href="%E6%A2%AF%E5%BA%A6%E4%B8%8B%E9%99%8D">梯度下降</a>
-      <span>&#40;1&#41;</span>
-    </li>
-  
-    <li>
-      <a href="%E6%AD%A3%E5%88%99%E5%8C%96">正则化</a>
-      <span>&#40;1&#41;</span>
-    </li>
-  
-    <li>
-      <a href="%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C">神经网络</a>
-      <span>&#40;1&#41;</span>
-    </li>
-  
-    <li>
-      <a href="%E7%AD%96%E7%95%A5%E6%A8%A1%E5%BC%8F">策略模式</a>
-      <span>&#40;1&#41;</span>
-    </li>
-  
-    <li>
-      <a href="%E8%A3%85%E9%A5%B0%E8%80%85%E6%A8%A1%E5%BC%8F">装饰者模式</a>
-      <span>&#40;1&#41;</span>
-    </li>
-  
-    <li>
-      <a href="%E8%BF%9B%E7%A8%8B">进程</a>
-      <span>&#40;1&#41;</span>
-    </li>
-  
-  </ul>
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+
+(function() {
+    
+    
+    if (window.location.hostname == "localhost")
+        return;
+
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    var disqus_shortname = "http-hov-space";
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com/" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
 </div>
 
 </div>
@@ -427,3 +385,4 @@
 
 </body>
 </html>
+
