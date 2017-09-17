@@ -236,6 +236,62 @@
   
     <article>
   <header>
+    <h2><a href="https://HauyuChen.github.io/post/021-merge-two-sorted-lists/">【LeetCode】21. Merge Two Sorted Lists</a></h2>
+
+    <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>2016-06-12</time>
+  </div>
+
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-folder fa-fw"></i>
+    
+      <a class="post-taxonomy-tag" href="https://HauyuChen.github.io/tags/leetcode">LeetCode</a>
+    
+  </div>
+  
+  
+
+  
+  
+  
+  <div>
+	<i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/%E7%AE%97%E6%B3%95">算法</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/leetcode">LeetCode</a>
+    
+  </div>
+  
+  
+  
+</div>
+
+  </header>
+
+  <p>
+  题目描述：  Merge two sorted linked lists and return it as a new list. The new list should be made by splicing together the nodes of the first two lists.
+ 我的思路：   通过一个指针newhead指示新的链表头部，比较链表l1和链表l2的第一个结点。 若l1的第一个节点比l2小，则将其尾插进新链表，移动指针l1-&gt;next；若l2的第一个节点比l1小，同理。 递归得解。   代码实现： /** * Definition for singly-linked list. * struct ListNode { * int val; * ListNode *next; * ListNode(int x) : val(x), next(NULL) {} * }; */ class Solution { public: ListNode* mergeTwoLists(ListNode* l1, ListNode* l2) { if(l1==nullptr&amp;&amp;l2==nullptr) return nullptr; if(l1==nullptr || l2==nullptr) return (l1==nullptr)?
+  </p>
+
+  
+  <footer>
+    <a href="https://HauyuChen.github.io/post/021-merge-two-sorted-lists/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
+  </footer>
+  
+</article>
+
+  
+    <article>
+  <header>
     <h2><a href="https://HauyuChen.github.io/post/053-maximum-subarray/">【LeetCode】53. Maximum Subarray</a></h2>
 
     <div class="post-meta">
@@ -470,75 +526,6 @@ Update (2015-02-10): The signature of the C++ function had been updated.
   
   <footer>
     <a href="https://HauyuChen.github.io/post/zb-zigbee-parking/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
-  </footer>
-  
-</article>
-
-  
-    <article>
-  <header>
-    <h2><a href="https://HauyuChen.github.io/post/zb-zigbee-wirelessfan/">【ZigBee系列】2.无线风扇项目</a></h2>
-
-    <div class="post-meta">
-
-  <div>
-    <i class="fa fa-calendar fa-fw"></i>
-    <time>2016-05-19</time>
-  </div>
-
-  
-
-  
-  
-  
-  <div>
-    <i class="fa fa-folder fa-fw"></i>
-    
-      <a class="post-taxonomy-tag" href="https://HauyuChen.github.io/tags/zigbee">ZigBee</a>
-    
-  </div>
-  
-  
-
-  
-  
-  
-  <div>
-	<i class="fa fa-tags fa-fw"></i>
-    
-      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/zigbee">ZigBee</a>&nbsp;&#47;
-    
-      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/%E7%89%A9%E8%81%94%E7%BD%91">物联网</a>&nbsp;&#47;
-    
-      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/%E6%97%A0%E7%BA%BF%E4%BC%A0%E6%84%9F%E5%99%A8">无线传感器</a>
-    
-  </div>
-  
-  
-  
-</div>
-
-  </header>
-
-  <p>
-  作者注： ZigBee 系列共三篇，首先讲解 ZigBee 工程的结构，然后通过两个具体项目熟悉 ZigBee 的应用。在学习本系列内容前，您需要掌握单片机相关知识、 ZigBee 基础知识，希望本系列教程能对您开发 ZigBee 项目有所启发。如有任何问题，欢迎您随时与我联系：Hauyu.Chen@Gmail.com
-版权声明：本文由 Hov 所有，发布于 http://chenhy.com ，转载请注明出处。
-
-0 写在前面 无线风扇是本人在大二上学期在实验室期间实现的项目，实现了电风扇的无线控制。这也是我学习无线传感器网络实现的第一个项目，看着实验室的电风扇真的被代码操控着，感觉真的很奇妙。
-无线风扇项目完整源码：https://github.com/HauyuChen/ZigBee-WirelessFan
-如果对您有帮助，欢迎您在GitHub上给我 Follow 或 Stars ：）
-
-1 简介 无线风扇项目实现了风扇的手动、自动两种模式的控制。
- 手动模式：根据指令控制风扇的开关； 自动模式：根据周围环境的温度自动控制风扇，比如当周围温度大于等于 26 摄氏度时自动打开风扇。  大体的思路是这样的： 通过两个 ZigBee 模块组成一个 ZigBee 网络；ZigBee终端外接温湿度传感器、继电器，继电器与风扇连接；ZigBee 协调器通过串口（RS232） 与电脑连接（也可以通过 ZigBee 协调器与 GPRS 模块连接，实现手机控制的功能）。
-连接示意图如下：
-虽说是无线风扇功能，实质就是实现传感器数据采集和模块 IO 口控制。风扇控制主要通过 IO 口导通继电器来实现。所以，如果继电器连接电灯、空调等，那就可以实现不同功能了。
-
-2 功能需求 2.1 串口通信  ZigBee 协调器接收温湿度、风扇状态等数据，并通过串口传送给电脑，在串口调试助手上显示相关数据。 电脑通过串口向 ZigBee 协调器发送指令，控制风扇的开关。  2.2 温湿度数据采集  ZigBee 终端外接 DHT11 温湿度传感器，通过传感器采集周围环境的温湿度信息； ZigBee 终端采集到的温湿度数据通过 ZigBee 网络发送给 ZigBee 协调器；  2.
-  </p>
-
-  
-  <footer>
-    <a href="https://HauyuChen.github.io/post/zb-zigbee-wirelessfan/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
   </footer>
   
 </article>

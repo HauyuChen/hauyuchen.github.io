@@ -51,7 +51,7 @@
     <item>
       <title>Java</title>
       <link>https://HauyuChen.github.io/topics/java/</link>
-      <pubDate>Thu, 14 Sep 2017 00:00:00 +0000</pubDate>
+      <pubDate>Sun, 17 Sep 2017 00:00:00 +0000</pubDate>
       
       <guid>https://HauyuChen.github.io/topics/java/</guid>
       <description></description>
@@ -310,9 +310,18 @@
     </item>
     
     <item>
+      <title>观察者模式</title>
+      <link>https://HauyuChen.github.io/topics/%E8%A7%82%E5%AF%9F%E8%80%85%E6%A8%A1%E5%BC%8F/</link>
+      <pubDate>Sun, 17 Sep 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://HauyuChen.github.io/topics/%E8%A7%82%E5%AF%9F%E8%80%85%E6%A8%A1%E5%BC%8F/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>设计模式</title>
       <link>https://HauyuChen.github.io/topics/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/</link>
-      <pubDate>Tue, 29 Aug 2017 00:00:00 +0000</pubDate>
+      <pubDate>Sun, 17 Sep 2017 00:00:00 +0000</pubDate>
       
       <guid>https://HauyuChen.github.io/topics/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/</guid>
       <description></description>

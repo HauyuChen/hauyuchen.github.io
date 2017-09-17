@@ -7,10 +7,34 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2017. All rights reserved.</copyright>
-    <lastBuildDate>Thu, 14 Sep 2017 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 17 Sep 2017 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://HauyuChen.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>【设计模式】4.观察者模式</title>
+      <link>https://HauyuChen.github.io/post/dp-4-%E8%A7%82%E5%AF%9F%E8%80%85%E6%A8%A1%E5%BC%8F/</link>
+      <pubDate>Sun, 17 Sep 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://HauyuChen.github.io/post/dp-4-%E8%A7%82%E5%AF%9F%E8%80%85%E6%A8%A1%E5%BC%8F/</guid>
+      <description>版权声明：本文由 Hov 所有，发布于 http://chenhy.com ，转载请注明出处。
+
+1 观察者模式 1.1 简介 观察者模式是对象之间实现多对一依赖的一种设计方案，其可让多个观察者同时监听某一个主体对象（被观察者）。当主体对象的状态发生变化时，可通知所有观察者对象，使它们能自动更新状态。同时，观察者对象的增加或减少不会影响主体对象，也不会影响其它观察者。观察者模式对象之间的低耦合非常有利于项目功能扩展以及后期维护。
+1.2 思路 观察者模式主要可以分为四种角色：
+ 主体对象：此角色可以是接口，也可以是抽象类或具体类。主体对象必须包含三种方法，分别是添加观察者对象、移除观察者对象、通知观察者对象。 观察者：此角色一般是接口，里面一般只有一个 update 方法，在被观察者的状态发生变化时， update 方法就会被触发调用。 具体的主体对象：此角色是为了便于扩展，可以定义被观察者的一些具体的业务逻辑。 具体的观察者：此角色是观察者接口的具体实现，可以定义被观察者对象发生变化时，观察者所要处理的业务逻辑。  1.3 使用场景 观察者模式适用于在软件系统的某一个对象发生变化时，依赖它的其它对象也要做出相应改变的场景。
+举个实际应用场景：
+气象站发布气象数据，天气软件A、天气软件B都要获取气象站发布的气象数据。那么，气象站就可以作为主体对象（被观察者），而天气软件A、天气软件B就可以作为观察者。天气软件A、天气软件B都可以监听气象站的数据，气象站每次发布气象数据，就可以通知天气软件A、B更新的数据。
+当然，如果天气软件B不想再获取气象站的数据，就退出观察者队列。而天气软件A依然在观察者队列，还可以继续获取气象数据，气象站和天气软件A都不受影响。
+观察者模式正是满足这个场景的设计方案中比较重要的一种。
+1.4 优缺点 优点：
+ 观察者与被观察者之间耦合度低； 观察者模式可以实现广播； 观察者模式符合“开闭原则”的要求； 实现表示层与数据逻辑层的分离，定义了稳定的消息更新传递机制。  缺点：
+ 观察者和被观察者之间若存在循环依赖，会使它们循环调用，可能导致系统崩溃； 若主体对象有很多直接或间接的观察者时，通知所有观察者将花费大量时间。  
+2 实例 还是拿前面提到的气象站的栗子。我们通过程序模拟气象站发布气象数据，天气软件A和天气软件B获取数据。
+2.1 普通的解决方案 气象站将数据保存在局部变量，通知天气软件A获取，天气软件A将数据保存并显示出来。
+（1）气象站
+/* WeatherData.java */ public class WeatherData { //气象站 private float mTemperature; private float mPressure; private float mHumidity; private WeatherSoftwareA wfa; public WeatherData(WeatherSoftwareA wfa){ this.</description>
+    </item>
     
     <item>
       <title>String相关特性</title>
@@ -1342,25 +1366,6 @@ Update (2015-02-10): The signature of the C++ function had been updated.</descri
 1 概述 写过程序的人都知道每个程序都是从 main 函数开始执行的，在 ZigBee 程序中也不例外。在一个 Zigbee 工程中，程序从 main 函数开始执行，经过一步一步的函数调用（一些系统功能的初始化，建议跟踪一下从 main 函数到 SampleApp_ProcessEvent 函数的过程），程序最终来到了 SampleApp_ProcessEvent 函数， SampleApp_ProcessEvent(uint8 task_id,uint16 events) 是一个颇为重要的函数，整个工程更像是围绕着这个函数运行。
 说白了，我们要通过这个函数来处理所有事件。
 比如： if ( events &amp;amp; SYS_EVENT_MSG ) 处理系统事件，if ( events &amp;amp; SAMPLEAPP_SEND_PERIODIC_MSG_EVT ) 处理用户定义的事件。在不同的事件处理代码中，通过一个 switch 语句把所要处理的任务分成几个 case 来处理，在每个 case 里面调用相应的函数，我们通过定义这些函数执行我们想要的功能即可。</description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>https://HauyuChen.github.io/post/3javaio/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://HauyuChen.github.io/post/3javaio/</guid>
-      <description>0 写在前面 Java IO 是以流为基础进行输入输出的，流中保存的实际上全是字节文件。程序从输入流中读取数据，通过输出流输出数据。
-Java IO 流可分为字节流和字符流两大类，两种流都可以实现输入输出操作。其中，字节流继承自InputStream和OutputStream，字符流继承自InputStreamReader和OutputStreamReader。
-###iostream###
-1 字节流 字节流主要是操作byte类型数据，以byte数组为准，主要操作类就是OutputStream、InputStream
-1.1 字节输出流：OutputStream OutputStream是整个IO包中字节输出流的最大父类，此类的定义如下：
-public abstract class OutputStream extends Object implements Closeable,Flushable  从以上的定义可以发现，此类是一个抽象类，如果想要使用此类的话，则首先必须通过子类实例化对象，那么如果现在要操作的是一个文件，则可以使用：FileOutputStream类。通过向上转型之后，可以为OutputStream实例化
-Closeable表示可以关闭的操作，因为程序运行到最后肯定要关闭
-Flushable：表示刷新，清空内存中的数据
-FileOutputStream类的构造方法如下：
-public FileOutputStream(File file)throws FileNotFoundException  写数据：
-import java.io.File; import java.io.FileOutputStream; import java.io.IOException; import java.io.OutputStream; public class Test11 { public static void main(String[] args) throws IOException { File f = new File(&amp;quot;d:&amp;quot; + File.separator+&amp;quot;test.txt&amp;quot;); OutputStream out=new FileOutputStream(f);//如果文件不存在会自动创建 String str=&amp;quot;Hello World&amp;quot;; byte[] b=str.getBytes(); out.</description>
     </item>
     
   </channel>
