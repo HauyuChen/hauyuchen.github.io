@@ -236,6 +236,75 @@
   
     <article>
   <header>
+    <h2><a href="https://HauyuChen.github.io/post/dp-3-%E8%A3%85%E9%A5%B0%E8%80%85%E6%A8%A1%E5%BC%8F/">【设计模式】3. 装饰者模式</a></h2>
+
+    <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>2017-08-29</time>
+  </div>
+
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-folder fa-fw"></i>
+    
+      <a class="post-taxonomy-tag" href="https://HauyuChen.github.io/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F">设计模式</a>
+    
+  </div>
+  
+  
+
+  
+  
+  
+  <div>
+	<i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F">设计模式</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/%E8%A3%85%E9%A5%B0%E8%80%85%E6%A8%A1%E5%BC%8F">装饰者模式</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/java">Java</a>
+    
+  </div>
+  
+  
+  
+</div>
+
+  </header>
+
+  <p>
+  版权声明：本文由 Hov 所有，发布于 http://chenhy.com ，转载请注明出处。
+
+1 装饰者模式 1.1 简介 装饰者模式可动态地向对象添加额外的属性或行为。装饰者模式是类继承的另外一种选择，类继承在编译时候增加行为，而装饰模式是在运行时增加行为。在对象功能扩展方面，装饰者模式比继承更有弹性。
+1.2 思路 通过增加一个装饰类包裹原来的类，包裹的方式一般是通过将原来的对象作为装饰类的构造函数的参数，从而在原有对象上添加新的功能。
+1.3 使用场景 在不影响其它对象的情况下，想要动态地给单个对象添加新的属性或功能。
+1.4 优缺点 优点：
+ 可用一个或多个装饰者包装一个对象，扩展性强； 对象可以在任何时候被修饰，即动态修饰对象； 非继承，避免子类爆炸。  缺点：
+ 出现额外的装饰类，使程序变得复杂。  
+2 实例 模拟咖啡店：
+假设，咖啡店有两种咖啡可选： Decaf 和 Espresso ，两种配料可选： Chocalate 和 Milk 。
+不同的咖啡和配料可以搭配成不同的饮品，比如 Decaf 、 Espresso 、 Decaf + Chocalate 、 Decaf + Milk 、 Espresso + Chocalate 、 Espresso + Milk 六种不同的饮品。
+我们要写个程序来计算不同饮品的价格，比如客户点了一杯 Espresso + Chocalate ，输出饮品的价格和描述信息。
+2.1 糟糕的解决方案 设计超类 Drink ，继承自超类 Drink 的子类 Decaf 、 Espresso 、 Decaf + Chocalate 、 Decaf + Milk 、 Espresso + Chocalate 、 Espresso + Milk 。
+  </p>
+
+  
+  <footer>
+    <a href="https://HauyuChen.github.io/post/dp-3-%E8%A3%85%E9%A5%B0%E8%80%85%E6%A8%A1%E5%BC%8F/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
+  </footer>
+  
+</article>
+
+  
+    <article>
+  <header>
     <h2><a href="https://HauyuChen.github.io/post/575-distribute-candies/">【LeetCode】575. Distribute Candies</a></h2>
 
     <div class="post-meta">
@@ -462,64 +531,6 @@ Note: In the string, each word is separated by single space and there will not b
   
   <footer>
     <a href="https://HauyuChen.github.io/post/557-reverse-words-in-a-string-iii/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
-  </footer>
-  
-</article>
-
-  
-    <article>
-  <header>
-    <h2><a href="https://HauyuChen.github.io/post/561-array-partition-i/">【LeetCode】561. Array Partition I</a></h2>
-
-    <div class="post-meta">
-
-  <div>
-    <i class="fa fa-calendar fa-fw"></i>
-    <time>2017-08-21</time>
-  </div>
-
-  
-
-  
-  
-  
-  <div>
-    <i class="fa fa-folder fa-fw"></i>
-    
-      <a class="post-taxonomy-tag" href="https://HauyuChen.github.io/tags/leetcode">LeetCode</a>
-    
-  </div>
-  
-  
-
-  
-  
-  
-  <div>
-	<i class="fa fa-tags fa-fw"></i>
-    
-      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/%E7%AE%97%E6%B3%95">算法</a>&nbsp;&#47;
-    
-      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/leetcode">LeetCode</a>
-    
-  </div>
-  
-  
-  
-</div>
-
-  </header>
-
-  <p>
-  题目描述：  Given an array of 2n integers, your task is to group these integers into n pairs of integer, say (a1, b1), (a2, b2), &hellip;, (an, bn) which makes sum of min(ai, bi) for all i from 1 to n as large as possible.
-Example 1: Input: [1,4,3,2] Output: 4
-Explanation: n is 2, and the maximum sum of pairs is 4.
-Note: n is a positive integer, which is in the range of [1, 10000].
-  </p>
-
-  
-  <footer>
-    <a href="https://HauyuChen.github.io/post/561-array-partition-i/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
   </footer>
   
 </article>

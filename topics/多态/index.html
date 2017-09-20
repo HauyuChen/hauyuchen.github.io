@@ -7,7 +7,7 @@
   <meta name="description" content="">
   <meta name="generator" content="Hugo 0.24.1" />
 
-  <title>观察者模式 &middot; Hov&#39;s Blog</title>
+  <title>多态 &middot; Hov&#39;s Blog</title>
 
   <script>
 	var _hmt = _hmt || [];
@@ -47,7 +47,7 @@
 
   
   
-  <link rel="alternate" type="application/rss+xml" title="Hov&#39;s Blog" href="https://HauyuChen.github.io/topics/%E8%A7%82%E5%AF%9F%E8%80%85%E6%A8%A1%E5%BC%8F/index.xml" />
+  <link rel="alternate" type="application/rss+xml" title="Hov&#39;s Blog" href="https://HauyuChen.github.io/topics/%E5%A4%9A%E6%80%81/index.xml" />
   
 
   
@@ -127,7 +127,7 @@
   <ul class="pure-menu-list">
     
     <li class="pure-menu-item">
-      <a class="pure-menu-link" href="https://HauyuChen.github.io/topics/%E8%A7%82%E5%AF%9F%E8%80%85%E6%A8%A1%E5%BC%8F/index.xml"><i class="fa fa-rss fa-fw"></i>RSS</a>
+      <a class="pure-menu-link" href="https://HauyuChen.github.io/topics/%E5%A4%9A%E6%80%81/index.xml"><i class="fa fa-rss fa-fw"></i>RSS</a>
     </li>
     
 
@@ -227,20 +227,20 @@
 
 
 <div class="header">
-  <h1>观察者模式</h1>
+  <h1>多态</h1>
 </div>
 
 <div class="content">
   
     <article>
   <header>
-    <h2><a href="https://HauyuChen.github.io/post/dp-4-%E8%A7%82%E5%AF%9F%E8%80%85%E6%A8%A1%E5%BC%8F/">【设计模式】4. 观察者模式</a></h2>
+    <h2><a href="https://HauyuChen.github.io/post/java-%E5%90%91%E4%B8%8A%E8%BD%AC%E5%9E%8B%E5%90%91%E4%B8%8B%E8%BD%AC%E5%9E%8B/">谈谈向上转型、向下转型</a></h2>
 
     <div class="post-meta">
 
   <div>
     <i class="fa fa-calendar fa-fw"></i>
-    <time>2017-09-17</time>
+    <time>2017-09-20</time>
   </div>
 
   
@@ -251,7 +251,7 @@
   <div>
     <i class="fa fa-folder fa-fw"></i>
     
-      <a class="post-taxonomy-tag" href="https://HauyuChen.github.io/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F">设计模式</a>
+      <a class="post-taxonomy-tag" href="https://HauyuChen.github.io/tags/java">Java</a>
     
   </div>
   
@@ -263,11 +263,11 @@
   <div>
 	<i class="fa fa-tags fa-fw"></i>
     
-      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F">设计模式</a>&nbsp;&#47;
+      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/java">Java</a>&nbsp;&#47;
     
-      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/%E8%A7%82%E5%AF%9F%E8%80%85%E6%A8%A1%E5%BC%8F">观察者模式</a>&nbsp;&#47;
+      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/%E5%A4%9A%E6%80%81">多态</a>&nbsp;&#47;
     
-      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/java">Java</a>
+      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/%E5%9F%BA%E7%A1%80">基础</a>
     
   </div>
   
@@ -280,25 +280,24 @@
   <p>
   版权声明：本文由 Hov 所有，发布于 http://chenhy.com ，转载请注明出处。
 
-1 观察者模式 1.1 简介 观察者模式是对象之间实现多对一依赖的一种设计方案，其可让多个观察者同时监听某一个主体对象（被观察者）。当主体对象的状态发生变化时，可通知所有观察者对象，使它们能自动更新状态。同时，观察者对象的增加或减少不会影响主体对象，也不会影响其它观察者。观察者模式对象之间的低耦合非常有利于项目功能扩展以及后期维护。
-1.2 思路 观察者模式主要可以分为四种角色：
- 主体对象：此角色可以是接口，也可以是抽象类或具体类。主体对象必须包含三种方法，分别是添加观察者对象、移除观察者对象、通知观察者对象。 观察者：此角色一般是接口，里面一般只有一个 update 方法，在被观察者的状态发生变化时， update 方法就会被触发调用。 具体的主体对象：此角色是为了便于扩展，可以定义被观察者的一些具体的业务逻辑。 具体的观察者：此角色是观察者接口的具体实现，可以定义被观察者对象发生变化时，观察者所要处理的业务逻辑。  1.3 使用场景 观察者模式适用于在软件系统的某一个对象发生变化时，依赖它的其它对象也要做出相应改变的场景。
-举个实际应用场景：
-气象站发布气象数据，天气软件A、天气软件B都要获取气象站发布的气象数据。那么，气象站就可以作为主体对象（被观察者），而天气软件A、天气软件B就可以作为观察者。天气软件A、天气软件B都可以监听气象站的数据，气象站每次发布气象数据，就可以通知天气软件A、B更新的数据。
-当然，如果天气软件B不想再获取气象站的数据，就退出观察者队列。而天气软件A依然在观察者队列，还可以继续获取气象数据，气象站和天气软件A都不受影响。
-观察者模式正是满足这个场景的设计方案中比较重要的一种。
-1.4 优缺点 优点：
- 观察者与被观察者之间耦合度低； 观察者模式可以实现广播； 观察者模式符合“开闭原则”的要求； 实现表示层与数据逻辑层的分离，定义了稳定的消息更新传递机制。  缺点：
- 观察者和被观察者之间若存在循环依赖，会使它们循环调用，可能导致系统崩溃； 若主体对象有很多直接或间接的观察者时，通知所有观察者将花费大量时间。  
-2 实例 还是拿前面提到的气象站的栗子。我们通过程序模拟气象站发布气象数据，天气软件A和天气软件B获取数据。
-2.1 普通的解决方案 气象站将数据保存在局部变量，通知天气软件A获取，天气软件A将数据保存并显示出来。
-（1）气象站
-/* WeatherData.java */ public class WeatherData { //气象站 private float mTemperature; private float mPressure; private float mHumidity; private WeatherSoftwareA wfa; public WeatherData(WeatherSoftwareA wfa){ this.
+0 写在前面 某天下午，群上抛出了一个关于 Java 向上转型的问题。
+
+
+于是，我们以此为开端讨论了一个下午，从多态到类加载顺序。讨论完毕，想着是不是要写篇文章记录下，所以有了这篇文章。
+本文将谈及向上转型、向下转型的概念，后续有时间将扩充多态相关的更详细的知识。
+
+1 向上转型 1.1 概念 向上转型是指子类引用的对象转换为父类类型，通俗的说就是子类转型成父类。
+举个栗子，苹果是水果的一种，但我们有时会说苹果是水果或直接把苹果说成水果。其实，这样的说法就是向上转型。
+向上转型是对父类对象的方法的扩充，即父类对象可访问子类从父类中继承的和子类重写父类的方法。比如，我们熟悉的集合操作， ArrayList 是 List 的子类。
+List&lt;String&gt; lists = new ArrayList&lt;String&gt;();  再比如：Apple 是 Fruit 的子类。对象变量 apple 向上转型为 Fruit 类型，但 apple 仍引用的是 Apple 对象。
+Fruit apple = new Apple(); //向上转型  1.2 特性 向上转型的一个很重要的特性是，向上转型的对象会遗失子类中父类没有的方法，而且子类的同名方法会覆盖父类的同名方法。也就是说，由于向上转型，该对象对于只存在子类中而父类中不存在的方法是不能使用的。同时，若子类重写了父类的某些方法，在调用这些方法时，调用的是在子类定义的方法，这也是动态链接、动态调用。
+（1）父类 Fruit
+/* Fruit.java */ public class Fruit { public void name(){ System.out.println(&quot;This is Fruit.
   </p>
 
   
   <footer>
-    <a href="https://HauyuChen.github.io/post/dp-4-%E8%A7%82%E5%AF%9F%E8%80%85%E6%A8%A1%E5%BC%8F/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
+    <a href="https://HauyuChen.github.io/post/java-%E5%90%91%E4%B8%8A%E8%BD%AC%E5%9E%8B%E5%90%91%E4%B8%8B%E8%BD%AC%E5%9E%8B/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
   </footer>
   
 </article>

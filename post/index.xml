@@ -7,13 +7,36 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2017. All rights reserved.</copyright>
-    <lastBuildDate>Sun, 17 Sep 2017 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 20 Sep 2017 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://HauyuChen.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>【设计模式】4.观察者模式</title>
+      <title>谈谈向上转型、向下转型</title>
+      <link>https://HauyuChen.github.io/post/java-%E5%90%91%E4%B8%8A%E8%BD%AC%E5%9E%8B%E5%90%91%E4%B8%8B%E8%BD%AC%E5%9E%8B/</link>
+      <pubDate>Wed, 20 Sep 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://HauyuChen.github.io/post/java-%E5%90%91%E4%B8%8A%E8%BD%AC%E5%9E%8B%E5%90%91%E4%B8%8B%E8%BD%AC%E5%9E%8B/</guid>
+      <description>版权声明：本文由 Hov 所有，发布于 http://chenhy.com ，转载请注明出处。
+
+0 写在前面 某天下午，群上抛出了一个关于 Java 向上转型的问题。
+
+
+于是，我们以此为开端讨论了一个下午，从多态到类加载顺序。讨论完毕，想着是不是要写篇文章记录下，所以有了这篇文章。
+本文将谈及向上转型、向下转型的概念，后续有时间将扩充多态相关的更详细的知识。
+
+1 向上转型 1.1 概念 向上转型是指子类引用的对象转换为父类类型，通俗的说就是子类转型成父类。
+举个栗子，苹果是水果的一种，但我们有时会说苹果是水果或直接把苹果说成水果。其实，这样的说法就是向上转型。
+向上转型是对父类对象的方法的扩充，即父类对象可访问子类从父类中继承的和子类重写父类的方法。比如，我们熟悉的集合操作， ArrayList 是 List 的子类。
+List&amp;lt;String&amp;gt; lists = new ArrayList&amp;lt;String&amp;gt;();  再比如：Apple 是 Fruit 的子类。对象变量 apple 向上转型为 Fruit 类型，但 apple 仍引用的是 Apple 对象。
+Fruit apple = new Apple(); //向上转型  1.2 特性 向上转型的一个很重要的特性是，向上转型的对象会遗失子类中父类没有的方法，而且子类的同名方法会覆盖父类的同名方法。也就是说，由于向上转型，该对象对于只存在子类中而父类中不存在的方法是不能使用的。同时，若子类重写了父类的某些方法，在调用这些方法时，调用的是在子类定义的方法，这也是动态链接、动态调用。
+（1）父类 Fruit
+/* Fruit.java */ public class Fruit { public void name(){ System.out.println(&amp;quot;This is Fruit.</description>
+    </item>
+    
+    <item>
+      <title>【设计模式】4. 观察者模式</title>
       <link>https://HauyuChen.github.io/post/dp-4-%E8%A7%82%E5%AF%9F%E8%80%85%E6%A8%A1%E5%BC%8F/</link>
       <pubDate>Sun, 17 Sep 2017 00:00:00 +0000</pubDate>
       
@@ -176,7 +199,7 @@ PUT test_index/test_type/7?version=1 { &amp;quot;test_field&amp;quot;:&amp;quot;
     </item>
     
     <item>
-      <title>【设计模式】3.装饰者模式</title>
+      <title>【设计模式】3. 装饰者模式</title>
       <link>https://HauyuChen.github.io/post/dp-3-%E8%A3%85%E9%A5%B0%E8%80%85%E6%A8%A1%E5%BC%8F/</link>
       <pubDate>Tue, 29 Aug 2017 00:00:00 +0000</pubDate>
       
@@ -275,7 +298,7 @@ PUT /ecommerce/product/1 { &amp;quot;name&amp;quot;:&amp;quot;gaolujie yagao&amp
     </item>
     
     <item>
-      <title>【设计模式】2.策略模式</title>
+      <title>【设计模式】2. 策略模式</title>
       <link>https://HauyuChen.github.io/post/dp-2-%E7%AD%96%E7%95%A5%E6%A8%A1%E5%BC%8F/</link>
       <pubDate>Sat, 19 Aug 2017 00:00:00 +0000</pubDate>
       
@@ -297,7 +320,7 @@ PUT /ecommerce/product/1 { &amp;quot;name&amp;quot;:&amp;quot;gaolujie yagao&amp
     </item>
     
     <item>
-      <title>【设计模式】1.单例模式</title>
+      <title>【设计模式】1. 单例模式</title>
       <link>https://HauyuChen.github.io/post/dp-1-%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F/</link>
       <pubDate>Thu, 17 Aug 2017 00:00:00 +0000</pubDate>
       
