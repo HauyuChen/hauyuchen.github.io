@@ -1294,16 +1294,6 @@ Compute and return the square root of x.
     </item>
     
     <item>
-      <title>Zhihu</title>
-      <link>https://HauyuChen.github.io/zhihu/</link>
-      <pubDate>Sun, 12 Jun 2016 19:38:48 +0000</pubDate>
-      
-      <guid>https://HauyuChen.github.io/zhihu/</guid>
-      <description>Hello,everyone.
-Zhihu</description>
-    </item>
-    
-    <item>
       <title>关于本站</title>
       <link>https://HauyuChen.github.io/about-site/</link>
       <pubDate>Sun, 12 Jun 2016 19:38:48 +0000</pubDate>
@@ -1383,7 +1373,7 @@ Update (2015-02-10): The signature of the C++ function had been updated.</descri
       <description>关于我 我是陈浩宇，
 在读计算机专业学生，
 现居于广东。
-此博客主要记录一些个人学习笔记、技术文章。
+此博客记录了我的一些学习笔记、技术文章。
 希望对您也有所帮助：）
 
 联系我 QQ：ODkzNzY5Mzkz （Base64）
