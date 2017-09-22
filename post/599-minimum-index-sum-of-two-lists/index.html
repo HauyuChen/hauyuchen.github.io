@@ -7,7 +7,7 @@
   <meta name="description" content="">
   <meta name="generator" content="Hugo 0.24.1" />
 
-  <title>【LeetCode】575. Distribute Candies &middot; Hov&#39;s Blog</title>
+  <title>【LeetCode】599. Minimum Index Sum of Two Lists &middot; Hov&#39;s Blog</title>
 
   <script>
 	var _hmt = _hmt || [];
@@ -221,7 +221,7 @@
 
 
 <div class="header">
-  <h1>【LeetCode】575. Distribute Candies</h1>
+  <h1>【LeetCode】599. Minimum Index Sum of Two Lists</h1>
   <h2></h2>
 </div>
 <div class="content">
@@ -230,7 +230,7 @@
 
   <div>
     <i class="fa fa-calendar fa-fw"></i>
-    <time>2017-08-26</time>
+    <time>2017-08-27</time>
   </div>
 
   
@@ -270,48 +270,67 @@
 <h2 id="题目描述">题目描述：</h2>
 
 <blockquote>
-<p>Given an integer array with even length, where different numbers in this array represent different kinds of candies. Each number means one candy of the corresponding kind. You need to distribute these candies equally in number to brother and sister. Return the maximum number of kinds of candies the sister could gain.</p>
+<p>Suppose Andy and Doris want to choose a restaurant for dinner, and they both have a list of favorite restaurants represented by strings.</p>
 
-<p>Example 1:
-Input: candies = [1,1,2,2,3,3]
-Output: 3</p>
+<p>You need to help them find out their common interest with the least list index sum. If there is a choice tie between answers, output all of them with no order requirement. You could assume there always exists an answer.</p>
 
-<p>Explanation:
-There are three different kinds of candies (1, 2 and 3), and two candies for each kind.
-Optimal distribution: The sister has candies [1,2,3] and the brother has candies [1,2,3], too.
-The sister has three different kinds of candies.</p>
+<p>Example 1:</p>
 
-<p>Example 2:
-Input: candies = [1,1,2,3]
-Output: 2</p>
+<p>Input:
+[&ldquo;Shogun&rdquo;, &ldquo;Tapioca Express&rdquo;, &ldquo;Burger King&rdquo;, &ldquo;KFC&rdquo;]
+[&ldquo;Piatti&rdquo;, &ldquo;The Grill at Torrey Pines&rdquo;, &ldquo;Hungry Hunter Steakhouse&rdquo;, &ldquo;Shogun&rdquo;]</p>
 
-<p>Explanation: For example, the sister has candies [2,3] and the brother has candies [1,1].
-The sister has two different kinds of candies, the brother has only one kind of candies.</p>
+<p>Output: [&ldquo;Shogun&rdquo;]</p>
+
+<p>Explanation: The only restaurant they both like is &ldquo;Shogun&rdquo;.</p>
+
+<p>Example 2:</p>
+
+<p>Input:
+[&ldquo;Shogun&rdquo;, &ldquo;Tapioca Express&rdquo;, &ldquo;Burger King&rdquo;, &ldquo;KFC&rdquo;]
+[&ldquo;KFC&rdquo;, &ldquo;Shogun&rdquo;, &ldquo;Burger King&rdquo;]</p>
+
+<p>Output: [&ldquo;Shogun&rdquo;]</p>
+
+<p>Explanation: The restaurant they both like and have the least index sum is &ldquo;Shogun&rdquo; with index sum 1 (0+1).</p>
 
 <p>Note:
-The length of the given array is in range [2, 10,000], and will be even.
-The number in given array is in range [-100,000, 100,000].</p>
+The length of both lists will be in the range of [1, 1000].
+The length of strings in both lists will be in the range of [1, 30].
+The index is starting from 0 to the list length minus 1.
+No duplicates in both lists.</p>
 </blockquote>
 
 <h2 id="代码实现">代码实现：</h2>
 
 <pre><code>class Solution {
 public:
-    int distributeCandies(vector&lt;int&gt;&amp; candies) {
-        int num = candies.size();
-        int cnt=1;
+    vector&lt;string&gt; findRestaurant(vector&lt;string&gt;&amp; list1, vector&lt;string&gt;&amp; list2) {
+        unordered_map&lt;string,int&gt; m;
+        unordered_map&lt;string, int&gt;::iterator iter;
+        vector&lt;string&gt; ret;
+        int cnt;
+        int min=INT_MAX;
         
-        sort(candies.begin(),candies.end());
-        for(int i=0;i&lt;num-1;i++){
-            if(candies[i]!=candies[i+1]){
-                cnt++;
+        for(int i=0;i&lt;list1.size();i++){
+            m.insert(pair&lt;string, int&gt;(list1[i],i));
+        }
+        for(int j=0;j&lt;list2.size();j++){
+            iter = m.find(list2[j]);
+            if(iter != m.end()){
+                cnt = iter-&gt;second + j;
+                if(min&gt;cnt){
+                    min = cnt;
+                    if(!ret.empty()){
+                        ret.clear();
+                    }
+                    ret.push_back(iter-&gt;first);
+                }else if(min==cnt){
+                    ret.push_back(iter-&gt;first);
+                }
             }
         }
-        if(cnt&gt;num/2){
-            return num/2;
-        }else{
-            return cnt;
-        }
+        return ret;
     }
 };
 </code></pre>
@@ -323,13 +342,13 @@ public:
 <div class="prev-next-post pure-g">
   <div class="pure-u-1-24" style="text-align: left;">
     
-    <a href="https://HauyuChen.github.io/post/598-range-addition-ii/"><i class="fa fa-chevron-left"></i></a>
+    <a href="https://HauyuChen.github.io/post/575-distribute-candies/"><i class="fa fa-chevron-left"></i></a>
     
   </div>
   <div class="pure-u-10-24">
     
     <nav class="prev">
-      <a href="https://HauyuChen.github.io/post/598-range-addition-ii/">【LeetCode】598. Range Addition II</a>
+      <a href="https://HauyuChen.github.io/post/575-distribute-candies/">【LeetCode】575. Distribute Candies</a>
     </nav>
     
   </div>
@@ -339,13 +358,13 @@ public:
   <div class="pure-u-10-24">
     
     <nav class="next">
-      <a href="https://HauyuChen.github.io/post/599-minimum-index-sum-of-two-lists/">【LeetCode】599. Minimum Index Sum of Two Lists</a>
+      <a href="https://HauyuChen.github.io/post/dp-3-%E8%A3%85%E9%A5%B0%E8%80%85%E6%A8%A1%E5%BC%8F/">【设计模式】3. 装饰者模式</a>
     </nav>
     
   </div>
   <div class="pure-u-1-24" style="text-align: right;">
     
-    <a href="https://HauyuChen.github.io/post/599-minimum-index-sum-of-two-lists/"><i class="fa fa-chevron-right"></i></a>
+    <a href="https://HauyuChen.github.io/post/dp-3-%E8%A3%85%E9%A5%B0%E8%80%85%E6%A8%A1%E5%BC%8F/"><i class="fa fa-chevron-right"></i></a>
     
   </div>
 </div>
