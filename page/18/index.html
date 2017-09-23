@@ -236,6 +236,59 @@
   
     <article>
   <header>
+    <h2><a href="https://HauyuChen.github.io/post/169-majority-element/">【LeetCode】169. Majority Element</a></h2>
+
+    <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>2016-06-20</time>
+  </div>
+
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-folder fa-fw"></i>
+    
+      <a class="post-taxonomy-tag" href="https://HauyuChen.github.io/tags/leetcode">LeetCode</a>
+    
+  </div>
+  
+  
+
+  
+  
+  
+  <div>
+	<i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/%E7%AE%97%E6%B3%95">算法</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/leetcode">LeetCode</a>
+    
+  </div>
+  
+  
+  
+</div>
+
+  </header>
+
+  <p>
+   题目描述：  Given an array of size n, find the majority element. The majority element is the element that appears more than ⌊ n/2 ⌋ times.
+You may assume that the array is non-empty and the majority element always exist in the array.
+ 代码实现： class Solution { public: int majorityElement(vector&lt;int&gt;&amp; nums) { int major=nums[0]; int cnt=1; for(int num:nums){ if(num==major){ ++cnt; }else{ --cnt; } if(cnt==0){ ++cnt; major = num; } } return major; } };  
+  </p>
+
+  
+</article>
+
+  
+    <article>
+  <header>
     <h2><a href="https://HauyuChen.github.io/post/121-best-time-to-buy-and-sell-stock/">【LeetCode】121. Best Time to Buy and Sell Stock</a></h2>
 
     <div class="post-meta">
@@ -458,63 +511,6 @@ The maximum depth is the number of nodes along the longest path from the root no
 </article>
 
   
-    <article>
-  <header>
-    <h2><a href="https://HauyuChen.github.io/post/100-same-tree/">【LeetCode】100. Same Tree</a></h2>
-
-    <div class="post-meta">
-
-  <div>
-    <i class="fa fa-calendar fa-fw"></i>
-    <time>2016-06-14</time>
-  </div>
-
-  
-
-  
-  
-  
-  <div>
-    <i class="fa fa-folder fa-fw"></i>
-    
-      <a class="post-taxonomy-tag" href="https://HauyuChen.github.io/tags/leetcode">LeetCode</a>
-    
-  </div>
-  
-  
-
-  
-  
-  
-  <div>
-	<i class="fa fa-tags fa-fw"></i>
-    
-      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/%E7%AE%97%E6%B3%95">算法</a>&nbsp;&#47;
-    
-      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/leetcode">LeetCode</a>
-    
-  </div>
-  
-  
-  
-</div>
-
-  </header>
-
-  <p>
-  题目描述：  Given two binary trees, write a function to check if they are equal or not.
-Two binary trees are considered equal if they are structurally identical and the nodes have the same value.
- 代码实现： /** * Definition for a binary tree node. * struct TreeNode { * int val; * TreeNode *left; * TreeNode *right; * TreeNode(int x) : val(x), left(NULL), right(NULL) {} * }; */ class Solution { public: bool isSameTree(TreeNode* p, TreeNode* q) { if(p==nullptr &amp;&amp; q==nullptr){ return true; } else if(p==nullptr || q==nullptr){ return false; } if(p-&gt;val!
-  </p>
-
-  
-  <footer>
-    <a href="https://HauyuChen.github.io/post/100-same-tree/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
-  </footer>
-  
-</article>
-
-  
 
   
 
@@ -523,7 +519,7 @@ Two binary trees are considered equal if they are structurally identical and the
   
   <a href="https://HauyuChen.github.io/page/17/"><i class="fa fa-chevron-left"></i></a>
   
-  <span>&nbsp;18 / 20&nbsp;</span>
+  <span>&nbsp;18 / 21&nbsp;</span>
   
   <a href="https://HauyuChen.github.io/page/19/"><i class="fa fa-chevron-right"></i></a>
   
