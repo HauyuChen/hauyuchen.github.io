@@ -273,6 +273,10 @@
 
 <hr />
 
+<p><em>更新说明：本文于 2017-10-01 修改部分内容。</em></p>
+
+<hr />
+
 <p><br/></p>
 
 <h1 id="0-写在前面">0 写在前面</h1>
@@ -285,7 +289,7 @@
 
 <p><br/></p>
 
-<p>于是，我们以此为开端讨论了一个下午，从多态到类加载顺序。讨论完毕，想着是不是要写篇文章记录下，所以有了这篇文章。</p>
+<p>于是，我们以此为开端讨论了一个下午，从多态到类加载顺序。讨论结束后想着是不是要写篇文章记录下，所以有了这篇文章。</p>
 
 <p>本文将谈及向上转型、向下转型的概念，后续有时间将扩充多态相关的更详细的知识。</p>
 
@@ -295,29 +299,37 @@
 
 <h2 id="1-1-概念">1.1 概念</h2>
 
-<p>向上转型是指子类引用的对象转换为父类类型，通俗的说就是子类转型成父类。</p>
+<p>向上转型是指子类对象转型为父类类型。通俗的说就是，对象变量是父类类型，但该对象变量引用的却是子类对象。</p>
 
-<p>举个栗子，苹果是水果的一种，但我们有时会说苹果是水果或直接把苹果说成水果。其实，这样的说法就是向上转型。</p>
+<p>举个栗子，苹果是水果的一种，但我们有时会说苹果是水果或直接把苹果说成水果。其实，这样的说法就是向上转型，我们把苹果抽象为水果。伪代码表示如下：</p>
 
-<p>向上转型是对父类对象的方法的扩充，即父类对象可访问子类从父类中继承的和子类重写父类的方法。比如，我们熟悉的集合操作， ArrayList 是 List 的子类。</p>
-
-<pre><code>List&lt;String&gt; lists =  new ArrayList&lt;String&gt;();
+<pre><code>水果 对象变量名 = new 苹果();
 </code></pre>
 
-<p>再比如：Apple 是 Fruit 的子类。对象变量 apple 向上转型为 Fruit 类型，但 apple 仍引用的是 Apple 对象。</p>
+<p>Apple 是 Fruit 的子类。对象变量 apple 向上转型为 Fruit 类型，但 apple 仍引用的是 Apple 对象。</p>
 
 <pre><code>Fruit apple = new Apple();  //向上转型
 </code></pre>
 
+<p>向上转型是对父类对象的方法的扩充，即父类对象可访问子类重写父类的方法。也许你会问，既然访问的还是子类对象的方法，为什么不直接声明为子类类型呢？</p>
+
+<p>这就是 Java 抽象编程的奥秘。其实我们会经常有意无意的使用转型。比如在我之前写到的关于装饰者模式<a href="http://chenhy.com/post/dp-3-%E8%A3%85%E9%A5%B0%E8%80%85%E6%A8%A1%E5%BC%8F/">装饰者模式</a>的文章就用到了向上转型的概念。</p>
+
+<p>两种不同的咖啡 Decaf 、 Espresso 是 Coffee 的子类， Coffee 是 Drink 的子类。因为咖啡店可能会同时售卖不同的饮品，所以我们只需把不同的咖啡抽象为饮品即可，再通过引用不同的具体咖啡品种来表示不同的饮品。这样的场景其实大家都很熟悉，这就是向上转型的应用。也许你已经发现，向上转型可以跨层次。比如 Decaf 是 Coffee 的子类， Coffee 是 Drink 的子类，可以由 Decaf 直接向上转型为 Drink 。</p>
+
 <h1 id="1-2-特性">1.2 特性</h1>
 
-<p>向上转型的一个很重要的特性是，向上转型的对象会遗失子类中父类没有的方法，而且子类的同名方法会覆盖父类的同名方法。也就是说，由于向上转型，该对象对于只存在子类中而父类中不存在的方法是不能使用的。同时，若子类重写了父类的某些方法，在调用这些方法时，调用的是在子类定义的方法，这也是动态链接、动态调用。</p>
+<p>向上转型的一个很重要的特性是，向上转型的对象会遗失子类中父类没有的方法，而且子类的同名方法会覆盖父类的同名方法。也就是说，由于向上转型，该对象对于只存在子类中而父类中不存在的方法是不能访问的。同时，若子类重写了父类的某些方法，在调用这些方法时，调用的是在子类定义的方法，这也就是动态链接、动态调用。</p>
+
+<p>这似乎是合理的，苹果可以是水果，但不能说水果是苹果。如果要让水果调用苹果的特有的属性，显然是不符合常理的。</p>
+
+<p>下面是向上转型的具体实现代码：</p>
 
 <p><strong>（1）父类 Fruit</strong></p>
 
 <pre><code>/* Fruit.java */
 
-public class Fruit {
+public class Fruit {        //水果
 
     public void name(){
         System.out.println(&quot;This is Fruit...&quot;);
@@ -328,7 +340,7 @@ public class Fruit {
 
 <p><strong>（2）子类 Apple</strong></p>
 
-<pre><code>/* Apple.java */
+<pre><code>/* Apple.java */            //苹果
 
 public class Apple extends Fruit{
 
@@ -336,7 +348,7 @@ public class Apple extends Fruit{
         System.out.println(&quot;This is Apple...&quot;);
     }
 
-    public void color(){
+    public void color(){    //注意父类没有该方法
         System.out.println(&quot;Red...&quot;);
     }
 
@@ -345,21 +357,21 @@ public class Apple extends Fruit{
 
 <p><strong>（3）测试类</strong></p>
 
-<p>由于向上转型，对象 apple 已经不能访问子类 Apple 中的 color 方法，因为父类 Fruit 不存在 color 方法。同时， apple 能访问 name 方法，因为父类 Fruit 和子类 Apple 都有该方法，但访问的会是子类中的 name 方法。</p>
-
 <pre><code>/* TestMain.java */
 
 public class TestMain {
 
     public static void main(String[] args) {
-        Fruit apple = new Apple();      //apple向上转型为Fruit
-        apple.name();                   //输出：This is Apple...
-        //apple.color();                //报错，无法编译，找不到color方法
+        Fruit apple = new Apple();      //apple声明为Fruit类型，引用的是Apple对象
+        apple.name();                   //父类子类共有的方法，输出：This is Apple...
+        //apple.color();                //子类独有的方法，报错：无法编译，找不到color方法
     }
 
 }
 
 </code></pre>
+
+<p>可见，由于向上转型，对象 apple 已经不能访问子类 Apple 中的 color 方法，因为父类 Fruit 不存在 color 方法。同时， apple 能访问 name 方法，因为父类 Fruit 和子类 Apple 都有 name 方法，但访问的会是子类中的 name 方法。</p>
 
 <p><br/></p>
 
@@ -367,31 +379,31 @@ public class TestMain {
 
 <h2 id="2-1-概念">2.1 概念</h2>
 
-<p>向下转型是指父类引用的对象转换为子类类型，也就是说，父类转型为子类。值得注意的是，不同于向上转型可以由编译器自动实现，向下转型需要强制转换。</p>
+<p>向下转型是指父类类型的对象转型为子类类型，也就是说，变量对象声明为子类类型，但其引用的是父类类型的对象。值得注意的是，不同于向上转型可以由编译器自动实现，向下转型需要强制转换。</p>
 
 <h2 id="2-2-特性">2.2 特性</h2>
 
 <p>向下转型可以分为两种情况。</p>
 
-<h3 id="第一种">第一种：</h3>
+<h3 id="第一种-父类类型的对象引用的是子类对象">第一种：父类类型的对象引用的是子类对象</h3>
 
-<p>父类对象引用的是子类对象，此时向下转型是安全的，编译和运行都不会出错。</p>
+<p>这种情况下的向下转型是安全的，编译和运行都不会出错。</p>
 
 <p><strong>举个栗子：</strong></p>
 
-<p>对象 apple 首先向上转型为 Fruit 类型，但其引用的仍是子类 Apple 对象。此时，如果将 apple 从 Fruit 向下转型为 Apple 是安全的，不会发生任何错误。</p>
+<p>对象 apple 首先向上转型为 Fruit 类型，但其引用的仍是子类 Apple 对象。此时，apple 是父类类型，引用的是子类对象。此时，如果将 apple 从 Fruit 向下转型为 Apple 是安全的，不会发生任何错误。</p>
 
 <pre><code>/* TestMain.java */
 
 public class TestMain {
 
     public static void main(String[] args) {
-        Fruit apple = new Apple();      //apple向上转型为Fruit
+        Fruit apple = new Apple();      //apple是父类类型，引用的是子类对象
         apple.name();
 
-        Apple fruit = (Apple)apple;     //apple向下转型为Apple
+        Apple fruit = (Apple)apple;     //强制转换：父类类型Fruit的对象apple向下转型为子类类型Apple
         fruit.name();
-        fruit.color();
+        fruit.color();                  //fruit可以访问color方法
     }
 
 }
@@ -403,21 +415,23 @@ public class TestMain {
 
 <p><img src="https://raw.githubusercontent.com/HauyuChen/PicsBox/master/Discuss-02.PNG" alt="" /></p>
 
-<h3 id="第二种">第二种：</h3>
+<h3 id="第二种-父类类型的对象引用的是父类对象">第二种：父类类型的对象引用的是父类对象</h3>
 
-<p>父类对象引用的是父类对象本身，此时向下转型是不安全的。虽然编译不会报错，当运行会出错。</p>
+<p>这种情况下的向下转型是不安全的。虽然编译不会报错，但运行会出错。</p>
+
+<p>看到这里你也许会发觉，向下转型其实只是子类引用对象（父类类型）转为子类引用对象（子类类型），也不能是父类引用对象（父类类型）转为子类引用对象（子类类型）。试想一下，如果将父类类型的对象（水果）转为子类类型的对象（苹果），那水果就可以访问苹果特有的方法了，也就是水果是苹果，这样显然是不成立的。因为我们知道继承链上，越靠上越抽象，越往下越具体。苹果是更具体的层次，自然有一些自身特有的，而水果没有的属性。</p>
 
 <p><strong>举个栗子：</strong></p>
 
-<p>fruit 对象声明为 Fruit 类型，其引用的也是 Fruit 对象。然后，尝试将 fruit 对象向下转型成 Apple。</p>
+<p>fruit 对象声明为 Fruit 类型，其引用的也是 Fruit 对象，尝试将 fruit 对象向下转型成子类类型。</p>
 
 <pre><code>/* TestMain.java */
 
 public class TestMain {
 
     public static void main(String[] args) {
-        Fruit fruit = new Fruit();      //实例化fruit对象
-        Apple apple = (Apple)fruit;     //fruit向下转型为Apple类型
+        Fruit fruit = new Fruit();      //fruit是父类类型，引用的是父类对象
+        Apple apple = (Apple)fruit;     //强制转换：Fruit类型的fruit向下转型为Apple类型
         apple.name();
         apple.color();
     }
@@ -435,7 +449,7 @@ public class TestMain {
 
 <p><strong>注：关于类加载时，子类方法是否加载进内存的问题</strong></p>
 
-<p>答案是肯定的。因为在加载类文件时，除了非静态成员变量（对象特有的属性）不会被加载外，其它的都会被加载。也就是说，在向上转型时，对象虽然遗失了与父类不同名的子类方法，但这些方法已经被加载进了内存，只不过向上转型的对象并不能调用这些子类方法。</p>
+<p>答案是肯定的。因为在加载类文件时，除了非静态成员变量（对象特有的属性）不会被加载外，其它的都会被加载。向上转型时，对象虽然遗失了与父类不同名的子类方法，但这些方法已经被加载进了内存，只不过向上转型的对象并不能调用这些子类方法。</p>
 
 <p><br/></p>
 
@@ -443,11 +457,11 @@ public class TestMain {
 
 <ol>
 <li>向上转型和向下转型是实现多态的一种机制；</li>
-<li>向上转型是将子类对象转型为父类对象，可由编译器自动实现，目的是抽象化对象，简化编程；</li>
+<li>向上转型可由编译器自动实现，目的是抽象化对象，简化编程；</li>
 <li>向上转型时，子类将遗失与父类不同名的方法，子类同名方法将覆盖掉父类的方法；</li>
-<li>向下转型是将父类对象转型为子类对象，需要强制性转换；</li>
-<li>向下转型要注意父类对象引用的是子类对象还是父类对象本身。前者不会报错；后者编译时不报错，运行时将出错，并抛出异常；</li>
-<li>类加载时，除了对象特有的属性外，其它的都将加载进内存。</li>
+<li>向下转型需要强制转换；</li>
+<li>向下转型要注意对象引用的是子类对象还是父类对象。前者不会报错，后者编译时不报错，运行时将出错，并抛出异常；</li>
+<li>类加载时，除了对象特有的属性外，其它都将加载进内存。</li>
 </ol>
 
 <p><br/></p>
