@@ -294,28 +294,28 @@ Output: 7 -&gt; 0 -&gt; 8</p>
 class Solution {
 public:
     ListNode* addTwoNumbers(ListNode* l1, ListNode* l2) {
-        ListNode* node1=l1;
-        ListNode* node2=l2;
+        ListNode* node1 = l1;
+        ListNode* node2 = l2;
         ListNode* Node = new ListNode(0);
         ListNode* p = Node;
-        int num=0;
+        int num = 0;
         
         while(node1!=NULL || node2!=NULL){
             if(node1!=NULL){
-                num+=node1-&gt;val;
+                num += node1-&gt;val;
                 node1 = node1-&gt;next;
             }
             if(node2!=NULL){
-                num+=node2-&gt;val;
+                num += node2-&gt;val;
                 node2 = node2-&gt;next;
             }
             p-&gt;next = new ListNode(num%10);
             p = p-&gt;next;
-            num/=10;
+            num /= 10;
         }
         
         if(num==1){
-            p-&gt;next=new ListNode(1);
+            p-&gt;next = new ListNode(1);
         }
         return Node-&gt;next;
     }
@@ -329,13 +329,13 @@ public:
 <div class="prev-next-post pure-g">
   <div class="pure-u-1-24" style="text-align: left;">
     
-    <a href="https://HauyuChen.github.io/post/java-%E5%90%91%E4%B8%8A%E8%BD%AC%E5%9E%8B%E5%90%91%E4%B8%8B%E8%BD%AC%E5%9E%8B/"><i class="fa fa-chevron-left"></i></a>
+    <a href="https://HauyuChen.github.io/post/006-zigzag-conversion/"><i class="fa fa-chevron-left"></i></a>
     
   </div>
   <div class="pure-u-10-24">
     
     <nav class="prev">
-      <a href="https://HauyuChen.github.io/post/java-%E5%90%91%E4%B8%8A%E8%BD%AC%E5%9E%8B%E5%90%91%E4%B8%8B%E8%BD%AC%E5%9E%8B/">谈谈向上转型、向下转型</a>
+      <a href="https://HauyuChen.github.io/post/006-zigzag-conversion/">【LeetCode】6. ZigZag Conversion</a>
     </nav>
     
   </div>
@@ -344,8 +344,14 @@ public:
   </div>
   <div class="pure-u-10-24">
     
+    <nav class="next">
+      <a href="https://HauyuChen.github.io/post/1java-io/">谈谈 Java IO</a>
+    </nav>
+    
   </div>
   <div class="pure-u-1-24" style="text-align: right;">
+    
+    <a href="https://HauyuChen.github.io/post/1java-io/"><i class="fa fa-chevron-right"></i></a>
     
   </div>
 </div>

@@ -236,6 +236,146 @@
   
     <article>
   <header>
+    <h2><a href="https://HauyuChen.github.io/post/541-reverse-string-ii/">【LeetCode】541. Reverse String II</a></h2>
+
+    <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>2017-08-13</time>
+  </div>
+
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-folder fa-fw"></i>
+    
+      <a class="post-taxonomy-tag" href="https://HauyuChen.github.io/tags/leetcode">LeetCode</a>
+    
+  </div>
+  
+  
+
+  
+  
+  
+  <div>
+	<i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/%E7%AE%97%E6%B3%95">算法</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/leetcode">LeetCode</a>
+    
+  </div>
+  
+  
+  
+</div>
+
+  </header>
+
+  <p>
+  题目描述：  Given a string and an integer k, you need to reverse the first k characters for every 2k characters counting from the start of the string. If there are less than k characters left, reverse all of them. If there are less than 2k but greater than or equal to k characters, then reverse the first k characters and left the other as original.
+Example: Input: s = &ldquo;abcdefg&rdquo;, k = 2 Output: &ldquo;bacdfeg&rdquo;
+  </p>
+
+  
+  <footer>
+    <a href="https://HauyuChen.github.io/post/541-reverse-string-ii/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
+  </footer>
+  
+</article>
+
+  
+    <article>
+  <header>
+    <h2><a href="https://HauyuChen.github.io/post/ml-6-regulation/">【机器学习笔记】6. 正则化</a></h2>
+
+    <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>2017-08-10</time>
+  </div>
+
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-folder fa-fw"></i>
+    
+      <a class="post-taxonomy-tag" href="https://HauyuChen.github.io/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0">机器学习</a>
+    
+  </div>
+  
+  
+
+  
+  
+  
+  <div>
+	<i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0">机器学习</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92">线性回归</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92">逻辑回归</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/%E6%AD%A3%E5%88%99%E5%8C%96">正则化</a>
+    
+  </div>
+  
+  
+  
+</div>
+
+  </header>
+
+  <p>
+  作者注：机器学习系列是本人在学习机器学习相关内容时产生的笔记，希望也能对您有所帮助。值得注意的是，作者作为初学者，表述难免有误或不全面，望多批评指正。 如有任何问题，欢迎您随时与我联系：Hauyu.Chen@Gmail.com
+版权声明：本文由 Hov 所有，发布于 http://chenhy.com ，转载请注明出处。
+
+0 前言 前面我们已经提到了线性回归、 逻辑回归的概念。我们通过假设函数去拟合训练集，事实上，在拟合的过程中可能会出现 Overfitting （过拟合）的情况，本文要讲的 Regulation （正则化）是解决 Overfitting 的主要方法之一。
+
+1 拟合问题 在讲解正则化之前，我们需要先了解一下拟合的概念。
+还记得房价预测的栗子吗？我们通过房屋面积预测房价，给定一个训练集，我们要用假设函数去拟合这些数据。但其实房屋面积和房价的关系并非线性关系，不能简单地用一条直线来表示。
+（1）Underfitting（欠拟合）
+下图所示，蓝色直线（假设函数）并不能很好地拟合样本数据，我们将这种情况称为 Underfitting （欠拟合），也可以称为 High bias （高偏差）。
+（2）Just Right（刚好拟合）
+在原有的假设函数上增加一个二次项，原来的线性函数变成了二次函数，下图为拟合效果，显然，比之前的拟合得更好。蓝色的直线较好地拟合了样本数据，我们可以认为其刚好拟合。
+（3）Overfitting（过拟合）
+从前两种情况，我们发现增加了新的参数（增加了一个二次项），数据拟合得更好了。现在，我们增加一个三次项和四次项，拟合效果将如下所示，蓝色的线经过了每一个点，而且上下扭曲。这就属于 Overfitting （过拟合），也可称之为 High Variance （高方差）。
+你也许会问，我们不是说要让假设函数尽量拟合吗？为什么现在每个数据都拟合了，我们还要去处理它呢？
+这是因为，尽管现在的数据拟合得很完美，但它只是和训练样本的拟合，如果我们加入新的测试样本，这样的假设函数往往预测的效果很糟糕。
+也就是说，这种模型无法泛化到新的数据，无法预测新的数据。（泛化：指一个假设模型应用到新样本的能力）
+同理，在逻辑回归中也存在欠拟合和过拟合的情况。
+（1）逻辑回归中的欠拟合
+（2）逻辑回归中的刚好拟合
+（3）逻辑回归中的过拟合
+
+2 Regulation（正则化） 前面我们提到，我们应该避免出现过拟合的情况，因为这样会使得我们的预测不准确。解决过拟合问题有两种主要的方法：一种是通过减少特征数量；另一种是正则化。
+正则化可以保持特征数量不变，通过设置参数的权重来解决过拟合问题。
+2.1 正则化线性回归 2.1.1 Cost Function（代价函数） 上面的公式为正则化线性回归的代价函数，蓝色方块为一般线性回归的代价函数，红色方块为正则化项，而 λ 为正则化参数。
+正则化参数 λ 需要我们自行选择一个合适的数值，如 λ=1 。
+2.1.2 Gradient Descent（梯度下降） 注： θ0 应单独计算，因为不需要惩罚参数 θ0 ，惩罚参数从 θ1 开始。即为正则化操作。
+  </p>
+
+  
+  <footer>
+    <a href="https://HauyuChen.github.io/post/ml-6-regulation/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
+  </footer>
+  
+</article>
+
+  
+    <article>
+  <header>
     <h2><a href="https://HauyuChen.github.io/post/java-trap/">Java相关特性</a></h2>
 
     <div class="post-meta">
@@ -390,142 +530,6 @@
 1 this  表示类中的属性，比如 this.username = username; 强调调用的是本类的方法； 调用本类的构造方法，如 this(); 调用本类的无参构造方法； 表示当前对象（调用方法的对象）。  2 super  调用父类的构造方法； 调用父类的普通方法； 调用父类的属性。  3 static  static 修饰类： static 修饰的类称为静态类，静态类作为类的静态成员存在于某个类中，静态成员类可以不创建父类对象直接创建静态类的对象。 static 修饰变量： static 修饰的变量称为静态变量或类变量，而没有被 static 修饰的变量称为实例变量。静态变量在内存中只有一个拷贝， JVM 只为静态变量分配一次内存，且在加载类的过程中完成静态变量的内存分配；而实例变量每创建一个实例就分配一次内存，实例变量在内存中有多个拷贝，互补影响。 static 修饰方法： static 修饰的方法称为类方法，否则为实例方法，实例方法只有生成对象时才分配内存。类方法可以通过类名直接调用，实例方法只能通过类对象调用。  4 final  final 修饰类：被 final 修饰的类表示最终类，其不能被继承，不能当父类； final 修饰变量：被 final 修饰的变量为最终变量，即常量，其值不能修改，在定义时必须赋值。值得注意的是，当 final 修饰的不是普通变量而是对象引用时，变量指向的对象是可变的，不可变的是变量对对象的引用； final 修饰方法： final 修饰的方法为最终方法，父类包含最终方法时，子类不能重写该方法。
   </p>
 
-  
-</article>
-
-  
-    <article>
-  <header>
-    <h2><a href="https://HauyuChen.github.io/post/ml-5-logisticregression/">【机器学习笔记】5. 逻辑回归</a></h2>
-
-    <div class="post-meta">
-
-  <div>
-    <i class="fa fa-calendar fa-fw"></i>
-    <time>2017-08-03</time>
-  </div>
-
-  
-
-  
-  
-  
-  <div>
-    <i class="fa fa-folder fa-fw"></i>
-    
-      <a class="post-taxonomy-tag" href="https://HauyuChen.github.io/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0">机器学习</a>
-    
-  </div>
-  
-  
-
-  
-  
-  
-  <div>
-	<i class="fa fa-tags fa-fw"></i>
-    
-      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0">机器学习</a>&nbsp;&#47;
-    
-      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92">逻辑回归</a>&nbsp;&#47;
-    
-      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/%E7%9B%91%E7%9D%A3%E5%AD%A6%E4%B9%A0">监督学习</a>
-    
-  </div>
-  
-  
-  
-</div>
-
-  </header>
-
-  <p>
-  作者注：机器学习系列是本人在学习机器学习相关内容时产生的笔记，希望也能对您有所帮助。值得注意的是，作者作为初学者，表述难免有误或不全面，望多批评指正。 如有任何问题，欢迎您随时与我联系：Hauyu.Chen@Gmail.com
-版权声明：本文由 Hov 所有，发布于 http://chenhy.com ，转载请注明出处。
-
-0 前言 本文要讲的逻辑回归属于分类算法，它是对线性回归的改进。
-在处理二分类问题的时候，我们可将所有预测 y 映射成某个值。假设，若该值大于等于0.5，则结果为1；若该值小于0.5，则结果为0。这样，我们就将所有样本分为两类了。
-若用线性回归去处理分类问题， y 的值可能远大于1或小于0，这样会造成较大的误差，所以能否让 y 的值处于0到1之间呢？
-逻辑回归实现的就是这样的功能，将预测值映射到某个固定的区间，通过决策边界，实现二分类问题。
-
-1 要点 1.1 逻辑函数（Sigmoid函数） 逻辑回归中的逻辑函数其实就是线性回归中的假设函数，只不过在假设函数的基础上进行一个函数映射。
-（1）线性回归中的假设函数
-（2）逻辑回归中的逻辑函数
-逻辑函数对应的图像如下：
-可见，逻辑函数将所有预测映射到（0，1）区间。
-1.2 Decision Boundary（决策边界） 为了对输出结果进行0和1的分类，我们假设认为 hθ(x) 大于等于0.5，则结果 y=1 ；若 hθ(x) 小于0.5，则结果 y=0 ，即：
-根据逻辑函数的图像，有：
-即：
-所以，决策边界就是将结果分为 y=0 和 y=1 的分界，不同的参数向量 θ ，可对应不同的决策边界。
-举个栗子：
-这个栗子中，决策边界为 x=5 ，因为在其左边，y=1；在其右边，y=0。
-当然，决策边界并非只能是直线，也可能是复杂的曲线。
-1.3 Cost Function（代价函数） 上述公式可简化如下：
-向量化如下：
-1.4 Gradient Descent（梯度下降） 
-2 思路 假设，我们要实现邮件的分类（垃圾邮件、非垃圾邮件）
- 借助线性回归的思路，我们可以设定假设函数 hθ(x)=θ0*x0+θ1*x1+⋯+θn*xn ，但 hθ(x) 的结果可能在 (−∞,+∞) 之间。 所以，我们通过构造逻辑回归将预测值映射到（0，1）区间，预测值表示该邮件是垃圾邮件的概率。 构造代价函数。 通过梯度下降来最优化特征向量 θ ，求得决策边界。
-  </p>
-
-  
-  <footer>
-    <a href="https://HauyuChen.github.io/post/ml-5-logisticregression/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
-  </footer>
-  
-</article>
-
-  
-    <article>
-  <header>
-    <h2><a href="https://HauyuChen.github.io/post/java-json/">JSON相关操作（Java）</a></h2>
-
-    <div class="post-meta">
-
-  <div>
-    <i class="fa fa-calendar fa-fw"></i>
-    <time>2017-08-01</time>
-  </div>
-
-  
-
-  
-  
-  
-  <div>
-    <i class="fa fa-folder fa-fw"></i>
-    
-      <a class="post-taxonomy-tag" href="https://HauyuChen.github.io/tags/java">Java</a>
-    
-  </div>
-  
-  
-
-  
-  
-  
-  <div>
-	<i class="fa fa-tags fa-fw"></i>
-    
-      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/json">JSON</a>&nbsp;&#47;
-    
-      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/java">Java</a>
-    
-  </div>
-  
-  
-  
-</div>
-
-  </header>
-
-  <p>
-  1 Java中创建JSON import com.google.gson.JsonArray; import com.google.gson.JsonObject; public class CreateJSON { public static void main(String[] args) { JsonObject object = new JsonObject(); object.addProperty(&quot;cat&quot;, &quot;it&quot;); JsonArray array = new JsonArray(); JsonObject lan1 = new JsonObject(); lan1.addProperty(&quot;id&quot;, 1); lan1.addProperty(&quot;name&quot;, &quot;Java&quot;); lan1.addProperty(&quot;ide&quot;, &quot;Eclipse&quot;); array.add(lan1); JsonObject lan2 = new JsonObject(); lan2.addProperty(&quot;id&quot;, 2); lan2.addProperty(&quot;name&quot;, &quot;Swift&quot;); lan2.addProperty(&quot;ide&quot;, &quot;XCode&quot;); array.add(lan2); JsonObject lan3 = new JsonObject(); lan3.addProperty(&quot;id&quot;, 3); lan3.addProperty(&quot;name&quot;, &quot;C#&quot;); lan3.addProperty(&quot;ide&quot;, &quot;Visual Studio&quot;); array.add(lan3); object.add(&quot;languages&quot;, array); object.addProperty(&quot;pop&quot;, true); System.
-  </p>
-
-  
-  <footer>
-    <a href="https://HauyuChen.github.io/post/java-json/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
-  </footer>
   
 </article>
 

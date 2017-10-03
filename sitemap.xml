@@ -3,7 +3,17 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://HauyuChen.github.io/post/1java-io/</loc>
+    <lastmod>2017-10-02T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://HauyuChen.github.io/post/002-add-two-numbers/</loc>
+    <lastmod>2017-09-26T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://HauyuChen.github.io/post/006-zigzag-conversion/</loc>
     <lastmod>2017-09-26T00:00:00+00:00</lastmod>
   </url>
   
@@ -523,6 +533,10 @@
   </url>
   
   <url>
+    <loc>https://HauyuChen.github.io/time/</loc>
+  </url>
+  
+  <url>
     <loc>https://HauyuChen.github.io/topics/debug/</loc>
     <lastmod>2017-07-05T00:00:00+00:00</lastmod>
     <priority>0</priority>
@@ -548,7 +562,7 @@
   
   <url>
     <loc>https://HauyuChen.github.io/</loc>
-    <lastmod>2017-09-26T00:00:00+00:00</lastmod>
+    <lastmod>2017-10-02T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -559,8 +573,14 @@
   </url>
   
   <url>
+    <loc>https://HauyuChen.github.io/topics/io/</loc>
+    <lastmod>2017-10-02T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://HauyuChen.github.io/topics/java/</loc>
-    <lastmod>2017-09-20T00:00:00+00:00</lastmod>
+    <lastmod>2017-10-02T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -596,7 +616,7 @@
   
   <url>
     <loc>https://HauyuChen.github.io/post/</loc>
-    <lastmod>2017-09-26T00:00:00+00:00</lastmod>
+    <lastmod>2017-10-02T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -662,7 +682,7 @@
   
   <url>
     <loc>https://HauyuChen.github.io/topics/%E5%9F%BA%E7%A1%80/</loc>
-    <lastmod>2017-09-20T00:00:00+00:00</lastmod>
+    <lastmod>2017-10-02T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   

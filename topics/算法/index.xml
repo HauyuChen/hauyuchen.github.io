@@ -24,6 +24,17 @@ Input: (2 -&amp;gt; 4 -&amp;gt; 3) + (5 -&amp;gt; 6 -&amp;gt; 4) Output: 7 -&amp
     </item>
     
     <item>
+      <title>【LeetCode】6. ZigZag Conversion</title>
+      <link>https://HauyuChen.github.io/post/006-zigzag-conversion/</link>
+      <pubDate>Tue, 26 Sep 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://HauyuChen.github.io/post/006-zigzag-conversion/</guid>
+      <description>题目描述： The string &amp;ldquo;PAYPALISHIRING&amp;rdquo; is written in a zigzag pattern on a given number of rows like this: (you may want to display this pattern in a fixed font for better legibility)
+P A H N A P L S I I G Y I R  And then read line by line: &amp;ldquo;PAHNAPLSIIGYIR&amp;rdquo;
+Write the code that will take a string and make this conversion given a number of rows:</description>
+    </item>
+    
+    <item>
       <title>【LeetCode】599. Minimum Index Sum of Two Lists</title>
       <link>https://HauyuChen.github.io/post/599-minimum-index-sum-of-two-lists/</link>
       <pubDate>Sun, 27 Aug 2017 00:00:00 +0000</pubDate>

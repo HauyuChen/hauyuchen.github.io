@@ -1,0 +1,885 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="字节流、字符流、随机访问文件、Apache IO">
+  <meta name="generator" content="Hugo 0.24.1" />
+
+  <title>谈谈 Java IO &middot; Hov&#39;s Blog</title>
+
+  <script>
+	var _hmt = _hmt || [];
+	(function() {
+	  var hm = document.createElement("script");
+	  hm.src = "https://hm.baidu.com/hm.js?dd096f3aba9332e2640cda59d3786695";
+	  var s = document.getElementsByTagName("script")[0]; 
+	  s.parentNode.insertBefore(hm, s);
+	})();
+	</script>	
+  
+  
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/0.6.2/pure-min.css">
+
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/0.6.2/grids-responsive-old-ie-min.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/0.6.2/grids-responsive-min.css">
+  <!--<![endif]-->
+
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="https://HauyuChen.github.io/css/side-menu-old-ie.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="https://HauyuChen.github.io/css/side-menu.css">
+  <!--<![endif]-->
+
+  <link rel="stylesheet" href="https://HauyuChen.github.io/css/blackburn.css">
+
+  
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  
+  <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet" type="text/css">
+
+  
+  
+
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/styles/androidstudio.min.css">
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  
+
+  <link rel="shortcut icon" href="https://HauyuChen.github.io/img/favicon.ico" type="image/x-icon" />
+
+  
+  
+
+
+</head>
+
+
+<body>
+
+<div id="layout">
+
+  
+<a href="#menu" id="menuLink" class="menu-link">
+  
+  <span></span>
+</a>
+<div id="menu">
+
+  <a class="pure-menu-heading brand" href="https://HauyuChen.github.io/">
+  <img src="https://HauyuChen.github.io/img/Hov.jpg" width="125px">
+</a>
+
+  <div class="pure-menu">
+    <ul class="pure-menu-list">
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="https://HauyuChen.github.io/"><i class='fa fa-home fa-fw'></i>主页</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="https://HauyuChen.github.io/post/"><i class='fa fa-list fa-fw'></i>所有文章</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="https://HauyuChen.github.io/tags/"><i class='fa fa-folder fa-fw'></i>文章分类</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="https://HauyuChen.github.io/topics/"><i class='fa fa-tags fa-fw'></i>关键词</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="https://HauyuChen.github.io/about-me/"><i class='fa fa-user fa-fw'></i>关于我</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="https://HauyuChen.github.io/about-site/"><i class='fa fa-home fa-fw'></i>关于本站</a>
+      
+        </li>
+      
+    </ul>
+  </div>
+
+  <div class="pure-menu social">
+
+  <ul class="pure-menu-list">
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://github.com/HauyuChen" target="_blank"><i class="fa fa-github-square fa-fw"></i>GitHub</a>
+    </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+	</ul>
+	<ul class="pure-menu-list">
+	
+	<li class="pure-menu-item">
+      <a class="pure-menu-link" href="http://blog.csdn.net/u014134180" target="_blank"><i class="fa fa-lastfm-square fa-fw"></i>友链：Wu_Being</a>
+    </li>
+  </ul>
+  
+</div>
+
+
+  <div>
+
+
+</div>
+
+</div>
+
+
+  <div id="main">
+
+
+<div class="header">
+  <h1>谈谈 Java IO</h1>
+  <h2>字节流、字符流、随机访问文件、Apache IO</h2>
+</div>
+<div class="content">
+
+  <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>2017-10-02</time>
+  </div>
+
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-folder fa-fw"></i>
+    
+      <a class="post-taxonomy-tag" href="https://HauyuChen.github.io/tags/java">Java</a>
+    
+  </div>
+  
+  
+
+  
+  
+  
+  <div>
+	<i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/java">Java</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/%E5%9F%BA%E7%A1%80">基础</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/io">IO</a>
+    
+  </div>
+  
+  
+  
+</div>
+
+  
+
+<hr />
+
+<p><em>版权声明：本文由 Hov 所有，发布于 <a href="http://chenhy.com">http://chenhy.com</a> ，转载请注明出处。<br/></em></p>
+
+<hr />
+
+<p><br/></p>
+
+<h1 id="0-写在前面">0 写在前面</h1>
+
+<p>IO 操作是任何编程语言都无法回避的问题，因为 IO 操作是机器获取和交换信息的主要途径。 java.io 提供了全面的 IO 接口，包括文件读写、标准设备输出等。 Java 的 IO 是以流为基础进行输入输出的，所有的数据被串行化写入输出流或从输入流读入。</p>
+
+<p>流是一个很形象的概念，当程序需要读取数据的时候，就会开启一个通向数据源的流，这个数据源可以是文件、内存或网络连接。同样的，当程序需要写入数据时，就会开启一个通向目的地的流，而数据就在数据源和目的地之间“流动”。</p>
+
+<p>下图为 IO 流的组成结构。由图可知， Java IO 主要分为字节流和字符流，其中字节流以 InputStream 和 OutputStream 向下继承，字符流以 Reader 和 Writer 向下继承。</p>
+
+<p>本文将详细讲解字节流和字符流，并简要介绍随机存取文件 RandomAccessFile 和 Apache 的 IO 类库。</p>
+
+<p><br/></p>
+
+<p><img src="https://raw.githubusercontent.com/HauyuChen/PicsBox/master/iostream.jpeg" alt="" /></p>
+
+<p><br/></p>
+
+<h1 id="1-预备知识">1 预备知识</h1>
+
+<p>在讲解 IO 相关的知识前，我们有必要了解一下字节、字符、编码等概念.毕竟 IO 操作实质上就是基于字节、字符来实现的。</p>
+
+<h2 id="1-1-字节">1.1 字节</h2>
+
+<p>字节是通过网络传输信息或在硬盘、内存中存储信息的单位，也是计算机用于计量存储容量和传输容量的一种计量单位。一个字节等于8位二进制，是一个很具体的存储空间。如 0x01 ， 0x20 等。</p>
+
+<h2 id="1-2-字符">1.2 字符</h2>
+
+<p>字符是人们使用的记号，抽象意义上的一个符号。如“1”，“a”，“￥”，“好”等。实质上，字符是由字节组成的，一个字符可以由一个或多个字节组成。</p>
+
+<h2 id="1-3-字符集">1.3 字符集</h2>
+
+<p>不同国家和地区所制定的不同 ANSI 编码标准中，都只规定了各自语言所需的字符。汉字标准（GB2312）就是一个字符集，但它没有规定也不关心韩国语字符怎样存储，而重点关注汉字的编码标准。</p>
+
+<p>字符集（编码）有两层含义：</p>
+
+<ol>
+<li>使用哪些字符，也就是哪些字符、汉字或符号会被收入标准中，所包含“字符”的集合就叫做“字符集”；</li>
+<li>规定每个字符分别用一个字节还是多个字节存储，用哪些字节存储，这个规定就叫做编码。
+字符集和编码一般同时制定，我们常说的字符集（如GB2312），除了有“字符集合”含义外，还包含了“编码”的含义。</li>
+</ol>
+
+<p>值得注意的是，为了使国际间信息交流更方便，国际组织制定了 UNICODE 字符集，它为各种语言中的每一个字符设定了统一并且唯一的数字编号，以满足跨平台、跨语言进行文本交换、处理的要求，如我们熟悉的 UTF-8 。</p>
+
+<p><br/></p>
+
+<h1 id="2-字节流与字符流">2 字节流与字符流</h1>
+
+<p>Java IO 流可分为字节流和字符流两大类，两种流都可以实现输入输出操作。其中，字节流继承自 InputStream 和 OutputStream ，字符流继承自 Reader 和 Writer 。</p>
+
+<h2 id="2-1-字节流">2.1 字节流</h2>
+
+<p>字节流可以处理所有类型的数据，如图片、视频、文字等。字节流每读取一个字节就返回一个字节，字节流在 Java 中对应的类通常以“Stream”结尾。</p>
+
+<h3 id="2-1-1-字节输入流-inputstream">2.1.1 字节输入流：InputStream</h3>
+
+<p>我们可以通过 InputStream 读取字节数据。 InputStream 类的定义如下：</p>
+
+<pre><code>public abstract class InputStream extends Object implements Closeable{
+    ......
+}
+</code></pre>
+
+<p>InputStream 是一个抽象类，这意味着其必须依靠其子类实现具体的功能。比如从文件中读取数据，我们可以用 FileInputStream 来实现， FileInputStream 就是 InputStream 的一个子类。当然， InputStream 下面还有其它的子类，如缓冲输入流 BufferedInputStream 。</p>
+
+<p><strong>（1）通过FileInputStream读取文件数据</strong></p>
+
+<pre><code>/* ReadByte.java */
+
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+
+public class ReadByte {
+    public static void main(String[] args) {
+        try {
+            //计时开始
+            long times = System.currentTimeMillis();  
+            //实例化FileInputStream对象
+            File file = new File(&quot;Data.zip&quot;);
+            FileInputStream fis = new FileInputStream(file);
+            //读取文件内容
+            byte[] input=new byte[500];
+            int count = 0;        //记录读取次数
+            while(fis.read(input)!=-1){
+                count++;
+            }
+            //记得关闭流
+            fis.close();   
+            //计时结束
+            System.out.println(&quot;用时： &quot;+ (System.currentTimeMillis()-times) + &quot;ms&quot;);  
+            System.out.println(&quot;读取次数： &quot;+count);
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+}
+</code></pre>
+
+<p><strong>程序运行结果：</strong></p>
+
+<pre><code>用时： 117ms
+读取次数： 188206
+</code></pre>
+
+<p><strong>（2）通过BufferedInputStream读取文件数据</strong></p>
+
+<p>前面已经通过 FileInputStream 读取了文件数据，接下来通过缓冲的方式来读取同样的文件。两者实现的效果一致，对比它们之间的效率。值得注意的是，下面的代码就比上面多出两行（实例化缓冲流和关闭缓冲流）。</p>
+
+<pre><code>/* BufferedRead.java */
+
+import java.io.*;
+
+public class BufferedRead {
+    public static void main(String[] args) {
+        try {
+
+            long times = System.currentTimeMillis();
+
+            File file = new File(&quot;Data.zip&quot;);
+            FileInputStream fis = new FileInputStream(file);
+            BufferedInputStream bis = new BufferedInputStream(fis); //实例化缓冲输入流
+
+            byte[] input=new byte[500];
+            int count = 0;
+            while(bis.read(input)!=-1){
+                count++;
+            }
+
+            bis.close();            //同样，关闭缓冲流
+            fis.close();
+
+            System.out.println(&quot;用时： &quot;+ (System.currentTimeMillis()-times) + &quot;ms&quot;);
+            System.out.println(&quot;读取次数： &quot;+count);
+
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+}
+
+</code></pre>
+
+<p><strong>程序运行结果：</strong>虽然读取同样的次数，但缓冲的方式用时少了一半。</p>
+
+<pre><code>用时： 52ms
+读取次数： 188206
+</code></pre>
+
+<p><strong>注意：</strong>缓冲区大小、读取文件的次数会影响读取效率，比如减少缓冲区大小，读取次数将增多，缓冲的方式可能效果明显更短。但如果增加缓冲区大小，读取次数将减少，有无缓冲可能效率差别不大。</p>
+
+<h3 id="2-1-2-字节输出流-outputstream">2.1.2 字节输出流：OutputStream</h3>
+
+<p>我们可以通过 OutputStream 输出字节数据。 OutputStream 类的定义如下：</p>
+
+<pre><code>public abstract class OutputStream extends Object implements Closeable,Flushable{
+    ......
+}
+</code></pre>
+
+<p>同 InputStream ，OutputStream 也是一个抽象类。要想使用 OutputStream ，必须通过子类实例化对象。同样，我们可以通过 OutputStream 的子类 FileOutputStream 往文件写入数据。</p>
+
+<p>注：Closeable 表示可以关闭的操作，因为程序运行到最后必须关闭。 Flushable 表示刷新，清空内存的数据。</p>
+
+<p><strong>（1）通过 FileOutputStream 往文件写入数据</strong></p>
+
+<pre><code>/* WriteByte.java */
+
+import java.io.*;
+
+public class WriteByte {
+    public static void main(String[] args) {
+        try {
+
+            //实例化FileOutputStream
+            File file = new File(&quot;OutputData.txt&quot;);
+            FileOutputStream fos = new FileOutputStream(file);
+            //往文件写入字符串数据
+            String str = &quot;Hello China. 中文&quot;;
+            byte[] b = str.getBytes(&quot;UTF-8&quot;);
+            fos.write(b);
+            //关闭流
+            fos.close();
+
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+    }
+}
+
+</code></pre>
+
+<p>上面的程序运行结束，文件 OutputData.txt 将被写入数据 “Hello China. 中文”。</p>
+
+<p><br/></p>
+
+<h1 id="2-2-字符流">2.2 字符流</h1>
+
+<p>不同于字节流可以处理多种类型的数据，字符流仅能处理纯文本数据，如 txt 文本。字符流读取一个或多个字节时，先查找编码表，再将查到的字符返回。字符流在 Java 中对应的类通常以“Reader”和”Writer”结尾。</p>
+
+<h3 id="2-2-1-字符输入流-reader">2.2.1 字符输入流：Reader</h3>
+
+<p>通过 Reader 以字符的方式读取数据， Reader 类的定义如下：</p>
+
+<pre><code>public abstract class Reader extends Objects implements Readable，Closeable{
+    ......
+}
+</code></pre>
+
+<p><strong>（1）通过 InputStreamReader 读取数据</strong></p>
+
+<pre><code>/* ReadChar.java */
+
+import java.io.*;
+
+public class ReadChar {
+    public static void main(String[] args) {
+        try {
+
+            //实例化InputStreamReader对象
+            File file = new File(&quot;text.txt&quot;);
+            FileInputStream fis = new FileInputStream(file);
+            InputStreamReader isr = new InputStreamReader(fis);
+            //读取数据
+            char input[] = new char[100];
+            int l = 0;      //读了多少数据
+            while((l=isr.read(input))!=-1){
+                System.out.println(new String(input,0,l));
+            }
+            //关闭流
+            isr.close();
+            fis.close();
+
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+}
+
+</code></pre>
+
+<p>运行程序，控制台将输出 text.txt 文件的内容。</p>
+
+<h3 id="2-2-2-字符输出流-writer">2.2.2 字符输出流：Writer</h3>
+
+<p>通过 Writer 以字符的方式输出数据， Writer 类的定义如下：</p>
+
+<pre><code>public abstract class Writer extends Object implements Appendable，Closeable，Flushable{
+    ......
+}
+</code></pre>
+
+<p><strong>（1）通过 OutputStreamWriter 往文件写入数据</strong></p>
+
+<pre><code>/* WriteChar.java */
+
+import java.io.*;
+
+public class WriteChar {
+    public static void main(String[] args) {
+        try {
+
+            //实例化OutputStreamWriter对象
+            File file = new File(&quot;OutputData.txt&quot;);
+            FileOutputStream fos = new FileOutputStream(file);
+            OutputStreamWriter osw = new OutputStreamWriter(fos);
+            //往文件写入字符串数据
+            String str = &quot;Hello China.&quot;;
+            osw.write(str);
+            //关闭流
+            osw.close();
+            fos.close();
+
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+    }
+}
+
+</code></pre>
+
+<p>运行程序， 字符串&rdquo;Hello China.&ldquo;将被写入 OutputData.txt 文件。</p>
+
+<h3 id="2-2-3-filereader-和-filewriter">2.2.3 FileReader 和 FileWriter</h3>
+
+<p>同样，我们也可以通过 FileReader 和 FileWriter 来读写文件数据。</p>
+
+<pre><code>/* FileReaderWriter.java */
+
+import java.io.*;
+
+public class FileReaderWriter {
+    public static void main(String[] args) {
+        try {
+
+            //实例化 FileReader 对象
+            FileReader fr = new FileReader(&quot;text.txt&quot;);
+            BufferedReader br = new BufferedReader(fr);
+            //实例化 FileWriter 对象
+            FileWriter fw = new FileWriter(&quot;outputdata.txt&quot;);  
+            BufferedWriter bw = new BufferedWriter(fw);
+            //从Reader读取数据，往Writer写入数据
+            String line = null;
+            while((line=br.readLine())!=null){
+                bw.write(line+&quot;\n&quot;);
+            }
+            //刷新缓冲区
+            bw.flush();
+            //关闭流
+            br.close();
+            bw.close();
+            fr.close();
+            fw.close();
+
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+    }
+}
+
+</code></pre>
+
+<p>运行程序，text.txt 文件中的内容将被写入 outputdata.txt 文件。</p>
+
+<h2 id="2-3-字节流与字符流的区别">2.3 字节流与字符流的区别</h2>
+
+<p>前面我们已经介绍了字节流、字符流，并给出了具体的实现代码。当然，Java IO 并不仅限于上面提到的内容，但其它的实现思路基本一致。同样，字节流和字符流使用也非常相似，对比上面通过字节流和字符流分别从文件读取数据的代码你会发现，字符流可以在字节流的基础上包装成字符流来读取字符数据。不过，字节流和字符流还是有所区别：</p>
+
+<ol>
+<li><p>字节流不使用缓冲区（内存），直接操作文件本身；字符流使用缓冲区。</p></li>
+
+<li><p>字节流即使不关闭资源（close方法），也能输出内容；但字符流不使用 close 方法的话，则不会输出任何内容， 这正说明字符流使用的是缓冲区，这也是为什么我们要用 flush 方法强制刷新缓冲区，这样才能在不 close 的情况下输出内容。</p></li>
+</ol>
+
+<p>那究竟用字节流好还是用字符流好呢？</p>
+
+<p>字节流会比字符流更通用。字节流可以处理所有类型的数据，如视频、图片。字符流对视频或图片的读写就显得无能为力了，因为它只能处理纯文本数据。</p>
+
+<p>事实上，在硬盘上保存文件或进行传输时都是以字节的方式进行的，包括图片也是按字节完成，所以使用字节的操作是最多的。如果要通过 java 程序实现一个拷贝功能，显然应该选用字节流进行操作（因为可能拷贝的是图片），并且可采用边读边写的方式（节省内存）。</p>
+
+<p><br/></p>
+
+<h1 id="3-随机访问文件-randomaccessfile">3 随机访问文件：RandomAccessFile</h1>
+
+<p>RandomAccessFile 不属于 InputStream 和 OutputStream ，其唯一父类是 Object ，这与其他流不同。它是一个完全独立的类，所有方法(绝大多数都只属于它自己)都是从零开始写的。可能是因为 RandomAccessFile 能在文件中前后移动，所以它的行为与其它的 IO 类有些根本性的不同。</p>
+
+<p>RandomAccessFile 一个很重要的特性就是它支持从文件的任意位置读写。</p>
+
+<p>下面通过栗子来进一步了解。为了突出 RandomAccessFile 的特性，我们通过多个线程来操作同一个文件。</p>
+
+<p><strong>（1）通过线程往文件写入数据</strong></p>
+
+<pre><code>/* WriteFile.java */
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.RandomAccessFile;
+
+public class WriteFile extends Thread{
+    File file;
+    int block;
+    int L = 100;
+
+    public WriteFile(File f,int b){
+        this.file = f;
+        this.block = b;
+    }
+
+    @Override
+    public void run() {
+        try {
+
+            //实例化 RandomAccessFile 对象
+            RandomAccessFile raf = new RandomAccessFile(file,&quot;rw&quot;);
+            raf.seek((block-1)*L);                              //文件写入位置
+            raf.writeBytes(&quot;\n&quot;+&quot;This is block &quot;+block);        //写入数据
+
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+    }
+}
+</code></pre>
+
+<p><strong>（2）模拟多个线程同时写文件</strong></p>
+
+<pre><code>/* MultiWriteFile.java */
+
+import java.io.File;
+
+public class MultiWriteFile {
+    
+    static File file = new File(&quot;test.txt&quot;);    //文件
+
+    public static void main(String[] args) {
+
+        if(file.exists()){
+            file.delete();
+        }
+
+        //开启5个线程往同一个文件写入数据，注意写入顺序是 1、5、4、3、2
+        new WriteFile(file,1).start();
+        new WriteFile(file,5).start();
+        new WriteFile(file,4).start();
+        new WriteFile(file,3).start();
+        new WriteFile(file,2).start();
+
+    }
+}
+</code></pre>
+
+<p><strong>程序运行结果：</strong></p>
+
+<p>虽然写入顺序是 1、5、4、3、2，但它们都分别写入各自的区块位置，所以在文件中的顺序变回了 1、2、3、4、5。这就说明了 RandomAccessFile 运行从文件的任意位置写入数据，而不需要从头往后写数据。</p>
+
+<p>注：后面的方框说明该区域没有数据，因为每个区块是100，我们只写入了15个数据。</p>
+
+<p><img src="https://raw.githubusercontent.com/HauyuChen/PicsBox/master/JavaIO-01.png" alt="" /></p>
+
+<p><strong>(3)同样，我们可以读取文件中任意位置的数据</strong></p>
+
+<pre><code>/* MultiWriteFile.java */
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.RandomAccessFile;
+
+public class MultiWriteFile {
+
+    static File file = new File(&quot;test.txt&quot;);
+    
+    public static void main(String[] args) {
+        try {
+
+            //实例化RandomAccessFile对象
+            RandomAccessFile raf = new RandomAccessFile(file,&quot;r&quot;);
+            //文件读写位置：200
+            raf.seek(200);
+            //读取数据
+            byte[] str = new byte[16];
+            raf.read(str);
+            String in = new String(str);
+            System.out.println(in);
+
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+}
+
+</code></pre>
+
+<p><strong>程序运行结果：</strong></p>
+
+<p>成功从位置200开始读取数据，输出 “This is block 3”。</p>
+
+<p><img src="https://raw.githubusercontent.com/HauyuChen/PicsBox/master/JavaIO-02.png" alt="" /></p>
+
+<p><br/></p>
+
+<h1 id="4-apache-io">4 Apache IO</h1>
+
+<p>前面我们已经讲解了 Java 中常用的 IO 操作，不过我们还可以通过外部的包来使用 IO。比如， Apache 提供了一个功能强大的包来实现 IO 操作，通过它可以大量减少我们的实现代码，操作十分方便。</p>
+
+<p>Apache IO下载地址：
+<a href="http://commons.apache.org/proper/commons-io/download_io.cgi">http://commons.apache.org/proper/commons-io/download_io.cgi</a></p>
+
+<p>下载完毕后，将 jar 文件导入工程就可以使用了。</p>
+
+<p>下面简单展示如何使用 Apache IO 实现文件拷贝。当然，还有其它强大的功能，大家有兴趣可以查看官方文档如何使用。</p>
+
+<p><strong>（1）通过 Apache IO 实现文件拷贝</strong></p>
+
+<pre><code>/* TestApacheIO.java */
+
+import org.apache.commons.io.FileUtils;
+
+import java.io.File;
+import java.io.IOException;
+
+public class TestApacheIO {
+    public static void main(String[] args) {
+
+        File file = new File(&quot;text.txt&quot;);
+        File newfile = new File(&quot;textnew.txt&quot;);
+
+        try {
+            //调用FileUtils的copyFile方法，实现文件拷贝
+            FileUtils.copyFile(file,newfile);   
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+    }
+}
+
+</code></pre>
+
+<p>运行程序，text.txt 文件将被拷贝到 textnew.txt 文件。</p>
+
+<p><br/></p>
+
+<h1 id="5-结语">5 结语</h1>
+
+<ol>
+<li>Java IO 可分为字节流和字符流；</li>
+<li>字节流能处理所有类型的数据，如视频、图片、文本；字符流只能处理纯文本数据；</li>
+<li>字节流直接对文件操作，不需要缓冲区，直接输出内容；字符流需要缓冲区，刷新缓冲区才能输出内容。</li>
+<li>随机访问文件 RandomAccessFile 支持从文件任意位置读写数据；</li>
+<li>Apache IO 提供了 IO 操作的简便接口。</li>
+</ol>
+
+<p><br/></p>
+
+<p><strong>参考资料：</strong></p>
+
+<ul>
+<li><a href="http://www.cnblogs.com/lich/archive/2011/12/11/2283700.html">http://www.cnblogs.com/lich/archive/2011/12/11/2283700.html</a></li>
+<li><a href="https://baike.baidu.com/item/java.io">https://baike.baidu.com/item/java.io</a></li>
+</ul>
+
+<p><br/></p>
+
+
+  
+<div class="prev-next-post pure-g">
+  <div class="pure-u-1-24" style="text-align: left;">
+    
+    <a href="https://HauyuChen.github.io/post/002-add-two-numbers/"><i class="fa fa-chevron-left"></i></a>
+    
+  </div>
+  <div class="pure-u-10-24">
+    
+    <nav class="prev">
+      <a href="https://HauyuChen.github.io/post/002-add-two-numbers/">【LeetCode】2. Add Two Numbers</a>
+    </nav>
+    
+  </div>
+  <div class="pure-u-2-24">
+    &nbsp;
+  </div>
+  <div class="pure-u-10-24">
+    
+  </div>
+  <div class="pure-u-1-24" style="text-align: right;">
+    
+  </div>
+</div>
+
+
+
+  
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+
+(function() {
+    
+    
+    if (window.location.hostname == "localhost")
+        return;
+
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    var disqus_shortname = "http-hov-space";
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com/" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+</div>
+
+</div>
+</div>
+<script src="https://HauyuChen.github.io/js/ui.js"></script>
+
+
+
+
+
+
+</body>
+</html>
+

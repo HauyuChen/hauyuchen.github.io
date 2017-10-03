@@ -7,7 +7,7 @@
   <meta name="description" content="">
   <meta name="generator" content="Hugo 0.24.1" />
 
-  <title>关于我 &middot; Hov&#39;s Blog</title>
+  <title>【LeetCode】6. ZigZag Conversion &middot; Hov&#39;s Blog</title>
 
   <script>
 	var _hmt = _hmt || [];
@@ -221,47 +221,157 @@
 
 
 <div class="header">
-  <h1>关于我</h1>
+  <h1>【LeetCode】6. ZigZag Conversion</h1>
   <h2></h2>
 </div>
 <div class="content">
+
+  <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>2017-09-26</time>
+  </div>
+
   
 
-<h1 id="关于我">关于我</h1>
+  
+  
+  
+  <div>
+    <i class="fa fa-folder fa-fw"></i>
+    
+      <a class="post-taxonomy-tag" href="https://HauyuChen.github.io/tags/leetcode">LeetCode</a>
+    
+  </div>
+  
+  
+
+  
+  
+  
+  <div>
+	<i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/%E7%AE%97%E6%B3%95">算法</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/leetcode">LeetCode</a>
+    
+  </div>
+  
+  
+  
+</div>
+
+  
 
 <hr />
 
-<p>我是陈浩宇，</p>
+<h2 id="题目描述">题目描述：</h2>
 
-<p>在读计算机专业学生，</p>
+<p>The string &ldquo;PAYPALISHIRING&rdquo; is written in a zigzag pattern on a given number of rows like this: (you may want to display this pattern in a fixed font for better legibility)</p>
 
-<p>现居于广州。</p>
+<pre><code>P       A       H       N
 
-<p>这里记录了我的一些学习笔记、技术心得。</p>
+A   P   L   S   I   I   G
 
-<p>希望对您也有所帮助：）</p>
+Y       I       R
+</code></pre>
+
+<p>And then read line by line: &ldquo;PAHNAPLSIIGYIR&rdquo;</p>
+
+<p>Write the code that will take a string and make this conversion given a number of rows:</p>
+
+<p>string convert(string text, int nRows);</p>
+
+<p>convert(&ldquo;PAYPALISHIRING&rdquo;, 3) should return &ldquo;PAHNAPLSIIGYIR&rdquo;.</p>
+
+<h2 id="代码实现">代码实现：</h2>
+
+<pre><code>class Solution {
+public:
+    string convert(string s, int numRows) {
+        if(numRows==1){
+            return s;
+        }
+        
+        string ret=&quot;&quot;;
+        int dist1 = numRows*2-2;
+        
+        for(int i=0;i&lt;s.size();i+=dist1){
+            ret+=s[i];
+        }
+        for(int i=1;i&lt;numRows-1;i++){
+            int dist2 = i*2;
+            for(int j=i;j&lt;s.size();j+=dist2){
+                ret+=s[j];
+                dist2 = dist1-dist2;
+            }
+            
+        }
+        for(int i=numRows-1;i&lt;s.size();i+=dist1){
+            ret+=s[i];
+        }
+        return ret;
+    }
+};
+</code></pre>
 
 <p><br/></p>
 
-<h1 id="联系我">联系我</h1>
 
-<hr />
+  
+<div class="prev-next-post pure-g">
+  <div class="pure-u-1-24" style="text-align: left;">
+    
+    <a href="https://HauyuChen.github.io/post/java-%E5%90%91%E4%B8%8A%E8%BD%AC%E5%9E%8B%E5%90%91%E4%B8%8B%E8%BD%AC%E5%9E%8B/"><i class="fa fa-chevron-left"></i></a>
+    
+  </div>
+  <div class="pure-u-10-24">
+    
+    <nav class="prev">
+      <a href="https://HauyuChen.github.io/post/java-%E5%90%91%E4%B8%8A%E8%BD%AC%E5%9E%8B%E5%90%91%E4%B8%8B%E8%BD%AC%E5%9E%8B/">谈谈向上转型、向下转型</a>
+    </nav>
+    
+  </div>
+  <div class="pure-u-2-24">
+    &nbsp;
+  </div>
+  <div class="pure-u-10-24">
+    
+    <nav class="next">
+      <a href="https://HauyuChen.github.io/post/002-add-two-numbers/">【LeetCode】2. Add Two Numbers</a>
+    </nav>
+    
+  </div>
+  <div class="pure-u-1-24" style="text-align: right;">
+    
+    <a href="https://HauyuChen.github.io/post/002-add-two-numbers/"><i class="fa fa-chevron-right"></i></a>
+    
+  </div>
+</div>
 
-<p>QQ：ODkzNzY5Mzkz （Base64）</p>
 
-<p>Email：Hauyu.Chen@Gmail.com</p>
 
-<p>GitHub：<a href="https://github.com/HauyuChen">HauyuChen</a></p>
+  
+<div id="disqus_thread"></div>
+<script type="text/javascript">
 
-<p>Telegram：<a href="https://t.me/chenhy">@chenhy</a></p>
+(function() {
+    
+    
+    if (window.location.hostname == "localhost")
+        return;
 
-<p><br/></p>
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    var disqus_shortname = "http-hov-space";
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com/" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
 
-<h1 id="分享">分享</h1>
-
-<hr />
-
-<p>书写是更好的思考。</p>
 
 </div>
 
