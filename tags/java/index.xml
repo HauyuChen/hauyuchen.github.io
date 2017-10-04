@@ -7,38 +7,10 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2017. All rights reserved.</copyright>
-    <lastBuildDate>Sat, 05 Aug 2017 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 06 Sep 2017 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://HauyuChen.github.io/tags/java/index.xml" rel="self" type="application/rss+xml" />
     
-    
-    <item>
-      <title>Java关键字this、super、static、final</title>
-      <link>https://HauyuChen.github.io/post/java-%E5%85%B3%E9%94%AE%E5%AD%97thissuperstaticfinal/</link>
-      <pubDate>Sat, 05 Aug 2017 00:00:00 +0000</pubDate>
-      
-      <guid>https://HauyuChen.github.io/post/java-%E5%85%B3%E9%94%AE%E5%AD%97thissuperstaticfinal/</guid>
-      <description>0 写在前面 本文主要讲讲 Java 中比较常见的关键字，如 this 、 super 、 static 、 final ，它们在程序中出现频率较高。
-1 this  表示类中的属性，比如 this.username = username; 强调调用的是本类的方法； 调用本类的构造方法，如 this(); 调用本类的无参构造方法； 表示当前对象（调用方法的对象）。  2 super  调用父类的构造方法； 调用父类的普通方法； 调用父类的属性。  3 static  static 修饰类： static 修饰的类称为静态类，静态类作为类的静态成员存在于某个类中，静态成员类可以不创建父类对象直接创建静态类的对象。 static 修饰变量： static 修饰的变量称为静态变量或类变量，而没有被 static 修饰的变量称为实例变量。静态变量在内存中只有一个拷贝， JVM 只为静态变量分配一次内存，且在加载类的过程中完成静态变量的内存分配；而实例变量每创建一个实例就分配一次内存，实例变量在内存中有多个拷贝，互补影响。 static 修饰方法： static 修饰的方法称为类方法，否则为实例方法，实例方法只有生成对象时才分配内存。类方法可以通过类名直接调用，实例方法只能通过类对象调用。  4 final  final 修饰类：被 final 修饰的类表示最终类，其不能被继承，不能当父类； final 修饰变量：被 final 修饰的变量为最终变量，即常量，其值不能修改，在定义时必须赋值。值得注意的是，当 final 修饰的不是普通变量而是对象引用时，变量指向的对象是可变的，不可变的是变量对对象的引用； final 修饰方法： final 修饰的方法为最终方法，父类包含最终方法时，子类不能重写该方法。</description>
-    </item>
-    
-    <item>
-      <title>JSON相关操作（Java）</title>
-      <link>https://HauyuChen.github.io/post/java-json/</link>
-      <pubDate>Tue, 01 Aug 2017 00:00:00 +0000</pubDate>
-      
-      <guid>https://HauyuChen.github.io/post/java-json/</guid>
-      <description>1 Java中创建JSON import com.google.gson.JsonArray; import com.google.gson.JsonObject; public class CreateJSON { public static void main(String[] args) { JsonObject object = new JsonObject(); object.addProperty(&amp;quot;cat&amp;quot;, &amp;quot;it&amp;quot;); JsonArray array = new JsonArray(); JsonObject lan1 = new JsonObject(); lan1.addProperty(&amp;quot;id&amp;quot;, 1); lan1.addProperty(&amp;quot;name&amp;quot;, &amp;quot;Java&amp;quot;); lan1.addProperty(&amp;quot;ide&amp;quot;, &amp;quot;Eclipse&amp;quot;); array.add(lan1); JsonObject lan2 = new JsonObject(); lan2.addProperty(&amp;quot;id&amp;quot;, 2); lan2.addProperty(&amp;quot;name&amp;quot;, &amp;quot;Swift&amp;quot;); lan2.addProperty(&amp;quot;ide&amp;quot;, &amp;quot;XCode&amp;quot;); array.add(lan2); JsonObject lan3 = new JsonObject(); lan3.addProperty(&amp;quot;id&amp;quot;, 3); lan3.addProperty(&amp;quot;name&amp;quot;, &amp;quot;C#&amp;quot;); lan3.addProperty(&amp;quot;ide&amp;quot;, &amp;quot;Visual Studio&amp;quot;); array.add(lan3); object.add(&amp;quot;languages&amp;quot;, array); object.addProperty(&amp;quot;pop&amp;quot;, true); System.</description>
-    </item>
-    
-    <item>
-      <title>XML相关操作（Java）</title>
-      <link>https://HauyuChen.github.io/post/java-xml/</link>
-      <pubDate>Tue, 01 Aug 2017 00:00:00 +0000</pubDate>
-      
-      <guid>https://HauyuChen.github.io/post/java-xml/</guid>
-      <description>1 XML文件创建示例 import java.io.File; import java.io.StringWriter; import javax.xml.parsers.DocumentBuilder; import javax.xml.parsers.DocumentBuilderFactory; import javax.xml.parsers.ParserConfigurationException; import javax.xml.transform.Transformer; import javax.xml.transform.TransformerConfigurationException; import javax.xml.transform.TransformerException; import javax.xml.transform.TransformerFactory; import javax.xml.transform.dom.DOMSource; import javax.xml.transform.stream.StreamResult; import org.w3c.dom.Document; import org.w3c.dom.Element; public class CreateXML { public static void main(String[] args) { try { //DOM DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance(); DocumentBuilder builder = factory.newDocumentBuilder(); Document document = builder.newDocument(); //创建Languages标签 Element root = document.createElement(&amp;quot;Languages&amp;quot;); root.setAttribute(&amp;quot;cat&amp;quot;, &amp;quot;it&amp;quot;); //设置Languages标签的属性 //-----接下来创建Languages标签下的三个子标签lan1、lan2、lan3 //lan1 Element lan1 = document.createElement(&amp;quot;lan&amp;quot;); //lan标签 lan1.setAttribute(&amp;quot;id&amp;quot;, &amp;quot;1&amp;quot;); Element name1 = document.</description>
-    </item>
     
     <item>
       <title>Java 进程通信（共享内存）</title>
@@ -76,19 +48,6 @@ MappedByteBuffer 为共享内存缓冲区，实际上是一个磁盘文件的内
  重载的方法必须改变参数列表； 重载的方法可以改变返回类型； 重载的方法可以改变访问修饰符； 方法能在同一个类中或在一个子类中被重载。  
 3 对比 
 参考资料：http://www.runoob.com/java/java-override-overload.html</description>
-    </item>
-    
-    <item>
-      <title>Java相关特性</title>
-      <link>https://HauyuChen.github.io/post/java-trap/</link>
-      <pubDate>Tue, 08 Aug 2017 00:00:00 +0000</pubDate>
-      
-      <guid>https://HauyuChen.github.io/post/java-trap/</guid>
-      <description>Java备忘  float 和 double 不能进行精确运算，因为计算机不能表示所有的小数，采用 BigDecimal 来解决（String）。
- switch 语句不能作用在 long 和 String 上。
- true 、 false 、 null 不是严格意义上的关键字，而是文字常量（literals）。
- float f = 2.5；不正确，因为精度不准确。正确写法：float f = (float)2.5;
- try｛ ｝里面的 return 语句，紧跟着 finally｛ ｝里的代码会在 return 前先执行。</description>
     </item>
     
     <item>
@@ -152,6 +111,47 @@ new 创建字符串实例无论如何会在堆中开辟一个新的内存空间�
 
 2 字符串比较“==”与 equals 的区别 字符串比较是较为常用的功能， Java 中主要提供了两种字符串比较方式，“==”和 equals ，如下：
 String str1 = &amp;quot;hello&amp;quot;; String str2 = new String(&amp;quot;hello&amp;quot;); System.</description>
+    </item>
+    
+    <item>
+      <title>Java相关特性</title>
+      <link>https://HauyuChen.github.io/post/java-trap/</link>
+      <pubDate>Tue, 08 Aug 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://HauyuChen.github.io/post/java-trap/</guid>
+      <description>Java备忘  float 和 double 不能进行精确运算，因为计算机不能表示所有的小数，采用 BigDecimal 来解决（String）。
+ switch 语句不能作用在 long 和 String 上。
+ true 、 false 、 null 不是严格意义上的关键字，而是文字常量（literals）。
+ float f = 2.5；不正确，因为精度不准确。正确写法：float f = (float)2.5;
+ try｛ ｝里面的 return 语句，紧跟着 finally｛ ｝里的代码会在 return 前先执行。</description>
+    </item>
+    
+    <item>
+      <title>Java关键字this、super、static、final</title>
+      <link>https://HauyuChen.github.io/post/java-%E5%85%B3%E9%94%AE%E5%AD%97thissuperstaticfinal/</link>
+      <pubDate>Sat, 05 Aug 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://HauyuChen.github.io/post/java-%E5%85%B3%E9%94%AE%E5%AD%97thissuperstaticfinal/</guid>
+      <description>0 写在前面 本文主要讲讲 Java 中比较常见的关键字，如 this 、 super 、 static 、 final ，它们在程序中出现频率较高。
+1 this  表示类中的属性，比如 this.username = username; 强调调用的是本类的方法； 调用本类的构造方法，如 this(); 调用本类的无参构造方法； 表示当前对象（调用方法的对象）。  2 super  调用父类的构造方法； 调用父类的普通方法； 调用父类的属性。  3 static  static 修饰类： static 修饰的类称为静态类，静态类作为类的静态成员存在于某个类中，静态成员类可以不创建父类对象直接创建静态类的对象。 static 修饰变量： static 修饰的变量称为静态变量或类变量，而没有被 static 修饰的变量称为实例变量。静态变量在内存中只有一个拷贝， JVM 只为静态变量分配一次内存，且在加载类的过程中完成静态变量的内存分配；而实例变量每创建一个实例就分配一次内存，实例变量在内存中有多个拷贝，互补影响。 static 修饰方法： static 修饰的方法称为类方法，否则为实例方法，实例方法只有生成对象时才分配内存。类方法可以通过类名直接调用，实例方法只能通过类对象调用。  4 final  final 修饰类：被 final 修饰的类表示最终类，其不能被继承，不能当父类； final 修饰变量：被 final 修饰的变量为最终变量，即常量，其值不能修改，在定义时必须赋值。值得注意的是，当 final 修饰的不是普通变量而是对象引用时，变量指向的对象是可变的，不可变的是变量对对象的引用； final 修饰方法： final 修饰的方法为最终方法，父类包含最终方法时，子类不能重写该方法。</description>
+    </item>
+    
+    <item>
+      <title>JSON相关操作（Java）</title>
+      <link>https://HauyuChen.github.io/post/java-json/</link>
+      <pubDate>Tue, 01 Aug 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://HauyuChen.github.io/post/java-json/</guid>
+      <description>1 Java中创建JSON import com.google.gson.JsonArray; import com.google.gson.JsonObject; public class CreateJSON { public static void main(String[] args) { JsonObject object = new JsonObject(); object.addProperty(&amp;quot;cat&amp;quot;, &amp;quot;it&amp;quot;); JsonArray array = new JsonArray(); JsonObject lan1 = new JsonObject(); lan1.addProperty(&amp;quot;id&amp;quot;, 1); lan1.addProperty(&amp;quot;name&amp;quot;, &amp;quot;Java&amp;quot;); lan1.addProperty(&amp;quot;ide&amp;quot;, &amp;quot;Eclipse&amp;quot;); array.add(lan1); JsonObject lan2 = new JsonObject(); lan2.addProperty(&amp;quot;id&amp;quot;, 2); lan2.addProperty(&amp;quot;name&amp;quot;, &amp;quot;Swift&amp;quot;); lan2.addProperty(&amp;quot;ide&amp;quot;, &amp;quot;XCode&amp;quot;); array.add(lan2); JsonObject lan3 = new JsonObject(); lan3.addProperty(&amp;quot;id&amp;quot;, 3); lan3.addProperty(&amp;quot;name&amp;quot;, &amp;quot;C#&amp;quot;); lan3.addProperty(&amp;quot;ide&amp;quot;, &amp;quot;Visual Studio&amp;quot;); array.add(lan3); object.add(&amp;quot;languages&amp;quot;, array); object.addProperty(&amp;quot;pop&amp;quot;, true); System.</description>
+    </item>
+    
+    <item>
+      <title>XML相关操作（Java）</title>
+      <link>https://HauyuChen.github.io/post/java-xml/</link>
+      <pubDate>Tue, 01 Aug 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://HauyuChen.github.io/post/java-xml/</guid>
+      <description>1 XML文件创建示例 import java.io.File; import java.io.StringWriter; import javax.xml.parsers.DocumentBuilder; import javax.xml.parsers.DocumentBuilderFactory; import javax.xml.parsers.ParserConfigurationException; import javax.xml.transform.Transformer; import javax.xml.transform.TransformerConfigurationException; import javax.xml.transform.TransformerException; import javax.xml.transform.TransformerFactory; import javax.xml.transform.dom.DOMSource; import javax.xml.transform.stream.StreamResult; import org.w3c.dom.Document; import org.w3c.dom.Element; public class CreateXML { public static void main(String[] args) { try { //DOM DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance(); DocumentBuilder builder = factory.newDocumentBuilder(); Document document = builder.newDocument(); //创建Languages标签 Element root = document.createElement(&amp;quot;Languages&amp;quot;); root.setAttribute(&amp;quot;cat&amp;quot;, &amp;quot;it&amp;quot;); //设置Languages标签的属性 //-----接下来创建Languages标签下的三个子标签lan1、lan2、lan3 //lan1 Element lan1 = document.createElement(&amp;quot;lan&amp;quot;); //lan标签 lan1.setAttribute(&amp;quot;id&amp;quot;, &amp;quot;1&amp;quot;); Element name1 = document.</description>
     </item>
     
   </channel>
