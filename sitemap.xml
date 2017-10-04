@@ -3,11 +3,6 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://HauyuChen.github.io/post/1java-io/</loc>
-    <lastmod>2017-10-02T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://HauyuChen.github.io/post/007-reverse-integer/</loc>
     <lastmod>2017-09-27T00:00:00+00:00</lastmod>
   </url>
@@ -567,7 +562,7 @@
   
   <url>
     <loc>https://HauyuChen.github.io/</loc>
-    <lastmod>2017-10-02T00:00:00+00:00</lastmod>
+    <lastmod>2017-09-27T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -578,14 +573,8 @@
   </url>
   
   <url>
-    <loc>https://HauyuChen.github.io/topics/io/</loc>
-    <lastmod>2017-10-02T00:00:00+00:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>https://HauyuChen.github.io/topics/java/</loc>
-    <lastmod>2017-10-02T00:00:00+00:00</lastmod>
+    <lastmod>2017-09-20T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -621,7 +610,7 @@
   
   <url>
     <loc>https://HauyuChen.github.io/post/</loc>
-    <lastmod>2017-10-02T00:00:00+00:00</lastmod>
+    <lastmod>2017-09-27T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -687,7 +676,7 @@
   
   <url>
     <loc>https://HauyuChen.github.io/topics/%E5%9F%BA%E7%A1%80/</loc>
-    <lastmod>2017-10-02T00:00:00+00:00</lastmod>
+    <lastmod>2017-09-20T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
