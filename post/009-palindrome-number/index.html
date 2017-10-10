@@ -7,7 +7,7 @@
   <meta name="description" content="">
   <meta name="generator" content="Hugo 0.24.1" />
 
-  <title>Tags &middot; Hov&#39;s Blog</title>
+  <title>【LeetCode】9. Palindrome Number &middot; Hov&#39;s Blog</title>
 
   <script>
 	var _hmt = _hmt || [];
@@ -46,8 +46,6 @@
   <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet" type="text/css">
 
   
-  
-  <link rel="alternate" type="application/rss+xml" title="Hov&#39;s Blog" href="https://HauyuChen.github.io/tags/index.xml" />
   
 
   
@@ -125,10 +123,6 @@
   <div class="pure-menu social">
 
   <ul class="pure-menu-list">
-    
-    <li class="pure-menu-item">
-      <a class="pure-menu-link" href="https://HauyuChen.github.io/tags/index.xml"><i class="fa fa-rss fa-fw"></i>RSS</a>
-    </li>
     
 
     
@@ -227,53 +221,142 @@
 
 
 <div class="header">
-  <h1>Tags</h1>
+  <h1>【LeetCode】9. Palindrome Number</h1>
+  <h2></h2>
 </div>
 <div class="content">
-  <ul>
+
+  <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>2017-10-10</time>
+  </div>
+
+  
+
   
   
-    <li>
-      <a href="leetcode">leetcode</a>
-      <span>&#40;74&#41;</span>
-    </li>
   
-    <li>
-      <a href="java">java</a>
-      <span>&#40;10&#41;</span>
-    </li>
+  <div>
+    <i class="fa fa-folder fa-fw"></i>
+    
+      <a class="post-taxonomy-tag" href="https://HauyuChen.github.io/tags/leetcode">LeetCode</a>
+    
+  </div>
   
-    <li>
-      <a href="%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0">机器学习</a>
-      <span>&#40;7&#41;</span>
-    </li>
   
-    <li>
-      <a href="elasticsearch">elasticsearch</a>
-      <span>&#40;4&#41;</span>
-    </li>
+
   
-    <li>
-      <a href="%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F">设计模式</a>
-      <span>&#40;4&#41;</span>
-    </li>
   
-    <li>
-      <a href="zigbee">zigbee</a>
-      <span>&#40;3&#41;</span>
-    </li>
   
-    <li>
-      <a href="%E5%B7%A5%E5%85%B7">工具</a>
-      <span>&#40;2&#41;</span>
-    </li>
+  <div>
+	<i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/%E7%AE%97%E6%B3%95">算法</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/leetcode">LeetCode</a>
+    
+  </div>
   
-    <li>
-      <a href="%E6%95%B0%E6%8D%AE%E5%BA%93">数据库</a>
-      <span>&#40;2&#41;</span>
-    </li>
   
-  </ul>
+  
+</div>
+
+  
+
+<hr />
+
+<h2 id="题目描述">题目描述：</h2>
+
+<p>Determine whether an integer is a palindrome. Do this without extra space.</p>
+
+<p>click to show spoilers.</p>
+
+<p>Some hints:
+Could negative integers be palindromes? (ie, -1)</p>
+
+<p>If you are thinking of converting the integer to string, note the restriction of using extra space.</p>
+
+<p>You could also try reversing an integer. However, if you have solved the problem &ldquo;Reverse Integer&rdquo;, you know that the reversed integer might overflow. How would you handle such case?</p>
+
+<p>There is a more generic way of solving this problem.</p>
+
+<h2 id="思路">思路：</h2>
+
+<ol>
+<li>本方法只需判断x的前(n/2)位是否等于x的后(n/2)位的逆序，是则为回文数，否则不是回文数；</li>
+<li>当x的位数为偶数，则判断x是否等t；当x的位数为奇数，t的位数比x大一位，则判断x是是否等于t/10。</li>
+</ol>
+
+<h2 id="代码实现">代码实现：</h2>
+
+<pre><code>class Solution {
+public:
+    bool isPalindrome(int x) {
+        if(x&lt;0||(x!=0&amp;&amp;x%10==0)){
+            return false;
+        }
+        int t=0;
+        while(x&gt;t){
+            t = 10*t+x%10;
+            x /= 10;
+        }
+        return (x==t)||(x==t/10);
+    }
+};
+</code></pre>
+
+<p><br/></p>
+
+
+  
+<div class="prev-next-post pure-g">
+  <div class="pure-u-1-24" style="text-align: left;">
+    
+    <a href="https://HauyuChen.github.io/post/0java-io/"><i class="fa fa-chevron-left"></i></a>
+    
+  </div>
+  <div class="pure-u-10-24">
+    
+    <nav class="prev">
+      <a href="https://HauyuChen.github.io/post/0java-io/">谈谈 Java IO</a>
+    </nav>
+    
+  </div>
+  <div class="pure-u-2-24">
+    &nbsp;
+  </div>
+  <div class="pure-u-10-24">
+    
+  </div>
+  <div class="pure-u-1-24" style="text-align: right;">
+    
+  </div>
+</div>
+
+
+
+  
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+
+(function() {
+    
+    
+    if (window.location.hostname == "localhost")
+        return;
+
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    var disqus_shortname = "http-hov-space";
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com/" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
 </div>
 
 </div>
@@ -287,3 +370,4 @@
 
 </body>
 </html>
+
