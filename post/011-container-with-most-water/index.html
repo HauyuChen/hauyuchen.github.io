@@ -7,7 +7,7 @@
   <meta name="description" content="">
   <meta name="generator" content="Hugo 0.24.1" />
 
-  <title>Tags &middot; Hov&#39;s Blog</title>
+  <title>【LeetCode】11. Container with most water &middot; Hov&#39;s Blog</title>
 
   <script>
 	var _hmt = _hmt || [];
@@ -46,8 +46,6 @@
   <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet" type="text/css">
 
   
-  
-  <link rel="alternate" type="application/rss+xml" title="Hov&#39;s Blog" href="https://HauyuChen.github.io/tags/index.xml" />
   
 
   
@@ -125,10 +123,6 @@
   <div class="pure-menu social">
 
   <ul class="pure-menu-list">
-    
-    <li class="pure-menu-item">
-      <a class="pure-menu-link" href="https://HauyuChen.github.io/tags/index.xml"><i class="fa fa-rss fa-fw"></i>RSS</a>
-    </li>
     
 
     
@@ -227,53 +221,141 @@
 
 
 <div class="header">
-  <h1>Tags</h1>
+  <h1>【LeetCode】11. Container with most water</h1>
+  <h2></h2>
 </div>
 <div class="content">
-  <ul>
+
+  <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>2017-10-11</time>
+  </div>
+
+  
+
   
   
-    <li>
-      <a href="leetcode">leetcode</a>
-      <span>&#40;75&#41;</span>
-    </li>
   
-    <li>
-      <a href="java">java</a>
-      <span>&#40;10&#41;</span>
-    </li>
+  <div>
+    <i class="fa fa-folder fa-fw"></i>
+    
+      <a class="post-taxonomy-tag" href="https://HauyuChen.github.io/tags/leetcode">LeetCode</a>
+    
+  </div>
   
-    <li>
-      <a href="%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0">机器学习</a>
-      <span>&#40;7&#41;</span>
-    </li>
   
-    <li>
-      <a href="elasticsearch">elasticsearch</a>
-      <span>&#40;4&#41;</span>
-    </li>
+
   
-    <li>
-      <a href="%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F">设计模式</a>
-      <span>&#40;4&#41;</span>
-    </li>
   
-    <li>
-      <a href="zigbee">zigbee</a>
-      <span>&#40;3&#41;</span>
-    </li>
   
-    <li>
-      <a href="%E5%B7%A5%E5%85%B7">工具</a>
-      <span>&#40;2&#41;</span>
-    </li>
+  <div>
+	<i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/%E7%AE%97%E6%B3%95">算法</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/leetcode">LeetCode</a>
+    
+  </div>
   
-    <li>
-      <a href="%E6%95%B0%E6%8D%AE%E5%BA%93">数据库</a>
-      <span>&#40;2&#41;</span>
-    </li>
   
-  </ul>
+  
+</div>
+
+  
+
+<hr />
+
+<h2 id="题目描述">题目描述：</h2>
+
+<p>Given n non-negative integers a1, a2, &hellip;, an, where each represents a point at coordinate (i, ai). n vertical lines are drawn such that the two endpoints of line i is at (i, ai) and (i, 0). Find two lines, which together with x-axis forms a container, such that the container contains the most water.</p>
+
+<p>Note: You may not slant the container and n is at least 2.</p>
+
+<h2 id="思路">思路：</h2>
+
+<p>本题可以抽象为一个条形图，要求计算出两条直线能围成的最大面积（以短的直线为高，以两直线的距离为长）。</p>
+
+<ol>
+<li>设置两个变量 left 和 right ， left 指示最左边的直线， right 指示最右边的直线。</li>
+<li>每次计算出当前 left 和 right 围成的面积，并通过 area 保存最大面积；</li>
+<li>当 left 比 right 短， left 向右移动（left++），当 right 比 left 短， right 向左移动（right- -），以计算是否有更大的面积。</li>
+</ol>
+
+<h2 id="代码实现">代码实现：</h2>
+
+<pre><code>class Solution {
+public:
+    int maxArea(vector&lt;int&gt;&amp; height) {
+        int left = 0;
+        int right = height.size()-1;
+        int area = 0;
+        
+        while(left&lt;right){
+            area = max(area,min(height[left],height[right])*(right-left));
+            if(height[left]&lt;height[right]){
+                left++;
+            }else{
+                right--;
+            }
+        }
+        
+        return area;
+    }
+};
+</code></pre>
+
+<p><br/></p>
+
+
+  
+<div class="prev-next-post pure-g">
+  <div class="pure-u-1-24" style="text-align: left;">
+    
+    <a href="https://HauyuChen.github.io/post/009-palindrome-number/"><i class="fa fa-chevron-left"></i></a>
+    
+  </div>
+  <div class="pure-u-10-24">
+    
+    <nav class="prev">
+      <a href="https://HauyuChen.github.io/post/009-palindrome-number/">【LeetCode】9. Palindrome Number</a>
+    </nav>
+    
+  </div>
+  <div class="pure-u-2-24">
+    &nbsp;
+  </div>
+  <div class="pure-u-10-24">
+    
+  </div>
+  <div class="pure-u-1-24" style="text-align: right;">
+    
+  </div>
+</div>
+
+
+
+  
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+
+(function() {
+    
+    
+    if (window.location.hostname == "localhost")
+        return;
+
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    var disqus_shortname = "http-hov-space";
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com/" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
 </div>
 
 </div>
@@ -287,3 +369,4 @@
 
 </body>
 </html>
+
