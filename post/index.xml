@@ -7,10 +7,20 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2017. All rights reserved.</copyright>
-    <lastBuildDate>Thu, 12 Oct 2017 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 13 Oct 2017 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://HauyuChen.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>【LeetCode】38. Count and Say</title>
+      <link>https://HauyuChen.github.io/post/038-count-and-say/</link>
+      <pubDate>Fri, 13 Oct 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://HauyuChen.github.io/post/038-count-and-say/</guid>
+      <description>题目描述： The count-and-say sequence is the sequence of integers with the first five terms as following:
+1. 1 2. 11 3. 21 4. 1211 5. 111221  1 is read off as &amp;ldquo;one 1&amp;rdquo; or 11. 11 is read off as &amp;ldquo;two 1s&amp;rdquo; or 21. 21 is read off as &amp;ldquo;one 2, then one 1&amp;rdquo; or 1211. Given an integer n, generate the nth term of the count-and-say sequence.</description>
+    </item>
     
     <item>
       <title>【LeetCode】26. Remove Duplicates from Sorted Array</title>
