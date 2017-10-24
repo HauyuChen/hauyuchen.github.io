@@ -7,7 +7,7 @@
   <meta name="description" content="">
   <meta name="generator" content="Hugo 0.24.1" />
 
-  <title>【LeetCode】38. Count and Say &middot; Hov&#39;s Blog</title>
+  <title>Hov&#39;s Blog</title>
 
   <script>
 	var _hmt = _hmt || [];
@@ -46,6 +46,8 @@
   <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet" type="text/css">
 
   
+  
+  <link rel="alternate" type="application/rss+xml" title="Hov&#39;s Blog" href="https://HauyuChen.github.io/index.xml" />
   
 
   
@@ -123,6 +125,10 @@
   <div class="pure-menu social">
 
   <ul class="pure-menu-list">
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://HauyuChen.github.io/index.xml"><i class="fa fa-rss fa-fw"></i>RSS</a>
+    </li>
     
 
     
@@ -221,16 +227,22 @@
 
 
 <div class="header">
-  <h1>【LeetCode】38. Count and Say</h1>
-  <h2></h2>
+  <h1>Hov&#39;s Blog</h1>
+  <h2>To code,  To record,  To recall.</h2>
+  
 </div>
-<div class="content">
 
-  <div class="post-meta">
+<div class="content">
+  
+    <article>
+  <header>
+    <h2><a href="https://HauyuChen.github.io/post/zb-zigbee-guide/">【ZigBee系列】1.浅析ZigBee工程</a></h2>
+
+    <div class="post-meta">
 
   <div>
     <i class="fa fa-calendar fa-fw"></i>
-    <time>2017-10-14</time>
+    <time>2016-05-17</time>
   </div>
 
   
@@ -241,7 +253,7 @@
   <div>
     <i class="fa fa-folder fa-fw"></i>
     
-      <a class="post-taxonomy-tag" href="https://HauyuChen.github.io/tags/leetcode">LeetCode</a>
+      <a class="post-taxonomy-tag" href="https://HauyuChen.github.io/tags/zigbee">ZigBee</a>
     
   </div>
   
@@ -253,9 +265,11 @@
   <div>
 	<i class="fa fa-tags fa-fw"></i>
     
-      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/%E7%AE%97%E6%B3%95">算法</a>&nbsp;&#47;
+      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/zigbee">ZigBee</a>&nbsp;&#47;
     
-      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/leetcode">LeetCode</a>
+      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/%E7%89%A9%E8%81%94%E7%BD%91">物联网</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/%E6%97%A0%E7%BA%BF%E4%BC%A0%E6%84%9F%E5%99%A8">无线传感器</a>
     
   </div>
   
@@ -263,133 +277,43 @@
   
 </div>
 
-  
+  </header>
 
-<hr />
+  <p>
+  作者注： ZigBee 系列共三篇，首先讲解 ZigBee 工程的结构，然后通过两个具体项目熟悉 ZigBee 的应用。在学习本系列内容前，您需要掌握单片机相关知识、 ZigBee 基础知识，希望本系列教程能对您开发 ZigBee 项目有所启发。如有任何问题，欢迎您随时与我联系：Hauyu.Chen@Gmail.com
+版权声明：本文由 Hov 所有，发布于 http://chenhy.com ，转载请注明出处。
 
-<h1 id="题目描述">题目描述：</h1>
+0 写在前面 大一暑假，我开始学习ZigBee技术。这篇文章是在大一暑假结束后完成的，主要是想写一下在学习ZigBee过程中的思路，以及一个ZigBee工程中的核心内容。因为在刚学习ZigBee的时候，面对着大量的代码，有种无从下手的感觉。
+本文基于 Z-Stack 的例程 SampleApp 展开，旨在突出在一个ZigBee工程中比较核心的部分，建议大家看过 Z-Stack 中的例程后作参考之用。
+注：Z-Stack 安装文件：https://github.com/HauyuChen/Z-Stack
 
-<p>The count-and-say sequence is the sequence of integers with the first five terms as following:</p>
-
-<pre><code>1.     1
-2.     11
-3.     21
-4.     1211
-5.     111221
-</code></pre>
-
-<p>1 is read off as &ldquo;one 1&rdquo; or 11.
-11 is read off as &ldquo;two 1s&rdquo; or 21.
-21 is read off as &ldquo;one 2, then one 1&rdquo; or 1211.
-Given an integer n, generate the nth term of the count-and-say sequence.</p>
-
-<p>Note: Each term of the sequence of integers will be represented as a string.</p>
-
-<p>Example 1:</p>
-
-<p>Input: 1
-Output: &ldquo;1&rdquo;</p>
-
-<p>Example 2:</p>
-
-<p>Input: 4
-Output: &ldquo;1211&rdquo;</p>
-
-<p><br/></p>
-
-<h1 id="思路">思路：</h1>
-
-<p>题意有点不好理解，大概的意思用口语读数。比如：</p>
-
-<ul>
-<li>序列 1 读作“1”；</li>
-<li>序列 2 就是读序列 1 的数，读作“一个1”，也就是“11”；-</li>
-<li>序列 3 就是读序列 2 的数，读作“两个1”，也就是“21”；</li>
-<li>序列 4 就是读序列 3 的数，读作“一个 2 一个 1 ”，也就是“1211”；</li>
-<li>以此类推，序列 5 读作“一个1一个2两个1”，也就是“111221”。</li>
-</ul>
-
-<p>最终，输出第 n 个序列的读法。</p>
-
-<p><br/></p>
-
-<h1 id="代码实现">代码实现：</h1>
-
-<pre><code>class Solution {
-public:
-    string countAndSay(int n) {
-        string str = &quot;1&quot;;     
-        for(int i=1;i&lt;n;i++){      
-            string t=&quot;&quot;;
-            for(int j=0;j&lt;str.size();j++){
-                int count=1;
-                while(str[j]==str[j+1]&amp;&amp;j&lt;str.size()-1){
-                    count++;
-                    j++;
-                }
-                t += to_string(count) + str[j];
-            }
-            str = t;
-        }
-        return str;
-    }
-};
-</code></pre>
-
-<p><br/></p>
-
+1 概述 写过程序的人都知道每个程序都是从 main 函数开始执行的，在 ZigBee 程序中也不例外。在一个 Zigbee 工程中，程序从 main 函数开始执行，经过一步一步的函数调用（一些系统功能的初始化，建议跟踪一下从 main 函数到 SampleApp_ProcessEvent 函数的过程），程序最终来到了 SampleApp_ProcessEvent 函数， SampleApp_ProcessEvent(uint8 task_id,uint16 events) 是一个颇为重要的函数，整个工程更像是围绕着这个函数运行。
+说白了，我们要通过这个函数来处理所有事件。
+比如： if ( events &amp; SYS_EVENT_MSG ) 处理系统事件，if ( events &amp; SAMPLEAPP_SEND_PERIODIC_MSG_EVT ) 处理用户定义的事件。在不同的事件处理代码中，通过一个 switch 语句把所要处理的任务分成几个 case 来处理，在每个 case 里面调用相应的函数，我们通过定义这些函数执行我们想要的功能即可。
+  </p>
 
   
-<div class="prev-next-post pure-g">
-  <div class="pure-u-1-24" style="text-align: left;">
-    
-    <a href="https://HauyuChen.github.io/post/027-remove-element/"><i class="fa fa-chevron-left"></i></a>
-    
-  </div>
-  <div class="pure-u-10-24">
-    
-    <nav class="prev">
-      <a href="https://HauyuChen.github.io/post/027-remove-element/">【LeetCode】27. Remove Element</a>
-    </nav>
-    
-  </div>
-  <div class="pure-u-2-24">
-    &nbsp;
-  </div>
-  <div class="pure-u-10-24">
-    
-    <nav class="next">
-      <a href="https://HauyuChen.github.io/post/034-search-for-a-range/">【LeetCode】34. Search for a Range</a>
-    </nav>
-    
-  </div>
-  <div class="pure-u-1-24" style="text-align: right;">
-    
-    <a href="https://HauyuChen.github.io/post/034-search-for-a-range/"><i class="fa fa-chevron-right"></i></a>
-    
-  </div>
-</div>
-
-
+  <footer>
+    <a href="https://HauyuChen.github.io/post/zb-zigbee-guide/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
+  </footer>
+  
+</article>
 
   
-<div id="disqus_thread"></div>
-<script type="text/javascript">
 
-(function() {
-    
-    
-    if (window.location.hostname == "localhost")
-        return;
+  
 
-    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-    var disqus_shortname = "http-hov-space";
-    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-})();
-</script>
-<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-<a href="http://disqus.com/" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+<nav class="pagination" role="pagination">
+  
+  <a href="https://HauyuChen.github.io/page/22/"><i class="fa fa-chevron-left"></i></a>
+  
+  <span>&nbsp;23 / 23&nbsp;</span>
+  
+  <i class="fa fa-chevron-right"></i>
+  
+</nav>
+
 
 
 </div>

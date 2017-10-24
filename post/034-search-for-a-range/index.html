@@ -7,7 +7,7 @@
   <meta name="description" content="">
   <meta name="generator" content="Hugo 0.24.1" />
 
-  <title>【LeetCode】38. Count and Say &middot; Hov&#39;s Blog</title>
+  <title>【LeetCode】34. Search for a Range &middot; Hov&#39;s Blog</title>
 
   <script>
 	var _hmt = _hmt || [];
@@ -221,7 +221,7 @@
 
 
 <div class="header">
-  <h1>【LeetCode】38. Count and Say</h1>
+  <h1>【LeetCode】34. Search for a Range</h1>
   <h2></h2>
 </div>
 <div class="content">
@@ -230,7 +230,7 @@
 
   <div>
     <i class="fa fa-calendar fa-fw"></i>
-    <time>2017-10-14</time>
+    <time>2017-10-15</time>
   </div>
 
   
@@ -269,71 +269,64 @@
 
 <h1 id="题目描述">题目描述：</h1>
 
-<p>The count-and-say sequence is the sequence of integers with the first five terms as following:</p>
+<p>Given an array of integers sorted in ascending order, find the starting and ending position of a given target value.</p>
 
-<pre><code>1.     1
-2.     11
-3.     21
-4.     1211
-5.     111221
-</code></pre>
+<p>Your algorithm&rsquo;s runtime complexity must be in the order of O(log n).</p>
 
-<p>1 is read off as &ldquo;one 1&rdquo; or 11.
-11 is read off as &ldquo;two 1s&rdquo; or 21.
-21 is read off as &ldquo;one 2, then one 1&rdquo; or 1211.
-Given an integer n, generate the nth term of the count-and-say sequence.</p>
+<p>If the target is not found in the array, return [-1, -1].</p>
 
-<p>Note: Each term of the sequence of integers will be represented as a string.</p>
+<p>For example,</p>
 
-<p>Example 1:</p>
-
-<p>Input: 1
-Output: &ldquo;1&rdquo;</p>
-
-<p>Example 2:</p>
-
-<p>Input: 4
-Output: &ldquo;1211&rdquo;</p>
+<p>Given [5, 7, 7, 8, 8, 10] and target value 8,
+return [3, 4].</p>
 
 <p><br/></p>
 
 <h1 id="思路">思路：</h1>
 
-<p>题意有点不好理解，大概的意思用口语读数。比如：</p>
+<p>本题要求时间复杂度为 O(logn) ，自然应该想到二分查找。</p>
 
-<ul>
-<li>序列 1 读作“1”；</li>
-<li>序列 2 就是读序列 1 的数，读作“一个1”，也就是“11”；-</li>
-<li>序列 3 就是读序列 2 的数，读作“两个1”，也就是“21”；</li>
-<li>序列 4 就是读序列 3 的数，读作“一个 2 一个 1 ”，也就是“1211”；</li>
-<li>以此类推，序列 5 读作“一个1一个2两个1”，也就是“111221”。</li>
-</ul>
+<p>首先，找到target的位置，然后分别从前从后找首尾位置即可，这是简单明了的解法。</p>
 
-<p>最终，输出第 n 个序列的读法。</p>
+<p>注：在找到 target 后继续二分查找首尾出现的位置效率会更高一些。</p>
 
 <p><br/></p>
 
 <h1 id="代码实现">代码实现：</h1>
 
 <pre><code>class Solution {
-public:
-    string countAndSay(int n) {
-        string str = &quot;1&quot;;     
-        for(int i=1;i&lt;n;i++){      
-            string t=&quot;&quot;;
-            for(int j=0;j&lt;str.size();j++){
-                int count=1;
-                while(str[j]==str[j+1]&amp;&amp;j&lt;str.size()-1){
-                    count++;
-                    j++;
+    public int[] searchRange(int[] nums, int target) {
+        int ret[] = {-1,-1};
+        int left = 0;
+        int right = nums.length-1;
+        int mid;
+        
+        while(left&lt;=right){
+            mid = (right+left)/2;
+            if(nums[mid]==target){
+                int l = mid;
+                int r = mid;
+                while(l&gt;=0 &amp;&amp; nums[l]==target){
+                    l--;
                 }
-                t += to_string(count) + str[j];
+                while(r&lt;=nums.length-1 &amp;&amp; nums[r]==target){
+                    r++;
+                }
+                ret[0] = l+1;
+                ret[1] = r-1;
+                return ret;
+            }else{
+                if(nums[mid]&lt;target){
+                    left = mid+1;
+                }else{
+                    right = mid-1;
+                }
             }
-            str = t;
         }
-        return str;
+        
+        return ret;
     }
-};
+}
 </code></pre>
 
 <p><br/></p>
@@ -343,13 +336,13 @@ public:
 <div class="prev-next-post pure-g">
   <div class="pure-u-1-24" style="text-align: left;">
     
-    <a href="https://HauyuChen.github.io/post/027-remove-element/"><i class="fa fa-chevron-left"></i></a>
+    <a href="https://HauyuChen.github.io/post/038-count-and-say/"><i class="fa fa-chevron-left"></i></a>
     
   </div>
   <div class="pure-u-10-24">
     
     <nav class="prev">
-      <a href="https://HauyuChen.github.io/post/027-remove-element/">【LeetCode】27. Remove Element</a>
+      <a href="https://HauyuChen.github.io/post/038-count-and-say/">【LeetCode】38. Count and Say</a>
     </nav>
     
   </div>
@@ -358,14 +351,8 @@ public:
   </div>
   <div class="pure-u-10-24">
     
-    <nav class="next">
-      <a href="https://HauyuChen.github.io/post/034-search-for-a-range/">【LeetCode】34. Search for a Range</a>
-    </nav>
-    
   </div>
   <div class="pure-u-1-24" style="text-align: right;">
-    
-    <a href="https://HauyuChen.github.io/post/034-search-for-a-range/"><i class="fa fa-chevron-right"></i></a>
     
   </div>
 </div>
