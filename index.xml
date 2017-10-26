@@ -7,10 +7,24 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2017. All rights reserved.</copyright>
-    <lastBuildDate>Mon, 16 Oct 2017 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 17 Oct 2017 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://HauyuChen.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>【LeetCode】123. Best Time to Buy and Sell Stock III</title>
+      <link>https://HauyuChen.github.io/post/123-best-time-to-buy-and-sell-stock-iii/</link>
+      <pubDate>Tue, 17 Oct 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://HauyuChen.github.io/post/123-best-time-to-buy-and-sell-stock-iii/</guid>
+      <description>题目描述： Say you have an array for which the ith element is the price of a given stock on day i.
+Design an algorithm to find the maximum profit. You may complete at most two transactions.
+Note:
+You may not engage in multiple transactions at the same time (ie, you must sell the stock before you buy again).
+
+思路：  只能进行两次交易，要求两次交易获利之和最大； 第一次交易：从前往后遍历，计算每天的最大获利 left[] ， left[i] 表示第 i 天的最多能获利多少； 第二次交易：从后往前遍历，计算每天的最大获利 right[] ， right[i] 表示第 i 天的最多能获利多少； 最大获利：计算哪一天的 left[i] + right[i] 最大，即为两次交易的最大获利。</description>
+    </item>
     
     <item>
       <title>【LeetCode】67. Add Binary</title>
