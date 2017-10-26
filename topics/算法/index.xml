@@ -7,10 +7,27 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2017. All rights reserved.</copyright>
-    <lastBuildDate>Sun, 15 Oct 2017 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 16 Oct 2017 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://HauyuChen.github.io/topics/%E7%AE%97%E6%B3%95/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>【LeetCode】67. Add Binary</title>
+      <link>https://HauyuChen.github.io/post/067-add-binary/</link>
+      <pubDate>Mon, 16 Oct 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://HauyuChen.github.io/post/067-add-binary/</guid>
+      <description>题目描述： Given two binary strings, return their sum (also a binary string).
+For example,
+a = &amp;ldquo;11&amp;rdquo;
+b = &amp;ldquo;1&amp;rdquo;
+Return &amp;ldquo;100&amp;rdquo;.
+
+思路：  设置flag表示进位标志，将字符串 a 和 b 依次拿出来“相加”，并将相加的结果存放在 char 数组； 假设字符串 a 已经结束，若字符串 b 还有没处理的字符，则操作 b ，注意是否还有进位；反之同理； 将 char 数组转换成 String 返回。  注意：
+ 这种题难度不大，但要考虑全面，细心！！ 通过常规的解法，时间复杂度为 O(n)； 注意最后是否进位，若是 char 数组的首字符为‘1’，否则为空。  
+代码实现： class Solution { public String addBinary(String a, String b) { if(a==null){ return b; }else if(b==null){ return a; } int lenA = a.</description>
+    </item>
     
     <item>
       <title>【LeetCode】34. Search for a Range</title>
