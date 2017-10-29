@@ -400,6 +400,18 @@ Supposed the linked list is 1 -&amp;gt; 2 -&amp;gt; 3 -&amp;gt; 4 and you are gi
     </item>
     
     <item>
+      <title>【LeetCode】238. Product of Array Except Self</title>
+      <link>https://HauyuChen.github.io/post/238-product-of-array-except-self/</link>
+      <pubDate>Wed, 18 Oct 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://HauyuChen.github.io/post/238-product-of-array-except-self/</guid>
+      <description>题目描述： Given an array of n integers where n &amp;gt; 1, nums, return an array output such that output[i] is equal to the product of all the elements of nums except nums[i].
+Solve it without division and in O(n).
+For example, given [1,2,3,4], return [24,12,8,6].
+Follow up: Could you solve it with constant space complexity? (Note: The output array does not count as extra space for the purpose of space complexity analysis.</description>
+    </item>
+    
+    <item>
       <title>【LeetCode】242. Valid Anagram</title>
       <link>https://HauyuChen.github.io/post/242-valid-anagram/</link>
       <pubDate>Mon, 09 Jan 2017 00:00:00 +0000</pubDate>
