@@ -849,6 +849,19 @@ A subsequence is a sequence that can be derived from one sequence by deleting so
     </item>
     
     <item>
+      <title>【LeetCode】523. Continuous Subarray Sum</title>
+      <link>https://HauyuChen.github.io/post/523-continuous-subarray-sum/</link>
+      <pubDate>Fri, 20 Oct 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://HauyuChen.github.io/post/523-continuous-subarray-sum/</guid>
+      <description>题目描述： Given a list of non-negative numbers and a target integer k, write a function to check if the array has a continuous subarray of size at least 2 that sums up to the multiple of k, that is, sums up to n*k where n is also an integer.
+Example 1:
+Input: [23, 2, 4, 6, 7], k=6
+Output: True
+Explanation: Because [2, 4] is a continuous subarray of size 2 and sums up to 6.</description>
+    </item>
+    
+    <item>
       <title>【LeetCode】530. Minimum Absolute Difference in BST</title>
       <link>https://HauyuChen.github.io/post/530-minimum-absolute-difference-in-bst/</link>
       <pubDate>Sun, 13 Aug 2017 00:00:00 +0000</pubDate>

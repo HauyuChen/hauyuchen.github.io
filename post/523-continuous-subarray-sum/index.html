@@ -7,7 +7,7 @@
   <meta name="description" content="">
   <meta name="generator" content="Hugo 0.24.1" />
 
-  <title>【LeetCode】507. Perfect Number &middot; Hov&#39;s Blog</title>
+  <title>【LeetCode】523. Continuous Subarray Sum &middot; Hov&#39;s Blog</title>
 
   <script>
 	var _hmt = _hmt || [];
@@ -221,7 +221,7 @@
 
 
 <div class="header">
-  <h1>【LeetCode】507. Perfect Number</h1>
+  <h1>【LeetCode】523. Continuous Subarray Sum</h1>
   <h2></h2>
 </div>
 <div class="content">
@@ -230,7 +230,7 @@
 
   <div>
     <i class="fa fa-calendar fa-fw"></i>
-    <time>2017-10-19</time>
+    <time>2017-10-20</time>
   </div>
 
   
@@ -269,60 +269,90 @@
 
 <h1 id="题目描述">题目描述：</h1>
 
-<p>We define the Perfect Number is a positive integer that is equal to the sum of all its positive divisors except itself.</p>
+<p>Given a list of non-negative numbers and a target integer k, write a function to check if the array has a continuous subarray of size at least 2 that sums up to the multiple of k, that is, sums up to n*k where n is also an integer.</p>
 
-<p>Now, given an integer n, write a function that returns true when it is a perfect number and false when it is not.</p>
+<p><strong>Example 1:</strong></p>
 
-<p>Example:</p>
-
-<p>Input: 28</p>
+<p>Input: [23, 2, 4, 6, 7],  k=6</p>
 
 <p>Output: True</p>
 
-<p>Explanation: 28 = 1 + 2 + 4 + 7 + 14</p>
+<p>Explanation: Because [2, 4] is a continuous subarray of size 2 and sums up to 6.</p>
 
-<p>Note: The input number n will not exceed 100,000,000. (1e8)</p>
+<p><strong>Example 2:</strong></p>
+
+<p>Input: [23, 2, 6, 4, 7],  k=6</p>
+
+<p>Output: True</p>
+
+<p>Explanation: Because [23, 2, 6, 4, 7] is an continuous subarray of size 5 and sums up to 42.</p>
+
+<p><strong>Note:</strong>
+The length of the array won&rsquo;t exceed 10,000.
+You may assume the sum of all the numbers is in the range of a signed 32-bit integer.</p>
 
 <p><br/></p>
 
 <h1 id="思路">思路：</h1>
 
-<p>本题不能简单的遍历解决，否则会超时。</p>
+<p>思路：暴力解之。注意 k 为 0 时应单独考虑，判断相邻的元素是否为0，若是返回 true ，否则返回 false 。</p>
 
-<ol>
-<li>num 小于 1 时，都不符合要求，直接返回 false ；</li>
-<li>直接从 i = 2 开始遍历，直到 i * i = num ，也就是最多根号 num 次就可以得出结果；</li>
-<li>当 i 是 num 的正因子时，则 sum += i + num/i ，因为 num/i 也是 num 的正因子。</li>
-<li>比较 sum 是否等于 num ，返回结果。</li>
-</ol>
+<p>注：此题有 O(n) 的解法，借助数学特性，具体见解法 2 。</p>
 
 <p><br/></p>
 
 <h1 id="代码实现">代码实现：</h1>
 
+<h3 id="解法-1-暴力">解法 1 ：暴力</h3>
+
 <pre><code>class Solution {
-    public boolean checkPerfectNumber(int num) {
-        if(num&lt;=1){
-            return false;
+    public boolean checkSubarraySum(int[] nums, int k) {
+        if(k==0){
+            return checkzero(nums);
         }
         
-        int sum = 1;
-        int i;
-        
-        for(i=2;i*i&lt;num;i++){
-            if(num%i==0){
-                sum += i + num/i;
+        int len = nums.length; 
+        for(int i=0;i&lt;len-1;i++){
+            int sum=0;
+            for(int j=i;j&lt;len;j++){
+                sum+=nums[j];
+                if(sum%k==0 &amp;&amp; j-i&gt;0){
+                    return true;
+                }
             }
         }
-        
-        if(i*i==num){
-            sum += i;
+        return false;
+    }
+    
+    private boolean checkzero(int[] nums){
+        for(int i=0;i&lt;nums.length-1;i++){
+            if(nums[i]==0 &amp;&amp; nums[i+1]==0){
+                return true;
+            }
         }
-        
-        return sum==num?true:false;    
+        return false;       
     }
 }
 
+</code></pre>
+
+<h3 id="解法-2-时间复杂度-o-n">解法 2 ：时间复杂度 O(n)</h3>
+
+<pre><code>class Solution {
+public:
+    bool checkSubarraySum(vector&lt;int&gt;&amp; nums, int k) {
+        int n = nums.size(), sum = 0, pre = 0;
+        unordered_set&lt;int&gt; modk;
+        for (int i = 0; i &lt; n; ++i) {
+            sum += nums[i];
+            int mod = k == 0 ? sum : sum % k;
+            if (modk.count(mod)) return true;
+            modk.insert(pre);
+            pre = mod;
+        }
+        return false;
+    }
+};
 </code></pre>
 
 <p><br/></p>
@@ -332,13 +362,13 @@
 <div class="prev-next-post pure-g">
   <div class="pure-u-1-24" style="text-align: left;">
     
-    <a href="https://HauyuChen.github.io/post/238-product-of-array-except-self/"><i class="fa fa-chevron-left"></i></a>
+    <a href="https://HauyuChen.github.io/post/507-perfect-number/"><i class="fa fa-chevron-left"></i></a>
     
   </div>
   <div class="pure-u-10-24">
     
     <nav class="prev">
-      <a href="https://HauyuChen.github.io/post/238-product-of-array-except-self/">【LeetCode】238. Product of Array Except Self</a>
+      <a href="https://HauyuChen.github.io/post/507-perfect-number/">【LeetCode】507. Perfect Number</a>
     </nav>
     
   </div>
@@ -347,14 +377,8 @@
   </div>
   <div class="pure-u-10-24">
     
-    <nav class="next">
-      <a href="https://HauyuChen.github.io/post/523-continuous-subarray-sum/">【LeetCode】523. Continuous Subarray Sum</a>
-    </nav>
-    
   </div>
   <div class="pure-u-1-24" style="text-align: right;">
-    
-    <a href="https://HauyuChen.github.io/post/523-continuous-subarray-sum/"><i class="fa fa-chevron-right"></i></a>
     
   </div>
 </div>
