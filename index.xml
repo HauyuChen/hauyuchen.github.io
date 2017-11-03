@@ -7,10 +7,30 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2017. All rights reserved.</copyright>
-    <lastBuildDate>Sat, 21 Oct 2017 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 13 Nov 2017 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://HauyuChen.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>关于我</title>
+      <link>https://HauyuChen.github.io/about-me/</link>
+      <pubDate>Mon, 13 Nov 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://HauyuChen.github.io/about-me/</guid>
+      <description>关于我 我是陈浩宇，
+在读计算机专业学生，
+现居于广州。
+这里记录了我的一些学习笔记、技术心得。
+希望对您也有所帮助：）
+
+联系我 QQ： ODkzNzY5Mzkz （Base64）
+Email： Hauyu.Chen@Gmail.com
+GitHub： HauyuChen
+Telegram： @chenhy
+
+分享 书写是更好的思考。</description>
+    </item>
     
     <item>
       <title>【LeetCode】532. K-diff Pairs in an Array</title>
@@ -1590,26 +1610,6 @@ Because nums[0] + nums[1] = 2 + 7 = 9, return [0, 1].
 Hint: Carefully consider all possible input cases. If you want a challenge, please do not see below and ask yourself what are the possible input cases.
 Notes: It is intended for this problem to be specified vaguely (ie, no given input specs). You are responsible to gather all the input requirements up front.
 Update (2015-02-10): The signature of the C++ function had been updated.</description>
-    </item>
-    
-    <item>
-      <title>关于我</title>
-      <link>https://HauyuChen.github.io/about-me/</link>
-      <pubDate>Wed, 01 Jun 2016 00:00:00 +0000</pubDate>
-      
-      <guid>https://HauyuChen.github.io/about-me/</guid>
-      <description>关于我 我是陈浩宇，
-在读计算机专业学生，
-现居于广州。
-这里记录了我的一些学习笔记、技术心得。
-希望对您也有所帮助：）
-
-联系我 QQ：ODkzNzY5Mzkz （Base64）
-Email：Hauyu.Chen@Gmail.com
-GitHub：HauyuChen
-Telegram：@chenhy
-
-分享 书写是更好的思考。</description>
     </item>
     
     <item>
