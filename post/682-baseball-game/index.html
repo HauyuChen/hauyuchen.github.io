@@ -7,7 +7,7 @@
   <meta name="description" content="">
   <meta name="generator" content="Hugo 0.24.1" />
 
-  <title>【LeetCode】532. K-diff Pairs in an Array &middot; Hov&#39;s Blog</title>
+  <title>【LeetCode】682. Baseball Game &middot; Hov&#39;s Blog</title>
 
   <script>
 	var _hmt = _hmt || [];
@@ -221,7 +221,7 @@
 
 
 <div class="header">
-  <h1>【LeetCode】532. K-diff Pairs in an Array</h1>
+  <h1>【LeetCode】682. Baseball Game</h1>
   <h2></h2>
 </div>
 <div class="content">
@@ -230,7 +230,7 @@
 
   <div>
     <i class="fa fa-calendar fa-fw"></i>
-    <time>2017-10-21</time>
+    <time>2017-10-22</time>
   </div>
 
   
@@ -269,48 +269,62 @@
 
 <h1 id="题目描述">题目描述：</h1>
 
-<p>Given an array of integers and an integer k, you need to find the number of unique k-diff pairs in the array. Here a k-diff pair is defined as an integer pair (i, j), where i and j are both numbers in the array and their absolute difference is k.</p>
+<p>You&rsquo;re now a baseball game point recorder.</p>
 
-<p><strong>Example 1:</strong></p>
+<p>Given a list of strings, each string can be one of the 4 following types:</p>
 
-<p>Input: [3, 1, 4, 1, 5], k = 2</p>
+<ul>
+<li><p>Integer (one round&rsquo;s score): Directly represents the number of points you get in this round.</p></li>
 
-<p>Output: 2</p>
+<li><p>&rdquo;+&rdquo; (one round&rsquo;s score): Represents that the points you get in this round are the sum of the last two valid round&rsquo;s points.</p></li>
 
-<p>Explanation: There are two 2-diff pairs in the array, (1, 3) and (3, 5).
-Although we have two 1s in the input, we should only return the number of unique pairs.</p>
+<li><p>&ldquo;D&rdquo; (one round&rsquo;s score): Represents that the points you get in this round are the doubled data of the last valid round&rsquo;s points.</p></li>
 
-<p><strong>Example 2:</strong></p>
+<li><p>&ldquo;C&rdquo; (an operation, which isn&rsquo;t a round&rsquo;s score): Represents the last valid round&rsquo;s points you get were invalid and should be removed.</p></li>
+</ul>
 
-<p>Input:[1, 2, 3, 4, 5], k = 1</p>
+<p>Each round&rsquo;s operation is permanent and could have an impact on the round before and the round after.</p>
 
-<p>Output: 4</p>
+<p>You need to return the sum of the points you could get in all the rounds.</p>
 
-<p>Explanation: There are four 1-diff pairs in the array, (1, 2), (2, 3), (3, 4) and (4, 5).</p>
+<p><strong>Example 1:</strong><br />
+Input: [&ldquo;5&rdquo;,&ldquo;2&rdquo;,&ldquo;C&rdquo;,&ldquo;D&rdquo;,&ldquo;+&rdquo;]<br />
+Output: 30<br />
+<strong>Explanation:</strong><br />
+Round 1: You could get 5 points. The sum is: 5.<br />
+Round 2: You could get 2 points. The sum is: 7.<br />
+Operation 1: The round 2&rsquo;s data was invalid. The sum is: 5.<br />
+Round 3: You could get 10 points (the round 2&rsquo;s data has been removed). The sum is: 15.<br />
+Round 4: You could get 5 + 10 = 15 points. The sum is: 30.</p>
 
-<p><strong>Example 3:</strong></p>
+<p><strong>Example 2:</strong><br />
+Input: [&ldquo;5&rdquo;,&ldquo;-2&rdquo;,&ldquo;4&rdquo;,&ldquo;C&rdquo;,&ldquo;D&rdquo;,&ldquo;9&rdquo;,&ldquo;+&rdquo;,&ldquo;+&rdquo;]<br />
+Output: 27<br />
+<strong>Explanation:</strong> <br />
+Round 1: You could get 5 points. The sum is: 5.<br />
+Round 2: You could get -2 points. The sum is: 3.<br />
+Round 3: You could get 4 points. The sum is: 7.<br />
+Operation 1: The round 3&rsquo;s data is invalid. The sum is: 3.<br />
+Round 4: You could get -4 points (the round 3&rsquo;s data has been removed). The sum is: -1.<br />
+Round 5: You could get 9 points. The sum is: 8.<br />
+Round 6: You could get -4 + 9 = 5 points. The sum is 13.<br />
+Round 7: You could get 9 + 5 = 14 points. The sum is 27.\</p>
 
-<p>Input: [1, 3, 1, 5, 4], k = 0</p>
-
-<p>Output: 1</p>
-
-<p>Explanation: There is one 0-diff pair in the array, (1, 1).</p>
-
-<p><strong>Note:</strong></p>
-
-<p>The pairs (i, j) and (j, i) count as the same pair.
-The length of the array won&rsquo;t exceed 10,000.
-All the integers in the given input belong to the range: [-1e7, 1e7].</p>
+<p><strong>Note:</strong><br />
+The size of the input list will be between 1 and 1000.
+Every integer represented in the list will be between -30000 and 30000.</p>
 
 <p><br/></p>
 
 <h1 id="思路">思路：</h1>
 
+<p>本题应想到用 LinkedList 来实现，链表最后一个元素为前一轮的得分，倒数第二个元素为前前一轮的得分，每一轮记得更新链表。</p>
+
 <ol>
-<li>通过 HashMap 来存放各个元素出现的次数；</li>
-<li>遍历 HashMap ，如遍历到 key1 ，检查是否存在为 key1 + k 的 Key ，若是 count++；</li>
-<li>注意 k = 0 时，应该判断是否有出现次数大于2的 Key ，若是 count++；</li>
-<li>注意 k 小于0的情况，直接 return 0；</li>
+<li>“C”： score 减去链表最后的元素，并删除链表最后的元素；</li>
+<li>“D”： score 加上链表最后元素的2倍，并将链表最后元素的2倍添加到链表最后；</li>
+<li>“+”： score 加上链表倒数第一、第二个元素，并将倒数第一第二元素的和添加到链表最后；</li>
+<li>数值：score 加上该数值，并将该数值添加到链表最后。</li>
 </ol>
 
 <p><br/></p>
@@ -318,31 +332,29 @@ All the integers in the given input belong to the range: [-1e7, 1e7].</p>
 <h1 id="代码实现">代码实现：</h1>
 
 <pre><code>class Solution {
-    public int findPairs(int[] nums, int k) {
-        if(k&lt;0 || nums==null){
-            return 0;
-        }
+    public int calPoints(String[] ops) {
+        int score = 0;
+        LinkedList&lt;Integer&gt; list = new LinkedList&lt;&gt;();
         
-        HashMap&lt;Integer,Integer&gt; m = new HashMap&lt;&gt;();
-        int count = 0;
-        
-        for(int num:nums){
-            m.put(num,m.getOrDefault(num,0)+1);
-        }
-        
-        for(Map.Entry&lt;Integer,Integer&gt; entry:m.entrySet()){
-            if(0==k){
-                if(entry.getValue()&gt;1){
-                    count++;
-                }
+        for(int i=0;i&lt;ops.length;i++){
+            if(ops[i].equals(&quot;C&quot;)){
+                score -= list.removeLast();
+            }else if(ops[i].equals(&quot;D&quot;)){
+                score += list.getLast()*2;
+                list.add(list.getLast()*2);
+            }else if(ops[i].equals(&quot;+&quot;)){
+                int t1 = list.removeLast();
+                int t2 = list.getLast();
+                score += t1+t2;
+                list.add(t1);
+                list.add(t1+t2);
             }else{
-                if(m.containsKey(entry.getKey()+k)){
-                    count++;
-                }
+                list.add(Integer.parseInt(ops[i]));
+                score += list.getLast();             
             }
         }
-
-        return count;
+        
+        return score;
     }
 }
 
@@ -355,13 +367,13 @@ All the integers in the given input belong to the range: [-1e7, 1e7].</p>
 <div class="prev-next-post pure-g">
   <div class="pure-u-1-24" style="text-align: left;">
     
-    <a href="https://HauyuChen.github.io/post/523-continuous-subarray-sum/"><i class="fa fa-chevron-left"></i></a>
+    <a href="https://HauyuChen.github.io/post/532-k-diff-pairs-in-an-array/"><i class="fa fa-chevron-left"></i></a>
     
   </div>
   <div class="pure-u-10-24">
     
     <nav class="prev">
-      <a href="https://HauyuChen.github.io/post/523-continuous-subarray-sum/">【LeetCode】523. Continuous Subarray Sum</a>
+      <a href="https://HauyuChen.github.io/post/532-k-diff-pairs-in-an-array/">【LeetCode】532. K-diff Pairs in an Array</a>
     </nav>
     
   </div>
@@ -370,14 +382,8 @@ All the integers in the given input belong to the range: [-1e7, 1e7].</p>
   </div>
   <div class="pure-u-10-24">
     
-    <nav class="next">
-      <a href="https://HauyuChen.github.io/post/682-baseball-game/">【LeetCode】682. Baseball Game</a>
-    </nav>
-    
   </div>
   <div class="pure-u-1-24" style="text-align: right;">
-    
-    <a href="https://HauyuChen.github.io/post/682-baseball-game/"><i class="fa fa-chevron-right"></i></a>
     
   </div>
 </div>
