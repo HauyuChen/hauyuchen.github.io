@@ -7,10 +7,29 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2017. All rights reserved.</copyright>
-    <lastBuildDate>Sun, 22 Oct 2017 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 23 Oct 2017 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://HauyuChen.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>【LeetCode】35. Search Insert Position</title>
+      <link>https://HauyuChen.github.io/post/035-search-insert-position/</link>
+      <pubDate>Mon, 23 Oct 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://HauyuChen.github.io/post/035-search-insert-position/</guid>
+      <description>题目描述： Given a sorted array and a target value, return the index if the target is found. If not, return the index where it would be if it were inserted in order.
+You may assume no duplicates in the array.
+Here are few examples.
+[1,3,5,6], 5 → 2
+[1,3,5,6], 2 → 1
+[1,3,5,6], 7 → 4
+[1,3,5,6], 0 → 0
+
+思路： 大水题，通过二分查找实现。
+注意：如果数组中找不到 target 。
+ 要么 target 比当前元素小，返回当前元素的位置（mid）。因为数组后移，当前位置存放 target ； 要么 target 比当前元素大，返回当前元素的位置的后一个位置（mid+1）。</description>
+    </item>
     
     <item>
       <title>【LeetCode】682. Baseball Game</title>
