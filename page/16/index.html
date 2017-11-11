@@ -236,6 +236,66 @@
   
     <article>
   <header>
+    <h2><a href="https://HauyuChen.github.io/post/414-third-maximum-number/">【LeetCode】414. Third Maximum Number</a></h2>
+
+    <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>2017-02-19</time>
+  </div>
+
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-folder fa-fw"></i>
+    
+      <a class="post-taxonomy-tag" href="https://HauyuChen.github.io/tags/leetcode">LeetCode</a>
+    
+  </div>
+  
+  
+
+  
+  
+  
+  <div>
+	<i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/%E7%AE%97%E6%B3%95">算法</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/leetcode">LeetCode</a>
+    
+  </div>
+  
+  
+  
+</div>
+
+  </header>
+
+  <p>
+  题目描述：  Given a non-empty array of integers, return the third maximum number in this array. If it does not exist, return the maximum number. The time complexity must be in O(n).
+Example 1: Input: [3, 2, 1] Output: 1
+Explanation: The third maximum is 1.
+Example 2: Input: [1, 2] Output: 2
+Explanation: The third maximum does not exist, so the maximum (2) is returned instead.
+Example 3: Input: [2, 2, 3, 1] Output: 1
+  </p>
+
+  
+  <footer>
+    <a href="https://HauyuChen.github.io/post/414-third-maximum-number/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
+  </footer>
+  
+</article>
+
+  
+    <article>
+  <header>
     <h2><a href="https://HauyuChen.github.io/post/415-add-strings/">【LeetCode】415. Add Strings</a></h2>
 
     <div class="post-meta">
@@ -469,60 +529,6 @@ Given a non-negative integer n which represents the number of LEDs that are curr
 </article>
 
   
-    <article>
-  <header>
-    <h2><a href="https://HauyuChen.github.io/post/404-sum-of-left-leaves/">【LeetCode】404. Sum of Left Leaves</a></h2>
-
-    <div class="post-meta">
-
-  <div>
-    <i class="fa fa-calendar fa-fw"></i>
-    <time>2017-02-16</time>
-  </div>
-
-  
-
-  
-  
-  
-  <div>
-    <i class="fa fa-folder fa-fw"></i>
-    
-      <a class="post-taxonomy-tag" href="https://HauyuChen.github.io/tags/leetcode">LeetCode</a>
-    
-  </div>
-  
-  
-
-  
-  
-  
-  <div>
-	<i class="fa fa-tags fa-fw"></i>
-    
-      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/%E7%AE%97%E6%B3%95">算法</a>&nbsp;&#47;
-    
-      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/leetcode">LeetCode</a>
-    
-  </div>
-  
-  
-  
-</div>
-
-  </header>
-
-  <p>
-   题目描述：  Find the sum of all left leaves in a given binary tree.
-Example:
- 3 / \ 9 20 / \ 15 7  There are two left leaves in the binary tree, with values 9 and 15 respectively. Return 24.
- 代码实现： /** * Definition for a binary tree node. * struct TreeNode { * int val; * TreeNode *left; * TreeNode *right; * TreeNode(int x) : val(x), left(NULL), right(NULL) {} * }; */ class Solution { public: int sumOfLeftLeaves(TreeNode* root) { if(root==nullptr){ return 0; } int sum=0; if(root-&gt;left){ if(root-&gt;left-&gt;left==nullptr &amp;&amp; root-&gt;left-&gt;right==nullptr){ sum+=root-&gt;left-&gt;val; }else{ sum+=sumOfLeftLeaves(root-&gt;left); } } if(root-&gt;right){ sum+=sumOfLeftLeaves(root-&gt;right); } return sum; } };  
-  </p>
-
-  
-</article>
-
-  
 
   
 
@@ -531,7 +537,7 @@ Example:
   
   <a href="https://HauyuChen.github.io/page/15/"><i class="fa fa-chevron-left"></i></a>
   
-  <span>&nbsp;16 / 24&nbsp;</span>
+  <span>&nbsp;16 / 25&nbsp;</span>
   
   <a href="https://HauyuChen.github.io/page/17/"><i class="fa fa-chevron-right"></i></a>
   
