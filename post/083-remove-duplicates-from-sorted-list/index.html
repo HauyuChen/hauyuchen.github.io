@@ -7,7 +7,7 @@
   <meta name="description" content="">
   <meta name="generator" content="Hugo 0.24.1" />
 
-  <title>【LeetCode】66. Plus One &middot; Hov&#39;s Blog</title>
+  <title>【LeetCode】83. Remove Duplicates from Sorted List &middot; Hov&#39;s Blog</title>
 
   <script>
 	var _hmt = _hmt || [];
@@ -221,7 +221,7 @@
 
 
 <div class="header">
-  <h1>【LeetCode】66. Plus One</h1>
+  <h1>【LeetCode】83. Remove Duplicates from Sorted List</h1>
   <h2></h2>
 </div>
 <div class="content">
@@ -230,7 +230,7 @@
 
   <div>
     <i class="fa fa-calendar fa-fw"></i>
-    <time>2017-10-25</time>
+    <time>2017-10-26</time>
   </div>
 
   
@@ -269,49 +269,46 @@
 
 <h1 id="题目描述">题目描述：</h1>
 
-<p>Given a non-negative integer represented as a non-empty array of digits, plus one to the integer.</p>
+<p>Given a sorted linked list, delete all duplicates such that each element appear only once.</p>
 
-<p>You may assume the integer do not contain any leading zero, except the number 0 itself.</p>
+<p>For example,</p>
 
-<p>The digits are stored such that the most significant digit is at the head of the list.</p>
+<p>Given 1-&gt;1-&gt;2, return 1-&gt;2.</p>
+
+<p>Given 1-&gt;1-&gt;2-&gt;3-&gt;3, return 1-&gt;2-&gt;3.</p>
 
 <p><br/></p>
 
 <h1 id="思路">思路：</h1>
 
-<p>题目的意思是将数组当成一个整数，然后对这个整数加 1 ，返回结果。</p>
-
-<p>比如，[9,9,9] 返回 [1,0,0,0] ； [9,9,8] 返回 [9,9,9] 。</p>
-
-<p>从数组最右边开始遍历：</p>
-
-<ol>
-<li>如果当前元素小于 8 ，则将当前元素加 1 后，直接返回数组 digits ；</li>
-<li>如果当前元素等于 9 ，将当前元素置为 0 ，继续判断；</li>
-<li>若遍历结束还没返回结果，说明数组 digits 内的元素全为 9 ，则创建一个新的数组，首位为 1 ，其余位为 0 ，返回新数组。</li>
-</ol>
+<p>遍历一次链表即可，每遍历一个元素比较其是否与它的下一个元素相等。若是，指针指向下下个元素；否则继续遍历下一个元素。</p>
 
 <p><br/></p>
 
 <h1 id="代码实现">代码实现：</h1>
 
-<pre><code>class Solution {
-    public int[] plusOne(int[] digits) {
-        int len = digits.length;
-        if(len==0){
-            return digits;
+<pre><code>/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode(int x) { val = x; }
+ * }
+ */
+class Solution {
+    public ListNode deleteDuplicates(ListNode head) {
+        if(head==null){
+            return null;
         }
-        for(int i=len-1;i&gt;=0;i--){
-            if(digits[i]&lt;9){
-                digits[i]++;
-                return digits;
+        ListNode p = head;
+        while(p.next!=null){
+            if(p.val == p.next.val){
+                p.next = p.next.next;
             }else{
-                digits[i] = 0;
+                p = p.next;
             }
         }
-        int[] ret = new int[len+1];
-        ret[0] = 1;
-        return ret;
+        return head;
     }
 }
 </code></pre>
@@ -323,13 +320,13 @@
 <div class="prev-next-post pure-g">
   <div class="pure-u-1-24" style="text-align: left;">
     
-    <a href="https://HauyuChen.github.io/post/058-length-of-last-word/"><i class="fa fa-chevron-left"></i></a>
+    <a href="https://HauyuChen.github.io/post/066-plus-one/"><i class="fa fa-chevron-left"></i></a>
     
   </div>
   <div class="pure-u-10-24">
     
     <nav class="prev">
-      <a href="https://HauyuChen.github.io/post/058-length-of-last-word/">【LeetCode】58. Length of Last Word</a>
+      <a href="https://HauyuChen.github.io/post/066-plus-one/">【LeetCode】66. Plus One</a>
     </nav>
     
   </div>
@@ -338,14 +335,8 @@
   </div>
   <div class="pure-u-10-24">
     
-    <nav class="next">
-      <a href="https://HauyuChen.github.io/post/083-remove-duplicates-from-sorted-list/">【LeetCode】83. Remove Duplicates from Sorted List</a>
-    </nav>
-    
   </div>
   <div class="pure-u-1-24" style="text-align: right;">
-    
-    <a href="https://HauyuChen.github.io/post/083-remove-duplicates-from-sorted-list/"><i class="fa fa-chevron-right"></i></a>
     
   </div>
 </div>
