@@ -7,7 +7,7 @@
   <meta name="description" content="">
   <meta name="generator" content="Hugo 0.24.1" />
 
-  <title>【LeetCode】88. Merge Sorted Array &middot; Hov&#39;s Blog</title>
+  <title>【LeetCode】116. Populating Next Right Pointers in Each Node &middot; Hov&#39;s Blog</title>
 
   <script>
 	var _hmt = _hmt || [];
@@ -221,7 +221,7 @@
 
 
 <div class="header">
-  <h1>【LeetCode】88. Merge Sorted Array</h1>
+  <h1>【LeetCode】116. Populating Next Right Pointers in Each Node</h1>
   <h2></h2>
 </div>
 <div class="content">
@@ -230,7 +230,7 @@
 
   <div>
     <i class="fa fa-calendar fa-fw"></i>
-    <time>2017-10-27</time>
+    <time>2017-10-28</time>
   </div>
 
   
@@ -269,49 +269,77 @@
 
 <h1 id="题目描述">题目描述：</h1>
 
-<p>Given two sorted integer arrays nums1 and nums2, merge nums2 into nums1 as one sorted array.</p>
+<p>Given a binary tree</p>
 
-<p><strong>Note:</strong><br />
-You may assume that nums1 has enough space (size that is greater or equal to m + n) to hold additional elements from nums2. The number of elements initialized in nums1 and nums2 are m and n respectively.</p>
+<pre><code>    struct TreeLinkNode {
+      TreeLinkNode *left;
+      TreeLinkNode *right;
+      TreeLinkNode *next;
+    }
+</code></pre>
+
+<p>Populate each next pointer to point to its next right node. If there is no next right node, the next pointer should be set to NULL.</p>
+
+<p>Initially, all next pointers are set to NULL.</p>
+
+<p>Note:</p>
+
+<p>You may only use constant extra space.
+You may assume that it is a perfect binary tree (ie, all leaves are at the same level, and every parent has two children).</p>
+
+<p>For example,
+Given the following perfect binary tree,</p>
+
+<pre><code>         1
+       /  \
+      2    3
+     / \  / \
+    4  5  6  7
+</code></pre>
+
+<p>After calling your function, the tree should look like:</p>
+
+<pre><code>         1 -&gt; NULL
+       /  \
+      2 -&gt; 3 -&gt; NULL
+     / \  / \
+    4-&gt;5-&gt;6-&gt;7 -&gt; NULL
+</code></pre>
 
 <p><br/></p>
 
 <h1 id="思路">思路：</h1>
 
-<p>从后往前遍历两个数组，分别比较，大的放在数组 nums1 后面，直到两个数组都遍历完毕。</p>
+<p>本题自然要想到二叉树的层序遍历。</p>
 
-<p>注：如果从前往后遍历的话，数组合并时需要将元素后移，效率低。</p>
+<p>注意右孩子的下一节点的情况，它有可能是 null ，也有可能是其父节点的下一节点的左孩子。</p>
 
 <p><br/></p>
 
 <h1 id="代码实现">代码实现：</h1>
 
-<pre><code>class Solution {
-    public void merge(int[] nums1, int m, int[] nums2, int n) {
-        int index = m+n-1;
-        int i1 = m-1;
-        int i2 = n-1;
-        
-        while(i1&gt;=0&amp;&amp;i2&gt;=0){
-            if(nums1[i1]&gt;=nums2[i2]){
-                nums1[index] = nums1[i1];
-                i1--;
-            }else{
-                nums1[index] = nums2[i2];
-                i2--;
-            }
-            index--;
+<pre><code>/**
+ * Definition for binary tree with next pointer.
+ * public class TreeLinkNode {
+ *     int val;
+ *     TreeLinkNode left, right, next;
+ *     TreeLinkNode(int x) { val = x; }
+ * }
+ */
+public class Solution {
+    public void connect(TreeLinkNode root) {
+        if(root==null){
+            return;
         }
-        while(i1&gt;=0){
-            nums1[index] = nums1[i1];
-            i1--;
-            index--;
+        if(root.left!=null){
+            root.left.next = root.right;
         }
-        while(i2&gt;=0){
-            nums1[index] = nums2[i2];
-            i2--;
-            index--;
+        if(root.right!=null){
+            root.right.next = root.next!=null?root.next.left:null;
         }
+            
+        connect(root.left);
+        connect(root.right);
     }
 }
 </code></pre>
@@ -323,13 +351,13 @@ You may assume that nums1 has enough space (size that is greater or equal to m +
 <div class="prev-next-post pure-g">
   <div class="pure-u-1-24" style="text-align: left;">
     
-    <a href="https://HauyuChen.github.io/post/083-remove-duplicates-from-sorted-list/"><i class="fa fa-chevron-left"></i></a>
+    <a href="https://HauyuChen.github.io/post/088-merge-sorted-array/"><i class="fa fa-chevron-left"></i></a>
     
   </div>
   <div class="pure-u-10-24">
     
     <nav class="prev">
-      <a href="https://HauyuChen.github.io/post/083-remove-duplicates-from-sorted-list/">【LeetCode】83. Remove Duplicates from Sorted List</a>
+      <a href="https://HauyuChen.github.io/post/088-merge-sorted-array/">【LeetCode】88. Merge Sorted Array</a>
     </nav>
     
   </div>
@@ -338,14 +366,8 @@ You may assume that nums1 has enough space (size that is greater or equal to m +
   </div>
   <div class="pure-u-10-24">
     
-    <nav class="next">
-      <a href="https://HauyuChen.github.io/post/116-populating-next-right-pointers-in-each-node/">【LeetCode】116. Populating Next Right Pointers in Each Node</a>
-    </nav>
-    
   </div>
   <div class="pure-u-1-24" style="text-align: right;">
-    
-    <a href="https://HauyuChen.github.io/post/116-populating-next-right-pointers-in-each-node/"><i class="fa fa-chevron-right"></i></a>
     
   </div>
 </div>
