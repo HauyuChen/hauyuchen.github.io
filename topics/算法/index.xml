@@ -7,10 +7,23 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2017. All rights reserved.</copyright>
-    <lastBuildDate>Sat, 28 Oct 2017 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 29 Oct 2017 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://HauyuChen.github.io/topics/%E7%AE%97%E6%B3%95/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>【LeetCode】75. Sort Colors</title>
+      <link>https://HauyuChen.github.io/post/075-sort-colors/</link>
+      <pubDate>Sun, 29 Oct 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://HauyuChen.github.io/post/075-sort-colors/</guid>
+      <description>题目描述： Given an array with n objects colored red, white or blue, sort them so that objects of the same color are adjacent, with the colors in the order red, white and blue.
+Here, we will use the integers 0, 1, and 2 to represent the color red, white, and blue respectively.
+Note: You are not suppose to use the library&amp;rsquo;s sort function for this problem.
+
+思路： 本题实质上为三元数组排序。</description>
+    </item>
     
     <item>
       <title>【LeetCode】116. Populating Next Right Pointers in Each Node</title>
