@@ -33,6 +33,20 @@ Telegram： @chenhy
     </item>
     
     <item>
+      <title>【LeetCode】328. Odd Even Linked List</title>
+      <link>https://HauyuChen.github.io/post/328-odd-even-linked-list/</link>
+      <pubDate>Tue, 31 Oct 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://HauyuChen.github.io/post/328-odd-even-linked-list/</guid>
+      <description>题目描述： Given a singly linked list, group all odd nodes together followed by the even nodes. Please note here we are talking about the node number and not the value in the nodes.
+You should try to do it in place. The program should run in O(1) space complexity and O(nodes) time complexity.
+Example:
+Given 1-&amp;gt;2-&amp;gt;3-&amp;gt;4-&amp;gt;5-&amp;gt;NULL,
+return 1-&amp;gt;3-&amp;gt;5-&amp;gt;2-&amp;gt;4-&amp;gt;NULL.
+Note: The relative order inside both the even and odd groups should remain as it was in the input.</description>
+    </item>
+    
+    <item>
       <title>【LeetCode】94. Binary Tree Inorder Traversal</title>
       <link>https://HauyuChen.github.io/post/094-binary-tree-inorder-traversal/</link>
       <pubDate>Mon, 30 Oct 2017 00:00:00 +0000</pubDate>
