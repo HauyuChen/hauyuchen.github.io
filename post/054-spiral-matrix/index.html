@@ -7,7 +7,7 @@
   <meta name="description" content="">
   <meta name="generator" content="Hugo 0.24.1" />
 
-  <title>Tags &middot; Hov&#39;s Blog</title>
+  <title>【LeetCode】54. Spiral Matrix &middot; Hov&#39;s Blog</title>
 
   <script>
 	var _hmt = _hmt || [];
@@ -46,8 +46,6 @@
   <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet" type="text/css">
 
   
-  
-  <link rel="alternate" type="application/rss+xml" title="Hov&#39;s Blog" href="https://HauyuChen.github.io/tags/index.xml" />
   
 
   
@@ -125,10 +123,6 @@
   <div class="pure-menu social">
 
   <ul class="pure-menu-list">
-    
-    <li class="pure-menu-item">
-      <a class="pure-menu-link" href="https://HauyuChen.github.io/tags/index.xml"><i class="fa fa-rss fa-fw"></i>RSS</a>
-    </li>
     
 
     
@@ -227,53 +221,179 @@
 
 
 <div class="header">
-  <h1>Tags</h1>
+  <h1>【LeetCode】54. Spiral Matrix</h1>
+  <h2></h2>
 </div>
 <div class="content">
-  <ul>
+
+  <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>2017-11-01</time>
+  </div>
+
+  
+
   
   
-    <li>
-      <a href="leetcode">leetcode</a>
-      <span>&#40;96&#41;</span>
-    </li>
   
-    <li>
-      <a href="java">java</a>
-      <span>&#40;10&#41;</span>
-    </li>
+  <div>
+    <i class="fa fa-folder fa-fw"></i>
+    
+      <a class="post-taxonomy-tag" href="https://HauyuChen.github.io/tags/leetcode">LeetCode</a>
+    
+  </div>
   
-    <li>
-      <a href="%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0">机器学习</a>
-      <span>&#40;7&#41;</span>
-    </li>
   
-    <li>
-      <a href="elasticsearch">elasticsearch</a>
-      <span>&#40;4&#41;</span>
-    </li>
+
   
-    <li>
-      <a href="%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F">设计模式</a>
-      <span>&#40;4&#41;</span>
-    </li>
   
-    <li>
-      <a href="zigbee">zigbee</a>
-      <span>&#40;3&#41;</span>
-    </li>
   
-    <li>
-      <a href="%E5%B7%A5%E5%85%B7">工具</a>
-      <span>&#40;2&#41;</span>
-    </li>
+  <div>
+	<i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/%E7%AE%97%E6%B3%95">算法</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/leetcode">LeetCode</a>
+    
+  </div>
   
-    <li>
-      <a href="%E6%95%B0%E6%8D%AE%E5%BA%93">数据库</a>
-      <span>&#40;2&#41;</span>
-    </li>
   
-  </ul>
+  
+</div>
+
+  
+
+<hr />
+
+<h1 id="题目描述">题目描述：</h1>
+
+<p>Given a matrix of m x n elements (m rows, n columns), return all elements of the matrix in spiral order.</p>
+
+<p>For example,
+Given the following matrix:</p>
+
+<pre><code>[
+ [ 1, 2, 3 ],
+ [ 4, 5, 6 ],
+ [ 7, 8, 9 ]
+]
+</code></pre>
+
+<p>You should return [1,2,3,6,9,8,7,4,5].</p>
+
+<p><br/></p>
+
+<h1 id="思路">思路：</h1>
+
+<p>给定一个矩阵，以回旋形式以此遍历矩阵中的每个元素。</p>
+
+<ol>
+<li>设置 direction ，表示遍历方向（向右，向下，向左，向上）；</li>
+<li>设置 left、right、top、buttom ，分别指示矩阵左边界、右边界、上边界、下边界；</li>
+<li>每遍历一个元素将其添加到 ret 中，直至 left&gt;right 或 top&gt;buttom 。</li>
+</ol>
+
+<p><br/></p>
+
+<h1 id="代码实现">代码实现：</h1>
+
+<pre><code>class Solution {
+    public List&lt;Integer&gt; spiralOrder(int[][] matrix) { 
+        List&lt;Integer&gt; ret = new LinkedList&lt;Integer&gt;();
+        if(matrix.length==0){
+            return ret;
+        }
+        int left = 0;
+        int right = matrix[0].length-1;
+        int top = 0;
+        int buttom = matrix.length-1;
+        int direction = 1;
+        
+        while(left&lt;=right&amp;&amp;top&lt;=buttom){
+            if(direction==1){
+                for(int i=left;i&lt;=right;i++){
+                    ret.add(matrix[top][i]);
+                }
+                top++;
+                direction = 2;
+            }else if(direction==2){
+                for(int i=top;i&lt;=buttom;i++){
+                    ret.add(matrix[i][right]);
+                }
+                right--;
+                direction = 3;
+            }else if(direction==3){
+                for(int i=right;i&gt;=left;i--){
+                    ret.add(matrix[buttom][i]);
+                }
+                buttom--;
+                direction = 4;
+            }else if(direction==4){
+                for(int i=buttom;i&gt;=top;i--){
+                    ret.add(matrix[i][left]);
+                }
+                left++;
+                direction = 1;
+            }
+        }
+        
+        return ret;
+    }
+}
+</code></pre>
+
+<p><br/></p>
+
+
+  
+<div class="prev-next-post pure-g">
+  <div class="pure-u-1-24" style="text-align: left;">
+    
+    <a href="https://HauyuChen.github.io/post/328-odd-even-linked-list/"><i class="fa fa-chevron-left"></i></a>
+    
+  </div>
+  <div class="pure-u-10-24">
+    
+    <nav class="prev">
+      <a href="https://HauyuChen.github.io/post/328-odd-even-linked-list/">【LeetCode】328. Odd Even Linked List</a>
+    </nav>
+    
+  </div>
+  <div class="pure-u-2-24">
+    &nbsp;
+  </div>
+  <div class="pure-u-10-24">
+    
+  </div>
+  <div class="pure-u-1-24" style="text-align: right;">
+    
+  </div>
+</div>
+
+
+
+  
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+
+(function() {
+    
+    
+    if (window.location.hostname == "localhost")
+        return;
+
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    var disqus_shortname = "http-hov-space";
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com/" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
 </div>
 
 </div>
@@ -287,3 +407,4 @@
 
 </body>
 </html>
+

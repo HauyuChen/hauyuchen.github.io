@@ -7,10 +7,24 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2017. All rights reserved.</copyright>
-    <lastBuildDate>Tue, 31 Oct 2017 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 01 Nov 2017 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://HauyuChen.github.io/topics/leetcode/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>【LeetCode】54. Spiral Matrix</title>
+      <link>https://HauyuChen.github.io/post/054-spiral-matrix/</link>
+      <pubDate>Wed, 01 Nov 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://HauyuChen.github.io/post/054-spiral-matrix/</guid>
+      <description>题目描述： Given a matrix of m x n elements (m rows, n columns), return all elements of the matrix in spiral order.
+For example, Given the following matrix:
+[ [ 1, 2, 3 ], [ 4, 5, 6 ], [ 7, 8, 9 ] ]  You should return [1,2,3,6,9,8,7,4,5].
+
+思路： 给定一个矩阵，以回旋形式以此遍历矩阵中的每个元素。
+ 设置 direction ，表示遍历方向（向右，向下，向左，向上）； 设置 left、right、top、buttom ，分别指示矩阵左边界、右边界、上边界、下边界； 每遍历一个元素将其添加到 ret 中，直至 left&amp;gt;right 或 top&amp;gt;buttom 。</description>
+    </item>
     
     <item>
       <title>【LeetCode】328. Odd Even Linked List</title>
