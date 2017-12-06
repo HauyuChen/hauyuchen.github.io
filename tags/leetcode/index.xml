@@ -236,6 +236,20 @@ Output: 5
     </item>
     
     <item>
+      <title>【LeetCode】59. Spiral Matrix II</title>
+      <link>https://HauyuChen.github.io/post/059-spiral-matrix-ii/</link>
+      <pubDate>Thu, 02 Nov 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://HauyuChen.github.io/post/059-spiral-matrix-ii/</guid>
+      <description>题目描述： Given an integer n, generate a square matrix filled with elements from 1 to n2 in spiral order.
+For example, Given n = 3,
+You should return the following matrix:
+[ [ 1, 2, 3 ], [ 8, 9, 4 ], [ 7, 6, 5 ] ]  
+思路： 题意要求根据 n ，创建一个 n*n 的回旋矩阵。
+ 设置 direction ，表示构造方向（向右，向下，向左，向上）； 设置 left、right、top、buttom ，分别指示矩阵左边界、右边界、上边界、下边界； 设置 count 指示当前的数值； 按右-下-左-上的顺序不断循环构造，直至 left&amp;gt;right 或 top&amp;gt;buttom 。</description>
+    </item>
+    
+    <item>
       <title>【LeetCode】66. Plus One</title>
       <link>https://HauyuChen.github.io/post/066-plus-one/</link>
       <pubDate>Wed, 25 Oct 2017 00:00:00 +0000</pubDate>
