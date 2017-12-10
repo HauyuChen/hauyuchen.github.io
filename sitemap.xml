@@ -8,6 +8,11 @@
   </url>
   
   <url>
+    <loc>https://HauyuChen.github.io/post/292-nim-game/</loc>
+    <lastmod>2017-11-03T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://HauyuChen.github.io/post/059-spiral-matrix-ii/</loc>
     <lastmod>2017-11-02T00:00:00+00:00</lastmod>
   </url>
@@ -508,11 +513,6 @@
   </url>
   
   <url>
-    <loc>https://HauyuChen.github.io/post/292-nim-game/</loc>
-    <lastmod>2017-01-11T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://HauyuChen.github.io/post/258-add-digits/</loc>
     <lastmod>2017-01-10T00:00:00+00:00</lastmod>
   </url>
@@ -735,13 +735,13 @@
   
   <url>
     <loc>https://HauyuChen.github.io/topics/leetcode/</loc>
-    <lastmod>2017-11-02T00:00:00+00:00</lastmod>
+    <lastmod>2017-11-03T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://HauyuChen.github.io/post/</loc>
-    <lastmod>2017-11-02T00:00:00+00:00</lastmod>
+    <lastmod>2017-11-03T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -921,7 +921,7 @@
   
   <url>
     <loc>https://HauyuChen.github.io/topics/%E7%AE%97%E6%B3%95/</loc>
-    <lastmod>2017-11-02T00:00:00+00:00</lastmod>
+    <lastmod>2017-11-03T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
