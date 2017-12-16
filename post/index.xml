@@ -393,7 +393,10 @@ You could also try reversing an integer. However, if you have solved the problem
       
       <guid>https://HauyuChen.github.io/post/007-reverse-integer/</guid>
       <description>题目描述： Reverse digits of an integer.
-Example1: x = 123, return 321 Example2: x = -123, return -321
+Example1:
+x = 123, return 321
+Example2:
+x = -123, return -321
 click to show spoilers.
 Have you thought about this? Here are some good questions to ask before coding. Bonus points for you if you have already thought through this!
 If the integer&amp;rsquo;s last digit is 0, what should the output be? ie, cases such as 10, 100.
