@@ -267,13 +267,13 @@
 
 <hr />
 
-<h2 id="题目描述">题目描述：</h2>
+<h1 id="题目描述">题目描述：</h1>
 
 <p>Determine whether an integer is a palindrome. Do this without extra space.</p>
 
 <p>click to show spoilers.</p>
 
-<p>Some hints:
+<p><strong>Some hints:</strong><br />
 Could negative integers be palindromes? (ie, -1)</p>
 
 <p>If you are thinking of converting the integer to string, note the restriction of using extra space.</p>
@@ -282,14 +282,18 @@ Could negative integers be palindromes? (ie, -1)</p>
 
 <p>There is a more generic way of solving this problem.</p>
 
-<h2 id="思路">思路：</h2>
+<p><br/></p>
+
+<h1 id="思路">思路：</h1>
 
 <ol>
 <li>本方法只需判断x的前(n/2)位是否等于x的后(n/2)位的逆序，是则为回文数，否则不是回文数；</li>
 <li>当x的位数为偶数，则判断x是否等t；当x的位数为奇数，t的位数比x大一位，则判断x是是否等于t/10。</li>
 </ol>
 
-<h2 id="代码实现">代码实现：</h2>
+<p><br/></p>
+
+<h1 id="代码实现">代码实现：</h1>
 
 <pre><code>class Solution {
 public:
