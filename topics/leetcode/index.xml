@@ -1177,8 +1177,10 @@ Input is guaranteed to be within the range from 1 to 3999.
       <pubDate>Sun, 12 Jun 2016 00:00:00 +0000</pubDate>
       
       <guid>https://HauyuChen.github.io/post/021-merge-two-sorted-lists/</guid>
-      <description>题目描述：  Merge two sorted linked lists and return it as a new list. The new list should be made by splicing together the nodes of the first two lists.
- 我的思路：   通过一个指针newhead指示新的链表头部，比较链表l1和链表l2的第一个结点。 若l1的第一个节点比l2小，则将其尾插进新链表，移动指针l1-&amp;gt;next；若l2的第一个节点比l1小，同理。 递归得解。   代码实现： /** * Definition for singly-linked list. * struct ListNode { * int val; * ListNode *next; * ListNode(int x) : val(x), next(NULL) {} * }; */ class Solution { public: ListNode* mergeTwoLists(ListNode* l1, ListNode* l2) { if(l1==nullptr&amp;amp;&amp;amp;l2==nullptr) return nullptr; if(l1==nullptr || l2==nullptr) return (l1==nullptr)?</description>
+      <description>题目描述： Merge two sorted linked lists and return it as a new list. The new list should be made by splicing together the nodes of the first two lists.
+
+思路：  通过一个指针 newhead 指示新的链表头部，比较链表 l1 和链表 l2 的第一个结点； 若 l1 的第一个节点比 l2 小，则将其尾插进新链表，移动指针 l1-&amp;gt;next；若 l2 的第一个节点比 l1 小，同理； 递归得解。  
+代码实现： /** * Definition for singly-linked list. * struct ListNode { * int val; * ListNode *next; * ListNode(int x) : val(x), next(NULL) {} * }; */ class Solution { public: ListNode* mergeTwoLists(ListNode* l1, ListNode* l2) { if(l1==nullptr&amp;amp;&amp;amp;l2==nullptr) return nullptr; if(l1==nullptr || l2==nullptr) return (l1==nullptr)?</description>
     </item>
     
     <item>

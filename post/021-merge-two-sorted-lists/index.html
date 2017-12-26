@@ -265,23 +265,25 @@
 
   
 
-<h2 id="题目描述">题目描述：</h2>
+<hr />
 
-<blockquote>
+<h1 id="题目描述">题目描述：</h1>
+
 <p>Merge two sorted linked lists and return it as a new list. The new list should be made by splicing together the nodes of the first two lists.</p>
-</blockquote>
 
-<h2 id="我的思路">我的思路：</h2>
+<p><br/></p>
 
-<blockquote>
+<h1 id="思路">思路：</h1>
+
 <ul>
-<li>通过一个指针newhead指示新的链表头部，比较链表l1和链表l2的第一个结点。</li>
-<li>若l1的第一个节点比l2小，则将其尾插进新链表，移动指针l1-&gt;next；若l2的第一个节点比l1小，同理。</li>
+<li>通过一个指针 newhead 指示新的链表头部，比较链表 l1 和链表 l2 的第一个结点；</li>
+<li>若 l1 的第一个节点比 l2 小，则将其尾插进新链表，移动指针 l1-&gt;next；若 l2 的第一个节点比 l1 小，同理；</li>
 <li>递归得解。</li>
 </ul>
-</blockquote>
 
-<h2 id="代码实现">代码实现：</h2>
+<p><br/></p>
+
+<h1 id="代码实现">代码实现：</h1>
 
 <pre><code>/**
  * Definition for singly-linked list.
@@ -311,6 +313,8 @@ public:
     }
 };
 </code></pre>
+
+<p><br/></p>
 
 
   
