@@ -501,10 +501,12 @@ Two binary trees are considered equal if they are structurally identical and the
   </header>
 
   <p>
-   题目描述：  You are climbing a stair case. It takes n steps to reach to the top.
+  题目描述： You are climbing a stair case. It takes n steps to reach to the top.
 Each time you can either climb 1 or 2 steps. In how many distinct ways can you climb to the top?
- 思路：  这题本质上是斐波那契数列问题。这里采用数组暂存已有结果，以时间换空间，减少递归带来的重复计算。
- 代码实现： class Solution { public: int climbStairs(int n) { int f[n+1]; f[0]=1; f[1]=1; for(int i=2;i&lt;=n;++i){ f[i]=f[i-1]+f[i-2]; } return f[n]; } };  
+
+思路： 这题本质上是斐波那契数列问题。这里采用数组暂存已有结果，以时间换空间，减少递归带来的重复计算。
+
+代码实现： class Solution { public: int climbStairs(int n) { int f[n+1]; f[0]=1; f[1]=1; for(int i=2;i&lt;=n;++i){ f[i]=f[i-1]+f[i-2]; } return f[n]; } };
   </p>
 
   
