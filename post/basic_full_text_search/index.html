@@ -1,0 +1,701 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="generator" content="Hugo 0.24.1" />
+
+  <title>谈谈全文检索 &middot; Hov&#39;s Blog</title>
+
+  <script>
+	var _hmt = _hmt || [];
+	(function() {
+	  var hm = document.createElement("script");
+	  hm.src = "https://hm.baidu.com/hm.js?dd096f3aba9332e2640cda59d3786695";
+	  var s = document.getElementsByTagName("script")[0]; 
+	  s.parentNode.insertBefore(hm, s);
+	})();
+	</script>	
+  
+  
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/0.6.2/pure-min.css">
+
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/0.6.2/grids-responsive-old-ie-min.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/0.6.2/grids-responsive-min.css">
+  <!--<![endif]-->
+
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="https://HauyuChen.github.io/css/side-menu-old-ie.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="https://HauyuChen.github.io/css/side-menu.css">
+  <!--<![endif]-->
+
+  <link rel="stylesheet" href="https://HauyuChen.github.io/css/blackburn.css">
+
+  
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  
+  <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet" type="text/css">
+
+  
+  
+
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/styles/androidstudio.min.css">
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  
+
+  <link rel="shortcut icon" href="https://HauyuChen.github.io/img/favicon.ico" type="image/x-icon" />
+
+  
+  
+
+
+</head>
+
+
+<body>
+
+<div id="layout">
+
+  
+<a href="#menu" id="menuLink" class="menu-link">
+  
+  <span></span>
+</a>
+<div id="menu">
+
+  <a class="pure-menu-heading brand" href="https://HauyuChen.github.io/">
+  <img src="https://HauyuChen.github.io/img/Hov.jpg" width="125px">
+</a>
+
+  <div class="pure-menu">
+    <ul class="pure-menu-list">
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="https://HauyuChen.github.io/"><i class='fa fa-home fa-fw'></i>主页</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="https://HauyuChen.github.io/post/"><i class='fa fa-list fa-fw'></i>所有文章</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="https://HauyuChen.github.io/tags/"><i class='fa fa-folder fa-fw'></i>文章分类</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="https://HauyuChen.github.io/topics/"><i class='fa fa-tags fa-fw'></i>关键词</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="https://HauyuChen.github.io/about-me/"><i class='fa fa-user fa-fw'></i>关于我</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="https://HauyuChen.github.io/about-site/"><i class='fa fa-home fa-fw'></i>关于本站</a>
+      
+        </li>
+      
+    </ul>
+  </div>
+
+  <div class="pure-menu social">
+
+  <ul class="pure-menu-list">
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://github.com/HauyuChen" target="_blank"><i class="fa fa-github-square fa-fw"></i>GitHub</a>
+    </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+	</ul>
+	<ul class="pure-menu-list">
+	
+	<li class="pure-menu-item">
+      <a class="pure-menu-link" href="http://blog.csdn.net/u014134180" target="_blank"><i class="fa fa-lastfm-square fa-fw"></i>友链：Wu_Being</a>
+    </li>
+  </ul>
+  
+</div>
+
+
+  <div>
+
+
+</div>
+
+</div>
+
+
+  <div id="main">
+
+
+<div class="header">
+  <h1>谈谈全文检索</h1>
+  <h2></h2>
+</div>
+<div class="content">
+
+  <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>2018-01-01</time>
+  </div>
+
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-folder fa-fw"></i>
+    
+      <a class="post-taxonomy-tag" href="https://HauyuChen.github.io/tags/%E5%9F%BA%E7%A1%80">基础</a>
+    
+  </div>
+  
+  
+
+  
+  
+  
+  <div>
+	<i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/elasticsearch">Elasticsearch</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/lucene">Lucene</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/%E5%85%A8%E6%96%87%E6%A3%80%E7%B4%A2">全文检索</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/%E5%9F%BA%E7%A1%80">基础</a>
+    
+  </div>
+  
+  
+  
+</div>
+
+  
+
+<hr />
+
+<p><em>作者注：最近，实验室有一个关于大数据全文检索的项目，主要架构采用了 Elasticsearch + Lucene ，并修改了部分源码，通过后缀数组代替 Lucene 原有的索引方式。因此，接触了一些全文检索相关的内容。偶然的机会，我在网络上看到 <a href="http://blog.csdn.net/forfuture1978">forfuture1978</a> 关于 Lucene 的文章，觉得很受启发，深感有必要记录下来。我相信，本文也能很好地帮助您理解全文检索。本文部分内容出自 <a href="http://blog.csdn.net/forfuture1978/article/details/5668956">Lucene 原理与代码分析</a> ，感谢原作者的贡献。</em></p>
+
+<hr />
+
+<p><br/></p>
+
+<h1 id="0-写在前面">0 写在前面</h1>
+
+<p>大数据时代，人们开始思考数据的价值。在此之前，我们将数据存放在传统的关系型数据库（一个个数据表，由行列组成，格式固定），关系型数据库存储的是结构化数据，我们无法“用活”这些数据。事实上，绝大多数的数据都是以非结构化数据的形式存在的，比如邮件、图像、视频等等。这些大量的非结构化数据的价值是巨大的，但在关系型数据库下显然不好处理。</p>
+
+<p>全文检索提供了对非结构化数据的信息搜索，使我们获得了处理这些数据的能力，我们可以在此基础上进一步提取这些数据的价值。</p>
+
+<p><br/></p>
+
+<h1 id="1-预备知识">1 预备知识</h1>
+
+<h2 id="1-1-数据分类">1.1 数据分类</h2>
+
+<p>我们平时所说的数据，可分为<strong>结构化数据</strong>、<strong>半结构化数据</strong>和<strong>非结构化数据</strong>。</p>
+
+<ul>
+<li>结构化数据：具有既定格式的实体化数据，如 XML 文档或满足特定预定义格式的数据库表；</li>
+<li>半结构化数据：虽然可能有格式，但经常被忽略，所以只能作为对数据结构的一般性指导。如电子表格，它在结构上是由单元格组成的网格，但是每个单元格内可以保存任何形式的数据；</li>
+<li>非结构化数据：无固定格式或不定长的数据，如纯文本、图像数据、邮件内容等。</li>
+</ul>
+
+<h2 id="1-2-数据搜索">1.2 数据搜索</h2>
+
+<p>数据的搜索根据数据的不同分类有所区别：</p>
+
+<ul>
+<li><strong>对结构化数据的搜索</strong>：如通过 SQL 语句对数据库的搜索等。</li>
+<li><strong>对非结构化数据的搜索</strong>：如 Linux 环境下的 grep 命令、 Google 搜索大量的内容数据等。</li>
+</ul>
+
+<p>注：半结构化数据在本文将等同非结构化数据考虑。</p>
+
+<p><br/></p>
+
+<h1 id="2-什么是全文检索">2 什么是全文检索？</h1>
+
+<p>非结构化数据也可称为<strong>全文数据</strong>，对全文数据的搜索主要有两种方法。</p>
+
+<p><strong>（1）顺序扫描法（Serial scanning）</strong></p>
+
+<p>顺序扫描比较好理解，比如我们想在图书馆找某本书，那么我们就将整个图书馆的书一个一个比较，直到找到我们要找的书（当然现实中我们不会这么做）。</p>
+
+<p><strong>（2）全文检索（Full-text search）</strong></p>
+
+<p>全文检索的基本思路：将非结构化数据中的一部分信息提取出来，重新组织，使其变得有一定的结构，然后再对其进行搜索。也就是，<strong>将非结构化数据转化为结构化数据</strong>。</p>
+
+<p>从非结构化数据中提取并重新组织的信息就叫做<strong>索引</strong>。索引其实我们早有接触，比如图书馆的图书索引，通过索引我们可根据图书的不同分类去特定的书架寻找，这样就无需寻找整个图书馆的所有书架。再比如，字典里通过汉字拼音的首字母分类，我们要在字典中寻找关于“搜索”的条目，只需找到首字母为 “S” 的分类即可。可见，索引可大大加快我们搜索的速度。</p>
+
+<p>综上，对数据先建立索引，再通过索引搜索数据的过程就叫做<strong>全文检索</strong>。</p>
+
+<p>下图为 Lucene 的检索原理，这其实也是全文检索的基本思路。通过对元数据建立索引信息，然后根据索引信息搜索数据。</p>
+
+<p><img src="https://raw.githubusercontent.com/HauyuChen/PicsBox/master/LuceneSearch.png" alt="" /></p>
+
+<p><br/></p>
+
+<h1 id="3-索引应该存放哪些信息">3 索引应该存放哪些信息？</h1>
+
+<p>非结构化数据存放的是每个文件包含哪些字符串，这是从<strong>文件到字符串</strong>的映射。搜索的过程恰恰相反，我们想通过字符串搜索文件，也就是从<strong>字符串到文件</strong>的映射。 <strong>索引保存的正是从字符串到文件的映射</strong>，这也为什么是其能加快搜索速度的原因。</p>
+
+<p>举个例子：</p>
+
+<p>假设有 100 个文档，为了方便表示，我们将文档从 1 到 100 编号。下图为一个索引，它存放了某个字符串到文档的映射关系（哪些文档包含该字符串）。</p>
+
+<p><img src="https://raw.githubusercontent.com/HauyuChen/PicsBox/master/fullsearch-01.png" alt="" /></p>
+
+<p>图的左边是字符串（lucene、solr、hadoop），称为<strong>词典</strong>；图的右边是包含某个字符串的文档链表，该文档链表称为<strong>倒排表</strong>。</p>
+
+<p>因为索引存放了字符串到文档的映射，所以给定某个字符串，我们很容易就能找到所有包含该字符串的文档。比如，我们要寻找既包含字符串 “lucene” 又包含字符串 “solr” 的所有文档，只需以下几步：</p>
+
+<ol>
+<li>取出包含字符串 “lucene” 的文档链表；</li>
+<li>取出包含字符串 “solr” 的文档链表；</li>
+<li>通过合并链表，找到既包含字符串 “lucene” 又包含字符串 “solr” 的文档。</li>
+</ol>
+
+<p><img src="https://raw.githubusercontent.com/HauyuChen/PicsBox/master/fullsearch-02.png" alt="" /></p>
+
+<p>值得注意的是，虽然索引加快了搜索的速度，但需要额外的创建索引的时间开销（事实上还有额外的空间开销），因此全文检索不一定比顺序扫描好，尤其是数据量比较小的情况。全文检索适用于数据量比较大的情况，虽然对大量的数据建立索引是很耗时的，但一次创建索引后可多次搜索，并不需要每次搜索都要创建索引。也就是，<strong>一次索引，多次搜索</strong>。</p>
+
+<p><br/></p>
+
+<h1 id="4-全文检索的流程">4 全文检索的流程</h1>
+
+<p>全文检索大体可分为以下两步：</p>
+
+<ul>
+<li>索引创建：从结构化数据或非结构化数据中提取信息，创建相应的索引；</li>
+<li>索引搜索：根据用户查询请求，通过索引信息搜索数据，返回结果。</li>
+</ul>
+
+<h2 id="4-1-如何创建索引">4.1 如何创建索引？</h2>
+
+<h3 id="第一步-待索引的原文档">第一步：待索引的原文档</h3>
+
+<ul>
+<li>文档一：Students should be allowed to go out with their friends, but not allowed to drink beer.</li>
+<li>文档二：My friend Jerry went to school to see his students but found them drunk which is not allowed.</li>
+</ul>
+
+<h3 id="第二步-分词">第二步：分词</h3>
+
+<p>分词操作由分词组件完成，完成以下几件事情：</p>
+
+<ol>
+<li>将原文档的内容拆分成一个个单独的单词；</li>
+<li>去除原文档中的标点符号；</li>
+<li>去除原文档中的停词。</li>
+</ol>
+
+<p>注：<strong>停词 (Stop word)</strong> 就是一种语言中最普通的一些单词，如英语中的 the、a、this 等。因为这些单词没有特别的意义，而且太普通（大多数文档都会包含这些词，区分度不高），所以大多数不能成为搜索的关键词。在创建索引时，忽略这些词可以减少索引的大小。</p>
+
+<p>分词后得到的结果称为<strong>词元（Token）</strong>。</p>
+
+<p>原文档经过分词后，得到的词元如下：</p>
+
+<p>Students, allowed, go, their, friends, allowed, drink, beer, My, friend, Jerry, went, school, see, his, students, found, them, drunk, allowed.</p>
+
+<h3 id="第三步-处理词元">第三步：处理词元</h3>
+
+<p>语言处理组件负责对词元进行同语言相关的处理。对英语来说，语言处理组件一般完成以下操作：</p>
+
+<ol>
+<li>将词元转换为小写（Lowercase）；</li>
+<li>将词元缩减为词根形式，如：&rdquo;cars&rdquo;到&rdquo;car&rdquo;，此操作称为 <strong>Stemming</strong>；</li>
+<li>将词元转变为词根形式，如：&rdquo;drove&rdquo;到&rdquo;drive&rdquo;，此操作称为  <strong>Lemmatization</strong> 。</li>
+</ol>
+
+<p><strong>注：</strong>Stemming 和 Lemmatization 的异同</p>
+
+<p>（1）相同点：</p>
+
+<ul>
+<li>Stemming 和 Lemmatization <strong>都使词元转化为词根形式</strong>。</li>
+</ul>
+
+<p>（2）不同点：</p>
+
+<ul>
+<li><p>方式不同： Stemming 采用“<strong>缩减</strong>”的方式，如 &ldquo;cars&rdquo; 到 &ldquo;car&rdquo; ，&rdquo;driving&rdquo; 到 &ldquo;drive&rdquo;； Lemmatization 采用“<strong>转变</strong>”的方式，如 &ldquo;drove&rdquo; 到 &ldquo;drive&rdquo;，&rdquo;driving&rdquo; 到 &ldquo;drive&rdquo;；</p></li>
+
+<li><p>算法不同： Stemming 采用固定的算法进行缩减，如去除 &ldquo;s&rdquo; ，去除 &ldquo;ing&rdquo; 加 &ldquo;e&rdquo; ，&rdquo;ational&rdquo; 变为 &ldquo;ate&rdquo; ， &ldquo;tional&rdquo; 变为 &ldquo;tion&rdquo; ； Lemmatization 采用保存某种字典的方式做这种转变，如字典中有 &ldquo;driving&rdquo; 到 &ldquo;drive&rdquo; ， &ldquo;drove&rdquo; 到 &ldquo;drive&rdquo; ， &ldquo;am, is, are&rdquo; 到 &ldquo;be&rdquo; 的映射，转变时只需查找字典即可。</p></li>
+</ul>
+
+<p>（3）Stemming 和 Lemmatization 不是互斥的，它们也有交集，有些词利用这两种方式都能达到相同的转换效果，如 &ldquo;driving&rdquo; 到 &ldquo;drive&rdquo; 。</p>
+
+<p>语言处理组件对词元进行处理，产生的结果称为<strong>词（Term）</strong>。</p>
+
+<p>上面的词元经过处理后，得到的词如下：</p>
+
+<p>student, allow, go, their, friend, allow, drink, beer, my, friend, jerry, go, school, see, his, student, find, them, drink, allow.</p>
+
+<h3 id="第四步-索引">第四步：索引</h3>
+
+<p><strong>（1）创建字典</strong></p>
+
+<p>由前面的步骤我们已经将原文档转换成一个个的词，接下来可利用这些词创建字典。</p>
+
+<p>字典记录的是每个词对应的文档 ID 。</p>
+
+<p><img src="https://raw.githubusercontent.com/HauyuChen/PicsBox/master/zidian-1.PNG" alt="" /></p>
+
+<p><strong>（2）字典排序</strong></p>
+
+<p>根据字母顺序对字典进行排序。</p>
+
+<p><img src="https://raw.githubusercontent.com/HauyuChen/PicsBox/master/zidian-2.PNG" alt="" /></p>
+
+<p><strong>（3）合并相同的词（Term）成为文档倒排链表（Posting List）</strong></p>
+
+<p><img src="https://raw.githubusercontent.com/HauyuChen/PicsBox/master/fullsearch.png" alt="" /></p>
+
+<ul>
+<li><strong>文档频次（Document Frequency）</strong>：表示总共有多少文档包含该词；</li>
+<li><strong>词频（Frequency）</strong>：表示对应的文档中包含了多少个该词。</li>
+</ul>
+
+<p>在这个例子中，对于 &ldquo;allow&rdquo; 来说，它的 Document Frequency 为 2 ，表示共有两篇文档包含此词。词后面的文档链表总共有两项，第一项表示包含 &ldquo;allow&rdquo; 的第一个文档（ Document ID 为 1 ），此文档中 &ldquo;allow&rdquo; 出现了 2 次（ Frequency 为 2 ）；第二项表示包含 &ldquo;allow&rdquo; 的第二个文档（ Document ID 为 2 ），此文档中 &ldquo;allow&rdquo; 出现了 1 次（ Frequency 为 1 ）。</p>
+
+<p>到此为止，我们已经完成了索引的创建，也就是我们可以通过索引快速地找到我们想要的文档了。值得注意的是，假定输入的是 &ldquo;driving&rdquo; ，输入的查询语句同样需要经过语言处理，转换成 &ldquo;drive&rdquo;。因为前面我们已经通过语言处理将 &ldquo;driving&rdquo; , &ldquo;drove&rdquo; , &ldquo;driven&rdquo; 变成 &ldquo;drive&rdquo;，所以搜索 &ldquo;drive&rdquo; , &ldquo;driving&rdquo;,&ldquo;drove&rdquo; , &ldquo;driven&rdquo; 也能搜到结果。</p>
+
+<h1 id="4-2-如何对索引进行搜索">4.2 如何对索引进行搜索？</h1>
+
+<p>经过前面的步骤，我们已经对数据建立了索引。那么，如何根据索引搜索数据呢？搜索的步骤大体如下：</p>
+
+<p><strong>第一步：用户输入查询语句</strong></p>
+
+<p>不同的查询语句可以有不同的语法，比如 SQL 语句就有其特定的语法。
+现在，我们假设用户输入语句如下：</p>
+
+<blockquote>
+<p>“lucene <strong>AND</strong> learned <strong>NOT</strong> hadoop”</p>
+</blockquote>
+
+<p>假设这个语句表明用户想找一个包含 lucene 和 learned ，但不包含 hadoop 的文档。</p>
+
+<p><strong>第二步：对查询语句进行词法分析、语法分析、语言处理</strong></p>
+
+<p>（1）<strong>词法分析</strong>主要用来识别普通词和关键字</p>
+
+<p>上述的例子经过词法分析后，得到普通词 lucene , learned , hadoop ，关键字 AND , NOT 。</p>
+
+<p>注：如果在词法分析中发现不合法的关键字，则会出现错误。比如，lucene AMD learned ，这里 AND 被输错成 AMD ，将导致 AMD 作为一个普通词参与查询。</p>
+
+<p>（2）<strong>语法分析</strong>主要根据查询语句的语法规则形成一棵语法树</p>
+
+<p>上述例子，“lucene AND learned NOT hadoop” 形成的语法树如下：</p>
+
+<p>注：如果发现查询语句不满足语法规则，则会报错，如 lucene NOT AND learned ，报错。</p>
+
+<p><img src="https://raw.githubusercontent.com/HauyuChen/PicsBox/master/fullsearch-03.png" alt="" /></p>
+
+<p>（3）<strong>语言处理</strong>同索引过程中的语言处理一致</p>
+
+<p>比如， learned 转换成 learn 。经过这一步，我们得到一棵经过语言处理的语法树。</p>
+
+<p><img src="https://raw.githubusercontent.com/HauyuChen/PicsBox/master/fullsearch-04.png" alt="" /></p>
+
+<p><strong>第三步：搜索索引，得到符合语法树的文档</strong></p>
+
+<p>（1）在反向索引表中，分别找出包含 lucene 、learn 、hadoop 的文档链表；<br />
+（2）对包含 lucene 、learn 的链表进行合并，得到既包含 lucene 又包含 learn 的文档链表（lucene AND learned）；<br />
+（3）将此链表与 hadoop 的文档链表进行差操作，去除包含 hadoop 的文档，从而得到既包含 lucene 又包含 learn ，但不包含 hadoop 的文档链表（lucene AND learned NOT hadoop），此文档链表即为我们要找的文档。</p>
+
+<p><strong>第四步：相关性排序</strong></p>
+
+<p>在上一步，我们已经获得了想要的文档。对于查询结果，我们还可以按照与查询语句的相关性进行排序，越相关者排名越靠前。那么，如何计算文档和查询语句的相关性呢？
+我们可以把查询语句看作一个短小的文档，对文档与文档之间的相关性进行打分，分数高的排在前面。因此，问题转化为如何对文档之间的相关性进行打分。</p>
+
+<p>在此之前，我们先看看如何判断人与人之间的关系。</p>
+
+<ul>
+<li>首先，一个人往往有很多要素，如性格、信仰、爱好、衣着、高矮、胖瘦等。</li>
+<li>其次，对于人与人之间的关系，不同要素的重要性不同。比如，性格、信仰、爱好可能重要些，衣着、高矮、胖瘦可能不那么重要。所以，具有相同或相似性格、信仰、爱好的人比较容易成为好朋友，而衣着、高矮、胖瘦不同的人也可以成为好朋友。</li>
+<li>因此，判断人与人之间的关系，首先要找出哪些要素对人与人之间的关系最重要，如性格、信仰、爱好，其次判断两个人的这些要素之间的关系，如一个人性格开朗，另一个人性格外向；一个人信仰佛教，另一个信仰上帝；一个人爱好打篮球，另一个爱好踢足球。我们可以认为，两个人在性格方面都很积极，信仰方面都很善良，爱好方面都偏运动，因而推测这两个人的关系会比较好。</li>
+</ul>
+
+<p>再看看公司与公司之间的关系。</p>
+
+<ul>
+<li>首先，一家公司由很多人组成，如总经理、经理、首席技术官、普通员工、保安、门卫等。</li>
+<li>其次，对于公司与公司之间的关系，不同的人的重要性不同。总经理、经理、首席技术官的作用更重要一些，普通员工、保安、门口可能较为不重要。因为，如果两个公司的总经理、经理、首席技术官之间的关系比较好，两个公司比较容易有比较好的关系，而一位普通员工和另一公司的一位普通员工即使有血海深仇，也很难影响两家公司之间的关系。<br /></li>
+<li>因此，判断公司与公司之间的关系，首先要找出哪些人对公司与公司之间的关系更重要，如总经理、经理、首席技术官；其次判断这些人之间的关系，比如两家公司的总经理曾经是同学、经理是老乡、首席技术官曾是创业伙伴。我们可以认为，两家公司无论总经理、经理还是首席技术官关系都很好，两家公司的关系也会很好。</li>
+</ul>
+
+<p>在分析完上面的两种关系之后，我们应该知道如何判断两个文档之间的相关性了。</p>
+
+<ul>
+<li>首先，一个文档由很多词（term）组成，如 search , lucene , full-text , this , a , what 等。</li>
+<li>其次，对于文档之间的关系，不同的词（term）的重要性不同。比如对于本文，search , lucene , full-text 就相对重要一些，this , a , what 就相对不重要。所以，如果两篇文档都包含 search , lucene , fulltext ，这两篇文档的相关性好一些，然而就算一篇文档包含 this ,  a , what ，另一篇文档不包含 this , a , what 也不影响两篇文档的相关性。</li>
+<li>因此，判断文档之间的关系，<strong>首先要找出哪些词对文档之间的关系最重要</strong>，如 search , lucene , fulltext ，<strong>其次判断这些词之间的关系</strong>。</li>
+</ul>
+
+<p>找出词对文档的重要性的过程称为计算<strong>词的权重</strong>。</p>
+
+<p>计算词的权重有两个参数，第一个是词，第二个是文档。</p>
+
+<p>词的权重表示此词在此文档中的重要程度，越重要的词有越大的权重，因而在计算文档之间的相关性中将发挥更大的作用。</p>
+
+<p><strong>（1）计算词的权重（文档中哪些词更重要）</strong></p>
+
+<p>影响一个词在一篇文档中的重要性主要有两个因素：</p>
+
+<ul>
+<li><strong>Term Frequency (tf)</strong>: 该词在此文档中出现了多少次，<strong>tf 越大说明越重要</strong>。</li>
+<li><strong>Document Frequency (df)</strong> : 多少文档包含该词，<strong>df 越大说明越不重要</strong>。</li>
+</ul>
+
+<p>也就是，<strong>词在一个文档中出现的次数越多，说明此词对该文档越重要</strong>。比如，“搜索”这个词在本文中出现的次数很多，说明本文档主要就是在讲这方面的东西。然而，在一篇英语文档中， this 出现的次数也很多，就说明越重要吗？显然不是。这就是第二因素的作用了。第二个因素说明，<strong>有越多的文档包含此词，说明此词太普通，不足以区分这些文档，因而重要性越低</strong>。</p>
+
+<p>道理明白了，我们来看看公式：</p>
+
+<p><img src="https://raw.githubusercontent.com/HauyuChen/PicsBox/master/fullsearch-05.png" alt="" /></p>
+
+<p>这是权重的计算公式，可见，<strong>权重与 tf 正相关，与 df 负相关</strong>。</p>
+
+<p>当然，该公式不是绝对的，比如 lucene 的权重计算方式就与此不同。</p>
+
+<p><strong>（2）计算文档的相关性</strong></p>
+
+<p>我们把文档看作一个个词（term)，每一个词都有一个权重，不同的词根据自己在文档中的权重来影响文档相关性的打分计算。</p>
+
+<p>通过<strong>向量空间模型算法(VSM)</strong>，我们把此文档所有词的权重看作一个向量。</p>
+
+<p>Document = {term1, term2, &hellip; , termN}</p>
+
+<p>Document Vector = {weight1, weight2, &hellip; , weightN}</p>
+
+<p>同样，查询语句也可以看作是一个简单的文档，也可以用向量表示。</p>
+
+<p>Query = {term1, term2, &hellip; , termN}</p>
+
+<p>Query Vector = {weight1, weight2, &hellip; , weightN}</p>
+
+<p>我们把所有搜索出的文档向量及查询向量放到一个N维空间中，每个词是一维的。如图：</p>
+
+<p><img src="https://raw.githubusercontent.com/HauyuChen/PicsBox/master/fullsearch-06.png" alt="" /></p>
+
+<p>两个向量之间的夹角越小，相关性越大。</p>
+
+<p>所以，<strong>计算夹角的余弦值作为相关性的打分，夹角越小，余弦值越大，打分越高，相关性越大</strong>。</p>
+
+<p>注；查询语句一般相对较短，查询向量的维数很小，而文档包含的词很多，文档向量的维数很大。既然要放到相同的向量空间，维数应该是相同的。当维数不同时，取两者的<strong>并集</strong>，如果不包含某个词时，则权重为 0 。</p>
+
+<p>相关性打分公式如下：</p>
+
+<p><img src="https://raw.githubusercontent.com/HauyuChen/PicsBox/master/fullsearch-07.png" alt="" /></p>
+
+<p>举个例子：</p>
+
+<p>查询语句有 11 个词（term） ，共有 3 个文档被搜索出来，其各自的权重如下：</p>
+
+<p><img src="https://raw.githubusercontent.com/HauyuChen/PicsBox/master/fullsearch-08.png" alt="" /></p>
+
+<p>注： D1、D2、D3 表示 3 个不同的文档， Q 表示查询语句， t1 到 t11 表示文档中不同的词。</p>
+
+<p>于是，3 个文档与查询语句的相关性打分为：</p>
+
+<p><img src="https://raw.githubusercontent.com/HauyuChen/PicsBox/master/fullsearch-09.png" alt="" /></p>
+
+<p>可见，文档二（D2）的相关性最高，排在最前，其次是文档一（D1），最后是文档三（D3）。</p>
+
+<p>到此为止，我们已经可以找到我们想要的文档，并根据相关性进行优先排序了。</p>
+
+<p><br/></p>
+
+<h1 id="5-总结">5 总结</h1>
+
+<p>全文检索的大体思路如下图：</p>
+
+<p><img src="https://raw.githubusercontent.com/HauyuChen/PicsBox/master/fullsearch-10.png" alt="" /></p>
+
+<p><strong>索引过程（红色箭头）：</strong></p>
+
+<p>（1）有一系列需要被索引的<strong>原文档</strong>；<br />
+（2）原文档经过词法分析、语法分析和语言处理形成一系列的<strong>词</strong>；<br />
+（3）经过索引创建形成<strong>词典</strong>和<strong>反向索引链表</strong>；<br />
+（4）将索引写入硬盘。</p>
+
+<p><strong>搜索过程（蓝色箭头）：</strong></p>
+
+<p>（1）用户输入查询语句；<br />
+（2）对查询语句经过词法分析、语法分析和语言处理得到一系列的词；<br />
+（3）转化成得到一个查询语法树；<br />
+（4）将索引读入到内存；<br />
+（5）利用查询语法树搜索索引，从而得到每个词的文档链表，对文档链表进行交差并，得到<strong>结果文档</strong>；<br />
+（6）对结果文档进行<strong>相关性排序</strong>；<br />
+（7）返回查询结果给用户。</p>
+
+<p><strong>小结：</strong></p>
+
+<ul>
+<li>数据可分为结构化数据和非结构化数据；</li>
+<li>全文检索主要是针对非结构化数据进行搜索，其核心是索引；</li>
+<li>索引完成对非结构化数据的结构化，通过分词、处理词元、创建字典等步骤形成词到文档的映射关系；</li>
+<li>索引可加快搜索速度，但需要额外的创建索引的时间和空间开销，但一次索引，多次搜索；</li>
+<li>相关性打分取决于词的权重和词之间的关系。一个词在一个文档中出现的次数越多说明该词越重要，包含一个词的文档数量越多说明该词越不重要；</li>
+</ul>
+
+<p><br/></p>
+
+
+  
+<div class="prev-next-post pure-g">
+  <div class="pure-u-1-24" style="text-align: left;">
+    
+    <a href="https://HauyuChen.github.io/post/292-nim-game/"><i class="fa fa-chevron-left"></i></a>
+    
+  </div>
+  <div class="pure-u-10-24">
+    
+    <nav class="prev">
+      <a href="https://HauyuChen.github.io/post/292-nim-game/">【LeetCode】292. Nim Game</a>
+    </nav>
+    
+  </div>
+  <div class="pure-u-2-24">
+    &nbsp;
+  </div>
+  <div class="pure-u-10-24">
+    
+  </div>
+  <div class="pure-u-1-24" style="text-align: right;">
+    
+  </div>
+</div>
+
+
+
+  
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+
+(function() {
+    
+    
+    if (window.location.hostname == "localhost")
+        return;
+
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    var disqus_shortname = "http-hov-space";
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com/" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+</div>
+
+</div>
+</div>
+<script src="https://HauyuChen.github.io/js/ui.js"></script>
+
+
+
+
+
+
+</body>
+</html>
+

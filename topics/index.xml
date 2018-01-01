@@ -33,7 +33,7 @@
     <item>
       <title>Elasticsearch</title>
       <link>https://HauyuChen.github.io/topics/elasticsearch/</link>
-      <pubDate>Sat, 09 Sep 2017 00:00:00 +0000</pubDate>
+      <pubDate>Mon, 01 Jan 2018 00:00:00 +0000</pubDate>
       
       <guid>https://HauyuChen.github.io/topics/elasticsearch/</guid>
       <description></description>
@@ -94,6 +94,15 @@
     </item>
     
     <item>
+      <title>Lucene</title>
+      <link>https://HauyuChen.github.io/topics/lucene/</link>
+      <pubDate>Mon, 01 Jan 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://HauyuChen.github.io/topics/lucene/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Xml</title>
       <link>https://HauyuChen.github.io/topics/xml/</link>
       <pubDate>Tue, 01 Aug 2017 00:00:00 +0000</pubDate>
@@ -130,6 +139,15 @@
     </item>
     
     <item>
+      <title>全文检索</title>
+      <link>https://HauyuChen.github.io/topics/%E5%85%A8%E6%96%87%E6%A3%80%E7%B4%A2/</link>
+      <pubDate>Mon, 01 Jan 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://HauyuChen.github.io/topics/%E5%85%A8%E6%96%87%E6%A3%80%E7%B4%A2/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>共享内存</title>
       <link>https://HauyuChen.github.io/topics/%E5%85%B1%E4%BA%AB%E5%86%85%E5%AD%98/</link>
       <pubDate>Wed, 06 Sep 2017 00:00:00 +0000</pubDate>
@@ -159,7 +177,7 @@
     <item>
       <title>基础</title>
       <link>https://HauyuChen.github.io/topics/%E5%9F%BA%E7%A1%80/</link>
-      <pubDate>Thu, 05 Oct 2017 00:00:00 +0000</pubDate>
+      <pubDate>Mon, 01 Jan 2018 00:00:00 +0000</pubDate>
       
       <guid>https://HauyuChen.github.io/topics/%E5%9F%BA%E7%A1%80/</guid>
       <description></description>
