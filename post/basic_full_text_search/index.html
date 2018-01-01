@@ -328,7 +328,7 @@
 
 <p>下图为 Lucene 的检索原理，这其实也是全文检索的基本思路。通过对元数据建立索引信息，然后根据索引信息搜索数据。</p>
 
-<p><img src="https://raw.githubusercontent.com/HauyuChen/PicsBox/master/LuceneSearch.png" width="60%" /></p>
+<p><img src="https://raw.githubusercontent.com/HauyuChen/PicsBox/master/LuceneSearch.png" width="100%" /></p>
 
 <p><br/></p>
 
@@ -340,7 +340,7 @@
 
 <p>假设有 100 个文档，为了方便表示，我们将文档从 1 到 100 编号。下图为一个索引，它存放了某个字符串到文档的映射关系（哪些文档包含该字符串）。</p>
 
-<p><img src="https://raw.githubusercontent.com/HauyuChen/PicsBox/master/fullsearch-01.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HauyuChen/PicsBox/master/fullsearch-01.png" width="100%" /></p>
 
 <p>图的左边是字符串（lucene、solr、hadoop），称为<strong>词典</strong>；图的右边是包含某个字符串的文档链表，该文档链表称为<strong>倒排表</strong>。</p>
 
@@ -352,7 +352,7 @@
 <li>通过合并链表，找到既包含字符串 “lucene” 又包含字符串 “solr” 的文档。</li>
 </ol>
 
-<p><img src="https://raw.githubusercontent.com/HauyuChen/PicsBox/master/fullsearch-02.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HauyuChen/PicsBox/master/fullsearch-02.png" width="100%" /></p>
 
 <p>值得注意的是，虽然索引加快了搜索的速度，但需要额外的创建索引的时间开销（事实上还有额外的空间开销），因此全文检索不一定比顺序扫描好，尤其是数据量比较小的情况。全文检索适用于数据量比较大的情况，虽然对大量的数据建立索引是很耗时的，但一次创建索引后可多次搜索，并不需要每次搜索都要创建索引。也就是，<strong>一次索引，多次搜索</strong>。</p>
 
@@ -436,17 +436,17 @@
 
 <p>字典记录的是每个词对应的文档 ID 。</p>
 
-<p><img src="https://raw.githubusercontent.com/HauyuChen/PicsBox/master/zidian-1.PNG" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HauyuChen/PicsBox/master/zidian-1.PNG" width="100%" /></p>
 
 <p><strong>（2）字典排序</strong></p>
 
 <p>根据字母顺序对字典进行排序。</p>
 
-<p><img src="https://raw.githubusercontent.com/HauyuChen/PicsBox/master/zidian-2.PNG" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HauyuChen/PicsBox/master/zidian-2.PNG" width="100%" /></p>
 
 <p><strong>（3）合并相同的词（Term）成为文档倒排链表（Posting List）</strong></p>
 
-<p><img src="https://raw.githubusercontent.com/HauyuChen/PicsBox/master/fullsearch.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HauyuChen/PicsBox/master/fullsearch.png" width="100%" /></p>
 
 <ul>
 <li><strong>文档频次（Document Frequency）</strong>：表示总共有多少文档包含该词；</li>
@@ -486,13 +486,13 @@
 
 <p>注：如果发现查询语句不满足语法规则，则会报错，如 lucene NOT AND learned ，报错。</p>
 
-<p><img src="https://raw.githubusercontent.com/HauyuChen/PicsBox/master/fullsearch-03.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HauyuChen/PicsBox/master/fullsearch-03.png" width="100%" /></p>
 
 <p>（3）<strong>语言处理</strong>同索引过程中的语言处理一致</p>
 
 <p>比如， learned 转换成 learn 。经过这一步，我们得到一棵经过语言处理的语法树。</p>
 
-<p><img src="https://raw.githubusercontent.com/HauyuChen/PicsBox/master/fullsearch-04.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HauyuChen/PicsBox/master/fullsearch-04.png" width="100%" /></p>
 
 <p><strong>第三步：搜索索引，得到符合语法树的文档</strong></p>
 
@@ -548,7 +548,7 @@
 
 <p>道理明白了，我们来看看公式：</p>
 
-<p><img src="https://raw.githubusercontent.com/HauyuChen/PicsBox/master/fullsearch-05.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HauyuChen/PicsBox/master/fullsearch-05.png" width="100%" /></p>
 
 <p>这是权重的计算公式，可见，<strong>权重与 tf 正相关，与 df 负相关</strong>。</p>
 
@@ -572,7 +572,7 @@
 
 <p>我们把所有搜索出的文档向量及查询向量放到一个N维空间中，每个词是一维的。如图：</p>
 
-<p><img src="https://raw.githubusercontent.com/HauyuChen/PicsBox/master/fullsearch-06.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HauyuChen/PicsBox/master/fullsearch-06.png" width="100%" /></p>
 
 <p>两个向量之间的夹角越小，相关性越大。</p>
 
@@ -582,19 +582,19 @@
 
 <p>相关性打分公式如下：</p>
 
-<p><img src="https://raw.githubusercontent.com/HauyuChen/PicsBox/master/fullsearch-07.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HauyuChen/PicsBox/master/fullsearch-07.png" width="100%" /></p>
 
 <p>举个例子：</p>
 
 <p>查询语句有 11 个词（term） ，共有 3 个文档被搜索出来，其各自的权重如下：</p>
 
-<p><img src="https://raw.githubusercontent.com/HauyuChen/PicsBox/master/fullsearch-08.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HauyuChen/PicsBox/master/fullsearch-08.png" width="100%" /></p>
 
 <p>注： D1、D2、D3 表示 3 个不同的文档， Q 表示查询语句， t1 到 t11 表示文档中不同的词。</p>
 
 <p>于是，3 个文档与查询语句的相关性打分为：</p>
 
-<p><img src="https://raw.githubusercontent.com/HauyuChen/PicsBox/master/fullsearch-09.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HauyuChen/PicsBox/master/fullsearch-09.png" width="100%" /></p>
 
 <p>可见，文档二（D2）的相关性最高，排在最前，其次是文档一（D1），最后是文档三（D3）。</p>
 
@@ -606,7 +606,7 @@
 
 <p>全文检索的大体思路如下图：</p>
 
-<p><img src="https://raw.githubusercontent.com/HauyuChen/PicsBox/master/fullsearch-10.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HauyuChen/PicsBox/master/fullsearch-10.png" width="100%" /></p>
 
 <p><strong>索引过程（红色箭头）：</strong></p>
 
