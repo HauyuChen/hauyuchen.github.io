@@ -282,7 +282,7 @@
   <p>
   作者注：最近，实验室有一个关于大数据全文检索的项目，主要架构采用了 Elasticsearch + Lucene ，并修改了部分源码，通过后缀数组代替 Lucene 原有的索引方式。因此，接触了一些全文检索相关的内容。偶然的机会，我在网络上看到 forfuture1978 关于 Lucene 的文章，觉得很受启发，深感有必要记录下来。我相信，本文也能很好地帮助您理解全文检索。本文部分内容出自 Lucene 原理与代码分析 ，感谢原作者的贡献。
 
-0 写在前面 大数据时代，人们开始思考数据的价值。在此之前，我们将数据存放在传统的关系型数据库（一个个数据表，由行列组成，格式固定），关系型数据库存储的是结构化数据，我们无法“用活”这些数据。事实上，绝大多数的数据都是以非结构化数据的形式存在的，比如邮件、图像、视频等等。这些大量的非结构化数据的价值是巨大的，但在关系型数据库下显然不好处理。
+0 写在前面 大数据时代，人们愈加重视数据的价值。在此之前，我们将数据存放在传统的关系型数据库（一个个数据表，由行列组成，格式固定），关系型数据库存储的是结构化数据，我们无法“用活”这些数据。事实上，绝大多数的数据都是以非结构化数据的形式存在的，比如邮件、图像、视频等等。这些大量的非结构化数据的价值是巨大的，但在关系型数据库下显然不好处理。
 全文检索提供了对非结构化数据的信息搜索，使我们获得了处理这些数据的能力，我们可以在此基础上进一步提取这些数据的价值。
 
 1 预备知识 1.1 数据分类 我们平时所说的数据，可分为结构化数据、半结构化数据和非结构化数据。
@@ -311,7 +311,7 @@
   
     <article>
   <header>
-    <h2><a href="https://HauyuChen.github.io/post/0java-io/">谈谈 Java IO</a></h2>
+    <h2><a href="https://HauyuChen.github.io/post/java_io/">谈谈 Java IO</a></h2>
 
     <div class="post-meta">
 
@@ -328,7 +328,9 @@
   <div>
     <i class="fa fa-folder fa-fw"></i>
     
-      <a class="post-taxonomy-tag" href="https://HauyuChen.github.io/tags/java">Java</a>
+      <a class="post-taxonomy-tag" href="https://HauyuChen.github.io/tags/java">Java</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-tag" href="https://HauyuChen.github.io/tags/%E5%9F%BA%E7%A1%80">基础</a>
     
   </div>
   
@@ -373,7 +375,7 @@
 
   
   <footer>
-    <a href="https://HauyuChen.github.io/post/0java-io/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
+    <a href="https://HauyuChen.github.io/post/java_io/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
   </footer>
   
 </article>
@@ -381,7 +383,7 @@
   
     <article>
   <header>
-    <h2><a href="https://HauyuChen.github.io/post/java-%E5%90%91%E4%B8%8A%E8%BD%AC%E5%9E%8B%E5%90%91%E4%B8%8B%E8%BD%AC%E5%9E%8B/">谈谈向上转型、向下转型</a></h2>
+    <h2><a href="https://HauyuChen.github.io/post/java_-polymorphism_1/">谈谈向上转型、向下转型</a></h2>
 
     <div class="post-meta">
 
@@ -398,7 +400,9 @@
   <div>
     <i class="fa fa-folder fa-fw"></i>
     
-      <a class="post-taxonomy-tag" href="https://HauyuChen.github.io/tags/java">Java</a>
+      <a class="post-taxonomy-tag" href="https://HauyuChen.github.io/tags/java">Java</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-tag" href="https://HauyuChen.github.io/tags/%E5%9F%BA%E7%A1%80">基础</a>
     
   </div>
   
@@ -444,7 +448,7 @@ Fruit apple = new Apple(); //向上转型  向上转型是对父类对象的方�
 
   
   <footer>
-    <a href="https://HauyuChen.github.io/post/java-%E5%90%91%E4%B8%8A%E8%BD%AC%E5%9E%8B%E5%90%91%E4%B8%8B%E8%BD%AC%E5%9E%8B/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
+    <a href="https://HauyuChen.github.io/post/java_-polymorphism_1/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
   </footer>
   
 </article>
@@ -452,7 +456,7 @@ Fruit apple = new Apple(); //向上转型  向上转型是对父类对象的方�
   
     <article>
   <header>
-    <h2><a href="https://HauyuChen.github.io/post/java-string/">String相关特性</a></h2>
+    <h2><a href="https://HauyuChen.github.io/post/java_string/">String相关特性</a></h2>
 
     <div class="post-meta">
 
@@ -469,7 +473,9 @@ Fruit apple = new Apple(); //向上转型  向上转型是对父类对象的方�
   <div>
     <i class="fa fa-folder fa-fw"></i>
     
-      <a class="post-taxonomy-tag" href="https://HauyuChen.github.io/tags/java">Java</a>
+      <a class="post-taxonomy-tag" href="https://HauyuChen.github.io/tags/java">Java</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-tag" href="https://HauyuChen.github.io/tags/%E5%9F%BA%E7%A1%80">基础</a>
     
   </div>
   
@@ -513,7 +519,7 @@ String str1 = &quot;hello&quot;; String str2 = new String(&quot;hello&quot;); Sy
 
   
   <footer>
-    <a href="https://HauyuChen.github.io/post/java-string/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
+    <a href="https://HauyuChen.github.io/post/java_string/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
   </footer>
   
 </article>
@@ -521,7 +527,7 @@ String str1 = &quot;hello&quot;; String str2 = new String(&quot;hello&quot;); Sy
   
     <article>
   <header>
-    <h2><a href="https://HauyuChen.github.io/post/java-%E6%8A%BD%E8%B1%A1%E7%B1%BB%E4%B8%8E%E6%8E%A5%E5%8F%A3/">抽象类与接口的区别</a></h2>
+    <h2><a href="https://HauyuChen.github.io/post/java_abstractclass_interface/">抽象类与接口的区别</a></h2>
 
     <div class="post-meta">
 
@@ -538,7 +544,9 @@ String str1 = &quot;hello&quot;; String str2 = new String(&quot;hello&quot;); Sy
   <div>
     <i class="fa fa-folder fa-fw"></i>
     
-      <a class="post-taxonomy-tag" href="https://HauyuChen.github.io/tags/java">Java</a>
+      <a class="post-taxonomy-tag" href="https://HauyuChen.github.io/tags/java">Java</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-tag" href="https://HauyuChen.github.io/tags/%E5%9F%BA%E7%A1%80">基础</a>
     
   </div>
   
@@ -578,7 +586,7 @@ GreenHeadDuck 继承自抽象类 Duck ，所以它必须重写抽象类 Duck 的
 
   
   <footer>
-    <a href="https://HauyuChen.github.io/post/java-%E6%8A%BD%E8%B1%A1%E7%B1%BB%E4%B8%8E%E6%8E%A5%E5%8F%A3/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
+    <a href="https://HauyuChen.github.io/post/java_abstractclass_interface/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
   </footer>
   
 </article>
@@ -586,7 +594,7 @@ GreenHeadDuck 继承自抽象类 Duck ，所以它必须重写抽象类 Duck 的
   
     <article>
   <header>
-    <h2><a href="https://HauyuChen.github.io/post/%E5%B9%B6%E5%8F%91%E6%8E%A7%E5%88%B6%E6%82%B2%E8%A7%82%E9%94%81%E4%B9%90%E8%A7%82%E9%94%81/">并发控制（乐观锁、悲观锁）</a></h2>
+    <h2><a href="https://HauyuChen.github.io/post/concurrence_pe_op/">并发控制（乐观锁、悲观锁）</a></h2>
 
     <div class="post-meta">
 
@@ -603,7 +611,9 @@ GreenHeadDuck 继承自抽象类 Duck ，所以它必须重写抽象类 Duck 的
   <div>
     <i class="fa fa-folder fa-fw"></i>
     
-      <a class="post-taxonomy-tag" href="https://HauyuChen.github.io/tags/%E6%95%B0%E6%8D%AE%E5%BA%93">数据库</a>
+      <a class="post-taxonomy-tag" href="https://HauyuChen.github.io/tags/%E6%95%B0%E6%8D%AE%E5%BA%93">数据库</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-tag" href="https://HauyuChen.github.io/tags/%E5%9F%BA%E7%A1%80">基础</a>
     
   </div>
   
@@ -641,7 +651,7 @@ GreenHeadDuck 继承自抽象类 Duck ，所以它必须重写抽象类 Duck 的
 
   
   <footer>
-    <a href="https://HauyuChen.github.io/post/%E5%B9%B6%E5%8F%91%E6%8E%A7%E5%88%B6%E6%82%B2%E8%A7%82%E9%94%81%E4%B9%90%E8%A7%82%E9%94%81/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
+    <a href="https://HauyuChen.github.io/post/concurrence_pe_op/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
   </footer>
   
 </article>
@@ -649,7 +659,7 @@ GreenHeadDuck 继承自抽象类 Duck ，所以它必须重写抽象类 Duck 的
   
     <article>
   <header>
-    <h2><a href="https://HauyuChen.github.io/post/%E9%87%8D%E5%86%99%E4%B8%8E%E9%87%8D%E8%BD%BD%E7%9A%84%E5%8C%BA%E5%88%AB/">重写、重载的区别</a></h2>
+    <h2><a href="https://HauyuChen.github.io/post/java_overload_override/">重写、重载的区别</a></h2>
 
     <div class="post-meta">
 
@@ -666,7 +676,9 @@ GreenHeadDuck 继承自抽象类 Duck ，所以它必须重写抽象类 Duck 的
   <div>
     <i class="fa fa-folder fa-fw"></i>
     
-      <a class="post-taxonomy-tag" href="https://HauyuChen.github.io/tags/java">Java</a>
+      <a class="post-taxonomy-tag" href="https://HauyuChen.github.io/tags/java">Java</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-tag" href="https://HauyuChen.github.io/tags/%E5%9F%BA%E7%A1%80">基础</a>
     
   </div>
   
@@ -709,7 +721,7 @@ GreenHeadDuck 继承自抽象类 Duck ，所以它必须重写抽象类 Duck 的
   
     <article>
   <header>
-    <h2><a href="https://HauyuChen.github.io/post/java-trap/">Java相关特性</a></h2>
+    <h2><a href="https://HauyuChen.github.io/post/java_trap/">Java相关特性</a></h2>
 
     <div class="post-meta">
 
@@ -726,7 +738,9 @@ GreenHeadDuck 继承自抽象类 Duck ，所以它必须重写抽象类 Duck 的
   <div>
     <i class="fa fa-folder fa-fw"></i>
     
-      <a class="post-taxonomy-tag" href="https://HauyuChen.github.io/tags/java">Java</a>
+      <a class="post-taxonomy-tag" href="https://HauyuChen.github.io/tags/java">Java</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-tag" href="https://HauyuChen.github.io/tags/%E5%9F%BA%E7%A1%80">基础</a>
     
   </div>
   
@@ -764,7 +778,7 @@ GreenHeadDuck 继承自抽象类 Duck ，所以它必须重写抽象类 Duck 的
   
     <article>
   <header>
-    <h2><a href="https://HauyuChen.github.io/post/sql%E4%BC%98%E5%8C%96/">SQL优化</a></h2>
+    <h2><a href="https://HauyuChen.github.io/post/sql_optimization/">SQL优化</a></h2>
 
     <div class="post-meta">
 
@@ -817,7 +831,7 @@ GreenHeadDuck 继承自抽象类 Duck ，所以它必须重写抽象类 Duck 的
   
     <article>
   <header>
-    <h2><a href="https://HauyuChen.github.io/post/java-%E5%85%B3%E9%94%AE%E5%AD%97thissuperstaticfinal/">Java关键字this、super、static、final</a></h2>
+    <h2><a href="https://HauyuChen.github.io/post/java_thissuperstaticfinal/">Java关键字this、super、static、final</a></h2>
 
     <div class="post-meta">
 
@@ -834,7 +848,9 @@ GreenHeadDuck 继承自抽象类 Duck ，所以它必须重写抽象类 Duck 的
   <div>
     <i class="fa fa-folder fa-fw"></i>
     
-      <a class="post-taxonomy-tag" href="https://HauyuChen.github.io/tags/java">Java</a>
+      <a class="post-taxonomy-tag" href="https://HauyuChen.github.io/tags/java">Java</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-tag" href="https://HauyuChen.github.io/tags/%E5%9F%BA%E7%A1%80">基础</a>
     
   </div>
   

@@ -14,10 +14,10 @@
     
     <item>
       <title>谈谈 Java IO</title>
-      <link>https://HauyuChen.github.io/post/0java-io/</link>
+      <link>https://HauyuChen.github.io/post/java_io/</link>
       <pubDate>Thu, 05 Oct 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://HauyuChen.github.io/post/0java-io/</guid>
+      <guid>https://HauyuChen.github.io/post/java_io/</guid>
       <description>版权声明：本文由 Hov 所有，发布于 http://chenhy.com ，转载请注明出处。
 
 0 写在前面 IO 操作是任何编程语言都无法回避的问题，因为 IO 操作是机器获取和交换信息的主要途径。 Java 的 IO 是以流为基础进行输入输出的，所有的数据被串行化写入输出流或从输入流读入。 java.io 提供了全面的 IO 接口，包括文件读写、标准设备输出等。

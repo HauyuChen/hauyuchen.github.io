@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="generator" content="Hugo 0.24.1" />
+
+  <title>抽象类与接口的区别 &middot; Hov&#39;s Blog</title>
+
+  <script>
+	var _hmt = _hmt || [];
+	(function() {
+	  var hm = document.createElement("script");
+	  hm.src = "https://hm.baidu.com/hm.js?dd096f3aba9332e2640cda59d3786695";
+	  var s = document.getElementsByTagName("script")[0]; 
+	  s.parentNode.insertBefore(hm, s);
+	})();
+	</script>	
+  
+  
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/0.6.2/pure-min.css">
+
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/0.6.2/grids-responsive-old-ie-min.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/0.6.2/grids-responsive-min.css">
+  <!--<![endif]-->
+
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="https://HauyuChen.github.io/css/side-menu-old-ie.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="https://HauyuChen.github.io/css/side-menu.css">
+  <!--<![endif]-->
+
+  <link rel="stylesheet" href="https://HauyuChen.github.io/css/blackburn.css">
+
+  
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  
+  <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet" type="text/css">
+
+  
+  
+
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/styles/androidstudio.min.css">
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  
+
+  <link rel="shortcut icon" href="https://HauyuChen.github.io/img/favicon.ico" type="image/x-icon" />
+
+  
+  
+
+
+</head>
+
+
+<body>
+
+<div id="layout">
+
+  
+<a href="#menu" id="menuLink" class="menu-link">
+  
+  <span></span>
+</a>
+<div id="menu">
+
+  <a class="pure-menu-heading brand" href="https://HauyuChen.github.io/">
+  <img src="https://HauyuChen.github.io/img/Hov.jpg" width="125px">
+</a>
+
+  <div class="pure-menu">
+    <ul class="pure-menu-list">
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="https://HauyuChen.github.io/"><i class='fa fa-home fa-fw'></i>主页</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="https://HauyuChen.github.io/post/"><i class='fa fa-list fa-fw'></i>所有文章</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="https://HauyuChen.github.io/tags/"><i class='fa fa-folder fa-fw'></i>文章分类</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="https://HauyuChen.github.io/topics/"><i class='fa fa-tags fa-fw'></i>关键词</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="https://HauyuChen.github.io/about-me/"><i class='fa fa-user fa-fw'></i>关于我</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="https://HauyuChen.github.io/about-site/"><i class='fa fa-home fa-fw'></i>关于本站</a>
+      
+        </li>
+      
+    </ul>
+  </div>
+
+  <div class="pure-menu social">
+
+  <ul class="pure-menu-list">
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://github.com/HauyuChen" target="_blank"><i class="fa fa-github-square fa-fw"></i>GitHub</a>
+    </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+	</ul>
+	<ul class="pure-menu-list">
+	
+	<li class="pure-menu-item">
+      <a class="pure-menu-link" href="http://blog.csdn.net/u014134180" target="_blank"><i class="fa fa-lastfm-square fa-fw"></i>友链：Wu_Being</a>
+    </li>
+  </ul>
+  
+</div>
+
+
+  <div>
+
+
+</div>
+
+</div>
+
+
+  <div id="main">
+
+
+<div class="header">
+  <h1>抽象类与接口的区别</h1>
+  <h2></h2>
+</div>
+<div class="content">
+
+  <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>2017-09-13</time>
+  </div>
+
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-folder fa-fw"></i>
+    
+      <a class="post-taxonomy-tag" href="https://HauyuChen.github.io/tags/java">Java</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-tag" href="https://HauyuChen.github.io/tags/%E5%9F%BA%E7%A1%80">基础</a>
+    
+  </div>
+  
+  
+
+  
+  
+  
+  <div>
+	<i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/java">Java</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/%E5%9F%BA%E7%A1%80">基础</a>
+    
+  </div>
+  
+  
+  
+</div>
+
+  
+
+<hr />
+
+<p><br/></p>
+
+<h1 id="0-写在前面">0 写在前面</h1>
+
+<p>抽象类和接口有共同点，也有不同点。在实际应用中，我们有时会不知道什么时候用抽象类，什么时候用接口。因此，我们有必要了解抽象类和接口的相关知识以及它们之间的区别，这样以后在二者之间的选择将更有依据。</p>
+
+<p><br/></p>
+
+<h1 id="1-抽象类">1 抽象类</h1>
+
+<p>在面向对象中，我们通过类来描绘对象，但并不是所有的类都是用来描绘对象的。如果一个类中没有包含足够的信息来描绘一个具体的对象，这样的类就是抽象类。</p>
+
+<p>抽象类是实现多态的一种机制，抽象类可以包含具体方法，也可以包含抽象方法（由继承它的子类实现这些方法）。</p>
+
+<p><strong>抽象类的特性总结如下：</strong></p>
+
+<ol>
+<li>抽象类不能被实例化；</li>
+<li>抽象类可以有构造方法；</li>
+<li>抽象方法必须由其子类重写（Override）；</li>
+<li>只要包含有一个抽象方法的类，就必须定义为抽象类；</li>
+<li>抽象类可以包含有具体实现的方法，也可以不包含抽象方法；</li>
+<li>子类的抽象方法不能与父类的抽象方法重名；</li>
+<li>abstract 不能与 private 、 static 、 final 、 native 并列修饰同一个方法。</li>
+</ol>
+
+<p><strong>注：关于子类实例化时抽象类是否被实例化的问题</strong></p>
+
+<p>抽象类不能实例化，子类实例化时会初始化父类，因为子类继承了父类的变量、方法等，但初始化不等同于实例化。实例化是指用类创建对象，为对象开辟内存空间。</p>
+
+<p><strong>举个栗子：</strong></p>
+
+<p>Duck 是一个抽象类，里面包含构造方法、抽象方法、具体方法。</p>
+
+<p>GreenHeadDuck 继承自抽象类 Duck ，所以它必须重写抽象类 Duck 的抽象方法 display ，而具体方法 Quack 、 Swim 可以不重写。</p>
+
+<pre><code>/* Duck.java */
+
+public abstract class Duck{                 //抽象类Duck
+
+    public Duck(){                          //构造方法
+    
+    }
+
+    public abstract void display();         //抽象方法：外观
+    
+    public void Quack(){                    //具体方法：嘎嘎叫
+        System.out.println(&quot;--gaga--&quot;);
+    }
+
+    public void Swim(){                     //具体方法：游泳
+        System.out.println(&quot;--swimming--&quot;);
+    }
+
+}
+</code></pre>
+
+<pre><code>/* GreenHeadDuck.java */
+
+public class GreenHeadDuck extends Duck{    //GreenHeadDuck继承自抽象类Duck
+    @Override
+    public void display(){                  //重写父类的抽象方法
+        System.out.println(&quot;**GreenHeadDuck**&quot;);    //我是绿头鸭
+    }
+}
+</code></pre>
+
+<p><br/></p>
+
+<h1 id="2-接口">2 接口</h1>
+
+<p>接口是抽象类的延伸，不同于 C++ ， Java 是不允许类的多重继承的（即不能有多个父类），通过接口可以解决 Java 中的多继承问题。</p>
+
+<p>接口在 Java 中用关键字 interface 实现，注意接口并不是类，所以不能实例化。如果一个类实现了某个接口，那么它就继承了这个接口的抽象方法，而且必须实现接口的所有方法。接口更像是一种形式，接口本身不实现任何具体功能。</p>
+
+<p><strong>接口的特性总结如下：</strong></p>
+
+<ol>
+<li>接口不能有构造方法；</li>
+<li>接口的所有方法自动被声明为 public ，而且只能为 public ；如果使用 protected 、 private 将导致编译错误；</li>
+<li>接口可以定义“成员变量”，并自动转为 public final static ，即常量；</li>
+<li>Java 8 之前接口只能有抽象方法，Java 8 之后允许接口有非抽象方法实现，需要用 default 关键字，这种特征又叫做扩展方法；</li>
+<li>实现接口的非抽象类必须实现接口的所有方法，而抽象类不需要；</li>
+<li>不能实例化接口，但可以声明一个接口变量，它必须引用一个实现该接口的类的对象，可以使用 instanceOf 来判断一个类是否实现了某个接口，如:</li>
+</ol>
+
+<pre><code>if(object instanceOf ClassName){
+    doSth();
+}
+</code></pre>
+
+<p><strong>举个栗子：</strong></p>
+
+<p>Behavior 为我们定义的一个接口，里面没有构造方法，只有抽象方法，也没有具体实现的方法。</p>
+
+<p>类 FlyBehavior 实现了接口 Behavior ，所以它必须实现接口 Behavior 的所有方法，如方法 fly 。</p>
+
+<pre><code>/* FlyBehavior.java */
+
+public interface Behavior {      //接口Behavior
+    void fly();
+}
+</code></pre>
+
+<pre><code>public class FlyBehavior implements Behavior {   //FlyBehavior类实现接口Behavior
+
+    @Override
+    public void fly() {         //实现接口中的方法fly
+        System.out.println(&quot;--GoodFly--&quot;);  
+    }
+
+}
+</code></pre>
+
+<p><strong>注：Java 8 新特性：接口允许有非抽象方法。</strong></p>
+
+<pre><code>interface Formula {
+    double calculate(int a);
+
+    default double sqrt(int a) {
+        return Math.sqrt(a);
+    }
+}
+</code></pre>
+
+<p><br/></p>
+
+<h1 id="3-抽象类与接口的区别">3 抽象类与接口的区别</h1>
+
+<p>前面我们分别讲解了抽象类和接口的相关概念、特性，你会发现抽象类和接口还是有所区别的。</p>
+
+<p>抽象类表示一个类中可能已经有一些方法的具体定义，但可能一些方法还未具体定义，需要由其子类去定义；接口则仅仅定义各个方法的界面（方法名、参数列表、返回类型），并不关心方法的具体实现细节。</p>
+
+<p><strong>抽象类与接口的相似之处：</strong></p>
+
+<ol>
+<li>都不能实例化；</li>
+<li>包含未实现的方法声明（抽象方法）；</li>
+<li>派生类必须实现未实现的方法；</li>
+</ol>
+
+<p><strong>抽象类与接口的区别之处：</strong></p>
+
+<ol>
+<li>一个类可以实现无限个接口，但只能继承一个抽象类；</li>
+<li>抽象类可以存在非抽象方法，而接口不能存在非抽象方法；</li>
+<li>抽象类中的成员变量可被不同的修饰符来修饰，而接口中的成员变量默认为静态变量；</li>
+<li>抽象类是对象的抽象，而接口是一种行为规范。</li>
+</ol>
+
+<p><br/></p>
+
+<h1 id="4-抽象类与接口的选择">4 抽象类与接口的选择</h1>
+
+<ol>
+<li>如果想要实现多重继承，则必须选择接口。因为 Java 不支持类的多重继承。</li>
+<li>如果对某些方法需要其有默认实现，则选择抽象类；因为抽象类中可以包含非抽象方法。</li>
+<li>如果功能变动频繁，则选择抽象类。因为如果选择接口，一次改动可能需要改动所有实现了该接口的类。</li>
+</ol>
+
+<p><br/></p>
+
+<p><strong>参考资料：</strong></p>
+
+<ul>
+<li><p><a href="https://baike.baidu.com/item/%E6%8A%BD%E8%B1%A1%E7%B1%BB">百度百科：抽象类</a></p></li>
+
+<li><p><a href="http://www.jianshu.com/p/2b5a9bdcd25f">Java基础篇(一)：接口与抽象类</a></p></li>
+
+<li><p><a href="http://www.importnew.com/12399.html">Java抽象类与接口的区别</a></p></li>
+</ul>
+
+<p><br/></p>
+
+
+  
+<div class="prev-next-post pure-g">
+  <div class="pure-u-1-24" style="text-align: left;">
+    
+    <a href="https://HauyuChen.github.io/post/es-bulk/"><i class="fa fa-chevron-left"></i></a>
+    
+  </div>
+  <div class="pure-u-10-24">
+    
+    <nav class="prev">
+      <a href="https://HauyuChen.github.io/post/es-bulk/">Elasticsearch实现批量更新</a>
+    </nav>
+    
+  </div>
+  <div class="pure-u-2-24">
+    &nbsp;
+  </div>
+  <div class="pure-u-10-24">
+    
+    <nav class="next">
+      <a href="https://HauyuChen.github.io/post/java_string/">String相关特性</a>
+    </nav>
+    
+  </div>
+  <div class="pure-u-1-24" style="text-align: right;">
+    
+    <a href="https://HauyuChen.github.io/post/java_string/"><i class="fa fa-chevron-right"></i></a>
+    
+  </div>
+</div>
+
+
+
+  
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+
+(function() {
+    
+    
+    if (window.location.hostname == "localhost")
+        return;
+
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    var disqus_shortname = "http-hov-space";
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com/" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+</div>
+
+</div>
+</div>
+<script src="https://HauyuChen.github.io/js/ui.js"></script>
+
+
+
+
+
+
+</body>
+</html>
+

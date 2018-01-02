@@ -14,10 +14,10 @@
     
     <item>
       <title>谈谈 Java IO</title>
-      <link>https://HauyuChen.github.io/post/0java-io/</link>
+      <link>https://HauyuChen.github.io/post/java_io/</link>
       <pubDate>Thu, 05 Oct 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://HauyuChen.github.io/post/0java-io/</guid>
+      <guid>https://HauyuChen.github.io/post/java_io/</guid>
       <description>版权声明：本文由 Hov 所有，发布于 http://chenhy.com ，转载请注明出处。
 
 0 写在前面 IO 操作是任何编程语言都无法回避的问题，因为 IO 操作是机器获取和交换信息的主要途径。 Java 的 IO 是以流为基础进行输入输出的，所有的数据被串行化写入输出流或从输入流读入。 java.io 提供了全面的 IO 接口，包括文件读写、标准设备输出等。
@@ -36,10 +36,10 @@
     
     <item>
       <title>谈谈向上转型、向下转型</title>
-      <link>https://HauyuChen.github.io/post/java-%E5%90%91%E4%B8%8A%E8%BD%AC%E5%9E%8B%E5%90%91%E4%B8%8B%E8%BD%AC%E5%9E%8B/</link>
+      <link>https://HauyuChen.github.io/post/java_-polymorphism_1/</link>
       <pubDate>Wed, 20 Sep 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://HauyuChen.github.io/post/java-%E5%90%91%E4%B8%8A%E8%BD%AC%E5%9E%8B%E5%90%91%E4%B8%8B%E8%BD%AC%E5%9E%8B/</guid>
+      <guid>https://HauyuChen.github.io/post/java_-polymorphism_1/</guid>
       <description>版权声明：本文由 Hov 所有，发布于 http://chenhy.com ，转载请注明出处。
 更新说明：本文于 2017-10-01 修改部分内容。
 
@@ -59,10 +59,10 @@ Fruit apple = new Apple(); //向上转型  向上转型是对父类对象的方�
     
     <item>
       <title>【设计模式】4. 观察者模式</title>
-      <link>https://HauyuChen.github.io/post/dp-4-%E8%A7%82%E5%AF%9F%E8%80%85%E6%A8%A1%E5%BC%8F/</link>
+      <link>https://HauyuChen.github.io/post/dp_observer_pattern/</link>
       <pubDate>Sun, 17 Sep 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://HauyuChen.github.io/post/dp-4-%E8%A7%82%E5%AF%9F%E8%80%85%E6%A8%A1%E5%BC%8F/</guid>
+      <guid>https://HauyuChen.github.io/post/dp_observer_pattern/</guid>
       <description>版权声明：本文由 Hov 所有，发布于 http://chenhy.com ，转载请注明出处。
 
 1 观察者模式 1.1 简介 观察者模式是对象之间实现多对一依赖的一种设计方案，其可让多个观察者同时监听某一个主体对象（被观察者）。当主体对象的状态发生变化时，可通知所有观察者对象，使它们能自动更新状态。同时，观察者对象的增加或减少不会影响主体对象，也不会影响其它观察者。观察者模式对象之间的低耦合非常有利于项目功能扩展以及后期维护。
@@ -83,10 +83,10 @@ Fruit apple = new Apple(); //向上转型  向上转型是对父类对象的方�
     
     <item>
       <title>String相关特性</title>
-      <link>https://HauyuChen.github.io/post/java-string/</link>
+      <link>https://HauyuChen.github.io/post/java_string/</link>
       <pubDate>Thu, 14 Sep 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://HauyuChen.github.io/post/java-string/</guid>
+      <guid>https://HauyuChen.github.io/post/java_string/</guid>
       <description>1 字符串实例化两种方式的区别 String 的实例化方式有两种，一种是直接赋值，另一种是通过 new 关键字实例化字符串。
 1.1 直接赋值 String str1 = &amp;quot;hello&amp;quot;;  使用直接赋值方式，只要以后声明的字符串内容相同，则不会再开辟新的内存空间。这是Java中共享设计的思想，Java 通过创建一个字符串池，字符串池中保存了多个字符串对象。若新实例化的字符串对象已经在对象池中，则不再重新定义，直接从对象池中取出使用。
 具体到例子， str1 通过直接赋值，因为字符串池不存在“hello”，所以创建一个新的实例置入字符串池，并在栈中开辟一个内存空间直接指向“hello”。
@@ -104,10 +104,10 @@ String str1 = &amp;quot;hello&amp;quot;; String str2 = new String(&amp;quot;hell
     
     <item>
       <title>抽象类与接口的区别</title>
-      <link>https://HauyuChen.github.io/post/java-%E6%8A%BD%E8%B1%A1%E7%B1%BB%E4%B8%8E%E6%8E%A5%E5%8F%A3/</link>
+      <link>https://HauyuChen.github.io/post/java_abstractclass_interface/</link>
       <pubDate>Wed, 13 Sep 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://HauyuChen.github.io/post/java-%E6%8A%BD%E8%B1%A1%E7%B1%BB%E4%B8%8E%E6%8E%A5%E5%8F%A3/</guid>
+      <guid>https://HauyuChen.github.io/post/java_abstractclass_interface/</guid>
       <description>0 写在前面 抽象类和接口有共同点，也有不同点。在实际应用中，我们有时会不知道什么时候用抽象类，什么时候用接口。因此，我们有必要了解抽象类和接口的相关知识以及它们之间的区别，这样以后在二者之间的选择将更有依据。
 
 1 抽象类 在面向对象中，我们通过类来描绘对象，但并不是所有的类都是用来描绘对象的。如果一个类中没有包含足够的信息来描绘一个具体的对象，这样的类就是抽象类。
@@ -123,10 +123,10 @@ GreenHeadDuck 继承自抽象类 Duck ，所以它必须重写抽象类 Duck 的
     
     <item>
       <title>Java 进程通信（共享内存）</title>
-      <link>https://HauyuChen.github.io/post/java-%E8%BF%9B%E7%A8%8B%E9%80%9A%E4%BF%A1%E5%85%B1%E4%BA%AB%E5%86%85%E5%AD%98/</link>
+      <link>https://HauyuChen.github.io/post/java_ipc/</link>
       <pubDate>Wed, 06 Sep 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://HauyuChen.github.io/post/java-%E8%BF%9B%E7%A8%8B%E9%80%9A%E4%BF%A1%E5%85%B1%E4%BA%AB%E5%86%85%E5%AD%98/</guid>
+      <guid>https://HauyuChen.github.io/post/java_ipc/</guid>
       <description>0 写在前面 说到进程通信，我们很轻易就能想到经典的 Socket 通信。但像 Socket 这样的网络通信会增加额外的网络负担，同时也增加了一定的代码量。
 共享内存方式是实现进程通信的另外一种方式，其具有数据共享，系统快速查询、动态配置、减少资源耗费等优点。
 共享内存特点：
@@ -143,10 +143,10 @@ MappedByteBuffer 为共享内存缓冲区，实际上是一个磁盘文件的内
     
     <item>
       <title>重写、重载的区别</title>
-      <link>https://HauyuChen.github.io/post/%E9%87%8D%E5%86%99%E4%B8%8E%E9%87%8D%E8%BD%BD%E7%9A%84%E5%8C%BA%E5%88%AB/</link>
+      <link>https://HauyuChen.github.io/post/java_overload_override/</link>
       <pubDate>Thu, 31 Aug 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://HauyuChen.github.io/post/%E9%87%8D%E5%86%99%E4%B8%8E%E9%87%8D%E8%BD%BD%E7%9A%84%E5%8C%BA%E5%88%AB/</guid>
+      <guid>https://HauyuChen.github.io/post/java_overload_override/</guid>
       <description>0 写在前面 重写和重载是面向对象程序设计中十分重要的两个概念，其中重写又称为覆盖。 通俗的理解就是，重写就是将一个方法的实现过程再写一遍，覆盖原有方法；重载就是增加一个方法的不同实现，而不覆盖原有的方法。
 
 1 重写（覆盖） 重写是子类对父类方法的实现过程的重新编写。重写的方法应与被重写的方法具有完全一致的返回值、方法名称、参数列表，也就是外壳完全一样，实现过程发生改变。
@@ -161,10 +161,10 @@ MappedByteBuffer 为共享内存缓冲区，实际上是一个磁盘文件的内
     
     <item>
       <title>【设计模式】3. 装饰者模式</title>
-      <link>https://HauyuChen.github.io/post/dp-3-%E8%A3%85%E9%A5%B0%E8%80%85%E6%A8%A1%E5%BC%8F/</link>
+      <link>https://HauyuChen.github.io/post/dp_decorator_pattern/</link>
       <pubDate>Tue, 29 Aug 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://HauyuChen.github.io/post/dp-3-%E8%A3%85%E9%A5%B0%E8%80%85%E6%A8%A1%E5%BC%8F/</guid>
+      <guid>https://HauyuChen.github.io/post/dp_decorator_pattern/</guid>
       <description>版权声明：本文由 Hov 所有，发布于 http://chenhy.com ，转载请注明出处。
 
 1 装饰者模式 1.1 简介 装饰者模式可动态地向对象添加额外的属性或行为。装饰者模式是类继承的另外一种选择，类继承在编译时候增加行为，而装饰模式是在运行时增加行为。在对象功能扩展方面，装饰者模式比继承更有弹性。
@@ -182,10 +182,10 @@ MappedByteBuffer 为共享内存缓冲区，实际上是一个磁盘文件的内
     
     <item>
       <title>【设计模式】2. 策略模式</title>
-      <link>https://HauyuChen.github.io/post/dp-2-%E7%AD%96%E7%95%A5%E6%A8%A1%E5%BC%8F/</link>
+      <link>https://HauyuChen.github.io/post/dp_strategy_pattern/</link>
       <pubDate>Sat, 19 Aug 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://HauyuChen.github.io/post/dp-2-%E7%AD%96%E7%95%A5%E6%A8%A1%E5%BC%8F/</guid>
+      <guid>https://HauyuChen.github.io/post/dp_strategy_pattern/</guid>
       <description>版权声明：本文由 Hov 所有，发布于 http://chenhy.com ，转载请注明出处。
 
 1 策略模式 1.1 简介 策略模式作为一种软件设计模式，指对象有某个行为，但是在不同的场景中，该行为有不同的实现算法。
@@ -204,10 +204,10 @@ MappedByteBuffer 为共享内存缓冲区，实际上是一个磁盘文件的内
     
     <item>
       <title>【设计模式】1. 单例模式</title>
-      <link>https://HauyuChen.github.io/post/dp-1-%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F/</link>
+      <link>https://HauyuChen.github.io/post/dp_singleton_pattern/</link>
       <pubDate>Thu, 17 Aug 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://HauyuChen.github.io/post/dp-1-%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F/</guid>
+      <guid>https://HauyuChen.github.io/post/dp_singleton_pattern/</guid>
       <description>版权声明：本文由 Hov 所有，发布于 http://chenhy.com ，转载请注明出处。
 
 1 单例模式 1.1 简介 单例模式是一种基本的常用的软件设计模式。单例模式的核心是确保一个类最多只有一个实例，并提供一个全局访问点。
@@ -222,10 +222,10 @@ MappedByteBuffer 为共享内存缓冲区，实际上是一个磁盘文件的内
     
     <item>
       <title>Java相关特性</title>
-      <link>https://HauyuChen.github.io/post/java-trap/</link>
+      <link>https://HauyuChen.github.io/post/java_trap/</link>
       <pubDate>Tue, 08 Aug 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://HauyuChen.github.io/post/java-trap/</guid>
+      <guid>https://HauyuChen.github.io/post/java_trap/</guid>
       <description>Java备忘  float 和 double 不能进行精确运算，因为计算机不能表示所有的小数，采用 BigDecimal 来解决（String）。
  switch 语句不能作用在 long 和 String 上。
  true 、 false 、 null 不是严格意义上的关键字，而是文字常量（literals）。
@@ -235,29 +235,29 @@ MappedByteBuffer 为共享内存缓冲区，实际上是一个磁盘文件的内
     
     <item>
       <title>Java关键字this、super、static、final</title>
-      <link>https://HauyuChen.github.io/post/java-%E5%85%B3%E9%94%AE%E5%AD%97thissuperstaticfinal/</link>
+      <link>https://HauyuChen.github.io/post/java_thissuperstaticfinal/</link>
       <pubDate>Sat, 05 Aug 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://HauyuChen.github.io/post/java-%E5%85%B3%E9%94%AE%E5%AD%97thissuperstaticfinal/</guid>
+      <guid>https://HauyuChen.github.io/post/java_thissuperstaticfinal/</guid>
       <description>0 写在前面 本文主要讲讲 Java 中比较常见的关键字，如 this 、 super 、 static 、 final ，它们在程序中出现频率较高。
 1 this  表示类中的属性，比如 this.username = username; 强调调用的是本类的方法； 调用本类的构造方法，如 this(); 调用本类的无参构造方法； 表示当前对象（调用方法的对象）。  2 super  调用父类的构造方法； 调用父类的普通方法； 调用父类的属性。  3 static  static 修饰类： static 修饰的类称为静态类，静态类作为类的静态成员存在于某个类中，静态成员类可以不创建父类对象直接创建静态类的对象。 static 修饰变量： static 修饰的变量称为静态变量或类变量，而没有被 static 修饰的变量称为实例变量。静态变量在内存中只有一个拷贝， JVM 只为静态变量分配一次内存，且在加载类的过程中完成静态变量的内存分配；而实例变量每创建一个实例就分配一次内存，实例变量在内存中有多个拷贝，互补影响。 static 修饰方法： static 修饰的方法称为类方法，否则为实例方法，实例方法只有生成对象时才分配内存。类方法可以通过类名直接调用，实例方法只能通过类对象调用。  4 final  final 修饰类：被 final 修饰的类表示最终类，其不能被继承，不能当父类； final 修饰变量：被 final 修饰的变量为最终变量，即常量，其值不能修改，在定义时必须赋值。值得注意的是，当 final 修饰的不是普通变量而是对象引用时，变量指向的对象是可变的，不可变的是变量对对象的引用； final 修饰方法： final 修饰的方法为最终方法，父类包含最终方法时，子类不能重写该方法。</description>
     </item>
     
     <item>
       <title>JSON相关操作（Java）</title>
-      <link>https://HauyuChen.github.io/post/java-json/</link>
+      <link>https://HauyuChen.github.io/post/java_json/</link>
       <pubDate>Tue, 01 Aug 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://HauyuChen.github.io/post/java-json/</guid>
+      <guid>https://HauyuChen.github.io/post/java_json/</guid>
       <description>1 Java中创建JSON import com.google.gson.JsonArray; import com.google.gson.JsonObject; public class CreateJSON { public static void main(String[] args) { JsonObject object = new JsonObject(); object.addProperty(&amp;quot;cat&amp;quot;, &amp;quot;it&amp;quot;); JsonArray array = new JsonArray(); JsonObject lan1 = new JsonObject(); lan1.addProperty(&amp;quot;id&amp;quot;, 1); lan1.addProperty(&amp;quot;name&amp;quot;, &amp;quot;Java&amp;quot;); lan1.addProperty(&amp;quot;ide&amp;quot;, &amp;quot;Eclipse&amp;quot;); array.add(lan1); JsonObject lan2 = new JsonObject(); lan2.addProperty(&amp;quot;id&amp;quot;, 2); lan2.addProperty(&amp;quot;name&amp;quot;, &amp;quot;Swift&amp;quot;); lan2.addProperty(&amp;quot;ide&amp;quot;, &amp;quot;XCode&amp;quot;); array.add(lan2); JsonObject lan3 = new JsonObject(); lan3.addProperty(&amp;quot;id&amp;quot;, 3); lan3.addProperty(&amp;quot;name&amp;quot;, &amp;quot;C#&amp;quot;); lan3.addProperty(&amp;quot;ide&amp;quot;, &amp;quot;Visual Studio&amp;quot;); array.add(lan3); object.add(&amp;quot;languages&amp;quot;, array); object.addProperty(&amp;quot;pop&amp;quot;, true); System.</description>
     </item>
     
     <item>
       <title>XML相关操作（Java）</title>
-      <link>https://HauyuChen.github.io/post/java-xml/</link>
+      <link>https://HauyuChen.github.io/post/java_xml/</link>
       <pubDate>Tue, 01 Aug 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://HauyuChen.github.io/post/java-xml/</guid>
+      <guid>https://HauyuChen.github.io/post/java_xml/</guid>
       <description>1 XML文件创建示例 import java.io.File; import java.io.StringWriter; import javax.xml.parsers.DocumentBuilder; import javax.xml.parsers.DocumentBuilderFactory; import javax.xml.parsers.ParserConfigurationException; import javax.xml.transform.Transformer; import javax.xml.transform.TransformerConfigurationException; import javax.xml.transform.TransformerException; import javax.xml.transform.TransformerFactory; import javax.xml.transform.dom.DOMSource; import javax.xml.transform.stream.StreamResult; import org.w3c.dom.Document; import org.w3c.dom.Element; public class CreateXML { public static void main(String[] args) { try { //DOM DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance(); DocumentBuilder builder = factory.newDocumentBuilder(); Document document = builder.newDocument(); //创建Languages标签 Element root = document.createElement(&amp;quot;Languages&amp;quot;); root.setAttribute(&amp;quot;cat&amp;quot;, &amp;quot;it&amp;quot;); //设置Languages标签的属性 //-----接下来创建Languages标签下的三个子标签lan1、lan2、lan3 //lan1 Element lan1 = document.createElement(&amp;quot;lan&amp;quot;); //lan标签 lan1.setAttribute(&amp;quot;id&amp;quot;, &amp;quot;1&amp;quot;); Element name1 = document.</description>
     </item>
     

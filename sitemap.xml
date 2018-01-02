@@ -138,7 +138,7 @@
   </url>
   
   <url>
-    <loc>https://HauyuChen.github.io/post/0java-io/</loc>
+    <loc>https://HauyuChen.github.io/post/java_io/</loc>
     <lastmod>2017-10-05T00:00:00+00:00</lastmod>
   </url>
   
@@ -158,22 +158,22 @@
   </url>
   
   <url>
-    <loc>https://HauyuChen.github.io/post/java-%E5%90%91%E4%B8%8A%E8%BD%AC%E5%9E%8B%E5%90%91%E4%B8%8B%E8%BD%AC%E5%9E%8B/</loc>
+    <loc>https://HauyuChen.github.io/post/java_-polymorphism_1/</loc>
     <lastmod>2017-09-20T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://HauyuChen.github.io/post/dp-4-%E8%A7%82%E5%AF%9F%E8%80%85%E6%A8%A1%E5%BC%8F/</loc>
+    <loc>https://HauyuChen.github.io/post/dp_observer_pattern/</loc>
     <lastmod>2017-09-17T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://HauyuChen.github.io/post/java-string/</loc>
+    <loc>https://HauyuChen.github.io/post/java_string/</loc>
     <lastmod>2017-09-14T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://HauyuChen.github.io/post/java-%E6%8A%BD%E8%B1%A1%E7%B1%BB%E4%B8%8E%E6%8E%A5%E5%8F%A3/</loc>
+    <loc>https://HauyuChen.github.io/post/java_abstractclass_interface/</loc>
     <lastmod>2017-09-13T00:00:00+00:00</lastmod>
   </url>
   
@@ -188,27 +188,27 @@
   </url>
   
   <url>
-    <loc>https://HauyuChen.github.io/post/java-%E8%BF%9B%E7%A8%8B%E9%80%9A%E4%BF%A1%E5%85%B1%E4%BA%AB%E5%86%85%E5%AD%98/</loc>
+    <loc>https://HauyuChen.github.io/post/java_ipc/</loc>
     <lastmod>2017-09-06T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://HauyuChen.github.io/post/es-es%E7%9A%84%E4%B9%90%E8%A7%82%E5%B9%B6%E5%8F%91%E6%8E%A7%E5%88%B6/</loc>
+    <loc>https://HauyuChen.github.io/post/es-concurrent_op/</loc>
     <lastmod>2017-09-03T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://HauyuChen.github.io/post/%E5%B9%B6%E5%8F%91%E6%8E%A7%E5%88%B6%E6%82%B2%E8%A7%82%E9%94%81%E4%B9%90%E8%A7%82%E9%94%81/</loc>
+    <loc>https://HauyuChen.github.io/post/concurrence_pe_op/</loc>
     <lastmod>2017-09-01T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://HauyuChen.github.io/post/%E9%87%8D%E5%86%99%E4%B8%8E%E9%87%8D%E8%BD%BD%E7%9A%84%E5%8C%BA%E5%88%AB/</loc>
+    <loc>https://HauyuChen.github.io/post/java_overload_override/</loc>
     <lastmod>2017-08-31T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://HauyuChen.github.io/post/dp-3-%E8%A3%85%E9%A5%B0%E8%80%85%E6%A8%A1%E5%BC%8F/</loc>
+    <loc>https://HauyuChen.github.io/post/dp_decorator_pattern/</loc>
     <lastmod>2017-08-29T00:00:00+00:00</lastmod>
   </url>
   
@@ -258,12 +258,12 @@
   </url>
   
   <url>
-    <loc>https://HauyuChen.github.io/post/dp-2-%E7%AD%96%E7%95%A5%E6%A8%A1%E5%BC%8F/</loc>
+    <loc>https://HauyuChen.github.io/post/dp_strategy_pattern/</loc>
     <lastmod>2017-08-19T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://HauyuChen.github.io/post/dp-1-%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F/</loc>
+    <loc>https://HauyuChen.github.io/post/dp_singleton_pattern/</loc>
     <lastmod>2017-08-17T00:00:00+00:00</lastmod>
   </url>
   
@@ -303,17 +303,17 @@
   </url>
   
   <url>
-    <loc>https://HauyuChen.github.io/post/java-trap/</loc>
+    <loc>https://HauyuChen.github.io/post/java_trap/</loc>
     <lastmod>2017-08-08T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://HauyuChen.github.io/post/sql%E4%BC%98%E5%8C%96/</loc>
+    <loc>https://HauyuChen.github.io/post/sql_optimization/</loc>
     <lastmod>2017-08-07T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://HauyuChen.github.io/post/java-%E5%85%B3%E9%94%AE%E5%AD%97thissuperstaticfinal/</loc>
+    <loc>https://HauyuChen.github.io/post/java_thissuperstaticfinal/</loc>
     <lastmod>2017-08-05T00:00:00+00:00</lastmod>
   </url>
   
@@ -323,12 +323,12 @@
   </url>
   
   <url>
-    <loc>https://HauyuChen.github.io/post/java-json/</loc>
+    <loc>https://HauyuChen.github.io/post/java_json/</loc>
     <lastmod>2017-08-01T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://HauyuChen.github.io/post/java-xml/</loc>
+    <loc>https://HauyuChen.github.io/post/java_xml/</loc>
     <lastmod>2017-08-01T00:00:00+00:00</lastmod>
   </url>
   
@@ -348,7 +348,7 @@
   </url>
   
   <url>
-    <loc>https://HauyuChen.github.io/post/eclipse%E5%BF%AB%E6%8D%B7%E9%94%AE/</loc>
+    <loc>https://HauyuChen.github.io/post/eclipse_hotkeys/</loc>
     <lastmod>2017-07-19T00:00:00+00:00</lastmod>
   </url>
   
@@ -368,7 +368,7 @@
   </url>
   
   <url>
-    <loc>https://HauyuChen.github.io/post/%E4%BB%A3%E7%A0%81%E8%B0%83%E8%AF%95/</loc>
+    <loc>https://HauyuChen.github.io/post/basic_debug/</loc>
     <lastmod>2017-07-05T00:00:00+00:00</lastmod>
   </url>
   
@@ -824,7 +824,7 @@
   
   <url>
     <loc>https://HauyuChen.github.io/tags/%E5%9F%BA%E7%A1%80/</loc>
-    <lastmod>2018-01-01T00:00:00+00:00</lastmod>
+    <lastmod>2017-09-06T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   

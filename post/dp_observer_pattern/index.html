@@ -1,0 +1,846 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="设计模式学习笔记">
+  <meta name="generator" content="Hugo 0.24.1" />
+
+  <title>【设计模式】4. 观察者模式 &middot; Hov&#39;s Blog</title>
+
+  <script>
+	var _hmt = _hmt || [];
+	(function() {
+	  var hm = document.createElement("script");
+	  hm.src = "https://hm.baidu.com/hm.js?dd096f3aba9332e2640cda59d3786695";
+	  var s = document.getElementsByTagName("script")[0]; 
+	  s.parentNode.insertBefore(hm, s);
+	})();
+	</script>	
+  
+  
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/0.6.2/pure-min.css">
+
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/0.6.2/grids-responsive-old-ie-min.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/0.6.2/grids-responsive-min.css">
+  <!--<![endif]-->
+
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="https://HauyuChen.github.io/css/side-menu-old-ie.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="https://HauyuChen.github.io/css/side-menu.css">
+  <!--<![endif]-->
+
+  <link rel="stylesheet" href="https://HauyuChen.github.io/css/blackburn.css">
+
+  
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  
+  <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet" type="text/css">
+
+  
+  
+
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/styles/androidstudio.min.css">
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  
+
+  <link rel="shortcut icon" href="https://HauyuChen.github.io/img/favicon.ico" type="image/x-icon" />
+
+  
+  
+
+
+</head>
+
+
+<body>
+
+<div id="layout">
+
+  
+<a href="#menu" id="menuLink" class="menu-link">
+  
+  <span></span>
+</a>
+<div id="menu">
+
+  <a class="pure-menu-heading brand" href="https://HauyuChen.github.io/">
+  <img src="https://HauyuChen.github.io/img/Hov.jpg" width="125px">
+</a>
+
+  <div class="pure-menu">
+    <ul class="pure-menu-list">
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="https://HauyuChen.github.io/"><i class='fa fa-home fa-fw'></i>主页</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="https://HauyuChen.github.io/post/"><i class='fa fa-list fa-fw'></i>所有文章</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="https://HauyuChen.github.io/tags/"><i class='fa fa-folder fa-fw'></i>文章分类</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="https://HauyuChen.github.io/topics/"><i class='fa fa-tags fa-fw'></i>关键词</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="https://HauyuChen.github.io/about-me/"><i class='fa fa-user fa-fw'></i>关于我</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="https://HauyuChen.github.io/about-site/"><i class='fa fa-home fa-fw'></i>关于本站</a>
+      
+        </li>
+      
+    </ul>
+  </div>
+
+  <div class="pure-menu social">
+
+  <ul class="pure-menu-list">
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://github.com/HauyuChen" target="_blank"><i class="fa fa-github-square fa-fw"></i>GitHub</a>
+    </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+	</ul>
+	<ul class="pure-menu-list">
+	
+	<li class="pure-menu-item">
+      <a class="pure-menu-link" href="http://blog.csdn.net/u014134180" target="_blank"><i class="fa fa-lastfm-square fa-fw"></i>友链：Wu_Being</a>
+    </li>
+  </ul>
+  
+</div>
+
+
+  <div>
+
+
+</div>
+
+</div>
+
+
+  <div id="main">
+
+
+<div class="header">
+  <h1>【设计模式】4. 观察者模式</h1>
+  <h2>设计模式学习笔记</h2>
+</div>
+<div class="content">
+
+  <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>2017-09-17</time>
+  </div>
+
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-folder fa-fw"></i>
+    
+      <a class="post-taxonomy-tag" href="https://HauyuChen.github.io/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F">设计模式</a>
+    
+  </div>
+  
+  
+
+  
+  
+  
+  <div>
+	<i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F">设计模式</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/%E8%A7%82%E5%AF%9F%E8%80%85%E6%A8%A1%E5%BC%8F">观察者模式</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/java">Java</a>
+    
+  </div>
+  
+  
+  
+</div>
+
+  
+
+<hr />
+
+<p><em>版权声明：本文由 Hov 所有，发布于 <a href="http://chenhy.com">http://chenhy.com</a> ，转载请注明出处。<br/></em></p>
+
+<hr />
+
+<p><br/></p>
+
+<h1 id="1-观察者模式">1 观察者模式</h1>
+
+<h2 id="1-1-简介">1.1 简介</h2>
+
+<p>观察者模式是对象之间实现多对一依赖的一种设计方案，其可让多个观察者同时监听某一个主体对象（被观察者）。当主体对象的状态发生变化时，可通知所有观察者对象，使它们能自动更新状态。同时，观察者对象的增加或减少不会影响主体对象，也不会影响其它观察者。观察者模式对象之间的低耦合非常有利于项目功能扩展以及后期维护。</p>
+
+<h2 id="1-2-思路">1.2 思路</h2>
+
+<p>观察者模式主要可以分为四种角色：</p>
+
+<ul>
+<li><strong>主体对象</strong>：此角色可以是接口，也可以是抽象类或具体类。主体对象必须包含三种方法，分别是添加观察者对象、移除观察者对象、通知观察者对象。</li>
+<li><strong>观察者</strong>：此角色一般是接口，里面一般只有一个 update 方法，在被观察者的状态发生变化时， update 方法就会被触发调用。</li>
+<li><strong>具体的主体对象</strong>：此角色是为了便于扩展，可以定义被观察者的一些具体的业务逻辑。</li>
+<li><strong>具体的观察者</strong>：此角色是观察者接口的具体实现，可以定义被观察者对象发生变化时，观察者所要处理的业务逻辑。</li>
+</ul>
+
+<h2 id="1-3-使用场景">1.3 使用场景</h2>
+
+<p>观察者模式适用于在软件系统的某一个对象发生变化时，依赖它的其它对象也要做出相应改变的场景。</p>
+
+<p>举个实际应用场景：</p>
+
+<p>气象站发布气象数据，天气软件A、天气软件B都要获取气象站发布的气象数据。那么，气象站就可以作为主体对象（被观察者），而天气软件A、天气软件B就可以作为观察者。天气软件A、天气软件B都可以监听气象站的数据，气象站每次发布气象数据，就可以通知天气软件A、B更新的数据。</p>
+
+<p>当然，如果天气软件B不想再获取气象站的数据，就退出观察者队列。而天气软件A依然在观察者队列，还可以继续获取气象数据，气象站和天气软件A都不受影响。</p>
+
+<p>观察者模式正是满足这个场景的设计方案中比较重要的一种。</p>
+
+<h2 id="1-4-优缺点">1.4 优缺点</h2>
+
+<p><strong>优点：</strong></p>
+
+<ol>
+<li>观察者与被观察者之间耦合度低；</li>
+<li>观察者模式可以实现广播；</li>
+<li>观察者模式符合“开闭原则”的要求；</li>
+<li>实现表示层与数据逻辑层的分离，定义了稳定的消息更新传递机制。</li>
+</ol>
+
+<p><strong>缺点：</strong></p>
+
+<ol>
+<li>观察者和被观察者之间若存在循环依赖，会使它们循环调用，可能导致系统崩溃；</li>
+<li>若主体对象有很多直接或间接的观察者时，通知所有观察者将花费大量时间。</li>
+</ol>
+
+<p><br/></p>
+
+<h1 id="2-实例">2 实例</h1>
+
+<p>还是拿前面提到的气象站的栗子。我们通过程序模拟气象站发布气象数据，天气软件A和天气软件B获取数据。</p>
+
+<h2 id="2-1-普通的解决方案">2.1 普通的解决方案</h2>
+
+<p>气象站将数据保存在局部变量，通知天气软件A获取，天气软件A将数据保存并显示出来。</p>
+
+<p><strong>（1）气象站</strong></p>
+
+<pre><code>/* WeatherData.java */
+
+public class WeatherData {          //气象站
+    private float mTemperature;
+    private float mPressure;
+    private float mHumidity;
+    private WeatherSoftwareA wfa;
+
+    public WeatherData(WeatherSoftwareA wfa){
+        this.wfa = wfa;             //天气软件A
+    }
+
+    public float getmTemperature() {
+        return mTemperature;
+    }
+
+    public float getmPressure() {
+        return mPressure;
+    }
+
+    public float getmHumidity() {
+        return mHumidity;
+    }
+
+    public void setData(float mTemperature,float mPressure,float mHumidity){    //发布数据
+        this.mTemperature = mTemperature;
+        this.mPressure = mPressure;
+        this.mHumidity = mHumidity;
+        dataChange();               //更新数据
+    }
+
+    public void dataChange(){       //更新数据
+        wfa.update(getmTemperature(),getmPressure(),getmHumidity());    //天气软件A获取数据
+    }
+
+
+}
+</code></pre>
+
+<p><strong>（2）天气软件A</strong></p>
+
+<pre><code>/* WeatherSoftwareA.java */
+
+public class WeatherSoftwareA {     //天气软件A
+
+    private float mTemperature;     //温度
+    private float mPressure;        //气压
+    private float mHumidity;        //湿度
+
+    public void update(float mTemperature,float mPressure,float mHumidity){     //获取数据
+        this.mTemperature = mTemperature;
+        this.mPressure = mPressure;
+        this.mHumidity = mHumidity;
+        display();                  //显示数据
+    }
+
+    public void display(){          //显示数据
+        System.out.println(&quot;***** Current Temperature: &quot; + mTemperature + &quot;*****&quot;);
+        System.out.println(&quot;***** Current Pressure: &quot; + mPressure + &quot;*****&quot;);
+        System.out.println(&quot;***** Current Humidity: &quot; + mHumidity + &quot;*****&quot;);
+    }
+}
+</code></pre>
+
+<p><strong>（3）测试类</strong></p>
+
+<pre><code>/* TestMain.java */
+
+public class TestMain {                                 //测试类
+    public static void main(String[] args) {
+        WeatherSoftwareA wfa = new WeatherSoftwareA();  //天气软件A
+        WeatherData weatherData = new WeatherData(wfa); //气象站
+        weatherData.setData(27,150,60);                 //气象站发布数据
+    }
+}
+</code></pre>
+
+<p><strong>程序运行结果：</strong></p>
+
+<pre><code>***** Current Temperature: 30.0 *****
+***** Current Pressure: 150.0 *****
+***** Current Humidity: 40.0 *****
+</code></pre>
+
+<p>上面的代码虽然实现了预设的功能，但你会发现气象站和天气软件A之间的耦合度很高，这样对代码维护、功能扩展来说是极其不便的。</p>
+
+<p>设想一下，如果天气软件B也想获取气象数据，那么就必须要改动气象站（WeatherData）的代码，然后像天气软件A那样再增加天气软件B的代码。显然，WeatherData 的代码需要较大的改动，需要重新编译，这是很致命的，总不能中断服务吧。</p>
+
+<p><br/></p>
+
+<h2 id="2-2-基于观察者模式的解决方案">2.2 基于观察者模式的解决方案</h2>
+
+<p>通过抽象出两个接口 Subject 和 Observer ，气象站实现接口 Subject ，各天气软件实现接口 Observer 。当添加新的第三方，如天气软件A，气象站将天气软件A添加到观察者队列，天气软件B也是如此。实际上，气象站只需和观察者队列交互即可，而不关心观察者队列里面有谁。</p>
+
+<p>因为具体的观察者对象对气象站来说是透明的，所以第三方的增加减少不影响气象站。</p>
+
+<p><strong>（1）两个接口 Subject 、 Observer</strong></p>
+
+<pre><code>/* Subject.java */
+
+package interf;
+
+public interface Subject {                      //被观察者
+    public void registerObserver(Observer o);   //添加观察者
+    public void removeObserver(Observer o);     //移除观察者
+    public void notifyObserver();               //通知观察者
+}
+</code></pre>
+
+<pre><code>/* Observer.java */
+
+package interf;
+
+public interface Observer {                     //观察者
+    public void update(float mTemperature,float mPressure,float mHumidity);     //更新
+}
+</code></pre>
+
+<p><strong>（2）气象站实现 Subject 接口</strong></p>
+
+<pre><code>/* WeatherStation.java */
+
+package spec;
+
+import interf.Observer;
+import interf.Subject;
+
+import java.util.ArrayList;
+
+public class WeatherStation implements Subject{     //气象站
+    private float mTemperature;
+    private  float mPressure;
+    private float mHumidity;
+    private ArrayList&lt;Observer&gt; observers;          //观察者队列
+
+    public WeatherStation(){
+        observers = new ArrayList&lt;Observer&gt;();
+    }
+
+    public float getmTemperature() {
+        return mTemperature;
+    }
+
+    public float getmPressure() {
+        return mPressure;
+    }
+
+    public float getmHumidity() {
+        return mHumidity;
+    }
+
+    public void setData(float mTemperature,float mPressure,float mHumidity){    //发布数据
+        this.mTemperature = mTemperature;
+        this.mPressure = mPressure;
+        this.mHumidity = mHumidity;
+        dataChange();
+    }
+
+    public void dataChange(){                   //数据更新
+        notifyObserver();                       
+    }
+
+    @Override
+    public void registerObserver(Observer o) {  //添加观察者
+        observers.add(o);
+    }
+
+    @Override
+    public void removeObserver(Observer o) {    //移除观察者
+        if(observers.contains(o)){
+            observers.remove(o);
+        }
+    }
+
+    @Override
+    public void notifyObserver() {              //通知观察者
+        for(int i=0;i&lt;observers.size();i++){
+            observers.get(i).update(getmTemperature(),getmPressure(),getmHumidity());
+        }
+    }
+}
+</code></pre>
+
+<p><strong>（3）天气软件A、天气软件B实现 Observer 接口</strong></p>
+
+<pre><code>/* WeatherSoftwareA.java */
+
+package spec;
+
+import interf.Observer;
+
+public class WeatherSoftwareA implements Observer{      //天气软件A
+
+    private float mTemperature;
+    private  float mPressure;
+    private float mHumidity;
+
+    @Override
+    public void update(float mTemperature, float mPressure, float mHumidity) {  //更新数据
+        this.mTemperature = mTemperature;
+        this.mPressure = mPressure;
+        this.mHumidity = mHumidity;
+        display();
+    }
+
+    public void display(){              //显示数据
+        System.out.println(&quot;***** Current Temperature: &quot; + mTemperature + &quot; *****&quot;);
+        System.out.println(&quot;***** Current Pressure: &quot; + mPressure + &quot; *****&quot;);
+        System.out.println(&quot;***** Current Humidity: &quot; + mHumidity + &quot; *****&quot;);
+    }
+}
+</code></pre>
+
+<pre><code>/* WeatherSoftwareB.java */
+
+package spec;
+
+import interf.Observer;
+
+public class WeatherSoftwareB implements Observer{      //天气软件B
+    private float mTemperature;
+    private  float mPressure;
+    private float mHumidity;
+
+    @Override
+    public void update(float mTemperature, float mPressure, float mHumidity) {  //更新数据
+        this.mTemperature = mTemperature;
+        this.mPressure = mPressure;
+        this.mHumidity = mHumidity;
+        display();
+    }
+
+    public void display(){              //显示数据
+        System.out.println(&quot;***** Forcast Temperature: &quot; + (mTemperature+Math.random()) + &quot; *****&quot;);
+        System.out.println(&quot;***** Forcast Pressure: &quot; + (mPressure+Math.random()) + &quot; *****&quot;);
+        System.out.println(&quot;***** Forcast Humidity: &quot; + (mHumidity+Math.random()) + &quot; *****&quot;);
+    }
+}
+</code></pre>
+
+<p><strong>（4）测试类</strong></p>
+
+<pre><code>/* TestMain.java */
+
+package test;
+
+public class TestMain {
+    public static void main(String[] args) {
+        WeatherStation weatherStation = new WeatherStation();   //被观察者：气象站
+        WeatherSoftwareA wfa = new WeatherSoftwareA();          //观察者：天气软件A
+        WeatherSoftwareB wfb = new WeatherSoftwareB();          //观察者：天气软件B
+
+        weatherStation.registerObserver(wfa);       //气象站将天气软件A加入观察者队列
+        weatherStation.registerObserver(wfb);       //气象站将天气软件B加入观察者队列
+        weatherStation.setData(30,150,40);          //气象站发布数据，A、B都可监听到数据
+
+        System.out.println(&quot;*******************&quot;);
+
+        weatherStation.removeObserver(wfa);         //气象站将天气软件A移出观察者队列
+        weatherStation.setData(20,120,60);          //气象站发布数据，只有B监听到数据
+    }
+}
+</code></pre>
+
+<p><strong>程序运行结果：</strong></p>
+
+<pre><code>***** Current Temperature: 30.0 *****
+***** Current Pressure: 150.0 *****
+***** Current Humidity: 40.0 *****
+***** Forcast Temperature: 30.208610294628656 *****
+***** Forcast Pressure: 150.57421015488487 *****
+***** Forcast Humidity: 40.57110950563163 *****
+*******************
+***** Forcast Temperature: 20.14950930027541 *****
+***** Forcast Pressure: 120.40962863921413 *****
+***** Forcast Humidity: 60.601112555287365 *****
+</code></pre>
+
+<p>观察以上代码，你会发现在气象站的代码里面基本不包含和天气软件A、天气软件B有关的代码，这就实现了气象站与具体天气软件之间解耦。如果我们需要增加天气软件C，只需动态地将天气软件C加入观察者队列即可，无需改动气象站的代码，可以实现较好地动态扩展。</p>
+
+<p><br/></p>
+
+<h2 id="2-3-java内置的观察者">2.3 Java内置的观察者</h2>
+
+<p>前面我们通过自定义的方式实现了观察者模式，但其实我们也可以使用 Java 内置的类和接口来实现观察者模式。通过 Java 内置的 Observable 抽象类和 Observer 接口，气象站继承抽象类 Observable ，里面已经包含添加、移除、通知观察者三个方法，不需我们自己写了，各天气软件实现接口 Observer 。</p>
+
+<p><strong>（1）气象站</strong></p>
+
+<pre><code>/* WeatherStation.java */
+
+import java.util.Observable;
+
+public class WeatherStation extends Observable{         //气象站
+    private float mTemperature;
+    private  float mPressure;
+    private float mHumidity;
+
+    public float getmTemperature() {
+        return mTemperature;
+    }
+
+    public float getmPressure() {
+        return mPressure;
+    }
+
+    public float getmHumidity() {
+        return mHumidity;
+    }
+
+    public void setData(float mTemperature,float mPressure,float mHumidity){    //发布数据
+        this.mTemperature = mTemperature;
+        this.mPressure = mPressure;
+        this.mHumidity = mHumidity;
+        dataChange();
+    }
+
+    public void dataChange(){           //更新数据
+        //这步很重要，将设置bool变量表示数据是否有更新，notifyObservers方法会先判断 bool 的值是否为真再执行相应操作
+        this.setChanged();  
+        //通知所有观察者   
+        this.notifyObservers(new Data(getmTemperature(),getmPressure(),getmHumidity()));    
+    }
+
+    public class Data{                  //封装数据
+        public float mTemperature;
+        public float mPressure;
+        public float mHumidity;
+        public Data(float mTemperature,float mPressure,float mHumidity){
+            this.mTemperature = mTemperature;
+            this.mPressure = mPressure;
+            this.mHumidity = mHumidity;
+        }
+    }
+}
+</code></pre>
+
+<p><strong>（2）天气软件A、天气软件B</strong></p>
+
+<pre><code>/* WeatherSoftwareA.java */
+
+import java.util.Observable;
+import java.util.Observer;
+
+public class WeatherSoftwareA implements Observer {         //天气软件A
+
+    private float mTemperature;
+    private  float mPressure;
+    private float mHumidity;
+
+    @Override
+    public void update(Observable arg0, Object arg1) {      //获取数据
+        this.mTemperature = ((WeatherStation.Data)(arg1)).mTemperature;
+        this.mPressure = ((WeatherStation.Data)(arg1)).mPressure;
+        this.mHumidity = ((WeatherStation.Data)(arg1)).mHumidity;
+        display();
+    }
+
+    public void display(){                                  //显示数据
+        System.out.println(&quot;***** Current Temperature: &quot; + mTemperature + &quot;*****&quot;);
+        System.out.println(&quot;***** Current Pressure: &quot; + mPressure + &quot;*****&quot;);
+        System.out.println(&quot;***** Current Humidity: &quot; + mHumidity + &quot;*****&quot;);
+    }
+
+}
+</code></pre>
+
+<pre><code>/* WeatherSoftwareB.java */
+
+import java.util.Observable;
+import java.util.Observer;
+
+public class WeatherSoftwareB implements Observer {         //天气软件B
+    private float mTemperature;
+    private  float mPressure;
+    private float mHumidity;
+
+    @Override
+    public void update(Observable arg0, Object arg1) {      //获取数据
+        this.mTemperature = ((WeatherStation.Data)(arg1)).mTemperature;
+        this.mPressure = ((WeatherStation.Data)(arg1)).mPressure;
+        this.mHumidity = ((WeatherStation.Data)(arg1)).mHumidity;
+        display();
+    }
+
+    public void display(){                                  //显示数据
+        System.out.println(&quot;***** Forcast Temperature: &quot; + (mTemperature+Math.random()) + &quot;*****&quot;);
+        System.out.println(&quot;***** Forcast Pressure: &quot; + (mPressure+Math.random()) + &quot;*****&quot;);
+        System.out.println(&quot;***** Forcast Humidity: &quot; + (mHumidity+Math.random()) + &quot;*****&quot;);
+    }
+}
+</code></pre>
+
+<p><strong>（3）测试类</strong></p>
+
+<pre><code>/* TestMain.java */
+
+public class TestMain {
+    public static void main(String[] args) {
+        WeatherStation weatherStation = new WeatherStation();   //被观察者：气象站
+        WeatherSoftwareA wfa = new WeatherSoftwareA();          //观察者：天气软件A
+        WeatherSoftwareB wfb = new WeatherSoftwareB();          //观察者：天气软件B
+
+        weatherStation.addObserver(wfa);        //气象站将天气软件A加入观察者队列
+        weatherStation.addObserver(wfb);        //气象站将天气软件B加入观察者队列
+        weatherStation.setData(30,150,40);      //气象站发布数据，A、B都可监听到数据
+
+        System.out.println(&quot;*******************&quot;);
+
+        weatherStation.deleteObserver(wfa);     //气象站将天气软件A移出观察者队列
+        weatherStation.setData(20,120,60);      //气象站发布数据，只有B可监听到数据
+    }
+}
+</code></pre>
+
+<p><strong>程序运行结果：</strong></p>
+
+<pre><code>***** Forcast Temperature: 30.208610294628656 *****
+***** Forcast Pressure: 150.57421015488487 *****
+***** Forcast Humidity: 40.57110950563163 *****
+***** Current Temperature: 30.0 *****
+***** Current Pressure: 150.0 *****
+***** Current Humidity: 40.0 *****
+*******************
+***** Forcast Temperature: 20.14950930027541 *****
+***** Forcast Pressure: 120.40962863921413 *****
+***** Forcast Humidity: 60.601112555287365 *****
+</code></pre>
+
+<p>这里实现的功能和 2.2 的完全一致，只不过在这里我们借助了 Java 内置的抽象类、接口来实现观察者模式。值得注意的是，这里的观察者队列输出的顺序和我们前面自定义方式的输出是相反的，变成了先进后出。</p>
+
+<p><br/></p>
+
+<h1 id="3-总结">3 总结</h1>
+
+<ol>
+<li>观察者模式可以较好地实现对象之间的解耦，有利于功能扩展和后期维护；</li>
+<li>主体对象必须包含添加观察者、移除观察者、通知观察者三种方法；</li>
+<li>Java 有内置的观察者接口。</li>
+</ol>
+
+<p><br/></p>
+
+
+  
+<div class="prev-next-post pure-g">
+  <div class="pure-u-1-24" style="text-align: left;">
+    
+    <a href="https://HauyuChen.github.io/post/java_string/"><i class="fa fa-chevron-left"></i></a>
+    
+  </div>
+  <div class="pure-u-10-24">
+    
+    <nav class="prev">
+      <a href="https://HauyuChen.github.io/post/java_string/">String相关特性</a>
+    </nav>
+    
+  </div>
+  <div class="pure-u-2-24">
+    &nbsp;
+  </div>
+  <div class="pure-u-10-24">
+    
+    <nav class="next">
+      <a href="https://HauyuChen.github.io/post/java_-polymorphism_1/">谈谈向上转型、向下转型</a>
+    </nav>
+    
+  </div>
+  <div class="pure-u-1-24" style="text-align: right;">
+    
+    <a href="https://HauyuChen.github.io/post/java_-polymorphism_1/"><i class="fa fa-chevron-right"></i></a>
+    
+  </div>
+</div>
+
+
+
+  
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+
+(function() {
+    
+    
+    if (window.location.hostname == "localhost")
+        return;
+
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    var disqus_shortname = "http-hov-space";
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com/" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+</div>
+
+</div>
+</div>
+<script src="https://HauyuChen.github.io/js/ui.js"></script>
+
+
+
+
+
+
+</body>
+</html>
+
