@@ -5303,9 +5303,11 @@ Design an algorithm to find the maximum profit. You may complete as many transac
   </header>
 
   <p>
-   题目描述：  Given an array of integers, every element appears twice except for one. Find that single one.
-Note: Your algorithm should have a linear runtime complexity. Could you implement it without using extra memory?
- 代码实现： class Solution { public: int singleNumber(vector&lt;int&gt;&amp; nums) { int ret = 0; for(int num:nums){ ret^=num; } return ret; } };  
+  题目描述： Given an array of integers, every element appears twice except for one. Find that single one.
+Note:
+Your algorithm should have a linear runtime complexity. Could you implement it without using extra memory?
+
+代码实现： class Solution { public: int singleNumber(vector&lt;int&gt;&amp; nums) { int ret = 0; for(int num:nums){ ret^=num; } return ret; } };
   </p>
 
   
