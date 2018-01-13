@@ -1608,9 +1608,11 @@ Follow up: What if the inputs contain unicode characters? How would you adapt yo
       <pubDate>Fri, 24 Jun 2016 00:00:00 +0000</pubDate>
       
       <guid>https://HauyuChen.github.io/post/191-number-of-1-bits/</guid>
-      <description> 题目描述：  Write a function that takes an unsigned integer and returns the number of ’1&amp;rsquo; bits it has (also known as the Hamming weight).
-For example, the 32-bit integer ’11&amp;rsquo; has binary representation 00000000000000000000000000001011, so the function should return 3.
- 代码实现： class Solution { public: int hammingWeight(uint32_t n) { int sum=0; while(n&amp;gt;0){ if(n&amp;amp;1==1){ sum++; } n=n&amp;gt;&amp;gt;1; } return sum; } };  </description>
+      <description>题目描述： Write a function that takes an unsigned integer and returns the number of ’1&amp;rsquo; bits it has (also known as the Hamming weight).
+For example:
+the 32-bit integer ’11&amp;rsquo; has binary representation 00000000000000000000000000001011, so the function should return 3.
+
+代码实现： class Solution { public: int hammingWeight(uint32_t n) { int sum=0; while(n&amp;gt;0){ if(n&amp;amp;1==1){ sum++; } n=n&amp;gt;&amp;gt;1; } return sum; } };</description>
     </item>
     
     <item>
