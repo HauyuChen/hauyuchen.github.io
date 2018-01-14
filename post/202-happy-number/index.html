@@ -265,29 +265,33 @@
 
   
 
-<h2 id="题目描述">题目描述：</h2>
+<hr />
 
-<blockquote>
+<h1 id="题目描述">题目描述：</h1>
+
 <p>Write an algorithm to determine if a number is &ldquo;happy&rdquo;.</p>
 
 <p>A happy number is a number defined by the following process: Starting with any positive integer, replace the number by the sum of the squares of its digits, and repeat the process until the number equals 1 (where it will stay), or it loops endlessly in a cycle which does not include 1. Those numbers for which this process ends in 1 are happy numbers.</p>
 
 <p>Example: 19 is a happy number</p>
 
-<p>12 + 92 = 82,
-82 + 22 = 68,
-62 + 82 = 100,
-12 + 02 + 02 = 1</p>
-</blockquote>
+<ul>
+<li>12 + 92 = 82,</li>
+<li>82 + 22 = 68,</li>
+<li>62 + 82 = 100,</li>
+<li>12 + 02 + 02 = 1</li>
+</ul>
 
-<h2 id="思路">思路：</h2>
+<p><br/></p>
 
-<blockquote>
-<p>若n为1，则是HappyNumber，返回true；若不断循环，则不是HappyNumber。
-所以关键在于如何判断是否进入循环。这里我采用的是将生成的新数存入set中，当set中已有这个数时，说明循环，返回false。</p>
-</blockquote>
+<h1 id="思路">思路：</h1>
 
-<h2 id="代码实现">代码实现：</h2>
+<p>若 n 为 1 ，则是 HappyNumber ，返回 true ；若不断循环，则不是 HappyNumber 。
+所以关键在于如何判断是否进入循环。这里我采用的是将生成的新数存入 set 中，当 set 中已有这个数时，说明循环，返回 false 。</p>
+
+<p><br/></p>
+
+<h1 id="代码实现">代码实现：</h1>
 
 <pre><code>class Solution {
 public:
@@ -317,6 +321,8 @@ public:
     }
 };
 </code></pre>
+
+<p><br/></p>
 
 
   
