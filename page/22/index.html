@@ -446,8 +446,9 @@ Follow up: What if the inputs contain unicode characters? How would you adapt yo
   </header>
 
   <p>
-   题目描述：  Reverse a singly linked list.
- 代码实现： /** * Definition for singly-linked list. * struct ListNode { * int val; * ListNode *next; * ListNode(int x) : val(x), next(NULL) {} * }; */ class Solution { public: ListNode* reverseList(ListNode* head) { ListNode* pPre=nullptr; ListNode* pNode=head; ListNode* pRet=nullptr; while(pNode!=nullptr){ ListNode* pNext=pNode-&gt;next; if(pNext==nullptr){ pRet=pNode; } pNode-&gt;next=pPre; pPre=pNode; pNode=pNext; } return pRet; } };  
+  题目描述： Reverse a singly linked list.
+
+代码实现： /** * Definition for singly-linked list. * struct ListNode { * int val; * ListNode *next; * ListNode(int x) : val(x), next(NULL) {} * }; */ class Solution { public: ListNode* reverseList(ListNode* head) { ListNode* pPre=nullptr; ListNode* pNode=head; ListNode* pRet=nullptr; while(pNode!=nullptr){ ListNode* pNext=pNode-&gt;next; if(pNext==nullptr){ pRet=pNode; } pNode-&gt;next=pPre; pPre=pNode; pNode=pNext; } return pRet; } };
   </p>
 
   
