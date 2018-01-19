@@ -1575,9 +1575,10 @@ Note that 1 is typically treated as an ugly number.
       <pubDate>Mon, 09 Jan 2017 00:00:00 +0000</pubDate>
       
       <guid>https://HauyuChen.github.io/post/237-delete-node-in-a-linked-list/</guid>
-      <description> 题目描述：  Write a function to delete a node (except the tail) in a singly linked list, given only access to that node.
+      <description>题目描述： Write a function to delete a node (except the tail) in a singly linked list, given only access to that node.
 Supposed the linked list is 1 -&amp;gt; 2 -&amp;gt; 3 -&amp;gt; 4 and you are given the third node with value 3, the linked list should become 1 -&amp;gt; 2 -&amp;gt; 4 after calling your function.
- 代码实现： /** * Definition for singly-linked list. * struct ListNode { * int val; * ListNode *next; * ListNode(int x) : val(x), next(NULL) {} * }; */ class Solution { public: void deleteNode(ListNode* node) { auto next = node-&amp;gt;next; *node = *next; delete next; } };  </description>
+
+代码实现： /** * Definition for singly-linked list. * struct ListNode { * int val; * ListNode *next; * ListNode(int x) : val(x), next(NULL) {} * }; */ class Solution { public: void deleteNode(ListNode* node) { auto next = node-&amp;gt;next; *node = *next; delete next; } };</description>
     </item>
     
     <item>
@@ -1911,15 +1912,6 @@ The signature of the C++ function had been updated.</description>
 1 概述 写过程序的人都知道每个程序都是从 main 函数开始执行的，在 ZigBee 程序中也不例外。在一个 Zigbee 工程中，程序从 main 函数开始执行，经过一步一步的函数调用（一些系统功能的初始化，建议跟踪一下从 main 函数到 SampleApp_ProcessEvent 函数的过程），程序最终来到了 SampleApp_ProcessEvent 函数， SampleApp_ProcessEvent(uint8 task_id,uint16 events) 是一个颇为重要的函数，整个工程更像是围绕着这个函数运行。
 说白了，我们要通过这个函数来处理所有事件。
 比如： if ( events &amp;amp; SYS_EVENT_MSG ) 处理系统事件，if ( events &amp;amp; SAMPLEAPP_SEND_PERIODIC_MSG_EVT ) 处理用户定义的事件。在不同的事件处理代码中，通过一个 switch 语句把所要处理的任务分成几个 case 来处理，在每个 case 里面调用相应的函数，我们通过定义这些函数执行我们想要的功能即可。</description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>https://HauyuChen.github.io/time/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://HauyuChen.github.io/time/</guid>
-      <description>2017-10-02： 明天睡到自然醒，下午回家吃月饼。</description>
     </item>
     
   </channel>
