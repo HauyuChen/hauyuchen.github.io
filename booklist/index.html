@@ -7,7 +7,7 @@
   <meta name="description" content="">
   <meta name="generator" content="Hugo 0.24.1" />
 
-  <title>【LeetCode】242. Valid Anagram &middot; Hov&#39;s Blog</title>
+  <title>我的课外书单 &middot; Hov&#39;s Blog</title>
 
   <script>
 	var _hmt = _hmt || [];
@@ -221,149 +221,46 @@
 
 
 <div class="header">
-  <h1>【LeetCode】242. Valid Anagram</h1>
+  <h1>我的课外书单</h1>
   <h2></h2>
 </div>
 <div class="content">
-
-  <div class="post-meta">
-
-  <div>
-    <i class="fa fa-calendar fa-fw"></i>
-    <time>2017-01-09</time>
-  </div>
-
   
 
-  
-  
-  
-  <div>
-    <i class="fa fa-folder fa-fw"></i>
-    
-      <a class="post-taxonomy-tag" href="https://HauyuChen.github.io/tags/leetcode">LeetCode</a>
-    
-  </div>
-  
-  
+<h1 id="已读">已读</h1>
 
-  
-  
-  
-  <div>
-	<i class="fa fa-tags fa-fw"></i>
-    
-      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/%E7%AE%97%E6%B3%95">算法</a>&nbsp;&#47;
-    
-      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/leetcode">LeetCode</a>
-    
-  </div>
-  
-  
-  
-</div>
+<ul>
+<li>Java核心技术卷Ⅰ</li>
+<li>深入理解Java虚拟机</li>
+<li>Java并发编程的艺术</li>
+<li>浪潮之巅（上下册）</li>
+<li>大数据时代</li>
+<li>Linux鸟哥的私房菜</li>
+<li>剑指Offer</li>
+</ul>
 
-  
+<h1 id="在读">在读</h1>
 
-<hr />
+<ul>
+<li>Hadoop权威指南</li>
+<li>从Paxos到ZooKeeper（分布式一致性原理与实践）</li>
+<li>Elasticsearch权威指南</li>
+</ul>
 
-<h1 id="题目描述">题目描述：</h1>
+<h1 id="待读">待读</h1>
 
-<p>Given two strings s and t, write a function to determine if t is an anagram of s.</p>
-
-<p>For example,<br />
-s = &ldquo;anagram&rdquo;, t = &ldquo;nagaram&rdquo;, return true.<br />
-s = &ldquo;rat&rdquo;, t = &ldquo;car&rdquo;, return false.</p>
-
-<p><strong>Note:</strong><br />
-You may assume the string contains only lowercase alphabets.</p>
-
-<p><strong>Follow up:</strong><br />
-What if the inputs contain unicode characters? How would you adapt your solution to such case?</p>
-
-<p><br/></p>
-
-<h1 id="代码实现">代码实现：</h1>
-
-<pre><code>class Solution {
-public:
-    bool isAnagram(string s, string t) {
-        if(s.size()!=t.size()){
-            return false;
-        }
-        int arr[26];
-        for(int i=0;i&lt;26;++i){
-            arr[i]=0;
-        }
-        for(int i=0;i&lt;s.size();++i){
-            ++arr[s[i]-'a'];
-            --arr[t[i]-'a'];
-        }
-        for(int i=0;i&lt;26;++i){
-            if(arr[i]!=0){
-                return false;
-            }
-        }
-        return true;
-    }
-};
-</code></pre>
-
-<p><br/></p>
-
-
-  
-<div class="prev-next-post pure-g">
-  <div class="pure-u-1-24" style="text-align: left;">
-    
-    <a href="https://HauyuChen.github.io/post/226-invert-binary-tree/"><i class="fa fa-chevron-left"></i></a>
-    
-  </div>
-  <div class="pure-u-10-24">
-    
-    <nav class="prev">
-      <a href="https://HauyuChen.github.io/post/226-invert-binary-tree/">【LeetCode】226. Invert Binary Tree</a>
-    </nav>
-    
-  </div>
-  <div class="pure-u-2-24">
-    &nbsp;
-  </div>
-  <div class="pure-u-10-24">
-    
-    <nav class="next">
-      <a href="https://HauyuChen.github.io/post/237-delete-node-in-a-linked-list/">【LeetCode】237. Delete Node in a Linked List</a>
-    </nav>
-    
-  </div>
-  <div class="pure-u-1-24" style="text-align: right;">
-    
-    <a href="https://HauyuChen.github.io/post/237-delete-node-in-a-linked-list/"><i class="fa fa-chevron-right"></i></a>
-    
-  </div>
-</div>
-
-
-
-  
-<div id="disqus_thread"></div>
-<script type="text/javascript">
-
-(function() {
-    
-    
-    if (window.location.hostname == "localhost")
-        return;
-
-    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-    var disqus_shortname = "http-hov-space";
-    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-})();
-</script>
-<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-<a href="http://disqus.com/" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
-
+<ul>
+<li>Head First设计模式</li>
+<li>Effective Java</li>
+<li>Spark大数据处理技术</li>
+<li>大型网站技术架构</li>
+<li>Hadoop实战</li>
+<li>TCP/IP详解卷Ⅰ</li>
+<li>Linux内核设计与实现</li>
+<li>人月神话</li>
+<li>程序员修炼之道</li>
+<li>Flipped</li>
+</ul>
 
 </div>
 
