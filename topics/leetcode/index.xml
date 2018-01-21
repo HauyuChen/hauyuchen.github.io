@@ -940,11 +940,13 @@ Note: You must do this in-place without making a copy of the array. Minimize the
       <pubDate>Tue, 10 Jan 2017 00:00:00 +0000</pubDate>
       
       <guid>https://HauyuChen.github.io/post/258-add-digits/</guid>
-      <description> 题目描述：  Given a non-negative integer num, repeatedly add all its digits until the result has only one digit.
+      <description>题目描述： Given a non-negative integer num, repeatedly add all its digits until the result has only one digit.
 For example:
 Given num = 38, the process is like: 3 + 8 = 11, 1 + 1 = 2. Since 2 has only one digit, return it.
-Follow up: Could you do it without any loop/recursion in O(1) runtime?
- 代码实现： class Solution { public: int addDigits(int num) { return 1+(num-1)%9; } };  </description>
+Follow up:
+Could you do it without any loop/recursion in O(1) runtime?
+
+代码实现： class Solution { public: int addDigits(int num) { return 1+(num-1)%9; } };</description>
     </item>
     
     <item>
