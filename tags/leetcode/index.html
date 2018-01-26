@@ -3416,10 +3416,13 @@ Given s = &ldquo;hello&rdquo;, return &ldquo;olleh&rdquo;.
   </header>
 
   <p>
-   题目描述：  Given two arrays, write a function to compute their intersection.
-Example: Given nums1 = [1, 2, 2, 1], nums2 = [2, 2], return [2].
-Note: Each element in the result must be unique. The result can be in any order.
- 代码实现： class Solution { public: vector&lt;int&gt; intersection(vector&lt;int&gt;&amp; nums1, vector&lt;int&gt;&amp; nums2) { unordered_set&lt;int&gt; s; vector&lt;int&gt; ret; for(int num1:nums1){ if(s.count(num1)==0){ s.insert(num1); } } for(int num2:nums2){ if(s.count(num2)){ ret.push_back(num2); s.erase(num2); } } return ret; } };  
+  题目描述： Given two arrays, write a function to compute their intersection.
+Example:
+Given nums1 = [1, 2, 2, 1], nums2 = [2, 2], return [2].
+Note:
+Each element in the result must be unique. The result can be in any order.
+
+代码实现： class Solution { public: vector&lt;int&gt; intersection(vector&lt;int&gt;&amp; nums1, vector&lt;int&gt;&amp; nums2) { unordered_set&lt;int&gt; s; vector&lt;int&gt; ret; for(int num1:nums1){ if(s.count(num1)==0){ s.insert(num1); } } for(int num2:nums2){ if(s.count(num2)){ ret.push_back(num2); s.erase(num2); } } return ret; } };
   </p>
 
   

@@ -1439,10 +1439,13 @@ Note: You may assume that both strings contain only lowercase letters.
       <pubDate>Sun, 15 Jan 2017 00:00:00 +0000</pubDate>
       
       <guid>https://HauyuChen.github.io/post/349-intersection-of-two-arrays/</guid>
-      <description> 题目描述：  Given two arrays, write a function to compute their intersection.
-Example: Given nums1 = [1, 2, 2, 1], nums2 = [2, 2], return [2].
-Note: Each element in the result must be unique. The result can be in any order.
- 代码实现： class Solution { public: vector&amp;lt;int&amp;gt; intersection(vector&amp;lt;int&amp;gt;&amp;amp; nums1, vector&amp;lt;int&amp;gt;&amp;amp; nums2) { unordered_set&amp;lt;int&amp;gt; s; vector&amp;lt;int&amp;gt; ret; for(int num1:nums1){ if(s.count(num1)==0){ s.insert(num1); } } for(int num2:nums2){ if(s.count(num2)){ ret.push_back(num2); s.erase(num2); } } return ret; } };  </description>
+      <description>题目描述： Given two arrays, write a function to compute their intersection.
+Example:
+Given nums1 = [1, 2, 2, 1], nums2 = [2, 2], return [2].
+Note:
+Each element in the result must be unique. The result can be in any order.
+
+代码实现： class Solution { public: vector&amp;lt;int&amp;gt; intersection(vector&amp;lt;int&amp;gt;&amp;amp; nums1, vector&amp;lt;int&amp;gt;&amp;amp; nums2) { unordered_set&amp;lt;int&amp;gt; s; vector&amp;lt;int&amp;gt; ret; for(int num1:nums1){ if(s.count(num1)==0){ s.insert(num1); } } for(int num2:nums2){ if(s.count(num2)){ ret.push_back(num2); s.erase(num2); } } return ret; } };</description>
     </item>
     
     <item>
