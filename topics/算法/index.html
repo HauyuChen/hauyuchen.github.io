@@ -3977,9 +3977,11 @@ Note: You may assume the string contain only lowercase letters.
   </header>
 
   <p>
-   题目描述：  Calculate the sum of two integers a and b, but you are not allowed to use the operator + and -.
-Example: Given a = 1 and b = 2, return 3.
- 代码实现： class Solution { public: int getSum(int a, int b) { return b==0?a:getSum(a^b,(a&amp;b)&lt;&lt;1); } };  
+  题目描述： Calculate the sum of two integers a and b, but you are not allowed to use the operator + and -.
+Example:
+Given a = 1 and b = 2, return 3.
+
+代码实现： class Solution { public: int getSum(int a, int b) { return b==0?a:getSum(a^b,(a&amp;b)&lt;&lt;1); } };
   </p>
 
   

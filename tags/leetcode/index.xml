@@ -772,9 +772,11 @@ What if the given array is already sorted? How would you optimize your algorithm
       <pubDate>Mon, 13 Feb 2017 00:00:00 +0000</pubDate>
       
       <guid>https://HauyuChen.github.io/post/371-sum-of-two-integers/</guid>
-      <description> 题目描述：  Calculate the sum of two integers a and b, but you are not allowed to use the operator + and -.
-Example: Given a = 1 and b = 2, return 3.
- 代码实现： class Solution { public: int getSum(int a, int b) { return b==0?a:getSum(a^b,(a&amp;amp;b)&amp;lt;&amp;lt;1); } };  </description>
+      <description>题目描述： Calculate the sum of two integers a and b, but you are not allowed to use the operator + and -.
+Example:
+Given a = 1 and b = 2, return 3.
+
+代码实现： class Solution { public: int getSum(int a, int b) { return b==0?a:getSum(a^b,(a&amp;amp;b)&amp;lt;&amp;lt;1); } };</description>
     </item>
     
     <item>
