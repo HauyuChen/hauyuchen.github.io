@@ -265,29 +265,32 @@
 
   
 
-<h2 id="题目描述">题目描述：</h2>
+<hr />
 
-<blockquote>
+<h1 id="题目描述">题目描述：</h1>
+
 <p>Given a group of two strings, you need to find the longest uncommon subsequence of this group of two strings. The longest uncommon subsequence is defined as the longest subsequence of one of these strings and this subsequence should not be any subsequence of the other strings.</p>
 
 <p>A subsequence is a sequence that can be derived from one sequence by deleting some characters without changing the order of the remaining elements. Trivially, any string is a subsequence of itself and an empty string is a subsequence of any string.</p>
 
 <p>The input will be two strings, and the output needs to be the length of the longest uncommon subsequence. If the longest uncommon subsequence doesn&rsquo;t exist, return -1.</p>
 
-<p>Example 1:
-Input: &ldquo;aba&rdquo;, &ldquo;cdc&rdquo;
+<p><strong>Example 1:</strong></p>
+
+<p>Input: &ldquo;aba&rdquo;, &ldquo;cdc&rdquo;<br />
 Output: 3</p>
 
 <p>Explanation: The longest uncommon subsequence is &ldquo;aba&rdquo; (or &ldquo;cdc&rdquo;),
 because &ldquo;aba&rdquo; is a subsequence of &ldquo;aba&rdquo;,
 but not a subsequence of any other strings in the group of two strings.</p>
 
-<p>Note:
+<p><strong>Note:</strong><br />
 Both strings&rsquo; lengths will not exceed 100.
 Only letters from a ~ z will appear in input strings.</p>
-</blockquote>
 
-<h2 id="代码实现">代码实现：</h2>
+<p><br/></p>
+
+<h1 id="代码实现">代码实现：</h1>
 
 <pre><code>class Solution {
 public:
@@ -302,6 +305,8 @@ public:
     }
 };
 </code></pre>
+
+<p><br/></p>
 
 
   
