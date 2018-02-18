@@ -544,12 +544,15 @@ The minimum absolute difference is 1, which is the difference between 2 and 1 (o
       <pubDate>Sun, 13 Aug 2017 00:00:00 +0000</pubDate>
       
       <guid>https://HauyuChen.github.io/post/537-complex-number-multiplication/</guid>
-      <description>题目描述：  Given two strings representing two complex numbers.
+      <description>题目描述： Given two strings representing two complex numbers.
 You need to return a string representing their multiplication. Note i2 = -1 according to the definition.
 Example 1:
-Input: &amp;ldquo;1+1i&amp;rdquo;, &amp;ldquo;1+1i&amp;rdquo; Output: &amp;ldquo;0+2i&amp;rdquo;
+Input: &amp;ldquo;1+1i&amp;rdquo;, &amp;ldquo;1+1i&amp;rdquo;
+Output: &amp;ldquo;0+2i&amp;rdquo;
 Explanation: (1 + i) * (1 + i) = 1 + i2 + 2 * i = 2i, and you need convert it to the form of 0+2i.
-Example 2: Input: &amp;ldquo;1+-1i&amp;rdquo;, &amp;ldquo;1+-1i&amp;rdquo; Output: &amp;ldquo;0+-2i&amp;rdquo;
+Example 2:
+Input: &amp;ldquo;1+-1i&amp;rdquo;, &amp;ldquo;1+-1i&amp;rdquo;
+Output: &amp;ldquo;0+-2i&amp;rdquo;
 Explanation: (1 - i) * (1 - i) = 1 + i2 - 2 * i = -2i, and you need convert it to the form of 0+-2i.</description>
     </item>
     
