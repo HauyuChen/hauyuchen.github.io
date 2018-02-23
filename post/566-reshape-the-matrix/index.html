@@ -265,9 +265,10 @@
 
   
 
-<h2 id="题目描述">题目描述：</h2>
+<hr />
 
-<blockquote>
+<h1 id="题目描述">题目描述：</h1>
+
 <p>In MATLAB, there is a very useful function called &lsquo;reshape&rsquo;, which can reshape a matrix into a new one with different size but keep its original data.</p>
 
 <p>You&rsquo;re given a matrix represented by a two-dimensional array, and two positive integers r and c representing the row number and column number of the wanted reshaped matrix, respectively.</p>
@@ -276,33 +277,33 @@
 
 <p>If the &lsquo;reshape&rsquo; operation with given parameters is possible and legal, output the new reshaped matrix; Otherwise, output the original matrix.</p>
 
-<p>Example 1:
-Input:
-nums =
-[[1,2],
- [3,4]]
-r = 1, c = 4
-Output:
+<p><strong>Example 1:</strong></p>
+
+<p>Input: <br />
+nums = [[1,2],[3,4]]<br />
+r = 1, c = 4</p>
+
+<p>Output: <br />
 [[1,2,3,4]]</p>
 
-<p>Explanation:
+<p>Explanation:<br />
 The row-traversing of nums is [1,2,3,4]. The new reshaped matrix is a 1 * 4 matrix, fill it row by row by using the previous list.</p>
 
-<p>Example 2:
-Input:
-nums =
-[[1,2],
- [3,4]]
-r = 2, c = 4
-Output:
-[[1,2],
- [3,4]]</p>
+<p><strong>Example 2:</strong></p>
+
+<p>Input: <br />
+nums = [[1,2],[3,4]]<br />
+r = 2, c = 4</p>
+
+<p>Output: <br />
+[[1,2],[3,4]]</p>
 
 <p>Explanation:
 There is no way to reshape a 2 * 2 matrix to a 2 * 4 matrix. So output the original matrix.</p>
-</blockquote>
 
-<h2 id="代码实现">代码实现：</h2>
+<p><br/></p>
+
+<h1 id="代码实现">代码实现：</h1>
 
 <pre><code>class Solution {
 public:
@@ -331,6 +332,8 @@ public:
     }
 };
 </code></pre>
+
+<p><br/></p>
 
 
   
