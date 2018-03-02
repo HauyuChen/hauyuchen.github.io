@@ -237,6 +237,65 @@
     
       <article>
   <header>
+    <h2><a href="https://HauyuChen.github.io/post/java_trap/">Java相关特性</a></h2>
+
+    <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>2017-08-08</time>
+  </div>
+
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-folder fa-fw"></i>
+    
+      <a class="post-taxonomy-tag" href="https://HauyuChen.github.io/tags/java">Java</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-tag" href="https://HauyuChen.github.io/tags/%E5%9F%BA%E7%A1%80">基础</a>
+    
+  </div>
+  
+  
+
+  
+  
+  
+  <div>
+	<i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/java">Java</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/%E5%9F%BA%E7%A1%80">基础</a>
+    
+  </div>
+  
+  
+  
+</div>
+
+  </header>
+
+  <p>
+  Java备忘  float 和 double 不能进行精确运算，因为计算机不能表示所有的小数，采用 BigDecimal 来解决（String）。
+ switch 语句不能作用在 long 和 String 上。
+ true 、 false 、 null 不是严格意义上的关键字，而是文字常量（literals）。
+ float f = 2.5；不正确，因为精度不准确。正确写法：float f = (float)2.5;
+ try｛ ｝里面的 return 语句，紧跟着 finally｛ ｝里的代码会在 return 前先执行。
+  </p>
+
+  
+</article>
+
+    
+  
+    
+      <article>
+  <header>
     <h2><a href="https://HauyuChen.github.io/post/sql_optimization/">SQL优化</a></h2>
 
     <div class="post-meta">
@@ -485,63 +544,6 @@
 
     
   
-    
-      <article>
-  <header>
-    <h2><a href="https://HauyuChen.github.io/post/java_xml/">XML相关操作（Java）</a></h2>
-
-    <div class="post-meta">
-
-  <div>
-    <i class="fa fa-calendar fa-fw"></i>
-    <time>2017-08-01</time>
-  </div>
-
-  
-
-  
-  
-  
-  <div>
-    <i class="fa fa-folder fa-fw"></i>
-    
-      <a class="post-taxonomy-tag" href="https://HauyuChen.github.io/tags/java">Java</a>
-    
-  </div>
-  
-  
-
-  
-  
-  
-  <div>
-	<i class="fa fa-tags fa-fw"></i>
-    
-      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/xml">XML</a>&nbsp;&#47;
-    
-      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/java">Java</a>
-    
-  </div>
-  
-  
-  
-</div>
-
-  </header>
-
-  <p>
-  1 XML文件创建示例 import java.io.File; import java.io.StringWriter; import javax.xml.parsers.DocumentBuilder; import javax.xml.parsers.DocumentBuilderFactory; import javax.xml.parsers.ParserConfigurationException; import javax.xml.transform.Transformer; import javax.xml.transform.TransformerConfigurationException; import javax.xml.transform.TransformerException; import javax.xml.transform.TransformerFactory; import javax.xml.transform.dom.DOMSource; import javax.xml.transform.stream.StreamResult; import org.w3c.dom.Document; import org.w3c.dom.Element; public class CreateXML { public static void main(String[] args) { try { //DOM DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance(); DocumentBuilder builder = factory.newDocumentBuilder(); Document document = builder.newDocument(); //创建Languages标签 Element root = document.createElement(&quot;Languages&quot;); root.setAttribute(&quot;cat&quot;, &quot;it&quot;); //设置Languages标签的属性 //-----接下来创建Languages标签下的三个子标签lan1、lan2、lan3 //lan1 Element lan1 = document.createElement(&quot;lan&quot;); //lan标签 lan1.setAttribute(&quot;id&quot;, &quot;1&quot;); Element name1 = document.
-  </p>
-
-  
-  <footer>
-    <a href="https://HauyuChen.github.io/post/java_xml/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
-  </footer>
-  
-</article>
-
-    
-  
 
 	
 
@@ -550,7 +552,7 @@
   
   <a href="https://HauyuChen.github.io/page/12/"><i class="fa fa-chevron-left"></i></a>
   
-  <span>&nbsp;13 / 26&nbsp;</span>
+  <span>&nbsp;13 / 27&nbsp;</span>
   
   <a href="https://HauyuChen.github.io/page/14/"><i class="fa fa-chevron-right"></i></a>
   

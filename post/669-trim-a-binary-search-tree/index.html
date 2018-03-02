@@ -7,7 +7,7 @@
   <meta name="description" content="">
   <meta name="generator" content="Hugo 0.24.1" />
 
-  <title>Tags &middot; Hov&#39;s Blog</title>
+  <title>【LeetCode】669. Trim a Binary Search Tree &middot; Hov&#39;s Blog</title>
 
   <script>
 	var _hmt = _hmt || [];
@@ -46,8 +46,6 @@
   <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet" type="text/css">
 
   
-  
-  <link rel="alternate" type="application/rss+xml" title="Hov&#39;s Blog" href="https://HauyuChen.github.io/tags/index.xml" />
   
 
   
@@ -125,10 +123,6 @@
   <div class="pure-menu social">
 
   <ul class="pure-menu-list">
-    
-    <li class="pure-menu-item">
-      <a class="pure-menu-link" href="https://HauyuChen.github.io/tags/index.xml"><i class="fa fa-rss fa-fw"></i>RSS</a>
-    </li>
     
 
     
@@ -227,58 +221,192 @@
 
 
 <div class="header">
-  <h1>Tags</h1>
+  <h1>【LeetCode】669. Trim a Binary Search Tree</h1>
+  <h2></h2>
 </div>
 <div class="content">
-  <ul>
+
+  <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>2018-03-02</time>
+  </div>
+
+  
+
   
   
-    <li>
-      <a href="leetcode">leetcode</a>
-      <span>&#40;98&#41;</span>
-    </li>
   
-    <li>
-      <a href="java">java</a>
-      <span>&#40;10&#41;</span>
-    </li>
+  <div>
+    <i class="fa fa-folder fa-fw"></i>
+    
+      <a class="post-taxonomy-tag" href="https://HauyuChen.github.io/tags/leetcode">LeetCode</a>
+    
+  </div>
   
-    <li>
-      <a href="%E5%9F%BA%E7%A1%80">基础</a>
-      <span>&#40;10&#41;</span>
-    </li>
   
-    <li>
-      <a href="%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0">机器学习</a>
-      <span>&#40;7&#41;</span>
-    </li>
+
   
-    <li>
-      <a href="elasticsearch">elasticsearch</a>
-      <span>&#40;4&#41;</span>
-    </li>
   
-    <li>
-      <a href="%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F">设计模式</a>
-      <span>&#40;4&#41;</span>
-    </li>
   
-    <li>
-      <a href="zigbee">zigbee</a>
-      <span>&#40;3&#41;</span>
-    </li>
+  <div>
+	<i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/%E7%AE%97%E6%B3%95">算法</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/leetcode">LeetCode</a>
+    
+  </div>
   
-    <li>
-      <a href="%E5%B7%A5%E5%85%B7">工具</a>
-      <span>&#40;2&#41;</span>
-    </li>
   
-    <li>
-      <a href="%E6%95%B0%E6%8D%AE%E5%BA%93">数据库</a>
-      <span>&#40;2&#41;</span>
-    </li>
   
-  </ul>
+</div>
+
+  
+
+<hr />
+
+<h1 id="题目描述">题目描述：</h1>
+
+<p>Given a binary search tree and the lowest and highest boundaries as L and R, trim the tree so that all its elements lies in <a href="R &gt;= L">L, R</a>. You might need to change the root of the tree, so the result should return the new root of the trimmed binary search tree.</p>
+
+<p><strong>Example 1:</strong></p>
+
+<p>Input:</p>
+
+<pre><code>    1
+   / \
+  0   2
+
+  L = 1
+  R = 2
+</code></pre>
+
+<p>Output:</p>
+
+<pre><code>    1
+      \
+       2
+</code></pre>
+
+<p><strong>Example 2:</strong></p>
+
+<p>Input:</p>
+
+<pre><code>    3
+   / \
+  0   4
+   \
+    2
+   /
+  1
+
+  L = 1
+  R = 3
+</code></pre>
+
+<p>Output:</p>
+
+<pre><code>      3
+     / 
+   2   
+  /
+ 1
+</code></pre>
+
+<p><br/></p>
+
+<h1 id="思路">思路：</h1>
+
+<p>递归实现。<br />
+ 1. 如果根节点大于最大值，舍去右子树，左子树为新的树，继续对新的树递归；
+ 2. 如果根节点小于最小值，舍去左子树，右子树为新的树，继续对新的树递归；
+ 3. 如果根节点在范围内，则对左右子树重复步骤 1 、 2 。</p>
+
+<p><br/></p>
+
+<h1 id="代码实现">代码实现：</h1>
+
+<pre><code>/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode(int x) { val = x; }
+ * }
+ */
+class Solution {
+    public TreeNode trimBST(TreeNode root, int L, int R) {
+        if(root==null){
+            return null;
+        }
+        
+        if(root.val&gt;R){
+            root = trimBST(root.left,L,R);
+        }else if(root.val&lt;L){
+            root = trimBST(root.right,L,R);
+        }else{
+            root.left = trimBST(root.left,L,R);
+            root.right = trimBST(root.right,L,R);  
+        }
+        
+        return root;
+    }
+}
+</code></pre>
+
+<p><br/></p>
+
+
+  
+<div class="prev-next-post pure-g">
+  <div class="pure-u-1-24" style="text-align: left;">
+    
+    <a href="https://HauyuChen.github.io/post/basic_full_text_search/"><i class="fa fa-chevron-left"></i></a>
+    
+  </div>
+  <div class="pure-u-10-24">
+    
+    <nav class="prev">
+      <a href="https://HauyuChen.github.io/post/basic_full_text_search/">谈谈全文检索</a>
+    </nav>
+    
+  </div>
+  <div class="pure-u-2-24">
+    &nbsp;
+  </div>
+  <div class="pure-u-10-24">
+    
+  </div>
+  <div class="pure-u-1-24" style="text-align: right;">
+    
+  </div>
+</div>
+
+
+
+  
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+
+(function() {
+    
+    
+    if (window.location.hostname == "localhost")
+        return;
+
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    var disqus_shortname = "http-hov-space";
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com/" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
 </div>
 
 </div>
@@ -292,3 +420,4 @@
 
 </body>
 </html>
+

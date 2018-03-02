@@ -237,6 +237,65 @@
     
       <article>
   <header>
+    <h2><a href="https://HauyuChen.github.io/post/006-zigzag-conversion/">【LeetCode】6. ZigZag Conversion</a></h2>
+
+    <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>2017-09-26</time>
+  </div>
+
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-folder fa-fw"></i>
+    
+      <a class="post-taxonomy-tag" href="https://HauyuChen.github.io/tags/leetcode">LeetCode</a>
+    
+  </div>
+  
+  
+
+  
+  
+  
+  <div>
+	<i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/%E7%AE%97%E6%B3%95">算法</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/leetcode">LeetCode</a>
+    
+  </div>
+  
+  
+  
+</div>
+
+  </header>
+
+  <p>
+  题目描述： The string &ldquo;PAYPALISHIRING&rdquo; is written in a zigzag pattern on a given number of rows like this: (you may want to display this pattern in a fixed font for better legibility)
+P A H N A P L S I I G Y I R  And then read line by line: &ldquo;PAHNAPLSIIGYIR&rdquo;
+Write the code that will take a string and make this conversion given a number of rows:
+  </p>
+
+  
+  <footer>
+    <a href="https://HauyuChen.github.io/post/006-zigzag-conversion/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
+  </footer>
+  
+</article>
+
+    
+  
+    
+      <article>
+  <header>
     <h2><a href="https://HauyuChen.github.io/post/java_-polymorphism_1/">谈谈向上转型、向下转型</a></h2>
 
     <div class="post-meta">
@@ -525,71 +584,6 @@ GreenHeadDuck 继承自抽象类 Duck ，所以它必须重写抽象类 Duck 的
 
     
   
-    
-      <article>
-  <header>
-    <h2><a href="https://HauyuChen.github.io/post/es-bulk/">Elasticsearch实现批量更新</a></h2>
-
-    <div class="post-meta">
-
-  <div>
-    <i class="fa fa-calendar fa-fw"></i>
-    <time>2017-09-09</time>
-  </div>
-
-  
-
-  
-  
-  
-  <div>
-    <i class="fa fa-folder fa-fw"></i>
-    
-      <a class="post-taxonomy-tag" href="https://HauyuChen.github.io/tags/elasticsearch">Elasticsearch</a>
-    
-  </div>
-  
-  
-
-  
-  
-  
-  <div>
-	<i class="fa fa-tags fa-fw"></i>
-    
-      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/elasticsearch">Elasticsearch</a>&nbsp;&#47;
-    
-      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/%E5%88%86%E5%B8%83%E5%BC%8F%E6%90%9C%E7%B4%A2">分布式搜索</a>&nbsp;&#47;
-    
-      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/kibana">Kibana</a>
-    
-  </div>
-  
-  
-  
-</div>
-
-  </header>
-
-  <p>
-  1 bulk 前面我们已经提到批量查询 mget ，那么如果我们想要批量导入数据呢？当然也有解决方法，那就是我们现在要讲的 bulk 。 bulk 允许我们使用单一请求来实现多个文档的 create 、 index 、 update 或 delete ，这在我们平时的应用中是很重要的。
-
-2 bulk 语法 bulk API 对 JSON 的语法有严格的要求，具体要求：bulk 中每一个操作要两个 JSON 串，每个 JSON 串不能换行，只能放在同一行，而 JSON 串和 JSON 串之间，必须有一个换行。
-bulk 允许我们批量执行不同的操作，常用操作如下：
- delete：删除文档，delete比较特殊，只需1个 JSON 串即可； create：相当于 PUT /index/type/id/_create，只不过是强制创建； index：普通的 PUT 操作，可以是创建文档，也可以是全量替换文档； update：执行 partial update 操作。  语法格式如下：
-POST /_bulk { {&quot;action&quot;: {&quot;metadata&quot;}} //一个操作需两个JSON，delete除外 {&quot;data&quot;} }  举个栗子：
-我们要创建一个文档，其中 index 为 &ldquo;test_index&rdquo; ， type 为 &ldquo;test_type&rdquo; ， id 为 1 ; field 有两个，分别是 test_field1 为 &ldquo;test1&rdquo; 、 test_field2 为 &ldquo;test2&rdquo; 。
-  </p>
-
-  
-  <footer>
-    <a href="https://HauyuChen.github.io/post/es-bulk/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
-  </footer>
-  
-</article>
-
-    
-  
 
 	
 
@@ -598,7 +592,7 @@ POST /_bulk { {&quot;action&quot;: {&quot;metadata&quot;}} //一个操作需两�
   
   <a href="https://HauyuChen.github.io/page/6/"><i class="fa fa-chevron-left"></i></a>
   
-  <span>&nbsp;7 / 26&nbsp;</span>
+  <span>&nbsp;7 / 27&nbsp;</span>
   
   <a href="https://HauyuChen.github.io/page/8/"><i class="fa fa-chevron-right"></i></a>
   
