@@ -234,6 +234,444 @@
   
     <article>
   <header>
+    <h2><a href="https://HauyuChen.github.io/post/java_-polymorphism_1/">谈谈向上转型、向下转型</a></h2>
+
+    <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>2017-12-20</time>
+  </div>
+
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-folder fa-fw"></i>
+    
+      <a class="post-taxonomy-tag" href="https://HauyuChen.github.io/tags/java">Java</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-tag" href="https://HauyuChen.github.io/tags/%E5%9F%BA%E7%A1%80">基础</a>
+    
+  </div>
+  
+  
+
+  
+  
+  
+  <div>
+	<i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/java">Java</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/%E5%A4%9A%E6%80%81">多态</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/%E5%9F%BA%E7%A1%80">基础</a>
+    
+  </div>
+  
+  
+  
+</div>
+
+  </header>
+
+  <p>
+  版权声明：本文由 Hov 所有，发布于 http://chenhy.com ，转载请注明出处。
+更新说明：本文于 2017-10-01 修改部分内容。
+
+0 写在前面 某天下午，群上抛出了一个关于 Java 向上转型的问题。
+
+
+于是，我们以此为开端讨论了一个下午，从多态到类加载顺序。讨论结束后想着是不是要写篇文章记录下，所以有了这篇文章。
+本文将谈及向上转型、向下转型的概念，后续有时间将扩充多态相关的更详细的知识。
+
+1 向上转型 1.1 概念 向上转型是指子类对象转型为父类类型。通俗的说就是，对象变量是父类类型，但该对象变量引用的却是子类对象。
+举个栗子，苹果是水果的一种，但我们有时会说苹果是水果或直接把苹果说成水果。其实，这样的说法就是向上转型，我们把苹果抽象为水果。伪代码表示如下：
+水果 对象变量名 = new 苹果();  Apple 是 Fruit 的子类。对象变量 apple 向上转型为 Fruit 类型，但 apple 仍引用的是 Apple 对象。
+Fruit apple = new Apple(); //向上转型  向上转型是对父类对象的方法的扩充，即父类对象可访问子类重写父类的方法。也许你会问，既然访问的还是子类对象的方法，为什么不直接声明为子类类型呢？
+这就是 Java 抽象编程的奥秘。向上转型是实现多态的一种机制，我们可以通过多态性提供的动态分配机制执行相应的动作，使用多态编写的代码比使用对多种类型进行检测的代码更加易于扩展和维护。
+其实我们会经常有意无意的使用转型。比如在我之前写到的关于装饰者模式装饰者模式的文章就用到了向上转型的概念。 两种不同的咖啡 Decaf 、 Espresso 是 Coffee 的子类， Coffee 是 Drink 的子类。因为咖啡店可能会同时售卖不同的饮品，所以我们只需把不同的咖啡抽象为饮品即可，再通过引用不同的具体咖啡品种来表示不同的饮品。这样的场景其实大家都很熟悉，这就是向上转型的应用。也许你已经发现，向上转型可以跨层次。比如 Decaf 是 Coffee 的子类， Coffee 是 Drink 的子类，可以由 Decaf 直接向上转型为 Drink 。
+  </p>
+
+  
+  <footer>
+    <a href="https://HauyuChen.github.io/post/java_-polymorphism_1/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
+  </footer>
+  
+</article>
+
+  
+    <article>
+  <header>
+    <h2><a href="https://HauyuChen.github.io/post/java_overload_override/">重写、重载的区别</a></h2>
+
+    <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>2017-11-20</time>
+  </div>
+
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-folder fa-fw"></i>
+    
+      <a class="post-taxonomy-tag" href="https://HauyuChen.github.io/tags/java">Java</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-tag" href="https://HauyuChen.github.io/tags/%E5%9F%BA%E7%A1%80">基础</a>
+    
+  </div>
+  
+  
+
+  
+  
+  
+  <div>
+	<i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/java">Java</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/%E5%9F%BA%E7%A1%80">基础</a>
+    
+  </div>
+  
+  
+  
+</div>
+
+  </header>
+
+  <p>
+  0 写在前面 重写和重载是面向对象程序设计中十分重要的两个概念，其中重写又称为覆盖。 通俗的理解就是，重写就是将一个方法的实现过程再写一遍，覆盖原有方法；重载就是增加一个方法的不同实现，而不覆盖原有的方法。
+
+1 重写（覆盖） 重写是子类对父类方法的实现过程的重新编写。重写的方法应与被重写的方法具有完全一致的返回值、方法名称、参数列表，也就是外壳完全一样，实现过程发生改变。
+重写规则：
+ 参数列表必须与原有方法完全相同； 返回类型必须与原有方法相同； 访问权限不能比父类中被重写的方法的访问权限更低； 父类成员方法只能被其子类重写； 声明为 final 的方法不能被重写； 声明为 static 的方法不能被重写，但能够被再次声明； 构造方法不能重写。  
+2 重载 重载与重写不同之处在于重载与原有方法具有同样的名称，但参数列表可以不同。重载的方法虽然名称和原有方法一样，但是可以认为它们是不同的方法。
+重载规则：
+ 重载的方法必须改变参数列表； 重载的方法可以改变返回类型； 重载的方法可以改变访问修饰符； 方法能在同一个类中或在一个子类中被重载。  
+3 对比 
+参考资料：http://www.runoob.com/java/java-override-overload.html
+  </p>
+
+  
+</article>
+
+  
+    <article>
+  <header>
+    <h2><a href="https://HauyuChen.github.io/post/dp_observer_pattern/">【设计模式】4. 观察者模式</a></h2>
+
+    <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>2017-11-17</time>
+  </div>
+
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-folder fa-fw"></i>
+    
+      <a class="post-taxonomy-tag" href="https://HauyuChen.github.io/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F">设计模式</a>
+    
+  </div>
+  
+  
+
+  
+  
+  
+  <div>
+	<i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F">设计模式</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/%E8%A7%82%E5%AF%9F%E8%80%85%E6%A8%A1%E5%BC%8F">观察者模式</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/java">Java</a>
+    
+  </div>
+  
+  
+  
+</div>
+
+  </header>
+
+  <p>
+  版权声明：本文由 Hov 所有，发布于 http://chenhy.com ，转载请注明出处。
+
+1 观察者模式 1.1 简介 观察者模式是对象之间实现多对一依赖的一种设计方案，其可让多个观察者同时监听某一个主体对象（被观察者）。当主体对象的状态发生变化时，可通知所有观察者对象，使它们能自动更新状态。同时，观察者对象的增加或减少不会影响主体对象，也不会影响其它观察者。观察者模式对象之间的低耦合非常有利于项目功能扩展以及后期维护。
+1.2 思路 观察者模式主要可以分为四种角色：
+ 主体对象：此角色可以是接口，也可以是抽象类或具体类。主体对象必须包含三种方法，分别是添加观察者对象、移除观察者对象、通知观察者对象。 观察者：此角色一般是接口，里面一般只有一个 update 方法，在被观察者的状态发生变化时， update 方法就会被触发调用。 具体的主体对象：此角色是为了便于扩展，可以定义被观察者的一些具体的业务逻辑。 具体的观察者：此角色是观察者接口的具体实现，可以定义被观察者对象发生变化时，观察者所要处理的业务逻辑。  1.3 使用场景 观察者模式适用于在软件系统的某一个对象发生变化时，依赖它的其它对象也要做出相应改变的场景。
+举个实际应用场景：
+气象站发布气象数据，天气软件A、天气软件B都要获取气象站发布的气象数据。那么，气象站就可以作为主体对象（被观察者），而天气软件A、天气软件B就可以作为观察者。天气软件A、天气软件B都可以监听气象站的数据，气象站每次发布气象数据，就可以通知天气软件A、B更新的数据。
+当然，如果天气软件B不想再获取气象站的数据，就退出观察者队列。而天气软件A依然在观察者队列，还可以继续获取气象数据，气象站和天气软件A都不受影响。
+观察者模式正是满足这个场景的设计方案中比较重要的一种。
+1.4 优缺点 优点：
+ 观察者与被观察者之间耦合度低； 观察者模式可以实现广播； 观察者模式符合“开闭原则”的要求； 实现表示层与数据逻辑层的分离，定义了稳定的消息更新传递机制。  缺点：
+ 观察者和被观察者之间若存在循环依赖，会使它们循环调用，可能导致系统崩溃； 若主体对象有很多直接或间接的观察者时，通知所有观察者将花费大量时间。  
+2 实例 还是拿前面提到的气象站的栗子。我们通过程序模拟气象站发布气象数据，天气软件A和天气软件B获取数据。
+2.1 普通的解决方案 气象站将数据保存在局部变量，通知天气软件A获取，天气软件A将数据保存并显示出来。
+（1）气象站
+/* WeatherData.java */ public class WeatherData { //气象站 private float mTemperature; private float mPressure; private float mHumidity; private WeatherSoftwareA wfa; public WeatherData(WeatherSoftwareA wfa){ this.
+  </p>
+
+  
+  <footer>
+    <a href="https://HauyuChen.github.io/post/dp_observer_pattern/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
+  </footer>
+  
+</article>
+
+  
+    <article>
+  <header>
+    <h2><a href="https://HauyuChen.github.io/post/java_abstractclass_interface/">抽象类与接口的区别</a></h2>
+
+    <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>2017-11-13</time>
+  </div>
+
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-folder fa-fw"></i>
+    
+      <a class="post-taxonomy-tag" href="https://HauyuChen.github.io/tags/java">Java</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-tag" href="https://HauyuChen.github.io/tags/%E5%9F%BA%E7%A1%80">基础</a>
+    
+  </div>
+  
+  
+
+  
+  
+  
+  <div>
+	<i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/java">Java</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/%E5%9F%BA%E7%A1%80">基础</a>
+    
+  </div>
+  
+  
+  
+</div>
+
+  </header>
+
+  <p>
+  0 写在前面 抽象类和接口有共同点，也有不同点。在实际应用中，我们有时会不知道什么时候用抽象类，什么时候用接口。因此，我们有必要了解抽象类和接口的相关知识以及它们之间的区别，这样以后在二者之间的选择将更有依据。
+
+1 抽象类 在面向对象中，我们通过类来描绘对象，但并不是所有的类都是用来描绘对象的。如果一个类中没有包含足够的信息来描绘一个具体的对象，这样的类就是抽象类。
+抽象类是实现多态的一种机制，抽象类可以包含具体方法，也可以包含抽象方法（由继承它的子类实现这些方法）。
+抽象类的特性总结如下：
+ 抽象类不能被实例化； 抽象类可以有构造方法； 抽象方法必须由其子类重写（Override）； 只要包含有一个抽象方法的类，就必须定义为抽象类； 抽象类可以包含有具体实现的方法，也可以不包含抽象方法； 子类的抽象方法不能与父类的抽象方法重名； abstract 不能与 private 、 static 、 final 、 native 并列修饰同一个方法。  注：关于子类实例化时抽象类是否被实例化的问题
+抽象类不能实例化，子类实例化时会初始化父类，因为子类继承了父类的变量、方法等，但初始化不等同于实例化。实例化是指用类创建对象，为对象开辟内存空间。
+举个栗子：
+Duck 是一个抽象类，里面包含构造方法、抽象方法、具体方法。
+GreenHeadDuck 继承自抽象类 Duck ，所以它必须重写抽象类 Duck 的抽象方法 display ，而具体方法 Quack 、 Swim 可以不重写。
+/* Duck.java */ public abstract class Duck{ //抽象类Duck public Duck(){ //构造方法 } public abstract void display(); //抽象方法：外观 public void Quack(){ //具体方法：嘎嘎叫 System.out.println(&quot;--gaga--&quot;); } public void Swim(){ //具体方法：游泳 System.
+  </p>
+
+  
+  <footer>
+    <a href="https://HauyuChen.github.io/post/java_abstractclass_interface/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
+  </footer>
+  
+</article>
+
+  
+    <article>
+  <header>
+    <h2><a href="https://HauyuChen.github.io/post/java_thissuperstaticfinal/">Java关键字this、super、static、final</a></h2>
+
+    <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>2017-10-25</time>
+  </div>
+
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-folder fa-fw"></i>
+    
+      <a class="post-taxonomy-tag" href="https://HauyuChen.github.io/tags/java">Java</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-tag" href="https://HauyuChen.github.io/tags/%E5%9F%BA%E7%A1%80">基础</a>
+    
+  </div>
+  
+  
+
+  
+  
+  
+  <div>
+	<i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/java">Java</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/%E5%9F%BA%E7%A1%80">基础</a>
+    
+  </div>
+  
+  
+  
+</div>
+
+  </header>
+
+  <p>
+  0 写在前面 本文主要讲讲 Java 中比较常见的关键字，如 this 、 super 、 static 、 final ，它们在程序中出现频率较高。
+1 this  表示类中的属性，比如 this.username = username; 强调调用的是本类的方法； 调用本类的构造方法，如 this(); 调用本类的无参构造方法； 表示当前对象（调用方法的对象）。  2 super  调用父类的构造方法； 调用父类的普通方法； 调用父类的属性。  3 static  static 修饰类： static 修饰的类称为静态类，静态类作为类的静态成员存在于某个类中，静态成员类可以不创建父类对象直接创建静态类的对象。 static 修饰变量： static 修饰的变量称为静态变量或类变量，而没有被 static 修饰的变量称为实例变量。静态变量在内存中只有一个拷贝， JVM 只为静态变量分配一次内存，且在加载类的过程中完成静态变量的内存分配；而实例变量每创建一个实例就分配一次内存，实例变量在内存中有多个拷贝，互补影响。 static 修饰方法： static 修饰的方法称为类方法，否则为实例方法，实例方法只有生成对象时才分配内存。类方法可以通过类名直接调用，实例方法只能通过类对象调用。  4 final  final 修饰类：被 final 修饰的类表示最终类，其不能被继承，不能当父类； final 修饰变量：被 final 修饰的变量为最终变量，即常量，其值不能修改，在定义时必须赋值。值得注意的是，当 final 修饰的不是普通变量而是对象引用时，变量指向的对象是可变的，不可变的是变量对对象的引用； final 修饰方法： final 修饰的方法为最终方法，父类包含最终方法时，子类不能重写该方法。
+  </p>
+
+  
+</article>
+
+  
+    <article>
+  <header>
+    <h2><a href="https://HauyuChen.github.io/post/java_json/">JSON相关操作（Java）</a></h2>
+
+    <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>2017-10-11</time>
+  </div>
+
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-folder fa-fw"></i>
+    
+      <a class="post-taxonomy-tag" href="https://HauyuChen.github.io/tags/java">Java</a>
+    
+  </div>
+  
+  
+
+  
+  
+  
+  <div>
+	<i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/json">JSON</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/java">Java</a>
+    
+  </div>
+  
+  
+  
+</div>
+
+  </header>
+
+  <p>
+  1 Java中创建JSON import com.google.gson.JsonArray; import com.google.gson.JsonObject; public class CreateJSON { public static void main(String[] args) { JsonObject object = new JsonObject(); object.addProperty(&quot;cat&quot;, &quot;it&quot;); JsonArray array = new JsonArray(); JsonObject lan1 = new JsonObject(); lan1.addProperty(&quot;id&quot;, 1); lan1.addProperty(&quot;name&quot;, &quot;Java&quot;); lan1.addProperty(&quot;ide&quot;, &quot;Eclipse&quot;); array.add(lan1); JsonObject lan2 = new JsonObject(); lan2.addProperty(&quot;id&quot;, 2); lan2.addProperty(&quot;name&quot;, &quot;Swift&quot;); lan2.addProperty(&quot;ide&quot;, &quot;XCode&quot;); array.add(lan2); JsonObject lan3 = new JsonObject(); lan3.addProperty(&quot;id&quot;, 3); lan3.addProperty(&quot;name&quot;, &quot;C#&quot;); lan3.addProperty(&quot;ide&quot;, &quot;Visual Studio&quot;); array.add(lan3); object.add(&quot;languages&quot;, array); object.addProperty(&quot;pop&quot;, true); System.
+  </p>
+
+  
+  <footer>
+    <a href="https://HauyuChen.github.io/post/java_json/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
+  </footer>
+  
+</article>
+
+  
+    <article>
+  <header>
+    <h2><a href="https://HauyuChen.github.io/post/java_xml/">XML相关操作（Java）</a></h2>
+
+    <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>2017-10-11</time>
+  </div>
+
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-folder fa-fw"></i>
+    
+      <a class="post-taxonomy-tag" href="https://HauyuChen.github.io/tags/java">Java</a>
+    
+  </div>
+  
+  
+
+  
+  
+  
+  <div>
+	<i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/xml">XML</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/java">Java</a>
+    
+  </div>
+  
+  
+  
+</div>
+
+  </header>
+
+  <p>
+  1 XML文件创建示例 import java.io.File; import java.io.StringWriter; import javax.xml.parsers.DocumentBuilder; import javax.xml.parsers.DocumentBuilderFactory; import javax.xml.parsers.ParserConfigurationException; import javax.xml.transform.Transformer; import javax.xml.transform.TransformerConfigurationException; import javax.xml.transform.TransformerException; import javax.xml.transform.TransformerFactory; import javax.xml.transform.dom.DOMSource; import javax.xml.transform.stream.StreamResult; import org.w3c.dom.Document; import org.w3c.dom.Element; public class CreateXML { public static void main(String[] args) { try { //DOM DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance(); DocumentBuilder builder = factory.newDocumentBuilder(); Document document = builder.newDocument(); //创建Languages标签 Element root = document.createElement(&quot;Languages&quot;); root.setAttribute(&quot;cat&quot;, &quot;it&quot;); //设置Languages标签的属性 //-----接下来创建Languages标签下的三个子标签lan1、lan2、lan3 //lan1 Element lan1 = document.createElement(&quot;lan&quot;); //lan标签 lan1.setAttribute(&quot;id&quot;, &quot;1&quot;); Element name1 = document.
+  </p>
+
+  
+  <footer>
+    <a href="https://HauyuChen.github.io/post/java_xml/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
+  </footer>
+  
+</article>
+
+  
+    <article>
+  <header>
     <h2><a href="https://HauyuChen.github.io/post/java_io/">谈谈 Java IO</a></h2>
 
     <div class="post-meta">
@@ -306,86 +744,13 @@
   
     <article>
   <header>
-    <h2><a href="https://HauyuChen.github.io/post/java_-polymorphism_1/">谈谈向上转型、向下转型</a></h2>
+    <h2><a href="https://HauyuChen.github.io/post/dp_decorator_pattern/">【设计模式】3. 装饰者模式</a></h2>
 
     <div class="post-meta">
 
   <div>
     <i class="fa fa-calendar fa-fw"></i>
-    <time>2017-09-20</time>
-  </div>
-
-  
-
-  
-  
-  
-  <div>
-    <i class="fa fa-folder fa-fw"></i>
-    
-      <a class="post-taxonomy-tag" href="https://HauyuChen.github.io/tags/java">Java</a>&nbsp;&#47;
-    
-      <a class="post-taxonomy-tag" href="https://HauyuChen.github.io/tags/%E5%9F%BA%E7%A1%80">基础</a>
-    
-  </div>
-  
-  
-
-  
-  
-  
-  <div>
-	<i class="fa fa-tags fa-fw"></i>
-    
-      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/java">Java</a>&nbsp;&#47;
-    
-      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/%E5%A4%9A%E6%80%81">多态</a>&nbsp;&#47;
-    
-      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/%E5%9F%BA%E7%A1%80">基础</a>
-    
-  </div>
-  
-  
-  
-</div>
-
-  </header>
-
-  <p>
-  版权声明：本文由 Hov 所有，发布于 http://chenhy.com ，转载请注明出处。
-更新说明：本文于 2017-10-01 修改部分内容。
-
-0 写在前面 某天下午，群上抛出了一个关于 Java 向上转型的问题。
-
-
-于是，我们以此为开端讨论了一个下午，从多态到类加载顺序。讨论结束后想着是不是要写篇文章记录下，所以有了这篇文章。
-本文将谈及向上转型、向下转型的概念，后续有时间将扩充多态相关的更详细的知识。
-
-1 向上转型 1.1 概念 向上转型是指子类对象转型为父类类型。通俗的说就是，对象变量是父类类型，但该对象变量引用的却是子类对象。
-举个栗子，苹果是水果的一种，但我们有时会说苹果是水果或直接把苹果说成水果。其实，这样的说法就是向上转型，我们把苹果抽象为水果。伪代码表示如下：
-水果 对象变量名 = new 苹果();  Apple 是 Fruit 的子类。对象变量 apple 向上转型为 Fruit 类型，但 apple 仍引用的是 Apple 对象。
-Fruit apple = new Apple(); //向上转型  向上转型是对父类对象的方法的扩充，即父类对象可访问子类重写父类的方法。也许你会问，既然访问的还是子类对象的方法，为什么不直接声明为子类类型呢？
-这就是 Java 抽象编程的奥秘。向上转型是实现多态的一种机制，我们可以通过多态性提供的动态分配机制执行相应的动作，使用多态编写的代码比使用对多种类型进行检测的代码更加易于扩展和维护。
-其实我们会经常有意无意的使用转型。比如在我之前写到的关于装饰者模式装饰者模式的文章就用到了向上转型的概念。 两种不同的咖啡 Decaf 、 Espresso 是 Coffee 的子类， Coffee 是 Drink 的子类。因为咖啡店可能会同时售卖不同的饮品，所以我们只需把不同的咖啡抽象为饮品即可，再通过引用不同的具体咖啡品种来表示不同的饮品。这样的场景其实大家都很熟悉，这就是向上转型的应用。也许你已经发现，向上转型可以跨层次。比如 Decaf 是 Coffee 的子类， Coffee 是 Drink 的子类，可以由 Decaf 直接向上转型为 Drink 。
-  </p>
-
-  
-  <footer>
-    <a href="https://HauyuChen.github.io/post/java_-polymorphism_1/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
-  </footer>
-  
-</article>
-
-  
-    <article>
-  <header>
-    <h2><a href="https://HauyuChen.github.io/post/dp_observer_pattern/">【设计模式】4. 观察者模式</a></h2>
-
-    <div class="post-meta">
-
-  <div>
-    <i class="fa fa-calendar fa-fw"></i>
-    <time>2017-09-17</time>
+    <time>2017-09-29</time>
   </div>
 
   
@@ -410,7 +775,7 @@ Fruit apple = new Apple(); //向上转型  向上转型是对父类对象的方�
     
       <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F">设计模式</a>&nbsp;&#47;
     
-      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/%E8%A7%82%E5%AF%9F%E8%80%85%E6%A8%A1%E5%BC%8F">观察者模式</a>&nbsp;&#47;
+      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/%E8%A3%85%E9%A5%B0%E8%80%85%E6%A8%A1%E5%BC%8F">装饰者模式</a>&nbsp;&#47;
     
       <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/java">Java</a>
     
@@ -425,25 +790,22 @@ Fruit apple = new Apple(); //向上转型  向上转型是对父类对象的方�
   <p>
   版权声明：本文由 Hov 所有，发布于 http://chenhy.com ，转载请注明出处。
 
-1 观察者模式 1.1 简介 观察者模式是对象之间实现多对一依赖的一种设计方案，其可让多个观察者同时监听某一个主体对象（被观察者）。当主体对象的状态发生变化时，可通知所有观察者对象，使它们能自动更新状态。同时，观察者对象的增加或减少不会影响主体对象，也不会影响其它观察者。观察者模式对象之间的低耦合非常有利于项目功能扩展以及后期维护。
-1.2 思路 观察者模式主要可以分为四种角色：
- 主体对象：此角色可以是接口，也可以是抽象类或具体类。主体对象必须包含三种方法，分别是添加观察者对象、移除观察者对象、通知观察者对象。 观察者：此角色一般是接口，里面一般只有一个 update 方法，在被观察者的状态发生变化时， update 方法就会被触发调用。 具体的主体对象：此角色是为了便于扩展，可以定义被观察者的一些具体的业务逻辑。 具体的观察者：此角色是观察者接口的具体实现，可以定义被观察者对象发生变化时，观察者所要处理的业务逻辑。  1.3 使用场景 观察者模式适用于在软件系统的某一个对象发生变化时，依赖它的其它对象也要做出相应改变的场景。
-举个实际应用场景：
-气象站发布气象数据，天气软件A、天气软件B都要获取气象站发布的气象数据。那么，气象站就可以作为主体对象（被观察者），而天气软件A、天气软件B就可以作为观察者。天气软件A、天气软件B都可以监听气象站的数据，气象站每次发布气象数据，就可以通知天气软件A、B更新的数据。
-当然，如果天气软件B不想再获取气象站的数据，就退出观察者队列。而天气软件A依然在观察者队列，还可以继续获取气象数据，气象站和天气软件A都不受影响。
-观察者模式正是满足这个场景的设计方案中比较重要的一种。
+1 装饰者模式 1.1 简介 装饰者模式可动态地向对象添加额外的属性或行为。装饰者模式是类继承的另外一种选择，类继承在编译时候增加行为，而装饰模式是在运行时增加行为。在对象功能扩展方面，装饰者模式比继承更有弹性。
+1.2 思路 通过增加一个装饰类包裹原来的类，包裹的方式一般是通过将原来的对象作为装饰类的构造函数的参数，从而在原有对象上添加新的功能。
+1.3 使用场景 在不影响其它对象的情况下，想要动态地给单个对象添加新的属性或功能。
 1.4 优缺点 优点：
- 观察者与被观察者之间耦合度低； 观察者模式可以实现广播； 观察者模式符合“开闭原则”的要求； 实现表示层与数据逻辑层的分离，定义了稳定的消息更新传递机制。  缺点：
- 观察者和被观察者之间若存在循环依赖，会使它们循环调用，可能导致系统崩溃； 若主体对象有很多直接或间接的观察者时，通知所有观察者将花费大量时间。  
-2 实例 还是拿前面提到的气象站的栗子。我们通过程序模拟气象站发布气象数据，天气软件A和天气软件B获取数据。
-2.1 普通的解决方案 气象站将数据保存在局部变量，通知天气软件A获取，天气软件A将数据保存并显示出来。
-（1）气象站
-/* WeatherData.java */ public class WeatherData { //气象站 private float mTemperature; private float mPressure; private float mHumidity; private WeatherSoftwareA wfa; public WeatherData(WeatherSoftwareA wfa){ this.
+ 可用一个或多个装饰者包装一个对象，扩展性强； 对象可以在任何时候被修饰，即动态修饰对象； 非继承，避免子类爆炸。  缺点：
+ 出现额外的装饰类，使程序变得复杂。  
+2 实例 模拟咖啡店：
+假设，咖啡店有两种咖啡可选： Decaf 和 Espresso ，两种配料可选： Chocalate 和 Milk 。
+不同的咖啡和配料可以搭配成不同的饮品，比如 Decaf 、 Espresso 、 Decaf + Chocalate 、 Decaf + Milk 、 Espresso + Chocalate 、 Espresso + Milk 六种不同的饮品。
+我们要写个程序来计算不同饮品的价格，比如客户点了一杯 Espresso + Chocalate ，输出饮品的价格和描述信息。
+2.1 糟糕的解决方案 设计超类 Drink ，继承自超类 Drink 的子类 Decaf 、 Espresso 、 Decaf + Chocalate 、 Decaf + Milk 、 Espresso + Chocalate 、 Espresso + Milk 。
   </p>
 
   
   <footer>
-    <a href="https://HauyuChen.github.io/post/dp_observer_pattern/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
+    <a href="https://HauyuChen.github.io/post/dp_decorator_pattern/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
   </footer>
   
 </article>
@@ -522,73 +884,6 @@ String str1 = &quot;hello&quot;; String str2 = new String(&quot;hello&quot;); Sy
   
     <article>
   <header>
-    <h2><a href="https://HauyuChen.github.io/post/java_abstractclass_interface/">抽象类与接口的区别</a></h2>
-
-    <div class="post-meta">
-
-  <div>
-    <i class="fa fa-calendar fa-fw"></i>
-    <time>2017-09-13</time>
-  </div>
-
-  
-
-  
-  
-  
-  <div>
-    <i class="fa fa-folder fa-fw"></i>
-    
-      <a class="post-taxonomy-tag" href="https://HauyuChen.github.io/tags/java">Java</a>&nbsp;&#47;
-    
-      <a class="post-taxonomy-tag" href="https://HauyuChen.github.io/tags/%E5%9F%BA%E7%A1%80">基础</a>
-    
-  </div>
-  
-  
-
-  
-  
-  
-  <div>
-	<i class="fa fa-tags fa-fw"></i>
-    
-      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/java">Java</a>&nbsp;&#47;
-    
-      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/%E5%9F%BA%E7%A1%80">基础</a>
-    
-  </div>
-  
-  
-  
-</div>
-
-  </header>
-
-  <p>
-  0 写在前面 抽象类和接口有共同点，也有不同点。在实际应用中，我们有时会不知道什么时候用抽象类，什么时候用接口。因此，我们有必要了解抽象类和接口的相关知识以及它们之间的区别，这样以后在二者之间的选择将更有依据。
-
-1 抽象类 在面向对象中，我们通过类来描绘对象，但并不是所有的类都是用来描绘对象的。如果一个类中没有包含足够的信息来描绘一个具体的对象，这样的类就是抽象类。
-抽象类是实现多态的一种机制，抽象类可以包含具体方法，也可以包含抽象方法（由继承它的子类实现这些方法）。
-抽象类的特性总结如下：
- 抽象类不能被实例化； 抽象类可以有构造方法； 抽象方法必须由其子类重写（Override）； 只要包含有一个抽象方法的类，就必须定义为抽象类； 抽象类可以包含有具体实现的方法，也可以不包含抽象方法； 子类的抽象方法不能与父类的抽象方法重名； abstract 不能与 private 、 static 、 final 、 native 并列修饰同一个方法。  注：关于子类实例化时抽象类是否被实例化的问题
-抽象类不能实例化，子类实例化时会初始化父类，因为子类继承了父类的变量、方法等，但初始化不等同于实例化。实例化是指用类创建对象，为对象开辟内存空间。
-举个栗子：
-Duck 是一个抽象类，里面包含构造方法、抽象方法、具体方法。
-GreenHeadDuck 继承自抽象类 Duck ，所以它必须重写抽象类 Duck 的抽象方法 display ，而具体方法 Quack 、 Swim 可以不重写。
-/* Duck.java */ public abstract class Duck{ //抽象类Duck public Duck(){ //构造方法 } public abstract void display(); //抽象方法：外观 public void Quack(){ //具体方法：嘎嘎叫 System.out.println(&quot;--gaga--&quot;); } public void Swim(){ //具体方法：游泳 System.
-  </p>
-
-  
-  <footer>
-    <a href="https://HauyuChen.github.io/post/java_abstractclass_interface/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
-  </footer>
-  
-</article>
-
-  
-    <article>
-  <header>
     <h2><a href="https://HauyuChen.github.io/post/java_ipc/">Java 进程通信（共享内存）</a></h2>
 
     <div class="post-meta">
@@ -652,137 +947,6 @@ MappedByteBuffer 为共享内存缓冲区，实际上是一个磁盘文件的内
   
   <footer>
     <a href="https://HauyuChen.github.io/post/java_ipc/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
-  </footer>
-  
-</article>
-
-  
-    <article>
-  <header>
-    <h2><a href="https://HauyuChen.github.io/post/java_overload_override/">重写、重载的区别</a></h2>
-
-    <div class="post-meta">
-
-  <div>
-    <i class="fa fa-calendar fa-fw"></i>
-    <time>2017-08-31</time>
-  </div>
-
-  
-
-  
-  
-  
-  <div>
-    <i class="fa fa-folder fa-fw"></i>
-    
-      <a class="post-taxonomy-tag" href="https://HauyuChen.github.io/tags/java">Java</a>&nbsp;&#47;
-    
-      <a class="post-taxonomy-tag" href="https://HauyuChen.github.io/tags/%E5%9F%BA%E7%A1%80">基础</a>
-    
-  </div>
-  
-  
-
-  
-  
-  
-  <div>
-	<i class="fa fa-tags fa-fw"></i>
-    
-      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/java">Java</a>&nbsp;&#47;
-    
-      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/%E5%9F%BA%E7%A1%80">基础</a>
-    
-  </div>
-  
-  
-  
-</div>
-
-  </header>
-
-  <p>
-  0 写在前面 重写和重载是面向对象程序设计中十分重要的两个概念，其中重写又称为覆盖。 通俗的理解就是，重写就是将一个方法的实现过程再写一遍，覆盖原有方法；重载就是增加一个方法的不同实现，而不覆盖原有的方法。
-
-1 重写（覆盖） 重写是子类对父类方法的实现过程的重新编写。重写的方法应与被重写的方法具有完全一致的返回值、方法名称、参数列表，也就是外壳完全一样，实现过程发生改变。
-重写规则：
- 参数列表必须与原有方法完全相同； 返回类型必须与原有方法相同； 访问权限不能比父类中被重写的方法的访问权限更低； 父类成员方法只能被其子类重写； 声明为 final 的方法不能被重写； 声明为 static 的方法不能被重写，但能够被再次声明； 构造方法不能重写。  
-2 重载 重载与重写不同之处在于重载与原有方法具有同样的名称，但参数列表可以不同。重载的方法虽然名称和原有方法一样，但是可以认为它们是不同的方法。
-重载规则：
- 重载的方法必须改变参数列表； 重载的方法可以改变返回类型； 重载的方法可以改变访问修饰符； 方法能在同一个类中或在一个子类中被重载。  
-3 对比 
-参考资料：http://www.runoob.com/java/java-override-overload.html
-  </p>
-
-  
-</article>
-
-  
-    <article>
-  <header>
-    <h2><a href="https://HauyuChen.github.io/post/dp_decorator_pattern/">【设计模式】3. 装饰者模式</a></h2>
-
-    <div class="post-meta">
-
-  <div>
-    <i class="fa fa-calendar fa-fw"></i>
-    <time>2017-08-29</time>
-  </div>
-
-  
-
-  
-  
-  
-  <div>
-    <i class="fa fa-folder fa-fw"></i>
-    
-      <a class="post-taxonomy-tag" href="https://HauyuChen.github.io/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F">设计模式</a>
-    
-  </div>
-  
-  
-
-  
-  
-  
-  <div>
-	<i class="fa fa-tags fa-fw"></i>
-    
-      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F">设计模式</a>&nbsp;&#47;
-    
-      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/%E8%A3%85%E9%A5%B0%E8%80%85%E6%A8%A1%E5%BC%8F">装饰者模式</a>&nbsp;&#47;
-    
-      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/java">Java</a>
-    
-  </div>
-  
-  
-  
-</div>
-
-  </header>
-
-  <p>
-  版权声明：本文由 Hov 所有，发布于 http://chenhy.com ，转载请注明出处。
-
-1 装饰者模式 1.1 简介 装饰者模式可动态地向对象添加额外的属性或行为。装饰者模式是类继承的另外一种选择，类继承在编译时候增加行为，而装饰模式是在运行时增加行为。在对象功能扩展方面，装饰者模式比继承更有弹性。
-1.2 思路 通过增加一个装饰类包裹原来的类，包裹的方式一般是通过将原来的对象作为装饰类的构造函数的参数，从而在原有对象上添加新的功能。
-1.3 使用场景 在不影响其它对象的情况下，想要动态地给单个对象添加新的属性或功能。
-1.4 优缺点 优点：
- 可用一个或多个装饰者包装一个对象，扩展性强； 对象可以在任何时候被修饰，即动态修饰对象； 非继承，避免子类爆炸。  缺点：
- 出现额外的装饰类，使程序变得复杂。  
-2 实例 模拟咖啡店：
-假设，咖啡店有两种咖啡可选： Decaf 和 Espresso ，两种配料可选： Chocalate 和 Milk 。
-不同的咖啡和配料可以搭配成不同的饮品，比如 Decaf 、 Espresso 、 Decaf + Chocalate 、 Decaf + Milk 、 Espresso + Chocalate 、 Espresso + Milk 六种不同的饮品。
-我们要写个程序来计算不同饮品的价格，比如客户点了一杯 Espresso + Chocalate ，输出饮品的价格和描述信息。
-2.1 糟糕的解决方案 设计超类 Drink ，继承自超类 Drink 的子类 Decaf 、 Espresso 、 Decaf + Chocalate 、 Decaf + Milk 、 Espresso + Chocalate 、 Espresso + Milk 。
-  </p>
-
-  
-  <footer>
-    <a href="https://HauyuChen.github.io/post/dp_decorator_pattern/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
   </footer>
   
 </article>
@@ -977,170 +1141,6 @@ MappedByteBuffer 为共享内存缓冲区，实际上是一个磁盘文件的内
  try｛ ｝里面的 return 语句，紧跟着 finally｛ ｝里的代码会在 return 前先执行。
   </p>
 
-  
-</article>
-
-  
-    <article>
-  <header>
-    <h2><a href="https://HauyuChen.github.io/post/java_thissuperstaticfinal/">Java关键字this、super、static、final</a></h2>
-
-    <div class="post-meta">
-
-  <div>
-    <i class="fa fa-calendar fa-fw"></i>
-    <time>2017-08-05</time>
-  </div>
-
-  
-
-  
-  
-  
-  <div>
-    <i class="fa fa-folder fa-fw"></i>
-    
-      <a class="post-taxonomy-tag" href="https://HauyuChen.github.io/tags/java">Java</a>&nbsp;&#47;
-    
-      <a class="post-taxonomy-tag" href="https://HauyuChen.github.io/tags/%E5%9F%BA%E7%A1%80">基础</a>
-    
-  </div>
-  
-  
-
-  
-  
-  
-  <div>
-	<i class="fa fa-tags fa-fw"></i>
-    
-      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/java">Java</a>&nbsp;&#47;
-    
-      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/%E5%9F%BA%E7%A1%80">基础</a>
-    
-  </div>
-  
-  
-  
-</div>
-
-  </header>
-
-  <p>
-  0 写在前面 本文主要讲讲 Java 中比较常见的关键字，如 this 、 super 、 static 、 final ，它们在程序中出现频率较高。
-1 this  表示类中的属性，比如 this.username = username; 强调调用的是本类的方法； 调用本类的构造方法，如 this(); 调用本类的无参构造方法； 表示当前对象（调用方法的对象）。  2 super  调用父类的构造方法； 调用父类的普通方法； 调用父类的属性。  3 static  static 修饰类： static 修饰的类称为静态类，静态类作为类的静态成员存在于某个类中，静态成员类可以不创建父类对象直接创建静态类的对象。 static 修饰变量： static 修饰的变量称为静态变量或类变量，而没有被 static 修饰的变量称为实例变量。静态变量在内存中只有一个拷贝， JVM 只为静态变量分配一次内存，且在加载类的过程中完成静态变量的内存分配；而实例变量每创建一个实例就分配一次内存，实例变量在内存中有多个拷贝，互补影响。 static 修饰方法： static 修饰的方法称为类方法，否则为实例方法，实例方法只有生成对象时才分配内存。类方法可以通过类名直接调用，实例方法只能通过类对象调用。  4 final  final 修饰类：被 final 修饰的类表示最终类，其不能被继承，不能当父类； final 修饰变量：被 final 修饰的变量为最终变量，即常量，其值不能修改，在定义时必须赋值。值得注意的是，当 final 修饰的不是普通变量而是对象引用时，变量指向的对象是可变的，不可变的是变量对对象的引用； final 修饰方法： final 修饰的方法为最终方法，父类包含最终方法时，子类不能重写该方法。
-  </p>
-
-  
-</article>
-
-  
-    <article>
-  <header>
-    <h2><a href="https://HauyuChen.github.io/post/java_json/">JSON相关操作（Java）</a></h2>
-
-    <div class="post-meta">
-
-  <div>
-    <i class="fa fa-calendar fa-fw"></i>
-    <time>2017-08-01</time>
-  </div>
-
-  
-
-  
-  
-  
-  <div>
-    <i class="fa fa-folder fa-fw"></i>
-    
-      <a class="post-taxonomy-tag" href="https://HauyuChen.github.io/tags/java">Java</a>
-    
-  </div>
-  
-  
-
-  
-  
-  
-  <div>
-	<i class="fa fa-tags fa-fw"></i>
-    
-      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/json">JSON</a>&nbsp;&#47;
-    
-      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/java">Java</a>
-    
-  </div>
-  
-  
-  
-</div>
-
-  </header>
-
-  <p>
-  1 Java中创建JSON import com.google.gson.JsonArray; import com.google.gson.JsonObject; public class CreateJSON { public static void main(String[] args) { JsonObject object = new JsonObject(); object.addProperty(&quot;cat&quot;, &quot;it&quot;); JsonArray array = new JsonArray(); JsonObject lan1 = new JsonObject(); lan1.addProperty(&quot;id&quot;, 1); lan1.addProperty(&quot;name&quot;, &quot;Java&quot;); lan1.addProperty(&quot;ide&quot;, &quot;Eclipse&quot;); array.add(lan1); JsonObject lan2 = new JsonObject(); lan2.addProperty(&quot;id&quot;, 2); lan2.addProperty(&quot;name&quot;, &quot;Swift&quot;); lan2.addProperty(&quot;ide&quot;, &quot;XCode&quot;); array.add(lan2); JsonObject lan3 = new JsonObject(); lan3.addProperty(&quot;id&quot;, 3); lan3.addProperty(&quot;name&quot;, &quot;C#&quot;); lan3.addProperty(&quot;ide&quot;, &quot;Visual Studio&quot;); array.add(lan3); object.add(&quot;languages&quot;, array); object.addProperty(&quot;pop&quot;, true); System.
-  </p>
-
-  
-  <footer>
-    <a href="https://HauyuChen.github.io/post/java_json/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
-  </footer>
-  
-</article>
-
-  
-    <article>
-  <header>
-    <h2><a href="https://HauyuChen.github.io/post/java_xml/">XML相关操作（Java）</a></h2>
-
-    <div class="post-meta">
-
-  <div>
-    <i class="fa fa-calendar fa-fw"></i>
-    <time>2017-08-01</time>
-  </div>
-
-  
-
-  
-  
-  
-  <div>
-    <i class="fa fa-folder fa-fw"></i>
-    
-      <a class="post-taxonomy-tag" href="https://HauyuChen.github.io/tags/java">Java</a>
-    
-  </div>
-  
-  
-
-  
-  
-  
-  <div>
-	<i class="fa fa-tags fa-fw"></i>
-    
-      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/xml">XML</a>&nbsp;&#47;
-    
-      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/java">Java</a>
-    
-  </div>
-  
-  
-  
-</div>
-
-  </header>
-
-  <p>
-  1 XML文件创建示例 import java.io.File; import java.io.StringWriter; import javax.xml.parsers.DocumentBuilder; import javax.xml.parsers.DocumentBuilderFactory; import javax.xml.parsers.ParserConfigurationException; import javax.xml.transform.Transformer; import javax.xml.transform.TransformerConfigurationException; import javax.xml.transform.TransformerException; import javax.xml.transform.TransformerFactory; import javax.xml.transform.dom.DOMSource; import javax.xml.transform.stream.StreamResult; import org.w3c.dom.Document; import org.w3c.dom.Element; public class CreateXML { public static void main(String[] args) { try { //DOM DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance(); DocumentBuilder builder = factory.newDocumentBuilder(); Document document = builder.newDocument(); //创建Languages标签 Element root = document.createElement(&quot;Languages&quot;); root.setAttribute(&quot;cat&quot;, &quot;it&quot;); //设置Languages标签的属性 //-----接下来创建Languages标签下的三个子标签lan1、lan2、lan3 //lan1 Element lan1 = document.createElement(&quot;lan&quot;); //lan标签 lan1.setAttribute(&quot;id&quot;, &quot;1&quot;); Element name1 = document.
-  </p>
-
-  
-  <footer>
-    <a href="https://HauyuChen.github.io/post/java_xml/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
-  </footer>
   
 </article>
 

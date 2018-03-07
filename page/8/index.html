@@ -237,13 +237,13 @@
     
       <article>
   <header>
-    <h2><a href="https://HauyuChen.github.io/post/es-bulk/">Elasticsearch实现批量更新</a></h2>
+    <h2><a href="https://HauyuChen.github.io/post/328-odd-even-linked-list/">【LeetCode】328. Odd Even Linked List</a></h2>
 
     <div class="post-meta">
 
   <div>
     <i class="fa fa-calendar fa-fw"></i>
-    <time>2017-09-09</time>
+    <time>2017-04-15</time>
   </div>
 
   
@@ -254,7 +254,7 @@
   <div>
     <i class="fa fa-folder fa-fw"></i>
     
-      <a class="post-taxonomy-tag" href="https://HauyuChen.github.io/tags/elasticsearch">Elasticsearch</a>
+      <a class="post-taxonomy-tag" href="https://HauyuChen.github.io/tags/leetcode">LeetCode</a>
     
   </div>
   
@@ -266,11 +266,9 @@
   <div>
 	<i class="fa fa-tags fa-fw"></i>
     
-      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/elasticsearch">Elasticsearch</a>&nbsp;&#47;
+      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/%E7%AE%97%E6%B3%95">算法</a>&nbsp;&#47;
     
-      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/%E5%88%86%E5%B8%83%E5%BC%8F%E6%90%9C%E7%B4%A2">分布式搜索</a>&nbsp;&#47;
-    
-      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/kibana">Kibana</a>
+      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/leetcode">LeetCode</a>
     
   </div>
   
@@ -281,18 +279,17 @@
   </header>
 
   <p>
-  1 bulk 前面我们已经提到批量查询 mget ，那么如果我们想要批量导入数据呢？当然也有解决方法，那就是我们现在要讲的 bulk 。 bulk 允许我们使用单一请求来实现多个文档的 create 、 index 、 update 或 delete ，这在我们平时的应用中是很重要的。
-
-2 bulk 语法 bulk API 对 JSON 的语法有严格的要求，具体要求：bulk 中每一个操作要两个 JSON 串，每个 JSON 串不能换行，只能放在同一行，而 JSON 串和 JSON 串之间，必须有一个换行。
-bulk 允许我们批量执行不同的操作，常用操作如下：
- delete：删除文档，delete比较特殊，只需1个 JSON 串即可； create：相当于 PUT /index/type/id/_create，只不过是强制创建； index：普通的 PUT 操作，可以是创建文档，也可以是全量替换文档； update：执行 partial update 操作。  语法格式如下：
-POST /_bulk { {&quot;action&quot;: {&quot;metadata&quot;}} //一个操作需两个JSON，delete除外 {&quot;data&quot;} }  举个栗子：
-我们要创建一个文档，其中 index 为 &ldquo;test_index&rdquo; ， type 为 &ldquo;test_type&rdquo; ， id 为 1 ; field 有两个，分别是 test_field1 为 &ldquo;test1&rdquo; 、 test_field2 为 &ldquo;test2&rdquo; 。
+  题目描述： Given a singly linked list, group all odd nodes together followed by the even nodes. Please note here we are talking about the node number and not the value in the nodes.
+You should try to do it in place. The program should run in O(1) space complexity and O(nodes) time complexity.
+Example:
+Given 1-&gt;2-&gt;3-&gt;4-&gt;5-&gt;NULL,
+return 1-&gt;3-&gt;5-&gt;2-&gt;4-&gt;NULL.
+Note: The relative order inside both the even and odd groups should remain as it was in the input.
   </p>
 
   
   <footer>
-    <a href="https://HauyuChen.github.io/post/es-bulk/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
+    <a href="https://HauyuChen.github.io/post/328-odd-even-linked-list/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
   </footer>
   
 </article>
@@ -302,13 +299,13 @@ POST /_bulk { {&quot;action&quot;: {&quot;metadata&quot;}} //一个操作需两�
     
       <article>
   <header>
-    <h2><a href="https://HauyuChen.github.io/post/es-mget/">Elasticsearch实现批量查询</a></h2>
+    <h2><a href="https://HauyuChen.github.io/post/116-populating-next-right-pointers-in-each-node/">【LeetCode】116. Populating Next Right Pointers in Each Node</a></h2>
 
     <div class="post-meta">
 
   <div>
     <i class="fa fa-calendar fa-fw"></i>
-    <time>2017-09-08</time>
+    <time>2017-04-14</time>
   </div>
 
   
@@ -319,7 +316,7 @@ POST /_bulk { {&quot;action&quot;: {&quot;metadata&quot;}} //一个操作需两�
   <div>
     <i class="fa fa-folder fa-fw"></i>
     
-      <a class="post-taxonomy-tag" href="https://HauyuChen.github.io/tags/elasticsearch">Elasticsearch</a>
+      <a class="post-taxonomy-tag" href="https://HauyuChen.github.io/tags/leetcode">LeetCode</a>
     
   </div>
   
@@ -331,11 +328,9 @@ POST /_bulk { {&quot;action&quot;: {&quot;metadata&quot;}} //一个操作需两�
   <div>
 	<i class="fa fa-tags fa-fw"></i>
     
-      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/elasticsearch">Elasticsearch</a>&nbsp;&#47;
+      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/%E7%AE%97%E6%B3%95">算法</a>&nbsp;&#47;
     
-      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/%E5%88%86%E5%B8%83%E5%BC%8F%E6%90%9C%E7%B4%A2">分布式搜索</a>&nbsp;&#47;
-    
-      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/kibana">Kibana</a>
+      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/leetcode">LeetCode</a>
     
   </div>
   
@@ -346,17 +341,16 @@ POST /_bulk { {&quot;action&quot;: {&quot;metadata&quot;}} //一个操作需两�
   </header>
 
   <p>
-  1 批量查询 批量查询，就是一条一条的查询。比如说要查询100条数据，普通查询就要发送100次网络请求，这个开销是很大的。如果采用批量查询的话，查询100条数据，就只要发送1次网络请求，网络请求的性能开销缩减100倍。
-
-2 mget 2.1 普通查询 ES 中查询数据最简单的方式就是通过 GET ，一次查询一条数据，如查询 id 为 1 和id 为 2 的数据。
-GET /test_index/test_type/1 GET /test_index/test_type/2  2.2 批量查询 在 ES 中要实现批量查询可以通过 mget 来实现。
-（1）查询 id 为 1 和id 为 2 的数据。
-GET /_mget { &quot;docs&quot; : [ { &quot;_index&quot; : &quot;test_index&quot;, &quot;_type&quot; : &quot;test_type&quot;, &quot;_id&quot; : 1 }, { &quot;_index&quot; : &quot;test_index&quot;, &quot;_type&quot; : &quot;test_type&quot;, &quot;_id&quot; : 2 } ] }  查询结果：
+  题目描述： Given a binary tree
+ struct TreeLinkNode { TreeLinkNode *left; TreeLinkNode *right; TreeLinkNode *next; }  Populate each next pointer to point to its next right node. If there is no next right node, the next pointer should be set to NULL.
+Initially, all next pointers are set to NULL.
+Note:
+You may only use constant extra space. You may assume that it is a perfect binary tree (ie, all leaves are at the same level, and every parent has two children).
   </p>
 
   
   <footer>
-    <a href="https://HauyuChen.github.io/post/es-mget/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
+    <a href="https://HauyuChen.github.io/post/116-populating-next-right-pointers-in-each-node/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
   </footer>
   
 </article>
@@ -366,13 +360,13 @@ GET /_mget { &quot;docs&quot; : [ { &quot;_index&quot; : &quot;test_index&quot;,
     
       <article>
   <header>
-    <h2><a href="https://HauyuChen.github.io/post/java_ipc/">Java 进程通信（共享内存）</a></h2>
+    <h2><a href="https://HauyuChen.github.io/post/075-sort-colors/">【LeetCode】75. Sort Colors</a></h2>
 
     <div class="post-meta">
 
   <div>
     <i class="fa fa-calendar fa-fw"></i>
-    <time>2017-09-06</time>
+    <time>2017-04-13</time>
   </div>
 
   
@@ -383,9 +377,7 @@ GET /_mget { &quot;docs&quot; : [ { &quot;_index&quot; : &quot;test_index&quot;,
   <div>
     <i class="fa fa-folder fa-fw"></i>
     
-      <a class="post-taxonomy-tag" href="https://HauyuChen.github.io/tags/java">Java</a>&nbsp;&#47;
-    
-      <a class="post-taxonomy-tag" href="https://HauyuChen.github.io/tags/%E5%9F%BA%E7%A1%80">基础</a>
+      <a class="post-taxonomy-tag" href="https://HauyuChen.github.io/tags/leetcode">LeetCode</a>
     
   </div>
   
@@ -397,11 +389,9 @@ GET /_mget { &quot;docs&quot; : [ { &quot;_index&quot; : &quot;test_index&quot;,
   <div>
 	<i class="fa fa-tags fa-fw"></i>
     
-      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/java">Java</a>&nbsp;&#47;
+      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/%E7%AE%97%E6%B3%95">算法</a>&nbsp;&#47;
     
-      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/%E8%BF%9B%E7%A8%8B">进程</a>&nbsp;&#47;
-    
-      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/%E5%85%B1%E4%BA%AB%E5%86%85%E5%AD%98">共享内存</a>
+      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/leetcode">LeetCode</a>
     
   </div>
   
@@ -412,23 +402,16 @@ GET /_mget { &quot;docs&quot; : [ { &quot;_index&quot; : &quot;test_index&quot;,
   </header>
 
   <p>
-  0 写在前面 说到进程通信，我们很轻易就能想到经典的 Socket 通信。但像 Socket 这样的网络通信会增加额外的网络负担，同时也增加了一定的代码量。
-共享内存方式是实现进程通信的另外一种方式，其具有数据共享，系统快速查询、动态配置、减少资源耗费等优点。
-共享内存特点：
- 可被多个进程打开访问； 读写操作的进程在执行读写操作时，其他进程不能进行写操作； 多个进程可以交替对某一共享内存执行写操作； 一个进程执行内存写操作后，不影响其他进程对该内存的访问，同时其他进程对更新后的内存具有可见性；  Java 进程间的共享内存通过内存映射文件 NIO （MappedByteBuffer）实现，不同进程的内存映射文件关联到同一物理文件。该文件通常为随机存取文件对象，实现文件和内存的映射，即时双向同步。
+  题目描述： Given an array with n objects colored red, white or blue, sort them so that objects of the same color are adjacent, with the colors in the order red, white and blue.
+Here, we will use the integers 0, 1, and 2 to represent the color red, white, and blue respectively.
+Note: You are not suppose to use the library&rsquo;s sort function for this problem.
 
-1 要点 1.1 MappedByteBuffer Java IO 操作的 BufferedReader 、 BufferedInputStream 等相信大家都很熟悉，不过在 Java NIO 中引入了一种基于 MappedByteBuffer 操作大文件的方式，其读写性能极高。
-MappedByteBuffer 为共享内存缓冲区，实际上是一个磁盘文件的内存映射，实现内存与文件的同步变化，可有效地保证共享内存的实现。
-1.2 FileChannel FileChannel 是将共享内存和磁盘文件建立联系的文件通道类。FileChannel 类的加入是 JDK 为了统一对外设备（文件、网络接口等）的访问方法，并加强了多线程对同一文件进行存取的安全性。我们在这里用它来建立共享内存和磁盘文件间的一个通道。
-1.3 RandomAccessFile RandomAccessFile 是 Java IO 体系中功能最丰富的文件内容访问类，它提供很多方法来操作文件，包括读写支持，与普通的IO流相比，它最大的特别之处就是支持任意访问的方式，程序可以直接跳到任意地方来读写数据。
-举个栗子：
-如果我们要向已存在的大小为 1G 的 txt 文本里末尾追加一行文字，内容如下“ Lucene 是一款非常优秀的全文检索库”。其实直接使用 Java 中的流读取 txt 文本里所有的数据转成字符串后，然后拼接“ Lucene 是一款非常优秀的全文检索库”，又写回文本即可。
-但如果需求改了，我们要想向大小为 5G 的 txt 文本里追加数据。如果我们电脑的内存只有 4G ，强制读取所有的数据并追加，将会报内存溢出的异常。显然，上面的方法不再合适。
+思路： 本题实质上为三元数组排序。
   </p>
 
   
   <footer>
-    <a href="https://HauyuChen.github.io/post/java_ipc/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
+    <a href="https://HauyuChen.github.io/post/075-sort-colors/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
   </footer>
   
 </article>
@@ -438,13 +421,13 @@ MappedByteBuffer 为共享内存缓冲区，实际上是一个磁盘文件的内
     
       <article>
   <header>
-    <h2><a href="https://HauyuChen.github.io/post/es-concurrent_op/">Elasticsearch的乐观并发控制</a></h2>
+    <h2><a href="https://HauyuChen.github.io/post/094-binary-tree-inorder-traversal/">【LeetCode】94. Binary Tree Inorder Traversal</a></h2>
 
     <div class="post-meta">
 
   <div>
     <i class="fa fa-calendar fa-fw"></i>
-    <time>2017-09-03</time>
+    <time>2017-04-13</time>
   </div>
 
   
@@ -455,7 +438,7 @@ MappedByteBuffer 为共享内存缓冲区，实际上是一个磁盘文件的内
   <div>
     <i class="fa fa-folder fa-fw"></i>
     
-      <a class="post-taxonomy-tag" href="https://HauyuChen.github.io/tags/elasticsearch">Elasticsearch</a>
+      <a class="post-taxonomy-tag" href="https://HauyuChen.github.io/tags/leetcode">LeetCode</a>
     
   </div>
   
@@ -467,13 +450,9 @@ MappedByteBuffer 为共享内存缓冲区，实际上是一个磁盘文件的内
   <div>
 	<i class="fa fa-tags fa-fw"></i>
     
-      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/elasticsearch">Elasticsearch</a>&nbsp;&#47;
+      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/%E7%AE%97%E6%B3%95">算法</a>&nbsp;&#47;
     
-      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/%E5%88%86%E5%B8%83%E5%BC%8F%E6%90%9C%E7%B4%A2">分布式搜索</a>&nbsp;&#47;
-    
-      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/kibana">Kibana</a>&nbsp;&#47;
-    
-      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/%E5%B9%B6%E5%8F%91%E6%8E%A7%E5%88%B6">并发控制</a>
+      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/leetcode">LeetCode</a>
     
   </div>
   
@@ -484,20 +463,19 @@ MappedByteBuffer 为共享内存缓冲区，实际上是一个磁盘文件的内
   </header>
 
   <p>
-  0 前言 Elasticsearch 采用的是乐观锁并发控制，基于 Elasticsearch 提供的 _version 字段或我们自己定义的外部版本号，可以方便地实现乐观并发控制。
-扩展阅读：并发控制（乐观锁、悲观锁）
+  题目描述： Given a binary tree, return the inorder traversal of its nodes&rsquo; values.
+For example:
+Given binary tree [1,null,2,3],
+ 1 \ 2 / 3  return [1,3,2].
 
-1 基于 _version 的乐观并发控制 1.1 _version _version 是 ES 中提供的一个字段，它表明当前数据的版本号。我们可根据它来对比数据的版本是否一致。
-1.2 操作实例 （1）构造一条数据。
-PUT test_index/test_type/7 { &quot;test_field&quot;:&quot;test test&quot; }  （2）模拟两个客户端，获取同一条数据。
-GET test_index/test_type/7  执行结果：两个客户端都能读到 id 为 7 的数据，版本号为 1 。
-{ &quot;_index&quot;: &quot;test_index&quot;, &quot;_type&quot;: &quot;test_type&quot;, &quot;_id&quot;: &quot;7&quot;, &quot;_version&quot;: 1, &quot;found&quot;: true, &quot;_source&quot;: { &quot;test_field&quot;: &quot;test test&quot; } }  （3）一个客户端先更新数据，同时带上数据的版本号（?version=1）。确保 ES 中的数据版本号与客户端中的数据版本号是相同的才能修改。
-PUT test_index/test_type/7?version=1 { &quot;test_field&quot;:&quot;test client 1&quot; }  执行结果：修改成功，数据的版本号变为 2 。
+思路： 二叉树的中序遍历，这里直接用递归的方法求解。
+
+代码实现： /** * Definition for a binary tree node. * public class TreeNode { * int val; * TreeNode left; * TreeNode right; * TreeNode(int x) { val = x; } * } */ class Solution { public List&lt;Integer&gt; inorderTraversal(TreeNode root) { List&lt;Integer&gt; ret = new ArrayList&lt;Integer&gt;(); inorder(root,ret); return ret; } public void inorder(TreeNode root, List&lt;Integer&gt; ret){ if(root==null){ return ; } inorder(root.
   </p>
 
   
   <footer>
-    <a href="https://HauyuChen.github.io/post/es-concurrent_op/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
+    <a href="https://HauyuChen.github.io/post/094-binary-tree-inorder-traversal/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
   </footer>
   
 </article>
@@ -507,13 +485,13 @@ PUT test_index/test_type/7?version=1 { &quot;test_field&quot;:&quot;test client 
     
       <article>
   <header>
-    <h2><a href="https://HauyuChen.github.io/post/concurrence_pe_op/">并发控制（乐观锁、悲观锁）</a></h2>
+    <h2><a href="https://HauyuChen.github.io/post/058-length-of-last-word/">【LeetCode】58. Length of Last Word</a></h2>
 
     <div class="post-meta">
 
   <div>
     <i class="fa fa-calendar fa-fw"></i>
-    <time>2017-09-01</time>
+    <time>2017-04-12</time>
   </div>
 
   
@@ -524,9 +502,7 @@ PUT test_index/test_type/7?version=1 { &quot;test_field&quot;:&quot;test client 
   <div>
     <i class="fa fa-folder fa-fw"></i>
     
-      <a class="post-taxonomy-tag" href="https://HauyuChen.github.io/tags/%E6%95%B0%E6%8D%AE%E5%BA%93">数据库</a>&nbsp;&#47;
-    
-      <a class="post-taxonomy-tag" href="https://HauyuChen.github.io/tags/%E5%9F%BA%E7%A1%80">基础</a>
+      <a class="post-taxonomy-tag" href="https://HauyuChen.github.io/tags/leetcode">LeetCode</a>
     
   </div>
   
@@ -538,11 +514,9 @@ PUT test_index/test_type/7?version=1 { &quot;test_field&quot;:&quot;test client 
   <div>
 	<i class="fa fa-tags fa-fw"></i>
     
-      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/%E6%95%B0%E6%8D%AE%E5%BA%93">数据库</a>&nbsp;&#47;
+      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/%E7%AE%97%E6%B3%95">算法</a>&nbsp;&#47;
     
-      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/%E5%B9%B6%E5%8F%91%E6%8E%A7%E5%88%B6">并发控制</a>&nbsp;&#47;
-    
-      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/%E5%9F%BA%E7%A1%80">基础</a>
+      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/leetcode">LeetCode</a>
     
   </div>
   
@@ -553,18 +527,21 @@ PUT test_index/test_type/7?version=1 { &quot;test_field&quot;:&quot;test client 
   </header>
 
   <p>
-  版权声明：本文由 Hov 所有，发布于 http://chenhy.com ，转载请注明出处。
+  题目描述： Given a string s consists of upper/lower-case alphabets and empty space characters &lsquo; &lsquo;, return the length of last word in the string.
+If the last word does not exist, return 0.
+Note: A word is defined as a character sequence consists of non-space characters only.
+Example:
+Input: &ldquo;Hello World&rdquo;
+Output: 5
 
-0 前言 乐观锁、悲观锁是人们定义出来的概念，可认为是一种思想。也就是说其不依赖于某个特定的数据库，不仅仅是关系型数据库系统有乐观锁、悲观锁，像 memcache 、 Hibernate 等也有类似的概念。乐观锁、悲观锁是用来保证数据并发安全的方法。
-
-1 悲观锁 1.1 简介 悲观锁并发控制方案，在各种情况下都上锁。上锁之后，就只有一个线程可以操作这一数据。
-1.2 实例 牙膏库存为 100 件，用户 A （线程 A ）和用户 B （线程 B ）同时购买一件牙膏。
- 线程 A 读取牙膏库存（ 100 件，并对数据加锁），此时线程 B 无法读取牙膏库存数据； 线程 A 将牙膏库存减 1 ，库存为 100-1=99 件； 线程 A 将数据更新至数据库，数据库牙膏库存为 99 件，数据解锁； 因为数据解锁了，线程 B 可以读取牙膏库存数据（ 99 件，并对数据加锁）； 线程 B 将牙膏库存减 1 ，库存为 99-1=98 件； 线程 B 将数据更新至数据库，数据库中牙膏库存变为 98 件，数据解锁。  注：执行顺序为绿色 → 蓝色 → 红色
+思路： 从后往前遍历字符串。
+ 注意字符串后面是否有空格，所以先判断字符串是否以空格结尾； 若当前字符不是空格，开始计数，直到遇到空格，返回计数的结果。  
+代码实现： class Solution { public int lengthOfLastWord(String s) { int count = 0; int i = s.
   </p>
 
   
   <footer>
-    <a href="https://HauyuChen.github.io/post/concurrence_pe_op/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
+    <a href="https://HauyuChen.github.io/post/058-length-of-last-word/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
   </footer>
   
 </article>

@@ -234,6 +234,68 @@
   
     <article>
   <header>
+    <h2><a href="https://HauyuChen.github.io/post/java_overload_override/">重写、重载的区别</a></h2>
+
+    <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>2017-11-20</time>
+  </div>
+
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-folder fa-fw"></i>
+    
+      <a class="post-taxonomy-tag" href="https://HauyuChen.github.io/tags/java">Java</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-tag" href="https://HauyuChen.github.io/tags/%E5%9F%BA%E7%A1%80">基础</a>
+    
+  </div>
+  
+  
+
+  
+  
+  
+  <div>
+	<i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/java">Java</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/%E5%9F%BA%E7%A1%80">基础</a>
+    
+  </div>
+  
+  
+  
+</div>
+
+  </header>
+
+  <p>
+  0 写在前面 重写和重载是面向对象程序设计中十分重要的两个概念，其中重写又称为覆盖。 通俗的理解就是，重写就是将一个方法的实现过程再写一遍，覆盖原有方法；重载就是增加一个方法的不同实现，而不覆盖原有的方法。
+
+1 重写（覆盖） 重写是子类对父类方法的实现过程的重新编写。重写的方法应与被重写的方法具有完全一致的返回值、方法名称、参数列表，也就是外壳完全一样，实现过程发生改变。
+重写规则：
+ 参数列表必须与原有方法完全相同； 返回类型必须与原有方法相同； 访问权限不能比父类中被重写的方法的访问权限更低； 父类成员方法只能被其子类重写； 声明为 final 的方法不能被重写； 声明为 static 的方法不能被重写，但能够被再次声明； 构造方法不能重写。  
+2 重载 重载与重写不同之处在于重载与原有方法具有同样的名称，但参数列表可以不同。重载的方法虽然名称和原有方法一样，但是可以认为它们是不同的方法。
+重载规则：
+ 重载的方法必须改变参数列表； 重载的方法可以改变返回类型； 重载的方法可以改变访问修饰符； 方法能在同一个类中或在一个子类中被重载。  
+3 对比 
+参考资料：http://www.runoob.com/java/java-override-overload.html
+  </p>
+
+  
+</article>
+
+  
+    <article>
+  <header>
     <h2><a href="https://HauyuChen.github.io/post/java_ipc/">Java 进程通信（共享内存）</a></h2>
 
     <div class="post-meta">
@@ -369,75 +431,13 @@ MappedByteBuffer 为共享内存缓冲区，实际上是一个磁盘文件的内
   
     <article>
   <header>
-    <h2><a href="https://HauyuChen.github.io/post/java_overload_override/">重写、重载的区别</a></h2>
-
-    <div class="post-meta">
-
-  <div>
-    <i class="fa fa-calendar fa-fw"></i>
-    <time>2017-08-31</time>
-  </div>
-
-  
-
-  
-  
-  
-  <div>
-    <i class="fa fa-folder fa-fw"></i>
-    
-      <a class="post-taxonomy-tag" href="https://HauyuChen.github.io/tags/java">Java</a>&nbsp;&#47;
-    
-      <a class="post-taxonomy-tag" href="https://HauyuChen.github.io/tags/%E5%9F%BA%E7%A1%80">基础</a>
-    
-  </div>
-  
-  
-
-  
-  
-  
-  <div>
-	<i class="fa fa-tags fa-fw"></i>
-    
-      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/java">Java</a>&nbsp;&#47;
-    
-      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/%E5%9F%BA%E7%A1%80">基础</a>
-    
-  </div>
-  
-  
-  
-</div>
-
-  </header>
-
-  <p>
-  0 写在前面 重写和重载是面向对象程序设计中十分重要的两个概念，其中重写又称为覆盖。 通俗的理解就是，重写就是将一个方法的实现过程再写一遍，覆盖原有方法；重载就是增加一个方法的不同实现，而不覆盖原有的方法。
-
-1 重写（覆盖） 重写是子类对父类方法的实现过程的重新编写。重写的方法应与被重写的方法具有完全一致的返回值、方法名称、参数列表，也就是外壳完全一样，实现过程发生改变。
-重写规则：
- 参数列表必须与原有方法完全相同； 返回类型必须与原有方法相同； 访问权限不能比父类中被重写的方法的访问权限更低； 父类成员方法只能被其子类重写； 声明为 final 的方法不能被重写； 声明为 static 的方法不能被重写，但能够被再次声明； 构造方法不能重写。  
-2 重载 重载与重写不同之处在于重载与原有方法具有同样的名称，但参数列表可以不同。重载的方法虽然名称和原有方法一样，但是可以认为它们是不同的方法。
-重载规则：
- 重载的方法必须改变参数列表； 重载的方法可以改变返回类型； 重载的方法可以改变访问修饰符； 方法能在同一个类中或在一个子类中被重载。  
-3 对比 
-参考资料：http://www.runoob.com/java/java-override-overload.html
-  </p>
-
-  
-</article>
-
-  
-    <article>
-  <header>
     <h2><a href="https://HauyuChen.github.io/post/java_-polymorphism_1/">谈谈向上转型、向下转型</a></h2>
 
     <div class="post-meta">
 
   <div>
     <i class="fa fa-calendar fa-fw"></i>
-    <time>2017-09-20</time>
+    <time>2017-12-20</time>
   </div>
 
   
@@ -582,7 +582,7 @@ Fruit apple = new Apple(); //向上转型  向上转型是对父类对象的方�
 
   <div>
     <i class="fa fa-calendar fa-fw"></i>
-    <time>2017-09-13</time>
+    <time>2017-11-13</time>
   </div>
 
   
@@ -714,6 +714,60 @@ String str1 = &quot;hello&quot;; String str2 = new String(&quot;hello&quot;); Sy
   
     <article>
   <header>
+    <h2><a href="https://HauyuChen.github.io/post/java_thissuperstaticfinal/">Java关键字this、super、static、final</a></h2>
+
+    <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>2017-10-25</time>
+  </div>
+
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-folder fa-fw"></i>
+    
+      <a class="post-taxonomy-tag" href="https://HauyuChen.github.io/tags/java">Java</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-tag" href="https://HauyuChen.github.io/tags/%E5%9F%BA%E7%A1%80">基础</a>
+    
+  </div>
+  
+  
+
+  
+  
+  
+  <div>
+	<i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/java">Java</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/%E5%9F%BA%E7%A1%80">基础</a>
+    
+  </div>
+  
+  
+  
+</div>
+
+  </header>
+
+  <p>
+  0 写在前面 本文主要讲讲 Java 中比较常见的关键字，如 this 、 super 、 static 、 final ，它们在程序中出现频率较高。
+1 this  表示类中的属性，比如 this.username = username; 强调调用的是本类的方法； 调用本类的构造方法，如 this(); 调用本类的无参构造方法； 表示当前对象（调用方法的对象）。  2 super  调用父类的构造方法； 调用父类的普通方法； 调用父类的属性。  3 static  static 修饰类： static 修饰的类称为静态类，静态类作为类的静态成员存在于某个类中，静态成员类可以不创建父类对象直接创建静态类的对象。 static 修饰变量： static 修饰的变量称为静态变量或类变量，而没有被 static 修饰的变量称为实例变量。静态变量在内存中只有一个拷贝， JVM 只为静态变量分配一次内存，且在加载类的过程中完成静态变量的内存分配；而实例变量每创建一个实例就分配一次内存，实例变量在内存中有多个拷贝，互补影响。 static 修饰方法： static 修饰的方法称为类方法，否则为实例方法，实例方法只有生成对象时才分配内存。类方法可以通过类名直接调用，实例方法只能通过类对象调用。  4 final  final 修饰类：被 final 修饰的类表示最终类，其不能被继承，不能当父类； final 修饰变量：被 final 修饰的变量为最终变量，即常量，其值不能修改，在定义时必须赋值。值得注意的是，当 final 修饰的不是普通变量而是对象引用时，变量指向的对象是可变的，不可变的是变量对对象的引用； final 修饰方法： final 修饰的方法为最终方法，父类包含最终方法时，子类不能重写该方法。
+  </p>
+
+  
+</article>
+
+  
+    <article>
+  <header>
     <h2><a href="https://HauyuChen.github.io/post/java_trap/">Java相关特性</a></h2>
 
     <div class="post-meta">
@@ -763,60 +817,6 @@ String str1 = &quot;hello&quot;; String str2 = new String(&quot;hello&quot;); Sy
  true 、 false 、 null 不是严格意义上的关键字，而是文字常量（literals）。
  float f = 2.5；不正确，因为精度不准确。正确写法：float f = (float)2.5;
  try｛ ｝里面的 return 语句，紧跟着 finally｛ ｝里的代码会在 return 前先执行。
-  </p>
-
-  
-</article>
-
-  
-    <article>
-  <header>
-    <h2><a href="https://HauyuChen.github.io/post/java_thissuperstaticfinal/">Java关键字this、super、static、final</a></h2>
-
-    <div class="post-meta">
-
-  <div>
-    <i class="fa fa-calendar fa-fw"></i>
-    <time>2017-08-05</time>
-  </div>
-
-  
-
-  
-  
-  
-  <div>
-    <i class="fa fa-folder fa-fw"></i>
-    
-      <a class="post-taxonomy-tag" href="https://HauyuChen.github.io/tags/java">Java</a>&nbsp;&#47;
-    
-      <a class="post-taxonomy-tag" href="https://HauyuChen.github.io/tags/%E5%9F%BA%E7%A1%80">基础</a>
-    
-  </div>
-  
-  
-
-  
-  
-  
-  <div>
-	<i class="fa fa-tags fa-fw"></i>
-    
-      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/java">Java</a>&nbsp;&#47;
-    
-      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/%E5%9F%BA%E7%A1%80">基础</a>
-    
-  </div>
-  
-  
-  
-</div>
-
-  </header>
-
-  <p>
-  0 写在前面 本文主要讲讲 Java 中比较常见的关键字，如 this 、 super 、 static 、 final ，它们在程序中出现频率较高。
-1 this  表示类中的属性，比如 this.username = username; 强调调用的是本类的方法； 调用本类的构造方法，如 this(); 调用本类的无参构造方法； 表示当前对象（调用方法的对象）。  2 super  调用父类的构造方法； 调用父类的普通方法； 调用父类的属性。  3 static  static 修饰类： static 修饰的类称为静态类，静态类作为类的静态成员存在于某个类中，静态成员类可以不创建父类对象直接创建静态类的对象。 static 修饰变量： static 修饰的变量称为静态变量或类变量，而没有被 static 修饰的变量称为实例变量。静态变量在内存中只有一个拷贝， JVM 只为静态变量分配一次内存，且在加载类的过程中完成静态变量的内存分配；而实例变量每创建一个实例就分配一次内存，实例变量在内存中有多个拷贝，互补影响。 static 修饰方法： static 修饰的方法称为类方法，否则为实例方法，实例方法只有生成对象时才分配内存。类方法可以通过类名直接调用，实例方法只能通过类对象调用。  4 final  final 修饰类：被 final 修饰的类表示最终类，其不能被继承，不能当父类； final 修饰变量：被 final 修饰的变量为最终变量，即常量，其值不能修改，在定义时必须赋值。值得注意的是，当 final 修饰的不是普通变量而是对象引用时，变量指向的对象是可变的，不可变的是变量对对象的引用； final 修饰方法： final 修饰的方法为最终方法，父类包含最终方法时，子类不能重写该方法。
   </p>
 
   

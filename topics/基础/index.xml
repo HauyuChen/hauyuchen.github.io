@@ -40,6 +40,76 @@
     </item>
     
     <item>
+      <title>谈谈向上转型、向下转型</title>
+      <link>https://HauyuChen.github.io/post/java_-polymorphism_1/</link>
+      <pubDate>Wed, 20 Dec 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://HauyuChen.github.io/post/java_-polymorphism_1/</guid>
+      <description>版权声明：本文由 Hov 所有，发布于 http://chenhy.com ，转载请注明出处。
+更新说明：本文于 2017-10-01 修改部分内容。
+
+0 写在前面 某天下午，群上抛出了一个关于 Java 向上转型的问题。
+
+
+于是，我们以此为开端讨论了一个下午，从多态到类加载顺序。讨论结束后想着是不是要写篇文章记录下，所以有了这篇文章。
+本文将谈及向上转型、向下转型的概念，后续有时间将扩充多态相关的更详细的知识。
+
+1 向上转型 1.1 概念 向上转型是指子类对象转型为父类类型。通俗的说就是，对象变量是父类类型，但该对象变量引用的却是子类对象。
+举个栗子，苹果是水果的一种，但我们有时会说苹果是水果或直接把苹果说成水果。其实，这样的说法就是向上转型，我们把苹果抽象为水果。伪代码表示如下：
+水果 对象变量名 = new 苹果();  Apple 是 Fruit 的子类。对象变量 apple 向上转型为 Fruit 类型，但 apple 仍引用的是 Apple 对象。
+Fruit apple = new Apple(); //向上转型  向上转型是对父类对象的方法的扩充，即父类对象可访问子类重写父类的方法。也许你会问，既然访问的还是子类对象的方法，为什么不直接声明为子类类型呢？
+这就是 Java 抽象编程的奥秘。向上转型是实现多态的一种机制，我们可以通过多态性提供的动态分配机制执行相应的动作，使用多态编写的代码比使用对多种类型进行检测的代码更加易于扩展和维护。
+其实我们会经常有意无意的使用转型。比如在我之前写到的关于装饰者模式装饰者模式的文章就用到了向上转型的概念。 两种不同的咖啡 Decaf 、 Espresso 是 Coffee 的子类， Coffee 是 Drink 的子类。因为咖啡店可能会同时售卖不同的饮品，所以我们只需把不同的咖啡抽象为饮品即可，再通过引用不同的具体咖啡品种来表示不同的饮品。这样的场景其实大家都很熟悉，这就是向上转型的应用。也许你已经发现，向上转型可以跨层次。比如 Decaf 是 Coffee 的子类， Coffee 是 Drink 的子类，可以由 Decaf 直接向上转型为 Drink 。</description>
+    </item>
+    
+    <item>
+      <title>重写、重载的区别</title>
+      <link>https://HauyuChen.github.io/post/java_overload_override/</link>
+      <pubDate>Mon, 20 Nov 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://HauyuChen.github.io/post/java_overload_override/</guid>
+      <description>0 写在前面 重写和重载是面向对象程序设计中十分重要的两个概念，其中重写又称为覆盖。 通俗的理解就是，重写就是将一个方法的实现过程再写一遍，覆盖原有方法；重载就是增加一个方法的不同实现，而不覆盖原有的方法。
+
+1 重写（覆盖） 重写是子类对父类方法的实现过程的重新编写。重写的方法应与被重写的方法具有完全一致的返回值、方法名称、参数列表，也就是外壳完全一样，实现过程发生改变。
+重写规则：
+ 参数列表必须与原有方法完全相同； 返回类型必须与原有方法相同； 访问权限不能比父类中被重写的方法的访问权限更低； 父类成员方法只能被其子类重写； 声明为 final 的方法不能被重写； 声明为 static 的方法不能被重写，但能够被再次声明； 构造方法不能重写。  
+2 重载 重载与重写不同之处在于重载与原有方法具有同样的名称，但参数列表可以不同。重载的方法虽然名称和原有方法一样，但是可以认为它们是不同的方法。
+重载规则：
+ 重载的方法必须改变参数列表； 重载的方法可以改变返回类型； 重载的方法可以改变访问修饰符； 方法能在同一个类中或在一个子类中被重载。  
+3 对比 
+参考资料：http://www.runoob.com/java/java-override-overload.html</description>
+    </item>
+    
+    <item>
+      <title>抽象类与接口的区别</title>
+      <link>https://HauyuChen.github.io/post/java_abstractclass_interface/</link>
+      <pubDate>Mon, 13 Nov 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://HauyuChen.github.io/post/java_abstractclass_interface/</guid>
+      <description>0 写在前面 抽象类和接口有共同点，也有不同点。在实际应用中，我们有时会不知道什么时候用抽象类，什么时候用接口。因此，我们有必要了解抽象类和接口的相关知识以及它们之间的区别，这样以后在二者之间的选择将更有依据。
+
+1 抽象类 在面向对象中，我们通过类来描绘对象，但并不是所有的类都是用来描绘对象的。如果一个类中没有包含足够的信息来描绘一个具体的对象，这样的类就是抽象类。
+抽象类是实现多态的一种机制，抽象类可以包含具体方法，也可以包含抽象方法（由继承它的子类实现这些方法）。
+抽象类的特性总结如下：
+ 抽象类不能被实例化； 抽象类可以有构造方法； 抽象方法必须由其子类重写（Override）； 只要包含有一个抽象方法的类，就必须定义为抽象类； 抽象类可以包含有具体实现的方法，也可以不包含抽象方法； 子类的抽象方法不能与父类的抽象方法重名； abstract 不能与 private 、 static 、 final 、 native 并列修饰同一个方法。  注：关于子类实例化时抽象类是否被实例化的问题
+抽象类不能实例化，子类实例化时会初始化父类，因为子类继承了父类的变量、方法等，但初始化不等同于实例化。实例化是指用类创建对象，为对象开辟内存空间。
+举个栗子：
+Duck 是一个抽象类，里面包含构造方法、抽象方法、具体方法。
+GreenHeadDuck 继承自抽象类 Duck ，所以它必须重写抽象类 Duck 的抽象方法 display ，而具体方法 Quack 、 Swim 可以不重写。
+/* Duck.java */ public abstract class Duck{ //抽象类Duck public Duck(){ //构造方法 } public abstract void display(); //抽象方法：外观 public void Quack(){ //具体方法：嘎嘎叫 System.out.println(&amp;quot;--gaga--&amp;quot;); } public void Swim(){ //具体方法：游泳 System.</description>
+    </item>
+    
+    <item>
+      <title>Java关键字this、super、static、final</title>
+      <link>https://HauyuChen.github.io/post/java_thissuperstaticfinal/</link>
+      <pubDate>Wed, 25 Oct 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://HauyuChen.github.io/post/java_thissuperstaticfinal/</guid>
+      <description>0 写在前面 本文主要讲讲 Java 中比较常见的关键字，如 this 、 super 、 static 、 final ，它们在程序中出现频率较高。
+1 this  表示类中的属性，比如 this.username = username; 强调调用的是本类的方法； 调用本类的构造方法，如 this(); 调用本类的无参构造方法； 表示当前对象（调用方法的对象）。  2 super  调用父类的构造方法； 调用父类的普通方法； 调用父类的属性。  3 static  static 修饰类： static 修饰的类称为静态类，静态类作为类的静态成员存在于某个类中，静态成员类可以不创建父类对象直接创建静态类的对象。 static 修饰变量： static 修饰的变量称为静态变量或类变量，而没有被 static 修饰的变量称为实例变量。静态变量在内存中只有一个拷贝， JVM 只为静态变量分配一次内存，且在加载类的过程中完成静态变量的内存分配；而实例变量每创建一个实例就分配一次内存，实例变量在内存中有多个拷贝，互补影响。 static 修饰方法： static 修饰的方法称为类方法，否则为实例方法，实例方法只有生成对象时才分配内存。类方法可以通过类名直接调用，实例方法只能通过类对象调用。  4 final  final 修饰类：被 final 修饰的类表示最终类，其不能被继承，不能当父类； final 修饰变量：被 final 修饰的变量为最终变量，即常量，其值不能修改，在定义时必须赋值。值得注意的是，当 final 修饰的不是普通变量而是对象引用时，变量指向的对象是可变的，不可变的是变量对对象的引用； final 修饰方法： final 修饰的方法为最终方法，父类包含最终方法时，子类不能重写该方法。</description>
+    </item>
+    
+    <item>
       <title>谈谈 Java IO</title>
       <link>https://HauyuChen.github.io/post/java_io/</link>
       <pubDate>Thu, 05 Oct 2017 00:00:00 +0000</pubDate>
@@ -59,29 +129,6 @@
 1.3 字符集 不同国家和地区所制定的不同 ANSI 编码标准中，都只规定了各自语言所需的字符。汉字标准（GB2312）就是一个字符集，它规定的是汉字的编码标准。
 字符集（编码）有两层含义：
  使用哪些字符，也就是哪些字符、汉字或符号会被收入标准中，所包含“字符”的集合就叫做“字符集”； 规定每个字符分别用一个字节还是多个字节存储，用哪些字节存储，这个规定就叫做编码。 字符集和编码一般同时制定，字符集除了有“字符集合”含义外，还包含了“编码”的含义。  值得注意的是，为了使国际间信息交流更方便，国际组织制定了 UNICODE 字符集，它为各种语言中的每一个字符设定了统一且唯一的数字编号，以满足跨平台、跨语言进行文本交换、处理的要求，如我们熟悉的 UTF-8 。</description>
-    </item>
-    
-    <item>
-      <title>谈谈向上转型、向下转型</title>
-      <link>https://HauyuChen.github.io/post/java_-polymorphism_1/</link>
-      <pubDate>Wed, 20 Sep 2017 00:00:00 +0000</pubDate>
-      
-      <guid>https://HauyuChen.github.io/post/java_-polymorphism_1/</guid>
-      <description>版权声明：本文由 Hov 所有，发布于 http://chenhy.com ，转载请注明出处。
-更新说明：本文于 2017-10-01 修改部分内容。
-
-0 写在前面 某天下午，群上抛出了一个关于 Java 向上转型的问题。
-
-
-于是，我们以此为开端讨论了一个下午，从多态到类加载顺序。讨论结束后想着是不是要写篇文章记录下，所以有了这篇文章。
-本文将谈及向上转型、向下转型的概念，后续有时间将扩充多态相关的更详细的知识。
-
-1 向上转型 1.1 概念 向上转型是指子类对象转型为父类类型。通俗的说就是，对象变量是父类类型，但该对象变量引用的却是子类对象。
-举个栗子，苹果是水果的一种，但我们有时会说苹果是水果或直接把苹果说成水果。其实，这样的说法就是向上转型，我们把苹果抽象为水果。伪代码表示如下：
-水果 对象变量名 = new 苹果();  Apple 是 Fruit 的子类。对象变量 apple 向上转型为 Fruit 类型，但 apple 仍引用的是 Apple 对象。
-Fruit apple = new Apple(); //向上转型  向上转型是对父类对象的方法的扩充，即父类对象可访问子类重写父类的方法。也许你会问，既然访问的还是子类对象的方法，为什么不直接声明为子类类型呢？
-这就是 Java 抽象编程的奥秘。向上转型是实现多态的一种机制，我们可以通过多态性提供的动态分配机制执行相应的动作，使用多态编写的代码比使用对多种类型进行检测的代码更加易于扩展和维护。
-其实我们会经常有意无意的使用转型。比如在我之前写到的关于装饰者模式装饰者模式的文章就用到了向上转型的概念。 两种不同的咖啡 Decaf 、 Espresso 是 Coffee 的子类， Coffee 是 Drink 的子类。因为咖啡店可能会同时售卖不同的饮品，所以我们只需把不同的咖啡抽象为饮品即可，再通过引用不同的具体咖啡品种来表示不同的饮品。这样的场景其实大家都很熟悉，这就是向上转型的应用。也许你已经发现，向上转型可以跨层次。比如 Decaf 是 Coffee 的子类， Coffee 是 Drink 的子类，可以由 Decaf 直接向上转型为 Drink 。</description>
     </item>
     
     <item>
@@ -106,25 +153,6 @@ String str1 = &amp;quot;hello&amp;quot;; String str2 = new String(&amp;quot;hell
     </item>
     
     <item>
-      <title>抽象类与接口的区别</title>
-      <link>https://HauyuChen.github.io/post/java_abstractclass_interface/</link>
-      <pubDate>Wed, 13 Sep 2017 00:00:00 +0000</pubDate>
-      
-      <guid>https://HauyuChen.github.io/post/java_abstractclass_interface/</guid>
-      <description>0 写在前面 抽象类和接口有共同点，也有不同点。在实际应用中，我们有时会不知道什么时候用抽象类，什么时候用接口。因此，我们有必要了解抽象类和接口的相关知识以及它们之间的区别，这样以后在二者之间的选择将更有依据。
-
-1 抽象类 在面向对象中，我们通过类来描绘对象，但并不是所有的类都是用来描绘对象的。如果一个类中没有包含足够的信息来描绘一个具体的对象，这样的类就是抽象类。
-抽象类是实现多态的一种机制，抽象类可以包含具体方法，也可以包含抽象方法（由继承它的子类实现这些方法）。
-抽象类的特性总结如下：
- 抽象类不能被实例化； 抽象类可以有构造方法； 抽象方法必须由其子类重写（Override）； 只要包含有一个抽象方法的类，就必须定义为抽象类； 抽象类可以包含有具体实现的方法，也可以不包含抽象方法； 子类的抽象方法不能与父类的抽象方法重名； abstract 不能与 private 、 static 、 final 、 native 并列修饰同一个方法。  注：关于子类实例化时抽象类是否被实例化的问题
-抽象类不能实例化，子类实例化时会初始化父类，因为子类继承了父类的变量、方法等，但初始化不等同于实例化。实例化是指用类创建对象，为对象开辟内存空间。
-举个栗子：
-Duck 是一个抽象类，里面包含构造方法、抽象方法、具体方法。
-GreenHeadDuck 继承自抽象类 Duck ，所以它必须重写抽象类 Duck 的抽象方法 display ，而具体方法 Quack 、 Swim 可以不重写。
-/* Duck.java */ public abstract class Duck{ //抽象类Duck public Duck(){ //构造方法 } public abstract void display(); //抽象方法：外观 public void Quack(){ //具体方法：嘎嘎叫 System.out.println(&amp;quot;--gaga--&amp;quot;); } public void Swim(){ //具体方法：游泳 System.</description>
-    </item>
-    
-    <item>
       <title>并发控制（乐观锁、悲观锁）</title>
       <link>https://HauyuChen.github.io/post/concurrence_pe_op/</link>
       <pubDate>Fri, 01 Sep 2017 00:00:00 +0000</pubDate>
@@ -137,24 +165,6 @@ GreenHeadDuck 继承自抽象类 Duck ，所以它必须重写抽象类 Duck 的
 1 悲观锁 1.1 简介 悲观锁并发控制方案，在各种情况下都上锁。上锁之后，就只有一个线程可以操作这一数据。
 1.2 实例 牙膏库存为 100 件，用户 A （线程 A ）和用户 B （线程 B ）同时购买一件牙膏。
  线程 A 读取牙膏库存（ 100 件，并对数据加锁），此时线程 B 无法读取牙膏库存数据； 线程 A 将牙膏库存减 1 ，库存为 100-1=99 件； 线程 A 将数据更新至数据库，数据库牙膏库存为 99 件，数据解锁； 因为数据解锁了，线程 B 可以读取牙膏库存数据（ 99 件，并对数据加锁）； 线程 B 将牙膏库存减 1 ，库存为 99-1=98 件； 线程 B 将数据更新至数据库，数据库中牙膏库存变为 98 件，数据解锁。  注：执行顺序为绿色 → 蓝色 → 红色</description>
-    </item>
-    
-    <item>
-      <title>重写、重载的区别</title>
-      <link>https://HauyuChen.github.io/post/java_overload_override/</link>
-      <pubDate>Thu, 31 Aug 2017 00:00:00 +0000</pubDate>
-      
-      <guid>https://HauyuChen.github.io/post/java_overload_override/</guid>
-      <description>0 写在前面 重写和重载是面向对象程序设计中十分重要的两个概念，其中重写又称为覆盖。 通俗的理解就是，重写就是将一个方法的实现过程再写一遍，覆盖原有方法；重载就是增加一个方法的不同实现，而不覆盖原有的方法。
-
-1 重写（覆盖） 重写是子类对父类方法的实现过程的重新编写。重写的方法应与被重写的方法具有完全一致的返回值、方法名称、参数列表，也就是外壳完全一样，实现过程发生改变。
-重写规则：
- 参数列表必须与原有方法完全相同； 返回类型必须与原有方法相同； 访问权限不能比父类中被重写的方法的访问权限更低； 父类成员方法只能被其子类重写； 声明为 final 的方法不能被重写； 声明为 static 的方法不能被重写，但能够被再次声明； 构造方法不能重写。  
-2 重载 重载与重写不同之处在于重载与原有方法具有同样的名称，但参数列表可以不同。重载的方法虽然名称和原有方法一样，但是可以认为它们是不同的方法。
-重载规则：
- 重载的方法必须改变参数列表； 重载的方法可以改变返回类型； 重载的方法可以改变访问修饰符； 方法能在同一个类中或在一个子类中被重载。  
-3 对比 
-参考资料：http://www.runoob.com/java/java-override-overload.html</description>
     </item>
     
     <item>
@@ -177,16 +187,6 @@ GreenHeadDuck 继承自抽象类 Duck ，所以它必须重写抽象类 Duck 的
       
       <guid>https://HauyuChen.github.io/post/sql_optimization/</guid>
       <description>SQL 语句优化  尽量选择较小的列； 将 where 中用的比较频繁的字段建立索引； select 子句中避免使用‘ * ’； 避免在索引列上使用运算符、 not 、 in 、 &amp;lt; 、 &amp;gt; 等操作； 当只需要一行数据的时候使用 limit1； 保证表单数据不超过 200w ，适时分割表。</description>
-    </item>
-    
-    <item>
-      <title>Java关键字this、super、static、final</title>
-      <link>https://HauyuChen.github.io/post/java_thissuperstaticfinal/</link>
-      <pubDate>Sat, 05 Aug 2017 00:00:00 +0000</pubDate>
-      
-      <guid>https://HauyuChen.github.io/post/java_thissuperstaticfinal/</guid>
-      <description>0 写在前面 本文主要讲讲 Java 中比较常见的关键字，如 this 、 super 、 static 、 final ，它们在程序中出现频率较高。
-1 this  表示类中的属性，比如 this.username = username; 强调调用的是本类的方法； 调用本类的构造方法，如 this(); 调用本类的无参构造方法； 表示当前对象（调用方法的对象）。  2 super  调用父类的构造方法； 调用父类的普通方法； 调用父类的属性。  3 static  static 修饰类： static 修饰的类称为静态类，静态类作为类的静态成员存在于某个类中，静态成员类可以不创建父类对象直接创建静态类的对象。 static 修饰变量： static 修饰的变量称为静态变量或类变量，而没有被 static 修饰的变量称为实例变量。静态变量在内存中只有一个拷贝， JVM 只为静态变量分配一次内存，且在加载类的过程中完成静态变量的内存分配；而实例变量每创建一个实例就分配一次内存，实例变量在内存中有多个拷贝，互补影响。 static 修饰方法： static 修饰的方法称为类方法，否则为实例方法，实例方法只有生成对象时才分配内存。类方法可以通过类名直接调用，实例方法只能通过类对象调用。  4 final  final 修饰类：被 final 修饰的类表示最终类，其不能被继承，不能当父类； final 修饰变量：被 final 修饰的变量为最终变量，即常量，其值不能修改，在定义时必须赋值。值得注意的是，当 final 修饰的不是普通变量而是对象引用时，变量指向的对象是可变的，不可变的是变量对对象的引用； final 修饰方法： final 修饰的方法为最终方法，父类包含最终方法时，子类不能重写该方法。</description>
     </item>
     
   </channel>

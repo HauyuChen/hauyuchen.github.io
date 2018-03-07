@@ -237,13 +237,13 @@
     
       <article>
   <header>
-    <h2><a href="https://HauyuChen.github.io/post/011-container-with-most-water/">【LeetCode】11. Container with most water</a></h2>
+    <h2><a href="https://HauyuChen.github.io/post/ml-4-linearregression-multiplevariables/">【机器学习笔记】4. 线性回归（多变量）</a></h2>
 
     <div class="post-meta">
 
   <div>
     <i class="fa fa-calendar fa-fw"></i>
-    <time>2017-10-11</time>
+    <time>2017-07-31</time>
   </div>
 
   
@@ -254,7 +254,7 @@
   <div>
     <i class="fa fa-folder fa-fw"></i>
     
-      <a class="post-taxonomy-tag" href="https://HauyuChen.github.io/tags/leetcode">LeetCode</a>
+      <a class="post-taxonomy-tag" href="https://HauyuChen.github.io/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0">机器学习</a>
     
   </div>
   
@@ -266,9 +266,11 @@
   <div>
 	<i class="fa fa-tags fa-fw"></i>
     
-      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/%E7%AE%97%E6%B3%95">算法</a>&nbsp;&#47;
+      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0">机器学习</a>&nbsp;&#47;
     
-      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/leetcode">LeetCode</a>
+      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92">线性回归</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/%E7%9B%91%E7%9D%A3%E5%AD%A6%E4%B9%A0">监督学习</a>
     
   </div>
   
@@ -279,13 +281,28 @@
   </header>
 
   <p>
-  题目描述： Given n non-negative integers a1, a2, &hellip;, an, where each represents a point at coordinate (i, ai). n vertical lines are drawn such that the two endpoints of line i is at (i, ai) and (i, 0). Find two lines, which together with x-axis forms a container, such that the container contains the most water.
-Note: You may not slant the container and n is at least 2.
+  作者注：机器学习系列是本人在学习机器学习相关内容时产生的笔记，希望也能对您有所帮助。值得注意的是，作者作为初学者，表述难免有误或不全面，望多批评指正。 如有任何问题，欢迎您随时与我联系：Hauyu.Chen@Gmail.com
+版权声明：本文由 Hov 所有，发布于 http://chenhy.com ，转载请注明出处。
+
+0 前言 前面我们已经提到了单变量线性回归，现在讲讲多元线性回归（多变量线性回归）。
+在讲解单变量线性回归时，我们引入了房价预测这个栗子，仅通过房屋面积来预测房价。事实上，影响房价的因素有很多，如面积、房间数量、楼层、房龄等等。
+现在，我们想在进行房价预测时考虑面积、房间数量、楼层、房龄这几个因素，而不是单单只考虑面积。
+显然，单变量线性回归已不再适用，我们可以通过多元线性回归来解决。
+
+1 要点 1.1 多元线性回归模型 这条公式是否很熟悉呢？其实就是在单变量线性回归模型的基础上增加了其它的特征 x2、x3、x4 ··· xn。
+为方便计算，我们可以定义 x0=1 ，现在可以将公式转化成如下形式：
+令： 特征向量X = [x0,x1,x2, &hellip; ,xn] 参数向量θ = [θ0,θ1,θ2, &hellip; ,θn] X 和 θ 均为 n+1 维向量，有：
+最后，假设函数h可简化成以下形式：
+1.2 Cost Function（代价函数） 注：多元线性回归的代价函数和单变量线性回归的一致，不过增加了一些新的参数θ3、θ4、θ5···θn。
+1.3 Batch Gradient Descent（批量梯度下降） 
+2 思路 多元线性回归的思路和单变量线性回归大体一致，只不过我们需要对计算公式做一些微小改变。
+同样，还是通过房价预测的栗子来讲解：
+ 房价取决于多方面的因素，在这里我们考虑面积、房间数量、楼层、房龄这四个因素。所以，我们要搞清楚的就是面积 x1 、房间数量 x2 、楼层 x3 、房龄 x4 对房价 y 的影响。 所以，假设函数为 hθ(x) = θ0 + θ1*x1+ θ2*x2 + θ3*x3+ θ4*x4 。 令 x0=1 ，将假设函数转换成 hθ(x) = θ0*x0 + θ1*x1+ θ2*x2 + θ3*x3+ θ4*x4 。 令特征向量 X=[x0,x1,x2,x3,x4] ,参数向量 θ=[θ0,θ1,θ2,θ3,θ4] ,最终我们的假设函数为 hθ(x)=(θ^T)X 。 问题的核心还是找出合适的参数向量θ，使得我们的预测 hθ(x) 是合理的。 衡量参数向量 θ 是否合适的标准就是代价函数 J(0) ，θ 应使得 J(θ) 尽可能小。
   </p>
 
   
   <footer>
-    <a href="https://HauyuChen.github.io/post/011-container-with-most-water/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
+    <a href="https://HauyuChen.github.io/post/ml-4-linearregression-multiplevariables/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
   </footer>
   
 </article>
@@ -295,13 +312,13 @@ Note: You may not slant the container and n is at least 2.
     
       <article>
   <header>
-    <h2><a href="https://HauyuChen.github.io/post/009-palindrome-number/">【LeetCode】9. Palindrome Number</a></h2>
+    <h2><a href="https://HauyuChen.github.io/post/ml-3-gradientdescent/">【机器学习笔记】3. 梯度下降法</a></h2>
 
     <div class="post-meta">
 
   <div>
     <i class="fa fa-calendar fa-fw"></i>
-    <time>2017-10-10</time>
+    <time>2017-07-26</time>
   </div>
 
   
@@ -312,7 +329,7 @@ Note: You may not slant the container and n is at least 2.
   <div>
     <i class="fa fa-folder fa-fw"></i>
     
-      <a class="post-taxonomy-tag" href="https://HauyuChen.github.io/tags/leetcode">LeetCode</a>
+      <a class="post-taxonomy-tag" href="https://HauyuChen.github.io/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0">机器学习</a>
     
   </div>
   
@@ -324,9 +341,11 @@ Note: You may not slant the container and n is at least 2.
   <div>
 	<i class="fa fa-tags fa-fw"></i>
     
-      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/%E7%AE%97%E6%B3%95">算法</a>&nbsp;&#47;
+      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0">机器学习</a>&nbsp;&#47;
     
-      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/leetcode">LeetCode</a>
+      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/%E7%9B%91%E7%9D%A3%E5%AD%A6%E4%B9%A0">监督学习</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/%E6%A2%AF%E5%BA%A6%E4%B8%8B%E9%99%8D">梯度下降</a>
     
   </div>
   
@@ -337,17 +356,23 @@ Note: You may not slant the container and n is at least 2.
   </header>
 
   <p>
-  题目描述： Determine whether an integer is a palindrome. Do this without extra space.
-click to show spoilers.
-Some hints:
-Could negative integers be palindromes? (ie, -1)
-If you are thinking of converting the integer to string, note the restriction of using extra space.
-You could also try reversing an integer. However, if you have solved the problem &ldquo;Reverse Integer&rdquo;, you know that the reversed integer might overflow. How would you handle such case?
+  作者注：机器学习系列是本人在学习机器学习相关内容时产生的笔记，希望也能对您有所帮助。值得注意的是，作者作为初学者，表述难免有误或不全面，望多批评指正。 如有任何问题，欢迎您随时与我联系：Hauyu.Chen@Gmail.com
+版权声明：本文由 Hov 所有，发布于 http://chenhy.com ，转载请注明出处。
+
+0 前言 上一篇讲到了线性回归，提到了代价函数（Cost Function）的概念，我们知道我们的目标是找到合适的 θ0、θ1 使得代价函数 J(θ0,θ1) 最小。 但是，若漫无目的地设定 θ0、θ1 的值， J(θ0,θ1) 可能会有无数的结果。 那我们要怎么更快地找到 J(θ0,θ1) 的最小值呢？ 本文将介绍一种重要的优化算法，Gradient Descent（梯度下降法）。
+
+1 什么是梯度？ 在讲解梯度下降法之前，我们必须先了解梯度的概念。 梯度是高等数学中的概念，梯度的指向即为函数增长最快的方向。同理，梯度的反方向即为函数下降最快的方向。 现在你知道为什么梯度下降法是优化算法了吧？它能使我们的代价函数下降的最快！
+
+2 原理 下图为代价函数的三维图形，分别以 θ0、θ1 为 X、Y 轴，以 J(θ0,θ1) 为 Z 轴。求解代价函数最小值的过程可看作是寻找“一座座山坡”中的最低点，因为在“山底”时 J(θ0,θ1)最小。
+假定我们随机站在某个山坡上，每次往某个方向向下走一步，怎么走才能最快到山底？这也就是梯度下降法所要解决的，沿着梯度方向最小化 J(θ0,θ1) 。
+ 确定向下一步的步伐大小，称之为 Learning Rate ； 任取 θ0,θ1 （随机站在某个山坡）； 沿着梯度的反方向，走一个步伐大小，更新 θ0、θ1 ，此时 J(θ0,θ1) 变小； 重复步骤3，当下降的高度小于某个定义的值（已经到山底），则停止下降。  
+3 算法  优化目标：J(θ0,θ1)
+ 优化参数：θ0、θ1
   </p>
 
   
   <footer>
-    <a href="https://HauyuChen.github.io/post/009-palindrome-number/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
+    <a href="https://HauyuChen.github.io/post/ml-3-gradientdescent/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
   </footer>
   
 </article>
@@ -357,13 +382,13 @@ You could also try reversing an integer. However, if you have solved the problem
     
       <article>
   <header>
-    <h2><a href="https://HauyuChen.github.io/post/java_io/">谈谈 Java IO</a></h2>
+    <h2><a href="https://HauyuChen.github.io/post/ml-2-linearregression-onevariables/">【机器学习笔记】2. 线性回归（单变量）</a></h2>
 
     <div class="post-meta">
 
   <div>
     <i class="fa fa-calendar fa-fw"></i>
-    <time>2017-10-05</time>
+    <time>2017-07-21</time>
   </div>
 
   
@@ -374,9 +399,7 @@ You could also try reversing an integer. However, if you have solved the problem
   <div>
     <i class="fa fa-folder fa-fw"></i>
     
-      <a class="post-taxonomy-tag" href="https://HauyuChen.github.io/tags/java">Java</a>&nbsp;&#47;
-    
-      <a class="post-taxonomy-tag" href="https://HauyuChen.github.io/tags/%E5%9F%BA%E7%A1%80">基础</a>
+      <a class="post-taxonomy-tag" href="https://HauyuChen.github.io/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0">机器学习</a>
     
   </div>
   
@@ -388,11 +411,11 @@ You could also try reversing an integer. However, if you have solved the problem
   <div>
 	<i class="fa fa-tags fa-fw"></i>
     
-      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/java">Java</a>&nbsp;&#47;
+      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0">机器学习</a>&nbsp;&#47;
     
-      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/%E5%9F%BA%E7%A1%80">基础</a>&nbsp;&#47;
+      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92">线性回归</a>&nbsp;&#47;
     
-      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/io">IO</a>
+      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/%E7%9B%91%E7%9D%A3%E5%AD%A6%E4%B9%A0">监督学习</a>
     
   </div>
   
@@ -403,25 +426,25 @@ You could also try reversing an integer. However, if you have solved the problem
   </header>
 
   <p>
-  版权声明：本文由 Hov 所有，发布于 http://chenhy.com ，转载请注明出处。
+  作者注：机器学习系列是本人在学习机器学习相关内容时产生的笔记，希望也能对您有所帮助。值得注意的是，作者作为初学者，表述难免有误或不全面，望多批评指正。 如有任何问题，欢迎您随时与我联系：Hauyu.Chen@Gmail.com
+版权声明：本文由 Hov 所有，发布于 http://chenhy.com ，转载请注明出处。
 
-0 写在前面 IO 操作是任何编程语言都无法回避的问题，因为 IO 操作是机器获取和交换信息的主要途径。 Java 的 IO 是以流为基础进行输入输出的，所有的数据被串行化写入输出流或从输入流读入。 java.io 提供了全面的 IO 接口，包括文件读写、标准设备输出等。
-注：流是一个很形象的概念。当程序需要读取数据时会开启一个通向数据源的流，这个数据源可以是文件、内存或网络连接。同样，当程序需要写入数据时会开启一个通向目的地的流，而数据就在数据源和目的地之间“流动”。
-下图为 Java IO 体系的组成结构。由图可知， Java IO 主要分为字节流和字符流，其中字节流以 InputStream 和 OutputStream 向下继承，字符流以 Reader 和 Writer 向下继承。
-本文将详细讲解字节流和字符流，并简要介绍随机存取文件 RandomAccessFile 和 Apache 的 IO 类库。
+0 前言 上一篇提到了监督学习的概念，本文要讲的线性回归就属于监督学习。 本文通过单变量线性回归讲述线性回归思想。值得注意的是，特征x并非只能是一个，也可以有x1、x2、x3···，这就是多特征的问题了（后续会提到）。事实上，单特征和多特征的思想是一样的，本文讨论单特征（只有一个特征x）的情形。
 
+1 要点 1.1 单变量线性回归模型 上述公式（线性函数）为一个最简单的线性回归模型，hθ(x)为我们的假设函数，x是训练集中给的数据，θ0、θ1为未知参数，我们需要计算出合适的θ0、θ1的值。
+1.2 Cost Function（代价函数） 上述公式为代价函数的定义，hθ(x)是预测值，x(i)是训练集中第i组数据中的特征，y(i)是训练集中第i组数据中的结果，J(θ0,θ1)表示的是预测值与实际值的误差（方差），误差当然越小越好，所以我们的目标就是最小化Cost Function，即找出合适的θ0、 θ1使得J(θ0,θ1)最小，这样说明数据拟合得最好。
 
-1 预备知识 在讲解 IO 相关的知识前，我们有必要了解一下字节、字符、编码等概念。毕竟 IO 操作实质上是基于字节、字符来实现的。
-1.1 字节 字节是通过网络传输信息或硬盘、内存存储信息的单位，也是计算机用于计量存储容量和传输容量的一种计量单位。一个字节等于 8 位二进制，是一个很具体的存储空间，如 0x01，0x20 。
-1.2 字符 字符是人们使用的记号，抽象意义上的一个符号。如“1”，“a”，“￥”，“好”等。实质上，字符是由字节组成的，一个字符可以由一个或多个字节组成。
-1.3 字符集 不同国家和地区所制定的不同 ANSI 编码标准中，都只规定了各自语言所需的字符。汉字标准（GB2312）就是一个字符集，它规定的是汉字的编码标准。
-字符集（编码）有两层含义：
- 使用哪些字符，也就是哪些字符、汉字或符号会被收入标准中，所包含“字符”的集合就叫做“字符集”； 规定每个字符分别用一个字节还是多个字节存储，用哪些字节存储，这个规定就叫做编码。 字符集和编码一般同时制定，字符集除了有“字符集合”含义外，还包含了“编码”的含义。  值得注意的是，为了使国际间信息交流更方便，国际组织制定了 UNICODE 字符集，它为各种语言中的每一个字符设定了统一且唯一的数字编号，以满足跨平台、跨语言进行文本交换、处理的要求，如我们熟悉的 UTF-8 。
+2 思路 我们来引入一个场景，我们想实现房价的预测。
+ 房价取决于多方面的因素：面积、地段、楼层等等。为方便讨论，我们先不考虑多变量的情况，只考虑单变量。也就是在地段、楼层等因素一致的情况下，面积(x)对房价(y)的影响。 房价预测问题其实就是找出面积x和房价y的关系 hθ(x) = θ0 + θ1*x，即根据面积(x)去预测房价(y)。 所以问题的核心是找出合适的θ0、θ1，使得我们的预测 hθ(x) = θ0 + θ1*x 是合理的。 衡量 θ0、θ1 是否合适的标准就是代价函数J(θ0,θ1)，θ0、θ1应使得J(θ0,θ1)尽可能小。  假定我们已经有了一个训练集，里面包含面积x和对应的房价y。以横轴表示面积x，以竖轴表示房价y，根据训练集可绘制图形如下：
+注：图示并非真实数据，只作参考。
+线性回归要做的就是通过训练，找出面积x与房价y之间对应的关系（线性函数），通过训练，我们可以得出一条表示 hθ(x) 的直线，这就是我们的预测。
+
+3 结语 现在我们应该知道线性回归的思想了，就是通过训练集去计算出假设函数，通过假设函数可以实现对结果的预测。 假设函数最关键的就是找出未知参数 θ0、θ1 ，因为这两个未知参数决定我们预测是否准确。 未知参数 θ0、θ1 的选择通过代价函数 J(θ0,θ1) 来评定，我们要让 J(θ0,θ1) 尽可能小。 那我们怎么计算 θ0、θ1 的值呢？ 下篇将引入“梯度下降”的方法，通过此方法可更快地计算出 θ0、θ1 的值。
   </p>
 
   
   <footer>
-    <a href="https://HauyuChen.github.io/post/java_io/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
+    <a href="https://HauyuChen.github.io/post/ml-2-linearregression-onevariables/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
   </footer>
   
 </article>
@@ -431,13 +454,13 @@ You could also try reversing an integer. However, if you have solved the problem
     
       <article>
   <header>
-    <h2><a href="https://HauyuChen.github.io/post/007-reverse-integer/">【LeetCode】7. Reverse Integer</a></h2>
+    <h2><a href="https://HauyuChen.github.io/post/eclipse_hotkeys/">Eclipse常用快捷键</a></h2>
 
     <div class="post-meta">
 
   <div>
     <i class="fa fa-calendar fa-fw"></i>
-    <time>2017-09-27</time>
+    <time>2017-07-19</time>
   </div>
 
   
@@ -448,7 +471,7 @@ You could also try reversing an integer. However, if you have solved the problem
   <div>
     <i class="fa fa-folder fa-fw"></i>
     
-      <a class="post-taxonomy-tag" href="https://HauyuChen.github.io/tags/leetcode">LeetCode</a>
+      <a class="post-taxonomy-tag" href="https://HauyuChen.github.io/tags/%E5%B7%A5%E5%85%B7">工具</a>
     
   </div>
   
@@ -460,9 +483,9 @@ You could also try reversing an integer. However, if you have solved the problem
   <div>
 	<i class="fa fa-tags fa-fw"></i>
     
-      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/%E7%AE%97%E6%B3%95">算法</a>&nbsp;&#47;
+      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/%E5%B7%A5%E5%85%B7">工具</a>&nbsp;&#47;
     
-      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/leetcode">LeetCode</a>
+      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/eclipse">Eclipse</a>
     
   </div>
   
@@ -473,20 +496,21 @@ You could also try reversing an integer. However, if you have solved the problem
   </header>
 
   <p>
-  题目描述： Reverse digits of an integer.
-Example1:
-x = 123, return 321
-Example2:
-x = -123, return -321
-click to show spoilers.
-Have you thought about this? Here are some good questions to ask before coding. Bonus points for you if you have already thought through this!
-If the integer&rsquo;s last digit is 0, what should the output be? ie, cases such as 10, 100.
-Did you notice that the reversed integer might overflow?
+  Hov：本文记录了一些Eclipse快捷键，其中“必记级别”真的很好用，一定要记住~~
+必记级别  Ctrl+1：快速修复，代码红色下划线用它就对了
+ Ctrl+D：删除当前整行
+ Alt+/：代码补全，例如输入syso后按Alt+/，将其补全成System.out.println();
+ Ctrl+/：注释代码（这个很重要）
+ Shift+Enter：换行（高级模式，可从代码中间跳至下一行，无需到行尾）
+ Ctrl+F11：快速运行项目（其实点小三角还是挺快的，不记也行）
+ Ctrl+Shift+F：格式化当前代码（谁用谁牛逼）
+  快捷键大全  来源：http://blog.csdn.net/jmyue/article/details/16960199
+  Ctrl+Alt+↓：复制当前行到下一行 Ctrl+Alt+↑：复制当前行到上一行 Alt+↓：当前行和下面一行交互位置 Alt+↑：当前行和上面一行交互位置 Alt+←：前一个编辑的页面 Alt+→：下一个编辑的页面 Alt+Enter 显示当前选择资源(工程,or 文件 or文件)的属性 Shift+Ctrl+Enter 在当前行插入空行 Ctrl+Q 定位到最后编辑的地方 Ctrl+L 定位在某行 Ctrl+M 最大化当前的Edit或View Ctrl+O 快速显示 OutLine Ctrl+T 快速显示当前类的继承结构 Ctrl+W 关闭当前Editer Ctrl+K 参照选中的Word快速定位到下一个 Ctrl+E 快速显示当前Editer的下拉列表(如果当前页面没有显示的用黑体表示) Ctrl+/ (小键盘) 折叠当前类中的所有代码 Ctrl+×(小键盘) 展开当前类中的所有代码 Ctrl+Space 代码助手完成一些代码的插入(但一般和输入法有冲突,可以修改输入法的热键,也可以暂用Alt+/来代替) Ctrl+Shift+E 显示管理当前打开的所有的View的管理器(可以选择关闭,激活等操作) Ctrl+J 正向增量查找(按下Ctrl+J后,你所输入的每个字母编辑器都提供快速匹配定位到某个单词,如果没有,则在stutes line中显示没有找到了,查一个单词时,特别实用,这 个功能Idea两年前就有了) Ctrl+Shift+J 反向增量查找(和上条相同,只不过是从后往前查) Ctrl+Shift+F4 关闭所有打开的Editer Ctrl+Shift+X 把当前选中的文本全部变味小写 Ctrl+Shift+Y 把当前选中的文本全部变为小写 Ctrl+Shift+P 定位到对于的匹配符(譬如{}) (从前面定位后面时,光标要在匹配符里面,后面到前面,则反之) Alt+Shift+R 重命名 (是我自己最爱用的一个了,尤其是变量和类的Rename,比手工方法能节省很多劳动力) Alt+Shift+M 抽取方法 (这是重构里面最常用的方法之一了,尤其是对一大堆泥团代码有用) Alt+Shift+C 修改函数结构(比较实用,有N个函数调用了这个方法,修改一次搞定) Alt+Shift+L 抽取本地变量( 可以直接把一些魔法数字和字符串抽取成一个变量,尤其是多处调用的时候) Alt+Shift+F 把Class中的local变量变为field 变量 (比较实用的功能) Alt+Shift+I 合并变量(可能这样说有点不妥Inline) Alt+Shift+V 移动函数和变量(不怎么常用) Alt+Shift+Z 重构的后悔药(Undo)  注：下面这篇文章有动画讲解，推荐一下：）
   </p>
 
   
   <footer>
-    <a href="https://HauyuChen.github.io/post/007-reverse-integer/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
+    <a href="https://HauyuChen.github.io/post/eclipse_hotkeys/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
   </footer>
   
 </article>
@@ -496,13 +520,13 @@ Did you notice that the reversed integer might overflow?
     
       <article>
   <header>
-    <h2><a href="https://HauyuChen.github.io/post/002-add-two-numbers/">【LeetCode】2. Add Two Numbers</a></h2>
+    <h2><a href="https://HauyuChen.github.io/post/ml-1-machinelearning-introduction/">【机器学习笔记】1. 什么是机器学习</a></h2>
 
     <div class="post-meta">
 
   <div>
     <i class="fa fa-calendar fa-fw"></i>
-    <time>2017-09-26</time>
+    <time>2017-07-11</time>
   </div>
 
   
@@ -513,7 +537,7 @@ Did you notice that the reversed integer might overflow?
   <div>
     <i class="fa fa-folder fa-fw"></i>
     
-      <a class="post-taxonomy-tag" href="https://HauyuChen.github.io/tags/leetcode">LeetCode</a>
+      <a class="post-taxonomy-tag" href="https://HauyuChen.github.io/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0">机器学习</a>
     
   </div>
   
@@ -525,9 +549,11 @@ Did you notice that the reversed integer might overflow?
   <div>
 	<i class="fa fa-tags fa-fw"></i>
     
-      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/%E7%AE%97%E6%B3%95">算法</a>&nbsp;&#47;
+      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0">机器学习</a>&nbsp;&#47;
     
-      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/leetcode">LeetCode</a>
+      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/%E7%9B%91%E7%9D%A3%E5%AD%A6%E4%B9%A0">监督学习</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/%E6%97%A0%E7%9B%91%E7%9D%A3%E5%AD%A6%E4%B9%A0">无监督学习</a>
     
   </div>
   
@@ -538,15 +564,21 @@ Did you notice that the reversed integer might overflow?
   </header>
 
   <p>
-  题目描述： You are given two non-empty linked lists representing two non-negative integers. The digits are stored in reverse order and each of their nodes contain a single digit. Add the two numbers and return it as a linked list.
-You may assume the two numbers do not contain any leading zero, except the number 0 itself.
-Input: (2 -&gt; 4 -&gt; 3) + (5 -&gt; 6 -&gt; 4)
-Output: 7 -&gt; 0 -&gt; 8
+  作者注：机器学习系列是本人在学习机器学习相关内容时产生的笔记，希望也能对您有所帮助。值得注意的是，作者作为初学者，表述难免有误或不全面，望多批评指正。 如有任何问题，欢迎您随时与我联系：Hauyu.Chen@Gmail.com
+版权声明：本文由 Hov 所有，发布于 http://chenhy.com ，转载请注明出处。
+
+0 前言 AI 时代，作为计算机专业的学生，不了解点 AI 相关的知识似乎有点说不过去，尤其是机器学习。 我们一直在说机器学习，但是我们怎么理解机器学习？机器学习解决了什么问题？我们如何将机器学习应用到现实生活中的问题呢？ 本文是机器学习系列的开篇，给出了机器学习的经典定义，并介绍监督学习和无监督学习这两个重要的分支，后续将逐步深入。
+
+1 机器学习的定义 Tom Mitchell 给出了一个关于机器学习的定义，这也是一个被经常引用的定义。
+ Tom Mitchell:&ldquo;A computer program is said to learn from experience E with respect to some class of tasks T and performance measure P, if its performance at tasks in T, as measured by P, improves with experience E.&rdquo;
+ 这段话翻译过来就是：对于某类任务T和性能度量P，如果一个计算机程序在T上以P衡量的性能随着经验E而自我完善，那么我们称这个计算机程序在从经验E学习。
+举个栗子：AlphaGo下棋
+ 经验 E = AlphaGo从很多盘棋局获得的经验（学棋）； 任务 T = AlphaGo和对手下棋（下棋）； 性能 P = AlphaGo赢的可能性（赢棋）。
   </p>
 
   
   <footer>
-    <a href="https://HauyuChen.github.io/post/002-add-two-numbers/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
+    <a href="https://HauyuChen.github.io/post/ml-1-machinelearning-introduction/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
   </footer>
   
 </article>

@@ -237,13 +237,13 @@
     
       <article>
   <header>
-    <h2><a href="https://HauyuChen.github.io/post/328-odd-even-linked-list/">【LeetCode】328. Odd Even Linked List</a></h2>
+    <h2><a href="https://HauyuChen.github.io/post/java_overload_override/">重写、重载的区别</a></h2>
 
     <div class="post-meta">
 
   <div>
     <i class="fa fa-calendar fa-fw"></i>
-    <time>2017-10-31</time>
+    <time>2017-11-20</time>
   </div>
 
   
@@ -254,7 +254,9 @@
   <div>
     <i class="fa fa-folder fa-fw"></i>
     
-      <a class="post-taxonomy-tag" href="https://HauyuChen.github.io/tags/leetcode">LeetCode</a>
+      <a class="post-taxonomy-tag" href="https://HauyuChen.github.io/tags/java">Java</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-tag" href="https://HauyuChen.github.io/tags/%E5%9F%BA%E7%A1%80">基础</a>
     
   </div>
   
@@ -266,9 +268,9 @@
   <div>
 	<i class="fa fa-tags fa-fw"></i>
     
-      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/%E7%AE%97%E6%B3%95">算法</a>&nbsp;&#47;
+      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/java">Java</a>&nbsp;&#47;
     
-      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/leetcode">LeetCode</a>
+      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/%E5%9F%BA%E7%A1%80">基础</a>
     
   </div>
   
@@ -279,17 +281,91 @@
   </header>
 
   <p>
-  题目描述： Given a singly linked list, group all odd nodes together followed by the even nodes. Please note here we are talking about the node number and not the value in the nodes.
-You should try to do it in place. The program should run in O(1) space complexity and O(nodes) time complexity.
-Example:
-Given 1-&gt;2-&gt;3-&gt;4-&gt;5-&gt;NULL,
-return 1-&gt;3-&gt;5-&gt;2-&gt;4-&gt;NULL.
-Note: The relative order inside both the even and odd groups should remain as it was in the input.
+  0 写在前面 重写和重载是面向对象程序设计中十分重要的两个概念，其中重写又称为覆盖。 通俗的理解就是，重写就是将一个方法的实现过程再写一遍，覆盖原有方法；重载就是增加一个方法的不同实现，而不覆盖原有的方法。
+
+1 重写（覆盖） 重写是子类对父类方法的实现过程的重新编写。重写的方法应与被重写的方法具有完全一致的返回值、方法名称、参数列表，也就是外壳完全一样，实现过程发生改变。
+重写规则：
+ 参数列表必须与原有方法完全相同； 返回类型必须与原有方法相同； 访问权限不能比父类中被重写的方法的访问权限更低； 父类成员方法只能被其子类重写； 声明为 final 的方法不能被重写； 声明为 static 的方法不能被重写，但能够被再次声明； 构造方法不能重写。  
+2 重载 重载与重写不同之处在于重载与原有方法具有同样的名称，但参数列表可以不同。重载的方法虽然名称和原有方法一样，但是可以认为它们是不同的方法。
+重载规则：
+ 重载的方法必须改变参数列表； 重载的方法可以改变返回类型； 重载的方法可以改变访问修饰符； 方法能在同一个类中或在一个子类中被重载。  
+3 对比 
+参考资料：http://www.runoob.com/java/java-override-overload.html
+  </p>
+
+  
+</article>
+
+    
+  
+    
+      <article>
+  <header>
+    <h2><a href="https://HauyuChen.github.io/post/dp_observer_pattern/">【设计模式】4. 观察者模式</a></h2>
+
+    <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>2017-11-17</time>
+  </div>
+
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-folder fa-fw"></i>
+    
+      <a class="post-taxonomy-tag" href="https://HauyuChen.github.io/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F">设计模式</a>
+    
+  </div>
+  
+  
+
+  
+  
+  
+  <div>
+	<i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F">设计模式</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/%E8%A7%82%E5%AF%9F%E8%80%85%E6%A8%A1%E5%BC%8F">观察者模式</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/java">Java</a>
+    
+  </div>
+  
+  
+  
+</div>
+
+  </header>
+
+  <p>
+  版权声明：本文由 Hov 所有，发布于 http://chenhy.com ，转载请注明出处。
+
+1 观察者模式 1.1 简介 观察者模式是对象之间实现多对一依赖的一种设计方案，其可让多个观察者同时监听某一个主体对象（被观察者）。当主体对象的状态发生变化时，可通知所有观察者对象，使它们能自动更新状态。同时，观察者对象的增加或减少不会影响主体对象，也不会影响其它观察者。观察者模式对象之间的低耦合非常有利于项目功能扩展以及后期维护。
+1.2 思路 观察者模式主要可以分为四种角色：
+ 主体对象：此角色可以是接口，也可以是抽象类或具体类。主体对象必须包含三种方法，分别是添加观察者对象、移除观察者对象、通知观察者对象。 观察者：此角色一般是接口，里面一般只有一个 update 方法，在被观察者的状态发生变化时， update 方法就会被触发调用。 具体的主体对象：此角色是为了便于扩展，可以定义被观察者的一些具体的业务逻辑。 具体的观察者：此角色是观察者接口的具体实现，可以定义被观察者对象发生变化时，观察者所要处理的业务逻辑。  1.3 使用场景 观察者模式适用于在软件系统的某一个对象发生变化时，依赖它的其它对象也要做出相应改变的场景。
+举个实际应用场景：
+气象站发布气象数据，天气软件A、天气软件B都要获取气象站发布的气象数据。那么，气象站就可以作为主体对象（被观察者），而天气软件A、天气软件B就可以作为观察者。天气软件A、天气软件B都可以监听气象站的数据，气象站每次发布气象数据，就可以通知天气软件A、B更新的数据。
+当然，如果天气软件B不想再获取气象站的数据，就退出观察者队列。而天气软件A依然在观察者队列，还可以继续获取气象数据，气象站和天气软件A都不受影响。
+观察者模式正是满足这个场景的设计方案中比较重要的一种。
+1.4 优缺点 优点：
+ 观察者与被观察者之间耦合度低； 观察者模式可以实现广播； 观察者模式符合“开闭原则”的要求； 实现表示层与数据逻辑层的分离，定义了稳定的消息更新传递机制。  缺点：
+ 观察者和被观察者之间若存在循环依赖，会使它们循环调用，可能导致系统崩溃； 若主体对象有很多直接或间接的观察者时，通知所有观察者将花费大量时间。  
+2 实例 还是拿前面提到的气象站的栗子。我们通过程序模拟气象站发布气象数据，天气软件A和天气软件B获取数据。
+2.1 普通的解决方案 气象站将数据保存在局部变量，通知天气软件A获取，天气软件A将数据保存并显示出来。
+（1）气象站
+/* WeatherData.java */ public class WeatherData { //气象站 private float mTemperature; private float mPressure; private float mHumidity; private WeatherSoftwareA wfa; public WeatherData(WeatherSoftwareA wfa){ this.
   </p>
 
   
   <footer>
-    <a href="https://HauyuChen.github.io/post/328-odd-even-linked-list/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
+    <a href="https://HauyuChen.github.io/post/dp_observer_pattern/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
   </footer>
   
 </article>
@@ -299,13 +375,13 @@ Note: The relative order inside both the even and odd groups should remain as it
     
       <article>
   <header>
-    <h2><a href="https://HauyuChen.github.io/post/094-binary-tree-inorder-traversal/">【LeetCode】94. Binary Tree Inorder Traversal</a></h2>
+    <h2><a href="https://HauyuChen.github.io/post/java_abstractclass_interface/">抽象类与接口的区别</a></h2>
 
     <div class="post-meta">
 
   <div>
     <i class="fa fa-calendar fa-fw"></i>
-    <time>2017-10-30</time>
+    <time>2017-11-13</time>
   </div>
 
   
@@ -316,7 +392,9 @@ Note: The relative order inside both the even and odd groups should remain as it
   <div>
     <i class="fa fa-folder fa-fw"></i>
     
-      <a class="post-taxonomy-tag" href="https://HauyuChen.github.io/tags/leetcode">LeetCode</a>
+      <a class="post-taxonomy-tag" href="https://HauyuChen.github.io/tags/java">Java</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-tag" href="https://HauyuChen.github.io/tags/%E5%9F%BA%E7%A1%80">基础</a>
     
   </div>
   
@@ -328,9 +406,9 @@ Note: The relative order inside both the even and odd groups should remain as it
   <div>
 	<i class="fa fa-tags fa-fw"></i>
     
-      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/%E7%AE%97%E6%B3%95">算法</a>&nbsp;&#47;
+      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/java">Java</a>&nbsp;&#47;
     
-      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/leetcode">LeetCode</a>
+      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/%E5%9F%BA%E7%A1%80">基础</a>
     
   </div>
   
@@ -341,19 +419,22 @@ Note: The relative order inside both the even and odd groups should remain as it
   </header>
 
   <p>
-  题目描述： Given a binary tree, return the inorder traversal of its nodes&rsquo; values.
-For example:
-Given binary tree [1,null,2,3],
- 1 \ 2 / 3  return [1,3,2].
+  0 写在前面 抽象类和接口有共同点，也有不同点。在实际应用中，我们有时会不知道什么时候用抽象类，什么时候用接口。因此，我们有必要了解抽象类和接口的相关知识以及它们之间的区别，这样以后在二者之间的选择将更有依据。
 
-思路： 二叉树的中序遍历，这里直接用递归的方法求解。
-
-代码实现： /** * Definition for a binary tree node. * public class TreeNode { * int val; * TreeNode left; * TreeNode right; * TreeNode(int x) { val = x; } * } */ class Solution { public List&lt;Integer&gt; inorderTraversal(TreeNode root) { List&lt;Integer&gt; ret = new ArrayList&lt;Integer&gt;(); inorder(root,ret); return ret; } public void inorder(TreeNode root, List&lt;Integer&gt; ret){ if(root==null){ return ; } inorder(root.
+1 抽象类 在面向对象中，我们通过类来描绘对象，但并不是所有的类都是用来描绘对象的。如果一个类中没有包含足够的信息来描绘一个具体的对象，这样的类就是抽象类。
+抽象类是实现多态的一种机制，抽象类可以包含具体方法，也可以包含抽象方法（由继承它的子类实现这些方法）。
+抽象类的特性总结如下：
+ 抽象类不能被实例化； 抽象类可以有构造方法； 抽象方法必须由其子类重写（Override）； 只要包含有一个抽象方法的类，就必须定义为抽象类； 抽象类可以包含有具体实现的方法，也可以不包含抽象方法； 子类的抽象方法不能与父类的抽象方法重名； abstract 不能与 private 、 static 、 final 、 native 并列修饰同一个方法。  注：关于子类实例化时抽象类是否被实例化的问题
+抽象类不能实例化，子类实例化时会初始化父类，因为子类继承了父类的变量、方法等，但初始化不等同于实例化。实例化是指用类创建对象，为对象开辟内存空间。
+举个栗子：
+Duck 是一个抽象类，里面包含构造方法、抽象方法、具体方法。
+GreenHeadDuck 继承自抽象类 Duck ，所以它必须重写抽象类 Duck 的抽象方法 display ，而具体方法 Quack 、 Swim 可以不重写。
+/* Duck.java */ public abstract class Duck{ //抽象类Duck public Duck(){ //构造方法 } public abstract void display(); //抽象方法：外观 public void Quack(){ //具体方法：嘎嘎叫 System.out.println(&quot;--gaga--&quot;); } public void Swim(){ //具体方法：游泳 System.
   </p>
 
   
   <footer>
-    <a href="https://HauyuChen.github.io/post/094-binary-tree-inorder-traversal/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
+    <a href="https://HauyuChen.github.io/post/java_abstractclass_interface/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
   </footer>
   
 </article>
@@ -363,13 +444,13 @@ Given binary tree [1,null,2,3],
     
       <article>
   <header>
-    <h2><a href="https://HauyuChen.github.io/post/075-sort-colors/">【LeetCode】75. Sort Colors</a></h2>
+    <h2><a href="https://HauyuChen.github.io/post/java_thissuperstaticfinal/">Java关键字this、super、static、final</a></h2>
 
     <div class="post-meta">
 
   <div>
     <i class="fa fa-calendar fa-fw"></i>
-    <time>2017-10-29</time>
+    <time>2017-10-25</time>
   </div>
 
   
@@ -380,7 +461,9 @@ Given binary tree [1,null,2,3],
   <div>
     <i class="fa fa-folder fa-fw"></i>
     
-      <a class="post-taxonomy-tag" href="https://HauyuChen.github.io/tags/leetcode">LeetCode</a>
+      <a class="post-taxonomy-tag" href="https://HauyuChen.github.io/tags/java">Java</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-tag" href="https://HauyuChen.github.io/tags/%E5%9F%BA%E7%A1%80">基础</a>
     
   </div>
   
@@ -392,9 +475,9 @@ Given binary tree [1,null,2,3],
   <div>
 	<i class="fa fa-tags fa-fw"></i>
     
-      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/%E7%AE%97%E6%B3%95">算法</a>&nbsp;&#47;
+      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/java">Java</a>&nbsp;&#47;
     
-      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/leetcode">LeetCode</a>
+      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/%E5%9F%BA%E7%A1%80">基础</a>
     
   </div>
   
@@ -405,17 +488,10 @@ Given binary tree [1,null,2,3],
   </header>
 
   <p>
-  题目描述： Given an array with n objects colored red, white or blue, sort them so that objects of the same color are adjacent, with the colors in the order red, white and blue.
-Here, we will use the integers 0, 1, and 2 to represent the color red, white, and blue respectively.
-Note: You are not suppose to use the library&rsquo;s sort function for this problem.
-
-思路： 本题实质上为三元数组排序。
+  0 写在前面 本文主要讲讲 Java 中比较常见的关键字，如 this 、 super 、 static 、 final ，它们在程序中出现频率较高。
+1 this  表示类中的属性，比如 this.username = username; 强调调用的是本类的方法； 调用本类的构造方法，如 this(); 调用本类的无参构造方法； 表示当前对象（调用方法的对象）。  2 super  调用父类的构造方法； 调用父类的普通方法； 调用父类的属性。  3 static  static 修饰类： static 修饰的类称为静态类，静态类作为类的静态成员存在于某个类中，静态成员类可以不创建父类对象直接创建静态类的对象。 static 修饰变量： static 修饰的变量称为静态变量或类变量，而没有被 static 修饰的变量称为实例变量。静态变量在内存中只有一个拷贝， JVM 只为静态变量分配一次内存，且在加载类的过程中完成静态变量的内存分配；而实例变量每创建一个实例就分配一次内存，实例变量在内存中有多个拷贝，互补影响。 static 修饰方法： static 修饰的方法称为类方法，否则为实例方法，实例方法只有生成对象时才分配内存。类方法可以通过类名直接调用，实例方法只能通过类对象调用。  4 final  final 修饰类：被 final 修饰的类表示最终类，其不能被继承，不能当父类； final 修饰变量：被 final 修饰的变量为最终变量，即常量，其值不能修改，在定义时必须赋值。值得注意的是，当 final 修饰的不是普通变量而是对象引用时，变量指向的对象是可变的，不可变的是变量对对象的引用； final 修饰方法： final 修饰的方法为最终方法，父类包含最终方法时，子类不能重写该方法。
   </p>
 
-  
-  <footer>
-    <a href="https://HauyuChen.github.io/post/075-sort-colors/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
-  </footer>
   
 </article>
 
@@ -424,13 +500,13 @@ Note: You are not suppose to use the library&rsquo;s sort function for this prob
     
       <article>
   <header>
-    <h2><a href="https://HauyuChen.github.io/post/116-populating-next-right-pointers-in-each-node/">【LeetCode】116. Populating Next Right Pointers in Each Node</a></h2>
+    <h2><a href="https://HauyuChen.github.io/post/java_json/">JSON相关操作（Java）</a></h2>
 
     <div class="post-meta">
 
   <div>
     <i class="fa fa-calendar fa-fw"></i>
-    <time>2017-10-28</time>
+    <time>2017-10-11</time>
   </div>
 
   
@@ -441,7 +517,7 @@ Note: You are not suppose to use the library&rsquo;s sort function for this prob
   <div>
     <i class="fa fa-folder fa-fw"></i>
     
-      <a class="post-taxonomy-tag" href="https://HauyuChen.github.io/tags/leetcode">LeetCode</a>
+      <a class="post-taxonomy-tag" href="https://HauyuChen.github.io/tags/java">Java</a>
     
   </div>
   
@@ -453,9 +529,9 @@ Note: You are not suppose to use the library&rsquo;s sort function for this prob
   <div>
 	<i class="fa fa-tags fa-fw"></i>
     
-      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/%E7%AE%97%E6%B3%95">算法</a>&nbsp;&#47;
+      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/json">JSON</a>&nbsp;&#47;
     
-      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/leetcode">LeetCode</a>
+      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/java">Java</a>
     
   </div>
   
@@ -466,77 +542,13 @@ Note: You are not suppose to use the library&rsquo;s sort function for this prob
   </header>
 
   <p>
-  题目描述： Given a binary tree
- struct TreeLinkNode { TreeLinkNode *left; TreeLinkNode *right; TreeLinkNode *next; }  Populate each next pointer to point to its next right node. If there is no next right node, the next pointer should be set to NULL.
-Initially, all next pointers are set to NULL.
-Note:
-You may only use constant extra space. You may assume that it is a perfect binary tree (ie, all leaves are at the same level, and every parent has two children).
+  1 Java中创建JSON import com.google.gson.JsonArray; import com.google.gson.JsonObject; public class CreateJSON { public static void main(String[] args) { JsonObject object = new JsonObject(); object.addProperty(&quot;cat&quot;, &quot;it&quot;); JsonArray array = new JsonArray(); JsonObject lan1 = new JsonObject(); lan1.addProperty(&quot;id&quot;, 1); lan1.addProperty(&quot;name&quot;, &quot;Java&quot;); lan1.addProperty(&quot;ide&quot;, &quot;Eclipse&quot;); array.add(lan1); JsonObject lan2 = new JsonObject(); lan2.addProperty(&quot;id&quot;, 2); lan2.addProperty(&quot;name&quot;, &quot;Swift&quot;); lan2.addProperty(&quot;ide&quot;, &quot;XCode&quot;); array.add(lan2); JsonObject lan3 = new JsonObject(); lan3.addProperty(&quot;id&quot;, 3); lan3.addProperty(&quot;name&quot;, &quot;C#&quot;); lan3.addProperty(&quot;ide&quot;, &quot;Visual Studio&quot;); array.add(lan3); object.add(&quot;languages&quot;, array); object.addProperty(&quot;pop&quot;, true); System.
   </p>
 
   
   <footer>
-    <a href="https://HauyuChen.github.io/post/116-populating-next-right-pointers-in-each-node/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
+    <a href="https://HauyuChen.github.io/post/java_json/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
   </footer>
-  
-</article>
-
-    
-  
-    
-      <article>
-  <header>
-    <h2><a href="https://HauyuChen.github.io/post/088-merge-sorted-array/">【LeetCode】88. Merge Sorted Array</a></h2>
-
-    <div class="post-meta">
-
-  <div>
-    <i class="fa fa-calendar fa-fw"></i>
-    <time>2017-10-27</time>
-  </div>
-
-  
-
-  
-  
-  
-  <div>
-    <i class="fa fa-folder fa-fw"></i>
-    
-      <a class="post-taxonomy-tag" href="https://HauyuChen.github.io/tags/leetcode">LeetCode</a>
-    
-  </div>
-  
-  
-
-  
-  
-  
-  <div>
-	<i class="fa fa-tags fa-fw"></i>
-    
-      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/%E7%AE%97%E6%B3%95">算法</a>&nbsp;&#47;
-    
-      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/leetcode">LeetCode</a>
-    
-  </div>
-  
-  
-  
-</div>
-
-  </header>
-
-  <p>
-  题目描述： Given two sorted integer arrays nums1 and nums2, merge nums2 into nums1 as one sorted array.
-Note:
-You may assume that nums1 has enough space (size that is greater or equal to m + n) to hold additional elements from nums2. The number of elements initialized in nums1 and nums2 are m and n respectively.
-
-思路： 从后往前遍历两个数组，分别比较，大的放在数组 nums1 后面，直到两个数组都遍历完毕。
-注：如果从前往后遍历的话，数组合并时需要将元素后移，效率低。
-
-代码实现： class Solution { public void merge(int[] nums1, int m, int[] nums2, int n) { int index = m+n-1; int i1 = m-1; int i2 = n-1; while(i1&gt;=0&amp;&amp;i2&gt;=0){ if(nums1[i1]&gt;=nums2[i2]){ nums1[index] = nums1[i1]; i1--; }else{ nums1[index] = nums2[i2]; i2--; } index--; } while(i1&gt;=0){ nums1[index] = nums1[i1]; i1--; index--; } while(i2&gt;=0){ nums1[index] = nums2[i2]; i2--; index--; } } }
-  </p>
-
   
 </article>
 

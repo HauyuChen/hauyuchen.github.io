@@ -237,13 +237,79 @@
     
       <article>
   <header>
-    <h2><a href="https://HauyuChen.github.io/post/006-zigzag-conversion/">【LeetCode】6. ZigZag Conversion</a></h2>
+    <h2><a href="https://HauyuChen.github.io/post/basic_debug/">代码调试基本操作</a></h2>
 
     <div class="post-meta">
 
   <div>
     <i class="fa fa-calendar fa-fw"></i>
-    <time>2017-09-26</time>
+    <time>2017-07-05</time>
+  </div>
+
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-folder fa-fw"></i>
+    
+      <a class="post-taxonomy-tag" href="https://HauyuChen.github.io/tags/%E5%B7%A5%E5%85%B7">工具</a>
+    
+  </div>
+  
+  
+
+  
+  
+  
+  <div>
+	<i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/intellij-idea">Intellij IDEA</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/%E4%BB%A3%E7%A0%81%E8%B0%83%E8%AF%95">代码调试</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/debug">Debug</a>
+    
+  </div>
+  
+  
+  
+</div>
+
+  </header>
+
+  <p>
+  0 写在前面 Debug 是程序员必备的技能。当我们自己写的程序出现异常，我们可以通过 Debug 模式去分析异常。再者，现如今开源代码层出不穷，作者最近正好在研究开源代码， Debug 模式对跟踪代码也起到了很大的帮助。因为面对复杂的代码，我们靠一个一个查找，要找到相应的执行流程、执行方法不太容易。通过Debug模式，我们可以跟踪程序的执行流程，这样，某项业务的执行步骤便一目了然了。
+本文所用 IDE 为 Intellij IDEA ，但其它的 IDE 与此基本相似。
+
+1 基本用法 1.1 组件一 这组组件共八个按钮，从左至右编号1、2、3、4、5、6、7、8。
+ Show Execution Point：点击此按钮可将光标定位到当前代码执行处； Step Over：步过，一行一行往下执行。如果该行上有方法，不会进入方法； Step Into：步入，一行一行往下执行。如果该行上有方法，进入方法内部执行，但一般只进入自定义方法，不会进入官方类库的方法； Force Step Into：强制步入，可进入任何方法，查看底层源码是可通过这个进入官方类库的方法； Step Out：步出，从步入的方法内退出到方法调用处； Drop Frame：回退断点，默认无； Run to Cursor：运行至光标处，将光标定位到需要查看的那一行，代码会运行至光标行，无需打断点； Evaluate Expression：计算表达式。  
+1.2 组件二 这组组件共七个按钮，从上至下编号1、2、3、4、5、6、7。
+ Rerun ：重新运行程序，会关闭服务后重新启动程序； Update：更新程序，在代码改动后可执行这个功能来应用更新； Resume Program：恢复程序，点击该按钮将运行至下一个断点。比如我们在程序设置在代码第10行设置一个断点，在代码第20行设置一个断点，现在代码运行到第10行，点击按钮，代码将运行至下一个断点（第20行），若后面无断点，则运行完整个流程； Pause Program：暂停程序，启用 Debug ； Stop：连续按两下，关闭程序； View Breakpoints：查看所有断点； Mute Breakpoints：消除断点，点击该按钮将消除所有断点，断点将变为灰色，断点失效；再次点击，断点将变为红色，断点有效；如果只想对单个断点执行操作，直接在断点上右键选择相应的操作。  
+2 结语 通过这些基本操作我们已经可以初步地 Debug 程序，来跟踪程序的执行。当然， Debug 模式还有更多强大的功能，比如变量查看、智能步入、多线程调试等。下面这篇文章对 Debug 模式进行了详细的描述，推荐给大家。
+  </p>
+
+  
+  <footer>
+    <a href="https://HauyuChen.github.io/post/basic_debug/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
+  </footer>
+  
+</article>
+
+    
+  
+    
+      <article>
+  <header>
+    <h2><a href="https://HauyuChen.github.io/post/669-trim-a-binary-search-tree/">【LeetCode】669. Trim a Binary Search Tree</a></h2>
+
+    <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>2017-04-20</time>
   </div>
 
   
@@ -279,14 +345,15 @@
   </header>
 
   <p>
-  题目描述： The string &ldquo;PAYPALISHIRING&rdquo; is written in a zigzag pattern on a given number of rows like this: (you may want to display this pattern in a fixed font for better legibility)
-P A H N A P L S I I G Y I R  And then read line by line: &ldquo;PAHNAPLSIIGYIR&rdquo;
-Write the code that will take a string and make this conversion given a number of rows:
+  题目描述： Given a binary search tree and the lowest and highest boundaries as L and R, trim the tree so that all its elements lies in L, R. You might need to change the root of the tree, so the result should return the new root of the trimmed binary search tree.
+Example 1:
+Input:
+ 1 / \ 0 2 L = 1 R = 2  Output:
   </p>
 
   
   <footer>
-    <a href="https://HauyuChen.github.io/post/006-zigzag-conversion/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
+    <a href="https://HauyuChen.github.io/post/669-trim-a-binary-search-tree/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
   </footer>
   
 </article>
@@ -296,13 +363,13 @@ Write the code that will take a string and make this conversion given a number o
     
       <article>
   <header>
-    <h2><a href="https://HauyuChen.github.io/post/java_-polymorphism_1/">谈谈向上转型、向下转型</a></h2>
+    <h2><a href="https://HauyuChen.github.io/post/292-nim-game/">【LeetCode】292. Nim Game</a></h2>
 
     <div class="post-meta">
 
   <div>
     <i class="fa fa-calendar fa-fw"></i>
-    <time>2017-09-20</time>
+    <time>2017-04-17</time>
   </div>
 
   
@@ -313,9 +380,7 @@ Write the code that will take a string and make this conversion given a number o
   <div>
     <i class="fa fa-folder fa-fw"></i>
     
-      <a class="post-taxonomy-tag" href="https://HauyuChen.github.io/tags/java">Java</a>&nbsp;&#47;
-    
-      <a class="post-taxonomy-tag" href="https://HauyuChen.github.io/tags/%E5%9F%BA%E7%A1%80">基础</a>
+      <a class="post-taxonomy-tag" href="https://HauyuChen.github.io/tags/leetcode">LeetCode</a>
     
   </div>
   
@@ -327,11 +392,9 @@ Write the code that will take a string and make this conversion given a number o
   <div>
 	<i class="fa fa-tags fa-fw"></i>
     
-      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/java">Java</a>&nbsp;&#47;
+      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/%E7%AE%97%E6%B3%95">算法</a>&nbsp;&#47;
     
-      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/%E5%A4%9A%E6%80%81">多态</a>&nbsp;&#47;
-    
-      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/%E5%9F%BA%E7%A1%80">基础</a>
+      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/leetcode">LeetCode</a>
     
   </div>
   
@@ -342,26 +405,13 @@ Write the code that will take a string and make this conversion given a number o
   </header>
 
   <p>
-  版权声明：本文由 Hov 所有，发布于 http://chenhy.com ，转载请注明出处。
-更新说明：本文于 2017-10-01 修改部分内容。
-
-0 写在前面 某天下午，群上抛出了一个关于 Java 向上转型的问题。
-
-
-于是，我们以此为开端讨论了一个下午，从多态到类加载顺序。讨论结束后想着是不是要写篇文章记录下，所以有了这篇文章。
-本文将谈及向上转型、向下转型的概念，后续有时间将扩充多态相关的更详细的知识。
-
-1 向上转型 1.1 概念 向上转型是指子类对象转型为父类类型。通俗的说就是，对象变量是父类类型，但该对象变量引用的却是子类对象。
-举个栗子，苹果是水果的一种，但我们有时会说苹果是水果或直接把苹果说成水果。其实，这样的说法就是向上转型，我们把苹果抽象为水果。伪代码表示如下：
-水果 对象变量名 = new 苹果();  Apple 是 Fruit 的子类。对象变量 apple 向上转型为 Fruit 类型，但 apple 仍引用的是 Apple 对象。
-Fruit apple = new Apple(); //向上转型  向上转型是对父类对象的方法的扩充，即父类对象可访问子类重写父类的方法。也许你会问，既然访问的还是子类对象的方法，为什么不直接声明为子类类型呢？
-这就是 Java 抽象编程的奥秘。向上转型是实现多态的一种机制，我们可以通过多态性提供的动态分配机制执行相应的动作，使用多态编写的代码比使用对多种类型进行检测的代码更加易于扩展和维护。
-其实我们会经常有意无意的使用转型。比如在我之前写到的关于装饰者模式装饰者模式的文章就用到了向上转型的概念。 两种不同的咖啡 Decaf 、 Espresso 是 Coffee 的子类， Coffee 是 Drink 的子类。因为咖啡店可能会同时售卖不同的饮品，所以我们只需把不同的咖啡抽象为饮品即可，再通过引用不同的具体咖啡品种来表示不同的饮品。这样的场景其实大家都很熟悉，这就是向上转型的应用。也许你已经发现，向上转型可以跨层次。比如 Decaf 是 Coffee 的子类， Coffee 是 Drink 的子类，可以由 Decaf 直接向上转型为 Drink 。
+  题目描述： You are playing the following Nim Game with your friend: There is a heap of stones on the table, each time one of you take turns to remove 1 to 3 stones. The one who removes the last stone will be the winner. You will take the first turn to remove the stones.
+Both of you are very clever and have optimal strategies for the game. Write a function to determine whether you can win the game given the number of stones in the heap.
   </p>
 
   
   <footer>
-    <a href="https://HauyuChen.github.io/post/java_-polymorphism_1/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
+    <a href="https://HauyuChen.github.io/post/292-nim-game/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
   </footer>
   
 </article>
@@ -371,13 +421,13 @@ Fruit apple = new Apple(); //向上转型  向上转型是对父类对象的方�
     
       <article>
   <header>
-    <h2><a href="https://HauyuChen.github.io/post/dp_observer_pattern/">【设计模式】4. 观察者模式</a></h2>
+    <h2><a href="https://HauyuChen.github.io/post/054-spiral-matrix/">【LeetCode】54. Spiral Matrix</a></h2>
 
     <div class="post-meta">
 
   <div>
     <i class="fa fa-calendar fa-fw"></i>
-    <time>2017-09-17</time>
+    <time>2017-04-16</time>
   </div>
 
   
@@ -388,7 +438,7 @@ Fruit apple = new Apple(); //向上转型  向上转型是对父类对象的方�
   <div>
     <i class="fa fa-folder fa-fw"></i>
     
-      <a class="post-taxonomy-tag" href="https://HauyuChen.github.io/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F">设计模式</a>
+      <a class="post-taxonomy-tag" href="https://HauyuChen.github.io/tags/leetcode">LeetCode</a>
     
   </div>
   
@@ -400,11 +450,9 @@ Fruit apple = new Apple(); //向上转型  向上转型是对父类对象的方�
   <div>
 	<i class="fa fa-tags fa-fw"></i>
     
-      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F">设计模式</a>&nbsp;&#47;
+      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/%E7%AE%97%E6%B3%95">算法</a>&nbsp;&#47;
     
-      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/%E8%A7%82%E5%AF%9F%E8%80%85%E6%A8%A1%E5%BC%8F">观察者模式</a>&nbsp;&#47;
-    
-      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/java">Java</a>
+      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/leetcode">LeetCode</a>
     
   </div>
   
@@ -415,27 +463,17 @@ Fruit apple = new Apple(); //向上转型  向上转型是对父类对象的方�
   </header>
 
   <p>
-  版权声明：本文由 Hov 所有，发布于 http://chenhy.com ，转载请注明出处。
+  题目描述： Given a matrix of m x n elements (m rows, n columns), return all elements of the matrix in spiral order.
+For example, Given the following matrix:
+[ [ 1, 2, 3 ], [ 4, 5, 6 ], [ 7, 8, 9 ] ]  You should return [1,2,3,6,9,8,7,4,5].
 
-1 观察者模式 1.1 简介 观察者模式是对象之间实现多对一依赖的一种设计方案，其可让多个观察者同时监听某一个主体对象（被观察者）。当主体对象的状态发生变化时，可通知所有观察者对象，使它们能自动更新状态。同时，观察者对象的增加或减少不会影响主体对象，也不会影响其它观察者。观察者模式对象之间的低耦合非常有利于项目功能扩展以及后期维护。
-1.2 思路 观察者模式主要可以分为四种角色：
- 主体对象：此角色可以是接口，也可以是抽象类或具体类。主体对象必须包含三种方法，分别是添加观察者对象、移除观察者对象、通知观察者对象。 观察者：此角色一般是接口，里面一般只有一个 update 方法，在被观察者的状态发生变化时， update 方法就会被触发调用。 具体的主体对象：此角色是为了便于扩展，可以定义被观察者的一些具体的业务逻辑。 具体的观察者：此角色是观察者接口的具体实现，可以定义被观察者对象发生变化时，观察者所要处理的业务逻辑。  1.3 使用场景 观察者模式适用于在软件系统的某一个对象发生变化时，依赖它的其它对象也要做出相应改变的场景。
-举个实际应用场景：
-气象站发布气象数据，天气软件A、天气软件B都要获取气象站发布的气象数据。那么，气象站就可以作为主体对象（被观察者），而天气软件A、天气软件B就可以作为观察者。天气软件A、天气软件B都可以监听气象站的数据，气象站每次发布气象数据，就可以通知天气软件A、B更新的数据。
-当然，如果天气软件B不想再获取气象站的数据，就退出观察者队列。而天气软件A依然在观察者队列，还可以继续获取气象数据，气象站和天气软件A都不受影响。
-观察者模式正是满足这个场景的设计方案中比较重要的一种。
-1.4 优缺点 优点：
- 观察者与被观察者之间耦合度低； 观察者模式可以实现广播； 观察者模式符合“开闭原则”的要求； 实现表示层与数据逻辑层的分离，定义了稳定的消息更新传递机制。  缺点：
- 观察者和被观察者之间若存在循环依赖，会使它们循环调用，可能导致系统崩溃； 若主体对象有很多直接或间接的观察者时，通知所有观察者将花费大量时间。  
-2 实例 还是拿前面提到的气象站的栗子。我们通过程序模拟气象站发布气象数据，天气软件A和天气软件B获取数据。
-2.1 普通的解决方案 气象站将数据保存在局部变量，通知天气软件A获取，天气软件A将数据保存并显示出来。
-（1）气象站
-/* WeatherData.java */ public class WeatherData { //气象站 private float mTemperature; private float mPressure; private float mHumidity; private WeatherSoftwareA wfa; public WeatherData(WeatherSoftwareA wfa){ this.
+思路： 给定一个矩阵，以回旋形式以此遍历矩阵中的每个元素。
+ 设置 direction ，表示遍历方向（向右，向下，向左，向上）； 设置 left、right、top、buttom ，分别指示矩阵左边界、右边界、上边界、下边界； 每遍历一个元素将其添加到 ret 中，直至 left&gt;right 或 top&gt;buttom 。
   </p>
 
   
   <footer>
-    <a href="https://HauyuChen.github.io/post/dp_observer_pattern/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
+    <a href="https://HauyuChen.github.io/post/054-spiral-matrix/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
   </footer>
   
 </article>
@@ -445,13 +483,13 @@ Fruit apple = new Apple(); //向上转型  向上转型是对父类对象的方�
     
       <article>
   <header>
-    <h2><a href="https://HauyuChen.github.io/post/java_string/">String相关特性</a></h2>
+    <h2><a href="https://HauyuChen.github.io/post/059-spiral-matrix-ii/">【LeetCode】59. Spiral Matrix II</a></h2>
 
     <div class="post-meta">
 
   <div>
     <i class="fa fa-calendar fa-fw"></i>
-    <time>2017-09-14</time>
+    <time>2017-04-16</time>
   </div>
 
   
@@ -462,9 +500,7 @@ Fruit apple = new Apple(); //向上转型  向上转型是对父类对象的方�
   <div>
     <i class="fa fa-folder fa-fw"></i>
     
-      <a class="post-taxonomy-tag" href="https://HauyuChen.github.io/tags/java">Java</a>&nbsp;&#47;
-    
-      <a class="post-taxonomy-tag" href="https://HauyuChen.github.io/tags/%E5%9F%BA%E7%A1%80">基础</a>
+      <a class="post-taxonomy-tag" href="https://HauyuChen.github.io/tags/leetcode">LeetCode</a>
     
   </div>
   
@@ -476,11 +512,9 @@ Fruit apple = new Apple(); //向上转型  向上转型是对父类对象的方�
   <div>
 	<i class="fa fa-tags fa-fw"></i>
     
-      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/java">Java</a>&nbsp;&#47;
+      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/%E7%AE%97%E6%B3%95">算法</a>&nbsp;&#47;
     
-      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/%E5%AD%97%E7%AC%A6%E4%B8%B2">字符串</a>&nbsp;&#47;
-    
-      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/%E5%9F%BA%E7%A1%80">基础</a>
+      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/leetcode">LeetCode</a>
     
   </div>
   
@@ -491,93 +525,17 @@ Fruit apple = new Apple(); //向上转型  向上转型是对父类对象的方�
   </header>
 
   <p>
-  1 字符串实例化两种方式的区别 String 的实例化方式有两种，一种是直接赋值，另一种是通过 new 关键字实例化字符串。
-1.1 直接赋值 String str1 = &quot;hello&quot;;  使用直接赋值方式，只要以后声明的字符串内容相同，则不会再开辟新的内存空间。这是Java中共享设计的思想，Java 通过创建一个字符串池，字符串池中保存了多个字符串对象。若新实例化的字符串对象已经在对象池中，则不再重新定义，直接从对象池中取出使用。
-具体到例子， str1 通过直接赋值，因为字符串池不存在“hello”，所以创建一个新的实例置入字符串池，并在栈中开辟一个内存空间直接指向“hello”。
-如果我们声明新的字符串 str2=“hello”， str2 将指向“hello”存放的内存空间，不会再开辟一个新的内存空间。这是因为，JVM会先到字符串池中查找，如果有的话返回字符串池中这个实例的引用，否则才创建一个新的实例并置入字符串对象池。因此，通过直接赋值可以只占用一个内存空间。
-1.2 new关键字 String newstr1 = new String(&quot;hello&quot;);  使用 new 关键字实例化字符串，不管如何都将在堆中开辟一个新的空间。 new 创建字符串实例时会先在对象池中查找是否有相同值的字符串，如果有，则拷贝一份到堆中，然后返回堆中的地址。如果没有，则在堆中创建一份，然后返回堆中的地址。
-具体到例子， newstr1 通过 new 关键字实例化，无论对象池是否存在相同值的字符串，都会在堆中开辟一个新的内存空间，赋值后将在栈中开辟一个新的空间存放 newstr1 ，也就是说使用 new 关键字实例化字符串总共开辟了两个内存空间。因为多出了从字符串池拷贝到堆内存的操作。
-1.3 字符串池 字符串池的优点是避免了相同字符串的创建，节省内存，省去创建相同字符串的时间；另一方面，字符串池的缺点是牺牲了 JVM 在常量池中遍历对象所需要的时间，不过时间成本相比之下较低。
-1.4 小结 直接赋值只需一个内存空间，相同的字符串可以重复指向同一个内存空间；
-new 创建字符串实例无论如何会在堆中开辟一个新的内存空间，因此总共占用两个内存空间。
-综上，使用直接赋值的方法较好，可以避免占用多余的内存空间。
-
-2 字符串比较“==”与 equals 的区别 字符串比较是较为常用的功能， Java 中主要提供了两种字符串比较方式，“==”和 equals ，如下：
-String str1 = &quot;hello&quot;; String str2 = new String(&quot;hello&quot;); System.
+  题目描述： Given an integer n, generate a square matrix filled with elements from 1 to n2 in spiral order.
+For example, Given n = 3,
+You should return the following matrix:
+[ [ 1, 2, 3 ], [ 8, 9, 4 ], [ 7, 6, 5 ] ]  
+思路： 题意要求根据 n ，创建一个 n*n 的回旋矩阵。
+ 设置 direction ，表示构造方向（向右，向下，向左，向上）； 设置 left、right、top、buttom ，分别指示矩阵左边界、右边界、上边界、下边界； 设置 count 指示当前的数值； 按右-下-左-上的顺序不断循环构造，直至 left&gt;right 或 top&gt;buttom 。
   </p>
 
   
   <footer>
-    <a href="https://HauyuChen.github.io/post/java_string/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
-  </footer>
-  
-</article>
-
-    
-  
-    
-      <article>
-  <header>
-    <h2><a href="https://HauyuChen.github.io/post/java_abstractclass_interface/">抽象类与接口的区别</a></h2>
-
-    <div class="post-meta">
-
-  <div>
-    <i class="fa fa-calendar fa-fw"></i>
-    <time>2017-09-13</time>
-  </div>
-
-  
-
-  
-  
-  
-  <div>
-    <i class="fa fa-folder fa-fw"></i>
-    
-      <a class="post-taxonomy-tag" href="https://HauyuChen.github.io/tags/java">Java</a>&nbsp;&#47;
-    
-      <a class="post-taxonomy-tag" href="https://HauyuChen.github.io/tags/%E5%9F%BA%E7%A1%80">基础</a>
-    
-  </div>
-  
-  
-
-  
-  
-  
-  <div>
-	<i class="fa fa-tags fa-fw"></i>
-    
-      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/java">Java</a>&nbsp;&#47;
-    
-      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/%E5%9F%BA%E7%A1%80">基础</a>
-    
-  </div>
-  
-  
-  
-</div>
-
-  </header>
-
-  <p>
-  0 写在前面 抽象类和接口有共同点，也有不同点。在实际应用中，我们有时会不知道什么时候用抽象类，什么时候用接口。因此，我们有必要了解抽象类和接口的相关知识以及它们之间的区别，这样以后在二者之间的选择将更有依据。
-
-1 抽象类 在面向对象中，我们通过类来描绘对象，但并不是所有的类都是用来描绘对象的。如果一个类中没有包含足够的信息来描绘一个具体的对象，这样的类就是抽象类。
-抽象类是实现多态的一种机制，抽象类可以包含具体方法，也可以包含抽象方法（由继承它的子类实现这些方法）。
-抽象类的特性总结如下：
- 抽象类不能被实例化； 抽象类可以有构造方法； 抽象方法必须由其子类重写（Override）； 只要包含有一个抽象方法的类，就必须定义为抽象类； 抽象类可以包含有具体实现的方法，也可以不包含抽象方法； 子类的抽象方法不能与父类的抽象方法重名； abstract 不能与 private 、 static 、 final 、 native 并列修饰同一个方法。  注：关于子类实例化时抽象类是否被实例化的问题
-抽象类不能实例化，子类实例化时会初始化父类，因为子类继承了父类的变量、方法等，但初始化不等同于实例化。实例化是指用类创建对象，为对象开辟内存空间。
-举个栗子：
-Duck 是一个抽象类，里面包含构造方法、抽象方法、具体方法。
-GreenHeadDuck 继承自抽象类 Duck ，所以它必须重写抽象类 Duck 的抽象方法 display ，而具体方法 Quack 、 Swim 可以不重写。
-/* Duck.java */ public abstract class Duck{ //抽象类Duck public Duck(){ //构造方法 } public abstract void display(); //抽象方法：外观 public void Quack(){ //具体方法：嘎嘎叫 System.out.println(&quot;--gaga--&quot;); } public void Swim(){ //具体方法：游泳 System.
-  </p>
-
-  
-  <footer>
-    <a href="https://HauyuChen.github.io/post/java_abstractclass_interface/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
+    <a href="https://HauyuChen.github.io/post/059-spiral-matrix-ii/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
   </footer>
   
 </article>

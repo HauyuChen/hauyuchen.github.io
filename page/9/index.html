@@ -237,148 +237,13 @@
     
       <article>
   <header>
-    <h2><a href="https://HauyuChen.github.io/post/java_overload_override/">重写、重载的区别</a></h2>
+    <h2><a href="https://HauyuChen.github.io/post/083-remove-duplicates-from-sorted-list/">【LeetCode】83. Remove Duplicates from Sorted List</a></h2>
 
     <div class="post-meta">
 
   <div>
     <i class="fa fa-calendar fa-fw"></i>
-    <time>2017-08-31</time>
-  </div>
-
-  
-
-  
-  
-  
-  <div>
-    <i class="fa fa-folder fa-fw"></i>
-    
-      <a class="post-taxonomy-tag" href="https://HauyuChen.github.io/tags/java">Java</a>&nbsp;&#47;
-    
-      <a class="post-taxonomy-tag" href="https://HauyuChen.github.io/tags/%E5%9F%BA%E7%A1%80">基础</a>
-    
-  </div>
-  
-  
-
-  
-  
-  
-  <div>
-	<i class="fa fa-tags fa-fw"></i>
-    
-      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/java">Java</a>&nbsp;&#47;
-    
-      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/%E5%9F%BA%E7%A1%80">基础</a>
-    
-  </div>
-  
-  
-  
-</div>
-
-  </header>
-
-  <p>
-  0 写在前面 重写和重载是面向对象程序设计中十分重要的两个概念，其中重写又称为覆盖。 通俗的理解就是，重写就是将一个方法的实现过程再写一遍，覆盖原有方法；重载就是增加一个方法的不同实现，而不覆盖原有的方法。
-
-1 重写（覆盖） 重写是子类对父类方法的实现过程的重新编写。重写的方法应与被重写的方法具有完全一致的返回值、方法名称、参数列表，也就是外壳完全一样，实现过程发生改变。
-重写规则：
- 参数列表必须与原有方法完全相同； 返回类型必须与原有方法相同； 访问权限不能比父类中被重写的方法的访问权限更低； 父类成员方法只能被其子类重写； 声明为 final 的方法不能被重写； 声明为 static 的方法不能被重写，但能够被再次声明； 构造方法不能重写。  
-2 重载 重载与重写不同之处在于重载与原有方法具有同样的名称，但参数列表可以不同。重载的方法虽然名称和原有方法一样，但是可以认为它们是不同的方法。
-重载规则：
- 重载的方法必须改变参数列表； 重载的方法可以改变返回类型； 重载的方法可以改变访问修饰符； 方法能在同一个类中或在一个子类中被重载。  
-3 对比 
-参考资料：http://www.runoob.com/java/java-override-overload.html
-  </p>
-
-  
-</article>
-
-    
-  
-    
-      <article>
-  <header>
-    <h2><a href="https://HauyuChen.github.io/post/dp_decorator_pattern/">【设计模式】3. 装饰者模式</a></h2>
-
-    <div class="post-meta">
-
-  <div>
-    <i class="fa fa-calendar fa-fw"></i>
-    <time>2017-08-29</time>
-  </div>
-
-  
-
-  
-  
-  
-  <div>
-    <i class="fa fa-folder fa-fw"></i>
-    
-      <a class="post-taxonomy-tag" href="https://HauyuChen.github.io/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F">设计模式</a>
-    
-  </div>
-  
-  
-
-  
-  
-  
-  <div>
-	<i class="fa fa-tags fa-fw"></i>
-    
-      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F">设计模式</a>&nbsp;&#47;
-    
-      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/%E8%A3%85%E9%A5%B0%E8%80%85%E6%A8%A1%E5%BC%8F">装饰者模式</a>&nbsp;&#47;
-    
-      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/java">Java</a>
-    
-  </div>
-  
-  
-  
-</div>
-
-  </header>
-
-  <p>
-  版权声明：本文由 Hov 所有，发布于 http://chenhy.com ，转载请注明出处。
-
-1 装饰者模式 1.1 简介 装饰者模式可动态地向对象添加额外的属性或行为。装饰者模式是类继承的另外一种选择，类继承在编译时候增加行为，而装饰模式是在运行时增加行为。在对象功能扩展方面，装饰者模式比继承更有弹性。
-1.2 思路 通过增加一个装饰类包裹原来的类，包裹的方式一般是通过将原来的对象作为装饰类的构造函数的参数，从而在原有对象上添加新的功能。
-1.3 使用场景 在不影响其它对象的情况下，想要动态地给单个对象添加新的属性或功能。
-1.4 优缺点 优点：
- 可用一个或多个装饰者包装一个对象，扩展性强； 对象可以在任何时候被修饰，即动态修饰对象； 非继承，避免子类爆炸。  缺点：
- 出现额外的装饰类，使程序变得复杂。  
-2 实例 模拟咖啡店：
-假设，咖啡店有两种咖啡可选： Decaf 和 Espresso ，两种配料可选： Chocalate 和 Milk 。
-不同的咖啡和配料可以搭配成不同的饮品，比如 Decaf 、 Espresso 、 Decaf + Chocalate 、 Decaf + Milk 、 Espresso + Chocalate 、 Espresso + Milk 六种不同的饮品。
-我们要写个程序来计算不同饮品的价格，比如客户点了一杯 Espresso + Chocalate ，输出饮品的价格和描述信息。
-2.1 糟糕的解决方案 设计超类 Drink ，继承自超类 Drink 的子类 Decaf 、 Espresso 、 Decaf + Chocalate 、 Decaf + Milk 、 Espresso + Chocalate 、 Espresso + Milk 。
-  </p>
-
-  
-  <footer>
-    <a href="https://HauyuChen.github.io/post/dp_decorator_pattern/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
-  </footer>
-  
-</article>
-
-    
-  
-    
-      <article>
-  <header>
-    <h2><a href="https://HauyuChen.github.io/post/599-minimum-index-sum-of-two-lists/">【LeetCode】599. Minimum Index Sum of Two Lists</a></h2>
-
-    <div class="post-meta">
-
-  <div>
-    <i class="fa fa-calendar fa-fw"></i>
-    <time>2017-08-27</time>
+    <time>2017-04-12</time>
   </div>
 
   
@@ -414,16 +279,201 @@
   </header>
 
   <p>
-  题目描述： Suppose Andy and Doris want to choose a restaurant for dinner, and they both have a list of favorite restaurants represented by strings.
-You need to help them find out their common interest with the least list index sum. If there is a choice tie between answers, output all of them with no order requirement. You could assume there always exists an answer.
+  题目描述： Given a sorted linked list, delete all duplicates such that each element appear only once.
+For example,
+Given 1-&gt;1-&gt;2, return 1-&gt;2.
+Given 1-&gt;1-&gt;2-&gt;3-&gt;3, return 1-&gt;2-&gt;3.
+
+思路： 遍历一次链表即可，每遍历一个元素比较其是否与它的下一个元素相等。若是，指针指向下下个元素；否则继续遍历下一个元素。
+
+代码实现： /** * Definition for singly-linked list. * public class ListNode { * int val; * ListNode next; * ListNode(int x) { val = x; } * } */ class Solution { public ListNode deleteDuplicates(ListNode head) { if(head==null){ return null; } ListNode p = head; while(p.
+  </p>
+
+  
+  <footer>
+    <a href="https://HauyuChen.github.io/post/083-remove-duplicates-from-sorted-list/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
+  </footer>
+  
+</article>
+
+    
+  
+    
+      <article>
+  <header>
+    <h2><a href="https://HauyuChen.github.io/post/088-merge-sorted-array/">【LeetCode】88. Merge Sorted Array</a></h2>
+
+    <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>2017-04-12</time>
+  </div>
+
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-folder fa-fw"></i>
+    
+      <a class="post-taxonomy-tag" href="https://HauyuChen.github.io/tags/leetcode">LeetCode</a>
+    
+  </div>
+  
+  
+
+  
+  
+  
+  <div>
+	<i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/%E7%AE%97%E6%B3%95">算法</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/leetcode">LeetCode</a>
+    
+  </div>
+  
+  
+  
+</div>
+
+  </header>
+
+  <p>
+  题目描述： Given two sorted integer arrays nums1 and nums2, merge nums2 into nums1 as one sorted array.
+Note:
+You may assume that nums1 has enough space (size that is greater or equal to m + n) to hold additional elements from nums2. The number of elements initialized in nums1 and nums2 are m and n respectively.
+
+思路： 从后往前遍历两个数组，分别比较，大的放在数组 nums1 后面，直到两个数组都遍历完毕。
+注：如果从前往后遍历的话，数组合并时需要将元素后移，效率低。
+
+代码实现： class Solution { public void merge(int[] nums1, int m, int[] nums2, int n) { int index = m+n-1; int i1 = m-1; int i2 = n-1; while(i1&gt;=0&amp;&amp;i2&gt;=0){ if(nums1[i1]&gt;=nums2[i2]){ nums1[index] = nums1[i1]; i1--; }else{ nums1[index] = nums2[i2]; i2--; } index--; } while(i1&gt;=0){ nums1[index] = nums1[i1]; i1--; index--; } while(i2&gt;=0){ nums1[index] = nums2[i2]; i2--; index--; } } }
+  </p>
+
+  
+</article>
+
+    
+  
+    
+      <article>
+  <header>
+    <h2><a href="https://HauyuChen.github.io/post/682-baseball-game/">【LeetCode】682. Baseball Game</a></h2>
+
+    <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>2017-04-11</time>
+  </div>
+
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-folder fa-fw"></i>
+    
+      <a class="post-taxonomy-tag" href="https://HauyuChen.github.io/tags/leetcode">LeetCode</a>
+    
+  </div>
+  
+  
+
+  
+  
+  
+  <div>
+	<i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/%E7%AE%97%E6%B3%95">算法</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/leetcode">LeetCode</a>
+    
+  </div>
+  
+  
+  
+</div>
+
+  </header>
+
+  <p>
+  题目描述： You&rsquo;re now a baseball game point recorder.
+Given a list of strings, each string can be one of the 4 following types:
+ Integer (one round&rsquo;s score): Directly represents the number of points you get in this round.
+ &rdquo;+&rdquo; (one round&rsquo;s score): Represents that the points you get in this round are the sum of the last two valid round&rsquo;s points.
+ &ldquo;D&rdquo; (one round&rsquo;s score): Represents that the points you get in this round are the doubled data of the last valid round&rsquo;s points.
+  </p>
+
+  
+  <footer>
+    <a href="https://HauyuChen.github.io/post/682-baseball-game/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
+  </footer>
+  
+</article>
+
+    
+  
+    
+      <article>
+  <header>
+    <h2><a href="https://HauyuChen.github.io/post/523-continuous-subarray-sum/">【LeetCode】523. Continuous Subarray Sum</a></h2>
+
+    <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>2017-04-10</time>
+  </div>
+
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-folder fa-fw"></i>
+    
+      <a class="post-taxonomy-tag" href="https://HauyuChen.github.io/tags/leetcode">LeetCode</a>
+    
+  </div>
+  
+  
+
+  
+  
+  
+  <div>
+	<i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/%E7%AE%97%E6%B3%95">算法</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/leetcode">LeetCode</a>
+    
+  </div>
+  
+  
+  
+</div>
+
+  </header>
+
+  <p>
+  题目描述： Given a list of non-negative numbers and a target integer k, write a function to check if the array has a continuous subarray of size at least 2 that sums up to the multiple of k, that is, sums up to n*k where n is also an integer.
 Example 1:
-Input:
-[&ldquo;Shogun&rdquo;, &ldquo;Tapioca Express&rdquo;, &ldquo;Burger King&rdquo;, &ldquo;KFC&rdquo;]
+Input: [23, 2, 4, 6, 7], k=6
+Output: True
+Explanation: Because [2, 4] is a continuous subarray of size 2 and sums up to 6.
   </p>
 
   
   <footer>
-    <a href="https://HauyuChen.github.io/post/599-minimum-index-sum-of-two-lists/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
+    <a href="https://HauyuChen.github.io/post/523-continuous-subarray-sum/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
   </footer>
   
 </article>
@@ -433,13 +483,13 @@ Input:
     
       <article>
   <header>
-    <h2><a href="https://HauyuChen.github.io/post/617-merge-two-binary-trees/">【LeetCode】617. Merge Two Binary Trees</a></h2>
+    <h2><a href="https://HauyuChen.github.io/post/532-k-diff-pairs-in-an-array/">【LeetCode】532. K-diff Pairs in an Array</a></h2>
 
     <div class="post-meta">
 
   <div>
     <i class="fa fa-calendar fa-fw"></i>
-    <time>2017-08-27</time>
+    <time>2017-04-10</time>
   </div>
 
   
@@ -475,74 +525,16 @@ Input:
   </header>
 
   <p>
-  题目描述： Given two binary trees and imagine that when you put one of them to cover the other, some nodes of the two trees are overlapped while the others are not.
-You need to merge them into a new binary tree. The merge rule is that if two nodes overlap, then sum node values up as the new value of the merged node. Otherwise, the NOT null node will be used as the node of new tree.
-  </p>
-
-  
-  <footer>
-    <a href="https://HauyuChen.github.io/post/617-merge-two-binary-trees/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
-  </footer>
-  
-</article>
-
-    
-  
-    
-      <article>
-  <header>
-    <h2><a href="https://HauyuChen.github.io/post/575-distribute-candies/">【LeetCode】575. Distribute Candies</a></h2>
-
-    <div class="post-meta">
-
-  <div>
-    <i class="fa fa-calendar fa-fw"></i>
-    <time>2017-08-26</time>
-  </div>
-
-  
-
-  
-  
-  
-  <div>
-    <i class="fa fa-folder fa-fw"></i>
-    
-      <a class="post-taxonomy-tag" href="https://HauyuChen.github.io/tags/leetcode">LeetCode</a>
-    
-  </div>
-  
-  
-
-  
-  
-  
-  <div>
-	<i class="fa fa-tags fa-fw"></i>
-    
-      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/%E7%AE%97%E6%B3%95">算法</a>&nbsp;&#47;
-    
-      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/leetcode">LeetCode</a>
-    
-  </div>
-  
-  
-  
-</div>
-
-  </header>
-
-  <p>
-  题目描述： Given an integer array with even length, where different numbers in this array represent different kinds of candies. Each number means one candy of the corresponding kind. You need to distribute these candies equally in number to brother and sister. Return the maximum number of kinds of candies the sister could gain.
+  题目描述： Given an array of integers and an integer k, you need to find the number of unique k-diff pairs in the array. Here a k-diff pair is defined as an integer pair (i, j), where i and j are both numbers in the array and their absolute difference is k.
 Example 1:
-Input: candies = [1,1,2,2,3,3]
-Output: 3
-Explanation: There are three different kinds of candies (1, 2 and 3), and two candies for each kind.
+Input: [3, 1, 4, 1, 5], k = 2
+Output: 2
+Explanation: There are two 2-diff pairs in the array, (1, 3) and (3, 5).
   </p>
 
   
   <footer>
-    <a href="https://HauyuChen.github.io/post/575-distribute-candies/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
+    <a href="https://HauyuChen.github.io/post/532-k-diff-pairs-in-an-array/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
   </footer>
   
 </article>

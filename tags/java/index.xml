@@ -7,10 +7,28 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2017. All rights reserved.</copyright>
-    <lastBuildDate>Wed, 06 Sep 2017 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 20 Nov 2017 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://HauyuChen.github.io/tags/java/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>重写、重载的区别</title>
+      <link>https://HauyuChen.github.io/post/java_overload_override/</link>
+      <pubDate>Mon, 20 Nov 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://HauyuChen.github.io/post/java_overload_override/</guid>
+      <description>0 写在前面 重写和重载是面向对象程序设计中十分重要的两个概念，其中重写又称为覆盖。 通俗的理解就是，重写就是将一个方法的实现过程再写一遍，覆盖原有方法；重载就是增加一个方法的不同实现，而不覆盖原有的方法。
+
+1 重写（覆盖） 重写是子类对父类方法的实现过程的重新编写。重写的方法应与被重写的方法具有完全一致的返回值、方法名称、参数列表，也就是外壳完全一样，实现过程发生改变。
+重写规则：
+ 参数列表必须与原有方法完全相同； 返回类型必须与原有方法相同； 访问权限不能比父类中被重写的方法的访问权限更低； 父类成员方法只能被其子类重写； 声明为 final 的方法不能被重写； 声明为 static 的方法不能被重写，但能够被再次声明； 构造方法不能重写。  
+2 重载 重载与重写不同之处在于重载与原有方法具有同样的名称，但参数列表可以不同。重载的方法虽然名称和原有方法一样，但是可以认为它们是不同的方法。
+重载规则：
+ 重载的方法必须改变参数列表； 重载的方法可以改变返回类型； 重载的方法可以改变访问修饰符； 方法能在同一个类中或在一个子类中被重载。  
+3 对比 
+参考资料：http://www.runoob.com/java/java-override-overload.html</description>
+    </item>
     
     <item>
       <title>Java 进程通信（共享内存）</title>
@@ -33,27 +51,9 @@ MappedByteBuffer 为共享内存缓冲区，实际上是一个磁盘文件的内
     </item>
     
     <item>
-      <title>重写、重载的区别</title>
-      <link>https://HauyuChen.github.io/post/java_overload_override/</link>
-      <pubDate>Thu, 31 Aug 2017 00:00:00 +0000</pubDate>
-      
-      <guid>https://HauyuChen.github.io/post/java_overload_override/</guid>
-      <description>0 写在前面 重写和重载是面向对象程序设计中十分重要的两个概念，其中重写又称为覆盖。 通俗的理解就是，重写就是将一个方法的实现过程再写一遍，覆盖原有方法；重载就是增加一个方法的不同实现，而不覆盖原有的方法。
-
-1 重写（覆盖） 重写是子类对父类方法的实现过程的重新编写。重写的方法应与被重写的方法具有完全一致的返回值、方法名称、参数列表，也就是外壳完全一样，实现过程发生改变。
-重写规则：
- 参数列表必须与原有方法完全相同； 返回类型必须与原有方法相同； 访问权限不能比父类中被重写的方法的访问权限更低； 父类成员方法只能被其子类重写； 声明为 final 的方法不能被重写； 声明为 static 的方法不能被重写，但能够被再次声明； 构造方法不能重写。  
-2 重载 重载与重写不同之处在于重载与原有方法具有同样的名称，但参数列表可以不同。重载的方法虽然名称和原有方法一样，但是可以认为它们是不同的方法。
-重载规则：
- 重载的方法必须改变参数列表； 重载的方法可以改变返回类型； 重载的方法可以改变访问修饰符； 方法能在同一个类中或在一个子类中被重载。  
-3 对比 
-参考资料：http://www.runoob.com/java/java-override-overload.html</description>
-    </item>
-    
-    <item>
       <title>谈谈向上转型、向下转型</title>
       <link>https://HauyuChen.github.io/post/java_-polymorphism_1/</link>
-      <pubDate>Wed, 20 Sep 2017 00:00:00 +0000</pubDate>
+      <pubDate>Wed, 20 Dec 2017 00:00:00 +0000</pubDate>
       
       <guid>https://HauyuChen.github.io/post/java_-polymorphism_1/</guid>
       <description>版权声明：本文由 Hov 所有，发布于 http://chenhy.com ，转载请注明出处。
@@ -98,7 +98,7 @@ Fruit apple = new Apple(); //向上转型  向上转型是对父类对象的方�
     <item>
       <title>抽象类与接口的区别</title>
       <link>https://HauyuChen.github.io/post/java_abstractclass_interface/</link>
-      <pubDate>Wed, 13 Sep 2017 00:00:00 +0000</pubDate>
+      <pubDate>Mon, 13 Nov 2017 00:00:00 +0000</pubDate>
       
       <guid>https://HauyuChen.github.io/post/java_abstractclass_interface/</guid>
       <description>0 写在前面 抽象类和接口有共同点，也有不同点。在实际应用中，我们有时会不知道什么时候用抽象类，什么时候用接口。因此，我们有必要了解抽象类和接口的相关知识以及它们之间的区别，这样以后在二者之间的选择将更有依据。
@@ -136,6 +136,34 @@ String str1 = &amp;quot;hello&amp;quot;; String str2 = new String(&amp;quot;hell
     </item>
     
     <item>
+      <title>Java关键字this、super、static、final</title>
+      <link>https://HauyuChen.github.io/post/java_thissuperstaticfinal/</link>
+      <pubDate>Wed, 25 Oct 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://HauyuChen.github.io/post/java_thissuperstaticfinal/</guid>
+      <description>0 写在前面 本文主要讲讲 Java 中比较常见的关键字，如 this 、 super 、 static 、 final ，它们在程序中出现频率较高。
+1 this  表示类中的属性，比如 this.username = username; 强调调用的是本类的方法； 调用本类的构造方法，如 this(); 调用本类的无参构造方法； 表示当前对象（调用方法的对象）。  2 super  调用父类的构造方法； 调用父类的普通方法； 调用父类的属性。  3 static  static 修饰类： static 修饰的类称为静态类，静态类作为类的静态成员存在于某个类中，静态成员类可以不创建父类对象直接创建静态类的对象。 static 修饰变量： static 修饰的变量称为静态变量或类变量，而没有被 static 修饰的变量称为实例变量。静态变量在内存中只有一个拷贝， JVM 只为静态变量分配一次内存，且在加载类的过程中完成静态变量的内存分配；而实例变量每创建一个实例就分配一次内存，实例变量在内存中有多个拷贝，互补影响。 static 修饰方法： static 修饰的方法称为类方法，否则为实例方法，实例方法只有生成对象时才分配内存。类方法可以通过类名直接调用，实例方法只能通过类对象调用。  4 final  final 修饰类：被 final 修饰的类表示最终类，其不能被继承，不能当父类； final 修饰变量：被 final 修饰的变量为最终变量，即常量，其值不能修改，在定义时必须赋值。值得注意的是，当 final 修饰的不是普通变量而是对象引用时，变量指向的对象是可变的，不可变的是变量对对象的引用； final 修饰方法： final 修饰的方法为最终方法，父类包含最终方法时，子类不能重写该方法。</description>
+    </item>
+    
+    <item>
+      <title>JSON相关操作（Java）</title>
+      <link>https://HauyuChen.github.io/post/java_json/</link>
+      <pubDate>Wed, 11 Oct 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://HauyuChen.github.io/post/java_json/</guid>
+      <description>1 Java中创建JSON import com.google.gson.JsonArray; import com.google.gson.JsonObject; public class CreateJSON { public static void main(String[] args) { JsonObject object = new JsonObject(); object.addProperty(&amp;quot;cat&amp;quot;, &amp;quot;it&amp;quot;); JsonArray array = new JsonArray(); JsonObject lan1 = new JsonObject(); lan1.addProperty(&amp;quot;id&amp;quot;, 1); lan1.addProperty(&amp;quot;name&amp;quot;, &amp;quot;Java&amp;quot;); lan1.addProperty(&amp;quot;ide&amp;quot;, &amp;quot;Eclipse&amp;quot;); array.add(lan1); JsonObject lan2 = new JsonObject(); lan2.addProperty(&amp;quot;id&amp;quot;, 2); lan2.addProperty(&amp;quot;name&amp;quot;, &amp;quot;Swift&amp;quot;); lan2.addProperty(&amp;quot;ide&amp;quot;, &amp;quot;XCode&amp;quot;); array.add(lan2); JsonObject lan3 = new JsonObject(); lan3.addProperty(&amp;quot;id&amp;quot;, 3); lan3.addProperty(&amp;quot;name&amp;quot;, &amp;quot;C#&amp;quot;); lan3.addProperty(&amp;quot;ide&amp;quot;, &amp;quot;Visual Studio&amp;quot;); array.add(lan3); object.add(&amp;quot;languages&amp;quot;, array); object.addProperty(&amp;quot;pop&amp;quot;, true); System.</description>
+    </item>
+    
+    <item>
+      <title>XML相关操作（Java）</title>
+      <link>https://HauyuChen.github.io/post/java_xml/</link>
+      <pubDate>Wed, 11 Oct 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://HauyuChen.github.io/post/java_xml/</guid>
+      <description>1 XML文件创建示例 import java.io.File; import java.io.StringWriter; import javax.xml.parsers.DocumentBuilder; import javax.xml.parsers.DocumentBuilderFactory; import javax.xml.parsers.ParserConfigurationException; import javax.xml.transform.Transformer; import javax.xml.transform.TransformerConfigurationException; import javax.xml.transform.TransformerException; import javax.xml.transform.TransformerFactory; import javax.xml.transform.dom.DOMSource; import javax.xml.transform.stream.StreamResult; import org.w3c.dom.Document; import org.w3c.dom.Element; public class CreateXML { public static void main(String[] args) { try { //DOM DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance(); DocumentBuilder builder = factory.newDocumentBuilder(); Document document = builder.newDocument(); //创建Languages标签 Element root = document.createElement(&amp;quot;Languages&amp;quot;); root.setAttribute(&amp;quot;cat&amp;quot;, &amp;quot;it&amp;quot;); //设置Languages标签的属性 //-----接下来创建Languages标签下的三个子标签lan1、lan2、lan3 //lan1 Element lan1 = document.createElement(&amp;quot;lan&amp;quot;); //lan标签 lan1.setAttribute(&amp;quot;id&amp;quot;, &amp;quot;1&amp;quot;); Element name1 = document.</description>
+    </item>
+    
+    <item>
       <title>Java相关特性</title>
       <link>https://HauyuChen.github.io/post/java_trap/</link>
       <pubDate>Tue, 08 Aug 2017 00:00:00 +0000</pubDate>
@@ -146,34 +174,6 @@ String str1 = &amp;quot;hello&amp;quot;; String str2 = new String(&amp;quot;hell
  true 、 false 、 null 不是严格意义上的关键字，而是文字常量（literals）。
  float f = 2.5；不正确，因为精度不准确。正确写法：float f = (float)2.5;
  try｛ ｝里面的 return 语句，紧跟着 finally｛ ｝里的代码会在 return 前先执行。</description>
-    </item>
-    
-    <item>
-      <title>Java关键字this、super、static、final</title>
-      <link>https://HauyuChen.github.io/post/java_thissuperstaticfinal/</link>
-      <pubDate>Sat, 05 Aug 2017 00:00:00 +0000</pubDate>
-      
-      <guid>https://HauyuChen.github.io/post/java_thissuperstaticfinal/</guid>
-      <description>0 写在前面 本文主要讲讲 Java 中比较常见的关键字，如 this 、 super 、 static 、 final ，它们在程序中出现频率较高。
-1 this  表示类中的属性，比如 this.username = username; 强调调用的是本类的方法； 调用本类的构造方法，如 this(); 调用本类的无参构造方法； 表示当前对象（调用方法的对象）。  2 super  调用父类的构造方法； 调用父类的普通方法； 调用父类的属性。  3 static  static 修饰类： static 修饰的类称为静态类，静态类作为类的静态成员存在于某个类中，静态成员类可以不创建父类对象直接创建静态类的对象。 static 修饰变量： static 修饰的变量称为静态变量或类变量，而没有被 static 修饰的变量称为实例变量。静态变量在内存中只有一个拷贝， JVM 只为静态变量分配一次内存，且在加载类的过程中完成静态变量的内存分配；而实例变量每创建一个实例就分配一次内存，实例变量在内存中有多个拷贝，互补影响。 static 修饰方法： static 修饰的方法称为类方法，否则为实例方法，实例方法只有生成对象时才分配内存。类方法可以通过类名直接调用，实例方法只能通过类对象调用。  4 final  final 修饰类：被 final 修饰的类表示最终类，其不能被继承，不能当父类； final 修饰变量：被 final 修饰的变量为最终变量，即常量，其值不能修改，在定义时必须赋值。值得注意的是，当 final 修饰的不是普通变量而是对象引用时，变量指向的对象是可变的，不可变的是变量对对象的引用； final 修饰方法： final 修饰的方法为最终方法，父类包含最终方法时，子类不能重写该方法。</description>
-    </item>
-    
-    <item>
-      <title>JSON相关操作（Java）</title>
-      <link>https://HauyuChen.github.io/post/java_json/</link>
-      <pubDate>Tue, 01 Aug 2017 00:00:00 +0000</pubDate>
-      
-      <guid>https://HauyuChen.github.io/post/java_json/</guid>
-      <description>1 Java中创建JSON import com.google.gson.JsonArray; import com.google.gson.JsonObject; public class CreateJSON { public static void main(String[] args) { JsonObject object = new JsonObject(); object.addProperty(&amp;quot;cat&amp;quot;, &amp;quot;it&amp;quot;); JsonArray array = new JsonArray(); JsonObject lan1 = new JsonObject(); lan1.addProperty(&amp;quot;id&amp;quot;, 1); lan1.addProperty(&amp;quot;name&amp;quot;, &amp;quot;Java&amp;quot;); lan1.addProperty(&amp;quot;ide&amp;quot;, &amp;quot;Eclipse&amp;quot;); array.add(lan1); JsonObject lan2 = new JsonObject(); lan2.addProperty(&amp;quot;id&amp;quot;, 2); lan2.addProperty(&amp;quot;name&amp;quot;, &amp;quot;Swift&amp;quot;); lan2.addProperty(&amp;quot;ide&amp;quot;, &amp;quot;XCode&amp;quot;); array.add(lan2); JsonObject lan3 = new JsonObject(); lan3.addProperty(&amp;quot;id&amp;quot;, 3); lan3.addProperty(&amp;quot;name&amp;quot;, &amp;quot;C#&amp;quot;); lan3.addProperty(&amp;quot;ide&amp;quot;, &amp;quot;Visual Studio&amp;quot;); array.add(lan3); object.add(&amp;quot;languages&amp;quot;, array); object.addProperty(&amp;quot;pop&amp;quot;, true); System.</description>
-    </item>
-    
-    <item>
-      <title>XML相关操作（Java）</title>
-      <link>https://HauyuChen.github.io/post/java_xml/</link>
-      <pubDate>Tue, 01 Aug 2017 00:00:00 +0000</pubDate>
-      
-      <guid>https://HauyuChen.github.io/post/java_xml/</guid>
-      <description>1 XML文件创建示例 import java.io.File; import java.io.StringWriter; import javax.xml.parsers.DocumentBuilder; import javax.xml.parsers.DocumentBuilderFactory; import javax.xml.parsers.ParserConfigurationException; import javax.xml.transform.Transformer; import javax.xml.transform.TransformerConfigurationException; import javax.xml.transform.TransformerException; import javax.xml.transform.TransformerFactory; import javax.xml.transform.dom.DOMSource; import javax.xml.transform.stream.StreamResult; import org.w3c.dom.Document; import org.w3c.dom.Element; public class CreateXML { public static void main(String[] args) { try { //DOM DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance(); DocumentBuilder builder = factory.newDocumentBuilder(); Document document = builder.newDocument(); //创建Languages标签 Element root = document.createElement(&amp;quot;Languages&amp;quot;); root.setAttribute(&amp;quot;cat&amp;quot;, &amp;quot;it&amp;quot;); //设置Languages标签的属性 //-----接下来创建Languages标签下的三个子标签lan1、lan2、lan3 //lan1 Element lan1 = document.createElement(&amp;quot;lan&amp;quot;); //lan标签 lan1.setAttribute(&amp;quot;id&amp;quot;, &amp;quot;1&amp;quot;); Element name1 = document.</description>
     </item>
     
   </channel>

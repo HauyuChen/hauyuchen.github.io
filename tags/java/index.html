@@ -234,6 +234,68 @@
   
     <article>
   <header>
+    <h2><a href="https://HauyuChen.github.io/post/java_overload_override/">重写、重载的区别</a></h2>
+
+    <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>2017-11-20</time>
+  </div>
+
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-folder fa-fw"></i>
+    
+      <a class="post-taxonomy-tag" href="https://HauyuChen.github.io/tags/java">Java</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-tag" href="https://HauyuChen.github.io/tags/%E5%9F%BA%E7%A1%80">基础</a>
+    
+  </div>
+  
+  
+
+  
+  
+  
+  <div>
+	<i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/java">Java</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/%E5%9F%BA%E7%A1%80">基础</a>
+    
+  </div>
+  
+  
+  
+</div>
+
+  </header>
+
+  <p>
+  0 写在前面 重写和重载是面向对象程序设计中十分重要的两个概念，其中重写又称为覆盖。 通俗的理解就是，重写就是将一个方法的实现过程再写一遍，覆盖原有方法；重载就是增加一个方法的不同实现，而不覆盖原有的方法。
+
+1 重写（覆盖） 重写是子类对父类方法的实现过程的重新编写。重写的方法应与被重写的方法具有完全一致的返回值、方法名称、参数列表，也就是外壳完全一样，实现过程发生改变。
+重写规则：
+ 参数列表必须与原有方法完全相同； 返回类型必须与原有方法相同； 访问权限不能比父类中被重写的方法的访问权限更低； 父类成员方法只能被其子类重写； 声明为 final 的方法不能被重写； 声明为 static 的方法不能被重写，但能够被再次声明； 构造方法不能重写。  
+2 重载 重载与重写不同之处在于重载与原有方法具有同样的名称，但参数列表可以不同。重载的方法虽然名称和原有方法一样，但是可以认为它们是不同的方法。
+重载规则：
+ 重载的方法必须改变参数列表； 重载的方法可以改变返回类型； 重载的方法可以改变访问修饰符； 方法能在同一个类中或在一个子类中被重载。  
+3 对比 
+参考资料：http://www.runoob.com/java/java-override-overload.html
+  </p>
+
+  
+</article>
+
+  
+    <article>
+  <header>
     <h2><a href="https://HauyuChen.github.io/post/java_ipc/">Java 进程通信（共享内存）</a></h2>
 
     <div class="post-meta">
@@ -304,75 +366,13 @@ MappedByteBuffer 为共享内存缓冲区，实际上是一个磁盘文件的内
   
     <article>
   <header>
-    <h2><a href="https://HauyuChen.github.io/post/java_overload_override/">重写、重载的区别</a></h2>
-
-    <div class="post-meta">
-
-  <div>
-    <i class="fa fa-calendar fa-fw"></i>
-    <time>2017-08-31</time>
-  </div>
-
-  
-
-  
-  
-  
-  <div>
-    <i class="fa fa-folder fa-fw"></i>
-    
-      <a class="post-taxonomy-tag" href="https://HauyuChen.github.io/tags/java">Java</a>&nbsp;&#47;
-    
-      <a class="post-taxonomy-tag" href="https://HauyuChen.github.io/tags/%E5%9F%BA%E7%A1%80">基础</a>
-    
-  </div>
-  
-  
-
-  
-  
-  
-  <div>
-	<i class="fa fa-tags fa-fw"></i>
-    
-      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/java">Java</a>&nbsp;&#47;
-    
-      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/%E5%9F%BA%E7%A1%80">基础</a>
-    
-  </div>
-  
-  
-  
-</div>
-
-  </header>
-
-  <p>
-  0 写在前面 重写和重载是面向对象程序设计中十分重要的两个概念，其中重写又称为覆盖。 通俗的理解就是，重写就是将一个方法的实现过程再写一遍，覆盖原有方法；重载就是增加一个方法的不同实现，而不覆盖原有的方法。
-
-1 重写（覆盖） 重写是子类对父类方法的实现过程的重新编写。重写的方法应与被重写的方法具有完全一致的返回值、方法名称、参数列表，也就是外壳完全一样，实现过程发生改变。
-重写规则：
- 参数列表必须与原有方法完全相同； 返回类型必须与原有方法相同； 访问权限不能比父类中被重写的方法的访问权限更低； 父类成员方法只能被其子类重写； 声明为 final 的方法不能被重写； 声明为 static 的方法不能被重写，但能够被再次声明； 构造方法不能重写。  
-2 重载 重载与重写不同之处在于重载与原有方法具有同样的名称，但参数列表可以不同。重载的方法虽然名称和原有方法一样，但是可以认为它们是不同的方法。
-重载规则：
- 重载的方法必须改变参数列表； 重载的方法可以改变返回类型； 重载的方法可以改变访问修饰符； 方法能在同一个类中或在一个子类中被重载。  
-3 对比 
-参考资料：http://www.runoob.com/java/java-override-overload.html
-  </p>
-
-  
-</article>
-
-  
-    <article>
-  <header>
     <h2><a href="https://HauyuChen.github.io/post/java_-polymorphism_1/">谈谈向上转型、向下转型</a></h2>
 
     <div class="post-meta">
 
   <div>
     <i class="fa fa-calendar fa-fw"></i>
-    <time>2017-09-20</time>
+    <time>2017-12-20</time>
   </div>
 
   
@@ -517,7 +517,7 @@ Fruit apple = new Apple(); //向上转型  向上转型是对父类对象的方�
 
   <div>
     <i class="fa fa-calendar fa-fw"></i>
-    <time>2017-09-13</time>
+    <time>2017-11-13</time>
   </div>
 
   
@@ -649,70 +649,13 @@ String str1 = &quot;hello&quot;; String str2 = new String(&quot;hello&quot;); Sy
   
     <article>
   <header>
-    <h2><a href="https://HauyuChen.github.io/post/java_trap/">Java相关特性</a></h2>
-
-    <div class="post-meta">
-
-  <div>
-    <i class="fa fa-calendar fa-fw"></i>
-    <time>2017-08-08</time>
-  </div>
-
-  
-
-  
-  
-  
-  <div>
-    <i class="fa fa-folder fa-fw"></i>
-    
-      <a class="post-taxonomy-tag" href="https://HauyuChen.github.io/tags/java">Java</a>&nbsp;&#47;
-    
-      <a class="post-taxonomy-tag" href="https://HauyuChen.github.io/tags/%E5%9F%BA%E7%A1%80">基础</a>
-    
-  </div>
-  
-  
-
-  
-  
-  
-  <div>
-	<i class="fa fa-tags fa-fw"></i>
-    
-      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/java">Java</a>&nbsp;&#47;
-    
-      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/%E5%9F%BA%E7%A1%80">基础</a>
-    
-  </div>
-  
-  
-  
-</div>
-
-  </header>
-
-  <p>
-  Java备忘  float 和 double 不能进行精确运算，因为计算机不能表示所有的小数，采用 BigDecimal 来解决（String）。
- switch 语句不能作用在 long 和 String 上。
- true 、 false 、 null 不是严格意义上的关键字，而是文字常量（literals）。
- float f = 2.5；不正确，因为精度不准确。正确写法：float f = (float)2.5;
- try｛ ｝里面的 return 语句，紧跟着 finally｛ ｝里的代码会在 return 前先执行。
-  </p>
-
-  
-</article>
-
-  
-    <article>
-  <header>
     <h2><a href="https://HauyuChen.github.io/post/java_thissuperstaticfinal/">Java关键字this、super、static、final</a></h2>
 
     <div class="post-meta">
 
   <div>
     <i class="fa fa-calendar fa-fw"></i>
-    <time>2017-08-05</time>
+    <time>2017-10-25</time>
   </div>
 
   
@@ -766,7 +709,7 @@ String str1 = &quot;hello&quot;; String str2 = new String(&quot;hello&quot;); Sy
 
   <div>
     <i class="fa fa-calendar fa-fw"></i>
-    <time>2017-08-01</time>
+    <time>2017-10-11</time>
   </div>
 
   
@@ -821,7 +764,7 @@ String str1 = &quot;hello&quot;; String str2 = new String(&quot;hello&quot;); Sy
 
   <div>
     <i class="fa fa-calendar fa-fw"></i>
-    <time>2017-08-01</time>
+    <time>2017-10-11</time>
   </div>
 
   
@@ -864,6 +807,63 @@ String str1 = &quot;hello&quot;; String str2 = new String(&quot;hello&quot;); Sy
   <footer>
     <a href="https://HauyuChen.github.io/post/java_xml/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
   </footer>
+  
+</article>
+
+  
+    <article>
+  <header>
+    <h2><a href="https://HauyuChen.github.io/post/java_trap/">Java相关特性</a></h2>
+
+    <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>2017-08-08</time>
+  </div>
+
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-folder fa-fw"></i>
+    
+      <a class="post-taxonomy-tag" href="https://HauyuChen.github.io/tags/java">Java</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-tag" href="https://HauyuChen.github.io/tags/%E5%9F%BA%E7%A1%80">基础</a>
+    
+  </div>
+  
+  
+
+  
+  
+  
+  <div>
+	<i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/java">Java</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/%E5%9F%BA%E7%A1%80">基础</a>
+    
+  </div>
+  
+  
+  
+</div>
+
+  </header>
+
+  <p>
+  Java备忘  float 和 double 不能进行精确运算，因为计算机不能表示所有的小数，采用 BigDecimal 来解决（String）。
+ switch 语句不能作用在 long 和 String 上。
+ true 、 false 、 null 不是严格意义上的关键字，而是文字常量（literals）。
+ float f = 2.5；不正确，因为精度不准确。正确写法：float f = (float)2.5;
+ try｛ ｝里面的 return 语句，紧跟着 finally｛ ｝里的代码会在 return 前先执行。
+  </p>
+
   
 </article>
 

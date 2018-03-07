@@ -237,13 +237,13 @@
     
       <article>
   <header>
-    <h2><a href="https://HauyuChen.github.io/post/083-remove-duplicates-from-sorted-list/">【LeetCode】83. Remove Duplicates from Sorted List</a></h2>
+    <h2><a href="https://HauyuChen.github.io/post/java_xml/">XML相关操作（Java）</a></h2>
 
     <div class="post-meta">
 
   <div>
     <i class="fa fa-calendar fa-fw"></i>
-    <time>2017-10-26</time>
+    <time>2017-10-11</time>
   </div>
 
   
@@ -254,7 +254,7 @@
   <div>
     <i class="fa fa-folder fa-fw"></i>
     
-      <a class="post-taxonomy-tag" href="https://HauyuChen.github.io/tags/leetcode">LeetCode</a>
+      <a class="post-taxonomy-tag" href="https://HauyuChen.github.io/tags/java">Java</a>
     
   </div>
   
@@ -266,9 +266,9 @@
   <div>
 	<i class="fa fa-tags fa-fw"></i>
     
-      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/%E7%AE%97%E6%B3%95">算法</a>&nbsp;&#47;
+      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/xml">XML</a>&nbsp;&#47;
     
-      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/leetcode">LeetCode</a>
+      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/java">Java</a>
     
   </div>
   
@@ -279,19 +279,12 @@
   </header>
 
   <p>
-  题目描述： Given a sorted linked list, delete all duplicates such that each element appear only once.
-For example,
-Given 1-&gt;1-&gt;2, return 1-&gt;2.
-Given 1-&gt;1-&gt;2-&gt;3-&gt;3, return 1-&gt;2-&gt;3.
-
-思路： 遍历一次链表即可，每遍历一个元素比较其是否与它的下一个元素相等。若是，指针指向下下个元素；否则继续遍历下一个元素。
-
-代码实现： /** * Definition for singly-linked list. * public class ListNode { * int val; * ListNode next; * ListNode(int x) { val = x; } * } */ class Solution { public ListNode deleteDuplicates(ListNode head) { if(head==null){ return null; } ListNode p = head; while(p.
+  1 XML文件创建示例 import java.io.File; import java.io.StringWriter; import javax.xml.parsers.DocumentBuilder; import javax.xml.parsers.DocumentBuilderFactory; import javax.xml.parsers.ParserConfigurationException; import javax.xml.transform.Transformer; import javax.xml.transform.TransformerConfigurationException; import javax.xml.transform.TransformerException; import javax.xml.transform.TransformerFactory; import javax.xml.transform.dom.DOMSource; import javax.xml.transform.stream.StreamResult; import org.w3c.dom.Document; import org.w3c.dom.Element; public class CreateXML { public static void main(String[] args) { try { //DOM DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance(); DocumentBuilder builder = factory.newDocumentBuilder(); Document document = builder.newDocument(); //创建Languages标签 Element root = document.createElement(&quot;Languages&quot;); root.setAttribute(&quot;cat&quot;, &quot;it&quot;); //设置Languages标签的属性 //-----接下来创建Languages标签下的三个子标签lan1、lan2、lan3 //lan1 Element lan1 = document.createElement(&quot;lan&quot;); //lan标签 lan1.setAttribute(&quot;id&quot;, &quot;1&quot;); Element name1 = document.
   </p>
 
   
   <footer>
-    <a href="https://HauyuChen.github.io/post/083-remove-duplicates-from-sorted-list/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
+    <a href="https://HauyuChen.github.io/post/java_xml/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
   </footer>
   
 </article>
@@ -301,13 +294,13 @@ Given 1-&gt;1-&gt;2-&gt;3-&gt;3, return 1-&gt;2-&gt;3.
     
       <article>
   <header>
-    <h2><a href="https://HauyuChen.github.io/post/066-plus-one/">【LeetCode】66. Plus One</a></h2>
+    <h2><a href="https://HauyuChen.github.io/post/java_io/">谈谈 Java IO</a></h2>
 
     <div class="post-meta">
 
   <div>
     <i class="fa fa-calendar fa-fw"></i>
-    <time>2017-10-25</time>
+    <time>2017-10-05</time>
   </div>
 
   
@@ -318,7 +311,9 @@ Given 1-&gt;1-&gt;2-&gt;3-&gt;3, return 1-&gt;2-&gt;3.
   <div>
     <i class="fa fa-folder fa-fw"></i>
     
-      <a class="post-taxonomy-tag" href="https://HauyuChen.github.io/tags/leetcode">LeetCode</a>
+      <a class="post-taxonomy-tag" href="https://HauyuChen.github.io/tags/java">Java</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-tag" href="https://HauyuChen.github.io/tags/%E5%9F%BA%E7%A1%80">基础</a>
     
   </div>
   
@@ -330,9 +325,11 @@ Given 1-&gt;1-&gt;2-&gt;3-&gt;3, return 1-&gt;2-&gt;3.
   <div>
 	<i class="fa fa-tags fa-fw"></i>
     
-      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/%E7%AE%97%E6%B3%95">算法</a>&nbsp;&#47;
+      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/java">Java</a>&nbsp;&#47;
     
-      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/leetcode">LeetCode</a>
+      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/%E5%9F%BA%E7%A1%80">基础</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/io">IO</a>
     
   </div>
   
@@ -343,19 +340,25 @@ Given 1-&gt;1-&gt;2-&gt;3-&gt;3, return 1-&gt;2-&gt;3.
   </header>
 
   <p>
-  题目描述： Given a non-negative integer represented as a non-empty array of digits, plus one to the integer.
-You may assume the integer do not contain any leading zero, except the number 0 itself.
-The digits are stored such that the most significant digit is at the head of the list.
+  版权声明：本文由 Hov 所有，发布于 http://chenhy.com ，转载请注明出处。
 
-思路： 题目的意思是将数组当成一个整数，然后对这个整数加 1 ，返回结果。
-比如，[9,9,9] 返回 [1,0,0,0] ； [9,9,8] 返回 [9,9,9] 。
-从数组最右边开始遍历：
- 如果当前元素小于 8 ，则将当前元素加 1 后，直接返回数组 digits ； 如果当前元素等于 9 ，将当前元素置为 0 ，继续判断； 若遍历结束还没返回结果，说明数组 digits 内的元素全为 9 ，则创建一个新的数组，首位为 1 ，其余位为 0 ，返回新数组。
+0 写在前面 IO 操作是任何编程语言都无法回避的问题，因为 IO 操作是机器获取和交换信息的主要途径。 Java 的 IO 是以流为基础进行输入输出的，所有的数据被串行化写入输出流或从输入流读入。 java.io 提供了全面的 IO 接口，包括文件读写、标准设备输出等。
+注：流是一个很形象的概念。当程序需要读取数据时会开启一个通向数据源的流，这个数据源可以是文件、内存或网络连接。同样，当程序需要写入数据时会开启一个通向目的地的流，而数据就在数据源和目的地之间“流动”。
+下图为 Java IO 体系的组成结构。由图可知， Java IO 主要分为字节流和字符流，其中字节流以 InputStream 和 OutputStream 向下继承，字符流以 Reader 和 Writer 向下继承。
+本文将详细讲解字节流和字符流，并简要介绍随机存取文件 RandomAccessFile 和 Apache 的 IO 类库。
+
+
+1 预备知识 在讲解 IO 相关的知识前，我们有必要了解一下字节、字符、编码等概念。毕竟 IO 操作实质上是基于字节、字符来实现的。
+1.1 字节 字节是通过网络传输信息或硬盘、内存存储信息的单位，也是计算机用于计量存储容量和传输容量的一种计量单位。一个字节等于 8 位二进制，是一个很具体的存储空间，如 0x01，0x20 。
+1.2 字符 字符是人们使用的记号，抽象意义上的一个符号。如“1”，“a”，“￥”，“好”等。实质上，字符是由字节组成的，一个字符可以由一个或多个字节组成。
+1.3 字符集 不同国家和地区所制定的不同 ANSI 编码标准中，都只规定了各自语言所需的字符。汉字标准（GB2312）就是一个字符集，它规定的是汉字的编码标准。
+字符集（编码）有两层含义：
+ 使用哪些字符，也就是哪些字符、汉字或符号会被收入标准中，所包含“字符”的集合就叫做“字符集”； 规定每个字符分别用一个字节还是多个字节存储，用哪些字节存储，这个规定就叫做编码。 字符集和编码一般同时制定，字符集除了有“字符集合”含义外，还包含了“编码”的含义。  值得注意的是，为了使国际间信息交流更方便，国际组织制定了 UNICODE 字符集，它为各种语言中的每一个字符设定了统一且唯一的数字编号，以满足跨平台、跨语言进行文本交换、处理的要求，如我们熟悉的 UTF-8 。
   </p>
 
   
   <footer>
-    <a href="https://HauyuChen.github.io/post/066-plus-one/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
+    <a href="https://HauyuChen.github.io/post/java_io/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
   </footer>
   
 </article>
@@ -365,13 +368,13 @@ The digits are stored such that the most significant digit is at the head of the
     
       <article>
   <header>
-    <h2><a href="https://HauyuChen.github.io/post/058-length-of-last-word/">【LeetCode】58. Length of Last Word</a></h2>
+    <h2><a href="https://HauyuChen.github.io/post/dp_decorator_pattern/">【设计模式】3. 装饰者模式</a></h2>
 
     <div class="post-meta">
 
   <div>
     <i class="fa fa-calendar fa-fw"></i>
-    <time>2017-10-24</time>
+    <time>2017-09-29</time>
   </div>
 
   
@@ -382,7 +385,7 @@ The digits are stored such that the most significant digit is at the head of the
   <div>
     <i class="fa fa-folder fa-fw"></i>
     
-      <a class="post-taxonomy-tag" href="https://HauyuChen.github.io/tags/leetcode">LeetCode</a>
+      <a class="post-taxonomy-tag" href="https://HauyuChen.github.io/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F">设计模式</a>
     
   </div>
   
@@ -394,9 +397,11 @@ The digits are stored such that the most significant digit is at the head of the
   <div>
 	<i class="fa fa-tags fa-fw"></i>
     
-      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/%E7%AE%97%E6%B3%95">算法</a>&nbsp;&#47;
+      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F">设计模式</a>&nbsp;&#47;
     
-      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/leetcode">LeetCode</a>
+      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/%E8%A3%85%E9%A5%B0%E8%80%85%E6%A8%A1%E5%BC%8F">装饰者模式</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/java">Java</a>
     
   </div>
   
@@ -407,21 +412,24 @@ The digits are stored such that the most significant digit is at the head of the
   </header>
 
   <p>
-  题目描述： Given a string s consists of upper/lower-case alphabets and empty space characters &lsquo; &lsquo;, return the length of last word in the string.
-If the last word does not exist, return 0.
-Note: A word is defined as a character sequence consists of non-space characters only.
-Example:
-Input: &ldquo;Hello World&rdquo;
-Output: 5
+  版权声明：本文由 Hov 所有，发布于 http://chenhy.com ，转载请注明出处。
 
-思路： 从后往前遍历字符串。
- 注意字符串后面是否有空格，所以先判断字符串是否以空格结尾； 若当前字符不是空格，开始计数，直到遇到空格，返回计数的结果。  
-代码实现： class Solution { public int lengthOfLastWord(String s) { int count = 0; int i = s.
+1 装饰者模式 1.1 简介 装饰者模式可动态地向对象添加额外的属性或行为。装饰者模式是类继承的另外一种选择，类继承在编译时候增加行为，而装饰模式是在运行时增加行为。在对象功能扩展方面，装饰者模式比继承更有弹性。
+1.2 思路 通过增加一个装饰类包裹原来的类，包裹的方式一般是通过将原来的对象作为装饰类的构造函数的参数，从而在原有对象上添加新的功能。
+1.3 使用场景 在不影响其它对象的情况下，想要动态地给单个对象添加新的属性或功能。
+1.4 优缺点 优点：
+ 可用一个或多个装饰者包装一个对象，扩展性强； 对象可以在任何时候被修饰，即动态修饰对象； 非继承，避免子类爆炸。  缺点：
+ 出现额外的装饰类，使程序变得复杂。  
+2 实例 模拟咖啡店：
+假设，咖啡店有两种咖啡可选： Decaf 和 Espresso ，两种配料可选： Chocalate 和 Milk 。
+不同的咖啡和配料可以搭配成不同的饮品，比如 Decaf 、 Espresso 、 Decaf + Chocalate 、 Decaf + Milk 、 Espresso + Chocalate 、 Espresso + Milk 六种不同的饮品。
+我们要写个程序来计算不同饮品的价格，比如客户点了一杯 Espresso + Chocalate ，输出饮品的价格和描述信息。
+2.1 糟糕的解决方案 设计超类 Drink ，继承自超类 Drink 的子类 Decaf 、 Espresso 、 Decaf + Chocalate 、 Decaf + Milk 、 Espresso + Chocalate 、 Espresso + Milk 。
   </p>
 
   
   <footer>
-    <a href="https://HauyuChen.github.io/post/058-length-of-last-word/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
+    <a href="https://HauyuChen.github.io/post/dp_decorator_pattern/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
   </footer>
   
 </article>
@@ -431,13 +439,13 @@ Output: 5
     
       <article>
   <header>
-    <h2><a href="https://HauyuChen.github.io/post/035-search-insert-position/">【LeetCode】35. Search Insert Position</a></h2>
+    <h2><a href="https://HauyuChen.github.io/post/java_string/">String相关特性</a></h2>
 
     <div class="post-meta">
 
   <div>
     <i class="fa fa-calendar fa-fw"></i>
-    <time>2017-10-23</time>
+    <time>2017-09-14</time>
   </div>
 
   
@@ -448,7 +456,9 @@ Output: 5
   <div>
     <i class="fa fa-folder fa-fw"></i>
     
-      <a class="post-taxonomy-tag" href="https://HauyuChen.github.io/tags/leetcode">LeetCode</a>
+      <a class="post-taxonomy-tag" href="https://HauyuChen.github.io/tags/java">Java</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-tag" href="https://HauyuChen.github.io/tags/%E5%9F%BA%E7%A1%80">基础</a>
     
   </div>
   
@@ -460,9 +470,11 @@ Output: 5
   <div>
 	<i class="fa fa-tags fa-fw"></i>
     
-      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/%E7%AE%97%E6%B3%95">算法</a>&nbsp;&#47;
+      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/java">Java</a>&nbsp;&#47;
     
-      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/leetcode">LeetCode</a>
+      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/%E5%AD%97%E7%AC%A6%E4%B8%B2">字符串</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/%E5%9F%BA%E7%A1%80">基础</a>
     
   </div>
   
@@ -473,22 +485,24 @@ Output: 5
   </header>
 
   <p>
-  题目描述： Given a sorted array and a target value, return the index if the target is found. If not, return the index where it would be if it were inserted in order.
-You may assume no duplicates in the array.
-Here are few examples.
-[1,3,5,6], 5 → 2
-[1,3,5,6], 2 → 1
-[1,3,5,6], 7 → 4
-[1,3,5,6], 0 → 0
+  1 字符串实例化两种方式的区别 String 的实例化方式有两种，一种是直接赋值，另一种是通过 new 关键字实例化字符串。
+1.1 直接赋值 String str1 = &quot;hello&quot;;  使用直接赋值方式，只要以后声明的字符串内容相同，则不会再开辟新的内存空间。这是Java中共享设计的思想，Java 通过创建一个字符串池，字符串池中保存了多个字符串对象。若新实例化的字符串对象已经在对象池中，则不再重新定义，直接从对象池中取出使用。
+具体到例子， str1 通过直接赋值，因为字符串池不存在“hello”，所以创建一个新的实例置入字符串池，并在栈中开辟一个内存空间直接指向“hello”。
+如果我们声明新的字符串 str2=“hello”， str2 将指向“hello”存放的内存空间，不会再开辟一个新的内存空间。这是因为，JVM会先到字符串池中查找，如果有的话返回字符串池中这个实例的引用，否则才创建一个新的实例并置入字符串对象池。因此，通过直接赋值可以只占用一个内存空间。
+1.2 new关键字 String newstr1 = new String(&quot;hello&quot;);  使用 new 关键字实例化字符串，不管如何都将在堆中开辟一个新的空间。 new 创建字符串实例时会先在对象池中查找是否有相同值的字符串，如果有，则拷贝一份到堆中，然后返回堆中的地址。如果没有，则在堆中创建一份，然后返回堆中的地址。
+具体到例子， newstr1 通过 new 关键字实例化，无论对象池是否存在相同值的字符串，都会在堆中开辟一个新的内存空间，赋值后将在栈中开辟一个新的空间存放 newstr1 ，也就是说使用 new 关键字实例化字符串总共开辟了两个内存空间。因为多出了从字符串池拷贝到堆内存的操作。
+1.3 字符串池 字符串池的优点是避免了相同字符串的创建，节省内存，省去创建相同字符串的时间；另一方面，字符串池的缺点是牺牲了 JVM 在常量池中遍历对象所需要的时间，不过时间成本相比之下较低。
+1.4 小结 直接赋值只需一个内存空间，相同的字符串可以重复指向同一个内存空间；
+new 创建字符串实例无论如何会在堆中开辟一个新的内存空间，因此总共占用两个内存空间。
+综上，使用直接赋值的方法较好，可以避免占用多余的内存空间。
 
-思路： 大水题，通过二分查找实现。
-注意：如果数组中找不到 target 。
- 要么 target 比当前元素小，返回当前元素的位置（mid）。因为数组后移，当前位置存放 target ； 要么 target 比当前元素大，返回当前元素的位置的后一个位置（mid+1）。
+2 字符串比较“==”与 equals 的区别 字符串比较是较为常用的功能， Java 中主要提供了两种字符串比较方式，“==”和 equals ，如下：
+String str1 = &quot;hello&quot;; String str2 = new String(&quot;hello&quot;); System.
   </p>
 
   
   <footer>
-    <a href="https://HauyuChen.github.io/post/035-search-insert-position/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
+    <a href="https://HauyuChen.github.io/post/java_string/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
   </footer>
   
 </article>
@@ -498,13 +512,13 @@ Here are few examples.
     
       <article>
   <header>
-    <h2><a href="https://HauyuChen.github.io/post/682-baseball-game/">【LeetCode】682. Baseball Game</a></h2>
+    <h2><a href="https://HauyuChen.github.io/post/java_ipc/">Java 进程通信（共享内存）</a></h2>
 
     <div class="post-meta">
 
   <div>
     <i class="fa fa-calendar fa-fw"></i>
-    <time>2017-10-22</time>
+    <time>2017-09-06</time>
   </div>
 
   
@@ -515,7 +529,9 @@ Here are few examples.
   <div>
     <i class="fa fa-folder fa-fw"></i>
     
-      <a class="post-taxonomy-tag" href="https://HauyuChen.github.io/tags/leetcode">LeetCode</a>
+      <a class="post-taxonomy-tag" href="https://HauyuChen.github.io/tags/java">Java</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-tag" href="https://HauyuChen.github.io/tags/%E5%9F%BA%E7%A1%80">基础</a>
     
   </div>
   
@@ -527,9 +543,11 @@ Here are few examples.
   <div>
 	<i class="fa fa-tags fa-fw"></i>
     
-      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/%E7%AE%97%E6%B3%95">算法</a>&nbsp;&#47;
+      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/java">Java</a>&nbsp;&#47;
     
-      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/leetcode">LeetCode</a>
+      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/%E8%BF%9B%E7%A8%8B">进程</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/%E5%85%B1%E4%BA%AB%E5%86%85%E5%AD%98">共享内存</a>
     
   </div>
   
@@ -540,16 +558,23 @@ Here are few examples.
   </header>
 
   <p>
-  题目描述： You&rsquo;re now a baseball game point recorder.
-Given a list of strings, each string can be one of the 4 following types:
- Integer (one round&rsquo;s score): Directly represents the number of points you get in this round.
- &rdquo;+&rdquo; (one round&rsquo;s score): Represents that the points you get in this round are the sum of the last two valid round&rsquo;s points.
- &ldquo;D&rdquo; (one round&rsquo;s score): Represents that the points you get in this round are the doubled data of the last valid round&rsquo;s points.
+  0 写在前面 说到进程通信，我们很轻易就能想到经典的 Socket 通信。但像 Socket 这样的网络通信会增加额外的网络负担，同时也增加了一定的代码量。
+共享内存方式是实现进程通信的另外一种方式，其具有数据共享，系统快速查询、动态配置、减少资源耗费等优点。
+共享内存特点：
+ 可被多个进程打开访问； 读写操作的进程在执行读写操作时，其他进程不能进行写操作； 多个进程可以交替对某一共享内存执行写操作； 一个进程执行内存写操作后，不影响其他进程对该内存的访问，同时其他进程对更新后的内存具有可见性；  Java 进程间的共享内存通过内存映射文件 NIO （MappedByteBuffer）实现，不同进程的内存映射文件关联到同一物理文件。该文件通常为随机存取文件对象，实现文件和内存的映射，即时双向同步。
+
+1 要点 1.1 MappedByteBuffer Java IO 操作的 BufferedReader 、 BufferedInputStream 等相信大家都很熟悉，不过在 Java NIO 中引入了一种基于 MappedByteBuffer 操作大文件的方式，其读写性能极高。
+MappedByteBuffer 为共享内存缓冲区，实际上是一个磁盘文件的内存映射，实现内存与文件的同步变化，可有效地保证共享内存的实现。
+1.2 FileChannel FileChannel 是将共享内存和磁盘文件建立联系的文件通道类。FileChannel 类的加入是 JDK 为了统一对外设备（文件、网络接口等）的访问方法，并加强了多线程对同一文件进行存取的安全性。我们在这里用它来建立共享内存和磁盘文件间的一个通道。
+1.3 RandomAccessFile RandomAccessFile 是 Java IO 体系中功能最丰富的文件内容访问类，它提供很多方法来操作文件，包括读写支持，与普通的IO流相比，它最大的特别之处就是支持任意访问的方式，程序可以直接跳到任意地方来读写数据。
+举个栗子：
+如果我们要向已存在的大小为 1G 的 txt 文本里末尾追加一行文字，内容如下“ Lucene 是一款非常优秀的全文检索库”。其实直接使用 Java 中的流读取 txt 文本里所有的数据转成字符串后，然后拼接“ Lucene 是一款非常优秀的全文检索库”，又写回文本即可。
+但如果需求改了，我们要想向大小为 5G 的 txt 文本里追加数据。如果我们电脑的内存只有 4G ，强制读取所有的数据并追加，将会报内存溢出的异常。显然，上面的方法不再合适。
   </p>
 
   
   <footer>
-    <a href="https://HauyuChen.github.io/post/682-baseball-game/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
+    <a href="https://HauyuChen.github.io/post/java_ipc/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
   </footer>
   
 </article>
