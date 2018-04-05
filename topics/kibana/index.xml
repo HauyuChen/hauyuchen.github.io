@@ -2,77 +2,50 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Kibana on Hov&#39;s Blog</title>
-    <link>https://hauyuchen.github.io/topics/kibana/</link>
+    <link>https://HauyuChen.github.io/topics/kibana/</link>
     <description>Recent content in Kibana on Hov&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2017. All rights reserved.</copyright>
     <lastBuildDate>Fri, 26 Jan 2018 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://hauyuchen.github.io/topics/kibana/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://HauyuChen.github.io/topics/kibana/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Elasticsearch的乐观并发控制</title>
-      <link>https://hauyuchen.github.io/post/es-concurrent_op/</link>
+      <link>https://HauyuChen.github.io/post/es-concurrent_op/</link>
       <pubDate>Fri, 26 Jan 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://hauyuchen.github.io/post/es-concurrent_op/</guid>
-      <description>0 前言 Elasticsearch 采用的是乐观锁并发控制，基于 Elasticsearch 提供的 _version 字段或我们自己定义的外部版本号，可以方便地实现乐观并发控制。
-扩展阅读：并发控制（乐观锁、悲观锁）
-
-1 基于 _version 的乐观并发控制 1.1 内部版本号（_version） _version 是 ES 中提供的一个字段，它表明当前数据的版本号。我们可根据它来对比数据的版本是否一致。
-1.2 操作实例 （1）构造一条数据。
-PUT test_index/test_type/7 { &amp;quot;test_field&amp;quot;:&amp;quot;test test&amp;quot; }  （2）模拟两个客户端，获取同一条数据。
-GET test_index/test_type/7  执行结果：两个客户端都能读到 id 为 7 的数据，版本号为 1 。
-{ &amp;quot;_index&amp;quot;: &amp;quot;test_index&amp;quot;, &amp;quot;_type&amp;quot;: &amp;quot;test_type&amp;quot;, &amp;quot;_id&amp;quot;: &amp;quot;7&amp;quot;, &amp;quot;_version&amp;quot;: 1, &amp;quot;found&amp;quot;: true, &amp;quot;_source&amp;quot;: { &amp;quot;test_field&amp;quot;: &amp;quot;test test&amp;quot; } }  （3）一个客户端先更新数据，同时带上数据的版本号（?version=1）。确保 ES 中的数据版本号与客户端中的数据版本号是相同的才能修改。
-PUT test_index/test_type/7?version=1 { &amp;quot;test_field&amp;quot;:&amp;quot;test client 1&amp;quot; }  执行结果：修改成功，数据的版本号变为 2 。</description>
+      <guid>https://HauyuChen.github.io/post/es-concurrent_op/</guid>
+      <description>&lt;p&gt;&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Elasticsearch实现批量更新</title>
-      <link>https://hauyuchen.github.io/post/es-bulk/</link>
+      <link>https://HauyuChen.github.io/post/es-bulk/</link>
       <pubDate>Sun, 21 Jan 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://hauyuchen.github.io/post/es-bulk/</guid>
-      <description>1 bulk 前面我们已经提到批量查询 mget ，那么如果我们想要批量导入数据呢？当然也有解决方法，那就是我们现在要讲的 bulk 。 bulk 允许我们使用单一请求来实现多个文档的 create 、 index 、 update 或 delete ，这在我们平时的应用中是很重要的。
-
-2 bulk 语法 bulk API 对 JSON 的语法有严格的要求，具体要求：bulk 中每一个操作要两个 JSON 串，每个 JSON 串不能换行，只能放在同一行，而 JSON 串和 JSON 串之间，必须有一个换行。
-bulk 允许我们批量执行不同的操作，常用操作如下：
- delete：删除文档，delete比较特殊，只需1个 JSON 串即可； create：相当于 PUT /index/type/id/_create，只不过是强制创建； index：普通的 PUT 操作，可以是创建文档，也可以是全量替换文档； update：执行 partial update 操作。  语法格式如下：
-POST /_bulk { {&amp;quot;action&amp;quot;: {&amp;quot;metadata&amp;quot;}} //一个操作需两个JSON，delete除外 {&amp;quot;data&amp;quot;} }  举个栗子：
-我们要创建一个文档，其中 index 为 &amp;ldquo;test_index&amp;rdquo; ， type 为 &amp;ldquo;test_type&amp;rdquo; ， id 为 1 ; field 有两个，分别是 test_field1 为 &amp;ldquo;test1&amp;rdquo; 、 test_field2 为 &amp;ldquo;test2&amp;rdquo; 。</description>
+      <guid>https://HauyuChen.github.io/post/es-bulk/</guid>
+      <description>&lt;p&gt;&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Elasticsearch实现批量查询</title>
-      <link>https://hauyuchen.github.io/post/es-mget/</link>
+      <link>https://HauyuChen.github.io/post/es-mget/</link>
       <pubDate>Fri, 19 Jan 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://hauyuchen.github.io/post/es-mget/</guid>
-      <description>1 批量查询 批量查询，就是一条一条的查询。比如说要查询100条数据，普通查询就要发送100次网络请求，这个开销是很大的。如果采用批量查询的话，查询100条数据，就只要发送1次网络请求，网络请求的性能开销缩减100倍。
-
-2 mget 2.1 普通查询 ES 中查询数据最简单的方式就是通过 GET ，一次查询一条数据，如查询 id 为 1 和id 为 2 的数据。
-GET /test_index/test_type/1 GET /test_index/test_type/2  2.2 批量查询 在 ES 中要实现批量查询可以通过 mget 来实现。
-（1）查询 id 为 1 和id 为 2 的数据。
-GET /_mget { &amp;quot;docs&amp;quot; : [ { &amp;quot;_index&amp;quot; : &amp;quot;test_index&amp;quot;, &amp;quot;_type&amp;quot; : &amp;quot;test_type&amp;quot;, &amp;quot;_id&amp;quot; : 1 }, { &amp;quot;_index&amp;quot; : &amp;quot;test_index&amp;quot;, &amp;quot;_type&amp;quot; : &amp;quot;test_type&amp;quot;, &amp;quot;_id&amp;quot; : 2 } ] }  查询结果：</description>
+      <guid>https://HauyuChen.github.io/post/es-mget/</guid>
+      <description>&lt;p&gt;&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Elasticsearch 初探</title>
-      <link>https://hauyuchen.github.io/post/es-elasticsearch-manu/</link>
+      <link>https://HauyuChen.github.io/post/es-elasticsearch-manu/</link>
       <pubDate>Sun, 20 Aug 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://hauyuchen.github.io/post/es-elasticsearch-manu/</guid>
-      <description>版权声明：本文由 Hov 所有，发布于 http://chenhy.com ，转载请注明出处。
-
-0 前言 本文是我接触 Elasticsearch 后写下的第一篇文章，旨在通过电商网站商品管理的栗子来熟悉 Elasticsearch 的相关操作，可以说是学习 Elasticsearch 的第一个“Hello World”吧，后续将逐步深入 Elasticsearch 相关内容。
-栗子中新增了三种品牌的牙膏“高露洁牙膏”、“佳洁士牙膏”、“中华牙膏”，并对这些数据进行增删改查、数据搜索、数据分析等操作。
-注：本文操作环境为 Elasticsearch + Kibana 。
-
-1 文档增删改查（CRUD） 1.1 新增文档，建立索引 格式：
-PUT /index/type/id { //JSON }  实例：新增商品（三种品牌的牙膏信息）。
-PUT /ecommerce/product/1 { &amp;quot;name&amp;quot;:&amp;quot;gaolujie yagao&amp;quot;, &amp;quot;desc&amp;quot;:&amp;quot;gaoxiao meibai&amp;quot;, &amp;quot;price&amp;quot;:30, &amp;quot;producer&amp;quot;:&amp;quot;gaolujie producer&amp;quot;, &amp;quot;tags&amp;quot;:[&amp;quot;meibai&amp;quot;,&amp;quot;fangzhu&amp;quot;] } PUT /ecommerce/product/2 { &amp;quot;name&amp;quot;:&amp;quot;jiajieshi yagao&amp;quot;, &amp;quot;desc&amp;quot;:&amp;quot;youxiao fangzhu&amp;quot;, &amp;quot;price&amp;quot;:25, &amp;quot;producer&amp;quot;:&amp;quot;jiajieshi producer&amp;quot;, &amp;quot;tags&amp;quot;:[&amp;quot;fangzhu&amp;quot;] } PUT /ecommerce/product/3 { &amp;quot;name&amp;quot;:&amp;quot;zhonghua yagao&amp;quot;, &amp;quot;desc&amp;quot;:&amp;quot;caoben zhiwu&amp;quot;, &amp;quot;price&amp;quot;:40, &amp;quot;producer&amp;quot;:&amp;quot;zhonghua producer&amp;quot;, &amp;quot;tags&amp;quot;:[&amp;quot;qingxin&amp;quot;] }</description>
+      <guid>https://HauyuChen.github.io/post/es-elasticsearch-manu/</guid>
+      <description>&lt;p&gt;&lt;/p&gt;</description>
     </item>
     
   </channel>

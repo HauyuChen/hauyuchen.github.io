@@ -2,23 +2,23 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Xml on Hov&#39;s Blog</title>
-    <link>https://hauyuchen.github.io/topics/xml/</link>
+    <link>https://HauyuChen.github.io/topics/xml/</link>
     <description>Recent content in Xml on Hov&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2017. All rights reserved.</copyright>
     <lastBuildDate>Wed, 11 Oct 2017 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://hauyuchen.github.io/topics/xml/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://HauyuChen.github.io/topics/xml/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>XML相关操作（Java）</title>
-      <link>https://hauyuchen.github.io/post/java_xml/</link>
+      <link>https://HauyuChen.github.io/post/java_xml/</link>
       <pubDate>Wed, 11 Oct 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://hauyuchen.github.io/post/java_xml/</guid>
-      <description>1 XML文件创建示例 import java.io.File; import java.io.StringWriter; import javax.xml.parsers.DocumentBuilder; import javax.xml.parsers.DocumentBuilderFactory; import javax.xml.parsers.ParserConfigurationException; import javax.xml.transform.Transformer; import javax.xml.transform.TransformerConfigurationException; import javax.xml.transform.TransformerException; import javax.xml.transform.TransformerFactory; import javax.xml.transform.dom.DOMSource; import javax.xml.transform.stream.StreamResult; import org.w3c.dom.Document; import org.w3c.dom.Element; public class CreateXML { public static void main(String[] args) { try { //DOM DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance(); DocumentBuilder builder = factory.newDocumentBuilder(); Document document = builder.newDocument(); //创建Languages标签 Element root = document.createElement(&amp;quot;Languages&amp;quot;); root.setAttribute(&amp;quot;cat&amp;quot;, &amp;quot;it&amp;quot;); //设置Languages标签的属性 //-----接下来创建Languages标签下的三个子标签lan1、lan2、lan3 //lan1 Element lan1 = document.createElement(&amp;quot;lan&amp;quot;); //lan标签 lan1.setAttribute(&amp;quot;id&amp;quot;, &amp;quot;1&amp;quot;); Element name1 = document.</description>
+      <guid>https://HauyuChen.github.io/post/java_xml/</guid>
+      <description>1 XML文件创建示例 import java.io.File; import java.io.StringWriter; import javax.xml.parsers.DocumentBuilder; import javax.xml.parsers.DocumentBuilderFactory; import javax.xml.parsers.ParserConfigurationException; import javax.xml.transform.Transformer; import javax.xml.transform.TransformerConfigurationException; import javax.xml.transform.TransformerException; import javax.xml.transform.TransformerFactory; import javax.xml.transform.dom.DOMSource; import javax.xml.transform.stream.StreamResult; import org.w3c.dom.Document; import org.w3c.dom.Element; public class CreateXML { public static void main(String[] args) { try { //DOM DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance(); DocumentBuilder builder = factory.newDocumentBuilder(); Document document = builder.newDocument(); //创建Langu</description>
     </item>
     
   </channel>
