@@ -6,11 +6,19 @@
     <description>Recent content on Hov&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <copyright>&amp;copy; 2017. All rights reserved.</copyright>
-    <lastBuildDate>Sun, 21 Jan 2018 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 26 Jan 2018 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://HauyuChen.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Elasticsearch的乐观并发控制</title>
+      <link>https://HauyuChen.github.io/post/es-concurrent_op/</link>
+      <pubDate>Fri, 26 Jan 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://HauyuChen.github.io/post/es-concurrent_op/</guid>
+      <description>&lt;p&gt;&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>Elasticsearch实现批量更新</title>
@@ -18,13 +26,7 @@
       <pubDate>Sun, 21 Jan 2018 00:00:00 +0000</pubDate>
       
       <guid>https://HauyuChen.github.io/post/es-bulk/</guid>
-      <description>1 bulk 前面我们已经提到批量查询 mget ，那么如果我们想要批量导入数据呢？当然也有解决方法，那就是我们现在要讲的 bulk 。 bulk 允许我们使用单一请求来实现多个文档的 create 、 index 、 update 或 delete ，这在我们平时的应用中是很重要的。
-
-2 bulk 语法 bulk API 对 JSON 的语法有严格的要求，具体要求：bulk 中每一个操作要两个 JSON 串，每个 JSON 串不能换行，只能放在同一行，而 JSON 串和 JSON 串之间，必须有一个换行。
-bulk 允许我们批量执行不同的操作，常用操作如下：
- delete：删除文档，delete比较特殊，只需1个 JSON 串即可； create：相当于 PUT /index/type/id/_create，只不过是强制创建； index：普通的 PUT 操作，可以是创建文档，也可以是全量替换文档； update：执行 partial update 操作。  语法格式如下：
-POST /_bulk { {&amp;quot;action&amp;quot;: {&amp;quot;metadata&amp;quot;}} //一个操作需两个JSON，delete除外 {&amp;quot;data&amp;quot;} }  举个栗子：
-我们要创建一个文档，其中 index 为 &amp;ldquo;test_index&amp;rdquo; ， type 为 &amp;ldquo;test_type&amp;rdquo; ， id 为 1 ; field 有两个，分别是 test_field1 为 &amp;ldquo;test1&amp;rdquo; 、 test_field2 为 &amp;ldquo;test2&amp;rdquo; 。</description>
+      <description>&lt;p&gt;&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -33,12 +35,7 @@ POST /_bulk { {&amp;quot;action&amp;quot;: {&amp;quot;metadata&amp;quot;}} //一
       <pubDate>Fri, 19 Jan 2018 00:00:00 +0000</pubDate>
       
       <guid>https://HauyuChen.github.io/post/es-mget/</guid>
-      <description>1 批量查询 批量查询，就是一条一条的查询。比如说要查询100条数据，普通查询就要发送100次网络请求，这个开销是很大的。如果采用批量查询的话，查询100条数据，就只要发送1次网络请求，网络请求的性能开销缩减100倍。
-
-2 mget 2.1 普通查询 ES 中查询数据最简单的方式就是通过 GET ，一次查询一条数据，如查询 id 为 1 和id 为 2 的数据。
-GET /test_index/test_type/1 GET /test_index/test_type/2  2.2 批量查询 在 ES 中要实现批量查询可以通过 mget 来实现。
-（1）查询 id 为 1 和id 为 2 的数据。
-GET /_mget { &amp;quot;docs&amp;quot; : [ { &amp;quot;_index&amp;quot; : &amp;quot;test_index&amp;quot;, &amp;quot;_type&amp;quot; : &amp;quot;test_type&amp;quot;, &amp;quot;_id&amp;quot; : 1 }, { &amp;quot;_index&amp;quot; : &amp;quot;test_index&amp;quot;, &amp;quot;_type&amp;quot; : &amp;quot;test_type&amp;quot;, &amp;quot;_id&amp;quot; : 2 } ] }  查询结果：</description>
+      <description>&lt;p&gt;&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -47,25 +44,7 @@ GET /_mget { &amp;quot;docs&amp;quot; : [ { &amp;quot;_index&amp;quot; : &amp;qu
       <pubDate>Mon, 01 Jan 2018 00:00:00 +0000</pubDate>
       
       <guid>https://HauyuChen.github.io/post/basic_full_text_search/</guid>
-      <description>作者注：最近，实验室有一个关于大数据全文检索的项目，主要架构采用了 Elasticsearch + Lucene ，并修改了部分源码，通过后缀数组代替 Lucene 原有的索引方式。因此，接触了一些全文检索相关的内容。偶然的机会，我在网络上看到 forfuture1978 关于 Lucene 的文章，觉得很受启发，深感有必要记录下来。我相信，本文也能很好地帮助您理解全文检索。本文部分内容出自 Lucene 原理与代码分析 ，感谢原作者的贡献。
-
-0 写在前面 大数据时代，人们愈加重视数据的价值。在此之前，我们将数据存放在传统的关系型数据库（一个个数据表，由行列组成，格式固定），关系型数据库存储的是结构化数据，我们无法“用活”这些数据。事实上，绝大多数的数据都是以非结构化数据的形式存在的，比如邮件、图像、视频等等。这些大量的非结构化数据的价值是巨大的，但在关系型数据库下显然不好处理。
-全文检索提供了对非结构化数据的信息搜索，使我们获得了处理这些数据的能力，我们可以在此基础上进一步提取这些数据的价值。
-
-1 预备知识 1.1 数据分类 我们平时所说的数据，可分为结构化数据、半结构化数据和非结构化数据。
- 结构化数据：具有既定格式的实体化数据，如 XML 文档或满足特定预定义格式的数据库表； 半结构化数据：虽然可能有格式，但经常被忽略，所以只能作为对数据结构的一般性指导。如电子表格，它在结构上是由单元格组成的网格，但是每个单元格内可以保存任何形式的数据； 非结构化数据：无固定格式或不定长的数据，如纯文本、图像数据、邮件内容等。  1.2 数据搜索 数据的搜索根据数据的不同分类有所区别：
- 对结构化数据的搜索：如通过 SQL 语句对数据库的搜索等。 对非结构化数据的搜索：如 Linux 环境下的 grep 命令、 Google 搜索大量的内容数据等。  注：半结构化数据在本文将等同非结构化数据考虑。
-
-2 什么是全文检索？ 非结构化数据也可称为全文数据，对全文数据的搜索主要有两种方法。
-（1）顺序扫描法（Serial scanning）
-顺序扫描比较好理解，比如我们想在图书馆找某本书，那么我们就将整个图书馆的书一个一个比较，直到找到我们要找的书（当然现实中我们不会这么做）。
-（2）全文检索（Full-text search）
-全文检索的基本思路：将非结构化数据中的一部分信息提取出来，重新组织，使其变得有一定的结构，然后再对其进行搜索。也就是，将非结构化数据转化为结构化数据。
-从非结构化数据中提取并重新组织的信息就叫做索引。索引其实我们早有接触，比如图书馆的图书索引，通过索引我们可根据图书的不同分类去特定的书架寻找，这样就无需寻找整个图书馆的所有书架。再比如，字典里通过汉字拼音的首字母分类，我们要在字典中寻找关于“搜索”的条目，只需找到首字母为 “S” 的分类即可。可见，索引可大大加快我们搜索的速度。
-综上，对数据先建立索引，再通过索引搜索数据的过程就叫做全文检索。
-下图为 Lucene 的检索原理，这其实也是全文检索的基本思路。通过对元数据建立索引信息，然后根据索引信息搜索数据。
-
-3 索引应该存放哪些信息？ 非结构化数据存放的是每个文件包含哪些字符串，这是从文件到字符串的映射。搜索的过程恰恰相反，我们想通过字符串搜索文件，也就是从字符串到文件的映射。 索引保存的正是从字符串到文件的映射，这也为什么是其能加快搜索速度的原因。</description>
+      <description>&lt;p&gt;&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -74,21 +53,7 @@ GET /_mget { &amp;quot;docs&amp;quot; : [ { &amp;quot;_index&amp;quot; : &amp;qu
       <pubDate>Wed, 20 Dec 2017 00:00:00 +0000</pubDate>
       
       <guid>https://HauyuChen.github.io/post/java_-polymorphism_1/</guid>
-      <description>版权声明：本文由 Hov 所有，发布于 http://chenhy.com ，转载请注明出处。
-更新说明：本文于 2017-10-01 修改部分内容。
-
-0 写在前面 某天下午，群上抛出了一个关于 Java 向上转型的问题。
-
-
-于是，我们以此为开端讨论了一个下午，从多态到类加载顺序。讨论结束后想着是不是要写篇文章记录下，所以有了这篇文章。
-本文将谈及向上转型、向下转型的概念，后续有时间将扩充多态相关的更详细的知识。
-
-1 向上转型 1.1 概念 向上转型是指子类对象转型为父类类型。通俗的说就是，对象变量是父类类型，但该对象变量引用的却是子类对象。
-举个栗子，苹果是水果的一种，但我们有时会说苹果是水果或直接把苹果说成水果。其实，这样的说法就是向上转型，我们把苹果抽象为水果。伪代码表示如下：
-水果 对象变量名 = new 苹果();  Apple 是 Fruit 的子类。对象变量 apple 向上转型为 Fruit 类型，但 apple 仍引用的是 Apple 对象。
-Fruit apple = new Apple(); //向上转型  向上转型是对父类对象的方法的扩充，即父类对象可访问子类重写父类的方法。也许你会问，既然访问的还是子类对象的方法，为什么不直接声明为子类类型呢？
-这就是 Java 抽象编程的奥秘。向上转型是实现多态的一种机制，我们可以通过多态性提供的动态分配机制执行相应的动作，使用多态编写的代码比使用对多种类型进行检测的代码更加易于扩展和维护。
-其实我们会经常有意无意的使用转型。比如在我之前写到的关于装饰者模式装饰者模式的文章就用到了向上转型的概念。 两种不同的咖啡 Decaf 、 Espresso 是 Coffee 的子类， Coffee 是 Drink 的子类。因为咖啡店可能会同时售卖不同的饮品，所以我们只需把不同的咖啡抽象为饮品即可，再通过引用不同的具体咖啡品种来表示不同的饮品。这样的场景其实大家都很熟悉，这就是向上转型的应用。也许你已经发现，向上转型可以跨层次。比如 Decaf 是 Coffee 的子类， Coffee 是 Drink 的子类，可以由 Decaf 直接向上转型为 Drink 。</description>
+      <description>&lt;p&gt;&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -97,20 +62,7 @@ Fruit apple = new Apple(); //向上转型  向上转型是对父类对象的方�
       <pubDate>Sat, 02 Dec 2017 00:00:00 +0000</pubDate>
       
       <guid>https://HauyuChen.github.io/post/zb-zigbee-parking/</guid>
-      <description>作者注： ZigBee 系列共三篇，首先讲解 ZigBee 工程的结构，然后通过两个具体项目熟悉 ZigBee 的应用。在学习本系列内容前，您需要掌握单片机相关知识、 ZigBee 基础知识，希望本系列教程能对您开发 ZigBee 项目有所启发。如有任何问题，欢迎您随时与我联系：Hauyu.Chen@Gmail.com
-版权声明：本文由 Hov 所有，发布于 http://chenhy.com ，转载请注明出处。
-
-0 写在前面 智能停车系统是本人在大二下学期做的一个项目。项目主要涉及传感器数据采集、 ZigBee 组网、 GPRS 数据传输、数据库服务器程序开发、微信公众账号开发。
-项目视频演示如下：
- 本文将着重讲述 ZigBee 部分，即如何通过 ZigBee 网络采集数据，并通过 GPRS 模块将数据发送给远程数据库服务器。后续有时间将对整个项目进行完整的讲解。
-本文侧重讲的是实现思路，具体的技术细节可参考源代码。希望阅读完这篇文章，能让您对ZigBee的实际应用有所启发。
-项目完整源码：https://github.com/HauyuChen/Parking-System
-如果对您有帮助，欢迎您在GitHub上给我 Follow 或 Stars ：）
-
-1 项目简介 智能停车系统通过 ZigBee 无线传感器网络实现停车场内部车位、亮度等数据的采集与传输；借助 GPRS 模块实现数据远程传输；利用数据库服务器实现数据的处理与存储；通过 PC 客户端和微信公众帐号实现数据交互，为停车场管理人员提供监控服务，为用户提供自助服务。系统实现停车引导、防盗提醒和灯光控制等功能，用户还可以关注本停车系统的微信公众账号实时地了解停车场内的信息。
-项目实物模型如下：
-
-2 ZigBee无线传感系统 ZigBee 部分主要完成的是传感器数据的采集和数据的传输，大体的思路是这样的：通过 ZigBee 终端节点上外接的传感器实现数据监测，并通过 ZigBee 网络将数据发送至 ZigBee 协调器， ZigBee 协调器通过 RS232 串口线连接 GPRS 模块，通过 AT 指令将数据发送至远程数据库服务器。</description>
+      <description>作者注： ZigBee 系列共三篇，首先讲解 ZigBee 工程的结构，然后通过两个具体项目熟悉 ZigBee 的应用。在学习本系列内容前，您需要掌握单片机相关知识、 ZigBee 基础知识，希望</description>
     </item>
     
     <item>
@@ -119,16 +71,7 @@ Fruit apple = new Apple(); //向上转型  向上转型是对父类对象的方�
       <pubDate>Mon, 20 Nov 2017 00:00:00 +0000</pubDate>
       
       <guid>https://HauyuChen.github.io/post/java_overload_override/</guid>
-      <description>0 写在前面 重写和重载是面向对象程序设计中十分重要的两个概念，其中重写又称为覆盖。 通俗的理解就是，重写就是将一个方法的实现过程再写一遍，覆盖原有方法；重载就是增加一个方法的不同实现，而不覆盖原有的方法。
-
-1 重写（覆盖） 重写是子类对父类方法的实现过程的重新编写。重写的方法应与被重写的方法具有完全一致的返回值、方法名称、参数列表，也就是外壳完全一样，实现过程发生改变。
-重写规则：
- 参数列表必须与原有方法完全相同； 返回类型必须与原有方法相同； 访问权限不能比父类中被重写的方法的访问权限更低； 父类成员方法只能被其子类重写； 声明为 final 的方法不能被重写； 声明为 static 的方法不能被重写，但能够被再次声明； 构造方法不能重写。  
-2 重载 重载与重写不同之处在于重载与原有方法具有同样的名称，但参数列表可以不同。重载的方法虽然名称和原有方法一样，但是可以认为它们是不同的方法。
-重载规则：
- 重载的方法必须改变参数列表； 重载的方法可以改变返回类型； 重载的方法可以改变访问修饰符； 方法能在同一个类中或在一个子类中被重载。  
-3 对比 
-参考资料：http://www.runoob.com/java/java-override-overload.html</description>
+      <description>0 写在前面 重写和重载是面向对象程序设计中十分重要的两个概念，其中重写又称为覆盖。 通俗的理解就是，重写就是将一个方法的实现过程再写一遍，覆盖原</description>
     </item>
     
     <item>
@@ -137,22 +80,7 @@ Fruit apple = new Apple(); //向上转型  向上转型是对父类对象的方�
       <pubDate>Fri, 17 Nov 2017 00:00:00 +0000</pubDate>
       
       <guid>https://HauyuChen.github.io/post/dp_observer_pattern/</guid>
-      <description>版权声明：本文由 Hov 所有，发布于 http://chenhy.com ，转载请注明出处。
-
-1 观察者模式 1.1 简介 观察者模式是对象之间实现多对一依赖的一种设计方案，其可让多个观察者同时监听某一个主体对象（被观察者）。当主体对象的状态发生变化时，可通知所有观察者对象，使它们能自动更新状态。同时，观察者对象的增加或减少不会影响主体对象，也不会影响其它观察者。观察者模式对象之间的低耦合非常有利于项目功能扩展以及后期维护。
-1.2 思路 观察者模式主要可以分为四种角色：
- 主体对象：此角色可以是接口，也可以是抽象类或具体类。主体对象必须包含三种方法，分别是添加观察者对象、移除观察者对象、通知观察者对象。 观察者：此角色一般是接口，里面一般只有一个 update 方法，在被观察者的状态发生变化时， update 方法就会被触发调用。 具体的主体对象：此角色是为了便于扩展，可以定义被观察者的一些具体的业务逻辑。 具体的观察者：此角色是观察者接口的具体实现，可以定义被观察者对象发生变化时，观察者所要处理的业务逻辑。  1.3 使用场景 观察者模式适用于在软件系统的某一个对象发生变化时，依赖它的其它对象也要做出相应改变的场景。
-举个实际应用场景：
-气象站发布气象数据，天气软件A、天气软件B都要获取气象站发布的气象数据。那么，气象站就可以作为主体对象（被观察者），而天气软件A、天气软件B就可以作为观察者。天气软件A、天气软件B都可以监听气象站的数据，气象站每次发布气象数据，就可以通知天气软件A、B更新的数据。
-当然，如果天气软件B不想再获取气象站的数据，就退出观察者队列。而天气软件A依然在观察者队列，还可以继续获取气象数据，气象站和天气软件A都不受影响。
-观察者模式正是满足这个场景的设计方案中比较重要的一种。
-1.4 优缺点 优点：
- 观察者与被观察者之间耦合度低； 观察者模式可以实现广播； 观察者模式符合“开闭原则”的要求； 实现表示层与数据逻辑层的分离，定义了稳定的消息更新传递机制。  缺点：
- 观察者和被观察者之间若存在循环依赖，会使它们循环调用，可能导致系统崩溃； 若主体对象有很多直接或间接的观察者时，通知所有观察者将花费大量时间。  
-2 实例 还是拿前面提到的气象站的栗子。我们通过程序模拟气象站发布气象数据，天气软件A和天气软件B获取数据。
-2.1 普通的解决方案 气象站将数据保存在局部变量，通知天气软件A获取，天气软件A将数据保存并显示出来。
-（1）气象站
-/* WeatherData.java */ public class WeatherData { //气象站 private float mTemperature; private float mPressure; private float mHumidity; private WeatherSoftwareA wfa; public WeatherData(WeatherSoftwareA wfa){ this.</description>
+      <description>版权声明：本文由 Hov 所有，发布于 http://chenhy.com ，转载请注明出处。 1 观察者模式 1.1 简介 观察者模式是对象之间实现多对一依赖的一种设计方案，其可让多个观察者同时监</description>
     </item>
     
     <item>
@@ -161,18 +89,7 @@ Fruit apple = new Apple(); //向上转型  向上转型是对父类对象的方�
       <pubDate>Mon, 13 Nov 2017 00:00:00 +0000</pubDate>
       
       <guid>https://HauyuChen.github.io/about-me/</guid>
-      <description>关于我 我是陈浩宇，
-在读软件工程学生，
-坐标广州。
-这里记录了我的一些学习笔记、技术心得。
-希望对您也有所帮助：）
-
-联系我 QQ： ODkzNzY5Mzkz （Base64）
-Email： Hauyu.Chen@Gmail.com
-GitHub： HauyuChen
-Telegram： @chenhy
-
-分享 书写是更好的思考。</description>
+      <description>关于我 我是陈浩宇， 在读软件工程学生， 坐标广州。 这里记录了我的一些学习笔记、技术心得。 希望对您也有所帮助：） 联系我 QQ： ODkzNzY5Mzkz （Base64） Em</description>
     </item>
     
     <item>
@@ -181,17 +98,7 @@ Telegram： @chenhy
       <pubDate>Mon, 13 Nov 2017 00:00:00 +0000</pubDate>
       
       <guid>https://HauyuChen.github.io/post/java_abstractclass_interface/</guid>
-      <description>0 写在前面 抽象类和接口有共同点，也有不同点。在实际应用中，我们有时会不知道什么时候用抽象类，什么时候用接口。因此，我们有必要了解抽象类和接口的相关知识以及它们之间的区别，这样以后在二者之间的选择将更有依据。
-
-1 抽象类 在面向对象中，我们通过类来描绘对象，但并不是所有的类都是用来描绘对象的。如果一个类中没有包含足够的信息来描绘一个具体的对象，这样的类就是抽象类。
-抽象类是实现多态的一种机制，抽象类可以包含具体方法，也可以包含抽象方法（由继承它的子类实现这些方法）。
-抽象类的特性总结如下：
- 抽象类不能被实例化； 抽象类可以有构造方法； 抽象方法必须由其子类重写（Override）； 只要包含有一个抽象方法的类，就必须定义为抽象类； 抽象类可以包含有具体实现的方法，也可以不包含抽象方法； 子类的抽象方法不能与父类的抽象方法重名； abstract 不能与 private 、 static 、 final 、 native 并列修饰同一个方法。  注：关于子类实例化时抽象类是否被实例化的问题
-抽象类不能实例化，子类实例化时会初始化父类，因为子类继承了父类的变量、方法等，但初始化不等同于实例化。实例化是指用类创建对象，为对象开辟内存空间。
-举个栗子：
-Duck 是一个抽象类，里面包含构造方法、抽象方法、具体方法。
-GreenHeadDuck 继承自抽象类 Duck ，所以它必须重写抽象类 Duck 的抽象方法 display ，而具体方法 Quack 、 Swim 可以不重写。
-/* Duck.java */ public abstract class Duck{ //抽象类Duck public Duck(){ //构造方法 } public abstract void display(); //抽象方法：外观 public void Quack(){ //具体方法：嘎嘎叫 System.out.println(&amp;quot;--gaga--&amp;quot;); } public void Swim(){ //具体方法：游泳 System.</description>
+      <description>0 写在前面 抽象类和接口有共同点，也有不同点。在实际应用中，我们有时会不知道什么时候用抽象类，什么时候用接口。因此，我们有必要了解抽象类和接口</description>
     </item>
     
     <item>
@@ -200,8 +107,7 @@ GreenHeadDuck 继承自抽象类 Duck ，所以它必须重写抽象类 Duck 的
       <pubDate>Wed, 25 Oct 2017 00:00:00 +0000</pubDate>
       
       <guid>https://HauyuChen.github.io/post/java_thissuperstaticfinal/</guid>
-      <description>0 写在前面 本文主要讲讲 Java 中比较常见的关键字，如 this 、 super 、 static 、 final ，它们在程序中出现频率较高。
-1 this  表示类中的属性，比如 this.username = username; 强调调用的是本类的方法； 调用本类的构造方法，如 this(); 调用本类的无参构造方法； 表示当前对象（调用方法的对象）。  2 super  调用父类的构造方法； 调用父类的普通方法； 调用父类的属性。  3 static  static 修饰类： static 修饰的类称为静态类，静态类作为类的静态成员存在于某个类中，静态成员类可以不创建父类对象直接创建静态类的对象。 static 修饰变量： static 修饰的变量称为静态变量或类变量，而没有被 static 修饰的变量称为实例变量。静态变量在内存中只有一个拷贝， JVM 只为静态变量分配一次内存，且在加载类的过程中完成静态变量的内存分配；而实例变量每创建一个实例就分配一次内存，实例变量在内存中有多个拷贝，互补影响。 static 修饰方法： static 修饰的方法称为类方法，否则为实例方法，实例方法只有生成对象时才分配内存。类方法可以通过类名直接调用，实例方法只能通过类对象调用。  4 final  final 修饰类：被 final 修饰的类表示最终类，其不能被继承，不能当父类； final 修饰变量：被 final 修饰的变量为最终变量，即常量，其值不能修改，在定义时必须赋值。值得注意的是，当 final 修饰的不是普通变量而是对象引用时，变量指向的对象是可变的，不可变的是变量对对象的引用； final 修饰方法： final 修饰的方法为最终方法，父类包含最终方法时，子类不能重写该方法。</description>
+      <description>0 写在前面 本文主要讲讲 Java 中比较常见的关键字，如 this 、 super 、 static 、 final ，它们在程序中出现频率较高。 1 this 表示类中的属性，比如 this.username = username; 强调调用的是本类的方法</description>
     </item>
     
     <item>
@@ -210,7 +116,7 @@ GreenHeadDuck 继承自抽象类 Duck ，所以它必须重写抽象类 Duck 的
       <pubDate>Wed, 11 Oct 2017 00:00:00 +0000</pubDate>
       
       <guid>https://HauyuChen.github.io/post/java_json/</guid>
-      <description>1 Java中创建JSON import com.google.gson.JsonArray; import com.google.gson.JsonObject; public class CreateJSON { public static void main(String[] args) { JsonObject object = new JsonObject(); object.addProperty(&amp;quot;cat&amp;quot;, &amp;quot;it&amp;quot;); JsonArray array = new JsonArray(); JsonObject lan1 = new JsonObject(); lan1.addProperty(&amp;quot;id&amp;quot;, 1); lan1.addProperty(&amp;quot;name&amp;quot;, &amp;quot;Java&amp;quot;); lan1.addProperty(&amp;quot;ide&amp;quot;, &amp;quot;Eclipse&amp;quot;); array.add(lan1); JsonObject lan2 = new JsonObject(); lan2.addProperty(&amp;quot;id&amp;quot;, 2); lan2.addProperty(&amp;quot;name&amp;quot;, &amp;quot;Swift&amp;quot;); lan2.addProperty(&amp;quot;ide&amp;quot;, &amp;quot;XCode&amp;quot;); array.add(lan2); JsonObject lan3 = new JsonObject(); lan3.addProperty(&amp;quot;id&amp;quot;, 3); lan3.addProperty(&amp;quot;name&amp;quot;, &amp;quot;C#&amp;quot;); lan3.addProperty(&amp;quot;ide&amp;quot;, &amp;quot;Visual Studio&amp;quot;); array.add(lan3); object.add(&amp;quot;languages&amp;quot;, array); object.addProperty(&amp;quot;pop&amp;quot;, true); System.</description>
+      <description>1 Java中创建JSON import com.google.gson.JsonArray; import com.google.gson.JsonObject; public class CreateJSON { public static void main(String[] args) { JsonObject object = new JsonObject(); object.addProperty(&amp;quot;cat&amp;quot;, &amp;quot;it&amp;quot;); JsonArray array = new JsonArray(); JsonObject lan1 = new JsonObject(); lan1.addProperty(&amp;quot;id&amp;quot;, 1); lan1.addProperty(&amp;quot;name&amp;quot;, &amp;quot;Java&amp;quot;); lan1.addProperty(&amp;quot;ide&amp;quot;, &amp;quot;Eclipse&amp;quot;); array.add(lan1); JsonObject lan2 = new JsonObject(); lan2.addProperty(&amp;quot;id&amp;quot;, 2); lan2.addProperty(&amp;quot;name&amp;quot;, &amp;quot;Swift&amp;quot;); lan2.addProperty(&amp;quot;ide&amp;quot;, &amp;quot;XCode&amp;quot;); array.add(lan2); JsonObject lan3 = new JsonObject(); lan3.addProperty(&amp;quot;id&amp;quot;, 3); lan3.addProperty(&amp;quot;name&amp;quot;,</description>
     </item>
     
     <item>
@@ -219,7 +125,7 @@ GreenHeadDuck 继承自抽象类 Duck ，所以它必须重写抽象类 Duck 的
       <pubDate>Wed, 11 Oct 2017 00:00:00 +0000</pubDate>
       
       <guid>https://HauyuChen.github.io/post/java_xml/</guid>
-      <description>1 XML文件创建示例 import java.io.File; import java.io.StringWriter; import javax.xml.parsers.DocumentBuilder; import javax.xml.parsers.DocumentBuilderFactory; import javax.xml.parsers.ParserConfigurationException; import javax.xml.transform.Transformer; import javax.xml.transform.TransformerConfigurationException; import javax.xml.transform.TransformerException; import javax.xml.transform.TransformerFactory; import javax.xml.transform.dom.DOMSource; import javax.xml.transform.stream.StreamResult; import org.w3c.dom.Document; import org.w3c.dom.Element; public class CreateXML { public static void main(String[] args) { try { //DOM DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance(); DocumentBuilder builder = factory.newDocumentBuilder(); Document document = builder.newDocument(); //创建Languages标签 Element root = document.createElement(&amp;quot;Languages&amp;quot;); root.setAttribute(&amp;quot;cat&amp;quot;, &amp;quot;it&amp;quot;); //设置Languages标签的属性 //-----接下来创建Languages标签下的三个子标签lan1、lan2、lan3 //lan1 Element lan1 = document.createElement(&amp;quot;lan&amp;quot;); //lan标签 lan1.setAttribute(&amp;quot;id&amp;quot;, &amp;quot;1&amp;quot;); Element name1 = document.</description>
+      <description>1 XML文件创建示例 import java.io.File; import java.io.StringWriter; import javax.xml.parsers.DocumentBuilder; import javax.xml.parsers.DocumentBuilderFactory; import javax.xml.parsers.ParserConfigurationException; import javax.xml.transform.Transformer; import javax.xml.transform.TransformerConfigurationException; import javax.xml.transform.TransformerException; import javax.xml.transform.TransformerFactory; import javax.xml.transform.dom.DOMSource; import javax.xml.transform.stream.StreamResult; import org.w3c.dom.Document; import org.w3c.dom.Element; public class CreateXML { public static void main(String[] args) { try { //DOM DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance(); DocumentBuilder builder = factory.newDocumentBuilder(); Document document = builder.newDocument(); //创建Langu</description>
     </item>
     
     <item>
@@ -228,20 +134,7 @@ GreenHeadDuck 继承自抽象类 Duck ，所以它必须重写抽象类 Duck 的
       <pubDate>Thu, 05 Oct 2017 00:00:00 +0000</pubDate>
       
       <guid>https://HauyuChen.github.io/post/java_io/</guid>
-      <description>版权声明：本文由 Hov 所有，发布于 http://chenhy.com ，转载请注明出处。
-
-0 写在前面 IO 操作是任何编程语言都无法回避的问题，因为 IO 操作是机器获取和交换信息的主要途径。 Java 的 IO 是以流为基础进行输入输出的，所有的数据被串行化写入输出流或从输入流读入。 java.io 提供了全面的 IO 接口，包括文件读写、标准设备输出等。
-注：流是一个很形象的概念。当程序需要读取数据时会开启一个通向数据源的流，这个数据源可以是文件、内存或网络连接。同样，当程序需要写入数据时会开启一个通向目的地的流，而数据就在数据源和目的地之间“流动”。
-下图为 Java IO 体系的组成结构。由图可知， Java IO 主要分为字节流和字符流，其中字节流以 InputStream 和 OutputStream 向下继承，字符流以 Reader 和 Writer 向下继承。
-本文将详细讲解字节流和字符流，并简要介绍随机存取文件 RandomAccessFile 和 Apache 的 IO 类库。
-
-
-1 预备知识 在讲解 IO 相关的知识前，我们有必要了解一下字节、字符、编码等概念。毕竟 IO 操作实质上是基于字节、字符来实现的。
-1.1 字节 字节是通过网络传输信息或硬盘、内存存储信息的单位，也是计算机用于计量存储容量和传输容量的一种计量单位。一个字节等于 8 位二进制，是一个很具体的存储空间，如 0x01，0x20 。
-1.2 字符 字符是人们使用的记号，抽象意义上的一个符号。如“1”，“a”，“￥”，“好”等。实质上，字符是由字节组成的，一个字符可以由一个或多个字节组成。
-1.3 字符集 不同国家和地区所制定的不同 ANSI 编码标准中，都只规定了各自语言所需的字符。汉字标准（GB2312）就是一个字符集，它规定的是汉字的编码标准。
-字符集（编码）有两层含义：
- 使用哪些字符，也就是哪些字符、汉字或符号会被收入标准中，所包含“字符”的集合就叫做“字符集”； 规定每个字符分别用一个字节还是多个字节存储，用哪些字节存储，这个规定就叫做编码。 字符集和编码一般同时制定，字符集除了有“字符集合”含义外，还包含了“编码”的含义。  值得注意的是，为了使国际间信息交流更方便，国际组织制定了 UNICODE 字符集，它为各种语言中的每一个字符设定了统一且唯一的数字编号，以满足跨平台、跨语言进行文本交换、处理的要求，如我们熟悉的 UTF-8 。</description>
+      <description>版权声明：本文由 Hov 所有，发布于 http://chenhy.com ，转载请注明出处。 0 写在前面 IO 操作是任何编程语言都无法回避的问题，因为 IO 操作是机器获取和交换信息的主要途径。</description>
     </item>
     
     <item>
@@ -250,19 +143,7 @@ GreenHeadDuck 继承自抽象类 Duck ，所以它必须重写抽象类 Duck 的
       <pubDate>Fri, 29 Sep 2017 00:00:00 +0000</pubDate>
       
       <guid>https://HauyuChen.github.io/post/dp_decorator_pattern/</guid>
-      <description>版权声明：本文由 Hov 所有，发布于 http://chenhy.com ，转载请注明出处。
-
-1 装饰者模式 1.1 简介 装饰者模式可动态地向对象添加额外的属性或行为。装饰者模式是类继承的另外一种选择，类继承在编译时候增加行为，而装饰模式是在运行时增加行为。在对象功能扩展方面，装饰者模式比继承更有弹性。
-1.2 思路 通过增加一个装饰类包裹原来的类，包裹的方式一般是通过将原来的对象作为装饰类的构造函数的参数，从而在原有对象上添加新的功能。
-1.3 使用场景 在不影响其它对象的情况下，想要动态地给单个对象添加新的属性或功能。
-1.4 优缺点 优点：
- 可用一个或多个装饰者包装一个对象，扩展性强； 对象可以在任何时候被修饰，即动态修饰对象； 非继承，避免子类爆炸。  缺点：
- 出现额外的装饰类，使程序变得复杂。  
-2 实例 模拟咖啡店：
-假设，咖啡店有两种咖啡可选： Decaf 和 Espresso ，两种配料可选： Chocalate 和 Milk 。
-不同的咖啡和配料可以搭配成不同的饮品，比如 Decaf 、 Espresso 、 Decaf + Chocalate 、 Decaf + Milk 、 Espresso + Chocalate 、 Espresso + Milk 六种不同的饮品。
-我们要写个程序来计算不同饮品的价格，比如客户点了一杯 Espresso + Chocalate ，输出饮品的价格和描述信息。
-2.1 糟糕的解决方案 设计超类 Drink ，继承自超类 Drink 的子类 Decaf 、 Espresso 、 Decaf + Chocalate 、 Decaf + Milk 、 Espresso + Chocalate 、 Espresso + Milk 。</description>
+      <description>版权声明：本文由 Hov 所有，发布于 http://chenhy.com ，转载请注明出处。 1 装饰者模式 1.1 简介 装饰者模式可动态地向对象添加额外的属性或行为。装饰者模式是类继承的另外一</description>
     </item>
     
     <item>
@@ -271,19 +152,7 @@ GreenHeadDuck 继承自抽象类 Duck ，所以它必须重写抽象类 Duck 的
       <pubDate>Thu, 14 Sep 2017 00:00:00 +0000</pubDate>
       
       <guid>https://HauyuChen.github.io/post/java_string/</guid>
-      <description>1 字符串实例化两种方式的区别 String 的实例化方式有两种，一种是直接赋值，另一种是通过 new 关键字实例化字符串。
-1.1 直接赋值 String str1 = &amp;quot;hello&amp;quot;;  使用直接赋值方式，只要以后声明的字符串内容相同，则不会再开辟新的内存空间。这是Java中共享设计的思想，Java 通过创建一个字符串池，字符串池中保存了多个字符串对象。若新实例化的字符串对象已经在对象池中，则不再重新定义，直接从对象池中取出使用。
-具体到例子， str1 通过直接赋值，因为字符串池不存在“hello”，所以创建一个新的实例置入字符串池，并在栈中开辟一个内存空间直接指向“hello”。
-如果我们声明新的字符串 str2=“hello”， str2 将指向“hello”存放的内存空间，不会再开辟一个新的内存空间。这是因为，JVM会先到字符串池中查找，如果有的话返回字符串池中这个实例的引用，否则才创建一个新的实例并置入字符串对象池。因此，通过直接赋值可以只占用一个内存空间。
-1.2 new关键字 String newstr1 = new String(&amp;quot;hello&amp;quot;);  使用 new 关键字实例化字符串，不管如何都将在堆中开辟一个新的空间。 new 创建字符串实例时会先在对象池中查找是否有相同值的字符串，如果有，则拷贝一份到堆中，然后返回堆中的地址。如果没有，则在堆中创建一份，然后返回堆中的地址。
-具体到例子， newstr1 通过 new 关键字实例化，无论对象池是否存在相同值的字符串，都会在堆中开辟一个新的内存空间，赋值后将在栈中开辟一个新的空间存放 newstr1 ，也就是说使用 new 关键字实例化字符串总共开辟了两个内存空间。因为多出了从字符串池拷贝到堆内存的操作。
-1.3 字符串池 字符串池的优点是避免了相同字符串的创建，节省内存，省去创建相同字符串的时间；另一方面，字符串池的缺点是牺牲了 JVM 在常量池中遍历对象所需要的时间，不过时间成本相比之下较低。
-1.4 小结 直接赋值只需一个内存空间，相同的字符串可以重复指向同一个内存空间；
-new 创建字符串实例无论如何会在堆中开辟一个新的内存空间，因此总共占用两个内存空间。
-综上，使用直接赋值的方法较好，可以避免占用多余的内存空间。
-
-2 字符串比较“==”与 equals 的区别 字符串比较是较为常用的功能， Java 中主要提供了两种字符串比较方式，“==”和 equals ，如下：
-String str1 = &amp;quot;hello&amp;quot;; String str2 = new String(&amp;quot;hello&amp;quot;); System.</description>
+      <description>1 字符串实例化两种方式的区别 String 的实例化方式有两种，一种是直接赋值，另一种是通过 new 关键字实例化字符串。 1.1 直接赋值 String str1 = &amp;quot;hello&amp;quot;; 使用直接赋值方式，只要</description>
     </item>
     
     <item>
@@ -292,35 +161,7 @@ String str1 = &amp;quot;hello&amp;quot;; String str2 = new String(&amp;quot;hell
       <pubDate>Wed, 06 Sep 2017 00:00:00 +0000</pubDate>
       
       <guid>https://HauyuChen.github.io/post/java_ipc/</guid>
-      <description>0 写在前面 说到进程通信，我们很轻易就能想到经典的 Socket 通信。但像 Socket 这样的网络通信会增加额外的网络负担，同时也增加了一定的代码量。
-共享内存方式是实现进程通信的另外一种方式，其具有数据共享，系统快速查询、动态配置、减少资源耗费等优点。
-共享内存特点：
- 可被多个进程打开访问； 读写操作的进程在执行读写操作时，其他进程不能进行写操作； 多个进程可以交替对某一共享内存执行写操作； 一个进程执行内存写操作后，不影响其他进程对该内存的访问，同时其他进程对更新后的内存具有可见性；  Java 进程间的共享内存通过内存映射文件 NIO （MappedByteBuffer）实现，不同进程的内存映射文件关联到同一物理文件。该文件通常为随机存取文件对象，实现文件和内存的映射，即时双向同步。
-
-1 要点 1.1 MappedByteBuffer Java IO 操作的 BufferedReader 、 BufferedInputStream 等相信大家都很熟悉，不过在 Java NIO 中引入了一种基于 MappedByteBuffer 操作大文件的方式，其读写性能极高。
-MappedByteBuffer 为共享内存缓冲区，实际上是一个磁盘文件的内存映射，实现内存与文件的同步变化，可有效地保证共享内存的实现。
-1.2 FileChannel FileChannel 是将共享内存和磁盘文件建立联系的文件通道类。FileChannel 类的加入是 JDK 为了统一对外设备（文件、网络接口等）的访问方法，并加强了多线程对同一文件进行存取的安全性。我们在这里用它来建立共享内存和磁盘文件间的一个通道。
-1.3 RandomAccessFile RandomAccessFile 是 Java IO 体系中功能最丰富的文件内容访问类，它提供很多方法来操作文件，包括读写支持，与普通的IO流相比，它最大的特别之处就是支持任意访问的方式，程序可以直接跳到任意地方来读写数据。
-举个栗子：
-如果我们要向已存在的大小为 1G 的 txt 文本里末尾追加一行文字，内容如下“ Lucene 是一款非常优秀的全文检索库”。其实直接使用 Java 中的流读取 txt 文本里所有的数据转成字符串后，然后拼接“ Lucene 是一款非常优秀的全文检索库”，又写回文本即可。
-但如果需求改了，我们要想向大小为 5G 的 txt 文本里追加数据。如果我们电脑的内存只有 4G ，强制读取所有的数据并追加，将会报内存溢出的异常。显然，上面的方法不再合适。</description>
-    </item>
-    
-    <item>
-      <title>Elasticsearch的乐观并发控制</title>
-      <link>https://HauyuChen.github.io/post/es-concurrent_op/</link>
-      <pubDate>Sun, 03 Sep 2017 00:00:00 +0000</pubDate>
-      
-      <guid>https://HauyuChen.github.io/post/es-concurrent_op/</guid>
-      <description>0 前言 Elasticsearch 采用的是乐观锁并发控制，基于 Elasticsearch 提供的 _version 字段或我们自己定义的外部版本号，可以方便地实现乐观并发控制。
-扩展阅读：并发控制（乐观锁、悲观锁）
-
-1 基于 _version 的乐观并发控制 1.1 _version _version 是 ES 中提供的一个字段，它表明当前数据的版本号。我们可根据它来对比数据的版本是否一致。
-1.2 操作实例 （1）构造一条数据。
-PUT test_index/test_type/7 { &amp;quot;test_field&amp;quot;:&amp;quot;test test&amp;quot; }  （2）模拟两个客户端，获取同一条数据。
-GET test_index/test_type/7  执行结果：两个客户端都能读到 id 为 7 的数据，版本号为 1 。
-{ &amp;quot;_index&amp;quot;: &amp;quot;test_index&amp;quot;, &amp;quot;_type&amp;quot;: &amp;quot;test_type&amp;quot;, &amp;quot;_id&amp;quot;: &amp;quot;7&amp;quot;, &amp;quot;_version&amp;quot;: 1, &amp;quot;found&amp;quot;: true, &amp;quot;_source&amp;quot;: { &amp;quot;test_field&amp;quot;: &amp;quot;test test&amp;quot; } }  （3）一个客户端先更新数据，同时带上数据的版本号（?version=1）。确保 ES 中的数据版本号与客户端中的数据版本号是相同的才能修改。
-PUT test_index/test_type/7?version=1 { &amp;quot;test_field&amp;quot;:&amp;quot;test client 1&amp;quot; }  执行结果：修改成功，数据的版本号变为 2 。</description>
+      <description>0 写在前面 说到进程通信，我们很轻易就能想到经典的 Socket 通信。但像 Socket 这样的网络通信会增加额外的网络负担，同时也增加了一定的代码量。 共享内存方式是实</description>
     </item>
     
     <item>
@@ -329,13 +170,7 @@ PUT test_index/test_type/7?version=1 { &amp;quot;test_field&amp;quot;:&amp;quot;
       <pubDate>Fri, 01 Sep 2017 00:00:00 +0000</pubDate>
       
       <guid>https://HauyuChen.github.io/post/concurrence_pe_op/</guid>
-      <description>版权声明：本文由 Hov 所有，发布于 http://chenhy.com ，转载请注明出处。
-
-0 前言 乐观锁、悲观锁是人们定义出来的概念，可认为是一种思想。也就是说其不依赖于某个特定的数据库，不仅仅是关系型数据库系统有乐观锁、悲观锁，像 memcache 、 Hibernate 等也有类似的概念。乐观锁、悲观锁是用来保证数据并发安全的方法。
-
-1 悲观锁 1.1 简介 悲观锁并发控制方案，在各种情况下都上锁。上锁之后，就只有一个线程可以操作这一数据。
-1.2 实例 牙膏库存为 100 件，用户 A （线程 A ）和用户 B （线程 B ）同时购买一件牙膏。
- 线程 A 读取牙膏库存（ 100 件，并对数据加锁），此时线程 B 无法读取牙膏库存数据； 线程 A 将牙膏库存减 1 ，库存为 100-1=99 件； 线程 A 将数据更新至数据库，数据库牙膏库存为 99 件，数据解锁； 因为数据解锁了，线程 B 可以读取牙膏库存数据（ 99 件，并对数据加锁）； 线程 B 将牙膏库存减 1 ，库存为 99-1=98 件； 线程 B 将数据更新至数据库，数据库中牙膏库存变为 98 件，数据解锁。  注：执行顺序为绿色 → 蓝色 → 红色</description>
+      <description>版权声明：本文由 Hov 所有，发布于 http://chenhy.com ，转载请注明出处。 0 前言 乐观锁、悲观锁是人们定义出来的概念，可认为是一种思想。也就是说其不依赖于某个特定的数</description>
     </item>
     
     <item>
@@ -344,15 +179,7 @@ PUT test_index/test_type/7?version=1 { &amp;quot;test_field&amp;quot;:&amp;quot;
       <pubDate>Sun, 20 Aug 2017 00:00:00 +0000</pubDate>
       
       <guid>https://HauyuChen.github.io/post/es-elasticsearch-manu/</guid>
-      <description>版权声明：本文由 Hov 所有，发布于 http://chenhy.com ，转载请注明出处。
-
-0 前言 本文是我接触 Elasticsearch 后写下的第一篇文章，旨在通过电商网站商品管理的栗子来熟悉 Elasticsearch 的相关操作，可以说是学习 Elasticsearch 的第一个“Hello World”吧，后续将逐步深入 Elasticsearch 相关内容。
-栗子中新增了三种品牌的牙膏“高露洁牙膏”、“佳洁士牙膏”、“中华牙膏”，并对这些数据进行增删改查、数据搜索、数据分析等操作。
-注：本文操作环境为 Elasticsearch + Kibana 。
-
-1 文档增删改查（CRUD） 1.1 新增文档，建立索引 格式：
-PUT /index/type/id { //JSON }  实例：新增商品（三种品牌的牙膏信息）。
-PUT /ecommerce/product/1 { &amp;quot;name&amp;quot;:&amp;quot;gaolujie yagao&amp;quot;, &amp;quot;desc&amp;quot;:&amp;quot;gaoxiao meibai&amp;quot;, &amp;quot;price&amp;quot;:30, &amp;quot;producer&amp;quot;:&amp;quot;gaolujie producer&amp;quot;, &amp;quot;tags&amp;quot;:[&amp;quot;meibai&amp;quot;,&amp;quot;fangzhu&amp;quot;] } PUT /ecommerce/product/2 { &amp;quot;name&amp;quot;:&amp;quot;jiajieshi yagao&amp;quot;, &amp;quot;desc&amp;quot;:&amp;quot;youxiao fangzhu&amp;quot;, &amp;quot;price&amp;quot;:25, &amp;quot;producer&amp;quot;:&amp;quot;jiajieshi producer&amp;quot;, &amp;quot;tags&amp;quot;:[&amp;quot;fangzhu&amp;quot;] } PUT /ecommerce/product/3 { &amp;quot;name&amp;quot;:&amp;quot;zhonghua yagao&amp;quot;, &amp;quot;desc&amp;quot;:&amp;quot;caoben zhiwu&amp;quot;, &amp;quot;price&amp;quot;:40, &amp;quot;producer&amp;quot;:&amp;quot;zhonghua producer&amp;quot;, &amp;quot;tags&amp;quot;:[&amp;quot;qingxin&amp;quot;] }</description>
+      <description>&lt;p&gt;&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -361,20 +188,7 @@ PUT /ecommerce/product/1 { &amp;quot;name&amp;quot;:&amp;quot;gaolujie yagao&amp
       <pubDate>Sat, 19 Aug 2017 00:00:00 +0000</pubDate>
       
       <guid>https://HauyuChen.github.io/post/dp_strategy_pattern/</guid>
-      <description>版权声明：本文由 Hov 所有，发布于 http://chenhy.com ，转载请注明出处。
-
-1 策略模式 1.1 简介 策略模式作为一种软件设计模式，指对象有某个行为，但是在不同的场景中，该行为有不同的实现算法。
-比如，买东西要付款，但是付款的方式有多种，比如有的人现金支付，有的人网上支付，有的人找人代付。
-1.2 思路 策略模式将每一个算法封装起来，实现算法族（业务规则），这些算法可互换代替。
-策略模式通过分离变化部分，封装接口，基于接口实现不同的功能。也就是说，对于同一类型的操作，将复杂多样的处理方式分离开来，有选择的实现各自特有的操作。通常，在超类放行为接口对象，在子类设定具体行为对象。
-1.3 使用场景  对于同一类型问题的多种处理方式，仅仅具体行为有差别。 需要安全的封装多种同一类型的操作。 出现同一抽象多个子类，又需要使用if或switch选择语句来选择。  1.4 优缺点 优点：
- 算法可自由切换； 避免使用多重条件判断； 扩展性良好。 可替换继承关系  缺点：
- 策略类会增多； 所有策略类都需要对外暴露。  
-2 实例讲解 我们引入模拟鸭子这个栗子（这是极客学院中讲解的栗子，个人觉得简单易懂，推荐）。
-2.1 原始需求 我们通过程序模拟鸭子，假设我们的需求是这样的：鸭子有绿头鸭和红头鸭两种，它们都会嘎嘎叫和游泳。
-根据需求，借助面向对象思维，我们可以设计如下代码：
-（1）首先设计一个抽象类：鸭子
-/* Duck.java */ public abstract class Duck{ public Duck(){ } public abstract void display(); //外观 public void Quack(){ //嘎嘎叫 System.out.println(&amp;quot;--gaga--&amp;quot;); } public void swim(){ //游泳 System.</description>
+      <description>版权声明：本文由 Hov 所有，发布于 http://chenhy.com ，转载请注明出处。 1 策略模式 1.1 简介 策略模式作为一种软件设计模式，指对象有某个行为，但是在不同的场景中，该行为</description>
     </item>
     
     <item>
@@ -383,16 +197,7 @@ PUT /ecommerce/product/1 { &amp;quot;name&amp;quot;:&amp;quot;gaolujie yagao&amp
       <pubDate>Thu, 17 Aug 2017 00:00:00 +0000</pubDate>
       
       <guid>https://HauyuChen.github.io/post/dp_singleton_pattern/</guid>
-      <description>版权声明：本文由 Hov 所有，发布于 http://chenhy.com ，转载请注明出处。
-
-1 单例模式 1.1 简介 单例模式是一种基本的常用的软件设计模式。单例模式的核心是确保一个类最多只有一个实例，并提供一个全局访问点。
-1.2 思路 一个类只能返回对象的一个引用（始终为同一个）和一个获得此实例的方法（静态方法，通常用 getInstance 命名）。当我们调用 getInstance 方法，如果类保持的引用不为空，则返回此引用；如果类保持的引用为空，则创建该类的实例，并将实例的引用赋予该类保持的引用。 同时，我们还将该类的构造函数定义为私有方法，这样其它地方的代码就无法通过该类的构造函数来实例化该类的对象，只有通过该类提供的静态方法得到该类的唯一实例。
-1.3 使用场景  需要频繁实例化然后销毁的对象； 创建对象时耗时过多或耗费资源过多，但又经常用到的对象； 有状态的工具类对象； 频繁访问数据库或文件的对象；  1.4 优缺点 优点：
- 在内存中只有一个对象，节省内存空间； 避免频繁创建销毁对象，可提高性能； 避免对共享资源的多重占用； 可以全局访问。  缺点：
- 多线程情况下，应注意线程安全问题； 只能通过单例类提供的方法创建单例对象，不能使用反射；  
-2 经典实现 这是最简单的最经典的单例模式实现方式，又称为懒汉式（线程不安全）。由于该方式存在不少弊端，通常不采用。但是，我们还是有必要了解，因为它是后面几个优化方式的基础。
-注：
- 懒汉式：指全局的单例实例在第一次使用时被构建； 饿汉式：指全局的单例实例在类装载时就被构建。  /* Singleton.java */ public class Singleton { private static Singleton uniqeInstance = null; private Singleton() { }; public static Singleton getInstance() { if(uniqeInstance == null) { uniqeInstance = new Singleton(); } return uniqeInstance; } }</description>
+      <description>版权声明：本文由 Hov 所有，发布于 http://chenhy.com ，转载请注明出处。 1 单例模式 1.1 简介 单例模式是一种基本的常用的软件设计模式。单例模式的核心是确保一个类最多只有</description>
     </item>
     
     <item>
@@ -401,28 +206,7 @@ PUT /ecommerce/product/1 { &amp;quot;name&amp;quot;:&amp;quot;gaolujie yagao&amp
       <pubDate>Wed, 16 Aug 2017 00:00:00 +0000</pubDate>
       
       <guid>https://HauyuChen.github.io/post/ml-7-neuralnetworks/</guid>
-      <description>作者注：机器学习系列是本人在学习机器学习相关内容时产生的笔记，希望也能对您有所帮助。值得注意的是，作者作为初学者，表述难免有误或不全面，望多批评指正。 如有任何问题，欢迎您随时与我联系：Hauyu.Chen@Gmail.com
-版权声明：本文由 Hov 所有，发布于 http://chenhy.com ，转载请注明出处。
-
-0 前言 前面我们已经掌握了机器学习的基本套路，通过模型、目标函数、优化算法实现一些简单的任务。
-本文我们要开始学习神经网络，神经网络是非常重要的机器学习算法。我们将通过学习神经网络，了解如何将单独的单元按照一定的规则连接，从而实现更加复杂的任务。
-
-1 简介 对人类而言，我们的视觉、听觉由大脑的神经中枢产生，而神经中枢由大量的神经元相互连接而成。一个神经元通过树突（Dendrite）接收其它神经元传来的化学物质（信息），从而改变该神经元的电位，当电位到达某一阈值（Threshold）时，该神经元被激活，即“兴奋”起来，从而通过轴突（Axon terminal）向其它神经元发送化学物质（信息）。
-下图为一个神经元。
-
-
-顾名思义，神经网络是一种模拟大脑的算法。神经网络中最基本的成分是神经元模型（ Neural Model ，又称 Logistic Unit ）。神经元模型就是模拟上述神经元接收信息并传递信息的过程，一个神经元为一层。神经网络将多个单一的“神经元”联结在一起，一个“神经元”的输出可以作为另一个“神经元”的输入。
-
-2 神经网络模型 在监督学习中，我们有一组训练数据 ( x( i ), y( i ) ) ，神经网络算法能提供一种复杂的非线性的假设模型 hθ(x) ，以参数 θ 来拟合我们的数据。
-一个简单的神经网络如下所示：
-
-
-上面的神经网络只有一个“神经元”，最左的一层（蓝色圆圈）为输入层，最右的一层为输出层，中间为隐藏层。 x1、x2、x3 为输入单元， a1、a2、a3 为隐藏单元， hθ(x) 为输出单元。特别的， x0、a0 是我们单独增加的偏置单元。
-在隐藏层中，为激励单元。为第 j 层的第 i 个激励单元。
-在本文中，我们选用 sigmoid 函数作为激活函数，即神经元的输入 - 输出的映射关系为逻辑回归。
-举个栗子：
-如果隐藏层只有一层，如下：
-其中， x1、x2、x3 是训练数据中的输入， x0 是偏置单元。</description>
+      <description>作者注：机器学习系列是本人在学习机器学习相关内容时产生的笔记，希望也能对您有所帮助。值得注意的是，作者作为初学者，表述难免有误或不全面，望多</description>
     </item>
     
     <item>
@@ -431,32 +215,7 @@ PUT /ecommerce/product/1 { &amp;quot;name&amp;quot;:&amp;quot;gaolujie yagao&amp
       <pubDate>Thu, 10 Aug 2017 00:00:00 +0000</pubDate>
       
       <guid>https://HauyuChen.github.io/post/ml-6-regulation/</guid>
-      <description>作者注：机器学习系列是本人在学习机器学习相关内容时产生的笔记，希望也能对您有所帮助。值得注意的是，作者作为初学者，表述难免有误或不全面，望多批评指正。 如有任何问题，欢迎您随时与我联系：Hauyu.Chen@Gmail.com
-版权声明：本文由 Hov 所有，发布于 http://chenhy.com ，转载请注明出处。
-
-0 前言 前面我们已经提到了线性回归、 逻辑回归的概念。我们通过假设函数去拟合训练集，事实上，在拟合的过程中可能会出现 Overfitting （过拟合）的情况，本文要讲的 Regulation （正则化）是解决 Overfitting 的主要方法之一。
-
-1 拟合问题 在讲解正则化之前，我们需要先了解一下拟合的概念。
-还记得房价预测的栗子吗？我们通过房屋面积预测房价，给定一个训练集，我们要用假设函数去拟合这些数据。但其实房屋面积和房价的关系并非线性关系，不能简单地用一条直线来表示。
-（1）Underfitting（欠拟合）
-下图所示，蓝色直线（假设函数）并不能很好地拟合样本数据，我们将这种情况称为 Underfitting （欠拟合），也可以称为 High bias （高偏差）。
-（2）Just Right（刚好拟合）
-在原有的假设函数上增加一个二次项，原来的线性函数变成了二次函数，下图为拟合效果，显然，比之前的拟合得更好。蓝色的直线较好地拟合了样本数据，我们可以认为其刚好拟合。
-（3）Overfitting（过拟合）
-从前两种情况，我们发现增加了新的参数（增加了一个二次项），数据拟合得更好了。现在，我们增加一个三次项和四次项，拟合效果将如下所示，蓝色的线经过了每一个点，而且上下扭曲。这就属于 Overfitting （过拟合），也可称之为 High Variance （高方差）。
-你也许会问，我们不是说要让假设函数尽量拟合吗？为什么现在每个数据都拟合了，我们还要去处理它呢？
-这是因为，尽管现在的数据拟合得很完美，但它只是和训练样本的拟合，如果我们加入新的测试样本，这样的假设函数往往预测的效果很糟糕。
-也就是说，这种模型无法泛化到新的数据，无法预测新的数据。（泛化：指一个假设模型应用到新样本的能力）
-同理，在逻辑回归中也存在欠拟合和过拟合的情况。
-（1）逻辑回归中的欠拟合
-（2）逻辑回归中的刚好拟合
-（3）逻辑回归中的过拟合
-
-2 Regulation（正则化） 前面我们提到，我们应该避免出现过拟合的情况，因为这样会使得我们的预测不准确。解决过拟合问题有两种主要的方法：一种是通过减少特征数量；另一种是正则化。
-正则化可以保持特征数量不变，通过设置参数的权重来解决过拟合问题。
-2.1 正则化线性回归 2.1.1 Cost Function（代价函数） 上面的公式为正则化线性回归的代价函数，蓝色方块为一般线性回归的代价函数，红色方块为正则化项，而 λ 为正则化参数。
-正则化参数 λ 需要我们自行选择一个合适的数值，如 λ=1 。
-2.1.2 Gradient Descent（梯度下降） 注： θ0 应单独计算，因为不需要惩罚参数 θ0 ，惩罚参数从 θ1 开始。即为正则化操作。</description>
+      <description>作者注：机器学习系列是本人在学习机器学习相关内容时产生的笔记，希望也能对您有所帮助。值得注意的是，作者作为初学者，表述难免有误或不全面，望多</description>
     </item>
     
     <item>
@@ -465,11 +224,7 @@ PUT /ecommerce/product/1 { &amp;quot;name&amp;quot;:&amp;quot;gaolujie yagao&amp
       <pubDate>Tue, 08 Aug 2017 00:00:00 +0000</pubDate>
       
       <guid>https://HauyuChen.github.io/post/java_trap/</guid>
-      <description>Java备忘  float 和 double 不能进行精确运算，因为计算机不能表示所有的小数，采用 BigDecimal 来解决（String）。
- switch 语句不能作用在 long 和 String 上。
- true 、 false 、 null 不是严格意义上的关键字，而是文字常量（literals）。
- float f = 2.5；不正确，因为精度不准确。正确写法：float f = (float)2.5;
- try｛ ｝里面的 return 语句，紧跟着 finally｛ ｝里的代码会在 return 前先执行。</description>
+      <description>Java备忘 float 和 double 不能进行精确运算，因为计算机不能表示所有的小数，采用 BigDecimal 来解决（String）。 switch 语句不能作用在 long 和 String 上。 true 、 false 、 null 不是严格</description>
     </item>
     
     <item>
@@ -478,7 +233,7 @@ PUT /ecommerce/product/1 { &amp;quot;name&amp;quot;:&amp;quot;gaolujie yagao&amp
       <pubDate>Mon, 07 Aug 2017 00:00:00 +0000</pubDate>
       
       <guid>https://HauyuChen.github.io/post/sql_optimization/</guid>
-      <description>SQL 语句优化  尽量选择较小的列； 将 where 中用的比较频繁的字段建立索引； select 子句中避免使用‘ * ’； 避免在索引列上使用运算符、 not 、 in 、 &amp;lt; 、 &amp;gt; 等操作； 当只需要一行数据的时候使用 limit1； 保证表单数据不超过 200w ，适时分割表。</description>
+      <description>SQL 语句优化 尽量选择较小的列； 将 where 中用的比较频繁的字段建立索引； select 子句中避免使用‘ * ’； 避免在索引列上使用运算符、 not 、 in 、 &amp;lt; 、 &amp;gt; 等操作； 当只需</description>
     </item>
     
     <item>
@@ -487,31 +242,7 @@ PUT /ecommerce/product/1 { &amp;quot;name&amp;quot;:&amp;quot;gaolujie yagao&amp
       <pubDate>Thu, 03 Aug 2017 00:00:00 +0000</pubDate>
       
       <guid>https://HauyuChen.github.io/post/ml-5-logisticregression/</guid>
-      <description>作者注：机器学习系列是本人在学习机器学习相关内容时产生的笔记，希望也能对您有所帮助。值得注意的是，作者作为初学者，表述难免有误或不全面，望多批评指正。 如有任何问题，欢迎您随时与我联系：Hauyu.Chen@Gmail.com
-版权声明：本文由 Hov 所有，发布于 http://chenhy.com ，转载请注明出处。
-
-0 前言 本文要讲的逻辑回归属于分类算法，它是对线性回归的改进。
-在处理二分类问题的时候，我们可将所有预测 y 映射成某个值。假设，若该值大于等于0.5，则结果为1；若该值小于0.5，则结果为0。这样，我们就将所有样本分为两类了。
-若用线性回归去处理分类问题， y 的值可能远大于1或小于0，这样会造成较大的误差，所以能否让 y 的值处于0到1之间呢？
-逻辑回归实现的就是这样的功能，将预测值映射到某个固定的区间，通过决策边界，实现二分类问题。
-
-1 要点 1.1 逻辑函数（Sigmoid函数） 逻辑回归中的逻辑函数其实就是线性回归中的假设函数，只不过在假设函数的基础上进行一个函数映射。
-（1）线性回归中的假设函数
-（2）逻辑回归中的逻辑函数
-逻辑函数对应的图像如下：
-可见，逻辑函数将所有预测映射到（0，1）区间。
-1.2 Decision Boundary（决策边界） 为了对输出结果进行0和1的分类，我们假设认为 hθ(x) 大于等于0.5，则结果 y=1 ；若 hθ(x) 小于0.5，则结果 y=0 ，即：
-根据逻辑函数的图像，有：
-即：
-所以，决策边界就是将结果分为 y=0 和 y=1 的分界，不同的参数向量 θ ，可对应不同的决策边界。
-举个栗子：
-这个栗子中，决策边界为 x=5 ，因为在其左边，y=1；在其右边，y=0。
-当然，决策边界并非只能是直线，也可能是复杂的曲线。
-1.3 Cost Function（代价函数） 上述公式可简化如下：
-向量化如下：
-1.4 Gradient Descent（梯度下降） 
-2 思路 假设，我们要实现邮件的分类（垃圾邮件、非垃圾邮件）
- 借助线性回归的思路，我们可以设定假设函数 hθ(x)=θ0*x0+θ1*x1+⋯+θn*xn ，但 hθ(x) 的结果可能在 (−∞,+∞) 之间。 所以，我们通过构造逻辑回归将预测值映射到（0，1）区间，预测值表示该邮件是垃圾邮件的概率。 构造代价函数。 通过梯度下降来最优化特征向量 θ ，求得决策边界。</description>
+      <description>作者注：机器学习系列是本人在学习机器学习相关内容时产生的笔记，希望也能对您有所帮助。值得注意的是，作者作为初学者，表述难免有误或不全面，望多</description>
     </item>
     
     <item>
@@ -520,23 +251,7 @@ PUT /ecommerce/product/1 { &amp;quot;name&amp;quot;:&amp;quot;gaolujie yagao&amp
       <pubDate>Mon, 31 Jul 2017 00:00:00 +0000</pubDate>
       
       <guid>https://HauyuChen.github.io/post/ml-4-linearregression-multiplevariables/</guid>
-      <description>作者注：机器学习系列是本人在学习机器学习相关内容时产生的笔记，希望也能对您有所帮助。值得注意的是，作者作为初学者，表述难免有误或不全面，望多批评指正。 如有任何问题，欢迎您随时与我联系：Hauyu.Chen@Gmail.com
-版权声明：本文由 Hov 所有，发布于 http://chenhy.com ，转载请注明出处。
-
-0 前言 前面我们已经提到了单变量线性回归，现在讲讲多元线性回归（多变量线性回归）。
-在讲解单变量线性回归时，我们引入了房价预测这个栗子，仅通过房屋面积来预测房价。事实上，影响房价的因素有很多，如面积、房间数量、楼层、房龄等等。
-现在，我们想在进行房价预测时考虑面积、房间数量、楼层、房龄这几个因素，而不是单单只考虑面积。
-显然，单变量线性回归已不再适用，我们可以通过多元线性回归来解决。
-
-1 要点 1.1 多元线性回归模型 这条公式是否很熟悉呢？其实就是在单变量线性回归模型的基础上增加了其它的特征 x2、x3、x4 ··· xn。
-为方便计算，我们可以定义 x0=1 ，现在可以将公式转化成如下形式：
-令： 特征向量X = [x0,x1,x2, &amp;hellip; ,xn] 参数向量θ = [θ0,θ1,θ2, &amp;hellip; ,θn] X 和 θ 均为 n+1 维向量，有：
-最后，假设函数h可简化成以下形式：
-1.2 Cost Function（代价函数） 注：多元线性回归的代价函数和单变量线性回归的一致，不过增加了一些新的参数θ3、θ4、θ5···θn。
-1.3 Batch Gradient Descent（批量梯度下降） 
-2 思路 多元线性回归的思路和单变量线性回归大体一致，只不过我们需要对计算公式做一些微小改变。
-同样，还是通过房价预测的栗子来讲解：
- 房价取决于多方面的因素，在这里我们考虑面积、房间数量、楼层、房龄这四个因素。所以，我们要搞清楚的就是面积 x1 、房间数量 x2 、楼层 x3 、房龄 x4 对房价 y 的影响。 所以，假设函数为 hθ(x) = θ0 + θ1*x1+ θ2*x2 + θ3*x3+ θ4*x4 。 令 x0=1 ，将假设函数转换成 hθ(x) = θ0*x0 + θ1*x1+ θ2*x2 + θ3*x3+ θ4*x4 。 令特征向量 X=[x0,x1,x2,x3,x4] ,参数向量 θ=[θ0,θ1,θ2,θ3,θ4] ,最终我们的假设函数为 hθ(x)=(θ^T)X 。 问题的核心还是找出合适的参数向量θ，使得我们的预测 hθ(x) 是合理的。 衡量参数向量 θ 是否合适的标准就是代价函数 J(0) ，θ 应使得 J(θ) 尽可能小。</description>
+      <description>作者注：机器学习系列是本人在学习机器学习相关内容时产生的笔记，希望也能对您有所帮助。值得注意的是，作者作为初学者，表述难免有误或不全面，望多</description>
     </item>
     
     <item>
@@ -545,18 +260,7 @@ PUT /ecommerce/product/1 { &amp;quot;name&amp;quot;:&amp;quot;gaolujie yagao&amp
       <pubDate>Wed, 26 Jul 2017 00:00:00 +0000</pubDate>
       
       <guid>https://HauyuChen.github.io/post/ml-3-gradientdescent/</guid>
-      <description>作者注：机器学习系列是本人在学习机器学习相关内容时产生的笔记，希望也能对您有所帮助。值得注意的是，作者作为初学者，表述难免有误或不全面，望多批评指正。 如有任何问题，欢迎您随时与我联系：Hauyu.Chen@Gmail.com
-版权声明：本文由 Hov 所有，发布于 http://chenhy.com ，转载请注明出处。
-
-0 前言 上一篇讲到了线性回归，提到了代价函数（Cost Function）的概念，我们知道我们的目标是找到合适的 θ0、θ1 使得代价函数 J(θ0,θ1) 最小。 但是，若漫无目的地设定 θ0、θ1 的值， J(θ0,θ1) 可能会有无数的结果。 那我们要怎么更快地找到 J(θ0,θ1) 的最小值呢？ 本文将介绍一种重要的优化算法，Gradient Descent（梯度下降法）。
-
-1 什么是梯度？ 在讲解梯度下降法之前，我们必须先了解梯度的概念。 梯度是高等数学中的概念，梯度的指向即为函数增长最快的方向。同理，梯度的反方向即为函数下降最快的方向。 现在你知道为什么梯度下降法是优化算法了吧？它能使我们的代价函数下降的最快！
-
-2 原理 下图为代价函数的三维图形，分别以 θ0、θ1 为 X、Y 轴，以 J(θ0,θ1) 为 Z 轴。求解代价函数最小值的过程可看作是寻找“一座座山坡”中的最低点，因为在“山底”时 J(θ0,θ1)最小。
-假定我们随机站在某个山坡上，每次往某个方向向下走一步，怎么走才能最快到山底？这也就是梯度下降法所要解决的，沿着梯度方向最小化 J(θ0,θ1) 。
- 确定向下一步的步伐大小，称之为 Learning Rate ； 任取 θ0,θ1 （随机站在某个山坡）； 沿着梯度的反方向，走一个步伐大小，更新 θ0、θ1 ，此时 J(θ0,θ1) 变小； 重复步骤3，当下降的高度小于某个定义的值（已经到山底），则停止下降。  
-3 算法  优化目标：J(θ0,θ1)
- 优化参数：θ0、θ1</description>
+      <description>作者注：机器学习系列是本人在学习机器学习相关内容时产生的笔记，希望也能对您有所帮助。值得注意的是，作者作为初学者，表述难免有误或不全面，望多</description>
     </item>
     
     <item>
@@ -565,20 +269,7 @@ PUT /ecommerce/product/1 { &amp;quot;name&amp;quot;:&amp;quot;gaolujie yagao&amp
       <pubDate>Fri, 21 Jul 2017 00:00:00 +0000</pubDate>
       
       <guid>https://HauyuChen.github.io/post/ml-2-linearregression-onevariables/</guid>
-      <description>作者注：机器学习系列是本人在学习机器学习相关内容时产生的笔记，希望也能对您有所帮助。值得注意的是，作者作为初学者，表述难免有误或不全面，望多批评指正。 如有任何问题，欢迎您随时与我联系：Hauyu.Chen@Gmail.com
-版权声明：本文由 Hov 所有，发布于 http://chenhy.com ，转载请注明出处。
-
-0 前言 上一篇提到了监督学习的概念，本文要讲的线性回归就属于监督学习。 本文通过单变量线性回归讲述线性回归思想。值得注意的是，特征x并非只能是一个，也可以有x1、x2、x3···，这就是多特征的问题了（后续会提到）。事实上，单特征和多特征的思想是一样的，本文讨论单特征（只有一个特征x）的情形。
-
-1 要点 1.1 单变量线性回归模型 上述公式（线性函数）为一个最简单的线性回归模型，hθ(x)为我们的假设函数，x是训练集中给的数据，θ0、θ1为未知参数，我们需要计算出合适的θ0、θ1的值。
-1.2 Cost Function（代价函数） 上述公式为代价函数的定义，hθ(x)是预测值，x(i)是训练集中第i组数据中的特征，y(i)是训练集中第i组数据中的结果，J(θ0,θ1)表示的是预测值与实际值的误差（方差），误差当然越小越好，所以我们的目标就是最小化Cost Function，即找出合适的θ0、 θ1使得J(θ0,θ1)最小，这样说明数据拟合得最好。
-
-2 思路 我们来引入一个场景，我们想实现房价的预测。
- 房价取决于多方面的因素：面积、地段、楼层等等。为方便讨论，我们先不考虑多变量的情况，只考虑单变量。也就是在地段、楼层等因素一致的情况下，面积(x)对房价(y)的影响。 房价预测问题其实就是找出面积x和房价y的关系 hθ(x) = θ0 + θ1*x，即根据面积(x)去预测房价(y)。 所以问题的核心是找出合适的θ0、θ1，使得我们的预测 hθ(x) = θ0 + θ1*x 是合理的。 衡量 θ0、θ1 是否合适的标准就是代价函数J(θ0,θ1)，θ0、θ1应使得J(θ0,θ1)尽可能小。  假定我们已经有了一个训练集，里面包含面积x和对应的房价y。以横轴表示面积x，以竖轴表示房价y，根据训练集可绘制图形如下：
-注：图示并非真实数据，只作参考。
-线性回归要做的就是通过训练，找出面积x与房价y之间对应的关系（线性函数），通过训练，我们可以得出一条表示 hθ(x) 的直线，这就是我们的预测。
-
-3 结语 现在我们应该知道线性回归的思想了，就是通过训练集去计算出假设函数，通过假设函数可以实现对结果的预测。 假设函数最关键的就是找出未知参数 θ0、θ1 ，因为这两个未知参数决定我们预测是否准确。 未知参数 θ0、θ1 的选择通过代价函数 J(θ0,θ1) 来评定，我们要让 J(θ0,θ1) 尽可能小。 那我们怎么计算 θ0、θ1 的值呢？ 下篇将引入“梯度下降”的方法，通过此方法可更快地计算出 θ0、θ1 的值。</description>
+      <description>作者注：机器学习系列是本人在学习机器学习相关内容时产生的笔记，希望也能对您有所帮助。值得注意的是，作者作为初学者，表述难免有误或不全面，望多</description>
     </item>
     
     <item>
@@ -587,16 +278,7 @@ PUT /ecommerce/product/1 { &amp;quot;name&amp;quot;:&amp;quot;gaolujie yagao&amp
       <pubDate>Wed, 19 Jul 2017 00:00:00 +0000</pubDate>
       
       <guid>https://HauyuChen.github.io/post/eclipse_hotkeys/</guid>
-      <description>Hov：本文记录了一些Eclipse快捷键，其中“必记级别”真的很好用，一定要记住~~
-必记级别  Ctrl+1：快速修复，代码红色下划线用它就对了
- Ctrl+D：删除当前整行
- Alt+/：代码补全，例如输入syso后按Alt+/，将其补全成System.out.println();
- Ctrl+/：注释代码（这个很重要）
- Shift+Enter：换行（高级模式，可从代码中间跳至下一行，无需到行尾）
- Ctrl+F11：快速运行项目（其实点小三角还是挺快的，不记也行）
- Ctrl+Shift+F：格式化当前代码（谁用谁牛逼）
-  快捷键大全  来源：http://blog.csdn.net/jmyue/article/details/16960199
-  Ctrl+Alt+↓：复制当前行到下一行 Ctrl+Alt+↑：复制当前行到上一行 Alt+↓：当前行和下面一行交互位置 Alt+↑：当前行和上面一行交互位置 Alt+←：前一个编辑的页面 Alt+→：下一个编辑的页面 Alt+Enter 显示当前选择资源(工程,or 文件 or文件)的属性 Shift+Ctrl+Enter 在当前行插入空行 Ctrl+Q 定位到最后编辑的地方 Ctrl+L 定位在某行 Ctrl+M 最大化当前的Edit或View Ctrl+O 快速显示 OutLine Ctrl+T 快速显示当前类的继承结构 Ctrl+W 关闭当前Editer Ctrl+K 参照选中的Word快速定位到下一个 Ctrl+E 快速显示当前Editer的下拉列表(如果当前页面没有显示的用黑体表示) Ctrl+/ (小键盘) 折叠当前类中的所有代码 Ctrl+×(小键盘) 展开当前类中的所有代码 Ctrl+Space 代码助手完成一些代码的插入(但一般和输入法有冲突,可以修改输入法的热键,也可以暂用Alt+/来代替) Ctrl+Shift+E 显示管理当前打开的所有的View的管理器(可以选择关闭,激活等操作) Ctrl+J 正向增量查找(按下Ctrl+J后,你所输入的每个字母编辑器都提供快速匹配定位到某个单词,如果没有,则在stutes line中显示没有找到了,查一个单词时,特别实用,这 个功能Idea两年前就有了) Ctrl+Shift+J 反向增量查找(和上条相同,只不过是从后往前查) Ctrl+Shift+F4 关闭所有打开的Editer Ctrl+Shift+X 把当前选中的文本全部变味小写 Ctrl+Shift+Y 把当前选中的文本全部变为小写 Ctrl+Shift+P 定位到对于的匹配符(譬如{}) (从前面定位后面时,光标要在匹配符里面,后面到前面,则反之) Alt+Shift+R 重命名 (是我自己最爱用的一个了,尤其是变量和类的Rename,比手工方法能节省很多劳动力) Alt+Shift+M 抽取方法 (这是重构里面最常用的方法之一了,尤其是对一大堆泥团代码有用) Alt+Shift+C 修改函数结构(比较实用,有N个函数调用了这个方法,修改一次搞定) Alt+Shift+L 抽取本地变量( 可以直接把一些魔法数字和字符串抽取成一个变量,尤其是多处调用的时候) Alt+Shift+F 把Class中的local变量变为field 变量 (比较实用的功能) Alt+Shift+I 合并变量(可能这样说有点不妥Inline) Alt+Shift+V 移动函数和变量(不怎么常用) Alt+Shift+Z 重构的后悔药(Undo)  注：下面这篇文章有动画讲解，推荐一下：）</description>
+      <description>Hov：本文记录了一些Eclipse快捷键，其中“必记级别”真的很好用，一定要记住~~ 必记级别 Ctrl+1：快速修复，代码红色下划线用它就对</description>
     </item>
     
     <item>
@@ -605,16 +287,7 @@ PUT /ecommerce/product/1 { &amp;quot;name&amp;quot;:&amp;quot;gaolujie yagao&amp
       <pubDate>Tue, 11 Jul 2017 00:00:00 +0000</pubDate>
       
       <guid>https://HauyuChen.github.io/post/ml-1-machinelearning-introduction/</guid>
-      <description>作者注：机器学习系列是本人在学习机器学习相关内容时产生的笔记，希望也能对您有所帮助。值得注意的是，作者作为初学者，表述难免有误或不全面，望多批评指正。 如有任何问题，欢迎您随时与我联系：Hauyu.Chen@Gmail.com
-版权声明：本文由 Hov 所有，发布于 http://chenhy.com ，转载请注明出处。
-
-0 前言 AI 时代，作为计算机专业的学生，不了解点 AI 相关的知识似乎有点说不过去，尤其是机器学习。 我们一直在说机器学习，但是我们怎么理解机器学习？机器学习解决了什么问题？我们如何将机器学习应用到现实生活中的问题呢？ 本文是机器学习系列的开篇，给出了机器学习的经典定义，并介绍监督学习和无监督学习这两个重要的分支，后续将逐步深入。
-
-1 机器学习的定义 Tom Mitchell 给出了一个关于机器学习的定义，这也是一个被经常引用的定义。
- Tom Mitchell:&amp;ldquo;A computer program is said to learn from experience E with respect to some class of tasks T and performance measure P, if its performance at tasks in T, as measured by P, improves with experience E.&amp;rdquo;
- 这段话翻译过来就是：对于某类任务T和性能度量P，如果一个计算机程序在T上以P衡量的性能随着经验E而自我完善，那么我们称这个计算机程序在从经验E学习。
-举个栗子：AlphaGo下棋
- 经验 E = AlphaGo从很多盘棋局获得的经验（学棋）； 任务 T = AlphaGo和对手下棋（下棋）； 性能 P = AlphaGo赢的可能性（赢棋）。</description>
+      <description>作者注：机器学习系列是本人在学习机器学习相关内容时产生的笔记，希望也能对您有所帮助。值得注意的是，作者作为初学者，表述难免有误或不全面，望多</description>
     </item>
     
     <item>
@@ -623,14 +296,7 @@ PUT /ecommerce/product/1 { &amp;quot;name&amp;quot;:&amp;quot;gaolujie yagao&amp
       <pubDate>Wed, 05 Jul 2017 00:00:00 +0000</pubDate>
       
       <guid>https://HauyuChen.github.io/post/basic_debug/</guid>
-      <description>0 写在前面 Debug 是程序员必备的技能。当我们自己写的程序出现异常，我们可以通过 Debug 模式去分析异常。再者，现如今开源代码层出不穷，作者最近正好在研究开源代码， Debug 模式对跟踪代码也起到了很大的帮助。因为面对复杂的代码，我们靠一个一个查找，要找到相应的执行流程、执行方法不太容易。通过Debug模式，我们可以跟踪程序的执行流程，这样，某项业务的执行步骤便一目了然了。
-本文所用 IDE 为 Intellij IDEA ，但其它的 IDE 与此基本相似。
-
-1 基本用法 1.1 组件一 这组组件共八个按钮，从左至右编号1、2、3、4、5、6、7、8。
- Show Execution Point：点击此按钮可将光标定位到当前代码执行处； Step Over：步过，一行一行往下执行。如果该行上有方法，不会进入方法； Step Into：步入，一行一行往下执行。如果该行上有方法，进入方法内部执行，但一般只进入自定义方法，不会进入官方类库的方法； Force Step Into：强制步入，可进入任何方法，查看底层源码是可通过这个进入官方类库的方法； Step Out：步出，从步入的方法内退出到方法调用处； Drop Frame：回退断点，默认无； Run to Cursor：运行至光标处，将光标定位到需要查看的那一行，代码会运行至光标行，无需打断点； Evaluate Expression：计算表达式。  
-1.2 组件二 这组组件共七个按钮，从上至下编号1、2、3、4、5、6、7。
- Rerun ：重新运行程序，会关闭服务后重新启动程序； Update：更新程序，在代码改动后可执行这个功能来应用更新； Resume Program：恢复程序，点击该按钮将运行至下一个断点。比如我们在程序设置在代码第10行设置一个断点，在代码第20行设置一个断点，现在代码运行到第10行，点击按钮，代码将运行至下一个断点（第20行），若后面无断点，则运行完整个流程； Pause Program：暂停程序，启用 Debug ； Stop：连续按两下，关闭程序； View Breakpoints：查看所有断点； Mute Breakpoints：消除断点，点击该按钮将消除所有断点，断点将变为灰色，断点失效；再次点击，断点将变为红色，断点有效；如果只想对单个断点执行操作，直接在断点上右键选择相应的操作。  
-2 结语 通过这些基本操作我们已经可以初步地 Debug 程序，来跟踪程序的执行。当然， Debug 模式还有更多强大的功能，比如变量查看、智能步入、多线程调试等。下面这篇文章对 Debug 模式进行了详细的描述，推荐给大家。</description>
+      <description>0 写在前面 Debug 是程序员必备的技能。当我们自己写的程序出现异常，我们可以通过 Debug 模式去分析异常。再者，现如今开源代码层出不穷，作者最近正好在研究开</description>
     </item>
     
     <item>
@@ -639,10 +305,7 @@ PUT /ecommerce/product/1 { &amp;quot;name&amp;quot;:&amp;quot;gaolujie yagao&amp
       <pubDate>Thu, 20 Apr 2017 00:00:00 +0000</pubDate>
       
       <guid>https://HauyuChen.github.io/post/669-trim-a-binary-search-tree/</guid>
-      <description>题目描述： Given a binary search tree and the lowest and highest boundaries as L and R, trim the tree so that all its elements lies in L, R. You might need to change the root of the tree, so the result should return the new root of the trimmed binary search tree.
-Example 1:
-Input:
- 1 / \ 0 2 L = 1 R = 2  Output:</description>
+      <description>题目描述： Given a binary search tree and the lowest and highest boundaries as L and R, trim the tree so that all its elements lies in L, R. You might need to change the root of the tree, so the result should return the new root of the trimmed binary search tree. Example 1: Input: 1 / \ 0 2 L = 1 R = 2</description>
     </item>
     
     <item>
@@ -651,8 +314,7 @@ Input:
       <pubDate>Mon, 17 Apr 2017 00:00:00 +0000</pubDate>
       
       <guid>https://HauyuChen.github.io/post/292-nim-game/</guid>
-      <description>题目描述： You are playing the following Nim Game with your friend: There is a heap of stones on the table, each time one of you take turns to remove 1 to 3 stones. The one who removes the last stone will be the winner. You will take the first turn to remove the stones.
-Both of you are very clever and have optimal strategies for the game. Write a function to determine whether you can win the game given the number of stones in the heap.</description>
+      <description>题目描述： You are playing the following Nim Game with your friend: There is a heap of stones on the table, each time one of you take turns to remove 1 to 3 stones. The one who removes the last stone will be the winner. You will take the first turn to remove the stones. Both of you are very clever and have optimal strategies for the</description>
     </item>
     
     <item>
@@ -661,12 +323,7 @@ Both of you are very clever and have optimal strategies for the game. Write a fu
       <pubDate>Sun, 16 Apr 2017 00:00:00 +0000</pubDate>
       
       <guid>https://HauyuChen.github.io/post/054-spiral-matrix/</guid>
-      <description>题目描述： Given a matrix of m x n elements (m rows, n columns), return all elements of the matrix in spiral order.
-For example, Given the following matrix:
-[ [ 1, 2, 3 ], [ 4, 5, 6 ], [ 7, 8, 9 ] ]  You should return [1,2,3,6,9,8,7,4,5].
-
-思路： 给定一个矩阵，以回旋形式以此遍历矩阵中的每个元素。
- 设置 direction ，表示遍历方向（向右，向下，向左，向上）； 设置 left、right、top、buttom ，分别指示矩阵左边界、右边界、上边界、下边界； 每遍历一个元素将其添加到 ret 中，直至 left&amp;gt;right 或 top&amp;gt;buttom 。</description>
+      <description>题目描述： Given a matrix of m x n elements (m rows, n columns), return all elements of the matrix in spiral order. For example, Given the following matrix: [ [ 1, 2, 3 ], [ 4, 5, 6 ], [ 7, 8, 9 ] ] You should return [1,2,3,6,9,8,7,4,5]. 思路： 给定一个矩阵，以回旋形式以此</description>
     </item>
     
     <item>
@@ -675,12 +332,7 @@ For example, Given the following matrix:
       <pubDate>Sun, 16 Apr 2017 00:00:00 +0000</pubDate>
       
       <guid>https://HauyuChen.github.io/post/059-spiral-matrix-ii/</guid>
-      <description>题目描述： Given an integer n, generate a square matrix filled with elements from 1 to n2 in spiral order.
-For example, Given n = 3,
-You should return the following matrix:
-[ [ 1, 2, 3 ], [ 8, 9, 4 ], [ 7, 6, 5 ] ]  
-思路： 题意要求根据 n ，创建一个 n*n 的回旋矩阵。
- 设置 direction ，表示构造方向（向右，向下，向左，向上）； 设置 left、right、top、buttom ，分别指示矩阵左边界、右边界、上边界、下边界； 设置 count 指示当前的数值； 按右-下-左-上的顺序不断循环构造，直至 left&amp;gt;right 或 top&amp;gt;buttom 。</description>
+      <description>题目描述： Given an integer n, generate a square matrix filled with elements from 1 to n2 in spiral order. For example, Given n = 3, You should return the following matrix: [ [ 1, 2, 3 ], [ 8, 9, 4 ], [ 7, 6, 5 ] ] 思路： 题意要求根据 n ，创建一个 n*n 的回</description>
     </item>
     
     <item>
@@ -689,12 +341,7 @@ You should return the following matrix:
       <pubDate>Sat, 15 Apr 2017 00:00:00 +0000</pubDate>
       
       <guid>https://HauyuChen.github.io/post/328-odd-even-linked-list/</guid>
-      <description>题目描述： Given a singly linked list, group all odd nodes together followed by the even nodes. Please note here we are talking about the node number and not the value in the nodes.
-You should try to do it in place. The program should run in O(1) space complexity and O(nodes) time complexity.
-Example:
-Given 1-&amp;gt;2-&amp;gt;3-&amp;gt;4-&amp;gt;5-&amp;gt;NULL,
-return 1-&amp;gt;3-&amp;gt;5-&amp;gt;2-&amp;gt;4-&amp;gt;NULL.
-Note: The relative order inside both the even and odd groups should remain as it was in the input.</description>
+      <description>题目描述： Given a singly linked list, group all odd nodes together followed by the even nodes. Please note here we are talking about the node number and not the value in the nodes. You should try to do it in place. The program should run in O(1) space complexity and O(nodes) time complexity. Example: Given 1-&amp;gt;2-&amp;gt;3-&amp;gt;4-&amp;gt;5-&amp;gt;NULL, return 1-&amp;gt;3-&amp;gt;5-&amp;gt;2-&amp;gt;4-&amp;gt;NULL. Note: The relative order inside both the even</description>
     </item>
     
     <item>
@@ -703,11 +350,7 @@ Note: The relative order inside both the even and odd groups should remain as it
       <pubDate>Fri, 14 Apr 2017 00:00:00 +0000</pubDate>
       
       <guid>https://HauyuChen.github.io/post/116-populating-next-right-pointers-in-each-node/</guid>
-      <description>题目描述： Given a binary tree
- struct TreeLinkNode { TreeLinkNode *left; TreeLinkNode *right; TreeLinkNode *next; }  Populate each next pointer to point to its next right node. If there is no next right node, the next pointer should be set to NULL.
-Initially, all next pointers are set to NULL.
-Note:
-You may only use constant extra space. You may assume that it is a perfect binary tree (ie, all leaves are at the same level, and every parent has two children).</description>
+      <description>题目描述： Given a binary tree struct TreeLinkNode { TreeLinkNode *left; TreeLinkNode *right; TreeLinkNode *next; } Populate each next pointer to point to its next right node. If there is no next right node, the next pointer should be set to NULL. Initially, all next pointers are set to NULL. Note: You may only use constant extra space. You may assume that it is a perfect binary</description>
     </item>
     
     <item>
@@ -716,11 +359,7 @@ You may only use constant extra space. You may assume that it is a perfect binar
       <pubDate>Thu, 13 Apr 2017 00:00:00 +0000</pubDate>
       
       <guid>https://HauyuChen.github.io/post/075-sort-colors/</guid>
-      <description>题目描述： Given an array with n objects colored red, white or blue, sort them so that objects of the same color are adjacent, with the colors in the order red, white and blue.
-Here, we will use the integers 0, 1, and 2 to represent the color red, white, and blue respectively.
-Note: You are not suppose to use the library&amp;rsquo;s sort function for this problem.
-
-思路： 本题实质上为三元数组排序。</description>
+      <description>题目描述： Given an array with n objects colored red, white or blue, sort them so that objects of the same color are adjacent, with the colors in the order red, white and blue. Here, we will use the integers 0, 1, and 2 to represent the color red, white, and blue respectively. Note: You are not suppose to use the library&amp;rsquo;s sort function for this problem.</description>
     </item>
     
     <item>
@@ -729,14 +368,7 @@ Note: You are not suppose to use the library&amp;rsquo;s sort function for this 
       <pubDate>Thu, 13 Apr 2017 00:00:00 +0000</pubDate>
       
       <guid>https://HauyuChen.github.io/post/094-binary-tree-inorder-traversal/</guid>
-      <description>题目描述： Given a binary tree, return the inorder traversal of its nodes&amp;rsquo; values.
-For example:
-Given binary tree [1,null,2,3],
- 1 \ 2 / 3  return [1,3,2].
-
-思路： 二叉树的中序遍历，这里直接用递归的方法求解。
-
-代码实现： /** * Definition for a binary tree node. * public class TreeNode { * int val; * TreeNode left; * TreeNode right; * TreeNode(int x) { val = x; } * } */ class Solution { public List&amp;lt;Integer&amp;gt; inorderTraversal(TreeNode root) { List&amp;lt;Integer&amp;gt; ret = new ArrayList&amp;lt;Integer&amp;gt;(); inorder(root,ret); return ret; } public void inorder(TreeNode root, List&amp;lt;Integer&amp;gt; ret){ if(root==null){ return ; } inorder(root.</description>
+      <description>题目描述： Given a binary tree, return the inorder traversal of its nodes&amp;rsquo; values. For example: Given binary tree [1,null,2,3], 1 \ 2 / 3 return [1,3,2]. 思路： 二叉树的中序遍历，这里直接用递归的方法求解。 代码实现： /** * Definition for a binary tree node. * public</description>
     </item>
     
     <item>
@@ -745,16 +377,7 @@ Given binary tree [1,null,2,3],
       <pubDate>Wed, 12 Apr 2017 00:00:00 +0000</pubDate>
       
       <guid>https://HauyuChen.github.io/post/058-length-of-last-word/</guid>
-      <description>题目描述： Given a string s consists of upper/lower-case alphabets and empty space characters &amp;lsquo; &amp;lsquo;, return the length of last word in the string.
-If the last word does not exist, return 0.
-Note: A word is defined as a character sequence consists of non-space characters only.
-Example:
-Input: &amp;ldquo;Hello World&amp;rdquo;
-Output: 5
-
-思路： 从后往前遍历字符串。
- 注意字符串后面是否有空格，所以先判断字符串是否以空格结尾； 若当前字符不是空格，开始计数，直到遇到空格，返回计数的结果。  
-代码实现： class Solution { public int lengthOfLastWord(String s) { int count = 0; int i = s.</description>
+      <description>题目描述： Given a string s consists of upper/lower-case alphabets and empty space characters &amp;lsquo; &amp;lsquo;, return the length of last word in the string. If the last word does not exist, return 0. Note: A word is defined as a character sequence consists of non-space characters only. Example: Input: &amp;ldquo;Hello World&amp;rdquo; Output: 5 思路： 从后往前遍历字符串。</description>
     </item>
     
     <item>
@@ -763,14 +386,7 @@ Output: 5
       <pubDate>Wed, 12 Apr 2017 00:00:00 +0000</pubDate>
       
       <guid>https://HauyuChen.github.io/post/083-remove-duplicates-from-sorted-list/</guid>
-      <description>题目描述： Given a sorted linked list, delete all duplicates such that each element appear only once.
-For example,
-Given 1-&amp;gt;1-&amp;gt;2, return 1-&amp;gt;2.
-Given 1-&amp;gt;1-&amp;gt;2-&amp;gt;3-&amp;gt;3, return 1-&amp;gt;2-&amp;gt;3.
-
-思路： 遍历一次链表即可，每遍历一个元素比较其是否与它的下一个元素相等。若是，指针指向下下个元素；否则继续遍历下一个元素。
-
-代码实现： /** * Definition for singly-linked list. * public class ListNode { * int val; * ListNode next; * ListNode(int x) { val = x; } * } */ class Solution { public ListNode deleteDuplicates(ListNode head) { if(head==null){ return null; } ListNode p = head; while(p.</description>
+      <description>题目描述： Given a sorted linked list, delete all duplicates such that each element appear only once. For example, Given 1-&amp;gt;1-&amp;gt;2, return 1-&amp;gt;2. Given 1-&amp;gt;1-&amp;gt;2-&amp;gt;3-&amp;gt;3, return 1-&amp;gt;2-&amp;gt;3. 思路： 遍历一次链表即可，每遍历一个元素比较其是否与它的下一个元素相等。若是，指针</description>
     </item>
     
     <item>
@@ -779,14 +395,7 @@ Given 1-&amp;gt;1-&amp;gt;2-&amp;gt;3-&amp;gt;3, return 1-&amp;gt;2-&amp;gt;3.
       <pubDate>Wed, 12 Apr 2017 00:00:00 +0000</pubDate>
       
       <guid>https://HauyuChen.github.io/post/088-merge-sorted-array/</guid>
-      <description>题目描述： Given two sorted integer arrays nums1 and nums2, merge nums2 into nums1 as one sorted array.
-Note:
-You may assume that nums1 has enough space (size that is greater or equal to m + n) to hold additional elements from nums2. The number of elements initialized in nums1 and nums2 are m and n respectively.
-
-思路： 从后往前遍历两个数组，分别比较，大的放在数组 nums1 后面，直到两个数组都遍历完毕。
-注：如果从前往后遍历的话，数组合并时需要将元素后移，效率低。
-
-代码实现： class Solution { public void merge(int[] nums1, int m, int[] nums2, int n) { int index = m+n-1; int i1 = m-1; int i2 = n-1; while(i1&amp;gt;=0&amp;amp;&amp;amp;i2&amp;gt;=0){ if(nums1[i1]&amp;gt;=nums2[i2]){ nums1[index] = nums1[i1]; i1--; }else{ nums1[index] = nums2[i2]; i2--; } index--; } while(i1&amp;gt;=0){ nums1[index] = nums1[i1]; i1--; index--; } while(i2&amp;gt;=0){ nums1[index] = nums2[i2]; i2--; index--; } } }</description>
+      <description>题目描述： Given two sorted integer arrays nums1 and nums2, merge nums2 into nums1 as one sorted array. Note: You may assume that nums1 has enough space (size that is greater or equal to m + n) to hold additional elements from nums2. The number of elements initialized in nums1 and nums2 are m and n respectively. 思路： 从后往前遍历两</description>
     </item>
     
     <item>
@@ -795,11 +404,7 @@ You may assume that nums1 has enough space (size that is greater or equal to m +
       <pubDate>Tue, 11 Apr 2017 00:00:00 +0000</pubDate>
       
       <guid>https://HauyuChen.github.io/post/682-baseball-game/</guid>
-      <description>题目描述： You&amp;rsquo;re now a baseball game point recorder.
-Given a list of strings, each string can be one of the 4 following types:
- Integer (one round&amp;rsquo;s score): Directly represents the number of points you get in this round.
- &amp;rdquo;+&amp;rdquo; (one round&amp;rsquo;s score): Represents that the points you get in this round are the sum of the last two valid round&amp;rsquo;s points.
- &amp;ldquo;D&amp;rdquo; (one round&amp;rsquo;s score): Represents that the points you get in this round are the doubled data of the last valid round&amp;rsquo;s points.</description>
+      <description>题目描述： You&amp;rsquo;re now a baseball game point recorder. Given a list of strings, each string can be one of the 4 following types: Integer (one round&amp;rsquo;s score): Directly represents the number of points you get in this round. &amp;rdquo;+&amp;rdquo; (one round&amp;rsquo;s score): Represents that the points you get in this round are the sum of the last two valid round&amp;rsquo;s points. &amp;ldquo;D&amp;rdquo; (one round&amp;rsquo;s score): Represents</description>
     </item>
     
     <item>
@@ -808,11 +413,7 @@ Given a list of strings, each string can be one of the 4 following types:
       <pubDate>Mon, 10 Apr 2017 00:00:00 +0000</pubDate>
       
       <guid>https://HauyuChen.github.io/post/523-continuous-subarray-sum/</guid>
-      <description>题目描述： Given a list of non-negative numbers and a target integer k, write a function to check if the array has a continuous subarray of size at least 2 that sums up to the multiple of k, that is, sums up to n*k where n is also an integer.
-Example 1:
-Input: [23, 2, 4, 6, 7], k=6
-Output: True
-Explanation: Because [2, 4] is a continuous subarray of size 2 and sums up to 6.</description>
+      <description>题目描述： Given a list of non-negative numbers and a target integer k, write a function to check if the array has a continuous subarray of size at least 2 that sums up to the multiple of k, that is, sums up to n*k where n is also an integer. Example 1: Input: [23, 2, 4, 6, 7], k=6 Output: True Explanation: Because [2, 4] is a</description>
     </item>
     
     <item>
@@ -821,11 +422,7 @@ Explanation: Because [2, 4] is a continuous subarray of size 2 and sums up to 6.
       <pubDate>Mon, 10 Apr 2017 00:00:00 +0000</pubDate>
       
       <guid>https://HauyuChen.github.io/post/532-k-diff-pairs-in-an-array/</guid>
-      <description>题目描述： Given an array of integers and an integer k, you need to find the number of unique k-diff pairs in the array. Here a k-diff pair is defined as an integer pair (i, j), where i and j are both numbers in the array and their absolute difference is k.
-Example 1:
-Input: [3, 1, 4, 1, 5], k = 2
-Output: 2
-Explanation: There are two 2-diff pairs in the array, (1, 3) and (3, 5).</description>
+      <description>题目描述： Given an array of integers and an integer k, you need to find the number of unique k-diff pairs in the array. Here a k-diff pair is defined as an integer pair (i, j), where i and j are both numbers in the array and their absolute difference is k. Example 1: Input: [3, 1, 4, 1, 5], k = 2 Output: 2 Explanation: There</description>
     </item>
     
     <item>
@@ -834,10 +431,7 @@ Explanation: There are two 2-diff pairs in the array, (1, 3) and (3, 5).</descri
       <pubDate>Sun, 09 Apr 2017 00:00:00 +0000</pubDate>
       
       <guid>https://HauyuChen.github.io/post/238-product-of-array-except-self/</guid>
-      <description>题目描述： Given an array of n integers where n &amp;gt; 1, nums, return an array output such that output[i] is equal to the product of all the elements of nums except nums[i].
-Solve it without division and in O(n).
-For example, given [1,2,3,4], return [24,12,8,6].
-Follow up: Could you solve it with constant space complexity? (Note: The output array does not count as extra space for the purpose of space complexity analysis.</description>
+      <description>题目描述： Given an array of n integers where n &amp;gt; 1, nums, return an array output such that output[i] is equal to the product of all the elements of nums except nums[i]. Solve it without division and in O(n). For example, given [1,2,3,4], return [24,12,8,6]. Follow up: Could you solve it with constant space complexity? (Note: The output array does not count as extra space for</description>
     </item>
     
     <item>
@@ -846,13 +440,7 @@ Follow up: Could you solve it with constant space complexity? (Note: The output 
       <pubDate>Sun, 09 Apr 2017 00:00:00 +0000</pubDate>
       
       <guid>https://HauyuChen.github.io/post/507-perfect-number/</guid>
-      <description>题目描述： We define the Perfect Number is a positive integer that is equal to the sum of all its positive divisors except itself.
-Now, given an integer n, write a function that returns true when it is a perfect number and false when it is not.
-Example:
-Input: 28
-Output: True
-Explanation: 28 = 1 + 2 + 4 + 7 + 14
-Note: The input number n will not exceed 100,000,000.</description>
+      <description>题目描述： We define the Perfect Number is a positive integer that is equal to the sum of all its positive divisors except itself. Now, given an integer n, write a function that returns true when it is a perfect number and false when it is not. Example: Input: 28 Output: True Explanation: 28 = 1 + 2 + 4 + 7 + 14 Note: The input</description>
     </item>
     
     <item>
@@ -861,12 +449,7 @@ Note: The input number n will not exceed 100,000,000.</description>
       <pubDate>Sat, 08 Apr 2017 00:00:00 +0000</pubDate>
       
       <guid>https://HauyuChen.github.io/post/123-best-time-to-buy-and-sell-stock-iii/</guid>
-      <description>题目描述： Say you have an array for which the ith element is the price of a given stock on day i.
-Design an algorithm to find the maximum profit. You may complete at most two transactions.
-Note:
-You may not engage in multiple transactions at the same time (ie, you must sell the stock before you buy again).
-
-思路：  只能进行两次交易，要求两次交易获利之和最大； 第一次交易：从前往后遍历，计算每天的最大获利 left[] ， left[i] 表示第 i 天的最多能获利多少； 第二次交易：从后往前遍历，计算每天的最大获利 right[] ， right[i] 表示第 i 天的最多能获利多少； 最大获利：计算哪一天的 left[i] + right[i] 最大，即为两次交易的最大获利。</description>
+      <description>题目描述： Say you have an array for which the ith element is the price of a given stock on day i. Design an algorithm to find the maximum profit. You may complete at most two transactions. Note: You may not engage in multiple transactions at the same time (ie, you must sell the stock before you buy again). 思路： 只能进行两</description>
     </item>
     
     <item>
@@ -875,14 +458,7 @@ You may not engage in multiple transactions at the same time (ie, you must sell 
       <pubDate>Sat, 08 Apr 2017 00:00:00 +0000</pubDate>
       
       <guid>https://HauyuChen.github.io/post/066-plus-one/</guid>
-      <description>题目描述： Given a non-negative integer represented as a non-empty array of digits, plus one to the integer.
-You may assume the integer do not contain any leading zero, except the number 0 itself.
-The digits are stored such that the most significant digit is at the head of the list.
-
-思路： 题目的意思是将数组当成一个整数，然后对这个整数加 1 ，返回结果。
-比如，[9,9,9] 返回 [1,0,0,0] ； [9,9,8] 返回 [9,9,9] 。
-从数组最右边开始遍历：
- 如果当前元素小于 8 ，则将当前元素加 1 后，直接返回数组 digits ； 如果当前元素等于 9 ，将当前元素置为 0 ，继续判断； 若遍历结束还没返回结果，说明数组 digits 内的元素全为 9 ，则创建一个新的数组，首位为 1 ，其余位为 0 ，返回新数组。</description>
+      <description>题目描述： Given a non-negative integer represented as a non-empty array of digits, plus one to the integer. You may assume the integer do not contain any leading zero, except the number 0 itself. The digits are stored such that the most significant digit is at the head of the list. 思路： 题目的意思是将数组当成一个</description>
     </item>
     
     <item>
@@ -891,15 +467,7 @@ The digits are stored such that the most significant digit is at the head of the
       <pubDate>Sat, 08 Apr 2017 00:00:00 +0000</pubDate>
       
       <guid>https://HauyuChen.github.io/post/067-add-binary/</guid>
-      <description>题目描述： Given two binary strings, return their sum (also a binary string).
-For example,
-a = &amp;ldquo;11&amp;rdquo;
-b = &amp;ldquo;1&amp;rdquo;
-Return &amp;ldquo;100&amp;rdquo;.
-
-思路：  设置flag表示进位标志，将字符串 a 和 b 依次拿出来“相加”，并将相加的结果存放在 char 数组； 假设字符串 a 已经结束，若字符串 b 还有没处理的字符，则操作 b ，注意是否还有进位；反之同理； 将 char 数组转换成 String 返回。  注意：
- 这种题难度不大，但要考虑全面，细心！！ 通过常规的解法，时间复杂度为 O(n)； 注意最后是否进位，若是 char 数组的首字符为‘1’，否则为空。  
-代码实现： class Solution { public String addBinary(String a, String b) { if(a==null){ return b; }else if(b==null){ return a; } int lenA = a.</description>
+      <description>题目描述： Given two binary strings, return their sum (also a binary string). For example, a = &amp;ldquo;11&amp;rdquo; b = &amp;ldquo;1&amp;rdquo; Return &amp;ldquo;100&amp;rdquo;. 思路： 设置flag表示进位标志，将字符串 a 和 b 依次拿出来“相加”，并将相加的结果存放在 char</description>
     </item>
     
     <item>
@@ -908,8 +476,7 @@ Return &amp;ldquo;100&amp;rdquo;.
       <pubDate>Fri, 07 Apr 2017 00:00:00 +0000</pubDate>
       
       <guid>https://HauyuChen.github.io/post/038-count-and-say/</guid>
-      <description>题目描述： The count-and-say sequence is the sequence of integers with the first five terms as following:
-1. 1 2. 11 3. 21 4. 1211 5. 111221  1 is read off as &amp;ldquo;one 1&amp;rdquo; or 11. 11 is read off as &amp;ldquo;two 1s&amp;rdquo; or 21. 21 is read off as &amp;ldquo;one 2, then one 1&amp;rdquo; or 1211. Given an integer n, generate the nth term of the count-and-say sequence.</description>
+      <description>题目描述： The count-and-say sequence is the sequence of integers with the first five terms as following: 1. 1 2. 11 3. 21 4. 1211 5. 111221 1 is read off as &amp;ldquo;one 1&amp;rdquo; or 11. 11 is read off as &amp;ldquo;two 1s&amp;rdquo; or 21. 21 is read off as &amp;ldquo;one 2, then one 1&amp;rdquo; or 1211. Given an integer n, generate the nth term of the</description>
     </item>
     
     <item>
@@ -918,15 +485,7 @@ Return &amp;ldquo;100&amp;rdquo;.
       <pubDate>Thu, 06 Apr 2017 00:00:00 +0000</pubDate>
       
       <guid>https://HauyuChen.github.io/post/034-search-for-a-range/</guid>
-      <description>题目描述： Given an array of integers sorted in ascending order, find the starting and ending position of a given target value.
-Your algorithm&amp;rsquo;s runtime complexity must be in the order of O(log n).
-If the target is not found in the array, return [-1, -1].
-For example,
-Given [5, 7, 7, 8, 8, 10] and target value 8, return [3, 4].
-
-思路： 本题要求时间复杂度为 O(logn) ，自然应该想到二分查找。
-首先，找到target的位置，然后分别从前从后找首尾位置即可，这是简单明了的解法。
-注：在找到 target 后继续二分查找首尾出现的位置效率会更高一些。</description>
+      <description>题目描述： Given an array of integers sorted in ascending order, find the starting and ending position of a given target value. Your algorithm&amp;rsquo;s runtime complexity must be in the order of O(log n). If the target is not found in the array, return [-1, -1]. For example, Given [5, 7, 7, 8, 8, 10] and target value 8, return [3, 4]. 思路： 本题</description>
     </item>
     
     <item>
@@ -935,17 +494,7 @@ Given [5, 7, 7, 8, 8, 10] and target value 8, return [3, 4].
       <pubDate>Thu, 06 Apr 2017 00:00:00 +0000</pubDate>
       
       <guid>https://HauyuChen.github.io/post/035-search-insert-position/</guid>
-      <description>题目描述： Given a sorted array and a target value, return the index if the target is found. If not, return the index where it would be if it were inserted in order.
-You may assume no duplicates in the array.
-Here are few examples.
-[1,3,5,6], 5 → 2
-[1,3,5,6], 2 → 1
-[1,3,5,6], 7 → 4
-[1,3,5,6], 0 → 0
-
-思路： 大水题，通过二分查找实现。
-注意：如果数组中找不到 target 。
- 要么 target 比当前元素小，返回当前元素的位置（mid）。因为数组后移，当前位置存放 target ； 要么 target 比当前元素大，返回当前元素的位置的后一个位置（mid+1）。</description>
+      <description>题目描述： Given a sorted array and a target value, return the index if the target is found. If not, return the index where it would be if it were inserted in order. You may assume no duplicates in the array. Here are few examples. [1,3,5,6], 5 → 2 [1,3,5,6], 2 → 1 [1,3,5,6], 7 → 4 [1,3,5,6], 0 → 0 思路： 大水题</description>
     </item>
     
     <item>
@@ -954,10 +503,7 @@ Here are few examples.
       <pubDate>Tue, 04 Apr 2017 00:00:00 +0000</pubDate>
       
       <guid>https://HauyuChen.github.io/post/026-remove-duplicates-from-sorted-array/</guid>
-      <description>题目描述： Given a sorted array, remove the duplicates in place such that each element appear only once and return the new length.
-Do not allocate extra space for another array, you must do this in place with constant memory.
-For example, Given input array nums = [1,1,2],
-Your function should return length = 2, with the first two elements of nums being 1 and 2 respectively. It doesn&amp;rsquo;t matter what you leave beyond the new length.</description>
+      <description>题目描述： Given a sorted array, remove the duplicates in place such that each element appear only once and return the new length. Do not allocate extra space for another array, you must do this in place with constant memory. For example, Given input array nums = [1,1,2], Your function should return length = 2, with the first two elements of nums being 1 and 2 respectively.</description>
     </item>
     
     <item>
@@ -966,12 +512,7 @@ Your function should return length = 2, with the first two elements of nums bein
       <pubDate>Tue, 04 Apr 2017 00:00:00 +0000</pubDate>
       
       <guid>https://HauyuChen.github.io/post/027-remove-element/</guid>
-      <description>题目描述： Given an array and a value, remove all instances of that value in place and return the new length.
-Do not allocate extra space for another array, you must do this in place with constant memory.
-The order of elements can be changed. It doesn&amp;rsquo;t matter what you leave beyond the new length.
-Example:
-Given input array nums = [3,2,2,3], val = 3
-Your function should return length = 2, with the first two elements of nums being 2.</description>
+      <description>题目描述： Given an array and a value, remove all instances of that value in place and return the new length. Do not allocate extra space for another array, you must do this in place with constant memory. The order of elements can be changed. It doesn&amp;rsquo;t matter what you leave beyond the new length. Example: Given input array nums = [3,2,2,3], val = 3 Your function</description>
     </item>
     
     <item>
@@ -980,8 +521,7 @@ Your function should return length = 2, with the first two elements of nums bein
       <pubDate>Mon, 03 Apr 2017 00:00:00 +0000</pubDate>
       
       <guid>https://HauyuChen.github.io/post/011-container-with-most-water/</guid>
-      <description>题目描述： Given n non-negative integers a1, a2, &amp;hellip;, an, where each represents a point at coordinate (i, ai). n vertical lines are drawn such that the two endpoints of line i is at (i, ai) and (i, 0). Find two lines, which together with x-axis forms a container, such that the container contains the most water.
-Note: You may not slant the container and n is at least 2.</description>
+      <description>题目描述： Given n non-negative integers a1, a2, &amp;hellip;, an, where each represents a point at coordinate (i, ai). n vertical lines are drawn such that the two endpoints of line i is at (i, ai) and (i, 0). Find two lines, which together with x-axis forms a container, such that the container contains the most water. Note: You may not slant the container and n is</description>
     </item>
     
     <item>
@@ -990,12 +530,7 @@ Note: You may not slant the container and n is at least 2.</description>
       <pubDate>Mon, 03 Apr 2017 00:00:00 +0000</pubDate>
       
       <guid>https://HauyuChen.github.io/post/009-palindrome-number/</guid>
-      <description>题目描述： Determine whether an integer is a palindrome. Do this without extra space.
-click to show spoilers.
-Some hints:
-Could negative integers be palindromes? (ie, -1)
-If you are thinking of converting the integer to string, note the restriction of using extra space.
-You could also try reversing an integer. However, if you have solved the problem &amp;ldquo;Reverse Integer&amp;rdquo;, you know that the reversed integer might overflow. How would you handle such case?</description>
+      <description>题目描述： Determine whether an integer is a palindrome. Do this without extra space. click to show spoilers. Some hints: Could negative integers be palindromes? (ie, -1) If you are thinking of converting the integer to string, note the restriction of using extra space. You could also try reversing an integer. However, if you have solved the problem &amp;ldquo;Reverse Integer&amp;rdquo;, you know that the reversed integer might</description>
     </item>
     
     <item>
@@ -1004,10 +539,7 @@ You could also try reversing an integer. However, if you have solved the problem
       <pubDate>Sun, 02 Apr 2017 00:00:00 +0000</pubDate>
       
       <guid>https://HauyuChen.github.io/post/002-add-two-numbers/</guid>
-      <description>题目描述： You are given two non-empty linked lists representing two non-negative integers. The digits are stored in reverse order and each of their nodes contain a single digit. Add the two numbers and return it as a linked list.
-You may assume the two numbers do not contain any leading zero, except the number 0 itself.
-Input: (2 -&amp;gt; 4 -&amp;gt; 3) + (5 -&amp;gt; 6 -&amp;gt; 4)
-Output: 7 -&amp;gt; 0 -&amp;gt; 8</description>
+      <description>题目描述： You are given two non-empty linked lists representing two non-negative integers. The digits are stored in reverse order and each of their nodes contain a single digit. Add the two numbers and return it as a linked list. You may assume the two numbers do not contain any leading zero, except the number 0 itself. Input: (2 -&amp;gt; 4 -&amp;gt; 3) + (5 -&amp;gt; 6</description>
     </item>
     
     <item>
@@ -1016,9 +548,7 @@ Output: 7 -&amp;gt; 0 -&amp;gt; 8</description>
       <pubDate>Sun, 02 Apr 2017 00:00:00 +0000</pubDate>
       
       <guid>https://HauyuChen.github.io/post/006-zigzag-conversion/</guid>
-      <description>题目描述： The string &amp;ldquo;PAYPALISHIRING&amp;rdquo; is written in a zigzag pattern on a given number of rows like this: (you may want to display this pattern in a fixed font for better legibility)
-P A H N A P L S I I G Y I R  And then read line by line: &amp;ldquo;PAHNAPLSIIGYIR&amp;rdquo;
-Write the code that will take a string and make this conversion given a number of rows:</description>
+      <description>题目描述： The string &amp;ldquo;PAYPALISHIRING&amp;rdquo; is written in a zigzag pattern on a given number of rows like this: (you may want to display this pattern in a fixed font for better legibility) P A H N A P L S I I G Y I R And then read line by line: &amp;ldquo;PAHNAPLSIIGYIR&amp;rdquo; Write the code that will take a string and make this conversion given</description>
     </item>
     
     <item>
@@ -1027,15 +557,7 @@ Write the code that will take a string and make this conversion given a number o
       <pubDate>Sun, 02 Apr 2017 00:00:00 +0000</pubDate>
       
       <guid>https://HauyuChen.github.io/post/007-reverse-integer/</guid>
-      <description>题目描述： Reverse digits of an integer.
-Example1:
-x = 123, return 321
-Example2:
-x = -123, return -321
-click to show spoilers.
-Have you thought about this? Here are some good questions to ask before coding. Bonus points for you if you have already thought through this!
-If the integer&amp;rsquo;s last digit is 0, what should the output be? ie, cases such as 10, 100.
-Did you notice that the reversed integer might overflow?</description>
+      <description>题目描述： Reverse digits of an integer. Example1: x = 123, return 321 Example2: x = -123, return -321 click to show spoilers. Have you thought about this? Here are some good questions to ask before coding. Bonus points for you if you have already thought through this! If the integer&amp;rsquo;s last digit is 0, what should the output be? ie, cases such as 10, 100. Did</description>
     </item>
     
     <item>
@@ -1044,11 +566,7 @@ Did you notice that the reversed integer might overflow?</description>
       <pubDate>Mon, 27 Mar 2017 00:00:00 +0000</pubDate>
       
       <guid>https://HauyuChen.github.io/post/599-minimum-index-sum-of-two-lists/</guid>
-      <description>题目描述： Suppose Andy and Doris want to choose a restaurant for dinner, and they both have a list of favorite restaurants represented by strings.
-You need to help them find out their common interest with the least list index sum. If there is a choice tie between answers, output all of them with no order requirement. You could assume there always exists an answer.
-Example 1:
-Input:
-[&amp;ldquo;Shogun&amp;rdquo;, &amp;ldquo;Tapioca Express&amp;rdquo;, &amp;ldquo;Burger King&amp;rdquo;, &amp;ldquo;KFC&amp;rdquo;]</description>
+      <description>题目描述： Suppose Andy and Doris want to choose a restaurant for dinner, and they both have a list of favorite restaurants represented by strings. You need to help them find out their common interest with the least list index sum. If there is a choice tie between answers, output all of them with no order requirement. You could assume there always exists an answer. Example 1:</description>
     </item>
     
     <item>
@@ -1057,8 +575,7 @@ Input:
       <pubDate>Mon, 27 Mar 2017 00:00:00 +0000</pubDate>
       
       <guid>https://HauyuChen.github.io/post/617-merge-two-binary-trees/</guid>
-      <description>题目描述： Given two binary trees and imagine that when you put one of them to cover the other, some nodes of the two trees are overlapped while the others are not.
-You need to merge them into a new binary tree. The merge rule is that if two nodes overlap, then sum node values up as the new value of the merged node. Otherwise, the NOT null node will be used as the node of new tree.</description>
+      <description>题目描述： Given two binary trees and imagine that when you put one of them to cover the other, some nodes of the two trees are overlapped while the others are not. You need to merge them into a new binary tree. The merge rule is that if two nodes overlap, then sum node values up as the new value of the merged node. Otherwise, the NOT</description>
     </item>
     
     <item>
@@ -1067,11 +584,7 @@ You need to merge them into a new binary tree. The merge rule is that if two nod
       <pubDate>Sun, 26 Mar 2017 00:00:00 +0000</pubDate>
       
       <guid>https://HauyuChen.github.io/post/575-distribute-candies/</guid>
-      <description>题目描述： Given an integer array with even length, where different numbers in this array represent different kinds of candies. Each number means one candy of the corresponding kind. You need to distribute these candies equally in number to brother and sister. Return the maximum number of kinds of candies the sister could gain.
-Example 1:
-Input: candies = [1,1,2,2,3,3]
-Output: 3
-Explanation: There are three different kinds of candies (1, 2 and 3), and two candies for each kind.</description>
+      <description>题目描述： Given an integer array with even length, where different numbers in this array represent different kinds of candies. Each number means one candy of the corresponding kind. You need to distribute these candies equally in number to brother and sister. Return the maximum number of kinds of candies the sister could gain. Example 1: Input: candies = [1,1,2,2,3,3] Output: 3 Explanation: There are three different</description>
     </item>
     
     <item>
@@ -1080,9 +593,7 @@ Explanation: There are three different kinds of candies (1, 2 and 3), and two ca
       <pubDate>Sun, 26 Mar 2017 00:00:00 +0000</pubDate>
       
       <guid>https://HauyuChen.github.io/post/598-range-addition-ii/</guid>
-      <description>题目描述： Given an m * n matrix M initialized with all 0&amp;rsquo;s and several update operations.
-Operations are represented by a 2D array, and each operation is represented by an array with two positive integers a and b, which means M[i][j] should be added by one for all 0 &amp;lt;= i &amp;lt; a and 0 &amp;lt;= j &amp;lt; b.
-You need to count and return the number of maximum integers in the matrix after performing all the operations.</description>
+      <description>题目描述： Given an m * n matrix M initialized with all 0&amp;rsquo;s and several update operations. Operations are represented by a 2D array, and each operation is represented by an array with two positive integers a and b, which means M[i][j] should be added by one for all 0 &amp;lt;= i &amp;lt; a and 0 &amp;lt;= j &amp;lt; b. You need to count and return the</description>
     </item>
     
     <item>
@@ -1091,13 +602,7 @@ You need to count and return the number of maximum integers in the matrix after 
       <pubDate>Sat, 25 Mar 2017 00:00:00 +0000</pubDate>
       
       <guid>https://HauyuChen.github.io/post/557-reverse-words-in-a-string-iii/</guid>
-      <description>题目描述： Given a string, you need to reverse the order of characters in each word within a sentence while still preserving whitespace and initial word order.
-Example 1:
-Input: &amp;ldquo;Let&amp;rsquo;s take LeetCode contest&amp;rdquo;
-Output: &amp;ldquo;s&amp;rsquo;teL ekat edoCteeL tsetnoc&amp;rdquo;
-Note: In the string, each word is separated by single space and there will not be any extra space in the string.
-
-代码实现： class Solution { public: string reverseWords(string s) { vector&amp;lt;int&amp;gt; stack; int index = 0; for(int i=0;i&amp;lt;s.</description>
+      <description>题目描述： Given a string, you need to reverse the order of characters in each word within a sentence while still preserving whitespace and initial word order. Example 1: Input: &amp;ldquo;Let&amp;rsquo;s take LeetCode contest&amp;rdquo; Output: &amp;ldquo;s&amp;rsquo;teL ekat edoCteeL tsetnoc&amp;rdquo; Note: In the string, each word is separated by single space and there will not be any extra space in the string. 代码实现： class</description>
     </item>
     
     <item>
@@ -1106,13 +611,7 @@ Note: In the string, each word is separated by single space and there will not b
       <pubDate>Sat, 25 Mar 2017 00:00:00 +0000</pubDate>
       
       <guid>https://HauyuChen.github.io/post/561-array-partition-i/</guid>
-      <description>题目描述： Given an array of 2n integers, your task is to group these integers into n pairs of integer, say (a1, b1), (a2, b2), &amp;hellip;, (an, bn) which makes sum of min(ai, bi) for all i from 1 to n as large as possible.
-Example 1:
-Input: [1,4,3,2]
-Output: 4
-Explanation: n is 2, and the maximum sum of pairs is 4.
-Note:
-n is a positive integer, which is in the range of [1, 10000].</description>
+      <description>题目描述： Given an array of 2n integers, your task is to group these integers into n pairs of integer, say (a1, b1), (a2, b2), &amp;hellip;, (an, bn) which makes sum of min(ai, bi) for all i from 1 to n as large as possible. Example 1: Input: [1,4,3,2] Output: 4 Explanation: n is 2, and the maximum sum of pairs is 4. Note: n is a</description>
     </item>
     
     <item>
@@ -1121,12 +620,7 @@ n is a positive integer, which is in the range of [1, 10000].</description>
       <pubDate>Sat, 25 Mar 2017 00:00:00 +0000</pubDate>
       
       <guid>https://HauyuChen.github.io/post/563-binary-tree-tilt/</guid>
-      <description>题目描述： Given a binary tree, return the tilt of the whole tree.
-The tilt of a tree node is defined as the absolute difference between the sum of all left subtree node values and the sum of all right subtree node values. Null node has tilt 0.
-The tilt of the whole tree is defined as the sum of all nodes&amp;rsquo; tilt.
-Example:
-Input:
- 1 / \ 2 3  Output: 1</description>
+      <description>题目描述： Given a binary tree, return the tilt of the whole tree. The tilt of a tree node is defined as the absolute difference between the sum of all left subtree node values and the sum of all right subtree node values. Null node has tilt 0. The tilt of the whole tree is defined as the sum of all nodes&amp;rsquo; tilt. Example: Input: 1 /</description>
     </item>
     
     <item>
@@ -1135,9 +629,7 @@ Input:
       <pubDate>Sat, 25 Mar 2017 00:00:00 +0000</pubDate>
       
       <guid>https://HauyuChen.github.io/post/566-reshape-the-matrix/</guid>
-      <description>题目描述： In MATLAB, there is a very useful function called &amp;lsquo;reshape&amp;rsquo;, which can reshape a matrix into a new one with different size but keep its original data.
-You&amp;rsquo;re given a matrix represented by a two-dimensional array, and two positive integers r and c representing the row number and column number of the wanted reshaped matrix, respectively.
-The reshaped matrix need to be filled with all the elements of the original matrix in the same row-traversing order as they were.</description>
+      <description>题目描述： In MATLAB, there is a very useful function called &amp;lsquo;reshape&amp;rsquo;, which can reshape a matrix into a new one with different size but keep its original data. You&amp;rsquo;re given a matrix represented by a two-dimensional array, and two positive integers r and c representing the row number and column number of the wanted reshaped matrix, respectively. The reshaped matrix need to be filled with all</description>
     </item>
     
     <item>
@@ -1146,10 +638,7 @@ The reshaped matrix need to be filled with all the elements of the original matr
       <pubDate>Fri, 24 Mar 2017 00:00:00 +0000</pubDate>
       
       <guid>https://HauyuChen.github.io/post/543-diameter-of-binary-tree/</guid>
-      <description>题目描述： Given a binary tree, you need to compute the length of the diameter of the tree. The diameter of a binary tree is the length of the longest path between any two nodes in a tree. This path may or may not pass through the root.
-Example:
-Given a binary tree
- 1 / \ 2 3 / \ 4 5  Return 3, which is the length of the path [4,2,1,3] or [5,2,1,3].</description>
+      <description>题目描述： Given a binary tree, you need to compute the length of the diameter of the tree. The diameter of a binary tree is the length of the longest path between any two nodes in a tree. This path may or may not pass through the root. Example: Given a binary tree 1 / \ 2 3 / \ 4 5 Return 3, which is the</description>
     </item>
     
     <item>
@@ -1158,9 +647,7 @@ Given a binary tree
       <pubDate>Fri, 24 Mar 2017 00:00:00 +0000</pubDate>
       
       <guid>https://HauyuChen.github.io/post/551-student-attendance-record-i/</guid>
-      <description>题目描述： You are given a string representing an attendance record for a student. The record only contains the following three characters:
- &amp;lsquo;A&amp;rsquo; : Absent. &amp;lsquo;L&amp;rsquo; : Late. &amp;lsquo;P&amp;rsquo; : Present.  A student could be rewarded if his attendance record doesn&amp;rsquo;t contain more than one &amp;lsquo;A&amp;rsquo; (absent) or more than two continuous &amp;lsquo;L&amp;rsquo; (late).
-You need to return whether the student could be rewarded according to his attendance record.</description>
+      <description>题目描述： You are given a string representing an attendance record for a student. The record only contains the following three characters: &amp;lsquo;A&amp;rsquo; : Absent. &amp;lsquo;L&amp;rsquo; : Late. &amp;lsquo;P&amp;rsquo; : Present. A student could be rewarded if his attendance record doesn&amp;rsquo;t contain more than one &amp;lsquo;A&amp;rsquo; (absent) or more than two continuous &amp;lsquo;L&amp;rsquo; (late). You need to return whether the student could be rewarded according to his</description>
     </item>
     
     <item>
@@ -1169,15 +656,7 @@ You need to return whether the student could be rewarded according to his attend
       <pubDate>Thu, 23 Mar 2017 00:00:00 +0000</pubDate>
       
       <guid>https://HauyuChen.github.io/post/530-minimum-absolute-difference-in-bst/</guid>
-      <description>题目描述： Given a binary search tree with non-negative values, find the minimum absolute difference between values of any two nodes.
-Example:
-Input:
- 1 \ 3 / 2  Output:
-1
-Explanation:
-The minimum absolute difference is 1, which is the difference between 2 and 1 (or between 2 and 3). Note: There are at least two nodes in this BST.
-
-代码实现： /** * Definition for a binary tree node.</description>
+      <description>题目描述： Given a binary search tree with non-negative values, find the minimum absolute difference between values of any two nodes. Example: Input: 1 \ 3 / 2 Output: 1 Explanation: The minimum absolute difference is 1, which is the difference between 2 and 1 (or between 2 and 3). Note: There are at least two nodes in this BST. 代码实现： /** *</description>
     </item>
     
     <item>
@@ -1186,16 +665,7 @@ The minimum absolute difference is 1, which is the difference between 2 and 1 (o
       <pubDate>Thu, 23 Mar 2017 00:00:00 +0000</pubDate>
       
       <guid>https://HauyuChen.github.io/post/537-complex-number-multiplication/</guid>
-      <description>题目描述： Given two strings representing two complex numbers.
-You need to return a string representing their multiplication. Note i2 = -1 according to the definition.
-Example 1:
-Input: &amp;ldquo;1+1i&amp;rdquo;, &amp;ldquo;1+1i&amp;rdquo;
-Output: &amp;ldquo;0+2i&amp;rdquo;
-Explanation: (1 + i) * (1 + i) = 1 + i2 + 2 * i = 2i, and you need convert it to the form of 0+2i.
-Example 2:
-Input: &amp;ldquo;1+-1i&amp;rdquo;, &amp;ldquo;1+-1i&amp;rdquo;
-Output: &amp;ldquo;0+-2i&amp;rdquo;
-Explanation: (1 - i) * (1 - i) = 1 + i2 - 2 * i = -2i, and you need convert it to the form of 0+-2i.</description>
+      <description>题目描述： Given two strings representing two complex numbers. You need to return a string representing their multiplication. Note i2 = -1 according to the definition. Example 1: Input: &amp;ldquo;1+1i&amp;rdquo;, &amp;ldquo;1+1i&amp;rdquo; Output: &amp;ldquo;0+2i&amp;rdquo; Explanation: (1 + i) * (1 + i) = 1 + i2 + 2 * i = 2i, and you need convert it to the form of 0+2i. Example 2: Input: &amp;ldquo;1+-1i&amp;rdquo;, &amp;ldquo;1+-1i&amp;rdquo; Output:</description>
     </item>
     
     <item>
@@ -1204,9 +674,7 @@ Explanation: (1 - i) * (1 - i) = 1 + i2 - 2 * i = -2i, and you need convert it t
       <pubDate>Thu, 23 Mar 2017 00:00:00 +0000</pubDate>
       
       <guid>https://HauyuChen.github.io/post/541-reverse-string-ii/</guid>
-      <description>题目描述： Given a string and an integer k, you need to reverse the first k characters for every 2k characters counting from the start of the string. If there are less than k characters left, reverse all of them. If there are less than 2k but greater than or equal to k characters, then reverse the first k characters and left the other as original.
-Example:
-Input: s = &amp;ldquo;abcdefg&amp;rdquo;, k = 2</description>
+      <description>题目描述： Given a string and an integer k, you need to reverse the first k characters for every 2k characters counting from the start of the string. If there are less than k characters left, reverse all of them. If there are less than 2k but greater than or equal to k characters, then reverse the first k characters and left the other as original. Example:</description>
     </item>
     
     <item>
@@ -1215,10 +683,7 @@ Input: s = &amp;ldquo;abcdefg&amp;rdquo;, k = 2</description>
       <pubDate>Wed, 22 Mar 2017 00:00:00 +0000</pubDate>
       
       <guid>https://HauyuChen.github.io/post/520-detect-capital/</guid>
-      <description>题目描述： Given a word, you need to judge whether the usage of capitals in it is right or not.
-We define the usage of capitals in a word to be right when one of the following cases holds:
-All letters in this word are capitals, like &amp;ldquo;USA&amp;rdquo;. All letters in this word are not capitals, like &amp;ldquo;leetcode&amp;rdquo;.
-Only the first letter in this word is capital if it has more than one letter, like &amp;ldquo;Google&amp;rdquo;.</description>
+      <description>题目描述： Given a word, you need to judge whether the usage of capitals in it is right or not. We define the usage of capitals in a word to be right when one of the following cases holds: All letters in this word are capitals, like &amp;ldquo;USA&amp;rdquo;. All letters in this word are not capitals, like &amp;ldquo;leetcode&amp;rdquo;. Only the first letter in this word is capital</description>
     </item>
     
     <item>
@@ -1227,8 +692,7 @@ Only the first letter in this word is capital if it has more than one letter, li
       <pubDate>Wed, 22 Mar 2017 00:00:00 +0000</pubDate>
       
       <guid>https://HauyuChen.github.io/post/521-longest-uncommon-subsequence-i/</guid>
-      <description>题目描述： Given a group of two strings, you need to find the longest uncommon subsequence of this group of two strings. The longest uncommon subsequence is defined as the longest subsequence of one of these strings and this subsequence should not be any subsequence of the other strings.
-A subsequence is a sequence that can be derived from one sequence by deleting some characters without changing the order of the remaining elements.</description>
+      <description>题目描述： Given a group of two strings, you need to find the longest uncommon subsequence of this group of two strings. The longest uncommon subsequence is defined as the longest subsequence of one of these strings and this subsequence should not be any subsequence of the other strings. A subsequence is a sequence that can be derived from one sequence by deleting some characters without changing</description>
     </item>
     
     <item>
@@ -1237,11 +701,7 @@ A subsequence is a sequence that can be derived from one sequence by deleting so
       <pubDate>Tue, 21 Mar 2017 00:00:00 +0000</pubDate>
       
       <guid>https://HauyuChen.github.io/post/506-relative-ranks/</guid>
-      <description>题目描述： Given scores of N athletes, find their relative ranks and the people with the top three highest scores, who will be awarded medals: &amp;ldquo;Gold Medal&amp;rdquo;, &amp;ldquo;Silver Medal&amp;rdquo; and &amp;ldquo;Bronze Medal&amp;rdquo;.
-Example 1:
-Input: [5, 4, 3, 2, 1]
-Output: [&amp;ldquo;Gold Medal&amp;rdquo;, &amp;ldquo;Silver Medal&amp;rdquo;, &amp;ldquo;Bronze Medal&amp;rdquo;, &amp;ldquo;4&amp;rdquo;, &amp;ldquo;5&amp;rdquo;]
-Explanation: The first three athletes got the top three highest scores, so they got &amp;ldquo;Gold Medal&amp;rdquo;, &amp;ldquo;Silver Medal&amp;rdquo; and &amp;ldquo;Bronze Medal&amp;rdquo;. For the left two athletes, you just need to output their relative ranks according to their scores.</description>
+      <description>题目描述： Given scores of N athletes, find their relative ranks and the people with the top three highest scores, who will be awarded medals: &amp;ldquo;Gold Medal&amp;rdquo;, &amp;ldquo;Silver Medal&amp;rdquo; and &amp;ldquo;Bronze Medal&amp;rdquo;. Example 1: Input: [5, 4, 3, 2, 1] Output: [&amp;ldquo;Gold Medal&amp;rdquo;, &amp;ldquo;Silver Medal&amp;rdquo;, &amp;ldquo;Bronze Medal&amp;rdquo;, &amp;ldquo;4&amp;rdquo;, &amp;ldquo;5&amp;rdquo;] Explanation: The first three athletes got the top three highest scores, so they got &amp;ldquo;Gold Medal&amp;rdquo;, &amp;ldquo;Silver Medal&amp;rdquo;</description>
     </item>
     
     <item>
@@ -1250,10 +710,7 @@ Explanation: The first three athletes got the top three highest scores, so they 
       <pubDate>Mon, 20 Mar 2017 00:00:00 +0000</pubDate>
       
       <guid>https://HauyuChen.github.io/post/496-next-greater-element-i/</guid>
-      <description>题目描述： You are given two arrays (without duplicates) nums1 and nums2 where nums1’s elements are subset of nums2. Find all the next greater numbers for nums1&amp;rsquo;s elements in the corresponding places of nums2.
-The Next Greater Number of a number x in nums1 is the first greater number to its right in nums2. If it does not exist, output -1 for this number.
-Example 1:
-Input: nums1 = [4,1,2], nums2 = [1,3,4,2].</description>
+      <description>题目描述： You are given two arrays (without duplicates) nums1 and nums2 where nums1’s elements are subset of nums2. Find all the next greater numbers for nums1&amp;rsquo;s elements in the corresponding places of nums2. The Next Greater Number of a number x in nums1 is the first greater number to its right in nums2. If it does not exist, output -1</description>
     </item>
     
     <item>
@@ -1262,16 +719,7 @@ Input: nums1 = [4,1,2], nums2 = [1,3,4,2].</description>
       <pubDate>Mon, 20 Mar 2017 00:00:00 +0000</pubDate>
       
       <guid>https://HauyuChen.github.io/post/504-base-7/</guid>
-      <description>题目描述： Given an integer, return its base 7 string representation.
-Example 1:
-Input: 100
-Output: &amp;ldquo;202&amp;rdquo;
-Example 2:
-Input: -7
-Output: &amp;ldquo;-10&amp;rdquo;
-Note: The input will be in range of [-1e7, 1e7].
-
-代码实现： class Solution { public: string convertToBase7(int num) { string str=&amp;quot;&amp;quot;; int nega=0; if(num&amp;lt;0){ nega = 1; num = abs(num); } while(num/7){ str+=to_string(num%7); num/=7; } str+=to_string(num%7); if(nega){ str+=&amp;quot;-&amp;quot;; } reverse(str.begin(),str.end()); return str; } };</description>
+      <description>题目描述： Given an integer, return its base 7 string representation. Example 1: Input: 100 Output: &amp;ldquo;202&amp;rdquo; Example 2: Input: -7 Output: &amp;ldquo;-10&amp;rdquo; Note: The input will be in range of [-1e7, 1e7]. 代码实现： class Solution { public: string convertToBase7(int num) { string str=&amp;quot;&amp;quot;; int nega=0; if(num&amp;lt;0){ nega = 1; num = abs(num); } while(num/7){ str+=to_string(num%7); num/=7; } str+=to_string(num%7); if(nega){ str+=&amp;quot;-&amp;quot;; } reverse(str.begin(),str.end());</description>
     </item>
     
     <item>
@@ -1280,9 +728,7 @@ Note: The input will be in range of [-1e7, 1e7].
       <pubDate>Sun, 19 Mar 2017 00:00:00 +0000</pubDate>
       
       <guid>https://HauyuChen.github.io/post/492-construct-the-rectangle/</guid>
-      <description>题目描述： For a web developer, it is very important to know how to design a web page&amp;rsquo;s size. So, given a specific rectangular web page’s area, your job by now is to design a rectangular web page, whose length L and width W satisfy the following requirements:
- The area of the rectangular web page you designed must equal to the given target area.
- The width W should not be larger than the length L, which means L &amp;gt;= W.</description>
+      <description>题目描述： For a web developer, it is very important to know how to design a web page&amp;rsquo;s size. So, given a specific rectangular web page’s area, your job by now is to design a rectangular web page, whose length L and width W satisfy the following requirements: The area of the rectangular web page you designed must equal to the given</description>
     </item>
     
     <item>
@@ -1291,16 +737,7 @@ Note: The input will be in range of [-1e7, 1e7].
       <pubDate>Sat, 18 Mar 2017 00:00:00 +0000</pubDate>
       
       <guid>https://HauyuChen.github.io/post/485-max-consecutive-ones/</guid>
-      <description>题目描述： Given a binary array, find the maximum number of consecutive 1s in this array.
-Example 1:
-Input: [1,1,0,1,1,1]
-Output: 3
-Explanation: The first two digits or the last three digits are consecutive 1s. The maximum number of consecutive 1s is 3.
-Note:
-The input array will only contain 0 and 1.
-The length of input array is a positive integer and will not exceed 10,000
-
-代码实现： class Solution { public: int findMaxConsecutiveOnes(vector&amp;lt;int&amp;gt;&amp;amp; nums) { int cnt=0,max=0; for(int num:nums){ if(num==1){ cnt++; }else{ cnt=0; } max = max&amp;gt;cnt?</description>
+      <description>题目描述： Given a binary array, find the maximum number of consecutive 1s in this array. Example 1: Input: [1,1,0,1,1,1] Output: 3 Explanation: The first two digits or the last three digits are consecutive 1s. The maximum number of consecutive 1s is 3. Note: The input array will only contain 0 and 1. The length of input array is a positive integer and will not exceed 10,000</description>
     </item>
     
     <item>
@@ -1309,13 +746,7 @@ The length of input array is a positive integer and will not exceed 10,000
       <pubDate>Fri, 17 Mar 2017 00:00:00 +0000</pubDate>
       
       <guid>https://HauyuChen.github.io/post/476-number-complement/</guid>
-      <description>题目描述： Given a positive integer, output its complement number. The complement strategy is to flip the bits of its binary representation.
-Note:
-The given integer is guaranteed to fit within the range of a 32-bit signed integer. You could assume no leading zero bit in the integer’s binary representation.
-Example 1:
-Input: 5
-Output: 2
-Explanation: The binary representation of 5 is 101 (no leading zero bits), and its complement is 010.</description>
+      <description>题目描述： Given a positive integer, output its complement number. The complement strategy is to flip the bits of its binary representation. Note: The given integer is guaranteed to fit within the range of a 32-bit signed integer. You could assume no leading zero bit in the integer’s binary representation. Example 1: Input: 5 Output: 2 Explanation: The binary</description>
     </item>
     
     <item>
@@ -1324,7 +755,7 @@ Explanation: The binary representation of 5 is 101 (no leading zero bits), and i
       <pubDate>Thu, 16 Mar 2017 00:00:00 +0000</pubDate>
       
       <guid>https://HauyuChen.github.io/post/455-assign-cookies/</guid>
-      <description>题目描述： Assume you are an awesome parent and want to give your children some cookies. But, you should give each child at most one cookie. Each child i has a greed factor gi, which is the minimum size of a cookie that the child will be content with; and each cookie j has a size sj. If sj &amp;gt;= gi, we can assign the cookie j to the child i, and the child i will be content.</description>
+      <description>题目描述： Assume you are an awesome parent and want to give your children some cookies. But, you should give each child at most one cookie. Each child i has a greed factor gi, which is the minimum size of a cookie that the child will be content with; and each cookie j has a size sj. If sj &amp;gt;= gi, we can assign the cookie j</description>
     </item>
     
     <item>
@@ -1333,14 +764,7 @@ Explanation: The binary representation of 5 is 101 (no leading zero bits), and i
       <pubDate>Thu, 16 Mar 2017 00:00:00 +0000</pubDate>
       
       <guid>https://HauyuChen.github.io/post/461-hamming-distance/</guid>
-      <description>题目描述： The Hamming distance between two integers is the number of positions at which the corresponding bits are different.
-Given two integers x and y, calculate the Hamming distance.
-Note: 0 ≤ x, y &amp;lt; 231.
-Example:
-Input: x = 1, y = 4
-Output: 2
-Explanation:
-1 (0 0 0 1) 4 (0 1 0 0) ↑ ↑  The above arrows point to positions where the corresponding bits are different.</description>
+      <description>题目描述： The Hamming distance between two integers is the number of positions at which the corresponding bits are different. Given two integers x and y, calculate the Hamming distance. Note: 0 ≤ x, y &amp;lt; 231. Example: Input: x = 1, y = 4 Output: 2 Explanation: 1 (0 0 0 1) 4 (0 1 0 0) ↑ ↑ The above arrows point to positions where</description>
     </item>
     
     <item>
@@ -1349,7 +773,7 @@ Explanation:
       <pubDate>Thu, 16 Mar 2017 00:00:00 +0000</pubDate>
       
       <guid>https://HauyuChen.github.io/post/463-island-perimeter/</guid>
-      <description>题目描述： You are given a map in form of a two-dimensional integer grid where 1 represents land and 0 represents water. Grid cells are connected horizontally/vertically (not diagonally). The grid is completely surrounded by water, and there is exactly one island (i.e., one or more connected land cells). The island doesn&amp;rsquo;t have &amp;ldquo;lakes&amp;rdquo; (water inside that isn&amp;rsquo;t connected to the water around the island). One cell is a square with side length 1.</description>
+      <description>题目描述： You are given a map in form of a two-dimensional integer grid where 1 represents land and 0 represents water. Grid cells are connected horizontally/vertically (not diagonally). The grid is completely surrounded by water, and there is exactly one island (i.e., one or more connected land cells). The island doesn&amp;rsquo;t have &amp;ldquo;lakes&amp;rdquo; (water inside that isn&amp;rsquo;t connected to the water around the island). One cell</description>
     </item>
     
     <item>
@@ -1358,17 +782,7 @@ Explanation:
       <pubDate>Wed, 15 Mar 2017 00:00:00 +0000</pubDate>
       
       <guid>https://HauyuChen.github.io/post/453-minimum-moves-to-equal-array-elements/</guid>
-      <description>题目描述： Given a non-empty integer array of size n, find the minimum number of moves required to make all array elements equal, where a move is incrementing n - 1 elements by 1.
-Example:
-Input:
-[1,2,3]
-Output:
-3
-Explanation:
-Only three moves are needed (remember each move increments two elements):
-[1,2,3] =&amp;gt; [2,3,3] =&amp;gt; [3,4,3] =&amp;gt; [4,4,4]
-
-代码实现： class Solution { public: int minMoves(vector&amp;lt;int&amp;gt;&amp;amp; nums) { int min=INT_MAX; int sum=0; for(int num:nums){ min=min&amp;lt;num?</description>
+      <description>题目描述： Given a non-empty integer array of size n, find the minimum number of moves required to make all array elements equal, where a move is incrementing n - 1 elements by 1. Example: Input: [1,2,3] Output: 3 Explanation: Only three moves are needed (remember each move increments two elements): [1,2,3] =&amp;gt; [2,3,3] =&amp;gt; [3,4,3] =&amp;gt; [4,4,4] 代码实现： class Solution { public:</description>
     </item>
     
     <item>
@@ -1377,14 +791,7 @@ Only three moves are needed (remember each move increments two elements):
       <pubDate>Tue, 21 Feb 2017 00:00:00 +0000</pubDate>
       
       <guid>https://HauyuChen.github.io/post/448-find-all-numbers-disappeared-in-an-array/</guid>
-      <description>题目描述： Given an array of integers where 1 ≤ a[i] ≤ n (n = size of array), some elements appear twice and others appear once.
-Find all the elements of [1, n] inclusive that do not appear in this array.
-Could you do it without extra space and in O(n) runtime? You may assume the returned list does not count as extra space.
-Example:
-Input:
-[4,3,2,7,8,2,3,1]
-Output:
-[5,6]</description>
+      <description>题目描述： Given an array of integers where 1 ≤ a[i] ≤ n (n = size of array), some elements appear twice and others appear once. Find all the elements of [1, n] inclusive that do not appear in this array. Could you do it without extra space and in O(n) runtime? You may assume the returned list does not count as extra space. Example: Input: [4,3,2,7,8,2,3,1]</description>
     </item>
     
     <item>
@@ -1393,8 +800,7 @@ Output:
       <pubDate>Mon, 20 Feb 2017 00:00:00 +0000</pubDate>
       
       <guid>https://HauyuChen.github.io/post/447-number-of-boomerangs/</guid>
-      <description>题目描述： Given n points in the plane that are all pairwise distinct, a &amp;ldquo;boomerang&amp;rdquo; is a tuple of points (i, j, k) such that the distance between i and j equals the distance between i and k (the order of the tuple matters).
-Find the number of boomerangs. You may assume that n will be at most 500 and coordinates of points are all in the range -10000, 10000.</description>
+      <description>题目描述： Given n points in the plane that are all pairwise distinct, a &amp;ldquo;boomerang&amp;rdquo; is a tuple of points (i, j, k) such that the distance between i and j equals the distance between i and k (the order of the tuple matters). Find the number of boomerangs. You may assume that n will be at most 500 and coordinates of points are all in the</description>
     </item>
     
     <item>
@@ -1403,17 +809,7 @@ Find the number of boomerangs. You may assume that n will be at most 500 and coo
       <pubDate>Sun, 19 Feb 2017 00:00:00 +0000</pubDate>
       
       <guid>https://HauyuChen.github.io/post/414-third-maximum-number/</guid>
-      <description>题目描述： Given a non-empty array of integers, return the third maximum number in this array. If it does not exist, return the maximum number. The time complexity must be in O(n).
-Example 1:
-Input: [3, 2, 1]
-Output: 1
-Explanation: The third maximum is 1.
-Example 2:
-Input: [1, 2]
-Output: 2
-Explanation: The third maximum does not exist, so the maximum (2) is returned instead.
-Example 3:
-Input: [2, 2, 3, 1]</description>
+      <description>题目描述： Given a non-empty array of integers, return the third maximum number in this array. If it does not exist, return the maximum number. The time complexity must be in O(n). Example 1: Input: [3, 2, 1] Output: 1 Explanation: The third maximum is 1. Example 2: Input: [1, 2] Output: 2 Explanation: The third maximum does not exist, so the maximum (2) is returned instead.</description>
     </item>
     
     <item>
@@ -1422,14 +818,7 @@ Input: [2, 2, 3, 1]</description>
       <pubDate>Sun, 19 Feb 2017 00:00:00 +0000</pubDate>
       
       <guid>https://HauyuChen.github.io/post/415-add-strings/</guid>
-      <description>题目描述： Given two non-negative integers num1 and num2 represented as string, return the sum of num1 and num2.
-Note:
-The length of both num1 and num2 is &amp;lt; 5100.
-Both num1 and num2 contains only digits 0-9.
-Both num1 and num2 does not contain any leading zero.
-You must not use any built-in BigInteger library or convert the inputs to integer directly.
-
-代码实现： class Solution { public: string addStrings(string num1, string num2) { string str; int index1=num1.</description>
+      <description>题目描述： Given two non-negative integers num1 and num2 represented as string, return the sum of num1 and num2. Note: The length of both num1 and num2 is &amp;lt; 5100. Both num1 and num2 contains only digits 0-9. Both num1 and num2 does not contain any leading zero. You must not use any built-in BigInteger library or convert the inputs to integer directly. 代码实现</description>
     </item>
     
     <item>
@@ -1438,12 +827,7 @@ You must not use any built-in BigInteger library or convert the inputs to intege
       <pubDate>Sat, 18 Feb 2017 00:00:00 +0000</pubDate>
       
       <guid>https://HauyuChen.github.io/post/412-fizz-buzz/</guid>
-      <description>题目描述： Write a program that outputs the string representation of numbers from 1 to n.
-But for multiples of three it should output “Fizz” instead of the number and for the multiples of five output “Buzz”. For numbers which are multiples of both three and five output “FizzBuzz”.
-Example:
-n = 15,
-Return:
-[ &amp;quot;1&amp;quot;, &amp;quot;2&amp;quot;, &amp;quot;Fizz&amp;quot;, &amp;quot;4&amp;quot;, &amp;quot;Buzz&amp;quot;, &amp;quot;Fizz&amp;quot;, &amp;quot;7&amp;quot;, &amp;quot;8&amp;quot;, &amp;quot;Fizz&amp;quot;, &amp;quot;Buzz&amp;quot;, &amp;quot;11&amp;quot;, &amp;quot;Fizz&amp;quot;, &amp;quot;13&amp;quot;, &amp;quot;14&amp;quot;, &amp;quot;FizzBuzz&amp;quot; ]</description>
+      <description>题目描述： Write a program that outputs the string representation of numbers from 1 to n. But for multiples of three it should output “Fizz” instead of the number and for the multiples of five output “Buzz”. For numbers which are multiples of both three and five output “FizzBuz</description>
     </item>
     
     <item>
@@ -1452,17 +836,7 @@ Return:
       <pubDate>Fri, 17 Feb 2017 00:00:00 +0000</pubDate>
       
       <guid>https://HauyuChen.github.io/post/409-longest-palindrome/</guid>
-      <description>题目描述： Given a string which consists of lowercase or uppercase letters, find the length of the longest palindromes that can be built with those letters.
-This is case sensitive, for example &amp;ldquo;Aa&amp;rdquo; is not considered a palindrome here.
-Note:
-Assume the length of given string will not exceed 1,010.
-Example:
-Input:
-&amp;ldquo;abccccdd&amp;rdquo;
-Output:
-7
-Explanation:
-One longest palindrome that can be built is &amp;ldquo;dccaccd&amp;rdquo;, whose length is 7.</description>
+      <description>题目描述： Given a string which consists of lowercase or uppercase letters, find the length of the longest palindromes that can be built with those letters. This is case sensitive, for example &amp;ldquo;Aa&amp;rdquo; is not considered a palindrome here. Note: Assume the length of given string will not exceed 1,010. Example: Input: &amp;ldquo;abccccdd&amp;rdquo; Output: 7 Explanation: One longest palindrome that can be built is &amp;ldquo;dccaccd&amp;rdquo;, whose length</description>
     </item>
     
     <item>
@@ -1471,10 +845,7 @@ One longest palindrome that can be built is &amp;ldquo;dccaccd&amp;rdquo;, whose
       <pubDate>Thu, 16 Feb 2017 00:00:00 +0000</pubDate>
       
       <guid>https://HauyuChen.github.io/post/401-binary-watch/</guid>
-      <description>题目描述： A binary watch has 4 LEDs on the top which represent the hours (0-11), and the 6 LEDs on the bottom represent the minutes (0-59).
-Each LED represents a zero or one, with the least significant bit on the right.
-For example, the above binary watch reads &amp;ldquo;3:25&amp;rdquo;.
-Given a non-negative integer n which represents the number of LEDs that are currently on, return all possible times the watch could represent.</description>
+      <description>题目描述： A binary watch has 4 LEDs on the top which represent the hours (0-11), and the 6 LEDs on the bottom represent the minutes (0-59). Each LED represents a zero or one, with the least significant bit on the right. For example, the above binary watch reads &amp;ldquo;3:25&amp;rdquo;. Given a non-negative integer n which represents the number of LEDs that are currently on, return all</description>
     </item>
     
     <item>
@@ -1483,11 +854,7 @@ Given a non-negative integer n which represents the number of LEDs that are curr
       <pubDate>Thu, 16 Feb 2017 00:00:00 +0000</pubDate>
       
       <guid>https://HauyuChen.github.io/post/404-sum-of-left-leaves/</guid>
-      <description>题目描述： Find the sum of all left leaves in a given binary tree.
-Example:
- 3 / \ 9 20 / \ 15 7  There are two left leaves in the binary tree, with values 9 and 15 respectively. Return 24.
-
-代码实现： /** * Definition for a binary tree node. * struct TreeNode { * int val; * TreeNode *left; * TreeNode *right; * TreeNode(int x) : val(x), left(NULL), right(NULL) {} * }; */ class Solution { public: int sumOfLeftLeaves(TreeNode* root) { if(root==nullptr){ return 0; } int sum=0; if(root-&amp;gt;left){ if(root-&amp;gt;left-&amp;gt;left==nullptr &amp;amp;&amp;amp; root-&amp;gt;left-&amp;gt;right==nullptr){ sum+=root-&amp;gt;left-&amp;gt;val; }else{ sum+=sumOfLeftLeaves(root-&amp;gt;left); } } if(root-&amp;gt;right){ sum+=sumOfLeftLeaves(root-&amp;gt;right); } return sum; } };</description>
+      <description>题目描述： Find the sum of all left leaves in a given binary tree. Example: 3 / \ 9 20 / \ 15 7 There are two left leaves in the binary tree, with values 9 and 15 respectively. Return 24. 代码实现： /** * Definition for a binary tree node. * struct TreeNode { * int val; * TreeNode *left; * TreeNode *right;</description>
     </item>
     
     <item>
@@ -1496,18 +863,7 @@ Example:
       <pubDate>Wed, 15 Feb 2017 00:00:00 +0000</pubDate>
       
       <guid>https://HauyuChen.github.io/post/389-find-the-difference/</guid>
-      <description>题目描述： Given two strings s and t which consist of only lowercase letters.
-String t is generated by random shuffling string s and then add one more letter at a random position.
-Find the letter that was added in t.
-Example:
-Input:
-s = &amp;ldquo;abcd&amp;rdquo; t = &amp;ldquo;abcde&amp;rdquo;
-Output:
-e
-Explanation:
-&amp;lsquo;e&amp;rsquo; is the letter that was added.
-
-代码实现： class Solution { public: char findTheDifference(string s, string t) { char ch = t[0]; for(int i=1;i&amp;lt;t.</description>
+      <description>题目描述： Given two strings s and t which consist of only lowercase letters. String t is generated by random shuffling string s and then add one more letter at a random position. Find the letter that was added in t. Example: Input: s = &amp;ldquo;abcd&amp;rdquo; t = &amp;ldquo;abcde&amp;rdquo; Output: e Explanation: &amp;lsquo;e&amp;rsquo; is the letter that was added. 代码实现： class Solution {</description>
     </item>
     
     <item>
@@ -1516,15 +872,7 @@ Explanation:
       <pubDate>Tue, 14 Feb 2017 00:00:00 +0000</pubDate>
       
       <guid>https://HauyuChen.github.io/post/387-first-unique-character-in-a-string/</guid>
-      <description>题目描述： Given a string, find the first non-repeating character in it and return it&amp;rsquo;s index. If it doesn&amp;rsquo;t exist, return -1.
-Examples:
-s = &amp;ldquo;leetcode&amp;rdquo;,
-return 0.
-s = &amp;ldquo;loveleetcode&amp;rdquo;,
-return 2.
-Note: You may assume the string contain only lowercase letters.
-
-代码实现： class Solution { public: int firstUniqChar(string s) { int arr[26]; for(int i=0;i&amp;lt;26;++i){ arr[i]=0; } for(int i=0;i&amp;lt;s.size();++i){ ++arr[s[i]-&#39;a&#39;]; } for(int i=0;i&amp;lt;s.size();++i){ if(arr[s[i]-&#39;a&#39;]==1){ return i; } } return -1; } };</description>
+      <description>题目描述： Given a string, find the first non-repeating character in it and return it&amp;rsquo;s index. If it doesn&amp;rsquo;t exist, return -1. Examples: s = &amp;ldquo;leetcode&amp;rdquo;, return 0. s = &amp;ldquo;loveleetcode&amp;rdquo;, return 2. Note: You may assume the string contain only lowercase letters. 代码实现： class Solution { public: int firstUniqChar(string s) { int arr[26]; for(int i=0;i&amp;lt;26;++i){ arr[i]=0; } for(int i=0;i&amp;lt;s.size();++i){ ++arr[s[i]-&#39;a&#39;]; } for(int</description>
     </item>
     
     <item>
@@ -1533,11 +881,7 @@ Note: You may assume the string contain only lowercase letters.
       <pubDate>Mon, 13 Feb 2017 00:00:00 +0000</pubDate>
       
       <guid>https://HauyuChen.github.io/post/371-sum-of-two-integers/</guid>
-      <description>题目描述： Calculate the sum of two integers a and b, but you are not allowed to use the operator + and -.
-Example:
-Given a = 1 and b = 2, return 3.
-
-代码实现： class Solution { public: int getSum(int a, int b) { return b==0?a:getSum(a^b,(a&amp;amp;b)&amp;lt;&amp;lt;1); } };</description>
+      <description>题目描述： Calculate the sum of two integers a and b, but you are not allowed to use the operator + and -. Example: Given a = 1 and b = 2, return 3. 代码实现： class Solution { public: int getSum(int a, int b) { return b==0?a:getSum(a^b,(a&amp;amp;b)&amp;lt;&amp;lt;1); } };</description>
     </item>
     
     <item>
@@ -1546,11 +890,7 @@ Given a = 1 and b = 2, return 3.
       <pubDate>Mon, 13 Feb 2017 00:00:00 +0000</pubDate>
       
       <guid>https://HauyuChen.github.io/post/383-ransom-note/</guid>
-      <description>题目描述： Given an arbitrary ransom note string and another string containing letters from all the magazines, write a function that will return true if the ransom note can be constructed from the magazines ; otherwise, it will return false.
-Each letter in the magazine string can only be used once in your ransom note.
-Note:
-You may assume that both strings contain only lowercase letters.
- canConstruct(&amp;ldquo;a&amp;rdquo;, &amp;ldquo;b&amp;rdquo;) -&amp;gt; false canConstruct(&amp;ldquo;aa&amp;rdquo;, &amp;ldquo;ab&amp;rdquo;) -&amp;gt; false canConstruct(&amp;ldquo;aa&amp;rdquo;, &amp;ldquo;aab&amp;rdquo;) -&amp;gt; true</description>
+      <description>题目描述： Given an arbitrary ransom note string and another string containing letters from all the magazines, write a function that will return true if the ransom note can be constructed from the magazines ; otherwise, it will return false. Each letter in the magazine string can only be used once in your ransom note. Note: You may assume that both strings contain only lowercase letters. canConstruct(&amp;ldquo;a&amp;rdquo;,</description>
     </item>
     
     <item>
@@ -1559,13 +899,7 @@ You may assume that both strings contain only lowercase letters.
       <pubDate>Sun, 15 Jan 2017 00:00:00 +0000</pubDate>
       
       <guid>https://HauyuChen.github.io/post/349-intersection-of-two-arrays/</guid>
-      <description>题目描述： Given two arrays, write a function to compute their intersection.
-Example:
-Given nums1 = [1, 2, 2, 1], nums2 = [2, 2], return [2].
-Note:
-Each element in the result must be unique. The result can be in any order.
-
-代码实现： class Solution { public: vector&amp;lt;int&amp;gt; intersection(vector&amp;lt;int&amp;gt;&amp;amp; nums1, vector&amp;lt;int&amp;gt;&amp;amp; nums2) { unordered_set&amp;lt;int&amp;gt; s; vector&amp;lt;int&amp;gt; ret; for(int num1:nums1){ if(s.count(num1)==0){ s.insert(num1); } } for(int num2:nums2){ if(s.count(num2)){ ret.push_back(num2); s.erase(num2); } } return ret; } };</description>
+      <description>题目描述： Given two arrays, write a function to compute their intersection. Example: Given nums1 = [1, 2, 2, 1], nums2 = [2, 2], return [2]. Note: Each element in the result must be unique. The result can be in any order. 代码实现： class Solution { public: vector&amp;lt;int&amp;gt; intersection(vector&amp;lt;int&amp;gt;&amp;amp; nums1, vector&amp;lt;int&amp;gt;&amp;amp; nums2) { unordered_set&amp;lt;int&amp;gt; s; vector&amp;lt;int&amp;gt; ret; for(int num1:nums1){ if(s.count(num1)==0){ s.insert(num1); } }</description>
     </item>
     
     <item>
@@ -1574,13 +908,7 @@ Each element in the result must be unique. The result can be in any order.
       <pubDate>Sun, 15 Jan 2017 00:00:00 +0000</pubDate>
       
       <guid>https://HauyuChen.github.io/post/350-intersection-of-two-arrays-ii/</guid>
-      <description>题目描述： Given two arrays, write a function to compute their intersection.
-Example:
-Given nums1 = [1, 2, 2, 1], nums2 = [2, 2], return [2, 2].
-Note:
-Each element in the result should appear as many times as it shows in both arrays. The result can be in any order.
-Follow up:
-What if the given array is already sorted? How would you optimize your algorithm? What if nums1&amp;rsquo;s size is small compared to nums2&amp;rsquo;s size?</description>
+      <description>题目描述： Given two arrays, write a function to compute their intersection. Example: Given nums1 = [1, 2, 2, 1], nums2 = [2, 2], return [2, 2]. Note: Each element in the result should appear as many times as it shows in both arrays. The result can be in any order. Follow up: What if the given array is already sorted? How would you optimize your algorithm?</description>
     </item>
     
     <item>
@@ -1589,11 +917,7 @@ What if the given array is already sorted? How would you optimize your algorithm
       <pubDate>Fri, 13 Jan 2017 00:00:00 +0000</pubDate>
       
       <guid>https://HauyuChen.github.io/post/344-reverse-string/</guid>
-      <description>题目描述： Write a function that takes a string as input and returns the string reversed.
-Example:
-Given s = &amp;ldquo;hello&amp;rdquo;, return &amp;ldquo;olleh&amp;rdquo;.
-
-代码实现： class Solution { public: string reverseString(string s) { reverse(s.begin(),s.end()); return s; } };</description>
+      <description>题目描述： Write a function that takes a string as input and returns the string reversed. Example: Given s = &amp;ldquo;hello&amp;rdquo;, return &amp;ldquo;olleh&amp;rdquo;. 代码实现： class Solution { public: string reverseString(string s) { reverse(s.begin(),s.end()); return s; } };</description>
     </item>
     
     <item>
@@ -1602,11 +926,7 @@ Given s = &amp;ldquo;hello&amp;rdquo;, return &amp;ldquo;olleh&amp;rdquo;.
       <pubDate>Thu, 12 Jan 2017 00:00:00 +0000</pubDate>
       
       <guid>https://HauyuChen.github.io/post/326-power-of-three/</guid>
-      <description>题目描述： Given an integer, write a function to determine if it is a power of three.
-Follow up:
-Could you do it without using any loop / recursion?
-
-代码实现： class Solution { public: bool isPowerOfThree(int n) { if(n&amp;lt;=0){ return false; } while(n%3==0){ n/=3; } if(n==1){ return true; } return false; } };</description>
+      <description>题目描述： Given an integer, write a function to determine if it is a power of three. Follow up: Could you do it without using any loop / recursion? 代码实现： class Solution { public: bool isPowerOfThree(int n) { if(n&amp;lt;=0){ return false; } while(n%3==0){ n/=3; } if(n==1){ return true; } return false; } };</description>
     </item>
     
     <item>
@@ -1615,11 +935,7 @@ Could you do it without using any loop / recursion?
       <pubDate>Thu, 12 Jan 2017 00:00:00 +0000</pubDate>
       
       <guid>https://HauyuChen.github.io/post/338-counting-bits/</guid>
-      <description>题目描述： Given a non negative integer number num. For every numbers i in the range 0 ≤ i ≤ num calculate the number of 1&amp;rsquo;s in their binary representation and return them as an array.
-Example:
-For num = 5 you should return [0,1,1,2,1,2].
-Follow up:
-It is very easy to come up with a solution with run time O(n*sizeof(integer)). But can you do it in linear time O(n) /possibly in a single pass?</description>
+      <description>题目描述： Given a non negative integer number num. For every numbers i in the range 0 ≤ i ≤ num calculate the number of 1&amp;rsquo;s in their binary representation and return them as an array. Example: For num = 5 you should return [0,1,1,2,1,2]. Follow up: It is very easy to come up with a solution with run time O(n*sizeof(integer)). But can you do it in</description>
     </item>
     
     <item>
@@ -1628,13 +944,7 @@ It is very easy to come up with a solution with run time O(n*sizeof(integer)). B
       <pubDate>Wed, 11 Jan 2017 00:00:00 +0000</pubDate>
       
       <guid>https://HauyuChen.github.io/post/268-missing-number/</guid>
-      <description>题目描述： Given an array containing n distinct numbers taken from 0, 1, 2, &amp;hellip;, n, find the one that is missing from the array.
-For example,
-Given nums = [0, 1, 3] return 2.
-Note:
-Your algorithm should run in linear runtime complexity. Could you implement it using only constant extra space complexity?
-
-代码实现： class Solution { public: int missingNumber(vector&amp;lt;int&amp;gt;&amp;amp; nums) { int sum=0; int realsum=0; bool flag=false; for(int i=0;i&amp;lt;nums.</description>
+      <description>题目描述： Given an array containing n distinct numbers taken from 0, 1, 2, &amp;hellip;, n, find the one that is missing from the array. For example, Given nums = [0, 1, 3] return 2. Note: Your algorithm should run in linear runtime complexity. Could you implement it using only constant extra space complexity? 代码实现： class Solution { public: int missingNumber(vector&amp;lt;int&amp;gt;&amp;amp; nums) {</description>
     </item>
     
     <item>
@@ -1643,12 +953,7 @@ Your algorithm should run in linear runtime complexity. Could you implement it u
       <pubDate>Wed, 11 Jan 2017 00:00:00 +0000</pubDate>
       
       <guid>https://HauyuChen.github.io/post/283-move-zeroes/</guid>
-      <description>题目描述： Given an array nums, write a function to move all 0&amp;rsquo;s to the end of it while maintaining the relative order of the non-zero elements.
-For example, given nums = [0, 1, 0, 3, 12], after calling your function, nums should be [1, 3, 12, 0, 0].
-Note:
-You must do this in-place without making a copy of the array. Minimize the total number of operations.
-
-代码实现： class Solution { public: void moveZeroes(vector&amp;lt;int&amp;gt;&amp;amp; nums) { int index=0; for(int i=0;i&amp;lt;nums.</description>
+      <description>题目描述： Given an array nums, write a function to move all 0&amp;rsquo;s to the end of it while maintaining the relative order of the non-zero elements. For example, given nums = [0, 1, 0, 3, 12], after calling your function, nums should be [1, 3, 12, 0, 0]. Note: You must do this in-place without making a copy of the array. Minimize the total number of</description>
     </item>
     
     <item>
@@ -1657,13 +962,7 @@ You must do this in-place without making a copy of the array. Minimize the total
       <pubDate>Tue, 10 Jan 2017 00:00:00 +0000</pubDate>
       
       <guid>https://HauyuChen.github.io/post/258-add-digits/</guid>
-      <description>题目描述： Given a non-negative integer num, repeatedly add all its digits until the result has only one digit.
-For example:
-Given num = 38, the process is like: 3 + 8 = 11, 1 + 1 = 2. Since 2 has only one digit, return it.
-Follow up:
-Could you do it without any loop/recursion in O(1) runtime?
-
-代码实现： class Solution { public: int addDigits(int num) { return 1+(num-1)%9; } };</description>
+      <description>题目描述： Given a non-negative integer num, repeatedly add all its digits until the result has only one digit. For example: Given num = 38, the process is like: 3 + 8 = 11, 1 + 1 = 2. Since 2 has only one digit, return it. Follow up: Could you do it without any loop/recursion in O(1) runtime? 代码实现： class Solution {</description>
     </item>
     
     <item>
@@ -1672,11 +971,7 @@ Could you do it without any loop/recursion in O(1) runtime?
       <pubDate>Tue, 10 Jan 2017 00:00:00 +0000</pubDate>
       
       <guid>https://HauyuChen.github.io/post/263-ugly-number/</guid>
-      <description>题目描述： Write a program to check whether a given number is an ugly number.
-Ugly numbers are positive numbers whose prime factors only include 2, 3, 5. For example, 6, 8 are ugly while 14 is not ugly since it includes another prime factor 7.
-Note that 1 is typically treated as an ugly number.
-
-代码实现： class Solution { public: bool isUgly(int num) { if(num&amp;lt;=0){ return false; } while(num%2==0){ num/=2; } while(num%3==0){ num/=3; } while(num%5==0){ num/=5; } return num==1?</description>
+      <description>题目描述： Write a program to check whether a given number is an ugly number. Ugly numbers are positive numbers whose prime factors only include 2, 3, 5. For example, 6, 8 are ugly while 14 is not ugly since it includes another prime factor 7. Note that 1 is typically treated as an ugly number. 代码实现： class Solution { public: bool isUgly(int</description>
     </item>
     
     <item>
@@ -1685,9 +980,7 @@ Note that 1 is typically treated as an ugly number.
       <pubDate>Mon, 09 Jan 2017 00:00:00 +0000</pubDate>
       
       <guid>https://HauyuChen.github.io/post/231-power-of-two/</guid>
-      <description>题目描述： Given an integer, write a function to determine if it is a power of two.
-
-代码实现： class Solution { public: bool isPowerOfTwo(int n) { int flag=0; if(n&amp;lt;=0){ return false; } while(n&amp;gt;0){ if(n&amp;amp;1==1){ if(flag==1){ return false; } flag=1; } n=n&amp;gt;&amp;gt;1; } return true; } };</description>
+      <description>题目描述： Given an integer, write a function to determine if it is a power of two. 代码实现： class Solution { public: bool isPowerOfTwo(int n) { int flag=0; if(n&amp;lt;=0){ return false; } while(n&amp;gt;0){ if(n&amp;amp;1==1){ if(flag==1){ return false; } flag=1; } n=n&amp;gt;&amp;gt;1; } return true; } };</description>
     </item>
     
     <item>
@@ -1696,10 +989,7 @@ Note that 1 is typically treated as an ugly number.
       <pubDate>Mon, 09 Jan 2017 00:00:00 +0000</pubDate>
       
       <guid>https://HauyuChen.github.io/post/237-delete-node-in-a-linked-list/</guid>
-      <description>题目描述： Write a function to delete a node (except the tail) in a singly linked list, given only access to that node.
-Supposed the linked list is 1 -&amp;gt; 2 -&amp;gt; 3 -&amp;gt; 4 and you are given the third node with value 3, the linked list should become 1 -&amp;gt; 2 -&amp;gt; 4 after calling your function.
-
-代码实现： /** * Definition for singly-linked list. * struct ListNode { * int val; * ListNode *next; * ListNode(int x) : val(x), next(NULL) {} * }; */ class Solution { public: void deleteNode(ListNode* node) { auto next = node-&amp;gt;next; *node = *next; delete next; } };</description>
+      <description>题目描述： Write a function to delete a node (except the tail) in a singly linked list, given only access to that node. Supposed the linked list is 1 -&amp;gt; 2 -&amp;gt; 3 -&amp;gt; 4 and you are given the third node with value 3, the linked list should become 1 -&amp;gt; 2 -&amp;gt; 4 after calling your function. 代码实现： /** * Definition</description>
     </item>
     
     <item>
@@ -1708,16 +998,7 @@ Supposed the linked list is 1 -&amp;gt; 2 -&amp;gt; 3 -&amp;gt; 4 and you are gi
       <pubDate>Mon, 09 Jan 2017 00:00:00 +0000</pubDate>
       
       <guid>https://HauyuChen.github.io/post/242-valid-anagram/</guid>
-      <description>题目描述： Given two strings s and t, write a function to determine if t is an anagram of s.
-For example,
-s = &amp;ldquo;anagram&amp;rdquo;, t = &amp;ldquo;nagaram&amp;rdquo;, return true.
-s = &amp;ldquo;rat&amp;rdquo;, t = &amp;ldquo;car&amp;rdquo;, return false.
-Note:
-You may assume the string contains only lowercase alphabets.
-Follow up:
-What if the inputs contain unicode characters? How would you adapt your solution to such case?
-
-代码实现： class Solution { public: bool isAnagram(string s, string t) { if(s.</description>
+      <description>题目描述： Given two strings s and t, write a function to determine if t is an anagram of s. For example, s = &amp;ldquo;anagram&amp;rdquo;, t = &amp;ldquo;nagaram&amp;rdquo;, return true. s = &amp;ldquo;rat&amp;rdquo;, t = &amp;ldquo;car&amp;rdquo;, return false. Note: You may assume the string contains only lowercase alphabets. Follow up: What if the inputs contain unicode characters? How would you adapt your solution to such case? 代</description>
     </item>
     
     <item>
@@ -1726,9 +1007,7 @@ What if the inputs contain unicode characters? How would you adapt your solution
       <pubDate>Sun, 08 Jan 2017 00:00:00 +0000</pubDate>
       
       <guid>https://HauyuChen.github.io/post/226-invert-binary-tree/</guid>
-      <description>题目描述： Invert a binary tree.
- 4 / \ 2 7 / \ / \ 1 3 6 9 to 4 / \ 7 2 / \ / \ 9 6 3 1  
-代码实现： /** * Definition for a binary tree node. * struct TreeNode { * int val; * TreeNode *left; * TreeNode *right; * TreeNode(int x) : val(x), left(NULL), right(NULL) {} * }; */ class Solution { public: TreeNode* invertTree(TreeNode* root) { if(root==NULL){ return NULL; } TreeNode* nl; TreeNode* nr; nl = invertTree(root-&amp;gt;right); nr = invertTree(root-&amp;gt;left); root-&amp;gt;left = nl; root-&amp;gt;right = nr; return root; } };</description>
+      <description>题目描述： Invert a binary tree. 4 / \ 2 7 / \ / \ 1 3 6 9 to 4 / \ 7 2 / \ / \ 9 6 3 1 代码实现： /** * Definition for a binary tree node. * struct TreeNode { * int val; * TreeNode *left; * TreeNode *right; * TreeNode(int x) : val(x), left(NULL), right(NULL) {}</description>
     </item>
     
     <item>
@@ -1737,9 +1016,7 @@ What if the inputs contain unicode characters? How would you adapt your solution
       <pubDate>Sat, 07 Jan 2017 00:00:00 +0000</pubDate>
       
       <guid>https://HauyuChen.github.io/post/206-reverse-linked-list/</guid>
-      <description>题目描述： Reverse a singly linked list.
-
-代码实现： /** * Definition for singly-linked list. * struct ListNode { * int val; * ListNode *next; * ListNode(int x) : val(x), next(NULL) {} * }; */ class Solution { public: ListNode* reverseList(ListNode* head) { ListNode* pPre=nullptr; ListNode* pNode=head; ListNode* pRet=nullptr; while(pNode!=nullptr){ ListNode* pNext=pNode-&amp;gt;next; if(pNext==nullptr){ pRet=pNode; } pNode-&amp;gt;next=pPre; pPre=pNode; pNode=pNext; } return pRet; } };</description>
+      <description>题目描述： Reverse a singly linked list. 代码实现： /** * Definition for singly-linked list. * struct ListNode { * int val; * ListNode *next; * ListNode(int x) : val(x), next(NULL) {} * }; */ class Solution { public: ListNode* reverseList(ListNode* head) { ListNode* pPre=nullptr; ListNode* pNode=head; ListNode* pRet=nullptr; while(pNode!=nullptr){ ListNode* pNext=pNode-&amp;gt;next; if(pNext==nullptr){ pRet=pNode; } pNode-&amp;gt;next=pPre; pPre=pNode; pNode=pNext; } return pRet; } };</description>
     </item>
     
     <item>
@@ -1748,9 +1025,7 @@ What if the inputs contain unicode characters? How would you adapt your solution
       <pubDate>Sat, 07 Jan 2017 00:00:00 +0000</pubDate>
       
       <guid>https://HauyuChen.github.io/post/217-contains-duplicate/</guid>
-      <description>题目描述： Given an array of integers, find if the array contains any duplicates. Your function should return true if any value appears at least twice in the array, and it should return false if every element is distinct.
-
-代码实现： class Solution { public: bool containsDuplicate(vector&amp;lt;int&amp;gt;&amp;amp; nums) { unordered_set&amp;lt;int&amp;gt; set; for(int num:nums){ if(set.count(num)){ return true; } set.insert(num); } return false; } };</description>
+      <description>题目描述： Given an array of integers, find if the array contains any duplicates. Your function should return true if any value appears at least twice in the array, and it should return false if every element is distinct. 代码实现： class Solution { public: bool containsDuplicate(vector&amp;lt;int&amp;gt;&amp;amp; nums) { unordered_set&amp;lt;int&amp;gt; set; for(int num:nums){ if(set.count(num)){ return true; } set.insert(num); } return false; } };</description>
     </item>
     
     <item>
@@ -1759,11 +1034,7 @@ What if the inputs contain unicode characters? How would you adapt your solution
       <pubDate>Fri, 24 Jun 2016 00:00:00 +0000</pubDate>
       
       <guid>https://HauyuChen.github.io/post/191-number-of-1-bits/</guid>
-      <description>题目描述： Write a function that takes an unsigned integer and returns the number of ’1&amp;rsquo; bits it has (also known as the Hamming weight).
-For example:
-the 32-bit integer ’11&amp;rsquo; has binary representation 00000000000000000000000000001011, so the function should return 3.
-
-代码实现： class Solution { public: int hammingWeight(uint32_t n) { int sum=0; while(n&amp;gt;0){ if(n&amp;amp;1==1){ sum++; } n=n&amp;gt;&amp;gt;1; } return sum; } };</description>
+      <description>题目描述： Write a function that takes an unsigned integer and returns the number of ’1&amp;rsquo; bits it has (also known as the Hamming weight). For example: the 32-bit integer ’11&amp;rsquo; has binary representation 00000000000000000000000000001011, so the function should return 3. 代码实现： class Solution { public:</description>
     </item>
     
     <item>
@@ -1772,8 +1043,7 @@ the 32-bit integer ’11&amp;rsquo; has binary representation 000000000000000000
       <pubDate>Fri, 24 Jun 2016 00:00:00 +0000</pubDate>
       
       <guid>https://HauyuChen.github.io/post/202-happy-number/</guid>
-      <description>题目描述： Write an algorithm to determine if a number is &amp;ldquo;happy&amp;rdquo;.
-A happy number is a number defined by the following process: Starting with any positive integer, replace the number by the sum of the squares of its digits, and repeat the process until the number equals 1 (where it will stay), or it loops endlessly in a cycle which does not include 1. Those numbers for which this process ends in 1 are happy numbers.</description>
+      <description>题目描述： Write an algorithm to determine if a number is &amp;ldquo;happy&amp;rdquo;. A happy number is a number defined by the following process: Starting with any positive integer, replace the number by the sum of the squares of its digits, and repeat the process until the number equals 1 (where it will stay), or it loops endlessly in a cycle which does not include 1. Those numbers</description>
     </item>
     
     <item>
@@ -1782,11 +1052,7 @@ A happy number is a number defined by the following process: Starting with any p
       <pubDate>Thu, 23 Jun 2016 00:00:00 +0000</pubDate>
       
       <guid>https://HauyuChen.github.io/post/171-excel-sheet-column-number/</guid>
-      <description>题目描述： Related to question Excel Sheet Column Title
-Given a column title as appear in an Excel sheet, return its corresponding column number.
-For example:
- A -&amp;gt; 1 B -&amp;gt; 2 C -&amp;gt; 3 ... Z -&amp;gt; 26 AA -&amp;gt; 27 AB -&amp;gt; 28  
-代码实现： class Solution { public: int titleToNumber(string s) { int sum=0; for(int i=0;i&amp;lt;s.length();i++){ sum = sum*26+(s[i]-&#39;A&#39;+1); } return sum; } };</description>
+      <description>题目描述： Related to question Excel Sheet Column Title Given a column title as appear in an Excel sheet, return its corresponding column number. For example: A -&amp;gt; 1 B -&amp;gt; 2 C -&amp;gt; 3 ... Z -&amp;gt; 26 AA -&amp;gt; 27 AB -&amp;gt; 28 代码实现： class Solution { public: int titleToNumber(string s) { int sum=0; for(int i=0;i&amp;lt;s.length();i++){ sum = sum*26+(s[i]-&#39;A&#39;+1); } return</description>
     </item>
     
     <item>
@@ -1795,9 +1061,7 @@ For example:
       <pubDate>Mon, 20 Jun 2016 00:00:00 +0000</pubDate>
       
       <guid>https://HauyuChen.github.io/post/167-two-sum-ii-input-array-is-sorted/</guid>
-      <description>题目描述： Given an array of integers that is already sorted in ascending order, find two numbers such that they add up to a specific target number.
-The function twoSum should return indices of the two numbers such that they add up to the target, where index1 must be less than index2. Please note that your returned answers (both index1 and index2) are not zero-based.
-You may assume that each input would have exactly one solution and you may not use the same element twice.</description>
+      <description>题目描述： Given an array of integers that is already sorted in ascending order, find two numbers such that they add up to a specific target number. The function twoSum should return indices of the two numbers such that they add up to the target, where index1 must be less than index2. Please note that your returned answers (both index1 and index2) are not zero-based. You may</description>
     </item>
     
     <item>
@@ -1806,10 +1070,7 @@ You may assume that each input would have exactly one solution and you may not u
       <pubDate>Mon, 20 Jun 2016 00:00:00 +0000</pubDate>
       
       <guid>https://HauyuChen.github.io/post/169-majority-element/</guid>
-      <description>题目描述： Given an array of size n, find the majority element. The majority element is the element that appears more than ⌊ n/2 ⌋ times.
-You may assume that the array is non-empty and the majority element always exist in the array.
-
-代码实现： class Solution { public: int majorityElement(vector&amp;lt;int&amp;gt;&amp;amp; nums) { int major=nums[0]; int cnt=1; for(int num:nums){ if(num==major){ ++cnt; }else{ --cnt; } if(cnt==0){ ++cnt; major = num; } } return major; } };</description>
+      <description>题目描述： Given an array of size n, find the majority element. The majority element is the element that appears more than ⌊ n/2 ⌋ times. You may assume that the array is non-empty and the majority element always exist in the array. 代码实现： class Solution { public: int majorityElement(vector&amp;lt;int&amp;gt;&amp;amp; nums) { int major=nums[0]; int cnt=1; for(int num:nums){ if(num==major){ ++cnt; }else{ --cnt; }</description>
     </item>
     
     <item>
@@ -1818,11 +1079,7 @@ You may assume that the array is non-empty and the majority element always exist
       <pubDate>Thu, 16 Jun 2016 00:00:00 +0000</pubDate>
       
       <guid>https://HauyuChen.github.io/post/121-best-time-to-buy-and-sell-stock/</guid>
-      <description>题目描述： Say you have an array for which the ith element is the price of a given stock on day i.
-If you were only permitted to complete at most one transaction (ie, buy one and sell one share of the stock), design an algorithm to find the maximum profit.
-Example 1:
-Input: [7, 1, 5, 3, 6, 4] Output: 5
-max. difference = 6-1 = 5 (not 7-1 = 6, as selling price needs to be larger than buying price)</description>
+      <description>题目描述： Say you have an array for which the ith element is the price of a given stock on day i. If you were only permitted to complete at most one transaction (ie, buy one and sell one share of the stock), design an algorithm to find the maximum profit. Example 1: Input: [7, 1, 5, 3, 6, 4] Output: 5 max. difference = 6-1 =</description>
     </item>
     
     <item>
@@ -1831,8 +1088,7 @@ max. difference = 6-1 = 5 (not 7-1 = 6, as selling price needs to be larger than
       <pubDate>Thu, 16 Jun 2016 00:00:00 +0000</pubDate>
       
       <guid>https://HauyuChen.github.io/post/122-best-time-to-buy-and-sell-stock-ii/</guid>
-      <description>题目描述： Say you have an array for which the ith element is the price of a given stock on day i.
-Design an algorithm to find the maximum profit. You may complete as many transactions as you like (ie, buy one and sell one share of the stock multiple times). However, you may not engage in multiple transactions at the same time (ie, you must sell the stock before you buy again).</description>
+      <description>题目描述： Say you have an array for which the ith element is the price of a given stock on day i. Design an algorithm to find the maximum profit. You may complete as many transactions as you like (ie, buy one and sell one share of the stock multiple times). However, you may not engage in multiple transactions at the same time (ie, you must sell</description>
     </item>
     
     <item>
@@ -1841,11 +1097,7 @@ Design an algorithm to find the maximum profit. You may complete as many transac
       <pubDate>Thu, 16 Jun 2016 00:00:00 +0000</pubDate>
       
       <guid>https://HauyuChen.github.io/post/136-single-number/</guid>
-      <description>题目描述： Given an array of integers, every element appears twice except for one. Find that single one.
-Note:
-Your algorithm should have a linear runtime complexity. Could you implement it without using extra memory?
-
-代码实现： class Solution { public: int singleNumber(vector&amp;lt;int&amp;gt;&amp;amp; nums) { int ret = 0; for(int num:nums){ ret^=num; } return ret; } };</description>
+      <description>题目描述： Given an array of integers, every element appears twice except for one. Find that single one. Note: Your algorithm should have a linear runtime complexity. Could you implement it without using extra memory? 代码实现： class Solution { public: int singleNumber(vector&amp;lt;int&amp;gt;&amp;amp; nums) { int ret = 0; for(int num:nums){ ret^=num; } return ret; } };</description>
     </item>
     
     <item>
@@ -1854,10 +1106,7 @@ Your algorithm should have a linear runtime complexity. Could you implement it w
       <pubDate>Wed, 15 Jun 2016 00:00:00 +0000</pubDate>
       
       <guid>https://HauyuChen.github.io/post/104-maximum-depth-of-binary-tree/</guid>
-      <description>题目描述： Given a binary tree, find its maximum depth.
-The maximum depth is the number of nodes along the longest path from the root node down to the farthest leaf node.
-
-代码实现： /** * Definition for binary tree * struct TreeNode { * int val; * TreeNode *left; * TreeNode *right; * TreeNode(int x) : val(x), left(NULL), right(NULL) {} * }; */ class Solution { public: int maxDepth(TreeNode *root) { int Ldepth=0,Rdepth=0; if(root==NULL){ return 0; } if(root-&amp;gt;left==NULL &amp;amp;&amp;amp; root-&amp;gt;right==NULL){ return 1; } Ldepth=maxDepth(root-&amp;gt;left); Rdepth=maxDepth(root-&amp;gt;right); return 1+(Ldepth&amp;gt;Rdepth?</description>
+      <description>题目描述： Given a binary tree, find its maximum depth. The maximum depth is the number of nodes along the longest path from the root node down to the farthest leaf node. 代码实现： /** * Definition for binary tree * struct TreeNode { * int val; * TreeNode *left; * TreeNode *right; * TreeNode(int x) : val(x), left(NULL), right(NULL) {} * }; */</description>
     </item>
     
     <item>
@@ -1866,10 +1115,7 @@ The maximum depth is the number of nodes along the longest path from the root no
       <pubDate>Tue, 14 Jun 2016 00:00:00 +0000</pubDate>
       
       <guid>https://HauyuChen.github.io/post/100-same-tree/</guid>
-      <description>题目描述： Given two binary trees, write a function to check if they are equal or not.
-Two binary trees are considered equal if they are structurally identical and the nodes have the same value.
-
-代码实现： /** * Definition for a binary tree node. * struct TreeNode { * int val; * TreeNode *left; * TreeNode *right; * TreeNode(int x) : val(x), left(NULL), right(NULL) {} * }; */ class Solution { public: bool isSameTree(TreeNode* p, TreeNode* q) { if(p==nullptr &amp;amp;&amp;amp; q==nullptr){ return true; } else if(p==nullptr || q==nullptr){ return false; } if(p-&amp;gt;val!</description>
+      <description>题目描述： Given two binary trees, write a function to check if they are equal or not. Two binary trees are considered equal if they are structurally identical and the nodes have the same value. 代码实现： /** * Definition for a binary tree node. * struct TreeNode { * int val; * TreeNode *left; * TreeNode *right; * TreeNode(int x) : val(x), left(NULL),</description>
     </item>
     
     <item>
@@ -1878,12 +1124,7 @@ Two binary trees are considered equal if they are structurally identical and the
       <pubDate>Tue, 14 Jun 2016 00:00:00 +0000</pubDate>
       
       <guid>https://HauyuChen.github.io/post/070-climbing-stairs/</guid>
-      <description>题目描述： You are climbing a stair case. It takes n steps to reach to the top.
-Each time you can either climb 1 or 2 steps. In how many distinct ways can you climb to the top?
-
-思路： 这题本质上是斐波那契数列问题。这里采用数组暂存已有结果，以时间换空间，减少递归带来的重复计算。
-
-代码实现： class Solution { public: int climbStairs(int n) { int f[n+1]; f[0]=1; f[1]=1; for(int i=2;i&amp;lt;=n;++i){ f[i]=f[i-1]+f[i-2]; } return f[n]; } };</description>
+      <description>题目描述： You are climbing a stair case. It takes n steps to reach to the top. Each time you can either climb 1 or 2 steps. In how many distinct ways can you climb to the top? 思路： 这题本质上是斐波那契数列问题。这里采用数组暂存已有结</description>
     </item>
     
     <item>
@@ -1892,10 +1133,7 @@ Each time you can either climb 1 or 2 steps. In how many distinct ways can you c
       <pubDate>Mon, 13 Jun 2016 00:00:00 +0000</pubDate>
       
       <guid>https://HauyuChen.github.io/post/069-sqrtx/</guid>
-      <description>题目描述： Implement int sqrt(int x).
-Compute and return the square root of x.
-
-代码实现： class Solution { public: int mySqrt(int x) { if(x==0){ return 0; } int low=1,high=x; int mid; while(1){ mid = (low+high)/2; if(mid&amp;gt;x/mid){ high = mid-1; } else{ if((mid+1)&amp;gt;(x/(mid+1))){ return mid; } low = mid+1; } } } };</description>
+      <description>题目描述： Implement int sqrt(int x). Compute and return the square root of x. 代码实现： class Solution { public: int mySqrt(int x) { if(x==0){ return 0; } int low=1,high=x; int mid; while(1){ mid = (low+high)/2; if(mid&amp;gt;x/mid){ high = mid-1; } else{ if((mid+1)&amp;gt;(x/(mid+1))){ return mid; } low = mid+1; } } } };</description>
     </item>
     
     <item>
@@ -1904,11 +1142,7 @@ Compute and return the square root of x.
       <pubDate>Sun, 12 Jun 2016 19:38:48 +0000</pubDate>
       
       <guid>https://HauyuChen.github.io/about-site/</guid>
-      <description>网站信息 Update by Hov .
-Build with HUGO .
-Theme blackburn .
-
-版权声明 本网站内容采用知识共享署名-非商业性使用 4.0 国际许可协议进行许可。</description>
+      <description>网站信息 Update by Hov . Build with HUGO . Theme NEDERBURG . 版权声明 本网站内容采用知识共享署名-非商业性使用 4.0 国际许可协议进行许可。</description>
     </item>
     
     <item>
@@ -1917,13 +1151,7 @@ Theme blackburn .
       <pubDate>Sun, 12 Jun 2016 00:00:00 +0000</pubDate>
       
       <guid>https://HauyuChen.github.io/post/013-roman-to-integer/</guid>
-      <description>题目描述： Given a roman numeral, convert it to an integer.
-Input is guaranteed to be within the range from 1 to 3999.
-
-思路： 这是一道将罗马数字转换成整数的题目。搞清楚罗马数字的表示特点即可。
-参见维基百科：罗马数字
-
-代码实现： class Solution { public: int romanToInt(string s) { unordered_map&amp;lt;char,int&amp;gt; hm; hm.insert(pair&amp;lt;char,int&amp;gt;(&#39;I&#39;,1)); hm.insert(pair&amp;lt;char,int&amp;gt;(&#39;V&#39;,5)); hm.insert(pair&amp;lt;char,int&amp;gt;(&#39;X&#39;,10)); hm.insert(pair&amp;lt;char,int&amp;gt;(&#39;L&#39;,50)); hm.insert(pair&amp;lt;char,int&amp;gt;(&#39;C&#39;,100)); hm.insert(pair&amp;lt;char,int&amp;gt;(&#39;D&#39;,500)); hm.insert(pair&amp;lt;char,int&amp;gt;(&#39;M&#39;,1000)); int sum=hm[s[s.size()-1]]; for(int i=s.size()-1;i&amp;gt;0;--i){ if(hm[s[i]]&amp;gt;hm[s[i-1]]){ sum-=hm[s[i-1]]; }else{ sum+=hm[s[i-1]]; } } return sum; } };</description>
+      <description>题目描述： Given a roman numeral, convert it to an integer. Input is guaranteed to be within the range from 1 to 3999. 思路： 这是一道将罗马数字转换成整数的题目。搞清楚罗马数字的表示特点即可。 参见维基百科：罗</description>
     </item>
     
     <item>
@@ -1932,10 +1160,7 @@ Input is guaranteed to be within the range from 1 to 3999.
       <pubDate>Sun, 12 Jun 2016 00:00:00 +0000</pubDate>
       
       <guid>https://HauyuChen.github.io/post/021-merge-two-sorted-lists/</guid>
-      <description>题目描述： Merge two sorted linked lists and return it as a new list. The new list should be made by splicing together the nodes of the first two lists.
-
-思路：  通过一个指针 newhead 指示新的链表头部，比较链表 l1 和链表 l2 的第一个结点； 若 l1 的第一个节点比 l2 小，则将其尾插进新链表，移动指针 l1-&amp;gt;next；若 l2 的第一个节点比 l1 小，同理； 递归得解。  
-代码实现： /** * Definition for singly-linked list. * struct ListNode { * int val; * ListNode *next; * ListNode(int x) : val(x), next(NULL) {} * }; */ class Solution { public: ListNode* mergeTwoLists(ListNode* l1, ListNode* l2) { if(l1==nullptr&amp;amp;&amp;amp;l2==nullptr) return nullptr; if(l1==nullptr || l2==nullptr) return (l1==nullptr)?</description>
+      <description>题目描述： Merge two sorted linked lists and return it as a new list. The new list should be made by splicing together the nodes of the first two lists. 思路： 通过一个指针 newhead 指示新的链表头部，比较链表 l1 和链表 l2 的第一个结点； 若 l1</description>
     </item>
     
     <item>
@@ -1944,12 +1169,7 @@ Input is guaranteed to be within the range from 1 to 3999.
       <pubDate>Sun, 12 Jun 2016 00:00:00 +0000</pubDate>
       
       <guid>https://HauyuChen.github.io/post/053-maximum-subarray/</guid>
-      <description>题目描述： Find the contiguous subarray within an array (containing at least one number) which has the largest sum.
-For example, given the array [-2,1,-3,4,-1,2,1,-5,4], the contiguous subarray [4,-1,2,1] has the largest sum = 6.
-
-思路： 用sum保存连续序列之和，用max表示最大值，一次遍历即可，时间复杂度O(n)。
- sum&amp;lt;0,则舍弃前面的数 sum&amp;gt;max,则更新最大值max  
-代码实现： int maxSubArray(int* nums, int numsSize) { int sum=0; int max=INT_MIN; for(int i=0;i&amp;lt;numsSize;i++){ sum+=nums[i]; if(sum&amp;gt;max){ max = sum; } if(sum&amp;lt;0){ sum = 0; } } return max; }</description>
+      <description>题目描述： Find the contiguous subarray within an array (containing at least one number) which has the largest sum. For example, given the array [-2,1,-3,4,-1,2,1,-5,4], the contiguous subarray [4,-1,2,1] has the largest sum = 6. 思路： 用sum保存连续序列之和，用max表示最大值，一次遍历即可</description>
     </item>
     
     <item>
@@ -1958,13 +1178,7 @@ For example, given the array [-2,1,-3,4,-1,2,1,-5,4], the contiguous subarray [4
       <pubDate>Sat, 11 Jun 2016 00:00:00 +0000</pubDate>
       
       <guid>https://HauyuChen.github.io/post/001-two-sum/</guid>
-      <description>题目描述： Given an array of integers, return indices of the two numbers such that they add up to a specific target.
-You may assume that each input would have exactly one solution, and you may not use the same element twice.
-Example:
-Given nums = [2, 7, 11, 15], target = 9,
-Because nums[0] + nums[1] = 2 + 7 = 9, return [0, 1].
-
-思路：  先用 map 存储每个元素对应的原始下标，方便后续查找特定元素。 从头开始查找符合条件的结果，用 target 减去 nums[i] ，得到两数之差 t ，在 map 中寻找是否存在 t 且元素 t 的索引不等于 i ,若是则为最终结果，否则继续查找 nums[i+1] 。</description>
+      <description>题目描述： Given an array of integers, return indices of the two numbers such that they add up to a specific target. You may assume that each input would have exactly one solution, and you may not use the same element twice. Example: Given nums = [2, 7, 11, 15], target = 9, Because nums[0] + nums[1] = 2 + 7 = 9, return [0, 1]. 思</description>
     </item>
     
     <item>
@@ -1973,12 +1187,7 @@ Because nums[0] + nums[1] = 2 + 7 = 9, return [0, 1].
       <pubDate>Sat, 11 Jun 2016 00:00:00 +0000</pubDate>
       
       <guid>https://HauyuChen.github.io/post/008-string-to-integeratoi/</guid>
-      <description>题目描述： Implement atoi to convert a string to an integer.
-Hint: Carefully consider all possible input cases. If you want a challenge, please do not see below and ask yourself what are the possible input cases.
-Notes:
-It is intended for this problem to be specified vaguely (ie, no given input specs). You are responsible to gather all the input requirements up front.
-Update (2015-02-10):
-The signature of the C++ function had been updated.</description>
+      <description>题目描述： Implement atoi to convert a string to an integer. Hint: Carefully consider all possible input cases. If you want a challenge, please do not see below and ask yourself what are the possible input cases. Notes: It is intended for this problem to be specified vaguely (ie, no given input specs). You are responsible to gather all the input requirements up front. Update (2015-02-10): The</description>
     </item>
     
     <item>
@@ -1987,19 +1196,7 @@ The signature of the C++ function had been updated.</description>
       <pubDate>Thu, 19 May 2016 00:00:00 +0000</pubDate>
       
       <guid>https://HauyuChen.github.io/post/zb-zigbee-wirelessfan/</guid>
-      <description>作者注： ZigBee 系列共三篇，首先讲解 ZigBee 工程的结构，然后通过两个具体项目熟悉 ZigBee 的应用。在学习本系列内容前，您需要掌握单片机相关知识、 ZigBee 基础知识，希望本系列教程能对您开发 ZigBee 项目有所启发。如有任何问题，欢迎您随时与我联系：Hauyu.Chen@Gmail.com
-版权声明：本文由 Hov 所有，发布于 http://chenhy.com ，转载请注明出处。
-
-0 写在前面 无线风扇是本人在大二上学期在实验室期间实现的项目，实现了电风扇的无线控制。这也是我学习无线传感器网络实现的第一个项目，看着实验室的电风扇真的被代码操控着，感觉真的很奇妙。
-无线风扇项目完整源码：https://github.com/HauyuChen/ZigBee-WirelessFan
-如果对您有帮助，欢迎您在GitHub上给我 Follow 或 Stars ：）
-
-1 简介 无线风扇项目实现了风扇的手动、自动两种模式的控制。
- 手动模式：根据指令控制风扇的开关； 自动模式：根据周围环境的温度自动控制风扇，比如当周围温度大于等于 26 摄氏度时自动打开风扇。  大体的思路是这样的： 通过两个 ZigBee 模块组成一个 ZigBee 网络；ZigBee终端外接温湿度传感器、继电器，继电器与风扇连接；ZigBee 协调器通过串口（RS232） 与电脑连接（也可以通过 ZigBee 协调器与 GPRS 模块连接，实现手机控制的功能）。
-连接示意图如下：
-虽说是无线风扇功能，实质就是实现传感器数据采集和模块 IO 口控制。风扇控制主要通过 IO 口导通继电器来实现。所以，如果继电器连接电灯、空调等，那就可以实现不同功能了。
-
-2 功能需求 2.1 串口通信  ZigBee 协调器接收温湿度、风扇状态等数据，并通过串口传送给电脑，在串口调试助手上显示相关数据。 电脑通过串口向 ZigBee 协调器发送指令，控制风扇的开关。  2.2 温湿度数据采集  ZigBee 终端外接 DHT11 温湿度传感器，通过传感器采集周围环境的温湿度信息； ZigBee 终端采集到的温湿度数据通过 ZigBee 网络发送给 ZigBee 协调器；  2.</description>
+      <description>作者注： ZigBee 系列共三篇，首先讲解 ZigBee 工程的结构，然后通过两个具体项目熟悉 ZigBee 的应用。在学习本系列内容前，您需要掌握单片机相关知识、 ZigBee 基础知识，希望</description>
     </item>
     
     <item>
@@ -2008,16 +1205,7 @@ The signature of the C++ function had been updated.</description>
       <pubDate>Tue, 17 May 2016 00:00:00 +0000</pubDate>
       
       <guid>https://HauyuChen.github.io/post/zb-zigbee-guide/</guid>
-      <description>作者注： ZigBee 系列共三篇，首先讲解 ZigBee 工程的结构，然后通过两个具体项目熟悉 ZigBee 的应用。在学习本系列内容前，您需要掌握单片机相关知识、 ZigBee 基础知识，希望本系列教程能对您开发 ZigBee 项目有所启发。如有任何问题，欢迎您随时与我联系：Hauyu.Chen@Gmail.com
-版权声明：本文由 Hov 所有，发布于 http://chenhy.com ，转载请注明出处。
-
-0 写在前面 大一暑假，我开始学习ZigBee技术。这篇文章是在大一暑假结束后完成的，主要是想写一下在学习ZigBee过程中的思路，以及一个ZigBee工程中的核心内容。因为在刚学习ZigBee的时候，面对着大量的代码，有种无从下手的感觉。
-本文基于 Z-Stack 的例程 SampleApp 展开，旨在突出在一个ZigBee工程中比较核心的部分，建议大家看过 Z-Stack 中的例程后作参考之用。
-注：Z-Stack 安装文件：https://github.com/HauyuChen/Z-Stack
-
-1 概述 写过程序的人都知道每个程序都是从 main 函数开始执行的，在 ZigBee 程序中也不例外。在一个 Zigbee 工程中，程序从 main 函数开始执行，经过一步一步的函数调用（一些系统功能的初始化，建议跟踪一下从 main 函数到 SampleApp_ProcessEvent 函数的过程），程序最终来到了 SampleApp_ProcessEvent 函数， SampleApp_ProcessEvent(uint8 task_id,uint16 events) 是一个颇为重要的函数，整个工程更像是围绕着这个函数运行。
-说白了，我们要通过这个函数来处理所有事件。
-比如： if ( events &amp;amp; SYS_EVENT_MSG ) 处理系统事件，if ( events &amp;amp; SAMPLEAPP_SEND_PERIODIC_MSG_EVT ) 处理用户定义的事件。在不同的事件处理代码中，通过一个 switch 语句把所要处理的任务分成几个 case 来处理，在每个 case 里面调用相应的函数，我们通过定义这些函数执行我们想要的功能即可。</description>
+      <description>作者注： ZigBee 系列共三篇，首先讲解 ZigBee 工程的结构，然后通过两个具体项目熟悉 ZigBee 的应用。在学习本系列内容前，您需要掌握单片机相关知识、 ZigBee 基础知识，希望</description>
     </item>
     
   </channel>

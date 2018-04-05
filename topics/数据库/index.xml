@@ -2,22 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>数据库 on Hov&#39;s Blog</title>
-    <link>https://HauyuChen.github.io/topics/%E6%95%B0%E6%8D%AE%E5%BA%93/</link>
+    <link>https://hauyuchen.github.io/topics/%E6%95%B0%E6%8D%AE%E5%BA%93/</link>
     <description>Recent content in 数据库 on Hov&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2017. All rights reserved.</copyright>
     <lastBuildDate>Fri, 01 Sep 2017 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://HauyuChen.github.io/topics/%E6%95%B0%E6%8D%AE%E5%BA%93/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://hauyuchen.github.io/topics/%E6%95%B0%E6%8D%AE%E5%BA%93/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>并发控制（乐观锁、悲观锁）</title>
-      <link>https://HauyuChen.github.io/post/concurrence_pe_op/</link>
+      <link>https://hauyuchen.github.io/post/concurrence_pe_op/</link>
       <pubDate>Fri, 01 Sep 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://HauyuChen.github.io/post/concurrence_pe_op/</guid>
+      <guid>https://hauyuchen.github.io/post/concurrence_pe_op/</guid>
       <description>版权声明：本文由 Hov 所有，发布于 http://chenhy.com ，转载请注明出处。
 
 0 前言 乐观锁、悲观锁是人们定义出来的概念，可认为是一种思想。也就是说其不依赖于某个特定的数据库，不仅仅是关系型数据库系统有乐观锁、悲观锁，像 memcache 、 Hibernate 等也有类似的概念。乐观锁、悲观锁是用来保证数据并发安全的方法。
@@ -29,10 +29,10 @@
     
     <item>
       <title>SQL优化</title>
-      <link>https://HauyuChen.github.io/post/sql_optimization/</link>
+      <link>https://hauyuchen.github.io/post/sql_optimization/</link>
       <pubDate>Mon, 07 Aug 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://HauyuChen.github.io/post/sql_optimization/</guid>
+      <guid>https://hauyuchen.github.io/post/sql_optimization/</guid>
       <description>SQL 语句优化  尽量选择较小的列； 将 where 中用的比较频繁的字段建立索引； select 子句中避免使用‘ * ’； 避免在索引列上使用运算符、 not 、 in 、 &amp;lt; 、 &amp;gt; 等操作； 当只需要一行数据的时候使用 limit1； 保证表单数据不超过 200w ，适时分割表。</description>
     </item>
     

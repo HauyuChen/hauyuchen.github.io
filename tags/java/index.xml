@@ -6,28 +6,18 @@
     <description>Recent content in Java on Hov&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <copyright>&amp;copy; 2017. All rights reserved.</copyright>
-    <lastBuildDate>Mon, 20 Nov 2017 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 20 Dec 2017 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://HauyuChen.github.io/tags/java/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>重写、重载的区别</title>
-      <link>https://HauyuChen.github.io/post/java_overload_override/</link>
-      <pubDate>Mon, 20 Nov 2017 00:00:00 +0000</pubDate>
+      <title>谈谈向上转型、向下转型</title>
+      <link>https://HauyuChen.github.io/post/java_-polymorphism_1/</link>
+      <pubDate>Wed, 20 Dec 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://HauyuChen.github.io/post/java_overload_override/</guid>
-      <description>0 写在前面 重写和重载是面向对象程序设计中十分重要的两个概念，其中重写又称为覆盖。 通俗的理解就是，重写就是将一个方法的实现过程再写一遍，覆盖原有方法；重载就是增加一个方法的不同实现，而不覆盖原有的方法。
-
-1 重写（覆盖） 重写是子类对父类方法的实现过程的重新编写。重写的方法应与被重写的方法具有完全一致的返回值、方法名称、参数列表，也就是外壳完全一样，实现过程发生改变。
-重写规则：
- 参数列表必须与原有方法完全相同； 返回类型必须与原有方法相同； 访问权限不能比父类中被重写的方法的访问权限更低； 父类成员方法只能被其子类重写； 声明为 final 的方法不能被重写； 声明为 static 的方法不能被重写，但能够被再次声明； 构造方法不能重写。  
-2 重载 重载与重写不同之处在于重载与原有方法具有同样的名称，但参数列表可以不同。重载的方法虽然名称和原有方法一样，但是可以认为它们是不同的方法。
-重载规则：
- 重载的方法必须改变参数列表； 重载的方法可以改变返回类型； 重载的方法可以改变访问修饰符； 方法能在同一个类中或在一个子类中被重载。  
-3 对比 
-参考资料：http://www.runoob.com/java/java-override-overload.html</description>
+      <guid>https://HauyuChen.github.io/post/java_-polymorphism_1/</guid>
+      <description>&lt;p&gt;&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -36,41 +26,16 @@
       <pubDate>Wed, 06 Sep 2017 00:00:00 +0000</pubDate>
       
       <guid>https://HauyuChen.github.io/post/java_ipc/</guid>
-      <description>0 写在前面 说到进程通信，我们很轻易就能想到经典的 Socket 通信。但像 Socket 这样的网络通信会增加额外的网络负担，同时也增加了一定的代码量。
-共享内存方式是实现进程通信的另外一种方式，其具有数据共享，系统快速查询、动态配置、减少资源耗费等优点。
-共享内存特点：
- 可被多个进程打开访问； 读写操作的进程在执行读写操作时，其他进程不能进行写操作； 多个进程可以交替对某一共享内存执行写操作； 一个进程执行内存写操作后，不影响其他进程对该内存的访问，同时其他进程对更新后的内存具有可见性；  Java 进程间的共享内存通过内存映射文件 NIO （MappedByteBuffer）实现，不同进程的内存映射文件关联到同一物理文件。该文件通常为随机存取文件对象，实现文件和内存的映射，即时双向同步。
-
-1 要点 1.1 MappedByteBuffer Java IO 操作的 BufferedReader 、 BufferedInputStream 等相信大家都很熟悉，不过在 Java NIO 中引入了一种基于 MappedByteBuffer 操作大文件的方式，其读写性能极高。
-MappedByteBuffer 为共享内存缓冲区，实际上是一个磁盘文件的内存映射，实现内存与文件的同步变化，可有效地保证共享内存的实现。
-1.2 FileChannel FileChannel 是将共享内存和磁盘文件建立联系的文件通道类。FileChannel 类的加入是 JDK 为了统一对外设备（文件、网络接口等）的访问方法，并加强了多线程对同一文件进行存取的安全性。我们在这里用它来建立共享内存和磁盘文件间的一个通道。
-1.3 RandomAccessFile RandomAccessFile 是 Java IO 体系中功能最丰富的文件内容访问类，它提供很多方法来操作文件，包括读写支持，与普通的IO流相比，它最大的特别之处就是支持任意访问的方式，程序可以直接跳到任意地方来读写数据。
-举个栗子：
-如果我们要向已存在的大小为 1G 的 txt 文本里末尾追加一行文字，内容如下“ Lucene 是一款非常优秀的全文检索库”。其实直接使用 Java 中的流读取 txt 文本里所有的数据转成字符串后，然后拼接“ Lucene 是一款非常优秀的全文检索库”，又写回文本即可。
-但如果需求改了，我们要想向大小为 5G 的 txt 文本里追加数据。如果我们电脑的内存只有 4G ，强制读取所有的数据并追加，将会报内存溢出的异常。显然，上面的方法不再合适。</description>
+      <description>0 写在前面 说到进程通信，我们很轻易就能想到经典的 Socket 通信。但像 Socket 这样的网络通信会增加额外的网络负担，同时也增加了一定的代码量。 共享内存方式是实</description>
     </item>
     
     <item>
-      <title>谈谈向上转型、向下转型</title>
-      <link>https://HauyuChen.github.io/post/java_-polymorphism_1/</link>
-      <pubDate>Wed, 20 Dec 2017 00:00:00 +0000</pubDate>
+      <title>重写、重载的区别</title>
+      <link>https://HauyuChen.github.io/post/java_overload_override/</link>
+      <pubDate>Mon, 20 Nov 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://HauyuChen.github.io/post/java_-polymorphism_1/</guid>
-      <description>版权声明：本文由 Hov 所有，发布于 http://chenhy.com ，转载请注明出处。
-更新说明：本文于 2017-10-01 修改部分内容。
-
-0 写在前面 某天下午，群上抛出了一个关于 Java 向上转型的问题。
-
-
-于是，我们以此为开端讨论了一个下午，从多态到类加载顺序。讨论结束后想着是不是要写篇文章记录下，所以有了这篇文章。
-本文将谈及向上转型、向下转型的概念，后续有时间将扩充多态相关的更详细的知识。
-
-1 向上转型 1.1 概念 向上转型是指子类对象转型为父类类型。通俗的说就是，对象变量是父类类型，但该对象变量引用的却是子类对象。
-举个栗子，苹果是水果的一种，但我们有时会说苹果是水果或直接把苹果说成水果。其实，这样的说法就是向上转型，我们把苹果抽象为水果。伪代码表示如下：
-水果 对象变量名 = new 苹果();  Apple 是 Fruit 的子类。对象变量 apple 向上转型为 Fruit 类型，但 apple 仍引用的是 Apple 对象。
-Fruit apple = new Apple(); //向上转型  向上转型是对父类对象的方法的扩充，即父类对象可访问子类重写父类的方法。也许你会问，既然访问的还是子类对象的方法，为什么不直接声明为子类类型呢？
-这就是 Java 抽象编程的奥秘。向上转型是实现多态的一种机制，我们可以通过多态性提供的动态分配机制执行相应的动作，使用多态编写的代码比使用对多种类型进行检测的代码更加易于扩展和维护。
-其实我们会经常有意无意的使用转型。比如在我之前写到的关于装饰者模式装饰者模式的文章就用到了向上转型的概念。 两种不同的咖啡 Decaf 、 Espresso 是 Coffee 的子类， Coffee 是 Drink 的子类。因为咖啡店可能会同时售卖不同的饮品，所以我们只需把不同的咖啡抽象为饮品即可，再通过引用不同的具体咖啡品种来表示不同的饮品。这样的场景其实大家都很熟悉，这就是向上转型的应用。也许你已经发现，向上转型可以跨层次。比如 Decaf 是 Coffee 的子类， Coffee 是 Drink 的子类，可以由 Decaf 直接向上转型为 Drink 。</description>
+      <guid>https://HauyuChen.github.io/post/java_overload_override/</guid>
+      <description>0 写在前面 重写和重载是面向对象程序设计中十分重要的两个概念，其中重写又称为覆盖。 通俗的理解就是，重写就是将一个方法的实现过程再写一遍，覆盖原</description>
     </item>
     
     <item>
@@ -79,20 +44,7 @@ Fruit apple = new Apple(); //向上转型  向上转型是对父类对象的方�
       <pubDate>Thu, 05 Oct 2017 00:00:00 +0000</pubDate>
       
       <guid>https://HauyuChen.github.io/post/java_io/</guid>
-      <description>版权声明：本文由 Hov 所有，发布于 http://chenhy.com ，转载请注明出处。
-
-0 写在前面 IO 操作是任何编程语言都无法回避的问题，因为 IO 操作是机器获取和交换信息的主要途径。 Java 的 IO 是以流为基础进行输入输出的，所有的数据被串行化写入输出流或从输入流读入。 java.io 提供了全面的 IO 接口，包括文件读写、标准设备输出等。
-注：流是一个很形象的概念。当程序需要读取数据时会开启一个通向数据源的流，这个数据源可以是文件、内存或网络连接。同样，当程序需要写入数据时会开启一个通向目的地的流，而数据就在数据源和目的地之间“流动”。
-下图为 Java IO 体系的组成结构。由图可知， Java IO 主要分为字节流和字符流，其中字节流以 InputStream 和 OutputStream 向下继承，字符流以 Reader 和 Writer 向下继承。
-本文将详细讲解字节流和字符流，并简要介绍随机存取文件 RandomAccessFile 和 Apache 的 IO 类库。
-
-
-1 预备知识 在讲解 IO 相关的知识前，我们有必要了解一下字节、字符、编码等概念。毕竟 IO 操作实质上是基于字节、字符来实现的。
-1.1 字节 字节是通过网络传输信息或硬盘、内存存储信息的单位，也是计算机用于计量存储容量和传输容量的一种计量单位。一个字节等于 8 位二进制，是一个很具体的存储空间，如 0x01，0x20 。
-1.2 字符 字符是人们使用的记号，抽象意义上的一个符号。如“1”，“a”，“￥”，“好”等。实质上，字符是由字节组成的，一个字符可以由一个或多个字节组成。
-1.3 字符集 不同国家和地区所制定的不同 ANSI 编码标准中，都只规定了各自语言所需的字符。汉字标准（GB2312）就是一个字符集，它规定的是汉字的编码标准。
-字符集（编码）有两层含义：
- 使用哪些字符，也就是哪些字符、汉字或符号会被收入标准中，所包含“字符”的集合就叫做“字符集”； 规定每个字符分别用一个字节还是多个字节存储，用哪些字节存储，这个规定就叫做编码。 字符集和编码一般同时制定，字符集除了有“字符集合”含义外，还包含了“编码”的含义。  值得注意的是，为了使国际间信息交流更方便，国际组织制定了 UNICODE 字符集，它为各种语言中的每一个字符设定了统一且唯一的数字编号，以满足跨平台、跨语言进行文本交换、处理的要求，如我们熟悉的 UTF-8 。</description>
+      <description>版权声明：本文由 Hov 所有，发布于 http://chenhy.com ，转载请注明出处。 0 写在前面 IO 操作是任何编程语言都无法回避的问题，因为 IO 操作是机器获取和交换信息的主要途径。</description>
     </item>
     
     <item>
@@ -101,17 +53,7 @@ Fruit apple = new Apple(); //向上转型  向上转型是对父类对象的方�
       <pubDate>Mon, 13 Nov 2017 00:00:00 +0000</pubDate>
       
       <guid>https://HauyuChen.github.io/post/java_abstractclass_interface/</guid>
-      <description>0 写在前面 抽象类和接口有共同点，也有不同点。在实际应用中，我们有时会不知道什么时候用抽象类，什么时候用接口。因此，我们有必要了解抽象类和接口的相关知识以及它们之间的区别，这样以后在二者之间的选择将更有依据。
-
-1 抽象类 在面向对象中，我们通过类来描绘对象，但并不是所有的类都是用来描绘对象的。如果一个类中没有包含足够的信息来描绘一个具体的对象，这样的类就是抽象类。
-抽象类是实现多态的一种机制，抽象类可以包含具体方法，也可以包含抽象方法（由继承它的子类实现这些方法）。
-抽象类的特性总结如下：
- 抽象类不能被实例化； 抽象类可以有构造方法； 抽象方法必须由其子类重写（Override）； 只要包含有一个抽象方法的类，就必须定义为抽象类； 抽象类可以包含有具体实现的方法，也可以不包含抽象方法； 子类的抽象方法不能与父类的抽象方法重名； abstract 不能与 private 、 static 、 final 、 native 并列修饰同一个方法。  注：关于子类实例化时抽象类是否被实例化的问题
-抽象类不能实例化，子类实例化时会初始化父类，因为子类继承了父类的变量、方法等，但初始化不等同于实例化。实例化是指用类创建对象，为对象开辟内存空间。
-举个栗子：
-Duck 是一个抽象类，里面包含构造方法、抽象方法、具体方法。
-GreenHeadDuck 继承自抽象类 Duck ，所以它必须重写抽象类 Duck 的抽象方法 display ，而具体方法 Quack 、 Swim 可以不重写。
-/* Duck.java */ public abstract class Duck{ //抽象类Duck public Duck(){ //构造方法 } public abstract void display(); //抽象方法：外观 public void Quack(){ //具体方法：嘎嘎叫 System.out.println(&amp;quot;--gaga--&amp;quot;); } public void Swim(){ //具体方法：游泳 System.</description>
+      <description>0 写在前面 抽象类和接口有共同点，也有不同点。在实际应用中，我们有时会不知道什么时候用抽象类，什么时候用接口。因此，我们有必要了解抽象类和接口</description>
     </item>
     
     <item>
@@ -120,19 +62,7 @@ GreenHeadDuck 继承自抽象类 Duck ，所以它必须重写抽象类 Duck 的
       <pubDate>Thu, 14 Sep 2017 00:00:00 +0000</pubDate>
       
       <guid>https://HauyuChen.github.io/post/java_string/</guid>
-      <description>1 字符串实例化两种方式的区别 String 的实例化方式有两种，一种是直接赋值，另一种是通过 new 关键字实例化字符串。
-1.1 直接赋值 String str1 = &amp;quot;hello&amp;quot;;  使用直接赋值方式，只要以后声明的字符串内容相同，则不会再开辟新的内存空间。这是Java中共享设计的思想，Java 通过创建一个字符串池，字符串池中保存了多个字符串对象。若新实例化的字符串对象已经在对象池中，则不再重新定义，直接从对象池中取出使用。
-具体到例子， str1 通过直接赋值，因为字符串池不存在“hello”，所以创建一个新的实例置入字符串池，并在栈中开辟一个内存空间直接指向“hello”。
-如果我们声明新的字符串 str2=“hello”， str2 将指向“hello”存放的内存空间，不会再开辟一个新的内存空间。这是因为，JVM会先到字符串池中查找，如果有的话返回字符串池中这个实例的引用，否则才创建一个新的实例并置入字符串对象池。因此，通过直接赋值可以只占用一个内存空间。
-1.2 new关键字 String newstr1 = new String(&amp;quot;hello&amp;quot;);  使用 new 关键字实例化字符串，不管如何都将在堆中开辟一个新的空间。 new 创建字符串实例时会先在对象池中查找是否有相同值的字符串，如果有，则拷贝一份到堆中，然后返回堆中的地址。如果没有，则在堆中创建一份，然后返回堆中的地址。
-具体到例子， newstr1 通过 new 关键字实例化，无论对象池是否存在相同值的字符串，都会在堆中开辟一个新的内存空间，赋值后将在栈中开辟一个新的空间存放 newstr1 ，也就是说使用 new 关键字实例化字符串总共开辟了两个内存空间。因为多出了从字符串池拷贝到堆内存的操作。
-1.3 字符串池 字符串池的优点是避免了相同字符串的创建，节省内存，省去创建相同字符串的时间；另一方面，字符串池的缺点是牺牲了 JVM 在常量池中遍历对象所需要的时间，不过时间成本相比之下较低。
-1.4 小结 直接赋值只需一个内存空间，相同的字符串可以重复指向同一个内存空间；
-new 创建字符串实例无论如何会在堆中开辟一个新的内存空间，因此总共占用两个内存空间。
-综上，使用直接赋值的方法较好，可以避免占用多余的内存空间。
-
-2 字符串比较“==”与 equals 的区别 字符串比较是较为常用的功能， Java 中主要提供了两种字符串比较方式，“==”和 equals ，如下：
-String str1 = &amp;quot;hello&amp;quot;; String str2 = new String(&amp;quot;hello&amp;quot;); System.</description>
+      <description>1 字符串实例化两种方式的区别 String 的实例化方式有两种，一种是直接赋值，另一种是通过 new 关键字实例化字符串。 1.1 直接赋值 String str1 = &amp;quot;hello&amp;quot;; 使用直接赋值方式，只要</description>
     </item>
     
     <item>
@@ -141,8 +71,7 @@ String str1 = &amp;quot;hello&amp;quot;; String str2 = new String(&amp;quot;hell
       <pubDate>Wed, 25 Oct 2017 00:00:00 +0000</pubDate>
       
       <guid>https://HauyuChen.github.io/post/java_thissuperstaticfinal/</guid>
-      <description>0 写在前面 本文主要讲讲 Java 中比较常见的关键字，如 this 、 super 、 static 、 final ，它们在程序中出现频率较高。
-1 this  表示类中的属性，比如 this.username = username; 强调调用的是本类的方法； 调用本类的构造方法，如 this(); 调用本类的无参构造方法； 表示当前对象（调用方法的对象）。  2 super  调用父类的构造方法； 调用父类的普通方法； 调用父类的属性。  3 static  static 修饰类： static 修饰的类称为静态类，静态类作为类的静态成员存在于某个类中，静态成员类可以不创建父类对象直接创建静态类的对象。 static 修饰变量： static 修饰的变量称为静态变量或类变量，而没有被 static 修饰的变量称为实例变量。静态变量在内存中只有一个拷贝， JVM 只为静态变量分配一次内存，且在加载类的过程中完成静态变量的内存分配；而实例变量每创建一个实例就分配一次内存，实例变量在内存中有多个拷贝，互补影响。 static 修饰方法： static 修饰的方法称为类方法，否则为实例方法，实例方法只有生成对象时才分配内存。类方法可以通过类名直接调用，实例方法只能通过类对象调用。  4 final  final 修饰类：被 final 修饰的类表示最终类，其不能被继承，不能当父类； final 修饰变量：被 final 修饰的变量为最终变量，即常量，其值不能修改，在定义时必须赋值。值得注意的是，当 final 修饰的不是普通变量而是对象引用时，变量指向的对象是可变的，不可变的是变量对对象的引用； final 修饰方法： final 修饰的方法为最终方法，父类包含最终方法时，子类不能重写该方法。</description>
+      <description>0 写在前面 本文主要讲讲 Java 中比较常见的关键字，如 this 、 super 、 static 、 final ，它们在程序中出现频率较高。 1 this 表示类中的属性，比如 this.username = username; 强调调用的是本类的方法</description>
     </item>
     
     <item>
@@ -151,7 +80,7 @@ String str1 = &amp;quot;hello&amp;quot;; String str2 = new String(&amp;quot;hell
       <pubDate>Wed, 11 Oct 2017 00:00:00 +0000</pubDate>
       
       <guid>https://HauyuChen.github.io/post/java_json/</guid>
-      <description>1 Java中创建JSON import com.google.gson.JsonArray; import com.google.gson.JsonObject; public class CreateJSON { public static void main(String[] args) { JsonObject object = new JsonObject(); object.addProperty(&amp;quot;cat&amp;quot;, &amp;quot;it&amp;quot;); JsonArray array = new JsonArray(); JsonObject lan1 = new JsonObject(); lan1.addProperty(&amp;quot;id&amp;quot;, 1); lan1.addProperty(&amp;quot;name&amp;quot;, &amp;quot;Java&amp;quot;); lan1.addProperty(&amp;quot;ide&amp;quot;, &amp;quot;Eclipse&amp;quot;); array.add(lan1); JsonObject lan2 = new JsonObject(); lan2.addProperty(&amp;quot;id&amp;quot;, 2); lan2.addProperty(&amp;quot;name&amp;quot;, &amp;quot;Swift&amp;quot;); lan2.addProperty(&amp;quot;ide&amp;quot;, &amp;quot;XCode&amp;quot;); array.add(lan2); JsonObject lan3 = new JsonObject(); lan3.addProperty(&amp;quot;id&amp;quot;, 3); lan3.addProperty(&amp;quot;name&amp;quot;, &amp;quot;C#&amp;quot;); lan3.addProperty(&amp;quot;ide&amp;quot;, &amp;quot;Visual Studio&amp;quot;); array.add(lan3); object.add(&amp;quot;languages&amp;quot;, array); object.addProperty(&amp;quot;pop&amp;quot;, true); System.</description>
+      <description>1 Java中创建JSON import com.google.gson.JsonArray; import com.google.gson.JsonObject; public class CreateJSON { public static void main(String[] args) { JsonObject object = new JsonObject(); object.addProperty(&amp;quot;cat&amp;quot;, &amp;quot;it&amp;quot;); JsonArray array = new JsonArray(); JsonObject lan1 = new JsonObject(); lan1.addProperty(&amp;quot;id&amp;quot;, 1); lan1.addProperty(&amp;quot;name&amp;quot;, &amp;quot;Java&amp;quot;); lan1.addProperty(&amp;quot;ide&amp;quot;, &amp;quot;Eclipse&amp;quot;); array.add(lan1); JsonObject lan2 = new JsonObject(); lan2.addProperty(&amp;quot;id&amp;quot;, 2); lan2.addProperty(&amp;quot;name&amp;quot;, &amp;quot;Swift&amp;quot;); lan2.addProperty(&amp;quot;ide&amp;quot;, &amp;quot;XCode&amp;quot;); array.add(lan2); JsonObject lan3 = new JsonObject(); lan3.addProperty(&amp;quot;id&amp;quot;, 3); lan3.addProperty(&amp;quot;name&amp;quot;,</description>
     </item>
     
     <item>
@@ -160,7 +89,7 @@ String str1 = &amp;quot;hello&amp;quot;; String str2 = new String(&amp;quot;hell
       <pubDate>Wed, 11 Oct 2017 00:00:00 +0000</pubDate>
       
       <guid>https://HauyuChen.github.io/post/java_xml/</guid>
-      <description>1 XML文件创建示例 import java.io.File; import java.io.StringWriter; import javax.xml.parsers.DocumentBuilder; import javax.xml.parsers.DocumentBuilderFactory; import javax.xml.parsers.ParserConfigurationException; import javax.xml.transform.Transformer; import javax.xml.transform.TransformerConfigurationException; import javax.xml.transform.TransformerException; import javax.xml.transform.TransformerFactory; import javax.xml.transform.dom.DOMSource; import javax.xml.transform.stream.StreamResult; import org.w3c.dom.Document; import org.w3c.dom.Element; public class CreateXML { public static void main(String[] args) { try { //DOM DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance(); DocumentBuilder builder = factory.newDocumentBuilder(); Document document = builder.newDocument(); //创建Languages标签 Element root = document.createElement(&amp;quot;Languages&amp;quot;); root.setAttribute(&amp;quot;cat&amp;quot;, &amp;quot;it&amp;quot;); //设置Languages标签的属性 //-----接下来创建Languages标签下的三个子标签lan1、lan2、lan3 //lan1 Element lan1 = document.createElement(&amp;quot;lan&amp;quot;); //lan标签 lan1.setAttribute(&amp;quot;id&amp;quot;, &amp;quot;1&amp;quot;); Element name1 = document.</description>
+      <description>1 XML文件创建示例 import java.io.File; import java.io.StringWriter; import javax.xml.parsers.DocumentBuilder; import javax.xml.parsers.DocumentBuilderFactory; import javax.xml.parsers.ParserConfigurationException; import javax.xml.transform.Transformer; import javax.xml.transform.TransformerConfigurationException; import javax.xml.transform.TransformerException; import javax.xml.transform.TransformerFactory; import javax.xml.transform.dom.DOMSource; import javax.xml.transform.stream.StreamResult; import org.w3c.dom.Document; import org.w3c.dom.Element; public class CreateXML { public static void main(String[] args) { try { //DOM DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance(); DocumentBuilder builder = factory.newDocumentBuilder(); Document document = builder.newDocument(); //创建Langu</description>
     </item>
     
     <item>
@@ -169,11 +98,7 @@ String str1 = &amp;quot;hello&amp;quot;; String str2 = new String(&amp;quot;hell
       <pubDate>Tue, 08 Aug 2017 00:00:00 +0000</pubDate>
       
       <guid>https://HauyuChen.github.io/post/java_trap/</guid>
-      <description>Java备忘  float 和 double 不能进行精确运算，因为计算机不能表示所有的小数，采用 BigDecimal 来解决（String）。
- switch 语句不能作用在 long 和 String 上。
- true 、 false 、 null 不是严格意义上的关键字，而是文字常量（literals）。
- float f = 2.5；不正确，因为精度不准确。正确写法：float f = (float)2.5;
- try｛ ｝里面的 return 语句，紧跟着 finally｛ ｝里的代码会在 return 前先执行。</description>
+      <description>Java备忘 float 和 double 不能进行精确运算，因为计算机不能表示所有的小数，采用 BigDecimal 来解决（String）。 switch 语句不能作用在 long 和 String 上。 true 、 false 、 null 不是严格</description>
     </item>
     
   </channel>

@@ -2,22 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>正则化 on Hov&#39;s Blog</title>
-    <link>https://HauyuChen.github.io/topics/%E6%AD%A3%E5%88%99%E5%8C%96/</link>
+    <link>https://hauyuchen.github.io/topics/%E6%AD%A3%E5%88%99%E5%8C%96/</link>
     <description>Recent content in 正则化 on Hov&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2017. All rights reserved.</copyright>
     <lastBuildDate>Thu, 10 Aug 2017 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://HauyuChen.github.io/topics/%E6%AD%A3%E5%88%99%E5%8C%96/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://hauyuchen.github.io/topics/%E6%AD%A3%E5%88%99%E5%8C%96/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>【机器学习笔记】6. 正则化</title>
-      <link>https://HauyuChen.github.io/post/ml-6-regulation/</link>
+      <link>https://hauyuchen.github.io/post/ml-6-regulation/</link>
       <pubDate>Thu, 10 Aug 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://HauyuChen.github.io/post/ml-6-regulation/</guid>
+      <guid>https://hauyuchen.github.io/post/ml-6-regulation/</guid>
       <description>作者注：机器学习系列是本人在学习机器学习相关内容时产生的笔记，希望也能对您有所帮助。值得注意的是，作者作为初学者，表述难免有误或不全面，望多批评指正。 如有任何问题，欢迎您随时与我联系：Hauyu.Chen@Gmail.com
 版权声明：本文由 Hov 所有，发布于 http://chenhy.com ，转载请注明出处。
 

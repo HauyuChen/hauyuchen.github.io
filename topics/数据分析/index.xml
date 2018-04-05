@@ -2,22 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>数据分析 on Hov&#39;s Blog</title>
-    <link>https://HauyuChen.github.io/topics/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/</link>
+    <link>https://hauyuchen.github.io/topics/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/</link>
     <description>Recent content in 数据分析 on Hov&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2017. All rights reserved.</copyright>
     <lastBuildDate>Sun, 20 Aug 2017 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://HauyuChen.github.io/topics/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://hauyuchen.github.io/topics/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Elasticsearch 初探</title>
-      <link>https://HauyuChen.github.io/post/es-elasticsearch-manu/</link>
+      <link>https://hauyuchen.github.io/post/es-elasticsearch-manu/</link>
       <pubDate>Sun, 20 Aug 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://HauyuChen.github.io/post/es-elasticsearch-manu/</guid>
+      <guid>https://hauyuchen.github.io/post/es-elasticsearch-manu/</guid>
       <description>版权声明：本文由 Hov 所有，发布于 http://chenhy.com ，转载请注明出处。
 
 0 前言 本文是我接触 Elasticsearch 后写下的第一篇文章，旨在通过电商网站商品管理的栗子来熟悉 Elasticsearch 的相关操作，可以说是学习 Elasticsearch 的第一个“Hello World”吧，后续将逐步深入 Elasticsearch 相关内容。

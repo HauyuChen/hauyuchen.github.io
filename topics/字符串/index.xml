@@ -2,22 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>字符串 on Hov&#39;s Blog</title>
-    <link>https://HauyuChen.github.io/topics/%E5%AD%97%E7%AC%A6%E4%B8%B2/</link>
+    <link>https://hauyuchen.github.io/topics/%E5%AD%97%E7%AC%A6%E4%B8%B2/</link>
     <description>Recent content in 字符串 on Hov&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2017. All rights reserved.</copyright>
     <lastBuildDate>Thu, 14 Sep 2017 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://HauyuChen.github.io/topics/%E5%AD%97%E7%AC%A6%E4%B8%B2/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://hauyuchen.github.io/topics/%E5%AD%97%E7%AC%A6%E4%B8%B2/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>String相关特性</title>
-      <link>https://HauyuChen.github.io/post/java_string/</link>
+      <link>https://hauyuchen.github.io/post/java_string/</link>
       <pubDate>Thu, 14 Sep 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://HauyuChen.github.io/post/java_string/</guid>
+      <guid>https://hauyuchen.github.io/post/java_string/</guid>
       <description>1 字符串实例化两种方式的区别 String 的实例化方式有两种，一种是直接赋值，另一种是通过 new 关键字实例化字符串。
 1.1 直接赋值 String str1 = &amp;quot;hello&amp;quot;;  使用直接赋值方式，只要以后声明的字符串内容相同，则不会再开辟新的内存空间。这是Java中共享设计的思想，Java 通过创建一个字符串池，字符串池中保存了多个字符串对象。若新实例化的字符串对象已经在对象池中，则不再重新定义，直接从对象池中取出使用。
 具体到例子， str1 通过直接赋值，因为字符串池不存在“hello”，所以创建一个新的实例置入字符串池，并在栈中开辟一个内存空间直接指向“hello”。

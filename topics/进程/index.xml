@@ -2,22 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>进程 on Hov&#39;s Blog</title>
-    <link>https://HauyuChen.github.io/topics/%E8%BF%9B%E7%A8%8B/</link>
+    <link>https://hauyuchen.github.io/topics/%E8%BF%9B%E7%A8%8B/</link>
     <description>Recent content in 进程 on Hov&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2017. All rights reserved.</copyright>
     <lastBuildDate>Wed, 06 Sep 2017 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://HauyuChen.github.io/topics/%E8%BF%9B%E7%A8%8B/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://hauyuchen.github.io/topics/%E8%BF%9B%E7%A8%8B/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Java 进程通信（共享内存）</title>
-      <link>https://HauyuChen.github.io/post/java_ipc/</link>
+      <link>https://hauyuchen.github.io/post/java_ipc/</link>
       <pubDate>Wed, 06 Sep 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://HauyuChen.github.io/post/java_ipc/</guid>
+      <guid>https://hauyuchen.github.io/post/java_ipc/</guid>
       <description>0 写在前面 说到进程通信，我们很轻易就能想到经典的 Socket 通信。但像 Socket 这样的网络通信会增加额外的网络负担，同时也增加了一定的代码量。
 共享内存方式是实现进程通信的另外一种方式，其具有数据共享，系统快速查询、动态配置、减少资源耗费等优点。
 共享内存特点：
