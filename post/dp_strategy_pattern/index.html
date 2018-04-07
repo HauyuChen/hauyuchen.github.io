@@ -281,13 +281,13 @@
 
 <h2 id="1-1-简介">1.1 简介</h2>
 
-<p>策略模式：通过定义算法族，封装不同算法的具体实现。使用算法的用户只需调用已封装好的算法即可，无需重写算法代码，增加了算法代码的复用性。同时，可以灵活地选择特定的算法实现。</p>
+<p>策略模式：通过定义算法族，封装不同算法的具体实现。使用算法的用户只需调用已封装好的算法即可，无需重写算法代码，增加了算法代码的复用性。同时，可以动态选择特定的算法实现。</p>
 
 <h2 id="1-2-思路">1.2 思路</h2>
 
 <p>策略模式将每一个算法封装起来，实现算法族（业务规则），这些算法可互换代替。</p>
 
-<p>策略模式通过分离变化部分，封装接口，基于接口实现不同的功能。也就是说，对于同一类型的操作，将复杂多样的处理方式分离开来，有选择的实现各自特有的操作。通常，在超类放行为接口对象，在子类设定具体行为对象。</p>
+<p>策略模式通过分离变化部分，封装接口，基于接口实现不同的功能。也就是说，对于同一类型的操作，将复杂多样的处理方式分离开来，有选择的实现各自特有的操作。通常，<strong>在超类放行为接口对象，在子类设定具体行为对象</strong>。</p>
 
 <h2 id="1-3-使用场景">1.3 使用场景</h2>
 
@@ -323,15 +323,15 @@
 
 <hr />
 
-<p>我们引入<strong>模拟鸭子</strong>这个栗子（这是 Head First设计模式中的例子，简单易懂，推荐）。</p>
+<p>我们引入<strong>模拟鸭子</strong>这个例子（这是 Head First设计模式中的例子，简单易懂，推荐）。</p>
 
 <h2 id="2-1-原始需求">2.1 原始需求</h2>
 
-<p>我们通过程序模拟鸭子，假设我们的需求是这样的：鸭子有<strong>绿头鸭</strong>和<strong>红头鸭</strong>两种，它们都会嘎嘎叫和游泳。</p>
+<p>现在，我们要通过程序模拟鸭子。假设我们的需求是这样的：鸭子有<strong>绿头鸭</strong>和<strong>红头鸭</strong>两种，它们都会<strong>嘎嘎叫</strong>和<strong>游泳</strong>。</p>
 
 <p>根据需求，借助面向对象思维，我们可以设计如下代码：</p>
 
-<p><strong>（1）首先设计一个抽象类：鸭子</strong></p>
+<p><strong>（1）首先设计一个抽象类：Duck</strong></p>
 
 <pre><code>/* Duck.java */
 
@@ -342,7 +342,7 @@ public abstract class Duck{
 
     public abstract void display();     //外观
     
-    public void Quack(){                //嘎嘎叫
+    public void quack(){                //嘎嘎叫
         System.out.println(&quot;--gaga--&quot;);
     }
 
@@ -352,9 +352,9 @@ public abstract class Duck{
 }
 </code></pre>
 
-<p><strong>（2）绿头鸭继承抽象父类 Duck</strong></p>
+<p><strong>（2）绿头鸭 GreenHeadDuck 继承抽象父类 Duck</strong></p>
 
-<p>因为父类 Duck 中有抽象方法 display ，所以子类 GreenHeadDuck 需要重写 display 方法。</p>
+<p>因为父类 Duck 中有抽象方法 display ，所以子类 GreenHeadDuck 需要重写 display 方法，这里我们通过重写 display 方法实现了不同鸭子（子类）外观的差异化。</p>
 
 <pre><code>/* GreenHeadDuck.java */
 
@@ -368,7 +368,7 @@ public class GreenHeadDuck extends Duck{
 
 <p><strong>（3）同理，红头鸭也抽象父类 Duck</strong></p>
 
-<p>因为父类 Duck 中有抽象方法 display ，所以子类 RedHeadDuck 需要重写 display 方法。</p>
+<p>因为父类 Duck 中有抽象方法 display ，所以子类 RedHeadDuck 需要重写 display 方法，这里我们通过重写 display 方法实现了不同鸭子（子类）外观的差异化。</p>
 
 <pre><code>/* RedHeadDuck.java */
 
@@ -385,22 +385,20 @@ public class RedHeadDuck extends Duck{
 <pre><code>/* StimulateDuck.java */
 
 public class StimulateDuck {
-
     public static void main(String[] args) {
         GreenHeadDuck mGreenHeadDuck = new GreenHeadDuck(); //绿头鸭
         RedHeadDuck mRedHeadDuck = new RedHeadDuck();       //红头鸭
         
         //绿头鸭出场
         mGreenHeadDuck.display();
-        mGreenHeadDuck.Quack();
+        mGreenHeadDuck.quack();
         mGreenHeadDuck.swim();
         
         //红头鸭出场
         mRedHeadDuck.display();
-        mRedHeadDuck.Quack();
+        mRedHeadDuck.quack();
         mRedHeadDuck.swim();
     }
-
 }
 
 </code></pre>
@@ -419,27 +417,26 @@ public class StimulateDuck {
 
 <p>可见，我们通过程序成功模拟鸭子。<br />
 嘎嘎叫和游泳是所有鸭子的共同技能，但是鸭子的外观（种类）有可能不同。<br />
-所以，在超类 Duck 将 Display 方法定义成抽象方法，由子类（不同鸭子）去实现 Display 这个方法。</p>
+所以，在超类 Duck 将 display 方法定义成抽象方法，由子类（不同鸭子）去实现 display 方法，实现了不同鸭子的差异化。</p>
 
 <h2 id="2-2-新的需求">2.2 新的需求</h2>
 
-<p>前面的鸭子只能嘎嘎叫和游泳，但现在<strong>我们有了新的需求，我们要让一些鸭子能飞</strong>。</p>
+<p>前面我们实现了不同鸭子可以有不同的外观（绿头鸭、红头鸭），而且都能嘎嘎叫和游泳。现在<strong>我们有了新的需求，我们要让一些鸭子会飞</strong>。</p>
 
-<p>（1）面向对象思维的解决方案：像游泳这个技能一样，在超类 Duck 中增加会飞这个技能，这样继承自超类 Duck 的鸭子都会飞。</p>
+<p><strong>（1）</strong>按照前面的解决方案：像游泳这个技能一样，在超类 Duck 中增加会飞这个技能，这样继承自超类 Duck 的鸭子都会飞。</p>
 
 <p>修改 Duck.java 代码如下：</p>
 
 <pre><code>/* Duck.java */
 
 public abstract class Duck{
-
     public Duck(){
     
     }
     
     public abstract void display();     //外观
     
-    public void Quack(){                //嘎嘎叫
+    public void quack(){                //嘎嘎叫
         System.out.println(&quot;--gaga--&quot;);
     }
 
@@ -448,10 +445,9 @@ public abstract class Duck{
     }
     
     /* 增加 Fly 方法 */
-    public void Fly(){                  //飞
+    public void fly(){                  //飞
         System.out.println(&quot;--flying--&quot;);
     }
-
 }
 </code></pre>
 
@@ -461,7 +457,7 @@ public abstract class Duck{
 
 <p>事实上，并不是所有的鸭子都会飞，所以我们能不能让有的鸭子会飞，有的鸭子不会飞呢。</p>
 
-<p>（2）继续用面向对象思维来解决上面的问题：我们<strong>在子类中覆盖 Fly 方法</strong>，比如绿头鸭不会飞，我们就在绿头鸭这个子类中重写 fly 方法。</p>
+<p><strong>（2）</strong>还是按照之前的思路来解决上面的问题：我们<strong>在子类中重写 fly 方法</strong>，比如绿头鸭不会飞，我们就在绿头鸭这个子类中重写 fly 方法。</p>
 
 <p>修改 GreenHeadDuck.java 代码如下：</p>
 
@@ -474,9 +470,9 @@ public class GreenHeadDuck extends Duck{
         System.out.println(&quot;**GreenHeadDuck**&quot;);
     }
     
-    /* 重写超类 Duck 中的 Fly 方法 */
+    /* 重写超类 Duck 中的 fly 方法 */
     @Override
-    public void Fly() {             //不会飞
+    public void fly() {             //不会飞
         System.out.println(&quot;--can not fly--&quot;);  
     }
 
@@ -485,8 +481,8 @@ public class GreenHeadDuck extends Duck{
 
 <p>这样就可以让有些鸭子能飞，有些鸭子不能飞了。<br />
 遗憾的是，这样<strong>降低了代码的复用性</strong>。<br />
-如果我们又新增一类鸭子，那是不是要在子类上也覆盖 Fly 这个方法呢。<br />
-显然，<strong>每次增加新的鸭子，我们就需要重写 fly 方法或其它方法，来实现不同鸭子的差异化</strong>。</p>
+如果我们又新增一类鸭子，那是不是在子类上也重写 fly 方法呢？<br />
+显然，<strong>每次增加新的鸭子，我们可能就需要重写 fly 方法或其它方法，来实现不同鸭子的差异化</strong>。</p>
 
 <h2 id="2-3-策略模式">2.3 策略模式</h2>
 
@@ -494,15 +490,15 @@ public class GreenHeadDuck extends Duck{
 在 2.2 中，我们遗留了一些问题：</p>
 
 <ol>
-<li>如果只在超类中定义新的 Fly 方法，那么所有鸭子都会飞，不符合要求；</li>
-<li>在超类定义 Fly 方法，在子类覆盖 Fly 方法，这样子类可以修改 fly 这个属性，但是每次新增一个子类（新的鸭子）我们都要覆盖 Fly 方法，这样代码复用性不高，而且操作繁琐。</li>
+<li>如果只在超类中定义新的 fly 方法，那么所有鸭子都会飞，不符合要求；</li>
+<li>在超类定义 fly 方法，在子类重写 fly 方法。但是，每新增一个子类（新的鸭子）我们都要重写 fly 方法，代码复用性不高，而且操作繁琐。</li>
 </ol>
 
 <p>有了策略模式，上面的问题不复存在。</p>
 
 <p><strong>（1）通过接口封装行为（算法族）</strong></p>
 
-<p>FlyBehavior 接口：飞行行为族（算法族）</p>
+<p>FlyBehavior 接口（算法族）：<strong>飞行行为族</strong></p>
 
 <pre><code>/* FlyBehavior.java */
 
@@ -511,7 +507,7 @@ public interface FlyBehavior {      // FlyBehavior 行为族
 }
 </code></pre>
 
-<p>GoodFlyBehavior 类实现 FlyBehavior 接口：会飞</p>
+<p>GoodFlyBehavior 类（算法实现类）实现 FlyBehavior 接口（算法族）：<strong>会飞</strong></p>
 
 <pre><code>/* GoodFlyBehavior.java */
 
@@ -523,7 +519,7 @@ public class GoodFlyBehavior implements FlyBehavior {   //会飞
 }
 </code></pre>
 
-<p>BadFlyBehavior 类实现 FlyBehavior 接口：不会飞</p>
+<p>BadFlyBehavior 类（算法实现类）实现 FlyBehavior 接口（算法族）：<strong>不会飞</strong></p>
 
 <pre><code>/* BadFlyBehavior.java */
 
@@ -535,12 +531,14 @@ public class BadFlyBehavior implements FlyBehavior {    //不会飞
 }
 </code></pre>
 
-<p>GoodFlyBehavior 、 BadFlyBehavior 都实现了 FlyBehavior 接口。<br />
-我们<strong>通过 FlyBehavior 接口将会不会飞这个行为封装了起来， FlyBehavior 就是我们所说的行为族（算法族）</strong>。<br />
-GoodFlyBehavior 、 BadFlyBehavior 是 FlyBehavior 行为族下的不同行为策略，分别对应会飞、不会飞。<br />
-GoodFlyBehavior 、 BadFlyBehavior 可以被我们用来实例化不同的鸭子，这样就可以让鸭子有不同的行为策略，即有的鸭子会飞，有的鸭子不会飞。</p>
+<p>GoodFlyBehavior 、 BadFlyBehavior 类都实现了 FlyBehavior 接口。<br />
+我们<strong>通过 FlyBehavior 接口将飞行行为封装起来， FlyBehavior 就是我们所说的行为族（算法族）</strong>。<br />
+GoodFlyBehavior 、 BadFlyBehavior 算法实现类是 FlyBehavior 行为族下的不同行为策略，分别对应会飞、不会飞。<br />
+GoodFlyBehavior 、 BadFlyBehavior 算法实现类可被用来实例化不同的鸭子，这样就可以<strong>让鸭子有不同的行为策略</strong>，即有的鸭子会飞，有的鸭子不会飞。</p>
 
 <p><strong>（2）修改超类 Duck</strong></p>
+
+<p>接下来，我们需要修改父类 Duck ，以符合策略模式。值得注意的是，<strong>以后我们新增鸭子时不需要修改父类 Duck 的代码</strong>，因为父类 Duck 已经按照策略模式封装好代码。</p>
 
 <pre><code>/* Duck.java */
 
@@ -551,7 +549,7 @@ public abstract class Duck{
     
     }
     
-    public void Quack(){
+    public void quack(){
         System.out.println(&quot;--gaga--&quot;);
     }
 
@@ -562,7 +560,7 @@ public abstract class Duck{
     }
     
     //注意这里我们没有设定鸭子会不会飞，而是让 mFlyBehavior 去考虑
-    public void Fly(){
+    public void fly(){
         mFlyBehavior.fly();     
     }
     
@@ -582,7 +580,7 @@ public abstract class Duck{
 
 public class GreenHeadDuck extends Duck{
     public GreenHeadDuck() {
-        mFlyBehavior = new GoodFlyBehavior();//将 mFlyBehavior 实例化为 GoodFlyBehavior（会飞）
+        mFlyBehavior = new GoodFlyBehavior();   //实例化为 GoodFlyBehavior（会飞）
     }
     
     @Override
@@ -595,16 +593,14 @@ public class GreenHeadDuck extends Duck{
 <pre><code>/* RedHeadDuck.java */
 
 public class RedHeadDuck extends Duck{
-    
     public RedHeadDuck() {
-        mFlyBehavior = new BadFlyBehavior();//将 mFlyBehavior 实例化为 BadFlyBehavior（不会飞）
+        mFlyBehavior = new BadFlyBehavior();    //实例化为 BadFlyBehavior（不会飞）
     }
     
     @Override
     public void display(){
         System.out.println(&quot;**RedHeadDuck**&quot;);
     }
-    
 }
 </code></pre>
 
@@ -619,26 +615,30 @@ public class StimulateDuck {
         
         //绿头鸭出场
         mGreenHeadDuck.display();
-        mGreenHeadDuck.Quack();
+        mGreenHeadDuck.quack();
         mGreenHeadDuck.swim();
-        mGreenHeadDuck.Fly();
+        mGreenHeadDuck.fly();
         
         //红头鸭出场
         mRedHeadDuck.display();
-        mRedHeadDuck.Quack();
+        mRedHeadDuck.quack();
         mRedHeadDuck.swim();
-        mRedHeadDuck.Fly();
+        mRedHeadDuck.fly();
         
-        //前面我们是在构造函数中定义鸭子会不会飞，这里动态地将绿头鸭从 GoodFly 变成 BadFly 
+        //前面在构造函数中定义鸭子会不会飞，这里动态的将绿头鸭从 GoodFly 变成 BadFly 
         mGreenHeadDuck.display();
         mGreenHeadDuck.SetFlyBehavior(new BadFlyBehavior());
-        mGreenHeadDuck.Fly();
+        mGreenHeadDuck.fly();
     }
 
 }
 </code></pre>
 
-<p>运行结果：</p>
+<p><strong>程序运行结果：</strong></p>
+
+<p>首先，绿头鸭和红头鸭都嘎嘎叫、游泳，但是绿头鸭会飞（GoodFly），红头鸭不会飞（BadFly）。</p>
+
+<p>最后，我们动态的将绿头鸭从会飞设置成不会飞，所以绿头鸭输出了 BadFly 。</p>
 
 <pre><code>**GreenHeadDuck**
 --gaga--
@@ -654,7 +654,7 @@ public class StimulateDuck {
 
 <p>这就是策略模式的解决思路。<br />
 通过封装行为族，超类不考虑具体的行为，而让子类去选择各自的行为。<br />
-这样，<strong>我们增加新的鸭子，超类的代码无需改动，子类也不需覆盖超类的代码，只需构造不同的实例即可实现子类间不同的行为</strong>。</p>
+这样，<strong>我们增加新的鸭子，超类的代码无需改动，子类也不需覆盖超类的代码，只需构造不同的实例即可实现子类的行为差异化</strong>。</p>
 
 <p><br/></p>
 
