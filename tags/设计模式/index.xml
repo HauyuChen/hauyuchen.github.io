@@ -45,7 +45,7 @@
       <pubDate>Fri, 17 Nov 2017 00:00:00 +0000</pubDate>
       
       <guid>https://HauyuChen.github.io/post/dp_observer_pattern/</guid>
-      <description>版权声明：本文由 Hov 所有，发布于 http://chenhy.com ，转载请注明出处。 1 观察者模式 1.1 简介 观察者模式是对象之间实现多对一依赖的一种设计方案，其可让多个观察者同时监</description>
+      <description>版权声明：本文由 Hov 所有，发布于 https://chenhy.com ，转载请注明出处。 1 观察者模式 1.1 简介 观察者模式是对象之间实现多对一依赖的一种设计方案，其可让多个观察者同时监</description>
     </item>
     
   </channel>
