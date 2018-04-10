@@ -265,7 +265,7 @@
   
 </div>
 
-  
+  <p></p>
 
 <hr />
 
@@ -444,7 +444,7 @@ public abstract class Duck{
         System.out.println(&quot;--swimming--&quot;);
     }
     
-    /* 增加 Fly 方法 */
+    /* 增加 fly 方法 */
     public void fly(){                  //飞
         System.out.println(&quot;--flying--&quot;);
     }
@@ -669,7 +669,6 @@ public class StimulateDuck {
 <p>有了<strong>策略模式</strong>，我们将这些差异化的算法实现提取出来，封装成不同的算法实现类（实现自算法族接口）。通过父类来使用算法族接口，而子类只需实例化不同的算法实现类，即可实现子类行为的差异化。这样的好处是<strong>在实现子类差异化的同时，不需要修改父类的代码，在增加新特性时只需增加具体的算法实现类（并实现算法族接口），然后在子类中通过 Setter 设置不同的算法实现类。</strong></p>
 
 <p><br/></p>
-
 
   
 <div class="prev-next-post pure-g">
