@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://HauyuChen.github.io/post/%E7%AC%AC%E4%B8%80%E4%B8%AA%E5%8F%AA%E5%87%BA%E7%8E%B0%E4%B8%80%E6%AC%A1%E7%9A%84%E5%AD%97%E7%AC%A6/</loc>
+    <lastmod>2018-04-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://HauyuChen.github.io/post/es-concurrent_op/</loc>
     <lastmod>2018-01-26T00:00:00+00:00</lastmod>
   </url>
@@ -693,7 +698,7 @@
   
   <url>
     <loc>https://HauyuChen.github.io/</loc>
-    <lastmod>2018-01-26T00:00:00+00:00</lastmod>
+    <lastmod>2018-04-01T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -747,7 +752,7 @@
   
   <url>
     <loc>https://HauyuChen.github.io/post/</loc>
-    <lastmod>2018-01-26T00:00:00+00:00</lastmod>
+    <lastmod>2018-04-01T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -808,6 +813,12 @@
   <url>
     <loc>https://HauyuChen.github.io/topics/%E5%88%86%E5%B8%83%E5%BC%8F%E6%90%9C%E7%B4%A2/</loc>
     <lastmod>2018-01-26T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://HauyuChen.github.io/topics/%E5%89%91%E6%8C%87offer/</loc>
+    <lastmod>2018-04-01T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -927,7 +938,7 @@
   
   <url>
     <loc>https://HauyuChen.github.io/topics/%E7%AE%97%E6%B3%95/</loc>
-    <lastmod>2017-04-20T00:00:00+00:00</lastmod>
+    <lastmod>2018-04-01T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
