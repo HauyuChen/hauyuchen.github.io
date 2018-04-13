@@ -4,10 +4,10 @@
 <head>
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="">
+  <meta name="description" content="剑指Offer题解（Java实现）">
   <meta name="generator" content="Hugo 0.38" />
 
-  <title>Hov&#39;s Blog</title>
+  <title>二叉树的下一个结点 &middot; Hov&#39;s Blog</title>
 
   <script>
 	var _hmt = _hmt || [];
@@ -46,8 +46,6 @@
   <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet" type="text/css">
 
   
-  
-  <link rel="alternate" type="application/rss+xml" title="Hov&#39;s Blog" href="https://HauyuChen.github.io/index.xml" />
   
 
   
@@ -125,10 +123,6 @@
   <div class="pure-menu social">
 
   <ul class="pure-menu-list">
-    
-    <li class="pure-menu-item">
-      <a class="pure-menu-link" href="https://HauyuChen.github.io/index.xml"><i class="fa fa-rss fa-fw"></i>RSS</a>
-    </li>
     
 
     
@@ -227,23 +221,16 @@
 
 
 <div class="header">
-  <h1>Hov&#39;s Blog</h1>
-  <h2>To code,  To record,  To recall.</h2>
-  
+  <h1>二叉树的下一个结点</h1>
+  <h2>剑指Offer题解（Java实现）</h2>
 </div>
-
 <div class="content">
-  
-    
-      <article>
-  <header>
-    <h2><a href="https://HauyuChen.github.io/post/008-string-to-integeratoi/">【LeetCode】8. String to Integer (atoi)</a></h2>
 
-    <div class="post-meta">
+  <div class="post-meta">
 
   <div>
     <i class="fa fa-calendar fa-fw"></i>
-    <time>2016-06-11</time>
+    <time>2018-04-01</time>
   </div>
 
   
@@ -268,7 +255,7 @@
     
       <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/%E7%AE%97%E6%B3%95">算法</a>&nbsp;&#47;
     
-      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/leetcode">LeetCode</a>
+      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/%E5%89%91%E6%8C%87offer">剑指Offer</a>
     
   </div>
   
@@ -276,153 +263,122 @@
   
 </div>
 
-  </header>
+  <p></p>
 
-  <p>
-  题目描述： Implement atoi to convert a string to an integer. Hint: Carefully consider all possible input cases. If you want a challenge, please do not see below and ask yourself what are the possible input cases. Notes: It is intended for this problem to be specified vaguely (ie, no given input specs). You are responsible to gather all the input requirements up front. Update (2015-02-10): The
-  </p>
+<hr />
+
+<p><br/></p>
+
+<h1 id="1-题目描述">1 题目描述</h1>
+
+<hr />
+
+<p>给定一个二叉树和其中的一个结点，请找出中序遍历顺序的下一个结点并且返回。注意，树中的结点不仅包含左右子结点，同时包含指向父结点的指针。</p>
+
+<p><br/></p>
+
+<h1 id="2-思路">2 思路</h1>
+
+<hr />
+
+<p>建议先画出一棵二叉树帮助理解，本题应考虑三种情况。</p>
+
+<ol>
+<li>节点有右子树：找右子树的最左子节点；</li>
+<li>节点是父节点的左节点：找父节点；</li>
+<li>节点是父节点的右节点：找其父节点，且改父节点为父父节点的左孩子。</li>
+</ol>
+
+<p><br/></p>
+
+<h1 id="3-代码实现">3 代码实现</h1>
+
+<hr />
+
+<pre><code>/*
+public class TreeLinkNode {
+    int val;
+    TreeLinkNode left = null;
+    TreeLinkNode right = null;
+    TreeLinkNode next = null;
+
+    TreeLinkNode(int val) {
+        this.val = val;
+    }
+}
+*/
+public class Solution {
+    public TreeLinkNode GetNext(TreeLinkNode pNode)
+    {
+        if(pNode==null){
+            return null;
+        }
+        if(pNode.right!=null){
+            TreeLinkNode node = pNode.right;
+            while(node.left!=null){
+                node = node.left;
+            }
+            return node;
+        }
+        else{
+            TreeLinkNode father = pNode.next;
+            while(father!=null&amp;&amp;father.right==pNode){
+                pNode = father;
+                father = father.next;
+            }
+            return father;
+        }
+    }
+}
+</code></pre>
+
+<p><br/></p>
 
   
-  <footer>
-    <a href="https://HauyuChen.github.io/post/008-string-to-integeratoi/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
-  </footer>
-  
-</article>
-
+<div class="prev-next-post pure-g">
+  <div class="pure-u-1-24" style="text-align: left;">
     
-  
+    <a href="https://HauyuChen.github.io/post/%E7%AC%AC%E4%B8%80%E4%B8%AA%E5%8F%AA%E5%87%BA%E7%8E%B0%E4%B8%80%E6%AC%A1%E7%9A%84%E5%AD%97%E7%AC%A6/"><i class="fa fa-chevron-left"></i></a>
     
-      <article>
-  <header>
-    <h2><a href="https://HauyuChen.github.io/post/zb-zigbee-wirelessfan/">【ZigBee系列】2.无线风扇项目</a></h2>
-
-    <div class="post-meta">
-
-  <div>
-    <i class="fa fa-calendar fa-fw"></i>
-    <time>2016-05-19</time>
   </div>
-
-  
-
-  
-  
-  
-  <div>
-    <i class="fa fa-folder fa-fw"></i>
+  <div class="pure-u-10-24">
     
-      <a class="post-taxonomy-tag" href="https://HauyuChen.github.io/tags/zigbee">zigbee</a>
+    <nav class="prev">
+      <a href="https://HauyuChen.github.io/post/%E7%AC%AC%E4%B8%80%E4%B8%AA%E5%8F%AA%E5%87%BA%E7%8E%B0%E4%B8%80%E6%AC%A1%E7%9A%84%E5%AD%97%E7%AC%A6/">第一个只出现一次的字符</a>
+    </nav>
     
   </div>
-  
-  
-
-  
-  
-  
-  <div>
-	<i class="fa fa-tags fa-fw"></i>
-    
-      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/zigbee">ZigBee</a>&nbsp;&#47;
-    
-      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/%E7%89%A9%E8%81%94%E7%BD%91">物联网</a>&nbsp;&#47;
-    
-      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/%E6%97%A0%E7%BA%BF%E4%BC%A0%E6%84%9F%E5%99%A8">无线传感器</a>
+  <div class="pure-u-2-24">
+    &nbsp;
+  </div>
+  <div class="pure-u-10-24">
     
   </div>
-  
-  
-  
+  <div class="pure-u-1-24" style="text-align: right;">
+    
+  </div>
 </div>
 
-  </header>
 
-  <p>
-  作者注： ZigBee 系列共三篇，首先讲解 ZigBee 工程的结构，然后通过两个具体项目熟悉 ZigBee 的应用。在学习本系列内容前，您需要掌握单片机相关知识、 ZigBee 基础知识，希望
-  </p>
 
   
-  <footer>
-    <a href="https://HauyuChen.github.io/post/zb-zigbee-wirelessfan/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
-  </footer>
-  
-</article>
+<div id="disqus_thread"></div>
+<script type="text/javascript">
 
+(function() {
     
-  
     
-      <article>
-  <header>
-    <h2><a href="https://HauyuChen.github.io/post/zb-zigbee-guide/">【ZigBee系列】1.浅析ZigBee工程</a></h2>
+    if (window.location.hostname == "localhost")
+        return;
 
-    <div class="post-meta">
-
-  <div>
-    <i class="fa fa-calendar fa-fw"></i>
-    <time>2016-05-17</time>
-  </div>
-
-  
-
-  
-  
-  
-  <div>
-    <i class="fa fa-folder fa-fw"></i>
-    
-      <a class="post-taxonomy-tag" href="https://HauyuChen.github.io/tags/zigbee">zigbee</a>
-    
-  </div>
-  
-  
-
-  
-  
-  
-  <div>
-	<i class="fa fa-tags fa-fw"></i>
-    
-      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/zigbee">ZigBee</a>&nbsp;&#47;
-    
-      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/%E7%89%A9%E8%81%94%E7%BD%91">物联网</a>&nbsp;&#47;
-    
-      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/%E6%97%A0%E7%BA%BF%E4%BC%A0%E6%84%9F%E5%99%A8">无线传感器</a>
-    
-  </div>
-  
-  
-  
-</div>
-
-  </header>
-
-  <p>
-  作者注： ZigBee 系列共三篇，首先讲解 ZigBee 工程的结构，然后通过两个具体项目熟悉 ZigBee 的应用。在学习本系列内容前，您需要掌握单片机相关知识、 ZigBee 基础知识，希望
-  </p>
-
-  
-  <footer>
-    <a href="https://HauyuChen.github.io/post/zb-zigbee-guide/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
-  </footer>
-  
-</article>
-
-    
-  
-
-	
-
-
-<nav class="pagination" role="pagination">
-  
-  <a href="https://HauyuChen.github.io/page/26/"><i class="fa fa-chevron-left"></i></a>
-  
-  <span>&nbsp;27 / 27&nbsp;</span>
-  
-  <i class="fa fa-chevron-right"></i>
-  
-</nav>
-
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    var disqus_shortname = "http-hov-space";
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com/" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
 
 
 </div>
