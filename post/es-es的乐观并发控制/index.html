@@ -1,0 +1,670 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="generator" content="Hugo 0.24.1" />
+
+  <title>Elasticsearch的乐观并发控制 &middot; Hov&#39;s Blog</title>
+
+  <script>
+	var _hmt = _hmt || [];
+	(function() {
+	  var hm = document.createElement("script");
+	  hm.src = "https://hm.baidu.com/hm.js?dd096f3aba9332e2640cda59d3786695";
+	  var s = document.getElementsByTagName("script")[0]; 
+	  s.parentNode.insertBefore(hm, s);
+	})();
+	</script>	
+  
+  
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/0.6.2/pure-min.css">
+
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/0.6.2/grids-responsive-old-ie-min.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/0.6.2/grids-responsive-min.css">
+  <!--<![endif]-->
+
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="https://HauyuChen.github.io/css/side-menu-old-ie.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="https://HauyuChen.github.io/css/side-menu.css">
+  <!--<![endif]-->
+
+  <link rel="stylesheet" href="https://HauyuChen.github.io/css/blackburn.css">
+
+  
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  
+  <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet" type="text/css">
+
+  
+  
+
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/styles/androidstudio.min.css">
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  
+
+  <link rel="shortcut icon" href="https://HauyuChen.github.io/img/favicon.ico" type="image/x-icon" />
+
+  
+  
+
+
+</head>
+
+
+<body>
+
+<div id="layout">
+
+  
+<a href="#menu" id="menuLink" class="menu-link">
+  
+  <span></span>
+</a>
+<div id="menu">
+
+  <a class="pure-menu-heading brand" href="https://HauyuChen.github.io/">
+  <img src="https://HauyuChen.github.io/img/Hov.jpg" width="125px">
+</a>
+
+  <div class="pure-menu">
+    <ul class="pure-menu-list">
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="https://HauyuChen.github.io/"><i class='fa fa-home fa-fw'></i>主页</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="https://HauyuChen.github.io/post/"><i class='fa fa-list fa-fw'></i>所有文章</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="https://HauyuChen.github.io/tags/"><i class='fa fa-folder fa-fw'></i>文章分类</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="https://HauyuChen.github.io/topics/"><i class='fa fa-tags fa-fw'></i>关键词</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="https://HauyuChen.github.io/about-me/"><i class='fa fa-user fa-fw'></i>关于我</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="https://HauyuChen.github.io/about-site/"><i class='fa fa-home fa-fw'></i>关于本站</a>
+      
+        </li>
+      
+    </ul>
+  </div>
+
+  <div class="pure-menu social">
+
+  <ul class="pure-menu-list">
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://github.com/HauyuChen" target="_blank"><i class="fa fa-github-square fa-fw"></i>GitHub</a>
+    </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+	</ul>
+	<ul class="pure-menu-list">
+	
+	<li class="pure-menu-item">
+      <a class="pure-menu-link" href="http://blog.csdn.net/u014134180" target="_blank"><i class="fa fa-lastfm-square fa-fw"></i>友链：Wu_Being</a>
+    </li>
+  </ul>
+  
+</div>
+
+
+  <div>
+
+
+</div>
+
+</div>
+
+
+  <div id="main">
+
+
+<div class="header">
+  <h1>Elasticsearch的乐观并发控制</h1>
+  <h2></h2>
+</div>
+<div class="content">
+
+  <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>2017-09-03</time>
+  </div>
+
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-folder fa-fw"></i>
+    
+      <a class="post-taxonomy-tag" href="https://HauyuChen.github.io/tags/elasticsearch">Elasticsearch</a>
+    
+  </div>
+  
+  
+
+  
+  
+  
+  <div>
+	<i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/elasticsearch">Elasticsearch</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/%E5%88%86%E5%B8%83%E5%BC%8F%E6%90%9C%E7%B4%A2">分布式搜索</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/kibana">Kibana</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/%E5%B9%B6%E5%8F%91%E6%8E%A7%E5%88%B6">并发控制</a>
+    
+  </div>
+  
+  
+  
+</div>
+
+  
+
+<hr />
+
+<p><br/></p>
+
+<h1 id="0-前言">0 前言</h1>
+
+<p>Elasticsearch 采用的是乐观锁并发控制，基于 Elasticsearch 提供的 _version 字段或我们自己定义的外部版本号，可以方便地实现乐观并发控制。</p>
+
+<p>扩展阅读：<a href="http://chenhy.com/post/%E5%B9%B6%E5%8F%91%E6%8E%A7%E5%88%B6%E6%82%B2%E8%A7%82%E9%94%81%E4%B9%90%E8%A7%82%E9%94%81/">并发控制（乐观锁、悲观锁）</a></p>
+
+<p><br/></p>
+
+<h1 id="1-基于-version-的乐观并发控制">1 基于 _version 的乐观并发控制</h1>
+
+<h2 id="1-1-version">1.1 _version</h2>
+
+<p>_version 是 ES 中提供的一个字段，它表明当前数据的版本号。我们可根据它来对比数据的版本是否一致。</p>
+
+<h2 id="1-2-操作实例">1.2 操作实例</h2>
+
+<p>（1）构造一条数据。</p>
+
+<pre><code>PUT test_index/test_type/7
+{
+  &quot;test_field&quot;:&quot;test test&quot;
+}
+</code></pre>
+
+<p>（2）模拟两个客户端，获取同一条数据。</p>
+
+<pre><code>GET test_index/test_type/7
+</code></pre>
+
+<p>执行结果：两个客户端都能读到 id 为 7 的数据，版本号为 1 。</p>
+
+<pre><code>{
+  &quot;_index&quot;: &quot;test_index&quot;,
+  &quot;_type&quot;: &quot;test_type&quot;,
+  &quot;_id&quot;: &quot;7&quot;,
+  &quot;_version&quot;: 1,
+  &quot;found&quot;: true,
+  &quot;_source&quot;: {
+    &quot;test_field&quot;: &quot;test test&quot;
+  }
+}
+</code></pre>
+
+<p>（3）一个客户端先更新数据，同时带上数据的版本号（?version=1）。确保 ES 中的数据版本号与客户端中的数据版本号是相同的才能修改。</p>
+
+<pre><code>PUT test_index/test_type/7?version=1
+{
+  &quot;test_field&quot;:&quot;test client 1&quot;
+}
+</code></pre>
+
+<p>执行结果：修改成功，数据的版本号变为 2 。</p>
+
+<pre><code>{
+  &quot;_index&quot;: &quot;test_index&quot;,
+  &quot;_type&quot;: &quot;test_type&quot;,
+  &quot;_id&quot;: &quot;7&quot;,
+  &quot;_version&quot;: 2,
+  &quot;result&quot;: &quot;updated&quot;,
+  &quot;_shards&quot;: {
+    &quot;total&quot;: 2,
+    &quot;successful&quot;: 1,
+    &quot;failed&quot;: 0
+  },
+  &quot;created&quot;: false
+}
+</code></pre>
+
+<p>（4）另一个客户端尝试基于 version=1 的数据进行修改，同样带上版本号（?version=1）。</p>
+
+<pre><code>PUT test_index/test_type/7?version=1
+{
+  &quot;test_field&quot;:&quot;test client 2&quot;
+}
+</code></pre>
+
+<p>执行结果：修改失败，因为版本号不一致。</p>
+
+<pre><code>{
+  &quot;error&quot;: {
+    &quot;root_cause&quot;: [
+      {
+        &quot;type&quot;: &quot;version_conflict_engine_exception&quot;,
+        &quot;reason&quot;: &quot;[test_type][7]: version conflict, current version [2] is different than the one provided [1]&quot;,
+        &quot;index_uuid&quot;: &quot;6m0G7yx7R1KECWWGnfH1sw&quot;,
+        &quot;shard&quot;: &quot;3&quot;,
+        &quot;index&quot;: &quot;test_index&quot;
+      }
+    ],
+    &quot;type&quot;: &quot;version_conflict_engine_exception&quot;,
+    &quot;reason&quot;: &quot;[test_type][7]: version conflict, current version [2] is different than the one provided [1]&quot;,
+    &quot;index_uuid&quot;: &quot;6m0G7yx7R1KECWWGnfH1sw&quot;,
+    &quot;shard&quot;: &quot;3&quot;,
+    &quot;index&quot;: &quot;test_index&quot;
+  },
+  &quot;status&quot;: 409
+}
+</code></pre>
+
+<p>（5）在乐观锁成功阻止并发问题之后，尝试正确地完成更新。</p>
+
+<pre><code>GET /test_index/test_type/7
+</code></pre>
+
+<p>执行结果：版本号为 2 。</p>
+
+<pre><code>{
+  &quot;_index&quot;: &quot;test_index&quot;,
+  &quot;_type&quot;: &quot;test_type&quot;,
+  &quot;_id&quot;: &quot;7&quot;,
+  &quot;_version&quot;: 2,
+  &quot;found&quot;: true,
+  &quot;_source&quot;: {
+    &quot;test_field&quot;: &quot;test client 1&quot;
+  }
+}
+</code></pre>
+
+<p>（6）基于最新的数据和版本号进行修改，只有版本号一致才能修改数据。因为在多线程并发更新同一条数据很频繁的情况下，数据的版本号可能会一直变动，所以这个步骤可能会需要反复执行多次，直至版本号一致才能成功。</p>
+
+<pre><code>PUT /test_index/test_type/7?version=2 
+{
+  &quot;test_field&quot;: &quot;test client 2&quot;
+}
+</code></pre>
+
+<p>执行结果：更新成功，因为版本号一致。</p>
+
+<pre><code>{
+  &quot;_index&quot;: &quot;test_index&quot;,
+  &quot;_type&quot;: &quot;test_type&quot;,
+  &quot;_id&quot;: &quot;7&quot;,
+  &quot;_version&quot;: 3,
+  &quot;result&quot;: &quot;updated&quot;,
+  &quot;_shards&quot;: {
+    &quot;total&quot;: 2,
+    &quot;successful&quot;: 1,
+    &quot;failed&quot;: 0
+  },
+  &quot;created&quot;: false
+}
+</code></pre>
+
+<p><br/></p>
+
+<h1 id="2-基于-external-version-的乐观并发控制">2 基于 external version 的乐观并发控制</h1>
+
+<h2 id="2-1-外部版本号-external-version">2.1 外部版本号（external version）</h2>
+
+<p>外部版本号（ external version）：我们可以不采用 ES 内部提供的 _version 版本号进行并发控制，可以基于自己维护的版本号进行并发控制。</p>
+
+<pre><code>?version=1                          //ES内部版本号
+?version=1&amp;version_type=external    //外部版本号
+</code></pre>
+
+<ul>
+<li><p>在 _version 下，只有当你提供的 version 与 ES 中的 _version 一模一样的时候才可以进行修改，否则就报错。</p></li>
+
+<li><p>在 version_type=external 的情况下，只有当你提供的 version 比 ES 中的 _version 大的时候（等于也不行）才能进行修改。</p></li>
+</ul>
+
+<p>也就是，</p>
+
+<ul>
+<li><p>ES 中 _version=1 ，只有 ?version=1 ，数据才能更新成功；</p></li>
+
+<li><p>ES 中 _version=1 ，只要 ?version&gt;1&amp;version_type=external ，数据就能更新成功，如 ?version=2&amp;version_type=external ，因为 2 大于 1 。</p></li>
+</ul>
+
+<h2 id="2-2-操作实例">2.2 操作实例</h2>
+
+<p>（1）构造一条数据。</p>
+
+<pre><code>PUT /test_index/test_type/8
+{
+  &quot;test_field&quot;: &quot;test&quot;
+}
+</code></pre>
+
+<p>执行结果：id 为 8 的数据版本号为 1 。</p>
+
+<pre><code>{
+  &quot;_index&quot;: &quot;test_index&quot;,
+  &quot;_type&quot;: &quot;test_type&quot;,
+  &quot;_id&quot;: &quot;8&quot;,
+  &quot;_version&quot;: 1,
+  &quot;result&quot;: &quot;created&quot;,
+  &quot;_shards&quot;: {
+    &quot;total&quot;: 2,
+    &quot;successful&quot;: 1,
+    &quot;failed&quot;: 0
+  },
+  &quot;created&quot;: true
+}
+</code></pre>
+
+<p>（2）模拟两个客户端，同时查询数据。</p>
+
+<pre><code>GET /test_index/test_type/8
+</code></pre>
+
+<p>执行结果：注意版本号为 1 。</p>
+
+<pre><code>{
+  &quot;_index&quot;: &quot;test_index&quot;,
+  &quot;_type&quot;: &quot;test_type&quot;,
+  &quot;_id&quot;: &quot;8&quot;,
+  &quot;_version&quot;: 1,
+  &quot;found&quot;: true,
+  &quot;_source&quot;: {
+    &quot;test_field&quot;: &quot;test&quot;
+  }
+}
+</code></pre>
+
+<p>（3）第一个客户端先进行修改，此时客户端程序是在自己的数据库中获取到了这条数据的最新版本号，比如 2 。</p>
+
+<pre><code>PUT /test_index/test_type/8?version=2&amp;version_type=external
+{
+  &quot;test_field&quot;: &quot;test client 1&quot;
+}
+</code></pre>
+
+<p>执行结果：更新成功，因为外部版本号（2）大于 _version （1）。</p>
+
+<pre><code>{
+  &quot;_index&quot;: &quot;test_index&quot;,
+  &quot;_type&quot;: &quot;test_type&quot;,
+  &quot;_id&quot;: &quot;8&quot;,
+  &quot;_version&quot;: 2,
+  &quot;result&quot;: &quot;updated&quot;,
+  &quot;_shards&quot;: {
+    &quot;total&quot;: 2,
+    &quot;successful&quot;: 1,
+    &quot;failed&quot;: 0
+  },
+  &quot;created&quot;: false
+}
+</code></pre>
+
+<p>（4）模拟第二个客户端，其外部版本号也为 2 ，同时基于 version=2 发起修改。</p>
+
+<pre><code>PUT /test_index/test_type/8?version=2&amp;version_type=external
+{
+  &quot;test_field&quot;: &quot;test client 2&quot;
+}
+</code></pre>
+
+<p>执行结果：更新失败，因为版本号（2）与 _version （2）相等。</p>
+
+<pre><code>{
+  &quot;error&quot;: {
+    &quot;root_cause&quot;: [
+      {
+        &quot;type&quot;: &quot;version_conflict_engine_exception&quot;,
+        &quot;reason&quot;: &quot;[test_type][8]: version conflict, current version [2] is higher or equal to the one provided [2]&quot;,
+        &quot;index_uuid&quot;: &quot;6m0G7yx7R1KECWWGnfH1sw&quot;,
+        &quot;shard&quot;: &quot;1&quot;,
+        &quot;index&quot;: &quot;test_index&quot;
+      }
+    ],
+    &quot;type&quot;: &quot;version_conflict_engine_exception&quot;,
+    &quot;reason&quot;: &quot;[test_type][8]: version conflict, current version [2] is higher or equal to the one provided [2]&quot;,
+    &quot;index_uuid&quot;: &quot;6m0G7yx7R1KECWWGnfH1sw&quot;,
+    &quot;shard&quot;: &quot;1&quot;,
+    &quot;index&quot;: &quot;test_index&quot;
+  },
+  &quot;status&quot;: 409
+}
+</code></pre>
+
+<p>（5）获取最新版本号。</p>
+
+<pre><code>GET /test_index/test_type/8
+</code></pre>
+
+<p>执行结果：版本号为 2 。</p>
+
+<pre><code>{
+  &quot;_index&quot;: &quot;test_index&quot;,
+  &quot;_type&quot;: &quot;test_type&quot;,
+  &quot;_id&quot;: &quot;8&quot;,
+  &quot;_version&quot;: 2,
+  &quot;found&quot;: true,
+  &quot;_source&quot;: {
+    &quot;test_field&quot;: &quot;test client 1&quot;
+  }
+}
+</code></pre>
+
+<p>（6）在并发控制成功后，重新基于最新的版本号发起更新。</p>
+
+<pre><code>PUT /test_index/test_type/8?version=3&amp;version_type=external
+{
+  &quot;test_field&quot;: &quot;test client 2&quot;
+}
+</code></pre>
+
+<p>执行结果：更新成功，因为版本号（3）大于 _version （2）。</p>
+
+<pre><code>{
+  &quot;_index&quot;: &quot;test_index&quot;,
+  &quot;_type&quot;: &quot;test_type&quot;,
+  &quot;_id&quot;: &quot;8&quot;,
+  &quot;_version&quot;: 3,
+  &quot;result&quot;: &quot;updated&quot;,
+  &quot;_shards&quot;: {
+    &quot;total&quot;: 2,
+    &quot;successful&quot;: 1,
+    &quot;failed&quot;: 0
+  },
+  &quot;created&quot;: false
+}
+</code></pre>
+
+<p><br/></p>
+
+<h1 id="3-结语">3 结语</h1>
+
+<p>以上就是 ES 中实现乐观并发控制的思路，我们围绕版本号来控制并发操作，以保证数据安全。版本号可以是 ES 内部提供的 _version 字段，也可以是我们自己维护的外部版本号。</p>
+
+<p><br/></p>
+
+<p>参考资料：<a href="http://www.roncoo.com/article/detail/128304">http://www.roncoo.com/article/detail/128304</a></p>
+
+<p><br/></p>
+
+
+  
+<div class="prev-next-post pure-g">
+  <div class="pure-u-1-24" style="text-align: left;">
+    
+    <a href="https://HauyuChen.github.io/post/%E5%B9%B6%E5%8F%91%E6%8E%A7%E5%88%B6%E6%82%B2%E8%A7%82%E9%94%81%E4%B9%90%E8%A7%82%E9%94%81/"><i class="fa fa-chevron-left"></i></a>
+    
+  </div>
+  <div class="pure-u-10-24">
+    
+    <nav class="prev">
+      <a href="https://HauyuChen.github.io/post/%E5%B9%B6%E5%8F%91%E6%8E%A7%E5%88%B6%E6%82%B2%E8%A7%82%E9%94%81%E4%B9%90%E8%A7%82%E9%94%81/">并发控制（乐观锁、悲观锁）</a>
+    </nav>
+    
+  </div>
+  <div class="pure-u-2-24">
+    &nbsp;
+  </div>
+  <div class="pure-u-10-24">
+    
+    <nav class="next">
+      <a href="https://HauyuChen.github.io/post/java-%E8%BF%9B%E7%A8%8B%E9%80%9A%E4%BF%A1%E5%85%B1%E4%BA%AB%E5%86%85%E5%AD%98/">Java 进程通信（共享内存）</a>
+    </nav>
+    
+  </div>
+  <div class="pure-u-1-24" style="text-align: right;">
+    
+    <a href="https://HauyuChen.github.io/post/java-%E8%BF%9B%E7%A8%8B%E9%80%9A%E4%BF%A1%E5%85%B1%E4%BA%AB%E5%86%85%E5%AD%98/"><i class="fa fa-chevron-right"></i></a>
+    
+  </div>
+</div>
+
+
+
+  
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+
+(function() {
+    
+    
+    if (window.location.hostname == "localhost")
+        return;
+
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    var disqus_shortname = "http-hov-space";
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com/" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+</div>
+
+</div>
+</div>
+<script src="https://HauyuChen.github.io/js/ui.js"></script>
+
+
+
+
+
+
+</body>
+</html>
+
