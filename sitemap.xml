@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://HauyuChen.github.io/post/oo_introduction/</loc>
+    <lastmod>2018-04-08T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://HauyuChen.github.io/post/%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E4%B8%8B%E4%B8%80%E4%B8%AA%E7%BB%93%E7%82%B9/</loc>
     <lastmod>2018-04-01T00:00:00+00:00</lastmod>
   </url>
@@ -703,7 +708,7 @@
   
   <url>
     <loc>https://HauyuChen.github.io/</loc>
-    <lastmod>2018-04-01T00:00:00+00:00</lastmod>
+    <lastmod>2018-04-08T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -721,7 +726,7 @@
   
   <url>
     <loc>https://HauyuChen.github.io/topics/java/</loc>
-    <lastmod>2017-12-20T00:00:00+00:00</lastmod>
+    <lastmod>2018-04-08T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -757,7 +762,7 @@
   
   <url>
     <loc>https://HauyuChen.github.io/post/</loc>
-    <lastmod>2018-04-01T00:00:00+00:00</lastmod>
+    <lastmod>2018-04-08T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -973,7 +978,7 @@
   
   <url>
     <loc>https://HauyuChen.github.io/topics/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/</loc>
-    <lastmod>2017-11-17T00:00:00+00:00</lastmod>
+    <lastmod>2018-04-08T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -992,6 +997,12 @@
   <url>
     <loc>https://HauyuChen.github.io/topics/%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92/</loc>
     <lastmod>2017-08-10T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://HauyuChen.github.io/topics/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/</loc>
+    <lastmod>2018-04-08T00:00:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   

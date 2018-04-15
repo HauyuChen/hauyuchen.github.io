@@ -7,10 +7,19 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2017. All rights reserved.</copyright>
-    <lastBuildDate>Wed, 20 Dec 2017 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 08 Apr 2018 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://HauyuChen.github.io/topics/java/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>什么是面向对象？</title>
+      <link>https://HauyuChen.github.io/post/oo_introduction/</link>
+      <pubDate>Sun, 08 Apr 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://HauyuChen.github.io/post/oo_introduction/</guid>
+      <description>&lt;p&gt;&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>谈谈向上转型、向下转型</title>

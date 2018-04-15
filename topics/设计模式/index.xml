@@ -7,10 +7,19 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2017. All rights reserved.</copyright>
-    <lastBuildDate>Fri, 17 Nov 2017 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 08 Apr 2018 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://HauyuChen.github.io/topics/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>什么是面向对象？</title>
+      <link>https://HauyuChen.github.io/post/oo_introduction/</link>
+      <pubDate>Sun, 08 Apr 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://HauyuChen.github.io/post/oo_introduction/</guid>
+      <description>&lt;p&gt;&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>【设计模式】4. 观察者模式</title>
