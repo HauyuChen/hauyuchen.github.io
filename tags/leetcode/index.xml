@@ -1,0 +1,1338 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Leetcode on Hov&#39;s Blog</title>
+    <link>https://HauyuChen.github.io/tags/leetcode/</link>
+    <description>Recent content in Leetcode on Hov&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>&amp;copy; 2017. All rights reserved.</copyright>
+    <lastBuildDate>Sat, 11 Jun 2016 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://HauyuChen.github.io/tags/leetcode/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>【LeetCode】1. Two Sum</title>
+      <link>https://HauyuChen.github.io/post/001-two-sum/</link>
+      <pubDate>Sat, 11 Jun 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://HauyuChen.github.io/post/001-two-sum/</guid>
+      <description>题目描述： Given an array of integers, return indices of the two numbers such that they add up to a specific target.
+You may assume that each input would have exactly one solution, and you may not use the same element twice.
+Example:
+Given nums = [2, 7, 11, 15], target = 9,
+Because nums[0] + nums[1] = 2 + 7 = 9, return [0, 1].
+
+思路：  先用 map 存储每个元素对应的原始下标，方便后续查找特定元素。 从头开始查找符合条件的结果，用 target 减去 nums[i] ，得到两数之差 t ，在 map 中寻找是否存在 t 且元素 t 的索引不等于 i ,若是则为最终结果，否则继续查找 nums[i+1] 。</description>
+    </item>
+    
+    <item>
+      <title>【LeetCode】2. Add Two Numbers</title>
+      <link>https://HauyuChen.github.io/post/002-add-two-numbers/</link>
+      <pubDate>Tue, 26 Sep 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://HauyuChen.github.io/post/002-add-two-numbers/</guid>
+      <description>题目描述： You are given two non-empty linked lists representing two non-negative integers. The digits are stored in reverse order and each of their nodes contain a single digit. Add the two numbers and return it as a linked list.
+You may assume the two numbers do not contain any leading zero, except the number 0 itself.
+Input: (2 -&amp;gt; 4 -&amp;gt; 3) + (5 -&amp;gt; 6 -&amp;gt; 4)
+Output: 7 -&amp;gt; 0 -&amp;gt; 8</description>
+    </item>
+    
+    <item>
+      <title>【LeetCode】6. ZigZag Conversion</title>
+      <link>https://HauyuChen.github.io/post/006-zigzag-conversion/</link>
+      <pubDate>Tue, 26 Sep 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://HauyuChen.github.io/post/006-zigzag-conversion/</guid>
+      <description>题目描述： The string &amp;ldquo;PAYPALISHIRING&amp;rdquo; is written in a zigzag pattern on a given number of rows like this: (you may want to display this pattern in a fixed font for better legibility)
+P A H N A P L S I I G Y I R  And then read line by line: &amp;ldquo;PAHNAPLSIIGYIR&amp;rdquo;
+Write the code that will take a string and make this conversion given a number of rows:</description>
+    </item>
+    
+    <item>
+      <title>【LeetCode】7. Reverse Integer</title>
+      <link>https://HauyuChen.github.io/post/007-reverse-integer/</link>
+      <pubDate>Wed, 27 Sep 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://HauyuChen.github.io/post/007-reverse-integer/</guid>
+      <description>题目描述： Reverse digits of an integer.
+Example1:
+x = 123, return 321
+Example2:
+x = -123, return -321
+click to show spoilers.
+Have you thought about this? Here are some good questions to ask before coding. Bonus points for you if you have already thought through this!
+If the integer&amp;rsquo;s last digit is 0, what should the output be? ie, cases such as 10, 100.
+Did you notice that the reversed integer might overflow?</description>
+    </item>
+    
+    <item>
+      <title>【LeetCode】8. String to Integer (atoi)</title>
+      <link>https://HauyuChen.github.io/post/008-string-to-integeratoi/</link>
+      <pubDate>Sat, 11 Jun 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://HauyuChen.github.io/post/008-string-to-integeratoi/</guid>
+      <description>题目描述： Implement atoi to convert a string to an integer.
+Hint: Carefully consider all possible input cases. If you want a challenge, please do not see below and ask yourself what are the possible input cases.
+Notes:
+It is intended for this problem to be specified vaguely (ie, no given input specs). You are responsible to gather all the input requirements up front.
+Update (2015-02-10):
+The signature of the C++ function had been updated.</description>
+    </item>
+    
+    <item>
+      <title>【LeetCode】9. Palindrome Number</title>
+      <link>https://HauyuChen.github.io/post/009-palindrome-number/</link>
+      <pubDate>Tue, 10 Oct 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://HauyuChen.github.io/post/009-palindrome-number/</guid>
+      <description>题目描述： Determine whether an integer is a palindrome. Do this without extra space.
+click to show spoilers.
+Some hints:
+Could negative integers be palindromes? (ie, -1)
+If you are thinking of converting the integer to string, note the restriction of using extra space.
+You could also try reversing an integer. However, if you have solved the problem &amp;ldquo;Reverse Integer&amp;rdquo;, you know that the reversed integer might overflow. How would you handle such case?</description>
+    </item>
+    
+    <item>
+      <title>【LeetCode】11. Container with most water</title>
+      <link>https://HauyuChen.github.io/post/011-container-with-most-water/</link>
+      <pubDate>Wed, 11 Oct 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://HauyuChen.github.io/post/011-container-with-most-water/</guid>
+      <description>题目描述： Given n non-negative integers a1, a2, &amp;hellip;, an, where each represents a point at coordinate (i, ai). n vertical lines are drawn such that the two endpoints of line i is at (i, ai) and (i, 0). Find two lines, which together with x-axis forms a container, such that the container contains the most water.
+Note: You may not slant the container and n is at least 2.</description>
+    </item>
+    
+    <item>
+      <title>【LeetCode】13. Roman to Integer</title>
+      <link>https://HauyuChen.github.io/post/013-roman-to-integer/</link>
+      <pubDate>Sun, 12 Jun 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://HauyuChen.github.io/post/013-roman-to-integer/</guid>
+      <description>题目描述： Given a roman numeral, convert it to an integer.
+Input is guaranteed to be within the range from 1 to 3999.
+
+思路： 这是一道将罗马数字转换成整数的题目。搞清楚罗马数字的表示特点即可。
+参见维基百科：罗马数字
+
+代码实现： class Solution { public: int romanToInt(string s) { unordered_map&amp;lt;char,int&amp;gt; hm; hm.insert(pair&amp;lt;char,int&amp;gt;(&#39;I&#39;,1)); hm.insert(pair&amp;lt;char,int&amp;gt;(&#39;V&#39;,5)); hm.insert(pair&amp;lt;char,int&amp;gt;(&#39;X&#39;,10)); hm.insert(pair&amp;lt;char,int&amp;gt;(&#39;L&#39;,50)); hm.insert(pair&amp;lt;char,int&amp;gt;(&#39;C&#39;,100)); hm.insert(pair&amp;lt;char,int&amp;gt;(&#39;D&#39;,500)); hm.insert(pair&amp;lt;char,int&amp;gt;(&#39;M&#39;,1000)); int sum=hm[s[s.size()-1]]; for(int i=s.size()-1;i&amp;gt;0;--i){ if(hm[s[i]]&amp;gt;hm[s[i-1]]){ sum-=hm[s[i-1]]; }else{ sum+=hm[s[i-1]]; } } return sum; } };</description>
+    </item>
+    
+    <item>
+      <title>【LeetCode】21. Merge Two Sorted Lists</title>
+      <link>https://HauyuChen.github.io/post/021-merge-two-sorted-lists/</link>
+      <pubDate>Sun, 12 Jun 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://HauyuChen.github.io/post/021-merge-two-sorted-lists/</guid>
+      <description>题目描述： Merge two sorted linked lists and return it as a new list. The new list should be made by splicing together the nodes of the first two lists.
+
+思路：  通过一个指针 newhead 指示新的链表头部，比较链表 l1 和链表 l2 的第一个结点； 若 l1 的第一个节点比 l2 小，则将其尾插进新链表，移动指针 l1-&amp;gt;next；若 l2 的第一个节点比 l1 小，同理； 递归得解。  
+代码实现： /** * Definition for singly-linked list. * struct ListNode { * int val; * ListNode *next; * ListNode(int x) : val(x), next(NULL) {} * }; */ class Solution { public: ListNode* mergeTwoLists(ListNode* l1, ListNode* l2) { if(l1==nullptr&amp;amp;&amp;amp;l2==nullptr) return nullptr; if(l1==nullptr || l2==nullptr) return (l1==nullptr)?</description>
+    </item>
+    
+    <item>
+      <title>【LeetCode】26. Remove Duplicates from Sorted Array</title>
+      <link>https://HauyuChen.github.io/post/026-remove-duplicates-from-sorted-array/</link>
+      <pubDate>Thu, 12 Oct 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://HauyuChen.github.io/post/026-remove-duplicates-from-sorted-array/</guid>
+      <description>题目描述： Given a sorted array, remove the duplicates in place such that each element appear only once and return the new length.
+Do not allocate extra space for another array, you must do this in place with constant memory.
+For example, Given input array nums = [1,1,2],
+Your function should return length = 2, with the first two elements of nums being 1 and 2 respectively. It doesn&amp;rsquo;t matter what you leave beyond the new length.</description>
+    </item>
+    
+    <item>
+      <title>【LeetCode】27. Remove Element</title>
+      <link>https://HauyuChen.github.io/post/027-remove-element/</link>
+      <pubDate>Fri, 13 Oct 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://HauyuChen.github.io/post/027-remove-element/</guid>
+      <description>题目描述： Given an array and a value, remove all instances of that value in place and return the new length.
+Do not allocate extra space for another array, you must do this in place with constant memory.
+The order of elements can be changed. It doesn&amp;rsquo;t matter what you leave beyond the new length.
+Example:
+Given input array nums = [3,2,2,3], val = 3
+Your function should return length = 2, with the first two elements of nums being 2.</description>
+    </item>
+    
+    <item>
+      <title>【LeetCode】34. Search for a Range</title>
+      <link>https://HauyuChen.github.io/post/034-search-for-a-range/</link>
+      <pubDate>Sun, 15 Oct 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://HauyuChen.github.io/post/034-search-for-a-range/</guid>
+      <description>题目描述： Given an array of integers sorted in ascending order, find the starting and ending position of a given target value.
+Your algorithm&amp;rsquo;s runtime complexity must be in the order of O(log n).
+If the target is not found in the array, return [-1, -1].
+For example,
+Given [5, 7, 7, 8, 8, 10] and target value 8, return [3, 4].
+
+思路： 本题要求时间复杂度为 O(logn) ，自然应该想到二分查找。
+首先，找到target的位置，然后分别从前从后找首尾位置即可，这是简单明了的解法。
+注：在找到 target 后继续二分查找首尾出现的位置效率会更高一些。</description>
+    </item>
+    
+    <item>
+      <title>【LeetCode】35. Search Insert Position</title>
+      <link>https://HauyuChen.github.io/post/035-search-insert-position/</link>
+      <pubDate>Mon, 23 Oct 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://HauyuChen.github.io/post/035-search-insert-position/</guid>
+      <description>题目描述： Given a sorted array and a target value, return the index if the target is found. If not, return the index where it would be if it were inserted in order.
+You may assume no duplicates in the array.
+Here are few examples.
+[1,3,5,6], 5 → 2
+[1,3,5,6], 2 → 1
+[1,3,5,6], 7 → 4
+[1,3,5,6], 0 → 0
+
+思路： 大水题，通过二分查找实现。
+注意：如果数组中找不到 target 。
+ 要么 target 比当前元素小，返回当前元素的位置（mid）。因为数组后移，当前位置存放 target ； 要么 target 比当前元素大，返回当前元素的位置的后一个位置（mid+1）。</description>
+    </item>
+    
+    <item>
+      <title>【LeetCode】38. Count and Say</title>
+      <link>https://HauyuChen.github.io/post/038-count-and-say/</link>
+      <pubDate>Sat, 14 Oct 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://HauyuChen.github.io/post/038-count-and-say/</guid>
+      <description>题目描述： The count-and-say sequence is the sequence of integers with the first five terms as following:
+1. 1 2. 11 3. 21 4. 1211 5. 111221  1 is read off as &amp;ldquo;one 1&amp;rdquo; or 11. 11 is read off as &amp;ldquo;two 1s&amp;rdquo; or 21. 21 is read off as &amp;ldquo;one 2, then one 1&amp;rdquo; or 1211. Given an integer n, generate the nth term of the count-and-say sequence.</description>
+    </item>
+    
+    <item>
+      <title>【LeetCode】53. Maximum Subarray</title>
+      <link>https://HauyuChen.github.io/post/053-maximum-subarray/</link>
+      <pubDate>Sun, 12 Jun 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://HauyuChen.github.io/post/053-maximum-subarray/</guid>
+      <description>题目描述： Find the contiguous subarray within an array (containing at least one number) which has the largest sum.
+For example, given the array [-2,1,-3,4,-1,2,1,-5,4], the contiguous subarray [4,-1,2,1] has the largest sum = 6.
+
+思路： 用sum保存连续序列之和，用max表示最大值，一次遍历即可，时间复杂度O(n)。
+ sum&amp;lt;0,则舍弃前面的数 sum&amp;gt;max,则更新最大值max  
+代码实现： int maxSubArray(int* nums, int numsSize) { int sum=0; int max=INT_MIN; for(int i=0;i&amp;lt;numsSize;i++){ sum+=nums[i]; if(sum&amp;gt;max){ max = sum; } if(sum&amp;lt;0){ sum = 0; } } return max; }</description>
+    </item>
+    
+    <item>
+      <title>【LeetCode】54. Spiral Matrix</title>
+      <link>https://HauyuChen.github.io/post/054-spiral-matrix/</link>
+      <pubDate>Wed, 01 Nov 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://HauyuChen.github.io/post/054-spiral-matrix/</guid>
+      <description>题目描述： Given a matrix of m x n elements (m rows, n columns), return all elements of the matrix in spiral order.
+For example, Given the following matrix:
+[ [ 1, 2, 3 ], [ 4, 5, 6 ], [ 7, 8, 9 ] ]  You should return [1,2,3,6,9,8,7,4,5].
+
+思路： 给定一个矩阵，以回旋形式以此遍历矩阵中的每个元素。
+ 设置 direction ，表示遍历方向（向右，向下，向左，向上）； 设置 left、right、top、buttom ，分别指示矩阵左边界、右边界、上边界、下边界； 每遍历一个元素将其添加到 ret 中，直至 left&amp;gt;right 或 top&amp;gt;buttom 。</description>
+    </item>
+    
+    <item>
+      <title>【LeetCode】58. Length of Last Word</title>
+      <link>https://HauyuChen.github.io/post/058-length-of-last-word/</link>
+      <pubDate>Tue, 24 Oct 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://HauyuChen.github.io/post/058-length-of-last-word/</guid>
+      <description>题目描述： Given a string s consists of upper/lower-case alphabets and empty space characters &amp;lsquo; &amp;lsquo;, return the length of last word in the string.
+If the last word does not exist, return 0.
+Note: A word is defined as a character sequence consists of non-space characters only.
+Example:
+Input: &amp;ldquo;Hello World&amp;rdquo;
+Output: 5
+
+思路： 从后往前遍历字符串。
+ 注意字符串后面是否有空格，所以先判断字符串是否以空格结尾； 若当前字符不是空格，开始计数，直到遇到空格，返回计数的结果。  
+代码实现： class Solution { public int lengthOfLastWord(String s) { int count = 0; int i = s.</description>
+    </item>
+    
+    <item>
+      <title>【LeetCode】59. Spiral Matrix II</title>
+      <link>https://HauyuChen.github.io/post/059-spiral-matrix-ii/</link>
+      <pubDate>Thu, 02 Nov 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://HauyuChen.github.io/post/059-spiral-matrix-ii/</guid>
+      <description>题目描述： Given an integer n, generate a square matrix filled with elements from 1 to n2 in spiral order.
+For example, Given n = 3,
+You should return the following matrix:
+[ [ 1, 2, 3 ], [ 8, 9, 4 ], [ 7, 6, 5 ] ]  
+思路： 题意要求根据 n ，创建一个 n*n 的回旋矩阵。
+ 设置 direction ，表示构造方向（向右，向下，向左，向上）； 设置 left、right、top、buttom ，分别指示矩阵左边界、右边界、上边界、下边界； 设置 count 指示当前的数值； 按右-下-左-上的顺序不断循环构造，直至 left&amp;gt;right 或 top&amp;gt;buttom 。</description>
+    </item>
+    
+    <item>
+      <title>【LeetCode】66. Plus One</title>
+      <link>https://HauyuChen.github.io/post/066-plus-one/</link>
+      <pubDate>Wed, 25 Oct 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://HauyuChen.github.io/post/066-plus-one/</guid>
+      <description>题目描述： Given a non-negative integer represented as a non-empty array of digits, plus one to the integer.
+You may assume the integer do not contain any leading zero, except the number 0 itself.
+The digits are stored such that the most significant digit is at the head of the list.
+
+思路： 题目的意思是将数组当成一个整数，然后对这个整数加 1 ，返回结果。
+比如，[9,9,9] 返回 [1,0,0,0] ； [9,9,8] 返回 [9,9,9] 。
+从数组最右边开始遍历：
+ 如果当前元素小于 8 ，则将当前元素加 1 后，直接返回数组 digits ； 如果当前元素等于 9 ，将当前元素置为 0 ，继续判断； 若遍历结束还没返回结果，说明数组 digits 内的元素全为 9 ，则创建一个新的数组，首位为 1 ，其余位为 0 ，返回新数组。</description>
+    </item>
+    
+    <item>
+      <title>【LeetCode】67. Add Binary</title>
+      <link>https://HauyuChen.github.io/post/067-add-binary/</link>
+      <pubDate>Mon, 16 Oct 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://HauyuChen.github.io/post/067-add-binary/</guid>
+      <description>题目描述： Given two binary strings, return their sum (also a binary string).
+For example,
+a = &amp;ldquo;11&amp;rdquo;
+b = &amp;ldquo;1&amp;rdquo;
+Return &amp;ldquo;100&amp;rdquo;.
+
+思路：  设置flag表示进位标志，将字符串 a 和 b 依次拿出来“相加”，并将相加的结果存放在 char 数组； 假设字符串 a 已经结束，若字符串 b 还有没处理的字符，则操作 b ，注意是否还有进位；反之同理； 将 char 数组转换成 String 返回。  注意：
+ 这种题难度不大，但要考虑全面，细心！！ 通过常规的解法，时间复杂度为 O(n)； 注意最后是否进位，若是 char 数组的首字符为‘1’，否则为空。  
+代码实现： class Solution { public String addBinary(String a, String b) { if(a==null){ return b; }else if(b==null){ return a; } int lenA = a.</description>
+    </item>
+    
+    <item>
+      <title>【LeetCode】69. Sqrt(x)</title>
+      <link>https://HauyuChen.github.io/post/069-sqrtx/</link>
+      <pubDate>Mon, 13 Jun 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://HauyuChen.github.io/post/069-sqrtx/</guid>
+      <description>题目描述： Implement int sqrt(int x).
+Compute and return the square root of x.
+
+代码实现： class Solution { public: int mySqrt(int x) { if(x==0){ return 0; } int low=1,high=x; int mid; while(1){ mid = (low+high)/2; if(mid&amp;gt;x/mid){ high = mid-1; } else{ if((mid+1)&amp;gt;(x/(mid+1))){ return mid; } low = mid+1; } } } };</description>
+    </item>
+    
+    <item>
+      <title>【LeetCode】70. Climbing Stairs</title>
+      <link>https://HauyuChen.github.io/post/070-climbing-stairs/</link>
+      <pubDate>Tue, 14 Jun 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://HauyuChen.github.io/post/070-climbing-stairs/</guid>
+      <description>题目描述： You are climbing a stair case. It takes n steps to reach to the top.
+Each time you can either climb 1 or 2 steps. In how many distinct ways can you climb to the top?
+
+思路： 这题本质上是斐波那契数列问题。这里采用数组暂存已有结果，以时间换空间，减少递归带来的重复计算。
+
+代码实现： class Solution { public: int climbStairs(int n) { int f[n+1]; f[0]=1; f[1]=1; for(int i=2;i&amp;lt;=n;++i){ f[i]=f[i-1]+f[i-2]; } return f[n]; } };</description>
+    </item>
+    
+    <item>
+      <title>【LeetCode】75. Sort Colors</title>
+      <link>https://HauyuChen.github.io/post/075-sort-colors/</link>
+      <pubDate>Sun, 29 Oct 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://HauyuChen.github.io/post/075-sort-colors/</guid>
+      <description>题目描述： Given an array with n objects colored red, white or blue, sort them so that objects of the same color are adjacent, with the colors in the order red, white and blue.
+Here, we will use the integers 0, 1, and 2 to represent the color red, white, and blue respectively.
+Note: You are not suppose to use the library&amp;rsquo;s sort function for this problem.
+
+思路： 本题实质上为三元数组排序。</description>
+    </item>
+    
+    <item>
+      <title>【LeetCode】83. Remove Duplicates from Sorted List</title>
+      <link>https://HauyuChen.github.io/post/083-remove-duplicates-from-sorted-list/</link>
+      <pubDate>Thu, 26 Oct 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://HauyuChen.github.io/post/083-remove-duplicates-from-sorted-list/</guid>
+      <description>题目描述： Given a sorted linked list, delete all duplicates such that each element appear only once.
+For example,
+Given 1-&amp;gt;1-&amp;gt;2, return 1-&amp;gt;2.
+Given 1-&amp;gt;1-&amp;gt;2-&amp;gt;3-&amp;gt;3, return 1-&amp;gt;2-&amp;gt;3.
+
+思路： 遍历一次链表即可，每遍历一个元素比较其是否与它的下一个元素相等。若是，指针指向下下个元素；否则继续遍历下一个元素。
+
+代码实现： /** * Definition for singly-linked list. * public class ListNode { * int val; * ListNode next; * ListNode(int x) { val = x; } * } */ class Solution { public ListNode deleteDuplicates(ListNode head) { if(head==null){ return null; } ListNode p = head; while(p.</description>
+    </item>
+    
+    <item>
+      <title>【LeetCode】88. Merge Sorted Array</title>
+      <link>https://HauyuChen.github.io/post/088-merge-sorted-array/</link>
+      <pubDate>Fri, 27 Oct 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://HauyuChen.github.io/post/088-merge-sorted-array/</guid>
+      <description>题目描述： Given two sorted integer arrays nums1 and nums2, merge nums2 into nums1 as one sorted array.
+Note:
+You may assume that nums1 has enough space (size that is greater or equal to m + n) to hold additional elements from nums2. The number of elements initialized in nums1 and nums2 are m and n respectively.
+
+思路： 从后往前遍历两个数组，分别比较，大的放在数组 nums1 后面，直到两个数组都遍历完毕。
+注：如果从前往后遍历的话，数组合并时需要将元素后移，效率低。
+
+代码实现： class Solution { public void merge(int[] nums1, int m, int[] nums2, int n) { int index = m+n-1; int i1 = m-1; int i2 = n-1; while(i1&amp;gt;=0&amp;amp;&amp;amp;i2&amp;gt;=0){ if(nums1[i1]&amp;gt;=nums2[i2]){ nums1[index] = nums1[i1]; i1--; }else{ nums1[index] = nums2[i2]; i2--; } index--; } while(i1&amp;gt;=0){ nums1[index] = nums1[i1]; i1--; index--; } while(i2&amp;gt;=0){ nums1[index] = nums2[i2]; i2--; index--; } } }</description>
+    </item>
+    
+    <item>
+      <title>【LeetCode】94. Binary Tree Inorder Traversal</title>
+      <link>https://HauyuChen.github.io/post/094-binary-tree-inorder-traversal/</link>
+      <pubDate>Mon, 30 Oct 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://HauyuChen.github.io/post/094-binary-tree-inorder-traversal/</guid>
+      <description>题目描述： Given a binary tree, return the inorder traversal of its nodes&amp;rsquo; values.
+For example:
+Given binary tree [1,null,2,3],
+ 1 \ 2 / 3  return [1,3,2].
+
+思路： 二叉树的中序遍历，这里直接用递归的方法求解。
+
+代码实现： /** * Definition for a binary tree node. * public class TreeNode { * int val; * TreeNode left; * TreeNode right; * TreeNode(int x) { val = x; } * } */ class Solution { public List&amp;lt;Integer&amp;gt; inorderTraversal(TreeNode root) { List&amp;lt;Integer&amp;gt; ret = new ArrayList&amp;lt;Integer&amp;gt;(); inorder(root,ret); return ret; } public void inorder(TreeNode root, List&amp;lt;Integer&amp;gt; ret){ if(root==null){ return ; } inorder(root.</description>
+    </item>
+    
+    <item>
+      <title>【LeetCode】100. Same Tree</title>
+      <link>https://HauyuChen.github.io/post/100-same-tree/</link>
+      <pubDate>Tue, 14 Jun 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://HauyuChen.github.io/post/100-same-tree/</guid>
+      <description>题目描述： Given two binary trees, write a function to check if they are equal or not.
+Two binary trees are considered equal if they are structurally identical and the nodes have the same value.
+
+代码实现： /** * Definition for a binary tree node. * struct TreeNode { * int val; * TreeNode *left; * TreeNode *right; * TreeNode(int x) : val(x), left(NULL), right(NULL) {} * }; */ class Solution { public: bool isSameTree(TreeNode* p, TreeNode* q) { if(p==nullptr &amp;amp;&amp;amp; q==nullptr){ return true; } else if(p==nullptr || q==nullptr){ return false; } if(p-&amp;gt;val!</description>
+    </item>
+    
+    <item>
+      <title>【LeetCode】104. Maximum Depth of Binary Tree</title>
+      <link>https://HauyuChen.github.io/post/104-maximum-depth-of-binary-tree/</link>
+      <pubDate>Wed, 15 Jun 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://HauyuChen.github.io/post/104-maximum-depth-of-binary-tree/</guid>
+      <description>题目描述： Given a binary tree, find its maximum depth.
+The maximum depth is the number of nodes along the longest path from the root node down to the farthest leaf node.
+
+代码实现： /** * Definition for binary tree * struct TreeNode { * int val; * TreeNode *left; * TreeNode *right; * TreeNode(int x) : val(x), left(NULL), right(NULL) {} * }; */ class Solution { public: int maxDepth(TreeNode *root) { int Ldepth=0,Rdepth=0; if(root==NULL){ return 0; } if(root-&amp;gt;left==NULL &amp;amp;&amp;amp; root-&amp;gt;right==NULL){ return 1; } Ldepth=maxDepth(root-&amp;gt;left); Rdepth=maxDepth(root-&amp;gt;right); return 1+(Ldepth&amp;gt;Rdepth?</description>
+    </item>
+    
+    <item>
+      <title>【LeetCode】116. Populating Next Right Pointers in Each Node</title>
+      <link>https://HauyuChen.github.io/post/116-populating-next-right-pointers-in-each-node/</link>
+      <pubDate>Sat, 28 Oct 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://HauyuChen.github.io/post/116-populating-next-right-pointers-in-each-node/</guid>
+      <description>题目描述： Given a binary tree
+ struct TreeLinkNode { TreeLinkNode *left; TreeLinkNode *right; TreeLinkNode *next; }  Populate each next pointer to point to its next right node. If there is no next right node, the next pointer should be set to NULL.
+Initially, all next pointers are set to NULL.
+Note:
+You may only use constant extra space. You may assume that it is a perfect binary tree (ie, all leaves are at the same level, and every parent has two children).</description>
+    </item>
+    
+    <item>
+      <title>【LeetCode】121. Best Time to Buy and Sell Stock</title>
+      <link>https://HauyuChen.github.io/post/121-best-time-to-buy-and-sell-stock/</link>
+      <pubDate>Thu, 16 Jun 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://HauyuChen.github.io/post/121-best-time-to-buy-and-sell-stock/</guid>
+      <description>题目描述： Say you have an array for which the ith element is the price of a given stock on day i.
+If you were only permitted to complete at most one transaction (ie, buy one and sell one share of the stock), design an algorithm to find the maximum profit.
+Example 1:
+Input: [7, 1, 5, 3, 6, 4] Output: 5
+max. difference = 6-1 = 5 (not 7-1 = 6, as selling price needs to be larger than buying price)</description>
+    </item>
+    
+    <item>
+      <title>【LeetCode】122. Best Time to Buy and Sell Stock II</title>
+      <link>https://HauyuChen.github.io/post/122-best-time-to-buy-and-sell-stock-ii/</link>
+      <pubDate>Thu, 16 Jun 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://HauyuChen.github.io/post/122-best-time-to-buy-and-sell-stock-ii/</guid>
+      <description>题目描述： Say you have an array for which the ith element is the price of a given stock on day i.
+Design an algorithm to find the maximum profit. You may complete as many transactions as you like (ie, buy one and sell one share of the stock multiple times). However, you may not engage in multiple transactions at the same time (ie, you must sell the stock before you buy again).</description>
+    </item>
+    
+    <item>
+      <title>【LeetCode】123. Best Time to Buy and Sell Stock III</title>
+      <link>https://HauyuChen.github.io/post/123-best-time-to-buy-and-sell-stock-iii/</link>
+      <pubDate>Tue, 17 Oct 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://HauyuChen.github.io/post/123-best-time-to-buy-and-sell-stock-iii/</guid>
+      <description>题目描述： Say you have an array for which the ith element is the price of a given stock on day i.
+Design an algorithm to find the maximum profit. You may complete at most two transactions.
+Note:
+You may not engage in multiple transactions at the same time (ie, you must sell the stock before you buy again).
+
+思路：  只能进行两次交易，要求两次交易获利之和最大； 第一次交易：从前往后遍历，计算每天的最大获利 left[] ， left[i] 表示第 i 天的最多能获利多少； 第二次交易：从后往前遍历，计算每天的最大获利 right[] ， right[i] 表示第 i 天的最多能获利多少； 最大获利：计算哪一天的 left[i] + right[i] 最大，即为两次交易的最大获利。</description>
+    </item>
+    
+    <item>
+      <title>【LeetCode】136. Single Number</title>
+      <link>https://HauyuChen.github.io/post/136-single-number/</link>
+      <pubDate>Thu, 16 Jun 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://HauyuChen.github.io/post/136-single-number/</guid>
+      <description>题目描述： Given an array of integers, every element appears twice except for one. Find that single one.
+Note:
+Your algorithm should have a linear runtime complexity. Could you implement it without using extra memory?
+
+代码实现： class Solution { public: int singleNumber(vector&amp;lt;int&amp;gt;&amp;amp; nums) { int ret = 0; for(int num:nums){ ret^=num; } return ret; } };</description>
+    </item>
+    
+    <item>
+      <title>【LeetCode】167. Two Sum II - Input array is sorted</title>
+      <link>https://HauyuChen.github.io/post/167-two-sum-ii-input-array-is-sorted/</link>
+      <pubDate>Mon, 20 Jun 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://HauyuChen.github.io/post/167-two-sum-ii-input-array-is-sorted/</guid>
+      <description>题目描述： Given an array of integers that is already sorted in ascending order, find two numbers such that they add up to a specific target number.
+The function twoSum should return indices of the two numbers such that they add up to the target, where index1 must be less than index2. Please note that your returned answers (both index1 and index2) are not zero-based.
+You may assume that each input would have exactly one solution and you may not use the same element twice.</description>
+    </item>
+    
+    <item>
+      <title>【LeetCode】169. Majority Element</title>
+      <link>https://HauyuChen.github.io/post/169-majority-element/</link>
+      <pubDate>Mon, 20 Jun 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://HauyuChen.github.io/post/169-majority-element/</guid>
+      <description>题目描述： Given an array of size n, find the majority element. The majority element is the element that appears more than ⌊ n/2 ⌋ times.
+You may assume that the array is non-empty and the majority element always exist in the array.
+
+代码实现： class Solution { public: int majorityElement(vector&amp;lt;int&amp;gt;&amp;amp; nums) { int major=nums[0]; int cnt=1; for(int num:nums){ if(num==major){ ++cnt; }else{ --cnt; } if(cnt==0){ ++cnt; major = num; } } return major; } };</description>
+    </item>
+    
+    <item>
+      <title>【LeetCode】171. Excel Sheet Column Number</title>
+      <link>https://HauyuChen.github.io/post/171-excel-sheet-column-number/</link>
+      <pubDate>Thu, 23 Jun 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://HauyuChen.github.io/post/171-excel-sheet-column-number/</guid>
+      <description>题目描述： Related to question Excel Sheet Column Title
+Given a column title as appear in an Excel sheet, return its corresponding column number.
+For example:
+ A -&amp;gt; 1 B -&amp;gt; 2 C -&amp;gt; 3 ... Z -&amp;gt; 26 AA -&amp;gt; 27 AB -&amp;gt; 28  
+代码实现： class Solution { public: int titleToNumber(string s) { int sum=0; for(int i=0;i&amp;lt;s.length();i++){ sum = sum*26+(s[i]-&#39;A&#39;+1); } return sum; } };</description>
+    </item>
+    
+    <item>
+      <title>【LeetCode】191. Number of 1 Bits</title>
+      <link>https://HauyuChen.github.io/post/191-number-of-1-bits/</link>
+      <pubDate>Fri, 24 Jun 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://HauyuChen.github.io/post/191-number-of-1-bits/</guid>
+      <description>题目描述： Write a function that takes an unsigned integer and returns the number of ’1&amp;rsquo; bits it has (also known as the Hamming weight).
+For example:
+the 32-bit integer ’11&amp;rsquo; has binary representation 00000000000000000000000000001011, so the function should return 3.
+
+代码实现： class Solution { public: int hammingWeight(uint32_t n) { int sum=0; while(n&amp;gt;0){ if(n&amp;amp;1==1){ sum++; } n=n&amp;gt;&amp;gt;1; } return sum; } };</description>
+    </item>
+    
+    <item>
+      <title>【LeetCode】202. Happy Number</title>
+      <link>https://HauyuChen.github.io/post/202-happy-number/</link>
+      <pubDate>Fri, 24 Jun 2016 00:00:00 +0000</pubDate>
+      
+      <guid>https://HauyuChen.github.io/post/202-happy-number/</guid>
+      <description>题目描述： Write an algorithm to determine if a number is &amp;ldquo;happy&amp;rdquo;.
+A happy number is a number defined by the following process: Starting with any positive integer, replace the number by the sum of the squares of its digits, and repeat the process until the number equals 1 (where it will stay), or it loops endlessly in a cycle which does not include 1. Those numbers for which this process ends in 1 are happy numbers.</description>
+    </item>
+    
+    <item>
+      <title>【LeetCode】206. Reverse Linked List</title>
+      <link>https://HauyuChen.github.io/post/206-reverse-linked-list/</link>
+      <pubDate>Sat, 07 Jan 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://HauyuChen.github.io/post/206-reverse-linked-list/</guid>
+      <description>题目描述： Reverse a singly linked list.
+
+代码实现： /** * Definition for singly-linked list. * struct ListNode { * int val; * ListNode *next; * ListNode(int x) : val(x), next(NULL) {} * }; */ class Solution { public: ListNode* reverseList(ListNode* head) { ListNode* pPre=nullptr; ListNode* pNode=head; ListNode* pRet=nullptr; while(pNode!=nullptr){ ListNode* pNext=pNode-&amp;gt;next; if(pNext==nullptr){ pRet=pNode; } pNode-&amp;gt;next=pPre; pPre=pNode; pNode=pNext; } return pRet; } };</description>
+    </item>
+    
+    <item>
+      <title>【LeetCode】217. Contains Duplicate</title>
+      <link>https://HauyuChen.github.io/post/217-contains-duplicate/</link>
+      <pubDate>Sat, 07 Jan 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://HauyuChen.github.io/post/217-contains-duplicate/</guid>
+      <description>题目描述： Given an array of integers, find if the array contains any duplicates. Your function should return true if any value appears at least twice in the array, and it should return false if every element is distinct.
+
+代码实现： class Solution { public: bool containsDuplicate(vector&amp;lt;int&amp;gt;&amp;amp; nums) { unordered_set&amp;lt;int&amp;gt; set; for(int num:nums){ if(set.count(num)){ return true; } set.insert(num); } return false; } };</description>
+    </item>
+    
+    <item>
+      <title>【LeetCode】226. Invert Binary Tree</title>
+      <link>https://HauyuChen.github.io/post/226-invert-binary-tree/</link>
+      <pubDate>Sun, 08 Jan 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://HauyuChen.github.io/post/226-invert-binary-tree/</guid>
+      <description>题目描述： Invert a binary tree.
+ 4 / \ 2 7 / \ / \ 1 3 6 9 to 4 / \ 7 2 / \ / \ 9 6 3 1  
+代码实现： /** * Definition for a binary tree node. * struct TreeNode { * int val; * TreeNode *left; * TreeNode *right; * TreeNode(int x) : val(x), left(NULL), right(NULL) {} * }; */ class Solution { public: TreeNode* invertTree(TreeNode* root) { if(root==NULL){ return NULL; } TreeNode* nl; TreeNode* nr; nl = invertTree(root-&amp;gt;right); nr = invertTree(root-&amp;gt;left); root-&amp;gt;left = nl; root-&amp;gt;right = nr; return root; } };</description>
+    </item>
+    
+    <item>
+      <title>【LeetCode】231. Power of Two</title>
+      <link>https://HauyuChen.github.io/post/231-power-of-two/</link>
+      <pubDate>Mon, 09 Jan 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://HauyuChen.github.io/post/231-power-of-two/</guid>
+      <description>题目描述： Given an integer, write a function to determine if it is a power of two.
+
+代码实现： class Solution { public: bool isPowerOfTwo(int n) { int flag=0; if(n&amp;lt;=0){ return false; } while(n&amp;gt;0){ if(n&amp;amp;1==1){ if(flag==1){ return false; } flag=1; } n=n&amp;gt;&amp;gt;1; } return true; } };</description>
+    </item>
+    
+    <item>
+      <title>【LeetCode】237. Delete Node in a Linked List</title>
+      <link>https://HauyuChen.github.io/post/237-delete-node-in-a-linked-list/</link>
+      <pubDate>Mon, 09 Jan 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://HauyuChen.github.io/post/237-delete-node-in-a-linked-list/</guid>
+      <description>题目描述： Write a function to delete a node (except the tail) in a singly linked list, given only access to that node.
+Supposed the linked list is 1 -&amp;gt; 2 -&amp;gt; 3 -&amp;gt; 4 and you are given the third node with value 3, the linked list should become 1 -&amp;gt; 2 -&amp;gt; 4 after calling your function.
+
+代码实现： /** * Definition for singly-linked list. * struct ListNode { * int val; * ListNode *next; * ListNode(int x) : val(x), next(NULL) {} * }; */ class Solution { public: void deleteNode(ListNode* node) { auto next = node-&amp;gt;next; *node = *next; delete next; } };</description>
+    </item>
+    
+    <item>
+      <title>【LeetCode】238. Product of Array Except Self</title>
+      <link>https://HauyuChen.github.io/post/238-product-of-array-except-self/</link>
+      <pubDate>Wed, 18 Oct 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://HauyuChen.github.io/post/238-product-of-array-except-self/</guid>
+      <description>题目描述： Given an array of n integers where n &amp;gt; 1, nums, return an array output such that output[i] is equal to the product of all the elements of nums except nums[i].
+Solve it without division and in O(n).
+For example, given [1,2,3,4], return [24,12,8,6].
+Follow up: Could you solve it with constant space complexity? (Note: The output array does not count as extra space for the purpose of space complexity analysis.</description>
+    </item>
+    
+    <item>
+      <title>【LeetCode】242. Valid Anagram</title>
+      <link>https://HauyuChen.github.io/post/242-valid-anagram/</link>
+      <pubDate>Mon, 09 Jan 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://HauyuChen.github.io/post/242-valid-anagram/</guid>
+      <description>题目描述： Given two strings s and t, write a function to determine if t is an anagram of s.
+For example,
+s = &amp;ldquo;anagram&amp;rdquo;, t = &amp;ldquo;nagaram&amp;rdquo;, return true.
+s = &amp;ldquo;rat&amp;rdquo;, t = &amp;ldquo;car&amp;rdquo;, return false.
+Note:
+You may assume the string contains only lowercase alphabets.
+Follow up:
+What if the inputs contain unicode characters? How would you adapt your solution to such case?
+
+代码实现： class Solution { public: bool isAnagram(string s, string t) { if(s.</description>
+    </item>
+    
+    <item>
+      <title>【LeetCode】258. Add Digits</title>
+      <link>https://HauyuChen.github.io/post/258-add-digits/</link>
+      <pubDate>Tue, 10 Jan 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://HauyuChen.github.io/post/258-add-digits/</guid>
+      <description>题目描述： Given a non-negative integer num, repeatedly add all its digits until the result has only one digit.
+For example:
+Given num = 38, the process is like: 3 + 8 = 11, 1 + 1 = 2. Since 2 has only one digit, return it.
+Follow up:
+Could you do it without any loop/recursion in O(1) runtime?
+
+代码实现： class Solution { public: int addDigits(int num) { return 1+(num-1)%9; } };</description>
+    </item>
+    
+    <item>
+      <title>【LeetCode】263. Ugly Number</title>
+      <link>https://HauyuChen.github.io/post/263-ugly-number/</link>
+      <pubDate>Tue, 10 Jan 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://HauyuChen.github.io/post/263-ugly-number/</guid>
+      <description>题目描述： Write a program to check whether a given number is an ugly number.
+Ugly numbers are positive numbers whose prime factors only include 2, 3, 5. For example, 6, 8 are ugly while 14 is not ugly since it includes another prime factor 7.
+Note that 1 is typically treated as an ugly number.
+
+代码实现： class Solution { public: bool isUgly(int num) { if(num&amp;lt;=0){ return false; } while(num%2==0){ num/=2; } while(num%3==0){ num/=3; } while(num%5==0){ num/=5; } return num==1?</description>
+    </item>
+    
+    <item>
+      <title>【LeetCode】268. Missing Number</title>
+      <link>https://HauyuChen.github.io/post/268-missing-number/</link>
+      <pubDate>Wed, 11 Jan 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://HauyuChen.github.io/post/268-missing-number/</guid>
+      <description>题目描述： Given an array containing n distinct numbers taken from 0, 1, 2, &amp;hellip;, n, find the one that is missing from the array.
+For example,
+Given nums = [0, 1, 3] return 2.
+Note:
+Your algorithm should run in linear runtime complexity. Could you implement it using only constant extra space complexity?
+
+代码实现： class Solution { public: int missingNumber(vector&amp;lt;int&amp;gt;&amp;amp; nums) { int sum=0; int realsum=0; bool flag=false; for(int i=0;i&amp;lt;nums.</description>
+    </item>
+    
+    <item>
+      <title>【LeetCode】283. Move Zeroes</title>
+      <link>https://HauyuChen.github.io/post/283-move-zeroes/</link>
+      <pubDate>Wed, 11 Jan 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://HauyuChen.github.io/post/283-move-zeroes/</guid>
+      <description>题目描述： Given an array nums, write a function to move all 0&amp;rsquo;s to the end of it while maintaining the relative order of the non-zero elements.
+For example, given nums = [0, 1, 0, 3, 12], after calling your function, nums should be [1, 3, 12, 0, 0].
+Note:
+You must do this in-place without making a copy of the array. Minimize the total number of operations.
+
+代码实现： class Solution { public: void moveZeroes(vector&amp;lt;int&amp;gt;&amp;amp; nums) { int index=0; for(int i=0;i&amp;lt;nums.</description>
+    </item>
+    
+    <item>
+      <title>【LeetCode】292. Nim Game</title>
+      <link>https://HauyuChen.github.io/post/292-nim-game/</link>
+      <pubDate>Fri, 03 Nov 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://HauyuChen.github.io/post/292-nim-game/</guid>
+      <description>题目描述： You are playing the following Nim Game with your friend: There is a heap of stones on the table, each time one of you take turns to remove 1 to 3 stones. The one who removes the last stone will be the winner. You will take the first turn to remove the stones.
+Both of you are very clever and have optimal strategies for the game. Write a function to determine whether you can win the game given the number of stones in the heap.</description>
+    </item>
+    
+    <item>
+      <title>【LeetCode】326. Power of Three</title>
+      <link>https://HauyuChen.github.io/post/326-power-of-three/</link>
+      <pubDate>Thu, 12 Jan 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://HauyuChen.github.io/post/326-power-of-three/</guid>
+      <description>题目描述： Given an integer, write a function to determine if it is a power of three.
+Follow up:
+Could you do it without using any loop / recursion?
+
+代码实现： class Solution { public: bool isPowerOfThree(int n) { if(n&amp;lt;=0){ return false; } while(n%3==0){ n/=3; } if(n==1){ return true; } return false; } };</description>
+    </item>
+    
+    <item>
+      <title>【LeetCode】328. Odd Even Linked List</title>
+      <link>https://HauyuChen.github.io/post/328-odd-even-linked-list/</link>
+      <pubDate>Tue, 31 Oct 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://HauyuChen.github.io/post/328-odd-even-linked-list/</guid>
+      <description>题目描述： Given a singly linked list, group all odd nodes together followed by the even nodes. Please note here we are talking about the node number and not the value in the nodes.
+You should try to do it in place. The program should run in O(1) space complexity and O(nodes) time complexity.
+Example:
+Given 1-&amp;gt;2-&amp;gt;3-&amp;gt;4-&amp;gt;5-&amp;gt;NULL,
+return 1-&amp;gt;3-&amp;gt;5-&amp;gt;2-&amp;gt;4-&amp;gt;NULL.
+Note: The relative order inside both the even and odd groups should remain as it was in the input.</description>
+    </item>
+    
+    <item>
+      <title>【LeetCode】338. Counting Bits</title>
+      <link>https://HauyuChen.github.io/post/338-counting-bits/</link>
+      <pubDate>Thu, 12 Jan 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://HauyuChen.github.io/post/338-counting-bits/</guid>
+      <description>题目描述： Given a non negative integer number num. For every numbers i in the range 0 ≤ i ≤ num calculate the number of 1&amp;rsquo;s in their binary representation and return them as an array.
+Example:
+For num = 5 you should return [0,1,1,2,1,2].
+Follow up:
+It is very easy to come up with a solution with run time O(n*sizeof(integer)). But can you do it in linear time O(n) /possibly in a single pass?</description>
+    </item>
+    
+    <item>
+      <title>【LeetCode】344. Reverse String</title>
+      <link>https://HauyuChen.github.io/post/344-reverse-string/</link>
+      <pubDate>Fri, 13 Jan 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://HauyuChen.github.io/post/344-reverse-string/</guid>
+      <description>题目描述： Write a function that takes a string as input and returns the string reversed.
+Example:
+Given s = &amp;ldquo;hello&amp;rdquo;, return &amp;ldquo;olleh&amp;rdquo;.
+
+代码实现： class Solution { public: string reverseString(string s) { reverse(s.begin(),s.end()); return s; } };</description>
+    </item>
+    
+    <item>
+      <title>【LeetCode】349. Intersection of Two Arrays</title>
+      <link>https://HauyuChen.github.io/post/349-intersection-of-two-arrays/</link>
+      <pubDate>Sun, 15 Jan 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://HauyuChen.github.io/post/349-intersection-of-two-arrays/</guid>
+      <description>题目描述： Given two arrays, write a function to compute their intersection.
+Example:
+Given nums1 = [1, 2, 2, 1], nums2 = [2, 2], return [2].
+Note:
+Each element in the result must be unique. The result can be in any order.
+
+代码实现： class Solution { public: vector&amp;lt;int&amp;gt; intersection(vector&amp;lt;int&amp;gt;&amp;amp; nums1, vector&amp;lt;int&amp;gt;&amp;amp; nums2) { unordered_set&amp;lt;int&amp;gt; s; vector&amp;lt;int&amp;gt; ret; for(int num1:nums1){ if(s.count(num1)==0){ s.insert(num1); } } for(int num2:nums2){ if(s.count(num2)){ ret.push_back(num2); s.erase(num2); } } return ret; } };</description>
+    </item>
+    
+    <item>
+      <title>【LeetCode】350. Intersection of Two Arrays II</title>
+      <link>https://HauyuChen.github.io/post/350-intersection-of-two-arrays-ii/</link>
+      <pubDate>Sun, 15 Jan 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://HauyuChen.github.io/post/350-intersection-of-two-arrays-ii/</guid>
+      <description>题目描述： Given two arrays, write a function to compute their intersection.
+Example:
+Given nums1 = [1, 2, 2, 1], nums2 = [2, 2], return [2, 2].
+Note:
+Each element in the result should appear as many times as it shows in both arrays. The result can be in any order.
+Follow up:
+What if the given array is already sorted? How would you optimize your algorithm? What if nums1&amp;rsquo;s size is small compared to nums2&amp;rsquo;s size?</description>
+    </item>
+    
+    <item>
+      <title>【LeetCode】371. Sum of Two Integers</title>
+      <link>https://HauyuChen.github.io/post/371-sum-of-two-integers/</link>
+      <pubDate>Mon, 13 Feb 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://HauyuChen.github.io/post/371-sum-of-two-integers/</guid>
+      <description>题目描述： Calculate the sum of two integers a and b, but you are not allowed to use the operator + and -.
+Example:
+Given a = 1 and b = 2, return 3.
+
+代码实现： class Solution { public: int getSum(int a, int b) { return b==0?a:getSum(a^b,(a&amp;amp;b)&amp;lt;&amp;lt;1); } };</description>
+    </item>
+    
+    <item>
+      <title>【LeetCode】383. Ransom Note</title>
+      <link>https://HauyuChen.github.io/post/383-ransom-note/</link>
+      <pubDate>Mon, 13 Feb 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://HauyuChen.github.io/post/383-ransom-note/</guid>
+      <description>题目描述： Given an arbitrary ransom note string and another string containing letters from all the magazines, write a function that will return true if the ransom note can be constructed from the magazines ; otherwise, it will return false.
+Each letter in the magazine string can only be used once in your ransom note.
+Note:
+You may assume that both strings contain only lowercase letters.
+ canConstruct(&amp;ldquo;a&amp;rdquo;, &amp;ldquo;b&amp;rdquo;) -&amp;gt; false canConstruct(&amp;ldquo;aa&amp;rdquo;, &amp;ldquo;ab&amp;rdquo;) -&amp;gt; false canConstruct(&amp;ldquo;aa&amp;rdquo;, &amp;ldquo;aab&amp;rdquo;) -&amp;gt; true</description>
+    </item>
+    
+    <item>
+      <title>【LeetCode】387. First Unique Character in a String</title>
+      <link>https://HauyuChen.github.io/post/387-first-unique-character-in-a-string/</link>
+      <pubDate>Tue, 14 Feb 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://HauyuChen.github.io/post/387-first-unique-character-in-a-string/</guid>
+      <description>题目描述： Given a string, find the first non-repeating character in it and return it&amp;rsquo;s index. If it doesn&amp;rsquo;t exist, return -1.
+Examples:
+s = &amp;ldquo;leetcode&amp;rdquo;,
+return 0.
+s = &amp;ldquo;loveleetcode&amp;rdquo;,
+return 2.
+Note: You may assume the string contain only lowercase letters.
+
+代码实现： class Solution { public: int firstUniqChar(string s) { int arr[26]; for(int i=0;i&amp;lt;26;++i){ arr[i]=0; } for(int i=0;i&amp;lt;s.size();++i){ ++arr[s[i]-&#39;a&#39;]; } for(int i=0;i&amp;lt;s.size();++i){ if(arr[s[i]-&#39;a&#39;]==1){ return i; } } return -1; } };</description>
+    </item>
+    
+    <item>
+      <title>【LeetCode】389. Find the Difference</title>
+      <link>https://HauyuChen.github.io/post/389-find-the-difference/</link>
+      <pubDate>Wed, 15 Feb 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://HauyuChen.github.io/post/389-find-the-difference/</guid>
+      <description>题目描述： Given two strings s and t which consist of only lowercase letters.
+String t is generated by random shuffling string s and then add one more letter at a random position.
+Find the letter that was added in t.
+Example:
+Input:
+s = &amp;ldquo;abcd&amp;rdquo; t = &amp;ldquo;abcde&amp;rdquo;
+Output:
+e
+Explanation:
+&amp;lsquo;e&amp;rsquo; is the letter that was added.
+
+代码实现： class Solution { public: char findTheDifference(string s, string t) { char ch = t[0]; for(int i=1;i&amp;lt;t.</description>
+    </item>
+    
+    <item>
+      <title>【LeetCode】401. Binary Watch</title>
+      <link>https://HauyuChen.github.io/post/401-binary-watch/</link>
+      <pubDate>Thu, 16 Feb 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://HauyuChen.github.io/post/401-binary-watch/</guid>
+      <description>题目描述： A binary watch has 4 LEDs on the top which represent the hours (0-11), and the 6 LEDs on the bottom represent the minutes (0-59).
+Each LED represents a zero or one, with the least significant bit on the right.
+For example, the above binary watch reads &amp;ldquo;3:25&amp;rdquo;.
+Given a non-negative integer n which represents the number of LEDs that are currently on, return all possible times the watch could represent.</description>
+    </item>
+    
+    <item>
+      <title>【LeetCode】404. Sum of Left Leaves</title>
+      <link>https://HauyuChen.github.io/post/404-sum-of-left-leaves/</link>
+      <pubDate>Thu, 16 Feb 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://HauyuChen.github.io/post/404-sum-of-left-leaves/</guid>
+      <description>题目描述： Find the sum of all left leaves in a given binary tree.
+Example:
+ 3 / \ 9 20 / \ 15 7  There are two left leaves in the binary tree, with values 9 and 15 respectively. Return 24.
+
+代码实现： /** * Definition for a binary tree node. * struct TreeNode { * int val; * TreeNode *left; * TreeNode *right; * TreeNode(int x) : val(x), left(NULL), right(NULL) {} * }; */ class Solution { public: int sumOfLeftLeaves(TreeNode* root) { if(root==nullptr){ return 0; } int sum=0; if(root-&amp;gt;left){ if(root-&amp;gt;left-&amp;gt;left==nullptr &amp;amp;&amp;amp; root-&amp;gt;left-&amp;gt;right==nullptr){ sum+=root-&amp;gt;left-&amp;gt;val; }else{ sum+=sumOfLeftLeaves(root-&amp;gt;left); } } if(root-&amp;gt;right){ sum+=sumOfLeftLeaves(root-&amp;gt;right); } return sum; } };</description>
+    </item>
+    
+    <item>
+      <title>【LeetCode】409. Longest Palindrome</title>
+      <link>https://HauyuChen.github.io/post/409-longest-palindrome/</link>
+      <pubDate>Fri, 17 Feb 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://HauyuChen.github.io/post/409-longest-palindrome/</guid>
+      <description>题目描述： Given a string which consists of lowercase or uppercase letters, find the length of the longest palindromes that can be built with those letters.
+This is case sensitive, for example &amp;ldquo;Aa&amp;rdquo; is not considered a palindrome here.
+Note:
+Assume the length of given string will not exceed 1,010.
+Example:
+Input:
+&amp;ldquo;abccccdd&amp;rdquo;
+Output:
+7
+Explanation:
+One longest palindrome that can be built is &amp;ldquo;dccaccd&amp;rdquo;, whose length is 7.</description>
+    </item>
+    
+    <item>
+      <title>【LeetCode】412. Fizz Buzz</title>
+      <link>https://HauyuChen.github.io/post/412-fizz-buzz/</link>
+      <pubDate>Sat, 18 Feb 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://HauyuChen.github.io/post/412-fizz-buzz/</guid>
+      <description>题目描述： Write a program that outputs the string representation of numbers from 1 to n.
+But for multiples of three it should output “Fizz” instead of the number and for the multiples of five output “Buzz”. For numbers which are multiples of both three and five output “FizzBuzz”.
+Example:
+n = 15,
+Return:
+[ &amp;quot;1&amp;quot;, &amp;quot;2&amp;quot;, &amp;quot;Fizz&amp;quot;, &amp;quot;4&amp;quot;, &amp;quot;Buzz&amp;quot;, &amp;quot;Fizz&amp;quot;, &amp;quot;7&amp;quot;, &amp;quot;8&amp;quot;, &amp;quot;Fizz&amp;quot;, &amp;quot;Buzz&amp;quot;, &amp;quot;11&amp;quot;, &amp;quot;Fizz&amp;quot;, &amp;quot;13&amp;quot;, &amp;quot;14&amp;quot;, &amp;quot;FizzBuzz&amp;quot; ]</description>
+    </item>
+    
+    <item>
+      <title>【LeetCode】414. Third Maximum Number</title>
+      <link>https://HauyuChen.github.io/post/414-third-maximum-number/</link>
+      <pubDate>Sun, 19 Feb 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://HauyuChen.github.io/post/414-third-maximum-number/</guid>
+      <description>题目描述： Given a non-empty array of integers, return the third maximum number in this array. If it does not exist, return the maximum number. The time complexity must be in O(n).
+Example 1:
+Input: [3, 2, 1]
+Output: 1
+Explanation: The third maximum is 1.
+Example 2:
+Input: [1, 2]
+Output: 2
+Explanation: The third maximum does not exist, so the maximum (2) is returned instead.
+Example 3:
+Input: [2, 2, 3, 1]</description>
+    </item>
+    
+    <item>
+      <title>【LeetCode】415. Add Strings</title>
+      <link>https://HauyuChen.github.io/post/415-add-strings/</link>
+      <pubDate>Sun, 19 Feb 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://HauyuChen.github.io/post/415-add-strings/</guid>
+      <description>题目描述： Given two non-negative integers num1 and num2 represented as string, return the sum of num1 and num2.
+Note:
+The length of both num1 and num2 is &amp;lt; 5100.
+Both num1 and num2 contains only digits 0-9.
+Both num1 and num2 does not contain any leading zero.
+You must not use any built-in BigInteger library or convert the inputs to integer directly.
+
+代码实现： class Solution { public: string addStrings(string num1, string num2) { string str; int index1=num1.</description>
+    </item>
+    
+    <item>
+      <title>【LeetCode】447. Number of Boomerangs</title>
+      <link>https://HauyuChen.github.io/post/447-number-of-boomerangs/</link>
+      <pubDate>Mon, 20 Feb 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://HauyuChen.github.io/post/447-number-of-boomerangs/</guid>
+      <description>题目描述： Given n points in the plane that are all pairwise distinct, a &amp;ldquo;boomerang&amp;rdquo; is a tuple of points (i, j, k) such that the distance between i and j equals the distance between i and k (the order of the tuple matters).
+Find the number of boomerangs. You may assume that n will be at most 500 and coordinates of points are all in the range -10000, 10000.</description>
+    </item>
+    
+    <item>
+      <title>【LeetCode】448. Find All Numbers Disappeared in an Array</title>
+      <link>https://HauyuChen.github.io/post/448-find-all-numbers-disappeared-in-an-array/</link>
+      <pubDate>Tue, 21 Feb 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://HauyuChen.github.io/post/448-find-all-numbers-disappeared-in-an-array/</guid>
+      <description>题目描述： Given an array of integers where 1 ≤ a[i] ≤ n (n = size of array), some elements appear twice and others appear once.
+Find all the elements of [1, n] inclusive that do not appear in this array.
+Could you do it without extra space and in O(n) runtime? You may assume the returned list does not count as extra space.
+Example:
+Input:
+[4,3,2,7,8,2,3,1]
+Output:
+[5,6]</description>
+    </item>
+    
+    <item>
+      <title>【LeetCode】453. Minimum Moves to Equal Array Elements</title>
+      <link>https://HauyuChen.github.io/post/453-minimum-moves-to-equal-array-elements/</link>
+      <pubDate>Wed, 15 Mar 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://HauyuChen.github.io/post/453-minimum-moves-to-equal-array-elements/</guid>
+      <description>题目描述： Given a non-empty integer array of size n, find the minimum number of moves required to make all array elements equal, where a move is incrementing n - 1 elements by 1.
+Example:
+Input:
+[1,2,3]
+Output:
+3
+Explanation:
+Only three moves are needed (remember each move increments two elements):
+[1,2,3] =&amp;gt; [2,3,3] =&amp;gt; [3,4,3] =&amp;gt; [4,4,4]
+
+代码实现： class Solution { public: int minMoves(vector&amp;lt;int&amp;gt;&amp;amp; nums) { int min=INT_MAX; int sum=0; for(int num:nums){ min=min&amp;lt;num?</description>
+    </item>
+    
+    <item>
+      <title>【LeetCode】455. Assign Cookies</title>
+      <link>https://HauyuChen.github.io/post/455-assign-cookies/</link>
+      <pubDate>Thu, 16 Mar 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://HauyuChen.github.io/post/455-assign-cookies/</guid>
+      <description>题目描述： Assume you are an awesome parent and want to give your children some cookies. But, you should give each child at most one cookie. Each child i has a greed factor gi, which is the minimum size of a cookie that the child will be content with; and each cookie j has a size sj. If sj &amp;gt;= gi, we can assign the cookie j to the child i, and the child i will be content.</description>
+    </item>
+    
+    <item>
+      <title>【LeetCode】461. Hamming Distance</title>
+      <link>https://HauyuChen.github.io/post/461-hamming-distance/</link>
+      <pubDate>Thu, 16 Mar 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://HauyuChen.github.io/post/461-hamming-distance/</guid>
+      <description>题目描述： The Hamming distance between two integers is the number of positions at which the corresponding bits are different.
+Given two integers x and y, calculate the Hamming distance.
+Note: 0 ≤ x, y &amp;lt; 231.
+Example:
+Input: x = 1, y = 4
+Output: 2
+Explanation:
+1 (0 0 0 1) 4 (0 1 0 0) ↑ ↑  The above arrows point to positions where the corresponding bits are different.</description>
+    </item>
+    
+    <item>
+      <title>【LeetCode】463. Island Perimeter</title>
+      <link>https://HauyuChen.github.io/post/463-island-perimeter/</link>
+      <pubDate>Thu, 16 Mar 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://HauyuChen.github.io/post/463-island-perimeter/</guid>
+      <description>题目描述： You are given a map in form of a two-dimensional integer grid where 1 represents land and 0 represents water. Grid cells are connected horizontally/vertically (not diagonally). The grid is completely surrounded by water, and there is exactly one island (i.e., one or more connected land cells). The island doesn&amp;rsquo;t have &amp;ldquo;lakes&amp;rdquo; (water inside that isn&amp;rsquo;t connected to the water around the island). One cell is a square with side length 1.</description>
+    </item>
+    
+    <item>
+      <title>【LeetCode】476. Number Complement</title>
+      <link>https://HauyuChen.github.io/post/476-number-complement/</link>
+      <pubDate>Fri, 17 Mar 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://HauyuChen.github.io/post/476-number-complement/</guid>
+      <description>题目描述： Given a positive integer, output its complement number. The complement strategy is to flip the bits of its binary representation.
+Note:
+The given integer is guaranteed to fit within the range of a 32-bit signed integer. You could assume no leading zero bit in the integer’s binary representation.
+Example 1:
+Input: 5
+Output: 2
+Explanation: The binary representation of 5 is 101 (no leading zero bits), and its complement is 010.</description>
+    </item>
+    
+    <item>
+      <title>【LeetCode】485. Max Consecutive Ones</title>
+      <link>https://HauyuChen.github.io/post/485-max-consecutive-ones/</link>
+      <pubDate>Sat, 18 Mar 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://HauyuChen.github.io/post/485-max-consecutive-ones/</guid>
+      <description>题目描述： Given a binary array, find the maximum number of consecutive 1s in this array.
+Example 1:
+Input: [1,1,0,1,1,1]
+Output: 3
+Explanation: The first two digits or the last three digits are consecutive 1s. The maximum number of consecutive 1s is 3.
+Note:
+The input array will only contain 0 and 1.
+The length of input array is a positive integer and will not exceed 10,000
+
+代码实现： class Solution { public: int findMaxConsecutiveOnes(vector&amp;lt;int&amp;gt;&amp;amp; nums) { int cnt=0,max=0; for(int num:nums){ if(num==1){ cnt++; }else{ cnt=0; } max = max&amp;gt;cnt?</description>
+    </item>
+    
+    <item>
+      <title>【LeetCode】492. Construct the Rectangle</title>
+      <link>https://HauyuChen.github.io/post/492-construct-the-rectangle/</link>
+      <pubDate>Sun, 19 Mar 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://HauyuChen.github.io/post/492-construct-the-rectangle/</guid>
+      <description>题目描述： For a web developer, it is very important to know how to design a web page&amp;rsquo;s size. So, given a specific rectangular web page’s area, your job by now is to design a rectangular web page, whose length L and width W satisfy the following requirements:
+ The area of the rectangular web page you designed must equal to the given target area.
+ The width W should not be larger than the length L, which means L &amp;gt;= W.</description>
+    </item>
+    
+    <item>
+      <title>【LeetCode】496. Next Greater Element I</title>
+      <link>https://HauyuChen.github.io/post/496-next-greater-element-i/</link>
+      <pubDate>Mon, 20 Mar 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://HauyuChen.github.io/post/496-next-greater-element-i/</guid>
+      <description>题目描述： You are given two arrays (without duplicates) nums1 and nums2 where nums1’s elements are subset of nums2. Find all the next greater numbers for nums1&amp;rsquo;s elements in the corresponding places of nums2.
+The Next Greater Number of a number x in nums1 is the first greater number to its right in nums2. If it does not exist, output -1 for this number.
+Example 1:
+Input: nums1 = [4,1,2], nums2 = [1,3,4,2].</description>
+    </item>
+    
+    <item>
+      <title>【LeetCode】504. Base 7</title>
+      <link>https://HauyuChen.github.io/post/504-base-7/</link>
+      <pubDate>Mon, 20 Mar 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://HauyuChen.github.io/post/504-base-7/</guid>
+      <description>题目描述： Given an integer, return its base 7 string representation.
+Example 1:
+Input: 100
+Output: &amp;ldquo;202&amp;rdquo;
+Example 2:
+Input: -7
+Output: &amp;ldquo;-10&amp;rdquo;
+Note: The input will be in range of [-1e7, 1e7].
+
+代码实现： class Solution { public: string convertToBase7(int num) { string str=&amp;quot;&amp;quot;; int nega=0; if(num&amp;lt;0){ nega = 1; num = abs(num); } while(num/7){ str+=to_string(num%7); num/=7; } str+=to_string(num%7); if(nega){ str+=&amp;quot;-&amp;quot;; } reverse(str.begin(),str.end()); return str; } };</description>
+    </item>
+    
+    <item>
+      <title>【LeetCode】506. Relative Ranks</title>
+      <link>https://HauyuChen.github.io/post/506-relative-ranks/</link>
+      <pubDate>Tue, 21 Mar 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://HauyuChen.github.io/post/506-relative-ranks/</guid>
+      <description>题目描述： Given scores of N athletes, find their relative ranks and the people with the top three highest scores, who will be awarded medals: &amp;ldquo;Gold Medal&amp;rdquo;, &amp;ldquo;Silver Medal&amp;rdquo; and &amp;ldquo;Bronze Medal&amp;rdquo;.
+Example 1:
+Input: [5, 4, 3, 2, 1]
+Output: [&amp;ldquo;Gold Medal&amp;rdquo;, &amp;ldquo;Silver Medal&amp;rdquo;, &amp;ldquo;Bronze Medal&amp;rdquo;, &amp;ldquo;4&amp;rdquo;, &amp;ldquo;5&amp;rdquo;]
+Explanation: The first three athletes got the top three highest scores, so they got &amp;ldquo;Gold Medal&amp;rdquo;, &amp;ldquo;Silver Medal&amp;rdquo; and &amp;ldquo;Bronze Medal&amp;rdquo;. For the left two athletes, you just need to output their relative ranks according to their scores.</description>
+    </item>
+    
+    <item>
+      <title>【LeetCode】507. Perfect Number</title>
+      <link>https://HauyuChen.github.io/post/507-perfect-number/</link>
+      <pubDate>Thu, 19 Oct 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://HauyuChen.github.io/post/507-perfect-number/</guid>
+      <description>题目描述： We define the Perfect Number is a positive integer that is equal to the sum of all its positive divisors except itself.
+Now, given an integer n, write a function that returns true when it is a perfect number and false when it is not.
+Example:
+Input: 28
+Output: True
+Explanation: 28 = 1 + 2 + 4 + 7 + 14
+Note: The input number n will not exceed 100,000,000.</description>
+    </item>
+    
+    <item>
+      <title>【LeetCode】520. Detect Capital</title>
+      <link>https://HauyuChen.github.io/post/520-detect-capital/</link>
+      <pubDate>Sat, 15 Jul 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://HauyuChen.github.io/post/520-detect-capital/</guid>
+      <description>题目描述： Given a word, you need to judge whether the usage of capitals in it is right or not.
+We define the usage of capitals in a word to be right when one of the following cases holds:
+All letters in this word are capitals, like &amp;ldquo;USA&amp;rdquo;. All letters in this word are not capitals, like &amp;ldquo;leetcode&amp;rdquo;.
+Only the first letter in this word is capital if it has more than one letter, like &amp;ldquo;Google&amp;rdquo;.</description>
+    </item>
+    
+    <item>
+      <title>【LeetCode】521. Longest Uncommon Subsequence I</title>
+      <link>https://HauyuChen.github.io/post/521-longest-uncommon-subsequence-i/</link>
+      <pubDate>Sun, 16 Jul 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://HauyuChen.github.io/post/521-longest-uncommon-subsequence-i/</guid>
+      <description>题目描述： Given a group of two strings, you need to find the longest uncommon subsequence of this group of two strings. The longest uncommon subsequence is defined as the longest subsequence of one of these strings and this subsequence should not be any subsequence of the other strings.
+A subsequence is a sequence that can be derived from one sequence by deleting some characters without changing the order of the remaining elements.</description>
+    </item>
+    
+    <item>
+      <title>【LeetCode】523. Continuous Subarray Sum</title>
+      <link>https://HauyuChen.github.io/post/523-continuous-subarray-sum/</link>
+      <pubDate>Fri, 20 Oct 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://HauyuChen.github.io/post/523-continuous-subarray-sum/</guid>
+      <description>题目描述： Given a list of non-negative numbers and a target integer k, write a function to check if the array has a continuous subarray of size at least 2 that sums up to the multiple of k, that is, sums up to n*k where n is also an integer.
+Example 1:
+Input: [23, 2, 4, 6, 7], k=6
+Output: True
+Explanation: Because [2, 4] is a continuous subarray of size 2 and sums up to 6.</description>
+    </item>
+    
+    <item>
+      <title>【LeetCode】530. Minimum Absolute Difference in BST</title>
+      <link>https://HauyuChen.github.io/post/530-minimum-absolute-difference-in-bst/</link>
+      <pubDate>Sun, 13 Aug 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://HauyuChen.github.io/post/530-minimum-absolute-difference-in-bst/</guid>
+      <description>题目描述： Given a binary search tree with non-negative values, find the minimum absolute difference between values of any two nodes.
+Example:
+Input:
+ 1 \ 3 / 2  Output:
+1
+Explanation:
+The minimum absolute difference is 1, which is the difference between 2 and 1 (or between 2 and 3). Note: There are at least two nodes in this BST.
+
+代码实现： /** * Definition for a binary tree node.</description>
+    </item>
+    
+    <item>
+      <title>【LeetCode】532. K-diff Pairs in an Array</title>
+      <link>https://HauyuChen.github.io/post/532-k-diff-pairs-in-an-array/</link>
+      <pubDate>Sat, 21 Oct 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://HauyuChen.github.io/post/532-k-diff-pairs-in-an-array/</guid>
+      <description>题目描述： Given an array of integers and an integer k, you need to find the number of unique k-diff pairs in the array. Here a k-diff pair is defined as an integer pair (i, j), where i and j are both numbers in the array and their absolute difference is k.
+Example 1:
+Input: [3, 1, 4, 1, 5], k = 2
+Output: 2
+Explanation: There are two 2-diff pairs in the array, (1, 3) and (3, 5).</description>
+    </item>
+    
+    <item>
+      <title>【LeetCode】537. Complex Number Multiplication</title>
+      <link>https://HauyuChen.github.io/post/537-complex-number-multiplication/</link>
+      <pubDate>Sun, 13 Aug 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://HauyuChen.github.io/post/537-complex-number-multiplication/</guid>
+      <description>题目描述： Given two strings representing two complex numbers.
+You need to return a string representing their multiplication. Note i2 = -1 according to the definition.
+Example 1:
+Input: &amp;ldquo;1+1i&amp;rdquo;, &amp;ldquo;1+1i&amp;rdquo;
+Output: &amp;ldquo;0+2i&amp;rdquo;
+Explanation: (1 + i) * (1 + i) = 1 + i2 + 2 * i = 2i, and you need convert it to the form of 0+2i.
+Example 2:
+Input: &amp;ldquo;1+-1i&amp;rdquo;, &amp;ldquo;1+-1i&amp;rdquo;
+Output: &amp;ldquo;0+-2i&amp;rdquo;
+Explanation: (1 - i) * (1 - i) = 1 + i2 - 2 * i = -2i, and you need convert it to the form of 0+-2i.</description>
+    </item>
+    
+    <item>
+      <title>【LeetCode】541. Reverse String II</title>
+      <link>https://HauyuChen.github.io/post/541-reverse-string-ii/</link>
+      <pubDate>Sun, 13 Aug 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://HauyuChen.github.io/post/541-reverse-string-ii/</guid>
+      <description>题目描述： Given a string and an integer k, you need to reverse the first k characters for every 2k characters counting from the start of the string. If there are less than k characters left, reverse all of them. If there are less than 2k but greater than or equal to k characters, then reverse the first k characters and left the other as original.
+Example:
+Input: s = &amp;ldquo;abcdefg&amp;rdquo;, k = 2</description>
+    </item>
+    
+    <item>
+      <title>【LeetCode】543. Diameter of Binary Tree</title>
+      <link>https://HauyuChen.github.io/post/543-diameter-of-binary-tree/</link>
+      <pubDate>Mon, 14 Aug 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://HauyuChen.github.io/post/543-diameter-of-binary-tree/</guid>
+      <description>题目描述： Given a binary tree, you need to compute the length of the diameter of the tree. The diameter of a binary tree is the length of the longest path between any two nodes in a tree. This path may or may not pass through the root.
+Example:
+Given a binary tree
+ 1 / \ 2 3 / \ 4 5  Return 3, which is the length of the path [4,2,1,3] or [5,2,1,3].</description>
+    </item>
+    
+    <item>
+      <title>【LeetCode】551. Student Attendance Record I</title>
+      <link>https://HauyuChen.github.io/post/551-student-attendance-record-i/</link>
+      <pubDate>Tue, 15 Aug 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://HauyuChen.github.io/post/551-student-attendance-record-i/</guid>
+      <description>题目描述： You are given a string representing an attendance record for a student. The record only contains the following three characters:
+ &amp;lsquo;A&amp;rsquo; : Absent. &amp;lsquo;L&amp;rsquo; : Late. &amp;lsquo;P&amp;rsquo; : Present.  A student could be rewarded if his attendance record doesn&amp;rsquo;t contain more than one &amp;lsquo;A&amp;rsquo; (absent) or more than two continuous &amp;lsquo;L&amp;rsquo; (late).
+You need to return whether the student could be rewarded according to his attendance record.</description>
+    </item>
+    
+    <item>
+      <title>【LeetCode】557. Reverse Words in a String III</title>
+      <link>https://HauyuChen.github.io/post/557-reverse-words-in-a-string-iii/</link>
+      <pubDate>Mon, 21 Aug 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://HauyuChen.github.io/post/557-reverse-words-in-a-string-iii/</guid>
+      <description>题目描述： Given a string, you need to reverse the order of characters in each word within a sentence while still preserving whitespace and initial word order.
+Example 1:
+Input: &amp;ldquo;Let&amp;rsquo;s take LeetCode contest&amp;rdquo;
+Output: &amp;ldquo;s&amp;rsquo;teL ekat edoCteeL tsetnoc&amp;rdquo;
+Note: In the string, each word is separated by single space and there will not be any extra space in the string.
+
+代码实现： class Solution { public: string reverseWords(string s) { vector&amp;lt;int&amp;gt; stack; int index = 0; for(int i=0;i&amp;lt;s.</description>
+    </item>
+    
+    <item>
+      <title>【LeetCode】561. Array Partition I</title>
+      <link>https://HauyuChen.github.io/post/561-array-partition-i/</link>
+      <pubDate>Mon, 21 Aug 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://HauyuChen.github.io/post/561-array-partition-i/</guid>
+      <description>题目描述： Given an array of 2n integers, your task is to group these integers into n pairs of integer, say (a1, b1), (a2, b2), &amp;hellip;, (an, bn) which makes sum of min(ai, bi) for all i from 1 to n as large as possible.
+Example 1:
+Input: [1,4,3,2]
+Output: 4
+Explanation: n is 2, and the maximum sum of pairs is 4.
+Note:
+n is a positive integer, which is in the range of [1, 10000].</description>
+    </item>
+    
+    <item>
+      <title>【LeetCode】563. Binary Tree Tilt</title>
+      <link>https://HauyuChen.github.io/post/563-binary-tree-tilt/</link>
+      <pubDate>Tue, 22 Aug 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://HauyuChen.github.io/post/563-binary-tree-tilt/</guid>
+      <description>题目描述： Given a binary tree, return the tilt of the whole tree.
+The tilt of a tree node is defined as the absolute difference between the sum of all left subtree node values and the sum of all right subtree node values. Null node has tilt 0.
+The tilt of the whole tree is defined as the sum of all nodes&amp;rsquo; tilt.
+Example:
+Input:
+ 1 / \ 2 3  Output: 1</description>
+    </item>
+    
+    <item>
+      <title>【LeetCode】566. Reshape the Matrix</title>
+      <link>https://HauyuChen.github.io/post/566-reshape-the-matrix/</link>
+      <pubDate>Fri, 25 Aug 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://HauyuChen.github.io/post/566-reshape-the-matrix/</guid>
+      <description>题目描述： In MATLAB, there is a very useful function called &amp;lsquo;reshape&amp;rsquo;, which can reshape a matrix into a new one with different size but keep its original data.
+You&amp;rsquo;re given a matrix represented by a two-dimensional array, and two positive integers r and c representing the row number and column number of the wanted reshaped matrix, respectively.
+The reshaped matrix need to be filled with all the elements of the original matrix in the same row-traversing order as they were.</description>
+    </item>
+    
+    <item>
+      <title>【LeetCode】575. Distribute Candies</title>
+      <link>https://HauyuChen.github.io/post/575-distribute-candies/</link>
+      <pubDate>Sat, 26 Aug 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://HauyuChen.github.io/post/575-distribute-candies/</guid>
+      <description>题目描述： Given an integer array with even length, where different numbers in this array represent different kinds of candies. Each number means one candy of the corresponding kind. You need to distribute these candies equally in number to brother and sister. Return the maximum number of kinds of candies the sister could gain.
+Example 1:
+Input: candies = [1,1,2,2,3,3]
+Output: 3
+Explanation: There are three different kinds of candies (1, 2 and 3), and two candies for each kind.</description>
+    </item>
+    
+    <item>
+      <title>【LeetCode】598. Range Addition II</title>
+      <link>https://HauyuChen.github.io/post/598-range-addition-ii/</link>
+      <pubDate>Sat, 26 Aug 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://HauyuChen.github.io/post/598-range-addition-ii/</guid>
+      <description>题目描述： Given an m * n matrix M initialized with all 0&amp;rsquo;s and several update operations.
+Operations are represented by a 2D array, and each operation is represented by an array with two positive integers a and b, which means M[i][j] should be added by one for all 0 &amp;lt;= i &amp;lt; a and 0 &amp;lt;= j &amp;lt; b.
+You need to count and return the number of maximum integers in the matrix after performing all the operations.</description>
+    </item>
+    
+    <item>
+      <title>【LeetCode】599. Minimum Index Sum of Two Lists</title>
+      <link>https://HauyuChen.github.io/post/599-minimum-index-sum-of-two-lists/</link>
+      <pubDate>Sun, 27 Aug 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://HauyuChen.github.io/post/599-minimum-index-sum-of-two-lists/</guid>
+      <description>题目描述：  Suppose Andy and Doris want to choose a restaurant for dinner, and they both have a list of favorite restaurants represented by strings.
+You need to help them find out their common interest with the least list index sum. If there is a choice tie between answers, output all of them with no order requirement. You could assume there always exists an answer.
+Example 1:
+Input: [&amp;ldquo;Shogun&amp;rdquo;, &amp;ldquo;Tapioca Express&amp;rdquo;, &amp;ldquo;Burger King&amp;rdquo;, &amp;ldquo;KFC&amp;rdquo;] [&amp;ldquo;Piatti&amp;rdquo;, &amp;ldquo;The Grill at Torrey Pines&amp;rdquo;, &amp;ldquo;Hungry Hunter Steakhouse&amp;rdquo;, &amp;ldquo;Shogun&amp;rdquo;]</description>
+    </item>
+    
+    <item>
+      <title>【LeetCode】617. Merge Two Binary Trees</title>
+      <link>https://HauyuChen.github.io/post/617-merge-two-binary-trees/</link>
+      <pubDate>Sun, 27 Aug 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://HauyuChen.github.io/post/617-merge-two-binary-trees/</guid>
+      <description>题目描述：  Given two binary trees and imagine that when you put one of them to cover the other, some nodes of the two trees are overlapped while the others are not.
+You need to merge them into a new binary tree. The merge rule is that if two nodes overlap, then sum node values up as the new value of the merged node. Otherwise, the NOT null node will be used as the node of new tree.</description>
+    </item>
+    
+    <item>
+      <title>【LeetCode】682. Baseball Game</title>
+      <link>https://HauyuChen.github.io/post/682-baseball-game/</link>
+      <pubDate>Sun, 22 Oct 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://HauyuChen.github.io/post/682-baseball-game/</guid>
+      <description>题目描述： You&amp;rsquo;re now a baseball game point recorder.
+Given a list of strings, each string can be one of the 4 following types:
+ Integer (one round&amp;rsquo;s score): Directly represents the number of points you get in this round.
+ &amp;rdquo;+&amp;rdquo; (one round&amp;rsquo;s score): Represents that the points you get in this round are the sum of the last two valid round&amp;rsquo;s points.
+ &amp;ldquo;D&amp;rdquo; (one round&amp;rsquo;s score): Represents that the points you get in this round are the doubled data of the last valid round&amp;rsquo;s points.</description>
+    </item>
+    
+  </channel>
+</rss>
