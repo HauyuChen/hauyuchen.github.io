@@ -5,7 +5,7 @@
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="">
-  <meta name="generator" content="Hugo 0.24.1" />
+  <meta name="generator" content="Hugo 0.38" />
 
   <title>Hov&#39;s Blog</title>
 
@@ -237,13 +237,13 @@
     
       <article>
   <header>
-    <h2><a href="https://HauyuChen.github.io/post/es-mget/">Elasticsearch实现批量查询</a></h2>
+    <h2><a href="https://HauyuChen.github.io/post/292-nim-game/">【LeetCode】292. Nim Game</a></h2>
 
     <div class="post-meta">
 
   <div>
     <i class="fa fa-calendar fa-fw"></i>
-    <time>2017-09-08</time>
+    <time>2017-04-17</time>
   </div>
 
   
@@ -254,7 +254,7 @@
   <div>
     <i class="fa fa-folder fa-fw"></i>
     
-      <a class="post-taxonomy-tag" href="https://HauyuChen.github.io/tags/elasticsearch">Elasticsearch</a>
+      <a class="post-taxonomy-tag" href="https://HauyuChen.github.io/tags/%E7%AE%97%E6%B3%95">算法</a>
     
   </div>
   
@@ -266,11 +266,9 @@
   <div>
 	<i class="fa fa-tags fa-fw"></i>
     
-      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/elasticsearch">Elasticsearch</a>&nbsp;&#47;
+      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/%E7%AE%97%E6%B3%95">算法</a>&nbsp;&#47;
     
-      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/%E5%88%86%E5%B8%83%E5%BC%8F%E6%90%9C%E7%B4%A2">分布式搜索</a>&nbsp;&#47;
-    
-      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/kibana">Kibana</a>
+      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/leetcode">LeetCode</a>
     
   </div>
   
@@ -281,17 +279,12 @@
   </header>
 
   <p>
-  1 批量查询 批量查询，就是一条一条的查询。比如说要查询100条数据，普通查询就要发送100次网络请求，这个开销是很大的。如果采用批量查询的话，查询100条数据，就只要发送1次网络请求，网络请求的性能开销缩减100倍。
-
-2 mget 2.1 普通查询 ES 中查询数据最简单的方式就是通过 GET ，一次查询一条数据，如查询 id 为 1 和id 为 2 的数据。
-GET /test_index/test_type/1 GET /test_index/test_type/2  2.2 批量查询 在 ES 中要实现批量查询可以通过 mget 来实现。
-（1）查询 id 为 1 和id 为 2 的数据。
-GET /_mget { &quot;docs&quot; : [ { &quot;_index&quot; : &quot;test_index&quot;, &quot;_type&quot; : &quot;test_type&quot;, &quot;_id&quot; : 1 }, { &quot;_index&quot; : &quot;test_index&quot;, &quot;_type&quot; : &quot;test_type&quot;, &quot;_id&quot; : 2 } ] }  查询结果：
+  题目描述： You are playing the following Nim Game with your friend: There is a heap of stones on the table, each time one of you take turns to remove 1 to 3 stones. The one who removes the last stone will be the winner. You will take the first turn to remove the stones. Both of you are very clever and have optimal strategies for the
   </p>
 
   
   <footer>
-    <a href="https://HauyuChen.github.io/post/es-mget/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
+    <a href="https://HauyuChen.github.io/post/292-nim-game/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
   </footer>
   
 </article>
@@ -301,13 +294,13 @@ GET /_mget { &quot;docs&quot; : [ { &quot;_index&quot; : &quot;test_index&quot;,
     
       <article>
   <header>
-    <h2><a href="https://HauyuChen.github.io/post/java_ipc/">Java 进程通信（共享内存）</a></h2>
+    <h2><a href="https://HauyuChen.github.io/post/054-spiral-matrix/">【LeetCode】54. Spiral Matrix</a></h2>
 
     <div class="post-meta">
 
   <div>
     <i class="fa fa-calendar fa-fw"></i>
-    <time>2017-09-06</time>
+    <time>2017-04-16</time>
   </div>
 
   
@@ -318,9 +311,7 @@ GET /_mget { &quot;docs&quot; : [ { &quot;_index&quot; : &quot;test_index&quot;,
   <div>
     <i class="fa fa-folder fa-fw"></i>
     
-      <a class="post-taxonomy-tag" href="https://HauyuChen.github.io/tags/java">Java</a>&nbsp;&#47;
-    
-      <a class="post-taxonomy-tag" href="https://HauyuChen.github.io/tags/%E5%9F%BA%E7%A1%80">基础</a>
+      <a class="post-taxonomy-tag" href="https://HauyuChen.github.io/tags/%E7%AE%97%E6%B3%95">算法</a>
     
   </div>
   
@@ -332,11 +323,9 @@ GET /_mget { &quot;docs&quot; : [ { &quot;_index&quot; : &quot;test_index&quot;,
   <div>
 	<i class="fa fa-tags fa-fw"></i>
     
-      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/java">Java</a>&nbsp;&#47;
+      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/%E7%AE%97%E6%B3%95">算法</a>&nbsp;&#47;
     
-      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/%E8%BF%9B%E7%A8%8B">进程</a>&nbsp;&#47;
-    
-      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/%E5%85%B1%E4%BA%AB%E5%86%85%E5%AD%98">共享内存</a>
+      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/leetcode">LeetCode</a>
     
   </div>
   
@@ -347,23 +336,12 @@ GET /_mget { &quot;docs&quot; : [ { &quot;_index&quot; : &quot;test_index&quot;,
   </header>
 
   <p>
-  0 写在前面 说到进程通信，我们很轻易就能想到经典的 Socket 通信。但像 Socket 这样的网络通信会增加额外的网络负担，同时也增加了一定的代码量。
-共享内存方式是实现进程通信的另外一种方式，其具有数据共享，系统快速查询、动态配置、减少资源耗费等优点。
-共享内存特点：
- 可被多个进程打开访问； 读写操作的进程在执行读写操作时，其他进程不能进行写操作； 多个进程可以交替对某一共享内存执行写操作； 一个进程执行内存写操作后，不影响其他进程对该内存的访问，同时其他进程对更新后的内存具有可见性；  Java 进程间的共享内存通过内存映射文件 NIO （MappedByteBuffer）实现，不同进程的内存映射文件关联到同一物理文件。该文件通常为随机存取文件对象，实现文件和内存的映射，即时双向同步。
-
-1 要点 1.1 MappedByteBuffer Java IO 操作的 BufferedReader 、 BufferedInputStream 等相信大家都很熟悉，不过在 Java NIO 中引入了一种基于 MappedByteBuffer 操作大文件的方式，其读写性能极高。
-MappedByteBuffer 为共享内存缓冲区，实际上是一个磁盘文件的内存映射，实现内存与文件的同步变化，可有效地保证共享内存的实现。
-1.2 FileChannel FileChannel 是将共享内存和磁盘文件建立联系的文件通道类。FileChannel 类的加入是 JDK 为了统一对外设备（文件、网络接口等）的访问方法，并加强了多线程对同一文件进行存取的安全性。我们在这里用它来建立共享内存和磁盘文件间的一个通道。
-1.3 RandomAccessFile RandomAccessFile 是 Java IO 体系中功能最丰富的文件内容访问类，它提供很多方法来操作文件，包括读写支持，与普通的IO流相比，它最大的特别之处就是支持任意访问的方式，程序可以直接跳到任意地方来读写数据。
-举个栗子：
-如果我们要向已存在的大小为 1G 的 txt 文本里末尾追加一行文字，内容如下“ Lucene 是一款非常优秀的全文检索库”。其实直接使用 Java 中的流读取 txt 文本里所有的数据转成字符串后，然后拼接“ Lucene 是一款非常优秀的全文检索库”，又写回文本即可。
-但如果需求改了，我们要想向大小为 5G 的 txt 文本里追加数据。如果我们电脑的内存只有 4G ，强制读取所有的数据并追加，将会报内存溢出的异常。显然，上面的方法不再合适。
+  题目描述： Given a matrix of m x n elements (m rows, n columns), return all elements of the matrix in spiral order. For example, Given the following matrix: [ [ 1, 2, 3 ], [ 4, 5, 6 ], [ 7, 8, 9 ] ] You should return [1,2,3,6,9,8,7,4,5]. 思路： 给定一个矩阵，以回旋形式以此
   </p>
 
   
   <footer>
-    <a href="https://HauyuChen.github.io/post/java_ipc/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
+    <a href="https://HauyuChen.github.io/post/054-spiral-matrix/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
   </footer>
   
 </article>
@@ -373,13 +351,13 @@ MappedByteBuffer 为共享内存缓冲区，实际上是一个磁盘文件的内
     
       <article>
   <header>
-    <h2><a href="https://HauyuChen.github.io/post/es-concurrent_op/">Elasticsearch的乐观并发控制</a></h2>
+    <h2><a href="https://HauyuChen.github.io/post/059-spiral-matrix-ii/">【LeetCode】59. Spiral Matrix II</a></h2>
 
     <div class="post-meta">
 
   <div>
     <i class="fa fa-calendar fa-fw"></i>
-    <time>2017-09-03</time>
+    <time>2017-04-16</time>
   </div>
 
   
@@ -390,7 +368,7 @@ MappedByteBuffer 为共享内存缓冲区，实际上是一个磁盘文件的内
   <div>
     <i class="fa fa-folder fa-fw"></i>
     
-      <a class="post-taxonomy-tag" href="https://HauyuChen.github.io/tags/elasticsearch">Elasticsearch</a>
+      <a class="post-taxonomy-tag" href="https://HauyuChen.github.io/tags/%E7%AE%97%E6%B3%95">算法</a>
     
   </div>
   
@@ -402,13 +380,9 @@ MappedByteBuffer 为共享内存缓冲区，实际上是一个磁盘文件的内
   <div>
 	<i class="fa fa-tags fa-fw"></i>
     
-      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/elasticsearch">Elasticsearch</a>&nbsp;&#47;
+      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/%E7%AE%97%E6%B3%95">算法</a>&nbsp;&#47;
     
-      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/%E5%88%86%E5%B8%83%E5%BC%8F%E6%90%9C%E7%B4%A2">分布式搜索</a>&nbsp;&#47;
-    
-      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/kibana">Kibana</a>&nbsp;&#47;
-    
-      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/%E5%B9%B6%E5%8F%91%E6%8E%A7%E5%88%B6">并发控制</a>
+      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/leetcode">LeetCode</a>
     
   </div>
   
@@ -419,20 +393,12 @@ MappedByteBuffer 为共享内存缓冲区，实际上是一个磁盘文件的内
   </header>
 
   <p>
-  0 前言 Elasticsearch 采用的是乐观锁并发控制，基于 Elasticsearch 提供的 _version 字段或我们自己定义的外部版本号，可以方便地实现乐观并发控制。
-扩展阅读：并发控制（乐观锁、悲观锁）
-
-1 基于 _version 的乐观并发控制 1.1 _version _version 是 ES 中提供的一个字段，它表明当前数据的版本号。我们可根据它来对比数据的版本是否一致。
-1.2 操作实例 （1）构造一条数据。
-PUT test_index/test_type/7 { &quot;test_field&quot;:&quot;test test&quot; }  （2）模拟两个客户端，获取同一条数据。
-GET test_index/test_type/7  执行结果：两个客户端都能读到 id 为 7 的数据，版本号为 1 。
-{ &quot;_index&quot;: &quot;test_index&quot;, &quot;_type&quot;: &quot;test_type&quot;, &quot;_id&quot;: &quot;7&quot;, &quot;_version&quot;: 1, &quot;found&quot;: true, &quot;_source&quot;: { &quot;test_field&quot;: &quot;test test&quot; } }  （3）一个客户端先更新数据，同时带上数据的版本号（?version=1）。确保 ES 中的数据版本号与客户端中的数据版本号是相同的才能修改。
-PUT test_index/test_type/7?version=1 { &quot;test_field&quot;:&quot;test client 1&quot; }  执行结果：修改成功，数据的版本号变为 2 。
+  题目描述： Given an integer n, generate a square matrix filled with elements from 1 to n2 in spiral order. For example, Given n = 3, You should return the following matrix: [ [ 1, 2, 3 ], [ 8, 9, 4 ], [ 7, 6, 5 ] ] 思路： 题意要求根据 n ，创建一个 n*n 的回
   </p>
 
   
   <footer>
-    <a href="https://HauyuChen.github.io/post/es-concurrent_op/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
+    <a href="https://HauyuChen.github.io/post/059-spiral-matrix-ii/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
   </footer>
   
 </article>
@@ -442,13 +408,13 @@ PUT test_index/test_type/7?version=1 { &quot;test_field&quot;:&quot;test client 
     
       <article>
   <header>
-    <h2><a href="https://HauyuChen.github.io/post/concurrence_pe_op/">并发控制（乐观锁、悲观锁）</a></h2>
+    <h2><a href="https://HauyuChen.github.io/post/328-odd-even-linked-list/">【LeetCode】328. Odd Even Linked List</a></h2>
 
     <div class="post-meta">
 
   <div>
     <i class="fa fa-calendar fa-fw"></i>
-    <time>2017-09-01</time>
+    <time>2017-04-15</time>
   </div>
 
   
@@ -459,9 +425,7 @@ PUT test_index/test_type/7?version=1 { &quot;test_field&quot;:&quot;test client 
   <div>
     <i class="fa fa-folder fa-fw"></i>
     
-      <a class="post-taxonomy-tag" href="https://HauyuChen.github.io/tags/%E6%95%B0%E6%8D%AE%E5%BA%93">数据库</a>&nbsp;&#47;
-    
-      <a class="post-taxonomy-tag" href="https://HauyuChen.github.io/tags/%E5%9F%BA%E7%A1%80">基础</a>
+      <a class="post-taxonomy-tag" href="https://HauyuChen.github.io/tags/%E7%AE%97%E6%B3%95">算法</a>
     
   </div>
   
@@ -473,11 +437,9 @@ PUT test_index/test_type/7?version=1 { &quot;test_field&quot;:&quot;test client 
   <div>
 	<i class="fa fa-tags fa-fw"></i>
     
-      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/%E6%95%B0%E6%8D%AE%E5%BA%93">数据库</a>&nbsp;&#47;
+      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/%E7%AE%97%E6%B3%95">算法</a>&nbsp;&#47;
     
-      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/%E5%B9%B6%E5%8F%91%E6%8E%A7%E5%88%B6">并发控制</a>&nbsp;&#47;
-    
-      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/%E5%9F%BA%E7%A1%80">基础</a>
+      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/leetcode">LeetCode</a>
     
   </div>
   
@@ -488,18 +450,12 @@ PUT test_index/test_type/7?version=1 { &quot;test_field&quot;:&quot;test client 
   </header>
 
   <p>
-  版权声明：本文由 Hov 所有，发布于 http://chenhy.com ，转载请注明出处。
-
-0 前言 乐观锁、悲观锁是人们定义出来的概念，可认为是一种思想。也就是说其不依赖于某个特定的数据库，不仅仅是关系型数据库系统有乐观锁、悲观锁，像 memcache 、 Hibernate 等也有类似的概念。乐观锁、悲观锁是用来保证数据并发安全的方法。
-
-1 悲观锁 1.1 简介 悲观锁并发控制方案，在各种情况下都上锁。上锁之后，就只有一个线程可以操作这一数据。
-1.2 实例 牙膏库存为 100 件，用户 A （线程 A ）和用户 B （线程 B ）同时购买一件牙膏。
- 线程 A 读取牙膏库存（ 100 件，并对数据加锁），此时线程 B 无法读取牙膏库存数据； 线程 A 将牙膏库存减 1 ，库存为 100-1=99 件； 线程 A 将数据更新至数据库，数据库牙膏库存为 99 件，数据解锁； 因为数据解锁了，线程 B 可以读取牙膏库存数据（ 99 件，并对数据加锁）； 线程 B 将牙膏库存减 1 ，库存为 99-1=98 件； 线程 B 将数据更新至数据库，数据库中牙膏库存变为 98 件，数据解锁。  注：执行顺序为绿色 → 蓝色 → 红色
+  题目描述： Given a singly linked list, group all odd nodes together followed by the even nodes. Please note here we are talking about the node number and not the value in the nodes. You should try to do it in place. The program should run in O(1) space complexity and O(nodes) time complexity. Example: Given 1-&gt;2-&gt;3-&gt;4-&gt;5-&gt;NULL, return 1-&gt;3-&gt;5-&gt;2-&gt;4-&gt;NULL. Note: The relative order inside both the even
   </p>
 
   
   <footer>
-    <a href="https://HauyuChen.github.io/post/concurrence_pe_op/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
+    <a href="https://HauyuChen.github.io/post/328-odd-even-linked-list/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
   </footer>
   
 </article>
@@ -509,13 +465,13 @@ PUT test_index/test_type/7?version=1 { &quot;test_field&quot;:&quot;test client 
     
       <article>
   <header>
-    <h2><a href="https://HauyuChen.github.io/post/java_overload_override/">重写、重载的区别</a></h2>
+    <h2><a href="https://HauyuChen.github.io/post/116-populating-next-right-pointers-in-each-node/">【LeetCode】116. Populating Next Right Pointers in Each Node</a></h2>
 
     <div class="post-meta">
 
   <div>
     <i class="fa fa-calendar fa-fw"></i>
-    <time>2017-08-31</time>
+    <time>2017-04-14</time>
   </div>
 
   
@@ -526,9 +482,7 @@ PUT test_index/test_type/7?version=1 { &quot;test_field&quot;:&quot;test client 
   <div>
     <i class="fa fa-folder fa-fw"></i>
     
-      <a class="post-taxonomy-tag" href="https://HauyuChen.github.io/tags/java">Java</a>&nbsp;&#47;
-    
-      <a class="post-taxonomy-tag" href="https://HauyuChen.github.io/tags/%E5%9F%BA%E7%A1%80">基础</a>
+      <a class="post-taxonomy-tag" href="https://HauyuChen.github.io/tags/%E7%AE%97%E6%B3%95">算法</a>
     
   </div>
   
@@ -540,9 +494,9 @@ PUT test_index/test_type/7?version=1 { &quot;test_field&quot;:&quot;test client 
   <div>
 	<i class="fa fa-tags fa-fw"></i>
     
-      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/java">Java</a>&nbsp;&#47;
+      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/%E7%AE%97%E6%B3%95">算法</a>&nbsp;&#47;
     
-      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/%E5%9F%BA%E7%A1%80">基础</a>
+      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/leetcode">LeetCode</a>
     
   </div>
   
@@ -553,18 +507,13 @@ PUT test_index/test_type/7?version=1 { &quot;test_field&quot;:&quot;test client 
   </header>
 
   <p>
-  0 写在前面 重写和重载是面向对象程序设计中十分重要的两个概念，其中重写又称为覆盖。 通俗的理解就是，重写就是将一个方法的实现过程再写一遍，覆盖原有方法；重载就是增加一个方法的不同实现，而不覆盖原有的方法。
-
-1 重写（覆盖） 重写是子类对父类方法的实现过程的重新编写。重写的方法应与被重写的方法具有完全一致的返回值、方法名称、参数列表，也就是外壳完全一样，实现过程发生改变。
-重写规则：
- 参数列表必须与原有方法完全相同； 返回类型必须与原有方法相同； 访问权限不能比父类中被重写的方法的访问权限更低； 父类成员方法只能被其子类重写； 声明为 final 的方法不能被重写； 声明为 static 的方法不能被重写，但能够被再次声明； 构造方法不能重写。  
-2 重载 重载与重写不同之处在于重载与原有方法具有同样的名称，但参数列表可以不同。重载的方法虽然名称和原有方法一样，但是可以认为它们是不同的方法。
-重载规则：
- 重载的方法必须改变参数列表； 重载的方法可以改变返回类型； 重载的方法可以改变访问修饰符； 方法能在同一个类中或在一个子类中被重载。  
-3 对比 
-参考资料：http://www.runoob.com/java/java-override-overload.html
+  题目描述： Given a binary tree struct TreeLinkNode { TreeLinkNode *left; TreeLinkNode *right; TreeLinkNode *next; } Populate each next pointer to point to its next right node. If there is no next right node, the next pointer should be set to NULL. Initially, all next pointers are set to NULL. Note: You may only use constant extra space. You may assume that it is a perfect binary
   </p>
 
+  
+  <footer>
+    <a href="https://HauyuChen.github.io/post/116-populating-next-right-pointers-in-each-node/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
+  </footer>
   
 </article>
 
@@ -578,7 +527,7 @@ PUT test_index/test_type/7?version=1 { &quot;test_field&quot;:&quot;test client 
   
   <a href="https://HauyuChen.github.io/page/7/"><i class="fa fa-chevron-left"></i></a>
   
-  <span>&nbsp;8 / 26&nbsp;</span>
+  <span>&nbsp;8 / 27&nbsp;</span>
   
   <a href="https://HauyuChen.github.io/page/9/"><i class="fa fa-chevron-right"></i></a>
   

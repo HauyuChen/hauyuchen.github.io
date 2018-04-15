@@ -5,7 +5,7 @@
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="设计模式学习笔记">
-  <meta name="generator" content="Hugo 0.24.1" />
+  <meta name="generator" content="Hugo 0.38" />
 
   <title>【设计模式】4. 观察者模式 &middot; Hov&#39;s Blog</title>
 
@@ -230,7 +230,7 @@
 
   <div>
     <i class="fa fa-calendar fa-fw"></i>
-    <time>2017-09-17</time>
+    <time>2017-11-17</time>
   </div>
 
   
@@ -269,7 +269,7 @@
 
 <hr />
 
-<p><em>版权声明：本文由 Hov 所有，发布于 <a href="http://chenhy.com">http://chenhy.com</a> ，转载请注明出处。<br/></em></p>
+<p><em>版权声明：本文由 Hov 所有，发布于 <a href="http://chenhy.com">https://chenhy.com</a> ，转载请注明出处。<br/></em></p>
 
 <hr />
 
@@ -277,18 +277,20 @@
 
 <h1 id="1-观察者模式">1 观察者模式</h1>
 
+<hr />
+
 <h2 id="1-1-简介">1.1 简介</h2>
 
-<p>观察者模式是对象之间实现多对一依赖的一种设计方案，其可让多个观察者同时监听某一个主体对象（被观察者）。当主体对象的状态发生变化时，可通知所有观察者对象，使它们能自动更新状态。同时，观察者对象的增加或减少不会影响主体对象，也不会影响其它观察者。观察者模式对象之间的低耦合非常有利于项目功能扩展以及后期维护。</p>
+<p>观察者模式是对象之间实现多对一依赖的一种设计方案，其可让多个观察者同时监听某一个主题（被观察者）。当主题的状态发生变化时，可通知所有观察者对象，使它们能自动更新状态。同时，观察者对象的增加或减少不会影响主题对象，也不会影响其它观察者。观察者模式对象之间的低耦合非常有利于项目功能扩展以及后期维护。</p>
 
 <h2 id="1-2-思路">1.2 思路</h2>
 
 <p>观察者模式主要可以分为四种角色：</p>
 
 <ul>
-<li><strong>主体对象</strong>：此角色可以是接口，也可以是抽象类或具体类。主体对象必须包含三种方法，分别是添加观察者对象、移除观察者对象、通知观察者对象。</li>
+<li><strong>主题</strong>：此角色可以是接口，也可以是抽象类或具体类。主题必须包含三种方法，分别是添加观察者对象、移除观察者对象、通知观察者对象。</li>
 <li><strong>观察者</strong>：此角色一般是接口，里面一般只有一个 update 方法，在被观察者的状态发生变化时， update 方法就会被触发调用。</li>
-<li><strong>具体的主体对象</strong>：此角色是为了便于扩展，可以定义被观察者的一些具体的业务逻辑。</li>
+<li><strong>具体的主题对象</strong>：此角色是为了便于扩展，可以定义被观察者的一些具体的业务逻辑。</li>
 <li><strong>具体的观察者</strong>：此角色是观察者接口的具体实现，可以定义被观察者对象发生变化时，观察者所要处理的业务逻辑。</li>
 </ul>
 
@@ -298,11 +300,12 @@
 
 <p>举个实际应用场景：</p>
 
-<p>气象站发布气象数据，天气软件A、天气软件B都要获取气象站发布的气象数据。那么，气象站就可以作为主体对象（被观察者），而天气软件A、天气软件B就可以作为观察者。天气软件A、天气软件B都可以监听气象站的数据，气象站每次发布气象数据，就可以通知天气软件A、B更新的数据。</p>
-
-<p>当然，如果天气软件B不想再获取气象站的数据，就退出观察者队列。而天气软件A依然在观察者队列，还可以继续获取气象数据，气象站和天气软件A都不受影响。</p>
-
-<p>观察者模式正是满足这个场景的设计方案中比较重要的一种。</p>
+<ol>
+<li>气象站发布气象数据，天气软件 A 、天气软件 B 都要获取气象站发布的气象数据。</li>
+<li>那么，气象站就可以作为主题对象（被观察者），而天气软件 A 、天气软件 B 就可以作为观察者。</li>
+<li>天气软件 A 、天气软件 B 都可以监听气象站的数据，气象站每次发布气象数据，就可以通知天气软件 A 、 B 更新的数据。</li>
+<li>当然，如果天气软件 B 不想再获取气象站的数据，就退出观察者队列。而天气软件 A 依然在观察者队列，还可以继续获取气象数据，气象站和天气软件 A 都不受影响。</li>
+</ol>
 
 <h2 id="1-4-优缺点">1.4 优缺点</h2>
 
@@ -319,18 +322,20 @@
 
 <ol>
 <li>观察者和被观察者之间若存在循环依赖，会使它们循环调用，可能导致系统崩溃；</li>
-<li>若主体对象有很多直接或间接的观察者时，通知所有观察者将花费大量时间。</li>
+<li>若主题对象有很多直接或间接的观察者时，通知所有观察者将花费大量时间。</li>
 </ol>
 
 <p><br/></p>
 
 <h1 id="2-实例">2 实例</h1>
 
-<p>还是拿前面提到的气象站的栗子。我们通过程序模拟气象站发布气象数据，天气软件A和天气软件B获取数据。</p>
+<hr />
+
+<p>假设我们想通过程序模拟气象站发布气象数据，天气软件 A 和天气软件 B 获取数据。</p>
 
 <h2 id="2-1-普通的解决方案">2.1 普通的解决方案</h2>
 
-<p>气象站将数据保存在局部变量，通知天气软件A获取，天气软件A将数据保存并显示出来。</p>
+<p>气象站将数据保存在局部变量，通知天气软件 A 获取，天气软件 A 将数据保存并显示出来。</p>
 
 <p><strong>（1）气象站</strong></p>
 
@@ -368,8 +373,6 @@ public class WeatherData {          //气象站
     public void dataChange(){       //更新数据
         wfa.update(getmTemperature(),getmPressure(),getmHumidity());    //天气软件A获取数据
     }
-
-
 }
 </code></pre>
 
@@ -378,7 +381,6 @@ public class WeatherData {          //气象站
 <pre><code>/* WeatherSoftwareA.java */
 
 public class WeatherSoftwareA {     //天气软件A
-
     private float mTemperature;     //温度
     private float mPressure;        //气压
     private float mHumidity;        //湿度
@@ -413,28 +415,34 @@ public class TestMain {                                 //测试类
 
 <p><strong>程序运行结果：</strong></p>
 
+<ol>
+<li>weatherData 通过调用 setData 方法更新气象数据；</li>
+<li>setData 方法内部通过 dataChange 方法通知天气软件 wfa 气象数据已经改变；</li>
+<li>wfa 调用 update 方法获取最新数据，并显示数据。</li>
+</ol>
+
 <pre><code>***** Current Temperature: 30.0 *****
 ***** Current Pressure: 150.0 *****
 ***** Current Humidity: 40.0 *****
 </code></pre>
 
-<p>上面的代码虽然实现了预设的功能，但你会发现气象站和天气软件A之间的耦合度很高，这样对代码维护、功能扩展来说是极其不便的。</p>
+<p>上面的代码虽然实现了预设的功能，但你会发现气象站和天气软件 A 之间的耦合度很高，这样对代码维护、功能扩展来说是极其不便的。</p>
 
-<p>设想一下，如果天气软件B也想获取气象数据，那么就必须要改动气象站（WeatherData）的代码，然后像天气软件A那样再增加天气软件B的代码。显然，WeatherData 的代码需要较大的改动，需要重新编译，这是很致命的，总不能中断服务吧。</p>
+<p>设想一下，<strong>如果天气软件 B 也想获取气象数据，那么就必须要改动气象站（WeatherData）的代码</strong>，然后像天气软件A那样再增加天气软件B的代码逻辑。显然，WeatherData 的代码需要较大的改动，需要重新编译，这是很致命的，总不能中断服务吧。</p>
 
 <p><br/></p>
 
 <h2 id="2-2-基于观察者模式的解决方案">2.2 基于观察者模式的解决方案</h2>
 
-<p>通过抽象出两个接口 Subject 和 Observer ，气象站实现接口 Subject ，各天气软件实现接口 Observer 。当添加新的第三方，如天气软件A，气象站将天气软件A添加到观察者队列，天气软件B也是如此。实际上，气象站只需和观察者队列交互即可，而不关心观察者队列里面有谁。</p>
+<p>通过前面的方案，我们发现气象站和天气软件之间的耦合度很高。现在我们看看通过观察者模式是如何解决耦合问题的。</p>
+
+<p>观察者模式通过抽象出两个接口 Subject 和 Observer ，气象站实现接口 Subject ，各天气软件实现接口 Observer 。当添加新的第三方，如天气软件 A ，气象站将天气软件 A 添加到观察者队列，天气软件 B 也是如此。实际上，气象站只需和观察者队列交互即可，而不关心观察者队列里面有谁。</p>
 
 <p>因为具体的观察者对象对气象站来说是透明的，所以第三方的增加减少不影响气象站。</p>
 
-<p><strong>（1）两个接口 Subject 、 Observer</strong></p>
+<p><strong>（1）接口 Subject （主题）</strong></p>
 
 <pre><code>/* Subject.java */
-
-package interf;
 
 public interface Subject {                      //被观察者
     public void registerObserver(Observer o);   //添加观察者
@@ -443,23 +451,18 @@ public interface Subject {                      //被观察者
 }
 </code></pre>
 
-<pre><code>/* Observer.java */
+<p><strong>（2）接口 Observer （观察者）</strong></p>
 
-package interf;
+<pre><code>/* Observer.java */
 
 public interface Observer {                     //观察者
     public void update(float mTemperature,float mPressure,float mHumidity);     //更新
 }
 </code></pre>
 
-<p><strong>（2）气象站实现 Subject 接口</strong></p>
+<p><strong>（3）WeatherStation 类（具体主题）实现 Subject 接口（主题）</strong></p>
 
 <pre><code>/* WeatherStation.java */
-
-package spec;
-
-import interf.Observer;
-import interf.Subject;
 
 import java.util.ArrayList;
 
@@ -517,16 +520,11 @@ public class WeatherStation implements Subject{     //气象站
 }
 </code></pre>
 
-<p><strong>（3）天气软件A、天气软件B实现 Observer 接口</strong></p>
+<p><strong>（4）天气软件 A 、天气软件 B（具体观察者）实现 Observer 接口（观察者）</strong></p>
 
 <pre><code>/* WeatherSoftwareA.java */
 
-package spec;
-
-import interf.Observer;
-
 public class WeatherSoftwareA implements Observer{      //天气软件A
-
     private float mTemperature;
     private  float mPressure;
     private float mHumidity;
@@ -548,10 +546,6 @@ public class WeatherSoftwareA implements Observer{      //天气软件A
 </code></pre>
 
 <pre><code>/* WeatherSoftwareB.java */
-
-package spec;
-
-import interf.Observer;
 
 public class WeatherSoftwareB implements Observer{      //天气软件B
     private float mTemperature;
@@ -578,8 +572,6 @@ public class WeatherSoftwareB implements Observer{      //天气软件B
 
 <pre><code>/* TestMain.java */
 
-package test;
-
 public class TestMain {
     public static void main(String[] args) {
         WeatherStation weatherStation = new WeatherStation();   //被观察者：气象站
@@ -588,7 +580,7 @@ public class TestMain {
 
         weatherStation.registerObserver(wfa);       //气象站将天气软件A加入观察者队列
         weatherStation.registerObserver(wfb);       //气象站将天气软件B加入观察者队列
-        weatherStation.setData(30,150,40);          //气象站发布数据，A、B都可监听到数据
+        weatherStation.setData(30,150,40);          //气象站发布数据，A、B都监听到数据
 
         System.out.println(&quot;*******************&quot;);
 
@@ -599,6 +591,14 @@ public class TestMain {
 </code></pre>
 
 <p><strong>程序运行结果：</strong></p>
+
+<ol>
+<li>实例化气象站 weatherStation 、天气软件 A （wfa）、天气软件 B （wfb）；</li>
+<li>将 wfa 和 wfb 加入观察者队列，也就是在 weatherStation 中注册  wfa 和 wfb ；</li>
+<li>气象站发布数据， wfa 和 wfb 获取到最新数据并显示；</li>
+<li>将 wfa 移除观察者队列，也就是在 weatherStation 中移除 wfa ；</li>
+<li>气象站发布数据，只有 wfb 获取到最新数据并显示，因为 wfa 已不在观察者队列，所以无法接收到通知。</li>
+</ol>
 
 <pre><code>***** Current Temperature: 30.0 *****
 ***** Current Pressure: 150.0 *****
@@ -612,19 +612,22 @@ public class TestMain {
 ***** Forcast Humidity: 60.601112555287365 *****
 </code></pre>
 
-<p>观察以上代码，你会发现在气象站的代码里面基本不包含和天气软件A、天气软件B有关的代码，这就实现了气象站与具体天气软件之间解耦。如果我们需要增加天气软件C，只需动态地将天气软件C加入观察者队列即可，无需改动气象站的代码，可以实现较好地动态扩展。</p>
+<p>观察以上代码，你会发现在气象站的代码里面基本不包含和天气软件 A 、天气软件 B 有关的代码，这就实现了气象站与具体天气软件之间解耦。</p>
+
+<p>如果我们需要增加天气软件 C ，只需动态地将天气软件 C 加入观察者队列即可，无需改动气象站的代码，可以较好地实现动态扩展。</p>
 
 <p><br/></p>
 
 <h2 id="2-3-java内置的观察者">2.3 Java内置的观察者</h2>
 
-<p>前面我们通过自定义的方式实现了观察者模式，但其实我们也可以使用 Java 内置的类和接口来实现观察者模式。通过 Java 内置的 Observable 抽象类和 Observer 接口，气象站继承抽象类 Observable ，里面已经包含添加、移除、通知观察者三个方法，不需我们自己写了，各天气软件实现接口 Observer 。</p>
+<p>前面我们通过自定义的方式实现了观察者模式，但其实我们也可以使用 Java 内置的类和接口来实现观察者模式。通过 Java 内置的 <strong>Observable 抽象类</strong>和 <strong>Observer 接口</strong>，气象站继承抽象类 Observable ，里面已经包含添加、移除、通知观察者三个方法，不需我们自己写这三个方法，各天气软件实现接口 Observer 。</p>
 
 <p><strong>（1）气象站</strong></p>
 
 <pre><code>/* WeatherStation.java */
 
-import java.util.Observable;
+//记得导入对应的包
+import java.util.Observable;    
 
 public class WeatherStation extends Observable{         //气象站
     private float mTemperature;
@@ -670,15 +673,15 @@ public class WeatherStation extends Observable{         //气象站
 }
 </code></pre>
 
-<p><strong>（2）天气软件A、天气软件B</strong></p>
+<p><strong>（2）天气软件 A 、天气软件 B</strong></p>
 
 <pre><code>/* WeatherSoftwareA.java */
 
+//记得导入对应的包
 import java.util.Observable;
 import java.util.Observer;
 
 public class WeatherSoftwareA implements Observer {         //天气软件A
-
     private float mTemperature;
     private  float mPressure;
     private float mHumidity;
@@ -696,12 +699,12 @@ public class WeatherSoftwareA implements Observer {         //天气软件A
         System.out.println(&quot;***** Current Pressure: &quot; + mPressure + &quot;*****&quot;);
         System.out.println(&quot;***** Current Humidity: &quot; + mHumidity + &quot;*****&quot;);
     }
-
 }
 </code></pre>
 
 <pre><code>/* WeatherSoftwareB.java */
 
+//记得导入对应的包
 import java.util.Observable;
 import java.util.Observer;
 
@@ -762,16 +765,20 @@ public class TestMain {
 ***** Forcast Humidity: 60.601112555287365 *****
 </code></pre>
 
-<p>这里实现的功能和 2.2 的完全一致，只不过在这里我们借助了 Java 内置的抽象类、接口来实现观察者模式。值得注意的是，这里的观察者队列输出的顺序和我们前面自定义方式的输出是相反的，变成了先进后出。</p>
+<p>这里实现的功能和 2.2 节的完全一致，只不过在这里我们借助了 Java 内置的抽象类、接口来实现观察者模式。</p>
+
+<p><strong>值得注意的是，这里的观察者队列输出的顺序和我们前面自定义方式的输出是相反的，变成先进后出。</strong></p>
 
 <p><br/></p>
 
 <h1 id="3-总结">3 总结</h1>
 
+<hr />
+
 <ol>
 <li>观察者模式可以较好地实现对象之间的解耦，有利于功能扩展和后期维护；</li>
-<li>主体对象必须包含添加观察者、移除观察者、通知观察者三种方法；</li>
-<li>Java 有内置的观察者接口。</li>
+<li>主题对象必须包含添加观察者、移除观察者、通知观察者三种方法；</li>
+<li>Java 有内置的观察者接口，但其 Observable 是抽象类，这带来了一些弊端。</li>
 </ol>
 
 <p><br/></p>
@@ -781,13 +788,13 @@ public class TestMain {
 <div class="prev-next-post pure-g">
   <div class="pure-u-1-24" style="text-align: left;">
     
-    <a href="https://HauyuChen.github.io/post/java_string/"><i class="fa fa-chevron-left"></i></a>
+    <a href="https://HauyuChen.github.io/post/java_abstractclass_interface/"><i class="fa fa-chevron-left"></i></a>
     
   </div>
   <div class="pure-u-10-24">
     
     <nav class="prev">
-      <a href="https://HauyuChen.github.io/post/java_string/">String相关特性</a>
+      <a href="https://HauyuChen.github.io/post/java_abstractclass_interface/">抽象类与接口的区别</a>
     </nav>
     
   </div>
@@ -797,13 +804,13 @@ public class TestMain {
   <div class="pure-u-10-24">
     
     <nav class="next">
-      <a href="https://HauyuChen.github.io/post/java_-polymorphism_1/">谈谈向上转型、向下转型</a>
+      <a href="https://HauyuChen.github.io/post/java_overload_override/">重写、重载的区别</a>
     </nav>
     
   </div>
   <div class="pure-u-1-24" style="text-align: right;">
     
-    <a href="https://HauyuChen.github.io/post/java_-polymorphism_1/"><i class="fa fa-chevron-right"></i></a>
+    <a href="https://HauyuChen.github.io/post/java_overload_override/"><i class="fa fa-chevron-right"></i></a>
     
   </div>
 </div>

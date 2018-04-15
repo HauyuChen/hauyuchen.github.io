@@ -5,7 +5,7 @@
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="">
-  <meta name="generator" content="Hugo 0.24.1" />
+  <meta name="generator" content="Hugo 0.38" />
 
   <title>Elasticsearch实现批量更新 &middot; Hov&#39;s Blog</title>
 
@@ -230,7 +230,7 @@
 
   <div>
     <i class="fa fa-calendar fa-fw"></i>
-    <time>2017-09-09</time>
+    <time>2018-01-21</time>
   </div>
 
   
@@ -241,7 +241,7 @@
   <div>
     <i class="fa fa-folder fa-fw"></i>
     
-      <a class="post-taxonomy-tag" href="https://HauyuChen.github.io/tags/elasticsearch">Elasticsearch</a>
+      <a class="post-taxonomy-tag" href="https://HauyuChen.github.io/tags/elasticsearch">elasticsearch</a>
     
   </div>
   
@@ -265,19 +265,21 @@
   
 </div>
 
-  
-
-<hr />
+  <p></p>
 
 <p><br/></p>
 
 <h1 id="1-bulk">1 bulk</h1>
+
+<hr />
 
 <p>前面我们已经提到批量查询 mget ，那么如果我们想要批量导入数据呢？当然也有解决方法，那就是我们现在要讲的 bulk 。 bulk 允许我们使用单一请求来实现多个文档的 create 、 index 、 update 或 delete ，这在我们平时的应用中是很重要的。</p>
 
 <p><br/></p>
 
 <h1 id="2-bulk-语法">2 bulk 语法</h1>
+
+<hr />
 
 <p>bulk API 对 JSON 的语法有严格的要求，具体要求：bulk 中每一个操作要两个 JSON 串，每个 JSON 串不能换行，只能放在同一行，而 JSON 串和 JSON 串之间，必须有一个换行。</p>
 
@@ -326,14 +328,15 @@
 
 <h1 id="3-bulk-size-的最佳大小">3 bulk size 的最佳大小</h1>
 
+<hr />
+
 <p>因为 bulk request 会被加载到内存中，所以如果 bulk 请求太大的话，性能反而会下降。因此，需要选择一个合适的 bulk size ，不能太大也不能太小。一般可从 1000~5000 条数据开始，尝试逐渐增加，而大小最好是在 5~15MB 之间。</p>
 
 <p><br/></p>
 
-<p>参考资料：<a href="http://www.roncoo.com/article/detail/128304">http://www.roncoo.com/article/detail/128304</a></p>
+<p><strong>参考资料：</strong><a href="http://www.roncoo.com/article/detail/128304">http://www.roncoo.com/article/detail/128304</a></p>
 
 <p><br/></p>
-
 
   
 <div class="prev-next-post pure-g">
@@ -355,13 +358,13 @@
   <div class="pure-u-10-24">
     
     <nav class="next">
-      <a href="https://HauyuChen.github.io/post/java_abstractclass_interface/">抽象类与接口的区别</a>
+      <a href="https://HauyuChen.github.io/post/es-concurrent_op/">Elasticsearch的乐观并发控制</a>
     </nav>
     
   </div>
   <div class="pure-u-1-24" style="text-align: right;">
     
-    <a href="https://HauyuChen.github.io/post/java_abstractclass_interface/"><i class="fa fa-chevron-right"></i></a>
+    <a href="https://HauyuChen.github.io/post/es-concurrent_op/"><i class="fa fa-chevron-right"></i></a>
     
   </div>
 </div>

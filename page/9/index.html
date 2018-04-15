@@ -5,7 +5,7 @@
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="">
-  <meta name="generator" content="Hugo 0.24.1" />
+  <meta name="generator" content="Hugo 0.38" />
 
   <title>Hov&#39;s Blog</title>
 
@@ -237,13 +237,13 @@
     
       <article>
   <header>
-    <h2><a href="https://HauyuChen.github.io/post/dp_decorator_pattern/">【设计模式】3. 装饰者模式</a></h2>
+    <h2><a href="https://HauyuChen.github.io/post/075-sort-colors/">【LeetCode】75. Sort Colors</a></h2>
 
     <div class="post-meta">
 
   <div>
     <i class="fa fa-calendar fa-fw"></i>
-    <time>2017-08-29</time>
+    <time>2017-04-13</time>
   </div>
 
   
@@ -254,78 +254,7 @@
   <div>
     <i class="fa fa-folder fa-fw"></i>
     
-      <a class="post-taxonomy-tag" href="https://HauyuChen.github.io/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F">设计模式</a>
-    
-  </div>
-  
-  
-
-  
-  
-  
-  <div>
-	<i class="fa fa-tags fa-fw"></i>
-    
-      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F">设计模式</a>&nbsp;&#47;
-    
-      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/%E8%A3%85%E9%A5%B0%E8%80%85%E6%A8%A1%E5%BC%8F">装饰者模式</a>&nbsp;&#47;
-    
-      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/java">Java</a>
-    
-  </div>
-  
-  
-  
-</div>
-
-  </header>
-
-  <p>
-  版权声明：本文由 Hov 所有，发布于 http://chenhy.com ，转载请注明出处。
-
-1 装饰者模式 1.1 简介 装饰者模式可动态地向对象添加额外的属性或行为。装饰者模式是类继承的另外一种选择，类继承在编译时候增加行为，而装饰模式是在运行时增加行为。在对象功能扩展方面，装饰者模式比继承更有弹性。
-1.2 思路 通过增加一个装饰类包裹原来的类，包裹的方式一般是通过将原来的对象作为装饰类的构造函数的参数，从而在原有对象上添加新的功能。
-1.3 使用场景 在不影响其它对象的情况下，想要动态地给单个对象添加新的属性或功能。
-1.4 优缺点 优点：
- 可用一个或多个装饰者包装一个对象，扩展性强； 对象可以在任何时候被修饰，即动态修饰对象； 非继承，避免子类爆炸。  缺点：
- 出现额外的装饰类，使程序变得复杂。  
-2 实例 模拟咖啡店：
-假设，咖啡店有两种咖啡可选： Decaf 和 Espresso ，两种配料可选： Chocalate 和 Milk 。
-不同的咖啡和配料可以搭配成不同的饮品，比如 Decaf 、 Espresso 、 Decaf + Chocalate 、 Decaf + Milk 、 Espresso + Chocalate 、 Espresso + Milk 六种不同的饮品。
-我们要写个程序来计算不同饮品的价格，比如客户点了一杯 Espresso + Chocalate ，输出饮品的价格和描述信息。
-2.1 糟糕的解决方案 设计超类 Drink ，继承自超类 Drink 的子类 Decaf 、 Espresso 、 Decaf + Chocalate 、 Decaf + Milk 、 Espresso + Chocalate 、 Espresso + Milk 。
-  </p>
-
-  
-  <footer>
-    <a href="https://HauyuChen.github.io/post/dp_decorator_pattern/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
-  </footer>
-  
-</article>
-
-    
-  
-    
-      <article>
-  <header>
-    <h2><a href="https://HauyuChen.github.io/post/599-minimum-index-sum-of-two-lists/">【LeetCode】599. Minimum Index Sum of Two Lists</a></h2>
-
-    <div class="post-meta">
-
-  <div>
-    <i class="fa fa-calendar fa-fw"></i>
-    <time>2017-08-27</time>
-  </div>
-
-  
-
-  
-  
-  
-  <div>
-    <i class="fa fa-folder fa-fw"></i>
-    
-      <a class="post-taxonomy-tag" href="https://HauyuChen.github.io/tags/leetcode">LeetCode</a>
+      <a class="post-taxonomy-tag" href="https://HauyuChen.github.io/tags/%E7%AE%97%E6%B3%95">算法</a>
     
   </div>
   
@@ -350,16 +279,76 @@
   </header>
 
   <p>
-  题目描述： Suppose Andy and Doris want to choose a restaurant for dinner, and they both have a list of favorite restaurants represented by strings.
+  题目描述： Given an array with n objects colored red, white or blue, sort them so that objects of the same color are adjacent, with the colors in the order red, white and blue. Here, we will use the integers 0, 1, and 2 to represent the color red, white, and blue respectively. Note: You are not suppose to use the library&rsquo;s sort function for this problem.
+  </p>
+
+  
+  <footer>
+    <a href="https://HauyuChen.github.io/post/075-sort-colors/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
+  </footer>
+  
+</article>
+
+    
+  
+    
+      <article>
+  <header>
+    <h2><a href="https://HauyuChen.github.io/post/094-binary-tree-inorder-traversal/">【LeetCode】94. Binary Tree Inorder Traversal</a></h2>
+
+    <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>2017-04-13</time>
+  </div>
+
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-folder fa-fw"></i>
+    
+      <a class="post-taxonomy-tag" href="https://HauyuChen.github.io/tags/%E7%AE%97%E6%B3%95">算法</a>
+    
+  </div>
+  
+  
+
+  
+  
+  
+  <div>
+	<i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/%E7%AE%97%E6%B3%95">算法</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/leetcode">LeetCode</a>
+    
+  </div>
+  
+  
+  
+</div>
+
+  </header>
+
+  <p>
+<<<<<<< HEAD
+  题目描述： Given a binary tree, return the inorder traversal of its nodes&rsquo; values. For example: Given binary tree [1,null,2,3], 1 \ 2 / 3 return [1,3,2]. 思路： 二叉树的中序遍历，这里直接用递归的方法求解。 代码实现： /** * Definition for a binary tree node. * public
+=======
+  题目描述：  Suppose Andy and Doris want to choose a restaurant for dinner, and they both have a list of favorite restaurants represented by strings.
 You need to help them find out their common interest with the least list index sum. If there is a choice tie between answers, output all of them with no order requirement. You could assume there always exists an answer.
 Example 1:
-Input:
-[&ldquo;Shogun&rdquo;, &ldquo;Tapioca Express&rdquo;, &ldquo;Burger King&rdquo;, &ldquo;KFC&rdquo;]
+Input: [&ldquo;Shogun&rdquo;, &ldquo;Tapioca Express&rdquo;, &ldquo;Burger King&rdquo;, &ldquo;KFC&rdquo;] [&ldquo;Piatti&rdquo;, &ldquo;The Grill at Torrey Pines&rdquo;, &ldquo;Hungry Hunter Steakhouse&rdquo;, &ldquo;Shogun&rdquo;]
+>>>>>>> parent of 1daa710... update
   </p>
 
   
   <footer>
-    <a href="https://HauyuChen.github.io/post/599-minimum-index-sum-of-two-lists/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
+    <a href="https://HauyuChen.github.io/post/094-binary-tree-inorder-traversal/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
   </footer>
   
 </article>
@@ -369,13 +358,13 @@ Input:
     
       <article>
   <header>
-    <h2><a href="https://HauyuChen.github.io/post/617-merge-two-binary-trees/">【LeetCode】617. Merge Two Binary Trees</a></h2>
+    <h2><a href="https://HauyuChen.github.io/post/058-length-of-last-word/">【LeetCode】58. Length of Last Word</a></h2>
 
     <div class="post-meta">
 
   <div>
     <i class="fa fa-calendar fa-fw"></i>
-    <time>2017-08-27</time>
+    <time>2017-04-12</time>
   </div>
 
   
@@ -386,7 +375,7 @@ Input:
   <div>
     <i class="fa fa-folder fa-fw"></i>
     
-      <a class="post-taxonomy-tag" href="https://HauyuChen.github.io/tags/leetcode">LeetCode</a>
+      <a class="post-taxonomy-tag" href="https://HauyuChen.github.io/tags/%E7%AE%97%E6%B3%95">算法</a>
     
   </div>
   
@@ -411,13 +400,12 @@ Input:
   </header>
 
   <p>
-  题目描述：  Given two binary trees and imagine that when you put one of them to cover the other, some nodes of the two trees are overlapped while the others are not.
-You need to merge them into a new binary tree. The merge rule is that if two nodes overlap, then sum node values up as the new value of the merged node. Otherwise, the NOT null node will be used as the node of new tree.
+  题目描述： Given a string s consists of upper/lower-case alphabets and empty space characters &lsquo; &lsquo;, return the length of last word in the string. If the last word does not exist, return 0. Note: A word is defined as a character sequence consists of non-space characters only. Example: Input: &ldquo;Hello World&rdquo; Output: 5 思路： 从后往前遍历字符串。
   </p>
 
   
   <footer>
-    <a href="https://HauyuChen.github.io/post/617-merge-two-binary-trees/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
+    <a href="https://HauyuChen.github.io/post/058-length-of-last-word/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
   </footer>
   
 </article>
@@ -427,13 +415,13 @@ You need to merge them into a new binary tree. The merge rule is that if two nod
     
       <article>
   <header>
-    <h2><a href="https://HauyuChen.github.io/post/575-distribute-candies/">【LeetCode】575. Distribute Candies</a></h2>
+    <h2><a href="https://HauyuChen.github.io/post/083-remove-duplicates-from-sorted-list/">【LeetCode】83. Remove Duplicates from Sorted List</a></h2>
 
     <div class="post-meta">
 
   <div>
     <i class="fa fa-calendar fa-fw"></i>
-    <time>2017-08-26</time>
+    <time>2017-04-12</time>
   </div>
 
   
@@ -444,7 +432,7 @@ You need to merge them into a new binary tree. The merge rule is that if two nod
   <div>
     <i class="fa fa-folder fa-fw"></i>
     
-      <a class="post-taxonomy-tag" href="https://HauyuChen.github.io/tags/leetcode">LeetCode</a>
+      <a class="post-taxonomy-tag" href="https://HauyuChen.github.io/tags/%E7%AE%97%E6%B3%95">算法</a>
     
   </div>
   
@@ -469,16 +457,12 @@ You need to merge them into a new binary tree. The merge rule is that if two nod
   </header>
 
   <p>
-  题目描述： Given an integer array with even length, where different numbers in this array represent different kinds of candies. Each number means one candy of the corresponding kind. You need to distribute these candies equally in number to brother and sister. Return the maximum number of kinds of candies the sister could gain.
-Example 1:
-Input: candies = [1,1,2,2,3,3]
-Output: 3
-Explanation: There are three different kinds of candies (1, 2 and 3), and two candies for each kind.
+  题目描述： Given a sorted linked list, delete all duplicates such that each element appear only once. For example, Given 1-&gt;1-&gt;2, return 1-&gt;2. Given 1-&gt;1-&gt;2-&gt;3-&gt;3, return 1-&gt;2-&gt;3. 思路： 遍历一次链表即可，每遍历一个元素比较其是否与它的下一个元素相等。若是，指针
   </p>
 
   
   <footer>
-    <a href="https://HauyuChen.github.io/post/575-distribute-candies/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
+    <a href="https://HauyuChen.github.io/post/083-remove-duplicates-from-sorted-list/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
   </footer>
   
 </article>
@@ -488,13 +472,13 @@ Explanation: There are three different kinds of candies (1, 2 and 3), and two ca
     
       <article>
   <header>
-    <h2><a href="https://HauyuChen.github.io/post/598-range-addition-ii/">【LeetCode】598. Range Addition II</a></h2>
+    <h2><a href="https://HauyuChen.github.io/post/088-merge-sorted-array/">【LeetCode】88. Merge Sorted Array</a></h2>
 
     <div class="post-meta">
 
   <div>
     <i class="fa fa-calendar fa-fw"></i>
-    <time>2017-08-26</time>
+    <time>2017-04-12</time>
   </div>
 
   
@@ -505,7 +489,7 @@ Explanation: There are three different kinds of candies (1, 2 and 3), and two ca
   <div>
     <i class="fa fa-folder fa-fw"></i>
     
-      <a class="post-taxonomy-tag" href="https://HauyuChen.github.io/tags/leetcode">LeetCode</a>
+      <a class="post-taxonomy-tag" href="https://HauyuChen.github.io/tags/%E7%AE%97%E6%B3%95">算法</a>
     
   </div>
   
@@ -530,14 +514,12 @@ Explanation: There are three different kinds of candies (1, 2 and 3), and two ca
   </header>
 
   <p>
-  题目描述： Given an m * n matrix M initialized with all 0&rsquo;s and several update operations.
-Operations are represented by a 2D array, and each operation is represented by an array with two positive integers a and b, which means M[i][j] should be added by one for all 0 &lt;= i &lt; a and 0 &lt;= j &lt; b.
-You need to count and return the number of maximum integers in the matrix after performing all the operations.
+  题目描述： Given two sorted integer arrays nums1 and nums2, merge nums2 into nums1 as one sorted array. Note: You may assume that nums1 has enough space (size that is greater or equal to m + n) to hold additional elements from nums2. The number of elements initialized in nums1 and nums2 are m and n respectively. 思路： 从后往前遍历两
   </p>
 
   
   <footer>
-    <a href="https://HauyuChen.github.io/post/598-range-addition-ii/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
+    <a href="https://HauyuChen.github.io/post/088-merge-sorted-array/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
   </footer>
   
 </article>
@@ -552,7 +534,7 @@ You need to count and return the number of maximum integers in the matrix after 
   
   <a href="https://HauyuChen.github.io/page/8/"><i class="fa fa-chevron-left"></i></a>
   
-  <span>&nbsp;9 / 26&nbsp;</span>
+  <span>&nbsp;9 / 27&nbsp;</span>
   
   <a href="https://HauyuChen.github.io/page/10/"><i class="fa fa-chevron-right"></i></a>
   

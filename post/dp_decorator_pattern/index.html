@@ -5,7 +5,7 @@
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="设计模式学习笔记">
-  <meta name="generator" content="Hugo 0.24.1" />
+  <meta name="generator" content="Hugo 0.38" />
 
   <title>【设计模式】3. 装饰者模式 &middot; Hov&#39;s Blog</title>
 
@@ -230,7 +230,7 @@
 
   <div>
     <i class="fa fa-calendar fa-fw"></i>
-    <time>2017-08-29</time>
+    <time>2017-09-29</time>
   </div>
 
   
@@ -269,7 +269,7 @@
 
 <hr />
 
-<p><em>版权声明：本文由 Hov 所有，发布于 <a href="http://chenhy.com">http://chenhy.com</a> ，转载请注明出处。<br/></em></p>
+<p><em>版权声明：本文由 Hov 所有，发布于 <a href="http://chenhy.com">https://chenhy.com</a> ，转载请注明出处。<br/></em></p>
 
 <hr />
 
@@ -277,21 +277,23 @@
 
 <h1 id="1-装饰者模式">1 装饰者模式</h1>
 
+<hr />
+
 <h2 id="1-1-简介">1.1 简介</h2>
 
-<p>装饰者模式可动态地向对象添加额外的属性或行为。装饰者模式是类继承的另外一种选择，类继承在编译时候增加行为，而装饰模式是在运行时增加行为。在对象功能扩展方面，装饰者模式比继承更有弹性。</p>
+<p>装饰者模式可动态地向对象添加额外的属性或行为。装饰者模式是类继承的另外一种选择，<strong>类继承在编译时候增加行为，而装饰模式在运行时增加行为</strong>。在对象功能扩展方面，装饰者模式比继承更有弹性。</p>
 
 <h2 id="1-2-思路">1.2 思路</h2>
 
-<p>通过增加一个装饰类包裹原来的类，包裹的方式一般是通过将原来的对象作为装饰类的构造函数的参数，从而在原有对象上添加新的功能。</p>
+<p>通过增加一个装饰类包裹原来的类，包裹的方式一般是通过<strong>将原来的对象作为装饰类的构造函数的参数</strong>，从而在原有对象上添加新的功能。</p>
 
 <h2 id="1-3-使用场景">1.3 使用场景</h2>
 
-<p>在不影响其它对象的情况下，想要动态地给单个对象添加新的属性或功能。</p>
+<p>在不影响其它对象的情况下，想要动态地给单个对象添加新的属性或功能。例如，Java IO 就采用了装饰者模式。</p>
 
 <h2 id="1-4-优缺点">1.4 优缺点</h2>
 
-<p>优点：</p>
+<p><strong>优点：</strong></p>
 
 <ol>
 <li>可用一个或多个装饰者包装一个对象，扩展性强；</li>
@@ -299,7 +301,7 @@
 <li>非继承，避免子类爆炸。</li>
 </ol>
 
-<p>缺点：</p>
+<p><strong>缺点：</strong></p>
 
 <ol>
 <li>出现额外的装饰类，使程序变得复杂。</li>
@@ -309,9 +311,11 @@
 
 <h1 id="2-实例">2 实例</h1>
 
+<hr />
+
 <p>模拟咖啡店：</p>
 
-<p>假设，咖啡店有两种咖啡可选： Decaf 和 Espresso ，两种配料可选： Chocalate 和 Milk 。</p>
+<p>假设，咖啡店有两种咖啡可选： <strong>Decaf</strong> 和 <strong>Espresso</strong> ，两种配料可选： <strong>Chocalate</strong> 和 <strong>Milk</strong> 。</p>
 
 <p>不同的咖啡和配料可以搭配成不同的饮品，比如 Decaf 、 Espresso 、 Decaf + Chocalate 、 Decaf + Milk 、 Espresso + Chocalate 、 Espresso + Milk 六种不同的饮品。</p>
 
@@ -319,29 +323,35 @@
 
 <h2 id="2-1-糟糕的解决方案">2.1 糟糕的解决方案</h2>
 
-<p>设计超类 Drink ，继承自超类 Drink 的子类 Decaf 、 Espresso 、 Decaf + Chocalate 、 Decaf + Milk 、 Espresso + Chocalate 、 Espresso + Milk 。</p>
+<p>一种解决方案是<strong>设计父类 Drink ，子类 Decaf 、 Espresso 、 Decaf + Chocalate 、 Decaf + Milk 、 Espresso + Chocalate 、 Espresso + Milk （对应不同的饮品）继承自父类 Drink</strong> 。</p>
 
-<p>显然，每种组合的饮品都要写成一个子类。这样将导致子类爆炸，设想种类多的时候将有几百上千个不同的饮品子类。</p>
+<p>显然，每种组合的饮品都要写成一个子类，这样将导致<strong>子类爆炸</strong>。如果有 1000 种不同的饮品，那父类 Drink 下面就有 1000 个子类，这是绝对不能允许的。</p>
 
-<p>这样的方案虽然设计简单，只需写个超类，然后将所有不同的饮品通通继承自超类即可。但是缺点是显而易见的，几百个饮品将对应几百个子类，不合理。</p>
+<p>这样的方案虽然设计简单，只需编写父类 Drink ，然后将所有不同的饮品通通继承自父类 Drink 即可。但缺点是显而易见的，1000 种饮品将对应 1000 个子类。</p>
 
-<p><br/></p>
+<p><strong>本方案类图如下：</strong></p>
+
+<p>父类 Drink 下面继承了各种各样的饮品子类，眼花缭乱。</p>
 
 <p><img src="https://raw.githubusercontent.com/HauyuChen/PicsBox/master/ZSZMS-02.PNG" alt="" /></p>
 
 <p><br/></p>
 
-<h2 id="2-2-好一些的解决方案">2.2 好一些的解决方案</h2>
+<h2 id="2-2-稍好的解决方案">2.2 稍好的解决方案</h2>
+
+<p>另一种方案是<strong>将不同的配料写入父类 Drink 中，子类通过 setter 来添加不同配料</strong>。</p>
 
 <ol>
-<li>在超类 Drink 中定义 hasChocalate 、 setChocalate 、 hasMilk 、 setMilk 方法；</li>
-<li>Decaf 、 Espresso 作为超类 Drink 的子类；</li>
-<li>当需要 Decaf + Chocalate 就调用超类的 setChocalate 方法添加 Chocolate ，再通过 hasChocalate 方法计算总价。</li>
+<li>在父类 Drink 中定义 hasChocalate 、 <strong>setChocalate</strong> 、 hasMilk 、 <strong>setMilk</strong> 方法；</li>
+<li>Decaf 、 Espresso 作为父类 Drink 的子类；</li>
+<li>当需要 Decaf + Chocalate 就<strong>调用父类的 setChocalate 方法添加 Chocolate</strong> ，再<strong>通过 hasChocalate 方法计算总价</strong>。</li>
 </ol>
 
-<p>这种方法比上一种方法好一些，显然它不会引起类的爆炸。但是，因为配料相关的代码都是写在超类 Drink 里面的，如果我们要增加一种新的配料，就必须要修改超类 Drink ，这样维护性不好。</p>
+<p>这种方案比上一种方案好一些，显然它不会引起子类爆炸。但是，因为配料相关的代码都编写在父类 Drink 中，<strong>如果我们要增加一种新的配料，就必须要修改父类 Drink</strong> ，这样维护性不好。</p>
 
-<p><br/></p>
+<p><strong>本方案类图如下：</strong></p>
+
+<p>父类 Drink 中包括不同配料的 setter 方法，子类只需调用相应的 setter 方法组合不同的配料。</p>
 
 <p><img src="https://raw.githubusercontent.com/HauyuChen/PicsBox/master/ZSZMS-01.PNG" alt="" /></p>
 
@@ -349,16 +359,15 @@
 
 <h2 id="2-3-基于装饰者模式的解决方案">2.3 基于装饰者模式的解决方案</h2>
 
-<p>基于装饰者模式，咖啡作为主体（被装饰者），配料作为装饰者。通过装饰类包裹主体，从而实现主体的动态扩展。</p>
+<p>基于装饰者模式，<strong>咖啡作为主体（被装饰者），配料作为装饰者</strong>。通过装饰类包裹主体，从而实现主体的动态扩展。</p>
 
-<p><strong>（1）超类 Drink</strong></p>
+<p><strong>（1）父类 Drink</strong></p>
 
-<p>创建超类 Drink ，其包含饮品的基本属性，如描述、价格、子类应该实现的方法。</p>
+<p>首先创建父类 Drink ，其包含饮品的基本属性（描述、价格），并定义了 setter 和 getter 方法，以及抽象方法 cost 。</p>
 
 <pre><code>/* Drink.java */
 
 public abstract class Drink {
-    
     public String description = &quot;&quot;;     //描述
     private float price = 0f;           //价格
     
@@ -376,7 +385,6 @@ public abstract class Drink {
     public void setPrice(float price) {
         this.price = price;
     }
-    
 }
 </code></pre>
 
@@ -384,52 +392,53 @@ public abstract class Drink {
 
 <p>前面我们提到咖啡店有 Decaf 、 Espresso 两种咖啡，其实咖啡就是主体（被装饰者），我们可以往咖啡加入不同的配料“装饰”成不同的饮品。</p>
 
-<p>Decaf 、 Espresso 继承自 Coffee ， Coffee 继承自 Drink 。也就是说，主体下有两种类型的咖啡，以后我们新增一种类型的咖啡 LongBlack ，就只需让 LongBlack 像 Decaf 那样继承自 Coffee 即可，而无需修改超类 Drink 。</p>
+<p>Decaf 、 Espresso 继承自 Coffee ， Coffee 继承自 Drink 。也就是说，主体下有两种类型的咖啡，以后我们新增一种类型的咖啡 LongBlack ，只需让 LongBlack 像 Decaf 那样继承自 Coffee 即可，无需修改父类 Drink 。</p>
+
+<p><strong>中间层 Coffee ：</strong></p>
 
 <pre><code>/* Coffee.java */
 
 public class Coffee extends Drink {     //主体中间层
-
     @Override
     public float cost() {               //返回价格
         return super.getPrice();    
     }
-
 }
 </code></pre>
+
+<p><strong>被装饰者 Decaf ：</strong></p>
 
 <pre><code>/* Decaf.java */
 
 public class Decaf extends Coffee {     // Decaf 咖啡（被装饰者）
-    
     public Decaf() {
         super.setDescription(&quot;Decaf&quot;);  //描述
         super.setPrice(3.0f);           //价格
     }
-    
 }
 </code></pre>
+
+<p><strong>被装饰者 Espresso ：</strong></p>
 
 <pre><code>/* Espresso.java */
 
 public class Espresso extends Coffee {      // Espresso 咖啡（被装饰者）
-    
     public Espresso() {
         super.setDescription(&quot;Espresso&quot;);   //描述
         super.setPrice(4.0f);               //价格
     }
-    
 }
 </code></pre>
 
 <p><strong>（3）装饰者（Decorator）</strong></p>
 
-<p>咖啡可以加不同的配料，如牛奶、巧克力等等。牛奶、巧克力就是装饰者，通过它们包装被装饰者，从而使被装饰者实现动态扩展。</p>
+<p>咖啡可以添加不同的配料，如牛奶、巧克力等等。牛奶、巧克力就是<strong>装饰者</strong>，通过它们包装<strong>被装饰者</strong>，从而使被装饰者实现动态扩展。</p>
+
+<p><strong>中间层 Decorator ：</strong></p>
 
 <pre><code>/* Decorator.java */
 
 public class Decorator extends Drink {      //中间层
-
     private Drink Obj;                      //被装饰的对象
     
     public Decorator(Drink Obj) {
@@ -442,43 +451,42 @@ public class Decorator extends Drink {      //中间层
     }
     
     public String getDescription() {
-        return super.description + &quot;-&quot; + super.getPrice() + &quot; &amp;&amp; &quot; +Obj.getDescription();   //递归增加原有属性
+        return super.description + &quot;-&quot; + super.getPrice() + &quot; &amp;&amp; &quot; + Obj.getDescription();  //递归增加原有属性
     }
-
 }
 </code></pre>
+
+<p><strong>装饰者 Chocolate ：</strong></p>
 
 <pre><code>/* Chocolate.java */
 
 public class Chocolate extends Decorator {  //巧克力（装饰者）
-    
     public Chocolate(Drink Obj) {           
         super(Obj);
         super.setDescription(&quot;Chocolate&quot;);  //描述
         super.setPrice(3.0f);               //价格
     }
-    
 }
 </code></pre>
+
+<p><strong>装饰者 Milk ：</strong></p>
 
 <pre><code>/* Milk.java */
 
 public class Milk extends Decorator {   //牛奶（装饰者）
-    
     public Milk(Drink Obj) {
         super(Obj);
         super.setDescription(&quot;Milk&quot;);   //描述
         super.setPrice(2.0f);           //价格
     }
-    
 }
 </code></pre>
 
 <p>至此，我们已经完成了基础代码的编写。</p>
 
-<p>我们设计了一个超类 Drink ，两个中间层 Coffee 、 Decorator ，两个继承自中间层 Coffee 的具体实现类 Decaf 、 Espresso ，两个继承自中间层 Decorator 的具体实现类 Chocolate 、 Milk 。</p>
+<p><strong>我们设计了一个父类 Drink ，两个中间层 Coffee 、Decorator ，两个继承自中间层 Coffee 的具体实现类 Decaf 、Espresso ，两个继承自中间层 Decorator 的具体实现类 Chocolate 、Milk 。</strong></p>
 
-<p>代码结构如下：</p>
+<p><strong>代码结构如下：</strong></p>
 
 <p><br/></p>
 
@@ -488,47 +496,47 @@ public class Milk extends Decorator {   //牛奶（装饰者）
 
 <p><strong>（4）测试</strong></p>
 
-<p>咖啡店新增了两个订单。</p>
+<p>现在，咖啡店来了两个订单。</p>
 
-<p>订单 1 ：客户单点了一杯 Decaf ；</p>
+<p><strong>订单 1 ：</strong>客户单点了一杯 Decaf ；</p>
 
-<p>订单 2 ：客户点了一杯 Espresso + Milk + Chocolate + Chocolate 。</p>
+<p><strong>订单 2 ：</strong>客户点了一杯 Espresso + Milk + Chocolate + Chocolate 。</p>
 
-<p>最终，分别输出两个订单的饮品价格、饮品描述。</p>
+<p>我们需要分别输出两个订单的饮品价格、饮品描述。</p>
 
-<p>订单 2 结构如下：</p>
+<p><strong>其中，订单 2 结构如下：</strong></p>
 
 <p><img src="https://raw.githubusercontent.com/HauyuChen/PicsBox/master/Espresso.png" alt="" /></p>
+
+<p><strong>订单模拟程序：</strong></p>
 
 <pre><code>/* CoffeeBar.java */
 
 public class CoffeeBar {
-
     public static void main(String[] args) {
-
         Drink order;    //订单
 
         //订单 1 ：只点Decaf，不加任何配料
-        order = new Decaf();    //点一杯Decaf
+        order = new Decaf();            //点一杯Decaf
         System.out.println(&quot;Order 1 Price:\n&quot;+order.cost());            //输出饮品价格
         System.out.println(&quot;Order 1 Desc:\n&quot;+order.getDescription());   //输出饮品描述
         
         System.out.println(&quot;******************&quot;);
         
-        //订单 2 ：点一杯 Espress o，加一份 Milk 、两份 Chocolate
-        order = new Espresso(); //点一杯Espresso
+        //订单 2 ：点一杯 Espresso，加一份 Milk 、两份 Chocolate
+        order = new Espresso();         //点一杯Espresso
         order = new Milk(order);        // Milk 装饰 Espresso（加一份 Milk ）
         order = new Chocolate(order);   // Chocolate 装饰 Espresso + Milk（再加一份 Chocolate ）
         order = new Chocolate(order);   // Chocolate 装饰 Espresso + Milk + Chocolate（再加一份 Chocolate ）
         System.out.println(&quot;Order 2 Price:\n&quot;+order.cost());            //输出饮品价格
         System.out.println(&quot;Order 2 Desc:\n&quot;+order.getDescription());   //输出饮品描述
-        
     }
-
 }
 </code></pre>
 
-<p><strong>CoffeeBar.java 运行结果：</strong></p>
+<p><strong>程序运行结果：</strong></p>
+
+<p>输出了不同订单对应的价格和描述。</p>
 
 <pre><code>Order 1 Price:
 3.0
@@ -545,11 +553,13 @@ Chocolate-3.0 &amp;&amp; Chocolate-3.0 &amp;&amp; Milk-2.0 &amp;&amp; Espresso-4
 
 <h1 id="3-结语">3 结语</h1>
 
+<hr />
+
 <p>前面我们通过了一个实例来讲解装饰者模式。不同于直接使用继承，装饰者通过装饰类包裹被装饰对象实现扩展。</p>
 
-<p>具体到例子中，两种咖啡（Decaf、Espresso），两种配料（Chocolate、Milk）。现在我们要实现 Decaf + Milk 的组合，常规的做法是 Decaf + Milk 直接继承自 Drink 这个超类，从而具备饮品的相关属性，但这样会引起子类爆炸。</p>
+<p>具体到例子中，两种咖啡（Decaf、Espresso），两种配料（Chocolate、Milk）。现在我们要实现 Decaf + Milk 的组合，常规的做法是 Decaf + Milk 直接继承自 Drink 这个父类，从而具备饮品的相关属性，但这样会引起子类爆炸。</p>
 
-<p>通过装饰者模式，我们不直接使用继承。通过 Coffee 、 Decorator 作为中间层， Coffee 继承自超类 Drink ，显然 Coffee 具有基本的饮品属性（如 Decaf 、Espresso）。我们想要在 Decaf 上加入 Milk ，只需用 Decorator 中的 Milk 去包裹 Decaf 对象，从而 Decaf 对象增加了 Milk 相关的属性。</p>
+<p>通过装饰者模式，我们不直接使用继承。通过 Coffee 、 Decorator 作为中间层， Coffee 继承自父类 Drink ，显然 Coffee 具有基本的饮品属性（如 Decaf 、Espresso）。我们想要在 Decaf 上加入 Milk ，只需用 Decorator 中的 Milk 去包裹 Decaf 对象，从而 Decaf 对象增加了 Milk 相关的属性。</p>
 
 <p>这就是装饰者模式实现动态扩展的思路。</p>
 
@@ -560,13 +570,13 @@ Chocolate-3.0 &amp;&amp; Chocolate-3.0 &amp;&amp; Milk-2.0 &amp;&amp; Espresso-4
 <div class="prev-next-post pure-g">
   <div class="pure-u-1-24" style="text-align: left;">
     
-    <a href="https://HauyuChen.github.io/post/599-minimum-index-sum-of-two-lists/"><i class="fa fa-chevron-left"></i></a>
+    <a href="https://HauyuChen.github.io/post/java_string/"><i class="fa fa-chevron-left"></i></a>
     
   </div>
   <div class="pure-u-10-24">
     
     <nav class="prev">
-      <a href="https://HauyuChen.github.io/post/599-minimum-index-sum-of-two-lists/">【LeetCode】599. Minimum Index Sum of Two Lists</a>
+      <a href="https://HauyuChen.github.io/post/java_string/">String相关特性</a>
     </nav>
     
   </div>
@@ -576,13 +586,13 @@ Chocolate-3.0 &amp;&amp; Chocolate-3.0 &amp;&amp; Milk-2.0 &amp;&amp; Espresso-4
   <div class="pure-u-10-24">
     
     <nav class="next">
-      <a href="https://HauyuChen.github.io/post/java_overload_override/">重写、重载的区别</a>
+      <a href="https://HauyuChen.github.io/post/java_io/">谈谈 Java IO</a>
     </nav>
     
   </div>
   <div class="pure-u-1-24" style="text-align: right;">
     
-    <a href="https://HauyuChen.github.io/post/java_overload_override/"><i class="fa fa-chevron-right"></i></a>
+    <a href="https://HauyuChen.github.io/post/java_io/"><i class="fa fa-chevron-right"></i></a>
     
   </div>
 </div>

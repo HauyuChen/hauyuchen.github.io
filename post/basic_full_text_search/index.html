@@ -5,7 +5,7 @@
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="">
-  <meta name="generator" content="Hugo 0.24.1" />
+  <meta name="generator" content="Hugo 0.38" />
 
   <title>谈谈全文检索 &middot; Hov&#39;s Blog</title>
 
@@ -241,7 +241,9 @@
   <div>
     <i class="fa fa-folder fa-fw"></i>
     
-      <a class="post-taxonomy-tag" href="https://HauyuChen.github.io/tags/%E5%9F%BA%E7%A1%80">基础</a>
+      <a class="post-taxonomy-tag" href="https://HauyuChen.github.io/tags/%E5%9F%BA%E7%A1%80">基础</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-tag" href="https://HauyuChen.github.io/tags/elasticsearch">elasticsearch</a>
     
   </div>
   
@@ -267,7 +269,7 @@
   
 </div>
 
-  
+  <p></p>
 
 <hr />
 
@@ -279,6 +281,8 @@
 
 <h1 id="0-写在前面">0 写在前面</h1>
 
+<hr />
+
 <p>大数据时代，人们愈加重视数据的价值。在此之前，我们将数据存放在传统的关系型数据库（一个个数据表，由行列组成，格式固定），关系型数据库存储的是结构化数据，我们无法“用活”这些数据。事实上，绝大多数的数据都是以非结构化数据的形式存在的，比如邮件、图像、视频等等。这些大量的非结构化数据的价值是巨大的，但在关系型数据库下显然不好处理。</p>
 
 <p>全文检索提供了对非结构化数据的信息搜索，使我们获得了处理这些数据的能力，我们可以在此基础上进一步提取这些数据的价值。</p>
@@ -286,6 +290,8 @@
 <p><br/></p>
 
 <h1 id="1-预备知识">1 预备知识</h1>
+
+<hr />
 
 <h2 id="1-1-数据分类">1.1 数据分类</h2>
 
@@ -312,6 +318,8 @@
 
 <h1 id="2-什么是全文检索">2 什么是全文检索？</h1>
 
+<hr />
+
 <p>非结构化数据也可称为<strong>全文数据</strong>，对全文数据的搜索主要有两种方法。</p>
 
 <p><strong>（1）顺序扫描法（Serial scanning）</strong></p>
@@ -333,6 +341,8 @@
 <p><br/></p>
 
 <h1 id="3-索引应该存放哪些信息">3 索引应该存放哪些信息？</h1>
+
+<hr />
 
 <p>非结构化数据存放的是每个文件包含哪些字符串，这是从<strong>文件到字符串</strong>的映射。搜索的过程恰恰相反，我们想通过字符串搜索文件，也就是从<strong>字符串到文件</strong>的映射。 <strong>索引保存的正是从字符串到文件的映射</strong>，这也为什么是其能加快搜索速度的原因。</p>
 
@@ -359,6 +369,8 @@
 <p><br/></p>
 
 <h1 id="4-全文检索的流程">4 全文检索的流程</h1>
+
+<hr />
 
 <p>全文检索大体可分为以下两步：</p>
 
@@ -604,6 +616,8 @@
 
 <h1 id="5-总结">5 总结</h1>
 
+<hr />
+
 <p>全文检索的大体思路如下图：</p>
 
 <p><img src="https://raw.githubusercontent.com/HauyuChen/PicsBox/master/fullsearch-10.png" alt="" /></p>
@@ -637,18 +651,17 @@
 
 <p><br/></p>
 
-
   
 <div class="prev-next-post pure-g">
   <div class="pure-u-1-24" style="text-align: left;">
     
-    <a href="https://HauyuChen.github.io/post/292-nim-game/"><i class="fa fa-chevron-left"></i></a>
+    <a href="https://HauyuChen.github.io/post/java_-polymorphism_1/"><i class="fa fa-chevron-left"></i></a>
     
   </div>
   <div class="pure-u-10-24">
     
     <nav class="prev">
-      <a href="https://HauyuChen.github.io/post/292-nim-game/">【LeetCode】292. Nim Game</a>
+      <a href="https://HauyuChen.github.io/post/java_-polymorphism_1/">谈谈向上转型、向下转型</a>
     </nav>
     
   </div>
@@ -657,8 +670,14 @@
   </div>
   <div class="pure-u-10-24">
     
+    <nav class="next">
+      <a href="https://HauyuChen.github.io/post/es-mget/">Elasticsearch实现批量查询</a>
+    </nav>
+    
   </div>
   <div class="pure-u-1-24" style="text-align: right;">
+    
+    <a href="https://HauyuChen.github.io/post/es-mget/"><i class="fa fa-chevron-right"></i></a>
     
   </div>
 </div>

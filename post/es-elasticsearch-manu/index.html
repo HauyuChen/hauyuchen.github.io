@@ -5,7 +5,7 @@
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="电商网站商品管理">
-  <meta name="generator" content="Hugo 0.24.1" />
+  <meta name="generator" content="Hugo 0.38" />
 
   <title>Elasticsearch 初探 &middot; Hov&#39;s Blog</title>
 
@@ -241,7 +241,7 @@
   <div>
     <i class="fa fa-folder fa-fw"></i>
     
-      <a class="post-taxonomy-tag" href="https://HauyuChen.github.io/tags/elasticsearch">Elasticsearch</a>
+      <a class="post-taxonomy-tag" href="https://HauyuChen.github.io/tags/elasticsearch">elasticsearch</a>
     
   </div>
   
@@ -267,7 +267,7 @@
   
 </div>
 
-  
+  <p></p>
 
 <hr />
 
@@ -279,6 +279,8 @@
 
 <h1 id="0-前言">0 前言</h1>
 
+<hr />
+
 <p>本文是我接触 Elasticsearch 后写下的第一篇文章，旨在通过电商网站商品管理的栗子来熟悉 Elasticsearch 的相关操作，可以说是学习 Elasticsearch 的第一个“Hello World”吧，后续将逐步深入 Elasticsearch 相关内容。</p>
 
 <p>栗子中新增了三种品牌的牙膏“高露洁牙膏”、“佳洁士牙膏”、“中华牙膏”，并对这些数据进行增删改查、数据搜索、数据分析等操作。</p>
@@ -288,6 +290,8 @@
 <p><br/></p>
 
 <h1 id="1-文档增删改查-crud">1 文档增删改查（CRUD）</h1>
+
+<hr />
 
 <h2 id="1-1-新增文档-建立索引">1.1 新增文档，建立索引</h2>
 
@@ -388,7 +392,9 @@ PUT /ecommerce/product/3
 
 <h1 id="2-elasticsearch搜索方式">2 Elasticsearch搜索方式</h1>
 
-<h1 id="2-1-query-string-search">2.1 Query String Search</h1>
+<hr />
+
+<h2 id="2-1-query-string-search">2.1 Query String Search</h2>
 
 <p>实例：搜索 product 下的全部商品。</p>
 
@@ -402,7 +408,7 @@ PUT /ecommerce/product/3
 
 <p><br/></p>
 
-<h1 id="2-2-query-dsl">2.2 Query DSL</h1>
+<h2 id="2-2-query-dsl">2.2 Query DSL</h2>
 
 <p>实例：搜索 product 下的全部商品。</p>
 
@@ -454,7 +460,7 @@ PUT /ecommerce/product/3
 
 <p><br/></p>
 
-<h1 id="2-3-query-filter">2.3 Query Filter</h1>
+<h2 id="2-3-query-filter">2.3 Query Filter</h2>
 
 <p>实例：搜索商品名称包含“yagao”，价格大于25元的商品。</p>
 
@@ -481,7 +487,7 @@ PUT /ecommerce/product/3
 
 <p><br/></p>
 
-<h1 id="2-4-full-text-search-全文检索">2.4 Full-text Search（全文检索）</h1>
+<h2 id="2-4-full-text-search-全文检索">2.4 Full-text Search（全文检索）</h2>
 
 <p>实例：全文检索“yagao producer”，只要“yagao”、“producer”中出现一个就可以被检索出来。</p>
 
@@ -508,7 +514,7 @@ PUT /ecommerce/product/3
 
 <p><br/></p>
 
-<h1 id="2-5-phrase-search-短语搜索">2.5 Phrase Search（短语搜索）</h1>
+<h2 id="2-5-phrase-search-短语搜索">2.5 Phrase Search（短语搜索）</h2>
 
 <p>实例：短语搜索“yagao producer”，只有“yagao producer”同时存在才会被检索出来。</p>
 
@@ -524,7 +530,7 @@ PUT /ecommerce/product/3
 
 <p><br/></p>
 
-<h1 id="2-6-highlight-search-高亮搜索">2.6 Highlight Search（高亮搜索）</h1>
+<h2 id="2-6-highlight-search-高亮搜索">2.6 Highlight Search（高亮搜索）</h2>
 
 <p>实例：检索结果高亮。</p>
 
@@ -546,6 +552,8 @@ PUT /ecommerce/product/3
 <p><br/></p>
 
 <h1 id="3-聚合分析">3 聚合分析</h1>
+
+<hr />
 
 <p>实例1：搜索每个 tag 下的商品。</p>
 
@@ -629,7 +637,6 @@ PUT /ecommerce/product/3
 
 <p><br/></p>
 
-
   
 <div class="prev-next-post pure-g">
   <div class="pure-u-1-24" style="text-align: left;">
@@ -650,13 +657,13 @@ PUT /ecommerce/product/3
   <div class="pure-u-10-24">
     
     <nav class="next">
-      <a href="https://HauyuChen.github.io/post/561-array-partition-i/">【LeetCode】561. Array Partition I</a>
+      <a href="https://HauyuChen.github.io/post/concurrence_pe_op/">并发控制（乐观锁、悲观锁）</a>
     </nav>
     
   </div>
   <div class="pure-u-1-24" style="text-align: right;">
     
-    <a href="https://HauyuChen.github.io/post/561-array-partition-i/"><i class="fa fa-chevron-right"></i></a>
+    <a href="https://HauyuChen.github.io/post/concurrence_pe_op/"><i class="fa fa-chevron-right"></i></a>
     
   </div>
 </div>

@@ -5,7 +5,7 @@
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="">
-  <meta name="generator" content="Hugo 0.24.1" />
+  <meta name="generator" content="Hugo 0.38" />
 
   <title>Hov&#39;s Blog</title>
 
@@ -237,13 +237,13 @@
     
       <article>
   <header>
-    <h2><a href="https://HauyuChen.github.io/post/520-detect-capital/">【LeetCode】520. Detect Capital</a></h2>
+    <h2><a href="https://HauyuChen.github.io/post/566-reshape-the-matrix/">【LeetCode】566. Reshape the Matrix</a></h2>
 
     <div class="post-meta">
 
   <div>
     <i class="fa fa-calendar fa-fw"></i>
-    <time>2017-07-15</time>
+    <time>2017-03-25</time>
   </div>
 
   
@@ -254,7 +254,7 @@
   <div>
     <i class="fa fa-folder fa-fw"></i>
     
-      <a class="post-taxonomy-tag" href="https://HauyuChen.github.io/tags/leetcode">LeetCode</a>
+      <a class="post-taxonomy-tag" href="https://HauyuChen.github.io/tags/%E7%AE%97%E6%B3%95">算法</a>
     
   </div>
   
@@ -279,15 +279,12 @@
   </header>
 
   <p>
-  题目描述： Given a word, you need to judge whether the usage of capitals in it is right or not.
-We define the usage of capitals in a word to be right when one of the following cases holds:
-All letters in this word are capitals, like &ldquo;USA&rdquo;. All letters in this word are not capitals, like &ldquo;leetcode&rdquo;.
-Only the first letter in this word is capital if it has more than one letter, like &ldquo;Google&rdquo;.
+  题目描述： In MATLAB, there is a very useful function called &lsquo;reshape&rsquo;, which can reshape a matrix into a new one with different size but keep its original data. You&rsquo;re given a matrix represented by a two-dimensional array, and two positive integers r and c representing the row number and column number of the wanted reshaped matrix, respectively. The reshaped matrix need to be filled with all
   </p>
 
   
   <footer>
-    <a href="https://HauyuChen.github.io/post/520-detect-capital/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
+    <a href="https://HauyuChen.github.io/post/566-reshape-the-matrix/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
   </footer>
   
 </article>
@@ -297,13 +294,13 @@ Only the first letter in this word is capital if it has more than one letter, li
     
       <article>
   <header>
-    <h2><a href="https://HauyuChen.github.io/post/ml-1-machinelearning-introduction/">【机器学习笔记】1. 什么是机器学习</a></h2>
+    <h2><a href="https://HauyuChen.github.io/post/543-diameter-of-binary-tree/">【LeetCode】543. Diameter of Binary Tree</a></h2>
 
     <div class="post-meta">
 
   <div>
     <i class="fa fa-calendar fa-fw"></i>
-    <time>2017-07-11</time>
+    <time>2017-03-24</time>
   </div>
 
   
@@ -314,141 +311,7 @@ Only the first letter in this word is capital if it has more than one letter, li
   <div>
     <i class="fa fa-folder fa-fw"></i>
     
-      <a class="post-taxonomy-tag" href="https://HauyuChen.github.io/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0">机器学习</a>
-    
-  </div>
-  
-  
-
-  
-  
-  
-  <div>
-	<i class="fa fa-tags fa-fw"></i>
-    
-      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0">机器学习</a>&nbsp;&#47;
-    
-      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/%E7%9B%91%E7%9D%A3%E5%AD%A6%E4%B9%A0">监督学习</a>&nbsp;&#47;
-    
-      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/%E6%97%A0%E7%9B%91%E7%9D%A3%E5%AD%A6%E4%B9%A0">无监督学习</a>
-    
-  </div>
-  
-  
-  
-</div>
-
-  </header>
-
-  <p>
-  作者注：机器学习系列是本人在学习机器学习相关内容时产生的笔记，希望也能对您有所帮助。值得注意的是，作者作为初学者，表述难免有误或不全面，望多批评指正。 如有任何问题，欢迎您随时与我联系：Hauyu.Chen@Gmail.com
-版权声明：本文由 Hov 所有，发布于 http://chenhy.com ，转载请注明出处。
-
-0 前言 AI 时代，作为计算机专业的学生，不了解点 AI 相关的知识似乎有点说不过去，尤其是机器学习。 我们一直在说机器学习，但是我们怎么理解机器学习？机器学习解决了什么问题？我们如何将机器学习应用到现实生活中的问题呢？ 本文是机器学习系列的开篇，给出了机器学习的经典定义，并介绍监督学习和无监督学习这两个重要的分支，后续将逐步深入。
-
-1 机器学习的定义 Tom Mitchell 给出了一个关于机器学习的定义，这也是一个被经常引用的定义。
- Tom Mitchell:&ldquo;A computer program is said to learn from experience E with respect to some class of tasks T and performance measure P, if its performance at tasks in T, as measured by P, improves with experience E.&rdquo;
- 这段话翻译过来就是：对于某类任务T和性能度量P，如果一个计算机程序在T上以P衡量的性能随着经验E而自我完善，那么我们称这个计算机程序在从经验E学习。
-举个栗子：AlphaGo下棋
- 经验 E = AlphaGo从很多盘棋局获得的经验（学棋）； 任务 T = AlphaGo和对手下棋（下棋）； 性能 P = AlphaGo赢的可能性（赢棋）。
-  </p>
-
-  
-  <footer>
-    <a href="https://HauyuChen.github.io/post/ml-1-machinelearning-introduction/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
-  </footer>
-  
-</article>
-
-    
-  
-    
-      <article>
-  <header>
-    <h2><a href="https://HauyuChen.github.io/post/basic_debug/">代码调试基本操作</a></h2>
-
-    <div class="post-meta">
-
-  <div>
-    <i class="fa fa-calendar fa-fw"></i>
-    <time>2017-07-05</time>
-  </div>
-
-  
-
-  
-  
-  
-  <div>
-    <i class="fa fa-folder fa-fw"></i>
-    
-      <a class="post-taxonomy-tag" href="https://HauyuChen.github.io/tags/%E5%B7%A5%E5%85%B7">工具</a>
-    
-  </div>
-  
-  
-
-  
-  
-  
-  <div>
-	<i class="fa fa-tags fa-fw"></i>
-    
-      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/intellij-idea">Intellij IDEA</a>&nbsp;&#47;
-    
-      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/%E4%BB%A3%E7%A0%81%E8%B0%83%E8%AF%95">代码调试</a>&nbsp;&#47;
-    
-      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/debug">Debug</a>
-    
-  </div>
-  
-  
-  
-</div>
-
-  </header>
-
-  <p>
-  0 写在前面 Debug 是程序员必备的技能。当我们自己写的程序出现异常，我们可以通过 Debug 模式去分析异常。再者，现如今开源代码层出不穷，作者最近正好在研究开源代码， Debug 模式对跟踪代码也起到了很大的帮助。因为面对复杂的代码，我们靠一个一个查找，要找到相应的执行流程、执行方法不太容易。通过Debug模式，我们可以跟踪程序的执行流程，这样，某项业务的执行步骤便一目了然了。
-本文所用 IDE 为 Intellij IDEA ，但其它的 IDE 与此基本相似。
-
-1 基本用法 1.1 组件1 这组组件共八个按钮，从左至右编号1、2、3、4、5、6、7、8。
- Show Execution Point：点击此按钮可将光标定位到当前代码执行处； Step Over：步过，一行一行往下执行。如果该行上有方法，不会进入方法； Step Into：步入，一行一行往下执行。如果该行上有方法，进入方法内部执行，但一般只进入自定义方法，不会进入官方类库的方法； Force Step Into：强制步入，可进入任何方法，查看底层源码是可通过这个进入官方类库的方法； Step Out：步出，从步入的方法内退出到方法调用处； Drop Frame：回退断点，默认无； Run to Cursor：运行至光标处，将光标定位到需要查看的那一行，代码会运行至光标行，无需打断点； Evaluate Expression：计算表达式。  
-1.2 组件2 这组组件共七个按钮，从上至下编号1、2、3、4、5、6、7。
- Rerun ：重新运行程序，会关闭服务后重新启动程序； Update：更新程序，在代码改动后可执行这个功能来应用更新； Resume Program：恢复程序，点击该按钮将运行至下一个断点。比如我们在程序设置在代码第10行设置一个断点，在代码第20行设置一个断点，现在代码运行到第10行，点击按钮，代码将运行至下一个断点（第20行），若后面无断点，则运行完整个流程； Pause Program：暂停程序，启用 Debug ； Stop：连续按两下，关闭程序； View Breakpoints：查看所有断点； Mute Breakpoints：消除断点，点击该按钮将消除所有断点，断点将变为灰色，断点失效；再次点击，断点将变为红色，断点有效；如果只想对单个断点执行操作，直接在断点上右键选择相应的操作。  
-2 结语 通过这些基本操作我们已经可以初步地 Debug 程序，来跟踪程序的执行。当然， Debug 模式还有更多强大的功能，比如变量查看、智能步入、多线程调试等。下面这篇文章对 Debug 模式进行了详细的描述，推荐给大家。
-  </p>
-
-  
-  <footer>
-    <a href="https://HauyuChen.github.io/post/basic_debug/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
-  </footer>
-  
-</article>
-
-    
-  
-    
-      <article>
-  <header>
-    <h2><a href="https://HauyuChen.github.io/post/506-relative-ranks/">【LeetCode】506. Relative Ranks</a></h2>
-
-    <div class="post-meta">
-
-  <div>
-    <i class="fa fa-calendar fa-fw"></i>
-    <time>2017-03-21</time>
-  </div>
-
-  
-
-  
-  
-  
-  <div>
-    <i class="fa fa-folder fa-fw"></i>
-    
-      <a class="post-taxonomy-tag" href="https://HauyuChen.github.io/tags/leetcode">LeetCode</a>
+      <a class="post-taxonomy-tag" href="https://HauyuChen.github.io/tags/%E7%AE%97%E6%B3%95">算法</a>
     
   </div>
   
@@ -473,16 +336,12 @@ Only the first letter in this word is capital if it has more than one letter, li
   </header>
 
   <p>
-  题目描述： Given scores of N athletes, find their relative ranks and the people with the top three highest scores, who will be awarded medals: &ldquo;Gold Medal&rdquo;, &ldquo;Silver Medal&rdquo; and &ldquo;Bronze Medal&rdquo;.
-Example 1:
-Input: [5, 4, 3, 2, 1]
-Output: [&ldquo;Gold Medal&rdquo;, &ldquo;Silver Medal&rdquo;, &ldquo;Bronze Medal&rdquo;, &ldquo;4&rdquo;, &ldquo;5&rdquo;]
-Explanation: The first three athletes got the top three highest scores, so they got &ldquo;Gold Medal&rdquo;, &ldquo;Silver Medal&rdquo; and &ldquo;Bronze Medal&rdquo;. For the left two athletes, you just need to output their relative ranks according to their scores.
+  题目描述： Given a binary tree, you need to compute the length of the diameter of the tree. The diameter of a binary tree is the length of the longest path between any two nodes in a tree. This path may or may not pass through the root. Example: Given a binary tree 1 / \ 2 3 / \ 4 5 Return 3, which is the
   </p>
 
   
   <footer>
-    <a href="https://HauyuChen.github.io/post/506-relative-ranks/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
+    <a href="https://HauyuChen.github.io/post/543-diameter-of-binary-tree/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
   </footer>
   
 </article>
@@ -492,13 +351,13 @@ Explanation: The first three athletes got the top three highest scores, so they 
     
       <article>
   <header>
-    <h2><a href="https://HauyuChen.github.io/post/496-next-greater-element-i/">【LeetCode】496. Next Greater Element I</a></h2>
+    <h2><a href="https://HauyuChen.github.io/post/551-student-attendance-record-i/">【LeetCode】551. Student Attendance Record I</a></h2>
 
     <div class="post-meta">
 
   <div>
     <i class="fa fa-calendar fa-fw"></i>
-    <time>2017-03-20</time>
+    <time>2017-03-24</time>
   </div>
 
   
@@ -509,7 +368,7 @@ Explanation: The first three athletes got the top three highest scores, so they 
   <div>
     <i class="fa fa-folder fa-fw"></i>
     
-      <a class="post-taxonomy-tag" href="https://HauyuChen.github.io/tags/leetcode">LeetCode</a>
+      <a class="post-taxonomy-tag" href="https://HauyuChen.github.io/tags/%E7%AE%97%E6%B3%95">算法</a>
     
   </div>
   
@@ -534,15 +393,126 @@ Explanation: The first three athletes got the top three highest scores, so they 
   </header>
 
   <p>
-  题目描述： You are given two arrays (without duplicates) nums1 and nums2 where nums1’s elements are subset of nums2. Find all the next greater numbers for nums1&rsquo;s elements in the corresponding places of nums2.
-The Next Greater Number of a number x in nums1 is the first greater number to its right in nums2. If it does not exist, output -1 for this number.
-Example 1:
-Input: nums1 = [4,1,2], nums2 = [1,3,4,2].
+  题目描述： You are given a string representing an attendance record for a student. The record only contains the following three characters: &lsquo;A&rsquo; : Absent. &lsquo;L&rsquo; : Late. &lsquo;P&rsquo; : Present. A student could be rewarded if his attendance record doesn&rsquo;t contain more than one &lsquo;A&rsquo; (absent) or more than two continuous &lsquo;L&rsquo; (late). You need to return whether the student could be rewarded according to his
   </p>
 
   
   <footer>
-    <a href="https://HauyuChen.github.io/post/496-next-greater-element-i/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
+    <a href="https://HauyuChen.github.io/post/551-student-attendance-record-i/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
+  </footer>
+  
+</article>
+
+    
+  
+    
+      <article>
+  <header>
+    <h2><a href="https://HauyuChen.github.io/post/530-minimum-absolute-difference-in-bst/">【LeetCode】530. Minimum Absolute Difference in BST</a></h2>
+
+    <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>2017-03-23</time>
+  </div>
+
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-folder fa-fw"></i>
+    
+      <a class="post-taxonomy-tag" href="https://HauyuChen.github.io/tags/%E7%AE%97%E6%B3%95">算法</a>
+    
+  </div>
+  
+  
+
+  
+  
+  
+  <div>
+	<i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/%E7%AE%97%E6%B3%95">算法</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/leetcode">LeetCode</a>
+    
+  </div>
+  
+  
+  
+</div>
+
+  </header>
+
+  <p>
+  题目描述： Given a binary search tree with non-negative values, find the minimum absolute difference between values of any two nodes. Example: Input: 1 \ 3 / 2 Output: 1 Explanation: The minimum absolute difference is 1, which is the difference between 2 and 1 (or between 2 and 3). Note: There are at least two nodes in this BST. 代码实现： /** *
+  </p>
+
+  
+  <footer>
+    <a href="https://HauyuChen.github.io/post/530-minimum-absolute-difference-in-bst/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
+  </footer>
+  
+</article>
+
+    
+  
+    
+      <article>
+  <header>
+    <h2><a href="https://HauyuChen.github.io/post/537-complex-number-multiplication/">【LeetCode】537. Complex Number Multiplication</a></h2>
+
+    <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>2017-03-23</time>
+  </div>
+
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-folder fa-fw"></i>
+    
+      <a class="post-taxonomy-tag" href="https://HauyuChen.github.io/tags/%E7%AE%97%E6%B3%95">算法</a>
+    
+  </div>
+  
+  
+
+  
+  
+  
+  <div>
+	<i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/%E7%AE%97%E6%B3%95">算法</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/leetcode">LeetCode</a>
+    
+  </div>
+  
+  
+  
+</div>
+
+  </header>
+
+  <p>
+  题目描述： Given two strings representing two complex numbers. You need to return a string representing their multiplication. Note i2 = -1 according to the definition. Example 1: Input: &ldquo;1+1i&rdquo;, &ldquo;1+1i&rdquo; Output: &ldquo;0+2i&rdquo; Explanation: (1 + i) * (1 + i) = 1 + i2 + 2 * i = 2i, and you need convert it to the form of 0+2i. Example 2: Input: &ldquo;1+-1i&rdquo;, &ldquo;1+-1i&rdquo; Output:
+  </p>
+
+  
+  <footer>
+    <a href="https://HauyuChen.github.io/post/537-complex-number-multiplication/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
   </footer>
   
 </article>
@@ -557,7 +527,7 @@ Input: nums1 = [4,1,2], nums2 = [1,3,4,2].
   
   <a href="https://HauyuChen.github.io/page/14/"><i class="fa fa-chevron-left"></i></a>
   
-  <span>&nbsp;15 / 26&nbsp;</span>
+  <span>&nbsp;15 / 27&nbsp;</span>
   
   <a href="https://HauyuChen.github.io/page/16/"><i class="fa fa-chevron-right"></i></a>
   

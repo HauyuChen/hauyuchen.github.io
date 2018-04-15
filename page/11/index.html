@@ -5,7 +5,7 @@
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="">
-  <meta name="generator" content="Hugo 0.24.1" />
+  <meta name="generator" content="Hugo 0.38" />
 
   <title>Hov&#39;s Blog</title>
 
@@ -237,13 +237,13 @@
     
       <article>
   <header>
-    <h2><a href="https://HauyuChen.github.io/post/dp_strategy_pattern/">【设计模式】2. 策略模式</a></h2>
+    <h2><a href="https://HauyuChen.github.io/post/123-best-time-to-buy-and-sell-stock-iii/">【LeetCode】123. Best Time to Buy and Sell Stock III</a></h2>
 
     <div class="post-meta">
 
   <div>
     <i class="fa fa-calendar fa-fw"></i>
-    <time>2017-08-19</time>
+    <time>2017-04-08</time>
   </div>
 
   
@@ -254,227 +254,7 @@
   <div>
     <i class="fa fa-folder fa-fw"></i>
     
-      <a class="post-taxonomy-tag" href="https://HauyuChen.github.io/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F">设计模式</a>
-    
-  </div>
-  
-  
-
-  
-  
-  
-  <div>
-	<i class="fa fa-tags fa-fw"></i>
-    
-      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F">设计模式</a>&nbsp;&#47;
-    
-      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/%E7%AD%96%E7%95%A5%E6%A8%A1%E5%BC%8F">策略模式</a>&nbsp;&#47;
-    
-      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/java">Java</a>
-    
-  </div>
-  
-  
-  
-</div>
-
-  </header>
-
-  <p>
-  版权声明：本文由 Hov 所有，发布于 http://chenhy.com ，转载请注明出处。
-
-1 策略模式 1.1 简介 策略模式作为一种软件设计模式，指对象有某个行为，但是在不同的场景中，该行为有不同的实现算法。
-比如，买东西要付款，但是付款的方式有多种，比如有的人现金支付，有的人网上支付，有的人找人代付。
-1.2 思路 策略模式将每一个算法封装起来，实现算法族（业务规则），这些算法可互换代替。
-策略模式通过分离变化部分，封装接口，基于接口实现不同的功能。也就是说，对于同一类型的操作，将复杂多样的处理方式分离开来，有选择的实现各自特有的操作。通常，在超类放行为接口对象，在子类设定具体行为对象。
-1.3 使用场景  对于同一类型问题的多种处理方式，仅仅具体行为有差别。 需要安全的封装多种同一类型的操作。 出现同一抽象多个子类，又需要使用if或switch选择语句来选择。  1.4 优缺点 优点：
- 算法可自由切换； 避免使用多重条件判断； 扩展性良好。 可替换继承关系  缺点：
- 策略类会增多； 所有策略类都需要对外暴露。  
-2 实例讲解 我们引入模拟鸭子这个栗子（这是极客学院中讲解的栗子，个人觉得简单易懂，推荐）。
-2.1 原始需求 我们通过程序模拟鸭子，假设我们的需求是这样的：鸭子有绿头鸭和红头鸭两种，它们都会嘎嘎叫和游泳。
-根据需求，借助面向对象思维，我们可以设计如下代码：
-（1）首先设计一个抽象类：鸭子
-/* Duck.java */ public abstract class Duck{ public Duck(){ } public abstract void display(); //外观 public void Quack(){ //嘎嘎叫 System.out.println(&quot;--gaga--&quot;); } public void swim(){ //游泳 System.
-  </p>
-
-  
-  <footer>
-    <a href="https://HauyuChen.github.io/post/dp_strategy_pattern/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
-  </footer>
-  
-</article>
-
-    
-  
-    
-      <article>
-  <header>
-    <h2><a href="https://HauyuChen.github.io/post/dp_singleton_pattern/">【设计模式】1. 单例模式</a></h2>
-
-    <div class="post-meta">
-
-  <div>
-    <i class="fa fa-calendar fa-fw"></i>
-    <time>2017-08-17</time>
-  </div>
-
-  
-
-  
-  
-  
-  <div>
-    <i class="fa fa-folder fa-fw"></i>
-    
-      <a class="post-taxonomy-tag" href="https://HauyuChen.github.io/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F">设计模式</a>
-    
-  </div>
-  
-  
-
-  
-  
-  
-  <div>
-	<i class="fa fa-tags fa-fw"></i>
-    
-      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F">设计模式</a>&nbsp;&#47;
-    
-      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F">单例模式</a>&nbsp;&#47;
-    
-      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/java">Java</a>
-    
-  </div>
-  
-  
-  
-</div>
-
-  </header>
-
-  <p>
-  版权声明：本文由 Hov 所有，发布于 http://chenhy.com ，转载请注明出处。
-
-1 单例模式 1.1 简介 单例模式是一种基本的常用的软件设计模式。单例模式的核心是确保一个类最多只有一个实例，并提供一个全局访问点。
-1.2 思路 一个类只能返回对象的一个引用（始终为同一个）和一个获得此实例的方法（静态方法，通常用 getInstance 命名）。当我们调用 getInstance 方法，如果类保持的引用不为空，则返回此引用；如果类保持的引用为空，则创建该类的实例，并将实例的引用赋予该类保持的引用。 同时，我们还将该类的构造函数定义为私有方法，这样其它地方的代码就无法通过该类的构造函数来实例化该类的对象，只有通过该类提供的静态方法得到该类的唯一实例。
-1.3 使用场景  需要频繁实例化然后销毁的对象； 创建对象时耗时过多或耗费资源过多，但又经常用到的对象； 有状态的工具类对象； 频繁访问数据库或文件的对象；  1.4 优缺点 优点：
- 在内存中只有一个对象，节省内存空间； 避免频繁创建销毁对象，可提高性能； 避免对共享资源的多重占用； 可以全局访问。  缺点：
- 多线程情况下，应注意线程安全问题； 只能通过单例类提供的方法创建单例对象，不能使用反射；  
-2 经典实现 这是最简单的最经典的单例模式实现方式，又称为懒汉式（线程不安全）。由于该方式存在不少弊端，通常不采用。但是，我们还是有必要了解，因为它是后面几个优化方式的基础。
-注：
- 懒汉式：指全局的单例实例在第一次使用时被构建； 饿汉式：指全局的单例实例在类装载时就被构建。  /* Singleton.java */ public class Singleton { private static Singleton uniqeInstance = null; private Singleton() { }; public static Singleton getInstance() { if(uniqeInstance == null) { uniqeInstance = new Singleton(); } return uniqeInstance; } }
-  </p>
-
-  
-  <footer>
-    <a href="https://HauyuChen.github.io/post/dp_singleton_pattern/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
-  </footer>
-  
-</article>
-
-    
-  
-    
-      <article>
-  <header>
-    <h2><a href="https://HauyuChen.github.io/post/ml-7-neuralnetworks/">【机器学习笔记】7. 神经网络（一）：概述</a></h2>
-
-    <div class="post-meta">
-
-  <div>
-    <i class="fa fa-calendar fa-fw"></i>
-    <time>2017-08-16</time>
-  </div>
-
-  
-
-  
-  
-  
-  <div>
-    <i class="fa fa-folder fa-fw"></i>
-    
-      <a class="post-taxonomy-tag" href="https://HauyuChen.github.io/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0">机器学习</a>
-    
-  </div>
-  
-  
-
-  
-  
-  
-  <div>
-	<i class="fa fa-tags fa-fw"></i>
-    
-      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0">机器学习</a>&nbsp;&#47;
-    
-      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C">神经网络</a>&nbsp;&#47;
-    
-      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/%E7%9B%91%E7%9D%A3%E5%AD%A6%E4%B9%A0">监督学习</a>
-    
-  </div>
-  
-  
-  
-</div>
-
-  </header>
-
-  <p>
-  作者注：机器学习系列是本人在学习机器学习相关内容时产生的笔记，希望也能对您有所帮助。值得注意的是，作者作为初学者，表述难免有误或不全面，望多批评指正。 如有任何问题，欢迎您随时与我联系：Hauyu.Chen@Gmail.com
-版权声明：本文由 Hov 所有，发布于 http://chenhy.com ，转载请注明出处。
-
-0 前言 前面我们已经掌握了机器学习的基本套路，通过模型、目标函数、优化算法实现一些简单的任务。
-本文我们要开始学习神经网络，神经网络是非常重要的机器学习算法。我们将通过学习神经网络，了解如何将单独的单元按照一定的规则连接，从而实现更加复杂的任务。
-
-1 简介 对人类而言，我们的视觉、听觉由大脑的神经中枢产生，而神经中枢由大量的神经元相互连接而成。一个神经元通过树突（Dendrite）接收其它神经元传来的化学物质（信息），从而改变该神经元的电位，当电位到达某一阈值（Threshold）时，该神经元被激活，即“兴奋”起来，从而通过轴突（Axon terminal）向其它神经元发送化学物质（信息）。
-下图为一个神经元。
-
-
-顾名思义，神经网络是一种模拟大脑的算法。神经网络中最基本的成分是神经元模型（ Neural Model ，又称 Logistic Unit ）。神经元模型就是模拟上述神经元接收信息并传递信息的过程，一个神经元为一层。神经网络将多个单一的“神经元”联结在一起，一个“神经元”的输出可以作为另一个“神经元”的输入。
-
-2 神经网络模型 在监督学习中，我们有一组训练数据 ( x( i ), y( i ) ) ，神经网络算法能提供一种复杂的非线性的假设模型 hθ(x) ，以参数 θ 来拟合我们的数据。
-一个简单的神经网络如下所示：
-
-
-上面的神经网络只有一个“神经元”，最左的一层（蓝色圆圈）为输入层，最右的一层为输出层，中间为隐藏层。 x1、x2、x3 为输入单元， a1、a2、a3 为隐藏单元， hθ(x) 为输出单元。特别的， x0、a0 是我们单独增加的偏置单元。
-在隐藏层中，为激励单元。为第 j 层的第 i 个激励单元。
-在本文中，我们选用 sigmoid 函数作为激活函数，即神经元的输入 - 输出的映射关系为逻辑回归。
-举个栗子：
-如果隐藏层只有一层，如下：
-其中， x1、x2、x3 是训练数据中的输入， x0 是偏置单元。
-  </p>
-
-  
-  <footer>
-    <a href="https://HauyuChen.github.io/post/ml-7-neuralnetworks/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
-  </footer>
-  
-</article>
-
-    
-  
-    
-      <article>
-  <header>
-    <h2><a href="https://HauyuChen.github.io/post/551-student-attendance-record-i/">【LeetCode】551. Student Attendance Record I</a></h2>
-
-    <div class="post-meta">
-
-  <div>
-    <i class="fa fa-calendar fa-fw"></i>
-    <time>2017-08-15</time>
-  </div>
-
-  
-
-  
-  
-  
-  <div>
-    <i class="fa fa-folder fa-fw"></i>
-    
-      <a class="post-taxonomy-tag" href="https://HauyuChen.github.io/tags/leetcode">LeetCode</a>
+      <a class="post-taxonomy-tag" href="https://HauyuChen.github.io/tags/%E7%AE%97%E6%B3%95">算法</a>
     
   </div>
   
@@ -499,14 +279,12 @@
   </header>
 
   <p>
-  题目描述： You are given a string representing an attendance record for a student. The record only contains the following three characters:
- &lsquo;A&rsquo; : Absent. &lsquo;L&rsquo; : Late. &lsquo;P&rsquo; : Present.  A student could be rewarded if his attendance record doesn&rsquo;t contain more than one &lsquo;A&rsquo; (absent) or more than two continuous &lsquo;L&rsquo; (late).
-You need to return whether the student could be rewarded according to his attendance record.
+  题目描述： Say you have an array for which the ith element is the price of a given stock on day i. Design an algorithm to find the maximum profit. You may complete at most two transactions. Note: You may not engage in multiple transactions at the same time (ie, you must sell the stock before you buy again). 思路： 只能进行两
   </p>
 
   
   <footer>
-    <a href="https://HauyuChen.github.io/post/551-student-attendance-record-i/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
+    <a href="https://HauyuChen.github.io/post/123-best-time-to-buy-and-sell-stock-iii/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
   </footer>
   
 </article>
@@ -516,13 +294,13 @@ You need to return whether the student could be rewarded according to his attend
     
       <article>
   <header>
-    <h2><a href="https://HauyuChen.github.io/post/543-diameter-of-binary-tree/">【LeetCode】543. Diameter of Binary Tree</a></h2>
+    <h2><a href="https://HauyuChen.github.io/post/066-plus-one/">【LeetCode】66. Plus One</a></h2>
 
     <div class="post-meta">
 
   <div>
     <i class="fa fa-calendar fa-fw"></i>
-    <time>2017-08-14</time>
+    <time>2017-04-08</time>
   </div>
 
   
@@ -533,7 +311,7 @@ You need to return whether the student could be rewarded according to his attend
   <div>
     <i class="fa fa-folder fa-fw"></i>
     
-      <a class="post-taxonomy-tag" href="https://HauyuChen.github.io/tags/leetcode">LeetCode</a>
+      <a class="post-taxonomy-tag" href="https://HauyuChen.github.io/tags/%E7%AE%97%E6%B3%95">算法</a>
     
   </div>
   
@@ -558,15 +336,183 @@ You need to return whether the student could be rewarded according to his attend
   </header>
 
   <p>
-  题目描述： Given a binary tree, you need to compute the length of the diameter of the tree. The diameter of a binary tree is the length of the longest path between any two nodes in a tree. This path may or may not pass through the root.
-Example:
-Given a binary tree
- 1 / \ 2 3 / \ 4 5  Return 3, which is the length of the path [4,2,1,3] or [5,2,1,3].
+  题目描述： Given a non-negative integer represented as a non-empty array of digits, plus one to the integer. You may assume the integer do not contain any leading zero, except the number 0 itself. The digits are stored such that the most significant digit is at the head of the list. 思路： 题目的意思是将数组当成一个
   </p>
 
   
   <footer>
-    <a href="https://HauyuChen.github.io/post/543-diameter-of-binary-tree/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
+    <a href="https://HauyuChen.github.io/post/066-plus-one/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
+  </footer>
+  
+</article>
+
+    
+  
+    
+      <article>
+  <header>
+    <h2><a href="https://HauyuChen.github.io/post/067-add-binary/">【LeetCode】67. Add Binary</a></h2>
+
+    <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>2017-04-08</time>
+  </div>
+
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-folder fa-fw"></i>
+    
+      <a class="post-taxonomy-tag" href="https://HauyuChen.github.io/tags/%E7%AE%97%E6%B3%95">算法</a>
+    
+  </div>
+  
+  
+
+  
+  
+  
+  <div>
+	<i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/%E7%AE%97%E6%B3%95">算法</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/leetcode">LeetCode</a>
+    
+  </div>
+  
+  
+  
+</div>
+
+  </header>
+
+  <p>
+  题目描述： Given two binary strings, return their sum (also a binary string). For example, a = &ldquo;11&rdquo; b = &ldquo;1&rdquo; Return &ldquo;100&rdquo;. 思路： 设置flag表示进位标志，将字符串 a 和 b 依次拿出来“相加”，并将相加的结果存放在 char
+  </p>
+
+  
+  <footer>
+    <a href="https://HauyuChen.github.io/post/067-add-binary/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
+  </footer>
+  
+</article>
+
+    
+  
+    
+      <article>
+  <header>
+    <h2><a href="https://HauyuChen.github.io/post/038-count-and-say/">【LeetCode】38. Count and Say</a></h2>
+
+    <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>2017-04-07</time>
+  </div>
+
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-folder fa-fw"></i>
+    
+      <a class="post-taxonomy-tag" href="https://HauyuChen.github.io/tags/%E7%AE%97%E6%B3%95">算法</a>
+    
+  </div>
+  
+  
+
+  
+  
+  
+  <div>
+	<i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/%E7%AE%97%E6%B3%95">算法</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/leetcode">LeetCode</a>
+    
+  </div>
+  
+  
+  
+</div>
+
+  </header>
+
+  <p>
+  题目描述： The count-and-say sequence is the sequence of integers with the first five terms as following: 1. 1 2. 11 3. 21 4. 1211 5. 111221 1 is read off as &ldquo;one 1&rdquo; or 11. 11 is read off as &ldquo;two 1s&rdquo; or 21. 21 is read off as &ldquo;one 2, then one 1&rdquo; or 1211. Given an integer n, generate the nth term of the
+  </p>
+
+  
+  <footer>
+    <a href="https://HauyuChen.github.io/post/038-count-and-say/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
+  </footer>
+  
+</article>
+
+    
+  
+    
+      <article>
+  <header>
+    <h2><a href="https://HauyuChen.github.io/post/034-search-for-a-range/">【LeetCode】34. Search for a Range</a></h2>
+
+    <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>2017-04-06</time>
+  </div>
+
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-folder fa-fw"></i>
+    
+      <a class="post-taxonomy-tag" href="https://HauyuChen.github.io/tags/%E7%AE%97%E6%B3%95">算法</a>
+    
+  </div>
+  
+  
+
+  
+  
+  
+  <div>
+	<i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/%E7%AE%97%E6%B3%95">算法</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/leetcode">LeetCode</a>
+    
+  </div>
+  
+  
+  
+</div>
+
+  </header>
+
+  <p>
+  题目描述： Given an array of integers sorted in ascending order, find the starting and ending position of a given target value. Your algorithm&rsquo;s runtime complexity must be in the order of O(log n). If the target is not found in the array, return [-1, -1]. For example, Given [5, 7, 7, 8, 8, 10] and target value 8, return [3, 4]. 思路： 本题
+  </p>
+
+  
+  <footer>
+    <a href="https://HauyuChen.github.io/post/034-search-for-a-range/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
   </footer>
   
 </article>
@@ -581,7 +527,7 @@ Given a binary tree
   
   <a href="https://HauyuChen.github.io/page/10/"><i class="fa fa-chevron-left"></i></a>
   
-  <span>&nbsp;11 / 26&nbsp;</span>
+  <span>&nbsp;11 / 27&nbsp;</span>
   
   <a href="https://HauyuChen.github.io/page/12/"><i class="fa fa-chevron-right"></i></a>
   

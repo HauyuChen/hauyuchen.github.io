@@ -1,0 +1,887 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="generator" content="Hugo 0.38" />
+
+  <title>什么是面向对象？ &middot; Hov&#39;s Blog</title>
+
+  <script>
+	var _hmt = _hmt || [];
+	(function() {
+	  var hm = document.createElement("script");
+	  hm.src = "https://hm.baidu.com/hm.js?dd096f3aba9332e2640cda59d3786695";
+	  var s = document.getElementsByTagName("script")[0]; 
+	  s.parentNode.insertBefore(hm, s);
+	})();
+	</script>	
+  
+  
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/0.6.2/pure-min.css">
+
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/0.6.2/grids-responsive-old-ie-min.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/0.6.2/grids-responsive-min.css">
+  <!--<![endif]-->
+
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="https://HauyuChen.github.io/css/side-menu-old-ie.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="https://HauyuChen.github.io/css/side-menu.css">
+  <!--<![endif]-->
+
+  <link rel="stylesheet" href="https://HauyuChen.github.io/css/blackburn.css">
+
+  
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  
+  <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet" type="text/css">
+
+  
+  
+
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/styles/androidstudio.min.css">
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  
+
+  <link rel="shortcut icon" href="https://HauyuChen.github.io/img/favicon.ico" type="image/x-icon" />
+
+  
+  
+
+
+</head>
+
+
+<body>
+
+<div id="layout">
+
+  
+<a href="#menu" id="menuLink" class="menu-link">
+  
+  <span></span>
+</a>
+<div id="menu">
+
+  <a class="pure-menu-heading brand" href="https://HauyuChen.github.io/">
+  <img src="https://HauyuChen.github.io/img/Hov.jpg" width="125px">
+</a>
+
+  <div class="pure-menu">
+    <ul class="pure-menu-list">
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="https://HauyuChen.github.io/"><i class='fa fa-home fa-fw'></i>主页</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="https://HauyuChen.github.io/post/"><i class='fa fa-list fa-fw'></i>所有文章</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="https://HauyuChen.github.io/tags/"><i class='fa fa-folder fa-fw'></i>文章分类</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="https://HauyuChen.github.io/topics/"><i class='fa fa-tags fa-fw'></i>关键词</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="https://HauyuChen.github.io/about-me/"><i class='fa fa-user fa-fw'></i>关于我</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="https://HauyuChen.github.io/about-site/"><i class='fa fa-home fa-fw'></i>关于本站</a>
+      
+        </li>
+      
+    </ul>
+  </div>
+
+  <div class="pure-menu social">
+
+  <ul class="pure-menu-list">
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://github.com/HauyuChen" target="_blank"><i class="fa fa-github-square fa-fw"></i>GitHub</a>
+    </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+	</ul>
+	<ul class="pure-menu-list">
+	
+	<li class="pure-menu-item">
+      <a class="pure-menu-link" href="http://blog.csdn.net/u014134180" target="_blank"><i class="fa fa-lastfm-square fa-fw"></i>友链：Wu_Being</a>
+    </li>
+  </ul>
+  
+</div>
+
+
+  <div>
+
+
+</div>
+
+</div>
+
+
+  <div id="main">
+
+
+<div class="header">
+  <h1>什么是面向对象？</h1>
+  <h2></h2>
+</div>
+<div class="content">
+
+  <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>2018-04-08</time>
+  </div>
+
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-folder fa-fw"></i>
+    
+      <a class="post-taxonomy-tag" href="https://HauyuChen.github.io/tags/%E5%9F%BA%E7%A1%80">基础</a>
+    
+  </div>
+  
+  
+
+  
+  
+  
+  <div>
+	<i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1">面向对象</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F">设计模式</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/java">Java</a>
+    
+  </div>
+  
+  
+  
+</div>
+
+  <p></p>
+
+<hr />
+
+<p><em>版权声明：本文由 Hov 所有，发布于 <a href="http://chenhy.com">https://chenhy.com</a> ，转载请注明出处。<br/></em></p>
+
+<hr />
+
+<p><br/></p>
+
+<h1 id="0-前言">0 前言</h1>
+
+<hr />
+
+<p>面向对象的编程语言（如 Java、C++ 等）是现在主流的编程语言。熟悉 Java 的开发人员知道，编写代码第一步就是创建一个类。可是，我们用了这么久的 Java （或其它面向对象语言），有没有想过面向对象是什么呢？为什么我们要用类和对象来堆砌我们的代码？我们进行程序设计时有规则可遵循吗？类与类之间的关系又应该怎么设计呢？</p>
+
+<p>本文先从理论角度讲解面向对象的一些重要概念，然后根据面向对象程序设计的方法编写一个小程序，最后通过设计模式进一步优化。</p>
+
+<p><br/></p>
+
+<h1 id="1-什么是面向对象">1 什么是面向对象？</h1>
+
+<hr />
+
+<h2 id="1-1-定义">1.1 定义</h2>
+
+<p>面向对象（Object-oriented，简称 OO）方法是一种运用对象、类、继承、封装、多态、聚合、关联、消息等概念来构造系统的软件开发方法。</p>
+
+<p>面试对象思想将一组数据结构和处理它们的方法组成<strong>对象</strong>，把相同行为的对象归纳为<strong>类</strong>；通过类的<strong>封装</strong>隐藏内部细节；通过<strong>继承</strong>实现类的特化/泛化；通过<strong>多态</strong>实现基于对象的动态分派。</p>
+
+<h2 id="1-2-基本思想">1.2 基本思想</h2>
+
+<p>面向对象强调直接 <strong>以问题域（现实世界）中的事物为中心</strong> 来思考问题、认识问题，并根据这些事物的本质特征，把它们抽象为系统中的对象，作为系统的基本构成单位。这样做的好处是，可以使系统直接映射问题域，保持问题域中事物及其相互关系的本来面貌。</p>
+
+<h2 id="1-3-面向过程-vs-面向对象">1.3 面向过程 VS. 面向对象</h2>
+
+<p><strong>面向过程：</strong>分析解决问题所需要的步骤，然后用函数逐步调用，即面向过程程序设计是<strong>先确定算法，再确定数据结构</strong>。</p>
+
+<p><strong>面向对象：</strong>考虑问题域中的独立个体，将程序分解成不同对象之间的交互过程。通常，可以将数据（成员数据）及处理这些数据的方法（成员方法）封装成一个<strong>类（Class）</strong>，而使用类的变量则称为<strong>对象（Object）</strong>。</p>
+
+<p>面向过程程序设计（如 C 语言），习惯先建立数据结构存放数据，并定义函数（方法）来操作数据（注意：数据和方法是分离开的）；面向对象程序设计（如 Java、C++），则先构造一个对象模型，将数据和方法组织在一起。</p>
+
+<p><strong>举一个简单的例子：计算长方形的周长和面积</strong>。</p>
+
+<p><strong>（1）面向过程的程序设计</strong></p>
+
+<ol>
+<li>确定计算长方形周长和面积的算法；</li>
+<li>编写两个函数分别计算长方形的周长和面积；</li>
+<li>求周长和面积的函数各需要两个参数，分别是长方形的长和宽。</li>
+</ol>
+
+<p>代码如下：</p>
+
+<pre><code>int Perimeter(int x, int y)     //计算周长
+{
+    return 2*(x+y);
+}
+int Area(int x, int y)          //计算面积
+{
+    return x*y;
+}
+
+int main()
+{
+    int a;
+    int b;
+    cin &gt;&gt; a;
+    cin &gt;&gt; b;
+
+    cout &lt;&lt; “长方形的周长是：” &lt;&lt; Perimeter(a,b) &lt;&lt; endl;
+    cout &lt;&lt; “长方形的面积是：” &lt;&lt; Area(a,b);
+
+    return 0；
+}
+</code></pre>
+
+<p><strong>（2）面向对象的程序设计</strong></p>
+
+<ol>
+<li>一个长方形可看成一个长方形对象（类）；</li>
+<li>一个长方形对象有两个属性（长、宽），两个行为（求周长、求面积）；</li>
+<li>通过长方形对象的行为，求出某个具体的长方形对象的周长和面积。</li>
+</ol>
+
+<p>代码如下：</p>
+
+<pre><code>class Retangle
+{
+    private:        //成员变量，即对象的属性
+        double a;
+        double b;    
+    public:         //成员方法，即对象的行为
+        Retangle(double x, double y);
+        double Perimeter();
+        double Area(); 
+};
+
+int main()
+{
+    Rectangle obj(1.0,2.0);
+    cout &lt;&lt; obj.Perimeter() &lt;&lt; endl;
+    cout &lt;&lt; obj.Area() &lt;&lt; endl;
+    return 0;
+}
+
+Retangle::Retangle(double x, double y)
+{
+    a = x;
+    b = y;
+}
+
+double Perimeter::Retangle()        //计算周长
+{
+    return 2*(a+b);
+}
+
+double Area::Retangle()             //计算面积
+{
+    return a*b;
+}
+
+</code></pre>
+
+<p>注：上述例子只为说明两种设计思路的区别，省略了预处理相关的代码。</p>
+
+<p><br/></p>
+
+<h1 id="2-类与对象">2 类与对象</h1>
+
+<hr />
+
+<h2 id="2-1-类">2.1 类</h2>
+
+<p>类是具有相同属性和操作的一组对象的集合，它为属于该类的全部对象提供了统一的抽象描述，其内部包括 <strong>属性</strong> 和 <strong>操作</strong> 两个主要部分。类的作用是创建对象，对象是类的一个实例。</p>
+
+<p><img src="https://raw.githubusercontent.com/HauyuChen/PicsBox/master/OO_03.PNG" alt="" /></p>
+
+<p><br/></p>
+
+<h2 id="2-2-对象">2.2 对象</h2>
+
+<p>对象是系统中用来描述客观事物的一个实体，是构成系统的基本单位。对象一般是现实世界中某个实际存在的事物，它可以是有形的（如一辆汽车），也可以是无形的（如一项计划）。</p>
+
+<p>对象由一组属性和施加于这些属性的操作构成。</p>
+
+<p><img src="https://raw.githubusercontent.com/HauyuChen/PicsBox/master/OO_01.PNG" alt="" /></p>
+
+<p><strong>属性：</strong>用来描述对象的静态特征的数据项；</p>
+
+<p><strong>操作：</strong>用来描述对象的动态特征的动作序列；</p>
+
+<p><strong>对象标识：</strong>对象的名字。</p>
+
+<p><br/></p>
+
+<h2 id="2-3-类与对象的区别">2.3 类与对象的区别</h2>
+
+<p>（1）类是用来描述实体的“模版”或“原型”；<br />
+（2）每一个对象都是类的一个具体实例；<br />
+（3）类用来定义对象所有的属性和方法，同一个类的所有对象都拥有相同的特征和操作；<br />
+（4）可将类理解成生产产品的模具，而对象则是根据此模具生产的一个个产品。</p>
+
+<p><br/></p>
+
+<h1 id="3-面向对象的核心">3 面向对象的核心</h1>
+
+<hr />
+
+<h2 id="3-1-封装">3.1 封装</h2>
+
+<p><strong>封装</strong> 是指把对象的属性和操作结合成一个独立的系统单位，并尽可能隐蔽对象的内部细节。</p>
+
+<p><img src="https://raw.githubusercontent.com/HauyuChen/PicsBox/master/OO_02.PNG" alt="" /></p>
+
+<p>封装的意义在于，使对象能够集中而完整地描述一个具体的事物，体现了事物的相对独立性。对象外部不能随意存取对象的内部数据，避免了外部错误对它的“交叉感染”；对象的内部修改对外部影响很小，减少了修改引起的“波动效应”。</p>
+
+<h2 id="3-2-继承">3.2 继承</h2>
+
+<p><strong>继承：</strong>子类拥有其父类的全部属性与操作，称作子类对父类的继承。继承意味着自动地拥有，它简化了人们对事物的认识和描述，有利于软件复用，这也是面向对象技术能提高软件开发效率的重要原因之一。</p>
+
+<p><strong>父类与子类（一般类与特殊类）：</strong>如果类 A 具有类 B 的全部属性和全部操作，而且具有自己特有的某些属性或操作，则类 A 为类 B 的子类（特殊类），类 B 为类 A 的父类（一般类）。</p>
+
+<p><img src="https://raw.githubusercontent.com/HauyuChen/PicsBox/master/OO_04.PNG" alt="" /></p>
+
+<h2 id="3-3-多态">3.3 多态</h2>
+
+<p><strong>多态</strong> 是指同一个命名可具有不同的语义。面向对象方法中，常指父类定义的属性或操作被子类继承后，可以具有不同的数据类型或表现出不同的行为。</p>
+
+<p><strong>多态的实现机制：</strong></p>
+
+<ol>
+<li>重写（Override）：在子类中对继承来的属性或操作重新定义其实现；</li>
+<li>重载（Overload）：动态绑定，在运行时根据对象接收的消息动态确定要连接哪一段操作代码。</li>
+</ol>
+
+<p><br/></p>
+
+<h1 id="4-通过面向对象思维编写程序">4 通过面向对象思维编写程序</h1>
+
+<hr />
+
+<p>现在，我们试试通过面向对象程序设计的方法编写 <strong>模拟鸭子</strong> 的程序。</p>
+
+<p>假设我们的需求是这样的：</p>
+
+<ol>
+<li>鸭子有 <strong>绿头鸭</strong> 和 <strong>红头鸭</strong> 两种；</li>
+<li>所有的鸭子都会 <strong>嘎嘎叫</strong> 和 <strong>游泳</strong> 。</li>
+</ol>
+
+<p>根据面向对象思维，程序中的对象有：鸭子、绿头鸭、红头鸭。</p>
+
+<p>因此，我们可将<strong>鸭子作为父类，绿头鸭和红头鸭作为父类鸭子的子类</strong>，这样两个子类可以复用父类的部分属性和操作。</p>
+
+<p><strong>（1）设计一个抽象类 Duck</strong></p>
+
+<pre><code>/* Duck.java */
+
+public abstract class Duck{             //抽象类：鸭子
+    public Duck(){
+    
+    }
+
+    public abstract void display();     //外观
+    
+    public void quack(){                //嘎嘎叫
+        System.out.println(&quot;--gaga--&quot;);
+    }
+
+    public void swim(){                 //游泳
+        System.out.println(&quot;--swimming--&quot;);
+    }
+}
+</code></pre>
+
+<p><strong>（2）绿头鸭 GreenHeadDuck 继承抽象父类 Duck</strong></p>
+
+<ol>
+<li>因为 quack 和 fly 方法在父类 Duck 中已经定义，子类 GreenHeadDuck 直接继承了这些方法，无需重新编写。</li>
+<li>因为父类 Duck 中有抽象方法 display ，所以子类 GreenHeadDuck 需要重写 display 方法，这里我们通过重写 display 方法实现了不同鸭子（子类）外观的差异化。</li>
+</ol>
+
+<pre><code>/* GreenHeadDuck.java */
+
+public class GreenHeadDuck extends Duck{            //子类：绿头鸭
+    @Override
+    public void display(){
+        System.out.println(&quot;**GreenHeadDuck**&quot;);    //我是绿头鸭
+    }
+}
+</code></pre>
+
+<p><strong>（3）同理，红头鸭 RedHeadDuck 也继承抽象父类 Duck</strong></p>
+
+<pre><code>/* RedHeadDuck.java */
+
+public class RedHeadDuck extends Duck{              //子类：红头鸭
+    @Override
+    public void display(){
+        System.out.println(&quot;**RedHeadDuck**&quot;);      //我是红头鸭
+    }
+}
+</code></pre>
+
+<p><strong>（4）模拟鸭子</strong></p>
+
+<pre><code>/* StimulateDuck.java */
+
+public class StimulateDuck {
+    public static void main(String[] args) {
+        GreenHeadDuck mGreenHeadDuck = new GreenHeadDuck(); //绿头鸭
+        RedHeadDuck mRedHeadDuck = new RedHeadDuck();       //红头鸭
+        
+        //绿头鸭出场
+        mGreenHeadDuck.display();
+        mGreenHeadDuck.quack();
+        mGreenHeadDuck.swim();
+        
+        //红头鸭出场
+        mRedHeadDuck.display();
+        mRedHeadDuck.quack();
+        mRedHeadDuck.swim();
+    }
+}
+
+</code></pre>
+
+<p><strong>程序输出结果如下：</strong></p>
+
+<p>绿头鸭嘎嘎叫和游泳，红头鸭嘎嘎叫和游泳。</p>
+
+<pre><code>**GreenHeadDuck**
+--gaga--
+--swimming--
+**RedHeadDuck**
+--gaga--
+--swimming--
+</code></pre>
+
+<p><br/></p>
+
+<h2 id="4-2-新需求">4.2 新需求</h2>
+
+<p>回顾一下原始的需求：</p>
+
+<ol>
+<li>鸭子有 <strong>绿头鸭</strong> 和 <strong>红头鸭</strong> 两种；</li>
+<li>所有的鸭子都会 <strong>嘎嘎叫</strong> 和 <strong>游泳</strong> 。</li>
+</ol>
+
+<p>现在，我们需要新增一种 <strong>黑头鸭</strong> ，而且 <strong>让所有鸭子都会飞</strong> 。</p>
+
+<p>我们只需改动一小部分代码即可实现。</p>
+
+<p><strong>（1）修改父类 Duck</strong></p>
+
+<p>在父类 Duck 中<strong>增加 fly 方法，其它不变</strong>。这样使得所有鸭子都会飞。</p>
+
+<pre><code>/* Duck.java */
+
+public abstract class Duck{             //抽象类：鸭子
+    public Duck(){
+    
+    }
+    
+    public abstract void display();     //外观
+    
+    public void quack(){                //嘎嘎叫
+        System.out.println(&quot;--gaga--&quot;);
+    }
+
+    public void swim(){                 //游泳
+        System.out.println(&quot;--swimming--&quot;);
+    }
+    
+    /* 增加 fly 方法 */
+    public void fly(){                  //飞
+        System.out.println(&quot;--flying--&quot;);
+    }
+}
+</code></pre>
+
+<p><strong>（2）新增子类 BlackHeadDuck 继承抽象类 Duck</strong></p>
+
+<p>编写一个新的类 BlackHeadDuck ，并继承抽象类 Duck 。这样我们就增加了一种新的鸭子，而且它具有和其它鸭子类似的属性和操作。</p>
+
+<pre><code>/* BlackHeadDuck.java */
+
+public class BlackHeadDuck extends Duck{            //子类：黑头鸭
+    @Override
+    public void display(){
+        System.out.println(&quot;**BlackHeadDuck**&quot;);    //我是黑头鸭
+    }
+}
+</code></pre>
+
+<p>代码修改完毕，我们已经满足了新的需求，新增了一种黑头鸭，并让所有鸭子都会飞。</p>
+
+<p>这个例子虽然很简单，但我们可以体会到，面向对象程序设计在扩展性方面具有不错的表现。</p>
+
+<p><br/></p>
+
+<h1 id="5-面向对象的高级进阶-设计模式">5 面向对象的高级进阶：设计模式</h1>
+
+<hr />
+
+<p>设计模式是软件开发人员在开发过程中解决问题的方案，这些解决方案是众多软件开发人员经过长时间的试验和错误总结出来的。设计模式是软件开发过程中的优秀实践，通常被有经验的面向对象的软件开发人员所采用。</p>
+
+<p>注：设计模式是解决问题的思路，而不是具体的代码，它也不依托于特定的语言（如 Java、C++ 等）。强调一下，设计模式是一种软件开发思想。设计模式众多，本文无法一一展开，如有兴趣可查看本站专题：<a href="https://chenhy.com/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">设计模式</a>。</p>
+
+<p>还记得前面的例子吗？</p>
+
+<p>我们想要让鸭子会飞，所以在父类 Duck 中增加了 fly 方法。但这样所有的鸭子都会飞，如果我们希望有的鸭子会飞，有的鸭子不会飞呢？</p>
+
+<p>一种方案是在子类中<strong>重写 fly 方法</strong>。如此一来，每次增加新的鸭子，我们可能就需要重写子类的方法，来实现不同鸭子的差异化。</p>
+
+<p>针对这个问题，策略模式提供了优秀的解决方案。</p>
+
+<p><strong>（1）通过接口封装行为（算法族）</strong></p>
+
+<p>FlyBehavior 接口（算法族）：<strong>飞行行为族</strong></p>
+
+<pre><code>/* FlyBehavior.java */
+
+public interface FlyBehavior {      // FlyBehavior 行为族
+    void fly();
+}
+</code></pre>
+
+<p>GoodFlyBehavior 类（算法实现类）实现 FlyBehavior 接口（算法族）：<strong>会飞</strong></p>
+
+<pre><code>/* GoodFlyBehavior.java */
+
+public class GoodFlyBehavior implements FlyBehavior {   //会飞
+    @Override
+    public void fly() {
+        System.out.println(&quot;--GoodFly--&quot;);  
+    }
+}
+</code></pre>
+
+<p>BadFlyBehavior 类（算法实现类）实现 FlyBehavior 接口（算法族）：<strong>不会飞</strong></p>
+
+<pre><code>/* BadFlyBehavior.java */
+
+public class BadFlyBehavior implements FlyBehavior {    //不会飞
+    @Override
+    public void fly() {
+        System.out.println(&quot;--BadFly--&quot;);   
+    }
+}
+</code></pre>
+
+<p>我们<strong>通过 FlyBehavior 接口将飞行行为封装起来， FlyBehavior 就是我们所说的行为族（算法族）</strong>。</p>
+
+<p>GoodFlyBehavior 、 BadFlyBehavior 算法实现类是 FlyBehavior 行为族下的不同行为策略，分别对应会飞、不会飞。GoodFlyBehavior 、 BadFlyBehavior 算法实现类可被用来实例化不同的鸭子，这样就可以<strong>让鸭子有不同的行为策略</strong>，即有的鸭子会飞，有的鸭子不会飞。</p>
+
+<p><strong>（2）修改超类 Duck</strong></p>
+
+<p>接下来，我们需要修改父类 Duck 。值得注意的是，<strong>以后我们新增鸭子时不再需要修改父类 Duck 的代码</strong>，因为父类 Duck 已经按照策略模式封装好代码。</p>
+
+<pre><code>/* Duck.java */
+
+public abstract class Duck{
+    FlyBehavior mFlyBehavior;   //声明 FlyBehavior 接口的引用变量    
+    
+    public Duck(){
+    
+    }
+    
+    public void quack(){
+        System.out.println(&quot;--gaga--&quot;);
+    }
+
+    public abstract void display();
+
+    public void swim(){
+        System.out.println(&quot;--swimming--&quot;);
+    }
+    
+    //注意这里我们没有设定鸭子会不会飞，而是让 mFlyBehavior 去考虑
+    public void fly(){
+        mFlyBehavior.fly();     
+    }
+    
+    //动态设置 FlyBehavior ，这里可根据 Duck 的子类来动态设置行为族
+    public void SetFlyBehavior(FlyBehavior fb) {
+        mFlyBehavior = fb;
+    }
+}
+</code></pre>
+
+<p><strong>（3）在子类设定绿头鸭、红头鸭会不会飞</strong></p>
+
+<p>因为 GreenHeadDuck 和 RedHeadDuck 都继承了 Duck ，所以它们也继承了 FlyBehavior 类型的 mFlyBehavior 变量。我们可以在它们的构造器中<strong>根据不同的飞行行为来实例化 mFlyBehavior</strong>。不同的 FlyBehavior 实例对应不同的飞行行为，比如 GoodFlyBehavior（会飞）、BadFlyBehavior（不会飞）。</p>
+
+<p>GreenHeadDuck 绿头鸭：<strong>会飞</strong></p>
+
+<pre><code>/* GreenHeadDuck.java */
+
+public class GreenHeadDuck extends Duck{
+    public GreenHeadDuck() {
+        mFlyBehavior = new GoodFlyBehavior();   //实例化为 GoodFlyBehavior（会飞）
+    }
+    
+    @Override
+    public void display(){
+        System.out.println(&quot;**GreenHeadDuck**&quot;);
+    }
+}
+</code></pre>
+
+<p>RedHeadDuck 红头鸭：<strong>不会飞</strong></p>
+
+<pre><code>/* RedHeadDuck.java */
+
+public class RedHeadDuck extends Duck{
+    public RedHeadDuck() {
+        mFlyBehavior = new BadFlyBehavior();    //实例化为 BadFlyBehavior（不会飞）
+    }
+    
+    @Override
+    public void display(){
+        System.out.println(&quot;**RedHeadDuck**&quot;);
+    }
+}
+</code></pre>
+
+<p><strong>（4）测试</strong></p>
+
+<pre><code>/* StimulateDuck.java */
+
+public class StimulateDuck {
+    public static void main(String[] args) {
+        Duck mGreenHeadDuck = new GreenHeadDuck();  //绿头鸭
+        Duck mRedHeadDuck = new RedHeadDuck();      //红头鸭
+        
+        //绿头鸭出场
+        mGreenHeadDuck.display();
+        mGreenHeadDuck.quack();
+        mGreenHeadDuck.swim();
+        mGreenHeadDuck.fly();
+        
+        //红头鸭出场
+        mRedHeadDuck.display();
+        mRedHeadDuck.quack();
+        mRedHeadDuck.swim();
+        mRedHeadDuck.fly();
+        
+        //前面在构造函数中定义鸭子会不会飞，这里动态的将绿头鸭从 GoodFly 变成 BadFly 
+        mGreenHeadDuck.display();
+        mGreenHeadDuck.SetFlyBehavior(new BadFlyBehavior());
+        mGreenHeadDuck.fly();
+    }
+
+}
+</code></pre>
+
+<p><strong>程序运行结果：</strong></p>
+
+<p>首先，绿头鸭和红头鸭都嘎嘎叫、游泳，但是绿头鸭会飞（GoodFly），红头鸭不会飞（BadFly）。</p>
+
+<p>最后，我们动态地将绿头鸭从会飞设置成不会飞，所以绿头鸭输出了 BadFly 。</p>
+
+<pre><code>**GreenHeadDuck**
+--gaga--
+--swimming--
+--GoodFly--
+**RedHeadDuck**
+--gaga--
+--swimming--
+--BadFly--
+**GreenHeadDuck**
+--BadFly--
+</code></pre>
+
+<p>这就是借鉴策略模式的解决思路。通过封装行为族，超类不考虑具体的行为，而让子类去选择各自的行为。如此一来，<strong>我们增加新的鸭子，超类的代码无需改动，子类也不需覆盖超类的代码，只需构造不同的实例即可实现子类的行为差异化</strong>。</p>
+
+<p><br/></p>
+
+<h1 id="6-总结">6 总结</h1>
+
+<hr />
+
+<p>本文简要介绍了面向对象的相关概念，并引入一个模拟鸭子的程序实例讲解面向对象程序设计的思路，最后通过设计模式进一步优化程序。</p>
+
+<p>本文要点如下：</p>
+
+<p>（1）面试对象思想将一组数据结构和处理它们的方法组成对象，把相同行为的对象归纳为类；通过类的封装隐藏内部细节；通过继承实现类的特化/泛化；通过多态实现基于对象的动态分派；<br />
+（2）面向过程：先确定算法，再确定数据结构；面向对象：先构造一个对象模型，将数据和方法组织在一起；<br />
+（3）类为对象提供了统一的抽象描述，包括属性和操作；对象由一组属性和施加于这些属性的操作构成，对象是类的具体实例；<br />
+（4）封装把对象的属性和操作结合成一个独立的系统单位，并尽可能隐蔽对象的内部细节；<br />
+（5）继承简化了人们对事物的认识和描述，有利于软件复用；<br />
+（6）多态是指同一个命名可具有不同的语义，主要实现机制有重写和重载；<br />
+（7）设计模式是解决问题的思路，而不是具体的代码，它也不依托于特定的语言，是软件开发过程中的优秀实践。</p>
+
+<p><br/></p>
+
+  
+<div class="prev-next-post pure-g">
+  <div class="pure-u-1-24" style="text-align: left;">
+    
+    <a href="https://HauyuChen.github.io/post/%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E4%B8%8B%E4%B8%80%E4%B8%AA%E7%BB%93%E7%82%B9/"><i class="fa fa-chevron-left"></i></a>
+    
+  </div>
+  <div class="pure-u-10-24">
+    
+    <nav class="prev">
+      <a href="https://HauyuChen.github.io/post/%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E4%B8%8B%E4%B8%80%E4%B8%AA%E7%BB%93%E7%82%B9/">二叉树的下一个结点</a>
+    </nav>
+    
+  </div>
+  <div class="pure-u-2-24">
+    &nbsp;
+  </div>
+  <div class="pure-u-10-24">
+    
+  </div>
+  <div class="pure-u-1-24" style="text-align: right;">
+    
+  </div>
+</div>
+
+
+
+  
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+
+(function() {
+    
+    
+    if (window.location.hostname == "localhost")
+        return;
+
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    var disqus_shortname = "http-hov-space";
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com/" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+</div>
+
+</div>
+</div>
+<script src="https://HauyuChen.github.io/js/ui.js"></script>
+
+
+
+
+
+
+</body>
+</html>
+

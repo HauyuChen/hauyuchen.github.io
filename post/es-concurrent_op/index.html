@@ -5,7 +5,7 @@
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="">
-  <meta name="generator" content="Hugo 0.24.1" />
+  <meta name="generator" content="Hugo 0.38" />
 
   <title>Elasticsearch的乐观并发控制 &middot; Hov&#39;s Blog</title>
 
@@ -230,7 +230,7 @@
 
   <div>
     <i class="fa fa-calendar fa-fw"></i>
-    <time>2017-09-03</time>
+    <time>2018-01-26</time>
   </div>
 
   
@@ -241,7 +241,7 @@
   <div>
     <i class="fa fa-folder fa-fw"></i>
     
-      <a class="post-taxonomy-tag" href="https://HauyuChen.github.io/tags/elasticsearch">Elasticsearch</a>
+      <a class="post-taxonomy-tag" href="https://HauyuChen.github.io/tags/elasticsearch">elasticsearch</a>
     
   </div>
   
@@ -267,13 +267,13 @@
   
 </div>
 
-  
-
-<hr />
+  <p></p>
 
 <p><br/></p>
 
 <h1 id="0-前言">0 前言</h1>
+
+<hr />
 
 <p>Elasticsearch 采用的是乐观锁并发控制，基于 Elasticsearch 提供的 _version 字段或我们自己定义的外部版本号，可以方便地实现乐观并发控制。</p>
 
@@ -283,7 +283,9 @@
 
 <h1 id="1-基于-version-的乐观并发控制">1 基于 _version 的乐观并发控制</h1>
 
-<h2 id="1-1-version">1.1 _version</h2>
+<hr />
+
+<h2 id="1-1-内部版本号-version">1.1 内部版本号（_version）</h2>
 
 <p>_version 是 ES 中提供的一个字段，它表明当前数据的版本号。我们可根据它来对比数据的版本是否一致。</p>
 
@@ -419,6 +421,8 @@
 <p><br/></p>
 
 <h1 id="2-基于-external-version-的乐观并发控制">2 基于 external version 的乐观并发控制</h1>
+
+<hr />
 
 <h2 id="2-1-外部版本号-external-version">2.1 外部版本号（external version）</h2>
 
@@ -592,26 +596,27 @@
 
 <h1 id="3-结语">3 结语</h1>
 
+<hr />
+
 <p>以上就是 ES 中实现乐观并发控制的思路，我们围绕版本号来控制并发操作，以保证数据安全。版本号可以是 ES 内部提供的 _version 字段，也可以是我们自己维护的外部版本号。</p>
 
 <p><br/></p>
 
-<p>参考资料：<a href="http://www.roncoo.com/article/detail/128304">http://www.roncoo.com/article/detail/128304</a></p>
+<p><strong>参考资料：</strong><a href="http://www.roncoo.com/article/detail/128304">http://www.roncoo.com/article/detail/128304</a></p>
 
 <p><br/></p>
-
 
   
 <div class="prev-next-post pure-g">
   <div class="pure-u-1-24" style="text-align: left;">
     
-    <a href="https://HauyuChen.github.io/post/concurrence_pe_op/"><i class="fa fa-chevron-left"></i></a>
+    <a href="https://HauyuChen.github.io/post/es-bulk/"><i class="fa fa-chevron-left"></i></a>
     
   </div>
   <div class="pure-u-10-24">
     
     <nav class="prev">
-      <a href="https://HauyuChen.github.io/post/concurrence_pe_op/">并发控制（乐观锁、悲观锁）</a>
+      <a href="https://HauyuChen.github.io/post/es-bulk/">Elasticsearch实现批量更新</a>
     </nav>
     
   </div>
@@ -621,13 +626,13 @@
   <div class="pure-u-10-24">
     
     <nav class="next">
-      <a href="https://HauyuChen.github.io/post/java_ipc/">Java 进程通信（共享内存）</a>
+      <a href="https://HauyuChen.github.io/post/%E7%AC%AC%E4%B8%80%E4%B8%AA%E5%8F%AA%E5%87%BA%E7%8E%B0%E4%B8%80%E6%AC%A1%E7%9A%84%E5%AD%97%E7%AC%A6/">第一个只出现一次的字符</a>
     </nav>
     
   </div>
   <div class="pure-u-1-24" style="text-align: right;">
     
-    <a href="https://HauyuChen.github.io/post/java_ipc/"><i class="fa fa-chevron-right"></i></a>
+    <a href="https://HauyuChen.github.io/post/%E7%AC%AC%E4%B8%80%E4%B8%AA%E5%8F%AA%E5%87%BA%E7%8E%B0%E4%B8%80%E6%AC%A1%E7%9A%84%E5%AD%97%E7%AC%A6/"><i class="fa fa-chevron-right"></i></a>
     
   </div>
 </div>
