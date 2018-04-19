@@ -7,7 +7,7 @@
   <meta name="description" content="剑指Offer题解（Java实现）">
   <meta name="generator" content="Hugo 0.24.1" />
 
-  <title>反转链表 &middot; Hov&#39;s Blog</title>
+  <title>矩阵中的路径 &middot; Hov&#39;s Blog</title>
 
   <script>
 	var _hmt = _hmt || [];
@@ -221,7 +221,7 @@
 
 
 <div class="header">
-  <h1>反转链表</h1>
+  <h1>矩阵中的路径</h1>
   <h2>剑指Offer题解（Java实现）</h2>
 </div>
 <div class="content">
@@ -230,7 +230,7 @@
 
   <div>
     <i class="fa fa-calendar fa-fw"></i>
-    <time>2018-04-02</time>
+    <time>2018-04-05</time>
   </div>
 
   
@@ -273,7 +273,7 @@
 
 <hr />
 
-<p>输入一个链表，反转链表后，输出链表的所有元素。</p>
+<p>请设计一个函数，用来判断在一个矩阵中是否存在一条包含某字符串所有字符的路径。路径可以从矩阵中的任意一个格子开始，每一步可以在矩阵中向左，向右，向上，向下移动一个格子。如果一条路径经过了矩阵中的某一个格子，则该路径不能再进入该格子。 例如 a b c e s f c s a d e e 矩阵中包含一条字符串&rdquo;bcced&rdquo;的路径，但是矩阵中不包含&rdquo;abcb&rdquo;路径，因为字符串的第一个字符b占据了矩阵中的第一行第二个格子之后，路径不能再次进入该格子。</p>
 
 <p><br/></p>
 
@@ -281,10 +281,12 @@
 
 <hr />
 
+<p>本题可以用回溯法解决，题目本身不复杂，但应注意细节，比如数组下标，访问标志。</p>
+
 <ol>
-<li>反转链表可以通过栈作为辅助数组，先将链表节点全部入栈，然后逐个出栈重新构造链表，但这样会占用额外的空间；</li>
-<li>不需要辅助空间的解法是直接翻转相邻节点的指针，通过三个指针分别指向前一节点、当前节点、下一节点，但这会改变原有链表的结构。</li>
-<li>因此，采用何种思路应考虑具体要求。</li>
+<li>递归的结束条件是 str 数组已经全部比较完毕，如果能比较到 str 的最后，说明存在该路径，返回 true；</li>
+<li>每次递归前先判断是否符合条件（访问范围在数组内 &amp;&amp; matrix 数组和 str 数组对应的位置的字符相等 &amp;&amp; 该位置之前未走过）；</li>
+<li>每次判断上下左右四个方向是否符合。若符合，分别从四个方向判断 str[pos+1] 是否能成立；若都不符合，visted[pos] 重置 0 。</li>
 </ol>
 
 <p><br/></p>
@@ -293,33 +295,46 @@
 
 <hr />
 
-<pre><code>/*
-public class ListNode {
-    int val;
-    ListNode next = null;
-
-    ListNode(int val) {
-        this.val = val;
+<pre><code>public class Solution {
+    public boolean hasPath(char[] matrix, int rows, int cols, char[] str)
+    {
+        if(matrix==null || rows&lt;1 || cols&lt;1 || str==null){
+            return false;
+        }
+        int[] visted = new int[matrix.length];
+        for(int i=0;i&lt;matrix.length;i++){
+            visted[i] = 0;
+        }
+        for(int i=0;i&lt;rows;i++){
+            for(int j=0;j&lt;cols;j++){
+                if(findPath(matrix,rows,cols,i,j,str,0,visted)){
+                    return true;
+                }
+            }
+        }
+        return false;
     }
-}*/
-public class Solution {
-    public ListNode ReverseList(ListNode head) {
-        if(head==null){
-            return null;
-        }
-        ListNode p = head;
-        ListNode q = p.next;
-        ListNode r = null;
-        head.next = null;
-        
-        while(q!=null){
-            r = q.next;
-            q.next = p;
-            p = q;
-            q = r;
-        }
 
-        return p;
+    private static boolean findPath(char[] matrix,int rows,int cols,int row,int col,char[] str,int index,int[] visted){
+        if(index == str.length){
+            return true;
+        }
+        boolean hasPath = false;
+        if(row&gt;=0 &amp;&amp; row&lt;rows &amp;&amp; col&gt;=0 &amp;&amp; col&lt;cols &amp;&amp; matrix[row*cols+col]==str[index] &amp;&amp; visted[row*cols+col]==0) {
+            index++;
+            visted[row*cols+col] = 1;
+
+            hasPath = findPath(matrix,rows,cols,row-1,col,str,index,visted) ||
+                    findPath(matrix,rows,cols,row+1,col,str,index,visted) ||
+                    findPath(matrix,rows,cols,row,col-1,str,index,visted) ||
+                    findPath(matrix,rows,cols,row,col+1,str,index,visted);
+
+            if(!hasPath) {
+                index--;
+                visted[row*cols+col] = 0;
+            }
+        }
+        return hasPath;
     }
 }
 </code></pre>
@@ -330,13 +345,13 @@ public class Solution {
 <div class="prev-next-post pure-g">
   <div class="pure-u-1-24" style="text-align: left;">
     
-    <a href="https://HauyuChen.github.io/post/%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E4%B8%8B%E4%B8%80%E4%B8%AA%E7%BB%93%E7%82%B9/"><i class="fa fa-chevron-left"></i></a>
+    <a href="https://HauyuChen.github.io/post/%E5%8F%8D%E8%BD%AC%E9%93%BE%E8%A1%A8/"><i class="fa fa-chevron-left"></i></a>
     
   </div>
   <div class="pure-u-10-24">
     
     <nav class="prev">
-      <a href="https://HauyuChen.github.io/post/%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E4%B8%8B%E4%B8%80%E4%B8%AA%E7%BB%93%E7%82%B9/">二叉树的下一个结点</a>
+      <a href="https://HauyuChen.github.io/post/%E5%8F%8D%E8%BD%AC%E9%93%BE%E8%A1%A8/">反转链表</a>
     </nav>
     
   </div>
@@ -346,13 +361,13 @@ public class Solution {
   <div class="pure-u-10-24">
     
     <nav class="next">
-      <a href="https://HauyuChen.github.io/post/%E7%9F%A9%E9%98%B5%E4%B8%AD%E7%9A%84%E8%B7%AF%E5%BE%84/">矩阵中的路径</a>
+      <a href="https://HauyuChen.github.io/post/oo_introduction/">什么是面向对象？</a>
     </nav>
     
   </div>
   <div class="pure-u-1-24" style="text-align: right;">
     
-    <a href="https://HauyuChen.github.io/post/%E7%9F%A9%E9%98%B5%E4%B8%AD%E7%9A%84%E8%B7%AF%E5%BE%84/"><i class="fa fa-chevron-right"></i></a>
+    <a href="https://HauyuChen.github.io/post/oo_introduction/"><i class="fa fa-chevron-right"></i></a>
     
   </div>
 </div>
