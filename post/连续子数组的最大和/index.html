@@ -7,7 +7,7 @@
   <meta name="description" content="剑指Offer题解（Java实现）">
   <meta name="generator" content="Hugo 0.24.1" />
 
-  <title>反转链表 &middot; Hov&#39;s Blog</title>
+  <title>连续子数组的最大和 &middot; Hov&#39;s Blog</title>
 
   <script>
 	var _hmt = _hmt || [];
@@ -221,7 +221,7 @@
 
 
 <div class="header">
-  <h1>反转链表</h1>
+  <h1>连续子数组的最大和</h1>
   <h2>剑指Offer题解（Java实现）</h2>
 </div>
 <div class="content">
@@ -230,7 +230,7 @@
 
   <div>
     <i class="fa fa-calendar fa-fw"></i>
-    <time>2018-04-02</time>
+    <time>2018-04-03</time>
   </div>
 
   
@@ -273,7 +273,7 @@
 
 <hr />
 
-<p>输入一个链表，反转链表后，输出链表的所有元素。</p>
+<p>HZ偶尔会拿些专业问题来忽悠那些非计算机专业的同学。今天测试组开完会后,他又发话了:在古老的一维模式识别中,常常需要计算连续子向量的最大和,当向量全为正数的时候,问题很好解决。但是,如果向量中包含负数,是否应该包含某个负数,并期望旁边的正数会弥补它呢？例如:{6,-3,-2,7,-15,1,2,2},连续子向量的最大和为8(从第0个开始,到第3个为止)。你会不会被他忽悠住？(子向量的长度至少是1)</p>
 
 <p><br/></p>
 
@@ -281,11 +281,9 @@
 
 <hr />
 
-<ol>
-<li>反转链表可以通过栈作为辅助数组，先将链表节点全部入栈，然后逐个出栈重新构造链表，但这样会占用额外的空间；</li>
-<li>不需要辅助空间的解法是直接翻转相邻节点的指针，通过三个指针分别指向前一节点、当前节点、下一节点，但这会改变原有链表的结构。</li>
-<li>因此，采用何种思路应考虑具体要求。</li>
-</ol>
+<p>本题应该想到线性时间复杂度的方案。</p>
+
+<p>注意对异常输入的判断，这里采用一个全局变量表示是否异常输入，因为合法的输入也可能返回的是 0 。</p>
 
 <p><br/></p>
 
@@ -293,33 +291,23 @@
 
 <hr />
 
-<pre><code>/*
-public class ListNode {
-    int val;
-    ListNode next = null;
-
-    ListNode(int val) {
-        this.val = val;
-    }
-}*/
-public class Solution {
-    public ListNode ReverseList(ListNode head) {
-        if(head==null){
-            return null;
+<pre><code>public class Solution {
+    boolean badInput = false;
+    public int FindGreatestSumOfSubArray(int[] array) {
+        if(array==null){
+            badInput = true;
+            return 0;
         }
-        ListNode p = head;
-        ListNode q = p.next;
-        ListNode r = null;
-        head.next = null;
-        
-        while(q!=null){
-            r = q.next;
-            q.next = p;
-            p = q;
-            q = r;
+        int max = array[0];
+        int sum = 0;
+        for(int i=0;i&lt;array.length;i++){
+            sum += array[i];
+            max = max&gt;sum?max:sum;
+            if(sum&lt;0){
+                sum = 0;
+            }
         }
-
-        return p;
+        return max;
     }
 }
 </code></pre>
@@ -330,13 +318,13 @@ public class Solution {
 <div class="prev-next-post pure-g">
   <div class="pure-u-1-24" style="text-align: left;">
     
-    <a href="https://HauyuChen.github.io/post/%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E4%B8%8B%E4%B8%80%E4%B8%AA%E7%BB%93%E7%82%B9/"><i class="fa fa-chevron-left"></i></a>
+    <a href="https://HauyuChen.github.io/post/%E5%8F%8D%E8%BD%AC%E9%93%BE%E8%A1%A8/"><i class="fa fa-chevron-left"></i></a>
     
   </div>
   <div class="pure-u-10-24">
     
     <nav class="prev">
-      <a href="https://HauyuChen.github.io/post/%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E4%B8%8B%E4%B8%80%E4%B8%AA%E7%BB%93%E7%82%B9/">二叉树的下一个结点</a>
+      <a href="https://HauyuChen.github.io/post/%E5%8F%8D%E8%BD%AC%E9%93%BE%E8%A1%A8/">反转链表</a>
     </nav>
     
   </div>
@@ -346,13 +334,13 @@ public class Solution {
   <div class="pure-u-10-24">
     
     <nav class="next">
-      <a href="https://HauyuChen.github.io/post/%E8%BF%9E%E7%BB%AD%E5%AD%90%E6%95%B0%E7%BB%84%E7%9A%84%E6%9C%80%E5%A4%A7%E5%92%8C/">连续子数组的最大和</a>
+      <a href="https://HauyuChen.github.io/post/%E7%9F%A9%E9%98%B5%E4%B8%AD%E7%9A%84%E8%B7%AF%E5%BE%84/">矩阵中的路径</a>
     </nav>
     
   </div>
   <div class="pure-u-1-24" style="text-align: right;">
     
-    <a href="https://HauyuChen.github.io/post/%E8%BF%9E%E7%BB%AD%E5%AD%90%E6%95%B0%E7%BB%84%E7%9A%84%E6%9C%80%E5%A4%A7%E5%92%8C/"><i class="fa fa-chevron-right"></i></a>
+    <a href="https://HauyuChen.github.io/post/%E7%9F%A9%E9%98%B5%E4%B8%AD%E7%9A%84%E8%B7%AF%E5%BE%84/"><i class="fa fa-chevron-right"></i></a>
     
   </div>
 </div>
