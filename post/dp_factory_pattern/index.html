@@ -1,0 +1,1141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="设计模式学习笔记">
+  <meta name="generator" content="Hugo 0.24.1" />
+
+  <title>【设计模式】5. 工厂模式 &middot; Hov&#39;s Blog</title>
+
+  <script>
+	var _hmt = _hmt || [];
+	(function() {
+	  var hm = document.createElement("script");
+	  hm.src = "https://hm.baidu.com/hm.js?dd096f3aba9332e2640cda59d3786695";
+	  var s = document.getElementsByTagName("script")[0]; 
+	  s.parentNode.insertBefore(hm, s);
+	})();
+	</script>	
+  
+  
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/0.6.2/pure-min.css">
+
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/0.6.2/grids-responsive-old-ie-min.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/0.6.2/grids-responsive-min.css">
+  <!--<![endif]-->
+
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="https://HauyuChen.github.io/css/side-menu-old-ie.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="https://HauyuChen.github.io/css/side-menu.css">
+  <!--<![endif]-->
+
+  <link rel="stylesheet" href="https://HauyuChen.github.io/css/blackburn.css">
+
+  
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  
+  <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet" type="text/css">
+
+  
+  
+
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/styles/androidstudio.min.css">
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  
+
+  <link rel="shortcut icon" href="https://HauyuChen.github.io/img/favicon.ico" type="image/x-icon" />
+
+  
+  
+
+
+</head>
+
+
+<body>
+
+<div id="layout">
+
+  
+<a href="#menu" id="menuLink" class="menu-link">
+  
+  <span></span>
+</a>
+<div id="menu">
+
+  <a class="pure-menu-heading brand" href="https://HauyuChen.github.io/">
+  <img src="https://HauyuChen.github.io/img/Hov.jpg" width="125px">
+</a>
+
+  <div class="pure-menu">
+    <ul class="pure-menu-list">
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="https://HauyuChen.github.io/"><i class='fa fa-home fa-fw'></i>主页</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="https://HauyuChen.github.io/post/"><i class='fa fa-list fa-fw'></i>所有文章</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="https://HauyuChen.github.io/tags/"><i class='fa fa-folder fa-fw'></i>文章分类</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="https://HauyuChen.github.io/topics/"><i class='fa fa-tags fa-fw'></i>关键词</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="https://HauyuChen.github.io/about-me/"><i class='fa fa-user fa-fw'></i>关于我</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="https://HauyuChen.github.io/about-site/"><i class='fa fa-home fa-fw'></i>关于本站</a>
+      
+        </li>
+      
+    </ul>
+  </div>
+
+  <div class="pure-menu social">
+
+  <ul class="pure-menu-list">
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://github.com/HauyuChen" target="_blank"><i class="fa fa-github-square fa-fw"></i>GitHub</a>
+    </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+	</ul>
+	<ul class="pure-menu-list">
+	
+	<li class="pure-menu-item">
+      <a class="pure-menu-link" href="http://blog.csdn.net/u014134180" target="_blank"><i class="fa fa-lastfm-square fa-fw"></i>友链：Wu_Being</a>
+    </li>
+  </ul>
+  
+</div>
+
+
+  <div>
+
+
+</div>
+
+</div>
+
+
+  <div id="main">
+
+
+<div class="header">
+  <h1>【设计模式】5. 工厂模式</h1>
+  <h2>设计模式学习笔记</h2>
+</div>
+<div class="content">
+
+  <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>2018-04-15</time>
+  </div>
+
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-folder fa-fw"></i>
+    
+      <a class="post-taxonomy-tag" href="https://HauyuChen.github.io/tags/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F">设计模式</a>
+    
+  </div>
+  
+  
+
+  
+  
+  
+  <div>
+	<i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F">设计模式</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F">工厂模式</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/java">Java</a>
+    
+  </div>
+  
+  
+  
+</div>
+
+  <p></p>
+
+<hr />
+
+<p><em>版权声明：本文由 Hov 所有，发布于 <a href="http://chenhy.com">https://chenhy.com</a> ，转载请注明出处。<br/></em></p>
+
+<hr />
+
+<p><em>笔者注：设计模式理解起来可能比较晦涩，建议结合实例理解。在学习设计模式的过程中，可先简单了解概念，然后仔细研究实例的思路，最后回归概念。</em></p>
+
+<hr />
+
+<p><br/></p>
+
+<h1 id="1-工厂模式">1 工厂模式</h1>
+
+<hr />
+
+<h2 id="1-1-简介">1.1 简介</h2>
+
+<p>工厂模式属于创建型模式，它提供了一种 <strong>创建对象</strong> 的解决方案。在工厂模式中，创建对象时不会暴露创建逻辑，而是通过使用一个共同的接口来指向新创建的对象，实现程序与创建对象操作的解耦。</p>
+
+<p>工厂模式主要有三种实现方式：<strong>简单工厂</strong>、<strong>工厂方法模式</strong>、<strong>抽象工厂模式</strong>，它们的目的都是松耦合。</p>
+
+<h2 id="1-2-思路">1.2 思路</h2>
+
+<p>工厂模式<strong>将创建对象的操作封装起来</strong>，实现创建对象代码与具体类的解耦。工厂模式有利于我们针对抽象编程，而不是针对具体类编程。</p>
+
+<h2 id="1-3-使用场景">1.3 使用场景</h2>
+
+<p>当我们需要在不同条件下创建不同实例时，都可以使用工厂模式。比如，当我们需要不同汽车，只需从不同工厂获取，由工厂向我们提供不同型号的汽车，而不用管这些汽车是怎么制造出来的（对象是怎么创建的）。</p>
+
+<p>创建对象也是如此，程序需要不同的对象，只需告诉工厂需要什么对象。由工厂负责创建相应的对象，并返回给程序。程序不需要考虑对象是怎么创建的，从而实现了程序与创建对象行为的解耦。</p>
+
+<h2 id="1-4-优缺点">1.4 优缺点</h2>
+
+<p><strong>优点：</strong></p>
+
+<ol>
+<li>扩展性高：若要增加一个产品（对象），只需扩展一个工厂（类）即可；</li>
+<li>屏蔽对象的具体创建过程，调用者只负责获取对象；</li>
+</ol>
+
+<p><strong>缺点：</strong></p>
+
+<ol>
+<li>每增加一个产品（对象），可能就需要增加一个对象工厂，某种程度上增加了系统的复杂度。</li>
+</ol>
+
+<p><br/></p>
+
+<h1 id="2-实例">2 实例</h1>
+
+<hr />
+
+<p>在讲解工厂模式前，我们先引入一个披萨店的实例。</p>
+
+<ol>
+<li>披萨店中售卖不同类型的披萨，有 <strong>PepperPizza 、GreekPizza 、CheesePizza</strong>；</li>
+<li>每种披萨都需要 <strong>原料准备、烘培、切割、包装</strong> 四个步骤；</li>
+<li>不同的披萨 <strong>原料准备不同</strong>，但 <strong>烘培、切割、包装统一</strong>。</li>
+</ol>
+
+<h2 id="2-1-常规解决方案">2.1 常规解决方案</h2>
+
+<p>下面我们通过程序模拟披萨店的运作。</p>
+
+<p><strong>（1）抽象类 Pizza</strong></p>
+
+<p>抽象类 Pizza 提供了 <strong>烘培</strong>、<strong>切割</strong>、<strong>包装</strong> 三个步骤的默认实现，而 <strong>原料准备</strong> 作为抽象方法，由不同的披萨子类去实现。</p>
+
+<pre><code>/* Pizza.java */
+
+package pizza;
+
+public abstract class Pizza {           //抽象类：Pizza
+    protected String name;              //披萨名称
+
+    public abstract void prepare();     //抽象方法：原料准备
+
+    public void bake(){                 //默认实现：烘培
+        System.out.println(name + &quot; baking...&quot;);
+    }
+
+    public void cut(){                  //默认实现：切割
+        System.out.println(name + &quot; cutting...&quot;);
+    }
+
+    public void box(){                  //默认实现：包装
+        System.out.println(name + &quot;boxing...&quot;);
+    }
+
+    public void setName(String name){
+        this.name = name;
+    }
+}
+</code></pre>
+
+<p><strong>（2）不同的披萨子类继承父类 Pizza</strong></p>
+
+<p>不同的披萨子类继承父类 Pizza，并 <strong>重写 prepare 方法</strong>，以此实现不同披萨的原料准备不同。同时，这些子类都继承了父类 Pizza 的 bake、cut、box 方法，因为这三个步骤是统一的，所以采用默认实现即可，无需重写。</p>
+
+<p><strong>子类 PepperPizza 继承父类 Pizza：</strong></p>
+
+<pre><code>/* PepperPizza.java */
+
+package pizza;
+
+public class PepperPizza extends Pizza {    //子类：PepperPizza
+    @Override
+    public void prepare() {                 // PepperPizza 原料准备
+        super.setName(&quot;PepperPizza&quot;);
+        System.out.println(name + &quot; preparing...&quot;);
+    }
+}
+</code></pre>
+
+<p><strong>子类 GreekPizza 继承父类 Pizza：</strong></p>
+
+<pre><code>/* GreekPizza.java */
+
+package pizza;
+
+public class GreekPizza extends Pizza {     //子类：GreekPizza
+    @Override
+    public void prepare() {
+        super.setName(&quot;GreekPizza&quot;);        // GreekPizza 原料准备
+        System.out.println(name + &quot; preparing...&quot;);
+    }
+}
+</code></pre>
+
+<p><strong>子类 CheesePizza 继承父类 Pizza：</strong></p>
+
+<pre><code>/* CheesePizza.java */
+
+package pizza;
+
+public class CheesePizza extends Pizza {    //子类：CheesePizza
+    @Override
+    public void prepare() {                 // CheesePizza 原料准备
+        super.setName(&quot;CheesePizza&quot;);
+        System.out.println(name + &quot; preparing...&quot;);
+    }
+}
+</code></pre>
+
+<p><strong>（3）订购披萨</strong></p>
+
+<p>前面我们已经封装了三个子类 PepperPizza、GreekPizza、CheesePizza（分别代表不同的披萨），并都继承了父类 Pizza。因此，实例化这些不同的披萨子类就是生成不同的披萨。</p>
+
+<p>订购披萨类 OrderPizza 的作用是 <strong>根据用户的输入来实例化不同的披萨子类</strong>。因此，用户只需告诉 OrderPizza 需要什么披萨，OrderPizza 就负责创建相应的披萨。</p>
+
+<pre><code>/* OrderPizza.java */
+
+package pizzastore;
+import pizza.*;
+import java.util.Scanner;
+
+public class OrderPizza {                           //订购披萨
+    public OrderPizza(){
+        Pizza pizza = null;
+        String orderType;
+
+        do{
+            orderType = getType();                  //输入披萨名称
+
+            if(orderType.equals(&quot;cheese&quot;)){         //创建CheesePizza
+                pizza = new CheesePizza();
+            }
+            else if(orderType.equals(&quot;greek&quot;)){     //创建GreekPizza
+                pizza = new GreekPizza();
+            }
+            else if(orderType.equals(&quot;pepper&quot;)){    //创建PepperPizza
+                pizza = new PepperPizza();
+            }
+            else{
+                break;
+            }
+
+            //根据前面的选择，pizza 已经被实例化为相应的披萨对象
+            pizza.prepare();                        //原料准备
+            pizza.bake();                           //烘培
+            pizza.cut();                            //切割
+            pizza.box();                            //包装
+        }while(true);
+    }
+
+    private String getType(){                       //输入披萨名称
+        Scanner sc = new Scanner(System.in);
+        String orderType = sc.next();
+        return orderType;
+    }
+}
+</code></pre>
+
+<p><strong>（4）模拟程序</strong></p>
+
+<p>通过 OrderPizza 接收用户输入，根据用户输入的披萨名称，创建不同的披萨，并进行原料准备、烘培、切割、包装四个步骤。</p>
+
+<pre><code>/* PizzaStore.java */
+
+package pizzastore;
+
+public class PizzaStore {                           //披萨店
+    public static void main(String[] args) {
+        OrderPizza mOrderPizza = new OrderPizza();  //订购披萨
+    }
+}
+</code></pre>
+
+<p><strong>程序运行结果：</strong></p>
+
+<p>输入 cheese，披萨店制作了 CheesePizza：</p>
+
+<pre><code>Please input the pizza you want:
+cheese
+CheesePizza preparing...
+CheesePizza baking...
+CheesePizza cutting...
+CheesePizzaboxing...
+</code></pre>
+
+<p>输入 pepper，披萨店制作了 PepperPizza：</p>
+
+<pre><code>Please input the pizza you want:
+pepper
+PepperPizza preparing...
+PepperPizza baking...
+PepperPizza cutting...
+PepperPizzaboxing...
+</code></pre>
+
+<h2 id="2-2-存在的问题">2.2 存在的问题</h2>
+
+<p>上述程序虽然实现了基本的功能，但存在一些问题。例如，违反开闭原则。</p>
+
+<p>当我们想要新增一种披萨，如 ChicagoPizza 。</p>
+
+<p>我们需要 <strong>修改 OrderPizza.java 的代码</strong>，<strong>并增加一种披萨类型 ChicagoPizza</strong> 。</p>
+
+<p>也就是说，每新增一种披萨，我们都要修改 OrderPizza.java 的代码，因此需要暂停程序。</p>
+
+<p><strong>（1）修改 OrderPizza.java</strong></p>
+
+<p>将 OrderPizza.java 中</p>
+
+<pre><code>if(orderType.equals(&quot;cheese&quot;)){
+    pizza = new CheesePizza();
+}
+else if(orderType.equals(&quot;greek&quot;)){
+    pizza = new GreekPizza();
+}
+else if(orderType.equals(&quot;pepper&quot;)){
+    pizza = new PepperPizza();
+}
+else{
+    break;
+}
+</code></pre>
+
+<p>改成：</p>
+
+<pre><code>if(orderType.equals(&quot;cheese&quot;)){
+    pizza = new CheesePizza();
+}
+else if(orderType.equals(&quot;greek&quot;)){
+    pizza = new GreekPizza();
+}
+else if(orderType.equals(&quot;pepper&quot;)){
+    pizza = new PepperPizza();
+}
+else if(orderType.equals(&quot;chicago&quot;)){   //增加 ChicagoPizza
+    pizza = new ChicagoPizza();
+}
+else{
+    break;
+}
+</code></pre>
+
+<p><strong>（2）增加子类 ChicagoPizza 继承父类 Pizza</strong></p>
+
+<pre><code>/* ChicagoPizza.java */
+
+package pizza;
+
+public class ChicagoPizza extends Pizza {       //子类：ChicagoPizza
+    @Override
+    public void prepare() {                     // ChicagoPizza 原料准备
+        super.setName(&quot;ChicagoPizza&quot;);
+        System.out.println(name + &quot; preparing...&quot;);
+    }
+}
+</code></pre>
+
+<p><br/></p>
+
+<h1 id="3-简单工厂">3 简单工厂</h1>
+
+<hr />
+
+<p>回顾前面的例子，我们实现了基本的功能，但存在一些问题。每新增一种披萨都需要修改代码，导致整个程序需要重新编译。通过分析变化部分和不变化部分，我们可以 <strong>将变化部分提取出来</strong>，放在所谓的简单工厂。具体到例子，我们可以定义一个实例化披萨对象的类，封装创建对象的代码，这个类就是所谓的 <strong>简单工厂</strong>。</p>
+
+<p><strong>简单工厂：定义一个创建对象的类，由这个类封装实例化对象的行为。</strong></p>
+
+<p><strong>注：</strong>很多人将简单工厂说成简单工厂模式，事实上，简单工厂并非一种设计模式，反而更像是一种编程习惯。</p>
+
+<p>下面我们通过简单工厂来进一步改进程序。</p>
+
+<p><strong>（1）简单工厂：封装创建对象的代码</strong></p>
+
+<p>还记得前面的订购披萨类 OrderPizza 吗？我们在这个类中定义了创建不同披萨对象的代码。正因如此，我们每新增一种披萨都需要修改这部分代码。</p>
+
+<p>简单工厂 SimplePizzaFactory 的工作是 <strong>将订购披萨类 OrderPizza 中实例化不同对象的代码（变化部分）提取出来，并封装成一个类（简单工厂）</strong>。</p>
+
+<pre><code>/* SimplePizzaFactory.java */
+
+package pizzastore;
+import pizza.*;
+
+public class SimplePizzaFactory {   //简单工厂：负责创建各种类型的披萨对象
+    public Pizza createPizza(String pizzaType){     //创建披萨对象
+        Pizza pizza = null;
+
+        if(pizzaType.equals(&quot;cheese&quot;)){             //创建 CheesePizza
+            pizza = new CheesePizza();
+        }
+        else if(pizzaType.equals(&quot;greek&quot;)){         //创建 GreekPizza
+            pizza = new GreekPizza();
+        }
+        else if(pizzaType.equals(&quot;pepper&quot;)){        //创建 PepperPizza
+            pizza = new PepperPizza();
+        }
+
+        return pizza;
+    }
+}
+</code></pre>
+
+<p><strong>（2）在 OrderPizza.java 中使用简单工厂</strong></p>
+
+<p>有了简单工厂，订购披萨类 OrderPizza 中创建不同披萨对象的工作就可以交给简单工厂去实现。OrderPizza 只需告诉简单工厂需要创建的披萨名称，就可以获取到相应的披萨对象。</p>
+
+<pre><code>/* OrderPizza.java */
+
+package pizzastore;
+import pizza.*;
+import java.util.Scanner;
+
+public class OrderPizza {       //订购披萨
+    SimplePizzaFactory mSimplePizzaFactory = new SimplePizzaFactory();  //简单工厂
+
+    public OrderPizza(){
+        setFactory(mSimplePizzaFactory);
+    }
+
+    public void setFactory(SimplePizzaFactory mSimplePizzaFactory){
+        Pizza pizza = null;
+        String pizzaType;
+        this.mSimplePizzaFactory = mSimplePizzaFactory;
+        do{
+            pizzaType = getType();      //输入披萨名称
+            pizza = mSimplePizzaFactory.createPizza(pizzaType); //通过简单工厂创建披萨对象
+
+            if(pizza!=null){            //创建成功
+                pizza.prepare();        //原料准备
+                pizza.bake();           //烘培
+                pizza.cut();            //切割
+                pizza.box();            //包装
+            }
+        }while(true);
+    }
+
+    private String getType(){           //输入披萨名称
+        System.out.println(&quot;Please input the pizza you want:&quot;);
+        Scanner sc = new Scanner(System.in);
+        String pizzaType = sc.next();
+        return pizzaType;
+    }
+}
+</code></pre>
+
+<p>以上，我们已经通过简单工厂对程序进一步改进，实现创建对象行为与程序的解耦。</p>
+
+<p>简单工厂其实就是将创建对象的代码封装成一个简单工厂类 SimplePizzaFactory，订购披萨类 OrderPizza 通过使用这个简单工厂来创建不同的披萨对象。</p>
+
+<p><br/></p>
+
+<h1 id="4-工厂方法模式">4 工厂方法模式</h1>
+
+<hr />
+
+<p>回顾前面的例子，披萨店可以制作不同类型的披萨。</p>
+
+<p>（普通方案）一开始，我们直接使用订购披萨类 OrderPizza 创建不同的披萨对象。</p>
+
+<p>（简单工厂）后面我们觉得这样每次都要修改订购披萨类 OrderPizza ，扩展性不强，而且违反开闭原则。所以，我们封装了一个简单工厂来创建不同的披萨对象，也就是将创建披萨对象的实现代码移出订购披萨类 OrderPizza。</p>
+
+<p>现在，由于披萨店发展迅猛，程序有了新的需求。</p>
+
+<ol>
+<li>有两家披萨店：<strong>广州分店</strong>、<strong>深圳分店</strong>；</li>
+<li><strong>不同分店可以制作不同口味的披萨</strong>；比如 CheesePizza ，广州分店制作的是广州风味的 GZCheesePizza，而深圳分店制作的是深圳风味的 SZCheesePizza。</li>
+</ol>
+
+<p>为了实现不同分店可以制作不同风味的披萨，我们可采用工厂方法模式，将创建披萨对象的行为抽象为抽象方法，在不同分店中实例化不同的对象。</p>
+
+<p><strong>工厂方法模式：定义了一个创建对象的抽象方法，由子类决定要实例化的类。工厂方法模式将对象的实例化推迟到子类。</strong></p>
+
+<p>下面我们通过工厂方法模式来进一步改进程序。</p>
+
+<p><strong>（1）抽象类：Pizza</strong></p>
+
+<p>抽象类 Pizza 无需改动，依然定义了原料准备的抽象方法 prepare，以及提供了烘培、切割、包装的默认实现 bake、cut、box。</p>
+
+<pre><code>/* Pizza.java */
+
+package pizza;
+
+public abstract class Pizza {           //抽象类：Pizza
+    protected String name;              //披萨名称
+
+    public abstract void prepare();     //原料准备
+
+    public void bake(){                 //烘培
+        System.out.println(name + &quot; baking...&quot;);
+    }
+
+    public void cut(){                  //切割
+        System.out.println(name + &quot; cutting...&quot;);
+    }
+
+    public void box(){                  //包装
+        System.out.println(name + &quot;boxing...&quot;);
+    }
+
+    public void setName(String name){
+        this.name = name;
+    }
+}
+</code></pre>
+
+<p><strong>（2）广州分店：两种广州风味的披萨</strong></p>
+
+<p>广州分店可制作具有广州风味的披萨： GZCheesePizza 和 GZPepperPizza。</p>
+
+<p><strong>披萨 GZCheesePizza 继承父类 Pizza：</strong></p>
+
+<pre><code>/* GZCheesePizza.java */
+
+package pizza;
+
+public class GZCheesePizza extends Pizza{   //广州风味的CheesePizza
+    @Override
+    public void prepare() {
+        super.setName(&quot;GZCheesePizza&quot;);
+        System.out.println(name + &quot; preparing...&quot;);
+    }
+}
+</code></pre>
+
+<p><strong>披萨 GZPepperPizza 继承父类 Pizza：</strong></p>
+
+<pre><code>/* GZPepperPizza.java */
+
+package pizza;
+
+public class GZPepperPizza extends Pizza {  //广州风味的PepperPizza
+    @Override
+    public void prepare() {
+        super.setName(&quot;GZPepperPizza&quot;);
+        System.out.println(name + &quot; preparing...&quot;);
+    }
+}
+</code></pre>
+
+<p><strong>（3）深圳分店：两种深圳风味的披萨</strong></p>
+
+<p>深圳分店可制作具有深圳风味的披萨 SZCheesePizza 和 SZPepperPizza。</p>
+
+<p><strong>披萨 SZCheesePizza 继承父类 Pizza：</strong></p>
+
+<pre><code>/* SZCheesePizza.java */
+
+package pizza;
+
+public class SZCheesePizza extends Pizza{   //深圳风味的CheesePizza
+    @Override
+    public void prepare() {
+        super.setName(&quot;SZCheesePizza&quot;);
+        System.out.println(name + &quot; preparing...&quot;);
+    }
+}
+</code></pre>
+
+<p><strong>披萨 SZPepperPizza 继承父类 Pizza：</strong></p>
+
+<pre><code>/* SZPepperPizza.java */
+
+package pizza;
+
+public class SZPepperPizza extends Pizza {  //深圳风味的PepperPizza
+    @Override
+    public void prepare() {
+        super.setName(&quot;SZPepperPizza&quot;);
+        System.out.println(name + &quot; preparing...&quot;);
+    }
+}
+</code></pre>
+
+<p><strong>（4）订购披萨抽象类： OrderPizza</strong></p>
+
+<p>回顾前面的程序，订购披萨类 OrderPizza 实现了以下功能。</p>
+
+<ol>
+<li>普通方案：直接实例化披萨对象；</li>
+<li>简单工厂：通过调用简单工厂类实例化对象。</li>
+</ol>
+
+<p>在工厂方法模式下，我们可以 <strong>将 OrderPizza 定义为抽象类，将实例化操作延迟到子类</strong>。</p>
+
+<p>在订购披萨抽象类 OrderPizza 中，方法 createPizza 负责创建披萨对象，同时被声明为抽象方法。这意味着创建对象的行为需要由 OrderPizza 的子类去实现。</p>
+
+<pre><code>/* OrderPizza.java */
+
+package pizzastore;
+import pizza.*;
+import java.util.Scanner;
+
+public abstract class OrderPizza {          //抽象类：订购披萨
+    public OrderPizza(){
+        Pizza pizza = null;
+        String pizzaType;
+        do{
+            pizzaType = getType();          //输入披萨名称
+            pizza = createPizza(pizzaType); //创建披萨对象
+            pizza.prepare();                //原料准备
+            pizza.bake();                   //烘培
+            pizza.cut();                    //切割
+            pizza.box();                    //包装
+        }while(true);
+    }
+
+    public abstract Pizza createPizza(String pizzaType);    //抽象方法：创建披萨对象
+
+    private String getType(){               //输入披萨名称
+        System.out.println(&quot;Please input the pizza you want:&quot;);
+        Scanner sc = new Scanner(System.in);
+        String pizzaType = sc.next();
+        return pizzaType;
+    }
+}
+</code></pre>
+
+<p><strong>（5）订购披萨具体实现类：GuangzhouOrderPizza 和 ShenzhenOrderPizza</strong></p>
+
+<p>订购披萨具体实现类中需要重写抽象类 OrderPizza 的抽象方法 createPizza，createPizza 负责创建不同的披萨对象。</p>
+
+<p><strong>广州分店订购披萨 GuangzhouOrderPizza 继承父类 OrderPizza：</strong></p>
+
+<pre><code>/* GuangzhouOrderPizza.java */
+
+package pizzastore;
+import pizza.*;
+
+public class GuangzhouOrderPizza extends OrderPizza {   //广州分店订购披萨
+    @Override
+    public Pizza createPizza(String pizzaType) {
+        Pizza pizza = null;
+
+        if(pizzaType.equals(&quot;cheese&quot;)){         //创建广州风味的CheesePizza
+            pizza = new GZCheesePizza();
+        }
+        else if(pizzaType.equals(&quot;pepper&quot;)){    //创建广州风味的PepperPizza
+            pizza = new GZPepperPizza();
+        }
+        return pizza;
+    }
+}
+</code></pre>
+
+<p><strong>深圳分店订购披萨 ShenzhenOrderPizza 继承父类 OrderPizza：</strong></p>
+
+<pre><code>/* ShenzhenOrderPizza.java */
+
+package pizzastore;
+import pizza.*;
+
+public class ShenzhenOrderPizza extends OrderPizza{     //深圳分店订购披萨
+    @Override
+    public Pizza createPizza(String pizzaType) {
+        Pizza pizza = null;
+
+        if(pizzaType.equals(&quot;cheese&quot;)){         //创建深圳风味的CheesePizza
+            pizza = new SZCheesePizza();
+        }
+        else if(pizzaType.equals(&quot;pepper&quot;)){    //创建深圳风味的PepperPizza
+            pizza = new SZPepperPizza();
+        }
+        return pizza;
+    }
+}
+</code></pre>
+
+<p><strong>（6）模拟程序</strong></p>
+
+<p>通过实例化 GuangzhouOrderPizza ，模拟广州分店。同理，当我们实例化 ShenzhenOrderPizza ，即可模拟深圳分店。</p>
+
+<pre><code>/* PizzaStore.java */
+
+package pizzastore;
+
+public class PizzaStore {
+    public static void main(String[] args) {
+        OrderPizza mOrderPizza = new GuangzhouOrderPizza();     //广州分店订购披萨
+    }
+}
+</code></pre>
+
+<p><strong>程序运行结果：</strong></p>
+
+<p>输入 cheese，广州分店制作了 GZCheesePizza：</p>
+
+<pre><code>Please input the pizza you want:
+cheese
+GZCheesePizza preparing...
+GZCheesePizza baking...
+GZCheesePizza cutting...
+GZCheesePizzaboxing...
+</code></pre>
+
+<p>输入 pepper，广州分店制作了 GZPepperPizza：</p>
+
+<pre><code>Please input the pizza you want:
+pepper
+GZPepperPizza preparing...
+GZPepperPizza baking...
+GZPepperPizza cutting...
+GZPepperPizzaboxing...
+</code></pre>
+
+<p><br/></p>
+
+<h1 id="5-抽象工厂模式">5 抽象工厂模式</h1>
+
+<hr />
+
+<p>回顾前面的例子，我们通过工厂方法模式对程序进一步改进。通过将订购披萨类声明为抽象类，并通过不同的子类重写创建对象的方法 createPizza ，将创建对象的操作延迟到子类。</p>
+
+<p>抽象工厂模式与工厂方法模式类似，都实现了对创建对象操作的解耦。不同的是，工厂方法模式将创建对象的操作延迟到子类，而抽象工厂模式直接封装一个抽象工厂，再由具体的工厂实现类来定义不同的创建对象行为。可以这样理解，抽象工厂模式就是在简单工厂的基础上进一步抽象，将创建对象的任务交由抽象工厂下面的子工厂实现。</p>
+
+<p><strong>抽象工厂模式：定义了一个接口用于创建相关或有依赖关系的对象族，而无需明确指定具体类。</strong></p>
+
+<p>下面我们通过抽象工厂模式继续改进程序。</p>
+
+<p><strong>（1）抽象工厂：PizzaFactory</strong></p>
+
+<p>抽象工厂 PizzaFactory 作为所有工厂的接口，声明了 createPizza 方法。这意味着，所有实现抽象工厂 PizzaFactory 的子工厂（类）都需要重写 createPizza 方法。在 createPizza 方法中，不同的子工厂类可以实现不同的创建对象行为。</p>
+
+<pre><code>/* PizzaFactory.java */
+
+package factory;
+import Pizza;
+
+public interface PizzaFactory {             //接口：抽象工厂
+    public Pizza createPizza(String pizzaType);
+}
+</code></pre>
+
+<p><strong>（2）不同的子工厂实现抽象工厂 PizzaFactory</strong></p>
+
+<p>不同的子工厂（类）实现抽象工厂 PizzaFactory，并重写 createPizza 方法，实现不同的创建对象行为。比如广州工厂接收到 cheese ，创建的是 GZCheesePizza ，而不是 SZCheesePizza。</p>
+
+<p><strong>广州工厂 GZFactory：</strong></p>
+
+<pre><code>/* GZFactory.java */
+
+package factory;
+import pizza.*;
+
+public class GZFactory implements PizzaFactory {    //广州工厂
+    @Override
+    public Pizza createPizza(String pizzaType) {
+        Pizza pizza = null;
+
+        if(pizzaType.equals(&quot;cheese&quot;)){             //创建广州风味的CheesePizza
+            pizza = new GZCheesePizza();
+        }
+        else if(pizzaType.equals(&quot;pepper&quot;)){        //创建广州风味的PepperPizza
+            pizza = new GZPepperPizza();
+        }
+
+        return pizza;
+    }
+}
+</code></pre>
+
+<p><strong>深圳工厂 SZFactory：</strong></p>
+
+<pre><code>/* SZFactory.java */
+
+package factory;
+import pizza.*;
+
+public class SZFactory implements PizzaFactory {    //深圳工厂
+    @Override
+    public Pizza createPizza(String pizzaType) {
+        Pizza pizza = null;
+
+        if(pizzaType.equals(&quot;cheese&quot;)){             //创建深圳风味的CheesePizza
+            pizza = new SZCheesePizza();
+        }
+        else if(pizzaType.equals(&quot;pepper&quot;)){        //创建深圳风味的PepperPizza
+            pizza = new SZPepperPizza();
+        }
+
+        return pizza;
+    }
+}
+</code></pre>
+
+<p><strong>（3）订购披萨</strong></p>
+
+<p>订购披萨类 OrderPizza 和简单工厂的实现类似，通过工厂来创建对象。不同的是简单工厂提供了创建对象的具体实现，而抽象工厂并没有提供创建对象的具体实现，可以设置不同的工厂，由不同的工厂创建不同的对象。</p>
+
+<pre><code>/* OrderPizza.java */
+
+package factory;
+import pizza.*;
+import java.util.Scanner;
+
+public class OrderPizza {
+    PizzaFactory mFactory;
+
+    public OrderPizza(PizzaFactory mFactory){
+        setFactory(mFactory);
+    }
+
+    public void setFactory(PizzaFactory mFactory){      //设定工厂名称
+        Pizza pizza = null;
+        String pizzaType;
+        this.mFactory = mFactory;
+
+        do{
+            pizzaType = getType();      //输入披萨名称
+            pizza = mFactory.createPizza(pizzaType);    //由具体工厂创建披萨对象
+            if(pizza!=null){
+                pizza.prepare();        //原料准备
+                pizza.bake();           //烘培
+                pizza.cut();            //切割
+                pizza.box();            //包装
+            }
+        }while(true);
+    }
+
+    private String getType(){           //输入披萨名称
+        System.out.println(&quot;Please input the pizza you want:&quot;);
+        Scanner sc = new Scanner(System.in);
+        String pizzaType = sc.next();
+        return pizzaType;
+    }
+}
+</code></pre>
+
+<p><strong>（4）模拟程序</strong></p>
+
+<p>通过向 OrderPizza 传入不同的工厂实例，实现不同的创建对象行为。下面的程序将广州工厂 GZFactory 作为订购披萨类的构造参数，实现通过广州工厂创建披萨对象的效果。</p>
+
+<pre><code>/* PizzaStore.java */
+
+package factory;
+
+public class PizzaStore {
+    public static void main(String[] args) {
+        OrderPizza mOrderPizza = new OrderPizza(new GZFactory());   //广州工厂订购披萨
+    }
+}
+</code></pre>
+
+<p><strong>程序运行结果：</strong></p>
+
+<p>输入 cheese ，创建广州风味的 GZCheesePizza：</p>
+
+<pre><code>Please input the pizza you want:
+cheese
+GZCheesePizza preparing...
+GZCheesePizza baking...
+GZCheesePizza cutting...
+GZCheesePizzaboxing...
+</code></pre>
+
+<p><br/></p>
+
+<h1 id="6-总结">6 总结</h1>
+
+<hr />
+
+<p>工厂模式通过封装对象的创建行为，减少了程序和具体类之间的依赖，促进了松耦合。通过分析程序中的变化部分和不变化部分，将变化部分（对象实例化操作）提取出来封装成简单工厂或工厂方法或抽象工厂。</p>
+
+<ol>
+<li><strong>简单工厂：</strong>通过 <strong>将对象实例化代码封装成一个类（简单工厂）</strong>，实现程序和具体类（创建对象）解耦。简单工厂不是真正的设计模式，但却简单有效。</li>
+<li><strong>工厂方法模式：</strong>通过继承实现，将对象实例化代码抽象（抽象父类），通过继承将对象的创建委托给子类，子类实现工厂方法来创建对象。<strong>工厂方法模式将创建对象的操作延迟到子类</strong>。</li>
+<li><strong>抽象工厂模式：</strong>通过对象组合实现，将工厂进一步抽象（工厂接口），<strong>对象的创建被实现在工厂接口所暴露出来的方法（子工厂的方法）</strong>中，<strong>抽象工厂模式是简单工厂的进一步抽象</strong>。</li>
+</ol>
+
+<p><strong>依赖抽象原则：</strong>避免依赖具体类型，应尽量依赖抽象。</p>
+
+<ol>
+<li>变量不要持有具体类的引用（在实例化时避免使用 new ，可通过 &ldquo; Pizza pizza = null； pizza = createPizza(); &rdquo; 代替 &ldquo; Pizza pizza = new Pizza();&ldquo;；</li>
+<li>不要让类继承具体类，而应该继承抽象类或接口（继承具体类时依赖性很强）；</li>
+<li>不要覆盖父类中已实现的方法（已实现的方法应该是对于所有子类的通用方法）。</li>
+</ol>
+
+<p><br/></p>
+
+  
+<div class="prev-next-post pure-g">
+  <div class="pure-u-1-24" style="text-align: left;">
+    
+    <a href="https://HauyuChen.github.io/post/oo_introduction/"><i class="fa fa-chevron-left"></i></a>
+    
+  </div>
+  <div class="pure-u-10-24">
+    
+    <nav class="prev">
+      <a href="https://HauyuChen.github.io/post/oo_introduction/">什么是面向对象？</a>
+    </nav>
+    
+  </div>
+  <div class="pure-u-2-24">
+    &nbsp;
+  </div>
+  <div class="pure-u-10-24">
+    
+  </div>
+  <div class="pure-u-1-24" style="text-align: right;">
+    
+  </div>
+</div>
+
+
+
+  
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+
+(function() {
+    
+    
+    if (window.location.hostname == "localhost")
+        return;
+
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    var disqus_shortname = "http-hov-space";
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com/" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+</div>
+
+</div>
+</div>
+<script src="https://HauyuChen.github.io/js/ui.js"></script>
+
+
+
+
+</body>
+</html>
+
