@@ -7,7 +7,7 @@
   <meta name="description" content="剑指Offer题解（Java实现）">
   <meta name="generator" content="Hugo 0.24.1" />
 
-  <title>二叉树的下一个结点 &middot; Hov&#39;s Blog</title>
+  <title>斐波那契数列 &middot; Hov&#39;s Blog</title>
 
   <script>
 	var _hmt = _hmt || [];
@@ -221,7 +221,7 @@
 
 
 <div class="header">
-  <h1>二叉树的下一个结点</h1>
+  <h1>斐波那契数列</h1>
   <h2>剑指Offer题解（Java实现）</h2>
 </div>
 <div class="content">
@@ -230,7 +230,7 @@
 
   <div>
     <i class="fa fa-calendar fa-fw"></i>
-    <time>2018-04-01</time>
+    <time>2018-04-02</time>
   </div>
 
   
@@ -273,7 +273,7 @@
 
 <hr />
 
-<p>给定一个二叉树和其中的一个结点，请找出中序遍历顺序的下一个结点并且返回。注意，树中的结点不仅包含左右子结点，同时包含指向父结点的指针。</p>
+<p>大家都知道斐波那契数列，现在要求输入一个整数n，请你输出斐波那契数列的第n项。</p>
 
 <p><br/></p>
 
@@ -281,13 +281,7 @@
 
 <hr />
 
-<p>建议先画出一棵二叉树帮助理解，本题应考虑三种情况。</p>
-
-<ol>
-<li>节点有右子树：找右子树的最左子节点；</li>
-<li>节点是父节点的左节点：找父节点；</li>
-<li>节点是父节点的右节点：找其父节点，且改父节点为父父节点的左孩子。</li>
-</ol>
+<p>斐波那契数列是动态规划问题的最简单的例子。此题应避免递归解法（时间复杂度太大），下面的解法时间复杂度为 O(n) 。</p>
 
 <p><br/></p>
 
@@ -295,39 +289,25 @@
 
 <hr />
 
-<pre><code>/*
-public class TreeLinkNode {
-    int val;
-    TreeLinkNode left = null;
-    TreeLinkNode right = null;
-    TreeLinkNode next = null;
-
-    TreeLinkNode(int val) {
-        this.val = val;
-    }
-}
-*/
-public class Solution {
-    public TreeLinkNode GetNext(TreeLinkNode pNode)
-    {
-        if(pNode==null){
-            return null;
+<pre><code>public class Solution {
+    public int Fibonacci(int n) {
+        if(n==0){
+            return 0;
         }
-        if(pNode.right!=null){
-            TreeLinkNode node = pNode.right;
-            while(node.left!=null){
-                node = node.left;
-            }
-            return node;
+        if(n==1){
+            return 1;
         }
-        else{
-            TreeLinkNode father = pNode.next;
-            while(father!=null&amp;&amp;father.right==pNode){
-                pNode = father;
-                father = father.next;
-            }
-            return father;
+        int f1 = 0;
+        int f2 = 1;
+        int ret = 0;
+        
+        for(int i=2;i&lt;=n;i++){
+            ret = f1+f2;
+            f1 = f2;
+            f2 = ret;
         }
+        
+        return ret;
     }
 }
 </code></pre>
@@ -338,13 +318,13 @@ public class Solution {
 <div class="prev-next-post pure-g">
   <div class="pure-u-1-24" style="text-align: left;">
     
-    <a href="https://HauyuChen.github.io/post/%E7%AC%AC%E4%B8%80%E4%B8%AA%E5%8F%AA%E5%87%BA%E7%8E%B0%E4%B8%80%E6%AC%A1%E7%9A%84%E5%AD%97%E7%AC%A6/"><i class="fa fa-chevron-left"></i></a>
+    <a href="https://HauyuChen.github.io/post/%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E4%B8%8B%E4%B8%80%E4%B8%AA%E7%BB%93%E7%82%B9/"><i class="fa fa-chevron-left"></i></a>
     
   </div>
   <div class="pure-u-10-24">
     
     <nav class="prev">
-      <a href="https://HauyuChen.github.io/post/%E7%AC%AC%E4%B8%80%E4%B8%AA%E5%8F%AA%E5%87%BA%E7%8E%B0%E4%B8%80%E6%AC%A1%E7%9A%84%E5%AD%97%E7%AC%A6/">第一个只出现一次的字符</a>
+      <a href="https://HauyuChen.github.io/post/%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E4%B8%8B%E4%B8%80%E4%B8%AA%E7%BB%93%E7%82%B9/">二叉树的下一个结点</a>
     </nav>
     
   </div>
@@ -354,13 +334,13 @@ public class Solution {
   <div class="pure-u-10-24">
     
     <nav class="next">
-      <a href="https://HauyuChen.github.io/post/%E6%96%90%E6%B3%A2%E9%82%A3%E5%A5%91%E6%95%B0%E5%88%97/">斐波那契数列</a>
+      <a href="https://HauyuChen.github.io/post/%E5%8F%8D%E8%BD%AC%E9%93%BE%E8%A1%A8/">反转链表</a>
     </nav>
     
   </div>
   <div class="pure-u-1-24" style="text-align: right;">
     
-    <a href="https://HauyuChen.github.io/post/%E6%96%90%E6%B3%A2%E9%82%A3%E5%A5%91%E6%95%B0%E5%88%97/"><i class="fa fa-chevron-right"></i></a>
+    <a href="https://HauyuChen.github.io/post/%E5%8F%8D%E8%BD%AC%E9%93%BE%E8%A1%A8/"><i class="fa fa-chevron-right"></i></a>
     
   </div>
 </div>
