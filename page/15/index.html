@@ -4,10 +4,10 @@
 <head>
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="剑指Offer题解（Java实现）">
+  <meta name="description" content="">
   <meta name="generator" content="Hugo 0.24.1" />
 
-  <title>连续子数组的最大和 &middot; Hov&#39;s Blog</title>
+  <title>Hov&#39;s Blog</title>
 
   <script>
 	var _hmt = _hmt || [];
@@ -46,6 +46,8 @@
   <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet" type="text/css">
 
   
+  
+  <link rel="alternate" type="application/rss+xml" title="Hov&#39;s Blog" href="https://HauyuChen.github.io/index.xml" />
   
 
   
@@ -123,6 +125,10 @@
   <div class="pure-menu social">
 
   <ul class="pure-menu-list">
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://HauyuChen.github.io/index.xml"><i class="fa fa-rss fa-fw"></i>RSS</a>
+    </li>
     
 
     
@@ -221,16 +227,23 @@
 
 
 <div class="header">
-  <h1>连续子数组的最大和</h1>
-  <h2>剑指Offer题解（Java实现）</h2>
+  <h1>Hov&#39;s Blog</h1>
+  <h2>To code,  To record,  To recall.</h2>
+  
 </div>
-<div class="content">
 
-  <div class="post-meta">
+<div class="content">
+  
+    
+      <article>
+  <header>
+    <h2><a href="https://HauyuChen.github.io/post/zb-zigbee-guide/">【ZigBee系列】1.浅析ZigBee工程</a></h2>
+
+    <div class="post-meta">
 
   <div>
     <i class="fa fa-calendar fa-fw"></i>
-    <time>2018-04-03</time>
+    <time>2016-05-17</time>
   </div>
 
   
@@ -241,7 +254,7 @@
   <div>
     <i class="fa fa-folder fa-fw"></i>
     
-      <a class="post-taxonomy-tag" href="https://HauyuChen.github.io/tags/%E7%AE%97%E6%B3%95">算法</a>
+      <a class="post-taxonomy-tag" href="https://HauyuChen.github.io/tags/zigbee">zigbee</a>
     
   </div>
   
@@ -253,9 +266,11 @@
   <div>
 	<i class="fa fa-tags fa-fw"></i>
     
-      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/%E7%AE%97%E6%B3%95">算法</a>&nbsp;&#47;
+      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/zigbee">ZigBee</a>&nbsp;&#47;
     
-      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/%E5%89%91%E6%8C%87offer">剑指Offer</a>
+      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/%E7%89%A9%E8%81%94%E7%BD%91">物联网</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/%E6%97%A0%E7%BA%BF%E4%BC%A0%E6%84%9F%E5%99%A8">无线传感器</a>
     
   </div>
   
@@ -263,108 +278,35 @@
   
 </div>
 
-  <p></p>
+  </header>
 
-<hr />
-
-<p><br/></p>
-
-<h1 id="1-题目描述">1 题目描述</h1>
-
-<hr />
-
-<p>HZ偶尔会拿些专业问题来忽悠那些非计算机专业的同学。今天测试组开完会后,他又发话了:在古老的一维模式识别中,常常需要计算连续子向量的最大和,当向量全为正数的时候,问题很好解决。但是,如果向量中包含负数,是否应该包含某个负数,并期望旁边的正数会弥补它呢？例如:{6,-3,-2,7,-15,1,2,2},连续子向量的最大和为8(从第0个开始,到第3个为止)。你会不会被他忽悠住？(子向量的长度至少是1)</p>
-
-<p><br/></p>
-
-<h1 id="2-思路">2 思路</h1>
-
-<hr />
-
-<p>本题应该想到线性时间复杂度的方案。</p>
-
-<p>注意对异常输入的判断，这里采用一个全局变量表示是否异常输入，因为合法的输入也可能返回的是 0 。</p>
-
-<p><br/></p>
-
-<h1 id="3-代码实现">3 代码实现</h1>
-
-<hr />
-
-<pre><code>public class Solution {
-    boolean badInput = false;
-    public int FindGreatestSumOfSubArray(int[] array) {
-        if(array==null){
-            badInput = true;
-            return 0;
-        }
-        int max = array[0];
-        int sum = 0;
-        for(int i=0;i&lt;array.length;i++){
-            sum += array[i];
-            max = max&gt;sum?max:sum;
-            if(sum&lt;0){
-                sum = 0;
-            }
-        }
-        return max;
-    }
-}
-</code></pre>
-
-<p><br/></p>
+  <p>
+  作者注： ZigBee 系列共三篇，首先讲解 ZigBee 工程的结构，然后通过两个具体项目熟悉 ZigBee 的应用。在学习本系列内容前，您需要掌握单片机相关知识、 ZigBee 基础知识，希望
+  </p>
 
   
-<div class="prev-next-post pure-g">
-  <div class="pure-u-1-24" style="text-align: left;">
-    
-    <a href="https://HauyuChen.github.io/post/%E5%8F%8D%E8%BD%AC%E9%93%BE%E8%A1%A8/"><i class="fa fa-chevron-left"></i></a>
-    
-  </div>
-  <div class="pure-u-10-24">
-    
-    <nav class="prev">
-      <a href="https://HauyuChen.github.io/post/%E5%8F%8D%E8%BD%AC%E9%93%BE%E8%A1%A8/">反转链表</a>
-    </nav>
-    
-  </div>
-  <div class="pure-u-2-24">
-    &nbsp;
-  </div>
-  <div class="pure-u-10-24">
-    
-    <nav class="next">
-      <a href="https://HauyuChen.github.io/post/%E6%95%B0%E7%BB%84%E4%B8%AD%E9%87%8D%E5%A4%8D%E7%9A%84%E6%95%B0%E5%AD%97/">数组中重复的数字</a>
-    </nav>
-    
-  </div>
-  <div class="pure-u-1-24" style="text-align: right;">
-    
-    <a href="https://HauyuChen.github.io/post/%E6%95%B0%E7%BB%84%E4%B8%AD%E9%87%8D%E5%A4%8D%E7%9A%84%E6%95%B0%E5%AD%97/"><i class="fa fa-chevron-right"></i></a>
-    
-  </div>
-</div>
-
-
-
+  <footer>
+    <a href="https://HauyuChen.github.io/post/zb-zigbee-guide/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
+  </footer>
   
-<div id="disqus_thread"></div>
-<script type="text/javascript">
+</article>
 
-(function() {
     
-    
-    if (window.location.hostname == "localhost")
-        return;
+  
 
-    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-    var disqus_shortname = "http-hov-space";
-    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-})();
-</script>
-<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-<a href="http://disqus.com/" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+	
+
+
+<nav class="pagination" role="pagination">
+  
+  <a href="https://HauyuChen.github.io/page/14/"><i class="fa fa-chevron-left"></i></a>
+  
+  <span>&nbsp;15 / 15&nbsp;</span>
+  
+  <i class="fa fa-chevron-right"></i>
+  
+</nav>
+
 
 
 </div>
