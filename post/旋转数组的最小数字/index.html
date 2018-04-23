@@ -7,7 +7,7 @@
   <meta name="description" content="剑指Offer题解（Java实现）">
   <meta name="generator" content="Hugo 0.24.1" />
 
-  <title>矩阵中的路径 &middot; Hov&#39;s Blog</title>
+  <title>旋转数组的最小数字 &middot; Hov&#39;s Blog</title>
 
   <script>
 	var _hmt = _hmt || [];
@@ -221,7 +221,7 @@
 
 
 <div class="header">
-  <h1>矩阵中的路径</h1>
+  <h1>旋转数组的最小数字</h1>
   <h2>剑指Offer题解（Java实现）</h2>
 </div>
 <div class="content">
@@ -273,7 +273,7 @@
 
 <hr />
 
-<p>请设计一个函数，用来判断在一个矩阵中是否存在一条包含某字符串所有字符的路径。路径可以从矩阵中的任意一个格子开始，每一步可以在矩阵中向左，向右，向上，向下移动一个格子。如果一条路径经过了矩阵中的某一个格子，则该路径不能再进入该格子。 例如 a b c e s f c s a d e e 矩阵中包含一条字符串&rdquo;bcced&rdquo;的路径，但是矩阵中不包含&rdquo;abcb&rdquo;路径，因为字符串的第一个字符b占据了矩阵中的第一行第二个格子之后，路径不能再次进入该格子。</p>
+<p>把一个数组最开始的若干个元素搬到数组的末尾，我们称之为数组的旋转。 输入一个非递减排序的数组的一个旋转，输出旋转数组的最小元素。 例如数组{3,4,5,1,2}为{1,2,3,4,5}的一个旋转，该数组的最小值为1。 NOTE：给出的所有元素都大于0，若数组大小为0，请返回0。</p>
 
 <p><br/></p>
 
@@ -281,12 +281,12 @@
 
 <hr />
 
-<p>本题可以用回溯法解决，题目本身不复杂，但应注意细节，比如数组下标，访问标志。</p>
+<p>通过二分查找实现，主要考虑三种情况：</p>
 
 <ol>
-<li>递归的结束条件是 str 数组已经全部比较完毕，如果能比较到 str 的最后，说明存在该路径，返回 true；</li>
-<li>每次递归前先判断是否符合条件（访问范围在数组内 &amp;&amp; matrix 数组和 str 数组对应的位置的字符相等 &amp;&amp; 该位置之前未走过）；</li>
-<li>每次判断上下左右四个方向是否符合。若符合，分别从四个方向判断 str[pos+1] 是否能成立；若都不符合，visted[pos] 重置 0 。</li>
+<li>array[low] 、 array[mid] 、 array[high] 三者相等，此时只能顺序遍历；</li>
+<li>如果 array[low]&lt;=array[mid] ,说明最小元素在右半边；</li>
+<li>如果 array[high]&gt;=array[mid] ,说明最小元素在左半边。</li>
 </ol>
 
 <p><br/></p>
@@ -295,46 +295,38 @@
 
 <hr />
 
-<pre><code>public class Solution {
-    public boolean hasPath(char[] matrix, int rows, int cols, char[] str)
-    {
-        if(matrix==null || rows&lt;1 || cols&lt;1 || str==null){
-            return false;
+<pre><code>import java.util.ArrayList;
+
+public class Solution {
+    public int minNumberInRotateArray(int [] array) {
+        if(array==null){
+            return 0;
         }
-        int[] visted = new int[matrix.length];
-        for(int i=0;i&lt;matrix.length;i++){
-            visted[i] = 0;
-        }
-        for(int i=0;i&lt;rows;i++){
-            for(int j=0;j&lt;cols;j++){
-                if(findPath(matrix,rows,cols,i,j,str,0,visted)){
-                    return true;
+        int low = 0;
+        int high = array.length-1;
+        int mid = 0;
+
+        while(array[low]&gt;=array[high]){
+            if(high-low==1){
+                mid = high;
+                break;
+            }
+            mid = ((high-low)&gt;&gt;1) + low;
+            if(array[low]==array[mid]&amp;&amp;array[mid]==array[high]){
+                int min = array[low];
+                for(int i=low+1;i&lt;=high;i++){
+                    min = min&lt;array[i]?min:array[i];
                 }
+                return min;
+            }
+            if(array[mid]&gt;=array[low]){
+                low = mid;
+            }
+            else if(array[mid]&lt;=array[high]){
+                high = mid;
             }
         }
-        return false;
-    }
-
-    private static boolean findPath(char[] matrix,int rows,int cols,int row,int col,char[] str,int index,int[] visted){
-        if(index == str.length){
-            return true;
-        }
-        boolean hasPath = false;
-        if(row&gt;=0 &amp;&amp; row&lt;rows &amp;&amp; col&gt;=0 &amp;&amp; col&lt;cols &amp;&amp; matrix[row*cols+col]==str[index] &amp;&amp; visted[row*cols+col]==0) {
-            index++;
-            visted[row*cols+col] = 1;
-
-            hasPath = findPath(matrix,rows,cols,row-1,col,str,index,visted) ||
-                    findPath(matrix,rows,cols,row+1,col,str,index,visted) ||
-                    findPath(matrix,rows,cols,row,col-1,str,index,visted) ||
-                    findPath(matrix,rows,cols,row,col+1,str,index,visted);
-
-            if(!hasPath) {
-                index--;
-                visted[row*cols+col] = 0;
-            }
-        }
-        return hasPath;
+        return array[mid];
     }
 }
 </code></pre>
@@ -345,13 +337,13 @@
 <div class="prev-next-post pure-g">
   <div class="pure-u-1-24" style="text-align: left;">
     
-    <a href="https://HauyuChen.github.io/post/%E6%95%B0%E7%BB%84%E4%B8%AD%E9%87%8D%E5%A4%8D%E7%9A%84%E6%95%B0%E5%AD%97/"><i class="fa fa-chevron-left"></i></a>
+    <a href="https://HauyuChen.github.io/post/%E7%9F%A9%E9%98%B5%E4%B8%AD%E7%9A%84%E8%B7%AF%E5%BE%84/"><i class="fa fa-chevron-left"></i></a>
     
   </div>
   <div class="pure-u-10-24">
     
     <nav class="prev">
-      <a href="https://HauyuChen.github.io/post/%E6%95%B0%E7%BB%84%E4%B8%AD%E9%87%8D%E5%A4%8D%E7%9A%84%E6%95%B0%E5%AD%97/">数组中重复的数字</a>
+      <a href="https://HauyuChen.github.io/post/%E7%9F%A9%E9%98%B5%E4%B8%AD%E7%9A%84%E8%B7%AF%E5%BE%84/">矩阵中的路径</a>
     </nav>
     
   </div>
@@ -361,13 +353,13 @@
   <div class="pure-u-10-24">
     
     <nav class="next">
-      <a href="https://HauyuChen.github.io/post/%E6%97%8B%E8%BD%AC%E6%95%B0%E7%BB%84%E7%9A%84%E6%9C%80%E5%B0%8F%E6%95%B0%E5%AD%97/">旋转数组的最小数字</a>
+      <a href="https://HauyuChen.github.io/post/oo_introduction/">什么是面向对象？</a>
     </nav>
     
   </div>
   <div class="pure-u-1-24" style="text-align: right;">
     
-    <a href="https://HauyuChen.github.io/post/%E6%97%8B%E8%BD%AC%E6%95%B0%E7%BB%84%E7%9A%84%E6%9C%80%E5%B0%8F%E6%95%B0%E5%AD%97/"><i class="fa fa-chevron-right"></i></a>
+    <a href="https://HauyuChen.github.io/post/oo_introduction/"><i class="fa fa-chevron-right"></i></a>
     
   </div>
 </div>
