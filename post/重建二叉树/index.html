@@ -7,7 +7,7 @@
   <meta name="description" content="剑指Offer题解（Java实现）">
   <meta name="generator" content="Hugo 0.24.1" />
 
-  <title>反转链表 &middot; Hov&#39;s Blog</title>
+  <title>重建二叉树 &middot; Hov&#39;s Blog</title>
 
   <script>
 	var _hmt = _hmt || [];
@@ -221,7 +221,7 @@
 
 
 <div class="header">
-  <h1>反转链表</h1>
+  <h1>重建二叉树</h1>
   <h2>剑指Offer题解（Java实现）</h2>
 </div>
 <div class="content">
@@ -230,7 +230,7 @@
 
   <div>
     <i class="fa fa-calendar fa-fw"></i>
-    <time>2018-04-02</time>
+    <time>2018-04-03</time>
   </div>
 
   
@@ -263,7 +263,9 @@
   
 </div>
 
-  <p></p>
+  <hr />
+
+<p></p>
 
 <hr />
 
@@ -273,7 +275,7 @@
 
 <hr />
 
-<p>输入一个链表，反转链表后，输出链表的所有元素。</p>
+<p>输入某二叉树的前序遍历和中序遍历的结果，请重建出该二叉树。假设输入的前序遍历和中序遍历的结果中都不含重复的数字。例如输入前序遍历序列{1,2,4,7,3,5,6,8}和中序遍历序列{4,7,2,1,5,3,8,6}，则重建二叉树并返回。</p>
 
 <p><br/></p>
 
@@ -281,10 +283,12 @@
 
 <hr />
 
+<p>这是一道比较经典的题目，通过前序和中序构造二叉树。</p>
+
 <ol>
-<li>反转链表可以通过栈作为辅助数组，先将链表节点全部入栈，然后逐个出栈重新构造链表，但这样会占用额外的空间；</li>
-<li>不需要辅助空间的解法是直接翻转相邻节点的指针，通过三个指针分别指向前一节点、当前节点、下一节点，但这会改变原有链表的结构。</li>
-<li>因此，采用何种思路应考虑具体要求。</li>
+<li>根据前序遍历的性质，第一个元素为根节点；</li>
+<li>在中序序列中找到该元素，其左边的元素即为根结点的左子树，其右边的元素即为根节点的右子树；</li>
+<li>递归即可。</li>
 </ol>
 
 <p><br/></p>
@@ -293,33 +297,42 @@
 
 <hr />
 
-<pre><code>/*
-public class ListNode {
-    int val;
-    ListNode next = null;
-
-    ListNode(int val) {
-        this.val = val;
-    }
-}*/
+<pre><code>/**
+ * Definition for binary tree
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode(int x) { val = x; }
+ * }
+ */
 public class Solution {
-    public ListNode ReverseList(ListNode head) {
-        if(head==null){
+    public TreeNode reConstructBinaryTree(int [] pre,int [] in) {
+        if(pre==null||in==null||pre.length!=in.length){
             return null;
         }
-        ListNode p = head;
-        ListNode q = p.next;
-        ListNode r = null;
-        head.next = null;
         
-        while(q!=null){
-            r = q.next;
-            q.next = p;
-            p = q;
-            q = r;
+        return construct(pre,0,pre.length-1,in,0,in.length-1);
+    }
+    
+    private static TreeNode construct(int[] pre,int pre_left,int pre_right,int[] in,int in_left,int in_right){
+        if(pre_right&lt;pre_left||in_right&lt;in_left){
+            return null;
+        }
+        
+        TreeNode tNode = new TreeNode(pre[pre_left]);
+        int pivot = 0;
+        
+        for(int i=in_left;i&lt;=in_right;i++){
+            if(in[i]==pre[pre_left]){
+                pivot = i;
+            }
         }
 
-        return p;
+        tNode.left = construct(pre,pre_left+1,pre_left+(pivot-in_left),in,in_left,pivot-1);
+        tNode.right = construct(pre,pre_left+(pivot-in_left)+1,pre_right,in,pivot+1,in_right);
+       
+        return tNode;
     }
 }
 </code></pre>
@@ -330,13 +343,13 @@ public class Solution {
 <div class="prev-next-post pure-g">
   <div class="pure-u-1-24" style="text-align: left;">
     
-    <a href="https://HauyuChen.github.io/post/%E6%96%90%E6%B3%A2%E9%82%A3%E5%A5%91%E6%95%B0%E5%88%97/"><i class="fa fa-chevron-left"></i></a>
+    <a href="https://HauyuChen.github.io/post/%E5%8F%8D%E8%BD%AC%E9%93%BE%E8%A1%A8/"><i class="fa fa-chevron-left"></i></a>
     
   </div>
   <div class="pure-u-10-24">
     
     <nav class="prev">
-      <a href="https://HauyuChen.github.io/post/%E6%96%90%E6%B3%A2%E9%82%A3%E5%A5%91%E6%95%B0%E5%88%97/">斐波那契数列</a>
+      <a href="https://HauyuChen.github.io/post/%E5%8F%8D%E8%BD%AC%E9%93%BE%E8%A1%A8/">反转链表</a>
     </nav>
     
   </div>
@@ -346,13 +359,13 @@ public class Solution {
   <div class="pure-u-10-24">
     
     <nav class="next">
-      <a href="https://HauyuChen.github.io/post/%E9%87%8D%E5%BB%BA%E4%BA%8C%E5%8F%89%E6%A0%91/">重建二叉树</a>
+      <a href="https://HauyuChen.github.io/post/%E8%BF%9E%E7%BB%AD%E5%AD%90%E6%95%B0%E7%BB%84%E7%9A%84%E6%9C%80%E5%A4%A7%E5%92%8C/">连续子数组的最大和</a>
     </nav>
     
   </div>
   <div class="pure-u-1-24" style="text-align: right;">
     
-    <a href="https://HauyuChen.github.io/post/%E9%87%8D%E5%BB%BA%E4%BA%8C%E5%8F%89%E6%A0%91/"><i class="fa fa-chevron-right"></i></a>
+    <a href="https://HauyuChen.github.io/post/%E8%BF%9E%E7%BB%AD%E5%AD%90%E6%95%B0%E7%BB%84%E7%9A%84%E6%9C%80%E5%A4%A7%E5%92%8C/"><i class="fa fa-chevron-right"></i></a>
     
   </div>
 </div>
