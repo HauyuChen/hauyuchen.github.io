@@ -7,7 +7,7 @@
   <meta name="description" content="剑指Offer题解（Java实现）">
   <meta name="generator" content="Hugo 0.24.1" />
 
-  <title>旋转数组的最小数字 &middot; Hov&#39;s Blog</title>
+  <title>用两个栈实现队列 &middot; Hov&#39;s Blog</title>
 
   <script>
 	var _hmt = _hmt || [];
@@ -221,7 +221,7 @@
 
 
 <div class="header">
-  <h1>旋转数组的最小数字</h1>
+  <h1>用两个栈实现队列</h1>
   <h2>剑指Offer题解（Java实现）</h2>
 </div>
 <div class="content">
@@ -230,7 +230,7 @@
 
   <div>
     <i class="fa fa-calendar fa-fw"></i>
-    <time>2018-04-05</time>
+    <time>2018-04-07</time>
   </div>
 
   
@@ -273,7 +273,7 @@
 
 <hr />
 
-<p>把一个数组最开始的若干个元素搬到数组的末尾，我们称之为数组的旋转。 输入一个非递减排序的数组的一个旋转，输出旋转数组的最小元素。 例如数组{3,4,5,1,2}为{1,2,3,4,5}的一个旋转，该数组的最小值为1。 NOTE：给出的所有元素都大于0，若数组大小为0，请返回0。</p>
+<p>用两个栈来实现一个队列，完成队列的Push和Pop操作。 队列中的元素为int类型。</p>
 
 <p><br/></p>
 
@@ -281,12 +281,10 @@
 
 <hr />
 
-<p>通过二分查找实现，主要考虑三种情况：</p>
-
 <ol>
-<li>array[low] 、 array[mid] 、 array[high] 三者相等，此时只能顺序遍历；</li>
-<li>如果 array[low]&lt;=array[mid] ,说明最小元素在右半边；</li>
-<li>如果 array[high]&gt;=array[mid] ,说明最小元素在左半边。</li>
+<li>入队操作：入队前要先把 stack2 的元素全部放回 stack1 ，直到 stack2 为空，才把元素压入 stack1 ；</li>
+<li>出队操作：出队前先判断 stack2 是否为空，如果不为空就直接返回 stack2 的栈顶即可；如果为空，则先将 stack1 的元素全部压入 stack2 ，再返回 stack2 的栈顶元素。
+注意：在这个过程中，要么 stack1 为空，要么 stack2 为空，不会出现 stack1 和 stack2 都为空的情形。</li>
 </ol>
 
 <p><br/></p>
@@ -295,38 +293,32 @@
 
 <hr />
 
-<pre><code>import java.util.ArrayList;
+<pre><code>import java.util.Stack;
 
 public class Solution {
-    public int minNumberInRotateArray(int [] array) {
-        if(array==null){
-            return 0;
+    Stack&lt;Integer&gt; stack1 = new Stack&lt;Integer&gt;();
+    Stack&lt;Integer&gt; stack2 = new Stack&lt;Integer&gt;();
+    
+    public void push(int node) {
+        while(!stack2.empty()){
+            stack1.push(stack2.pop());
         }
-        int low = 0;
-        int high = array.length-1;
-        int mid = 0;
-
-        while(array[low]&gt;=array[high]){
-            if(high-low==1){
-                mid = high;
-                break;
-            }
-            mid = ((high-low)&gt;&gt;1) + low;
-            if(array[low]==array[mid]&amp;&amp;array[mid]==array[high]){
-                int min = array[low];
-                for(int i=low+1;i&lt;=high;i++){
-                    min = min&lt;array[i]?min:array[i];
-                }
-                return min;
-            }
-            if(array[mid]&gt;=array[low]){
-                low = mid;
-            }
-            else if(array[mid]&lt;=array[high]){
-                high = mid;
-            }
+        stack1.push(node);
+    }
+    
+    public int pop() {
+        if(!stack2.empty()){
+            return stack2.pop();
         }
-        return array[mid];
+        else{
+            if(stack1.empty()){
+                return -1;
+            }
+            while(!stack1.empty()){
+                stack2.push(stack1.pop());
+            }
+            return stack2.pop();
+        }
     }
 }
 </code></pre>
@@ -337,13 +329,13 @@ public class Solution {
 <div class="prev-next-post pure-g">
   <div class="pure-u-1-24" style="text-align: left;">
     
-    <a href="https://HauyuChen.github.io/post/%E7%9F%A9%E9%98%B5%E4%B8%AD%E7%9A%84%E8%B7%AF%E5%BE%84/"><i class="fa fa-chevron-left"></i></a>
+    <a href="https://HauyuChen.github.io/post/%E6%97%8B%E8%BD%AC%E6%95%B0%E7%BB%84%E7%9A%84%E6%9C%80%E5%B0%8F%E6%95%B0%E5%AD%97/"><i class="fa fa-chevron-left"></i></a>
     
   </div>
   <div class="pure-u-10-24">
     
     <nav class="prev">
-      <a href="https://HauyuChen.github.io/post/%E7%9F%A9%E9%98%B5%E4%B8%AD%E7%9A%84%E8%B7%AF%E5%BE%84/">矩阵中的路径</a>
+      <a href="https://HauyuChen.github.io/post/%E6%97%8B%E8%BD%AC%E6%95%B0%E7%BB%84%E7%9A%84%E6%9C%80%E5%B0%8F%E6%95%B0%E5%AD%97/">旋转数组的最小数字</a>
     </nav>
     
   </div>
@@ -353,13 +345,13 @@ public class Solution {
   <div class="pure-u-10-24">
     
     <nav class="next">
-      <a href="https://HauyuChen.github.io/post/%E7%94%A8%E4%B8%A4%E4%B8%AA%E6%A0%88%E5%AE%9E%E7%8E%B0%E9%98%9F%E5%88%97/">用两个栈实现队列</a>
+      <a href="https://HauyuChen.github.io/post/oo_introduction/">什么是面向对象？</a>
     </nav>
     
   </div>
   <div class="pure-u-1-24" style="text-align: right;">
     
-    <a href="https://HauyuChen.github.io/post/%E7%94%A8%E4%B8%A4%E4%B8%AA%E6%A0%88%E5%AE%9E%E7%8E%B0%E9%98%9F%E5%88%97/"><i class="fa fa-chevron-right"></i></a>
+    <a href="https://HauyuChen.github.io/post/oo_introduction/"><i class="fa fa-chevron-right"></i></a>
     
   </div>
 </div>
