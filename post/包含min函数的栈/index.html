@@ -7,7 +7,7 @@
   <meta name="description" content="剑指Offer题解（Java实现）">
   <meta name="generator" content="Hugo 0.24.1" />
 
-  <title>第一个只出现一次的字符 &middot; Hov&#39;s Blog</title>
+  <title>包含min函数的栈 &middot; Hov&#39;s Blog</title>
 
   <script>
 	var _hmt = _hmt || [];
@@ -221,7 +221,7 @@
 
 
 <div class="header">
-  <h1>第一个只出现一次的字符</h1>
+  <h1>包含min函数的栈</h1>
   <h2>剑指Offer题解（Java实现）</h2>
 </div>
 <div class="content">
@@ -230,7 +230,7 @@
 
   <div>
     <i class="fa fa-calendar fa-fw"></i>
-    <time>2018-04-01</time>
+    <time>2018-03-15</time>
   </div>
 
   
@@ -273,7 +273,7 @@
 
 <hr />
 
-<p>在一个字符串(1&lt;=字符串长度&lt;=10000，全部由字母组成)中找到第一个只出现一次的字符,并返回它的位置。</p>
+<p>定义栈的数据结构，请在该类型中实现一个能够得到栈最小元素的min函数。</p>
 
 <p><br/></p>
 
@@ -281,9 +281,9 @@
 
 <hr />
 
-<p>本题很容易想到用一个容器暂存字符出现的次数，但是用 HashMap 这样的容器（如解法一）在某些情况下的时间复杂度并不是线性的，因为 HashMap 的 get 方法的时间复杂度取决于冲突个数。</p>
+<p>通过一个辅助栈 minStack 来存放当前栈 dataStack 中的最小值。</p>
 
-<p>真正的线性时间复杂度的解法可以通过定义一个哈希表来实现（如解法二），用数组存放每个元素的 ASCII 码。</p>
+<p>如果新压入的元素比 minStack 的栈顶小，则压入新元素到 minStack ，否则将 minStack 的栈顶再次压入 minStack 。可见， dataStack 和 minStack 中元素的数量始终一致。</p>
 
 <p><br/></p>
 
@@ -291,59 +291,33 @@
 
 <hr />
 
-<h2 id="解法一">解法一：</h2>
-
-<pre><code>import java.util.HashMap;
+<pre><code>import java.util.Stack;
 
 public class Solution {
-    public int FirstNotRepeatingChar(String str) {
-        if(str==null){
-            return -1;
+    Stack&lt;Integer&gt; dataStack = new Stack&lt;Integer&gt;();
+    Stack&lt;Integer&gt; minStack = new Stack&lt;Integer&gt;();
+    
+    public void push(int node) {
+        dataStack.push(node);
+        if(minStack.empty() || minStack.peek()&gt;node){
+            minStack.push(node);
         }
-        
-        HashMap&lt;Character,Integer&gt; hm = new HashMap&lt;Character,Integer&gt;();
-        
-        for(int i=0;i&lt;str.length();i++){
-            char ch = str.charAt(i);
-            if(!hm.containsKey(ch)){
-                hm.put(ch,1);
-            }
-            else{
-                hm.replace(ch,hm.get(ch)+1);
-            }
+        else{
+            minStack.push(minStack.peek());
         }
-        for(int i=0;i&lt;str.length();i++){
-            if(hm.get(str.charAt(i))==1){
-                return i;
-            }
-        }
-        return -1;
     }
-}
-</code></pre>
-
-<h2 id="解法二">解法二：</h2>
-
-<pre><code>public class Solution {
-    public int FirstNotRepeatingChar(String str) {
-        if(str==null){
-            return -1;
-        }
-        
-        int[] hashTable = new int[256];
-        for(int i=0;i&lt;256;i++){
-            hashTable[i] = 0;
-        }
-        for(int i=0;i&lt;str.length();i++){
-            hashTable[str.charAt(i)]++;
-        }
-
-        for(int i=0;i&lt;str.length();i++){
-            if(hashTable[str.charAt(i)]==1){
-                return i;
-            }
-        }
-        return -1;
+    
+    public void pop() {
+        dataStack.pop();
+        minStack.pop();
+    }
+    
+    public int top() {
+        return dataStack.peek();
+    }
+    
+    public int min() {
+        return minStack.peek();
     }
 }
 </code></pre>
@@ -354,13 +328,13 @@ public class Solution {
 <div class="prev-next-post pure-g">
   <div class="pure-u-1-24" style="text-align: left;">
     
-    <a href="https://HauyuChen.github.io/post/%E5%8C%85%E5%90%ABmin%E5%87%BD%E6%95%B0%E7%9A%84%E6%A0%88/"><i class="fa fa-chevron-left"></i></a>
+    <a href="https://HauyuChen.github.io/post/es-concurrent_op/"><i class="fa fa-chevron-left"></i></a>
     
   </div>
   <div class="pure-u-10-24">
     
     <nav class="prev">
-      <a href="https://HauyuChen.github.io/post/%E5%8C%85%E5%90%ABmin%E5%87%BD%E6%95%B0%E7%9A%84%E6%A0%88/">包含min函数的栈</a>
+      <a href="https://HauyuChen.github.io/post/es-concurrent_op/">Elasticsearch的乐观并发控制</a>
     </nav>
     
   </div>
@@ -370,13 +344,13 @@ public class Solution {
   <div class="pure-u-10-24">
     
     <nav class="next">
-      <a href="https://HauyuChen.github.io/post/%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E4%B8%8B%E4%B8%80%E4%B8%AA%E7%BB%93%E7%82%B9/">二叉树的下一个结点</a>
+      <a href="https://HauyuChen.github.io/post/%E7%AC%AC%E4%B8%80%E4%B8%AA%E5%8F%AA%E5%87%BA%E7%8E%B0%E4%B8%80%E6%AC%A1%E7%9A%84%E5%AD%97%E7%AC%A6/">第一个只出现一次的字符</a>
     </nav>
     
   </div>
   <div class="pure-u-1-24" style="text-align: right;">
     
-    <a href="https://HauyuChen.github.io/post/%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E4%B8%8B%E4%B8%80%E4%B8%AA%E7%BB%93%E7%82%B9/"><i class="fa fa-chevron-right"></i></a>
+    <a href="https://HauyuChen.github.io/post/%E7%AC%AC%E4%B8%80%E4%B8%AA%E5%8F%AA%E5%87%BA%E7%8E%B0%E4%B8%80%E6%AC%A1%E7%9A%84%E5%AD%97%E7%AC%A6/"><i class="fa fa-chevron-right"></i></a>
     
   </div>
 </div>
