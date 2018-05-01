@@ -4,10 +4,10 @@
 <head>
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="">
+  <meta name="description" content="剑指Offer题解（Java实现）">
   <meta name="generator" content="Hugo 0.24.1" />
 
-  <title>Tags &middot; Hov&#39;s Blog</title>
+  <title>二维数组中的查找 &middot; Hov&#39;s Blog</title>
 
   <script>
 	var _hmt = _hmt || [];
@@ -46,8 +46,6 @@
   <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet" type="text/css">
 
   
-  
-  <link rel="alternate" type="application/rss+xml" title="Hov&#39;s Blog" href="https://HauyuChen.github.io/tags/index.xml" />
   
 
   
@@ -125,10 +123,6 @@
   <div class="pure-menu social">
 
   <ul class="pure-menu-list">
-    
-    <li class="pure-menu-item">
-      <a class="pure-menu-link" href="https://HauyuChen.github.io/tags/index.xml"><i class="fa fa-rss fa-fw"></i>RSS</a>
-    </li>
     
 
     
@@ -227,48 +221,160 @@
 
 
 <div class="header">
-  <h1>Tags</h1>
+  <h1>二维数组中的查找</h1>
+  <h2>剑指Offer题解（Java实现）</h2>
 </div>
 <div class="content">
-  <ul>
+
+  <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>2018-04-08</time>
+  </div>
+
+  
+
   
   
-    <li>
-      <a href="%E7%AE%97%E6%B3%95">算法</a>
-      <span>&#40;115&#41;</span>
-    </li>
   
-    <li>
-      <a href="%E5%9F%BA%E7%A1%80">基础</a>
-      <span>&#40;14&#41;</span>
-    </li>
+  <div>
+    <i class="fa fa-folder fa-fw"></i>
+    
+      <a class="post-taxonomy-tag" href="https://HauyuChen.github.io/tags/%E7%AE%97%E6%B3%95">算法</a>
+    
+  </div>
   
-    <li>
-      <a href="java">java</a>
-      <span>&#40;10&#41;</span>
-    </li>
   
-    <li>
-      <a href="%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0">机器学习</a>
-      <span>&#40;7&#41;</span>
-    </li>
+
   
-    <li>
-      <a href="elasticsearch">elasticsearch</a>
-      <span>&#40;5&#41;</span>
-    </li>
   
-    <li>
-      <a href="%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F">设计模式</a>
-      <span>&#40;5&#41;</span>
-    </li>
   
-    <li>
-      <a href="zigbee">zigbee</a>
-      <span>&#40;3&#41;</span>
-    </li>
+  <div>
+	<i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/%E7%AE%97%E6%B3%95">算法</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/%E5%89%91%E6%8C%87offer">剑指Offer</a>
+    
+  </div>
   
-  </ul>
+  
+  
+</div>
+
+  <p></p>
+
+<hr />
+
+<p><br/></p>
+
+<h1 id="1-题目描述">1 题目描述</h1>
+
+<hr />
+
+<p>在一个二维数组中，每一行都按照从左到右递增的顺序排序，每一列都按照从上到下递增的顺序排序。请完成一个函数，输入这样的一个二维数组和一个整数，判断数组中是否含有该整数。</p>
+
+<p><br/></p>
+
+<h1 id="2-思路">2 思路</h1>
+
+<hr />
+
+<ol>
+<li>每次从右上角开始匹配，若相等则返回 true ；</li>
+<li>若大于目标值，则删除最右列；</li>
+<li>若小于目标值，则删除最上行；</li>
+<li>直到超出数组范围。</li>
+</ol>
+
+<p><br/></p>
+
+<h1 id="3-代码实现">3 代码实现</h1>
+
+<hr />
+
+<pre><code>public class Solution {
+    public boolean Find(int target, int [][] array) {
+        if(array==null){
+            return false;
+        }
+        
+        int rows = array.length;
+        int cols = array[0].length;
+        int r = 0;
+        int c = cols-1;
+        
+        while(r&lt;rows&amp;&amp;c&gt;=0){
+            if(array[r][c]==target){
+                return true;
+            }else if(array[r][c]&gt;target){
+                c--;
+            }else{
+                r++;
+            }
+        }
+        
+        return false;
+    }
+}
+</code></pre>
+
+<p><br/></p>
+
+  
+<div class="prev-next-post pure-g">
+  <div class="pure-u-1-24" style="text-align: left;">
+    
+    <a href="https://HauyuChen.github.io/post/oo_introduction/"><i class="fa fa-chevron-left"></i></a>
+    
+  </div>
+  <div class="pure-u-10-24">
+    
+    <nav class="prev">
+      <a href="https://HauyuChen.github.io/post/oo_introduction/">什么是面向对象？</a>
+    </nav>
+    
+  </div>
+  <div class="pure-u-2-24">
+    &nbsp;
+  </div>
+  <div class="pure-u-10-24">
+    
+    <nav class="next">
+      <a href="https://HauyuChen.github.io/post/dp_factory_pattern/">【设计模式】5. 工厂模式</a>
+    </nav>
+    
+  </div>
+  <div class="pure-u-1-24" style="text-align: right;">
+    
+    <a href="https://HauyuChen.github.io/post/dp_factory_pattern/"><i class="fa fa-chevron-right"></i></a>
+    
+  </div>
+</div>
+
+
+
+  
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+
+(function() {
+    
+    
+    if (window.location.hostname == "localhost")
+        return;
+
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    var disqus_shortname = "http-hov-space";
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com/" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
 </div>
 
 </div>
@@ -280,3 +386,4 @@
 
 </body>
 </html>
+
