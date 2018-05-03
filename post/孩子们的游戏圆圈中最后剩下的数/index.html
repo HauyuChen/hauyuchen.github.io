@@ -7,7 +7,7 @@
   <meta name="description" content="剑指Offer题解（Java实现）">
   <meta name="generator" content="Hugo 0.24.1" />
 
-  <title>二叉树的深度 &middot; Hov&#39;s Blog</title>
+  <title>孩子们的游戏(圆圈中最后剩下的数) &middot; Hov&#39;s Blog</title>
 
   <script>
 	var _hmt = _hmt || [];
@@ -221,7 +221,7 @@
 
 
 <div class="header">
-  <h1>二叉树的深度</h1>
+  <h1>孩子们的游戏(圆圈中最后剩下的数)</h1>
   <h2>剑指Offer题解（Java实现）</h2>
 </div>
 <div class="content">
@@ -230,7 +230,7 @@
 
   <div>
     <i class="fa fa-calendar fa-fw"></i>
-    <time>2018-04-07</time>
+    <time>2018-04-08</time>
   </div>
 
   
@@ -273,7 +273,7 @@
 
 <hr />
 
-<p>输入一棵二叉树，求该树的深度。从根结点到叶结点依次经过的结点（含根、叶结点）形成树的一条路径，最长路径的长度为树的深度。</p>
+<p>每年六一儿童节,牛客都会准备一些小礼物去看望孤儿院的小朋友,今年亦是如此。HF作为牛客的资深元老,自然也准备了一些小游戏。其中,有个游戏是这样的:首先,让小朋友们围成一个大圈。然后,他随机指定一个数m,让编号为0的小朋友开始报数。每次喊到m-1的那个小朋友要出列唱首歌,然后可以在礼品箱中任意的挑选礼物,并且不再回到圈中,从他的下一个小朋友开始,继续0&hellip;m-1报数&hellip;.这样下去&hellip;.直到剩下最后一个小朋友,可以不用表演,并且拿到牛客名贵的“名侦探柯南”典藏版(名额有限哦!!^_^)。请你试着想下,哪个小朋友会得到这份礼品呢？(注：小朋友的编号是从0到n-1)</p>
 
 <p><br/></p>
 
@@ -281,7 +281,9 @@
 
 <hr />
 
-<p>递归。</p>
+<p>本题实质上是约瑟夫环问题。可以通过模拟环形数据结构来实现，一种方法是采用循环链表，另一种方法是采用数组，当下标处于数组中最后一个元素时，下一步应该回到数组第一个元素。</p>
+
+<p>本题还有时间复杂度为 O(n) 的解法（如解法二）。</p>
 
 <p><br/></p>
 
@@ -289,25 +291,53 @@
 
 <hr />
 
-<pre><code>/**
-public class TreeNode {
-    int val = 0;
-    TreeNode left = null;
-    TreeNode right = null;
+<h2 id="解法一">解法一：</h2>
 
-    public TreeNode(int val) {
-        this.val = val;
-
-    }
-
-}
-*/
-public class Solution {
-    public int TreeDepth(TreeNode root) {
-        if(root==null){
-            return 0;
+<pre><code>public class Solution {
+    public int LastRemaining_Solution(int n, int m) {
+        if(n&lt;1 || m&lt;1){
+            return -1;
         }
-        return 1 + (TreeDepth(root.left)&gt;TreeDepth(root.right)?TreeDepth(root.left):TreeDepth(root.right));
+        
+        int people = n;
+        int index = -1;
+        int step = 0;
+        int[] arr = new int[n];
+        
+        while(people&gt;0){
+            index++;
+            if(index==n){
+                index = 0;
+            }
+            if(arr[index]==-1){
+                continue;
+            }
+            step++;
+            if(step == m){
+                arr[index] = -1;
+                step = 0;
+                people--;
+            }
+        }
+        
+        return index;
+    }
+}
+</code></pre>
+
+<h2 id="解法二">解法二：</h2>
+
+<pre><code>public class Solution {
+    public int LastRemaining_Solution(int n, int m) {
+        if(n&lt;1 || m&lt;1){
+            return -1;
+        }
+        
+        int ret = 0;
+        for(int i=2;i&lt;=n;i++){
+            ret = (ret+m)%i;
+        }
+        return ret;
     }
 }
 </code></pre>
@@ -318,13 +348,13 @@ public class Solution {
 <div class="prev-next-post pure-g">
   <div class="pure-u-1-24" style="text-align: left;">
     
-    <a href="https://HauyuChen.github.io/post/%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E9%95%9C%E5%83%8F/"><i class="fa fa-chevron-left"></i></a>
+    <a href="https://HauyuChen.github.io/post/%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E6%B7%B1%E5%BA%A6/"><i class="fa fa-chevron-left"></i></a>
     
   </div>
   <div class="pure-u-10-24">
     
     <nav class="prev">
-      <a href="https://HauyuChen.github.io/post/%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E9%95%9C%E5%83%8F/">二叉树的镜像</a>
+      <a href="https://HauyuChen.github.io/post/%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E6%B7%B1%E5%BA%A6/">二叉树的深度</a>
     </nav>
     
   </div>
@@ -334,13 +364,13 @@ public class Solution {
   <div class="pure-u-10-24">
     
     <nav class="next">
-      <a href="https://HauyuChen.github.io/post/%E5%AD%A9%E5%AD%90%E4%BB%AC%E7%9A%84%E6%B8%B8%E6%88%8F%E5%9C%86%E5%9C%88%E4%B8%AD%E6%9C%80%E5%90%8E%E5%89%A9%E4%B8%8B%E7%9A%84%E6%95%B0/">孩子们的游戏(圆圈中最后剩下的数)</a>
+      <a href="https://HauyuChen.github.io/post/oo_introduction/">什么是面向对象？</a>
     </nav>
     
   </div>
   <div class="pure-u-1-24" style="text-align: right;">
     
-    <a href="https://HauyuChen.github.io/post/%E5%AD%A9%E5%AD%90%E4%BB%AC%E7%9A%84%E6%B8%B8%E6%88%8F%E5%9C%86%E5%9C%88%E4%B8%AD%E6%9C%80%E5%90%8E%E5%89%A9%E4%B8%8B%E7%9A%84%E6%95%B0/"><i class="fa fa-chevron-right"></i></a>
+    <a href="https://HauyuChen.github.io/post/oo_introduction/"><i class="fa fa-chevron-right"></i></a>
     
   </div>
 </div>
