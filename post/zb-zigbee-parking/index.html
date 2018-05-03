@@ -275,6 +275,8 @@
 
 <hr />
 
+<h2 id="修改声明-本文于2017年12月02日修改部分内容">修改声明：本文于2017年12月02日修改部分内容。</h2>
+
 <p><br/></p>
 
 <h1 id="0-写在前面">0 写在前面</h1>
@@ -469,14 +471,14 @@ CONNECT
 
 <p><strong>（4）发送数据到 tcp 对端（%IOMODE=1）</strong></p>
 
-<p>假如发送数据 0x01 0x02 0x03 0x04 0xEF，在发送中需要把 0x01 转换成 0x30 0x31 ，也就是可显字符‘0’，‘1’，以此类推。</p>
+<p>假如发送数据 0x01 0x02 0x03 0x04 0xEF，在发送中需要把 0x01 转换成 0x30 0x31 ，也就是可显字符‘ 0 ’，‘ 1 ’，以此类推。</p>
 
 <pre><code>AT%IPSEND=&quot;01020304EF&quot;
 </code></pre>
 
 <p><strong>（5）发送数据到 tcp 对端（%IOMODE=0）</strong></p>
 
-<p>假如发送的数据为可显，且不包含非法字符‘;’和‘&rdquo;’。比如需要发送字符串“0123456789ABCD%^&amp;EFGH”到 TCP 对端。</p>
+<p>假如发送的数据为可显，且不包含非法字符‘ ; ’和‘ &ldquo;’。比如需要发送字符串“0123456789ABCD%^&amp;EFGH”到 TCP 对端。</p>
 
 <pre><code>AT%IPSEND=&quot;0123456789ABCD%^&amp;EFGH&quot;
 %IPSEND:15
@@ -490,7 +492,7 @@ eg:
 %IPDATA:6,&quot;78125578AABB&quot;
 </code></pre>
 
-<p>表明：实际数据长度为 6 ，数据为 0x78 0x12 0x55 0x78 0xAA 0xBB</p>
+<p>表明：实际数据长度为 6 ，数据为 0x78 0x12 0x55 0x78 0xAA 0xBB 。</p>
 
 <p><strong>（7）缓存打开，从接收缓存中数据读取（%IOMODE=1,,0）</strong></p>
 
@@ -502,7 +504,7 @@ eg:
 <li>1：连接号</li>
 <li>2：包序号</li>
 <li>4：数据包长度</li>
-<li>0x30,0x38,0xEF,0x55：数据内容</li>
+<li>0x30，0x38，0xEF，0x55：数据内容</li>
 </ul>
 
 <p><strong>（8）关闭链接（单链接）</strong></p>
