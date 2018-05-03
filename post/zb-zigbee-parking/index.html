@@ -441,13 +441,13 @@
 
 <h3 id="3-3-1-建立tcp连接">3.3.1 建立TCP连接</h3>
 
-<p>（1）配置 APN</p>
+<p><strong>（1）配置 APN</strong></p>
 
 <pre><code>AT+CGDCONT=1,&quot;IP&quot;,&quot;CMNET&quot;
 OK
 </code></pre>
 
-<p>（2）进入 tcpip 功能</p>
+<p><strong>（2）进入 tcpip 功能</strong></p>
 
 <pre><code>AT%ETCPIP
 OK
@@ -459,31 +459,31 @@ OK
 OK
 </code></pre>
 
-<p>（3）打开一条 tcp 连接</p>
+<p><strong>（3）打开一条 tcp 连接</strong></p>
 
 <pre><code>AT%IPOPEN=&quot;TCP&quot;,&quot;202.206.1.26&quot;,23,,4098
 CONNECT
 </code></pre>
 
-<p>注：4098为绑定本地端口</p>
+<p>注：4098 为绑定本地端口</p>
 
-<p>（4）发送数据到 tcp 对端（%IOMODE=1）</p>
+<p><strong>（4）发送数据到 tcp 对端（%IOMODE=1）</strong></p>
 
-<p>假如发送数据 0x01 0x02 0x03 0x04 0xEF，在发送中需要把 0x01 转换成 0x30 0x31 ，也就是可显字符&rsquo;0&rsquo;，&rsquo;1&rsquo;，以此类推。</p>
+<p>假如发送数据 0x01 0x02 0x03 0x04 0xEF，在发送中需要把 0x01 转换成 0x30 0x31 ，也就是可显字符‘0’，‘1’，以此类推。</p>
 
 <pre><code>AT%IPSEND=&quot;01020304EF&quot;
 </code></pre>
 
-<p>（5）发送数据到 tcp 对端（%IOMODE=0）</p>
+<p><strong>（5）发送数据到 tcp 对端（%IOMODE=0）</strong></p>
 
-<p>假如发送的数据为可显，且不包含非法字符&rsquo;;&lsquo;和&rsquo;&ldquo;&lsquo;。比如需要发送字符串&rdquo;0123456789ABCD%^&amp;EFGH&rdquo;到 TCP 对端。</p>
+<p>假如发送的数据为可显，且不包含非法字符‘;’和‘&rdquo;’。比如需要发送字符串“0123456789ABCD%^&amp;EFGH”到 TCP 对端。</p>
 
 <pre><code>AT%IPSEND=&quot;0123456789ABCD%^&amp;EFGH&quot;
 %IPSEND:15
 OK
 </code></pre>
 
-<p>（6）新数据直接提交到串口，默认缓存没有打开（%IOMODE=1,1,1）</p>
+<p><strong>（6）新数据直接提交到串口，默认缓存没有打开（%IOMODE=1,1,1）</strong></p>
 
 <pre><code>%IPDATA:&lt;len&gt;,&lt;data&gt;
 eg:
@@ -492,7 +492,7 @@ eg:
 
 <p>表明：实际数据长度为 6 ，数据为 0x78 0x12 0x55 0x78 0xAA 0xBB</p>
 
-<p>（7）缓存打开，从接收缓存中数据读取（%IOMODE=1,,0）</p>
+<p><strong>（7）缓存打开，从接收缓存中数据读取（%IOMODE=1,,0）</strong></p>
 
 <pre><code>AT%IPDR
 %IPDR:1,2,4,&quot;3038EF55&quot;
@@ -505,17 +505,13 @@ eg:
 <li>0x30,0x38,0xEF,0x55：数据内容</li>
 </ul>
 
-<p>（8）关闭链接（单链接）</p>
+<p><strong>（8）关闭链接（单链接）</strong></p>
 
 <pre><code>AT%IPCLOSE
 OK
 </code></pre>
 
 <p>注：这个 OK 响应最长需要 15 秒。</p>
-
-<p><img src="https://raw.githubusercontent.com/HauyuChen/PicsBox/master/ZB-P-03.png" alt="" /></p>
-
-<p><img src="https://raw.githubusercontent.com/HauyuChen/PicsBox/master/ZB-P-04.png" alt="" /></p>
 
 <h3 id="3-3-2-发送短信">3.3.2 发送短信</h3>
 
