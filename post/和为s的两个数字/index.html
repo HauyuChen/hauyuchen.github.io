@@ -7,7 +7,7 @@
   <meta name="description" content="剑指Offer题解（Java实现）">
   <meta name="generator" content="Hugo 0.24.1" />
 
-  <title>包含min函数的栈 &middot; Hov&#39;s Blog</title>
+  <title>和为S的两个数字 &middot; Hov&#39;s Blog</title>
 
   <script>
 	var _hmt = _hmt || [];
@@ -221,7 +221,7 @@
 
 
 <div class="header">
-  <h1>包含min函数的栈</h1>
+  <h1>和为S的两个数字</h1>
   <h2>剑指Offer题解（Java实现）</h2>
 </div>
 <div class="content">
@@ -230,7 +230,7 @@
 
   <div>
     <i class="fa fa-calendar fa-fw"></i>
-    <time>2018-03-15</time>
+    <time>2018-03-10</time>
   </div>
 
   
@@ -273,7 +273,11 @@
 
 <hr />
 
-<p>定义栈的数据结构，请在该类型中实现一个能够得到栈最小元素的min函数。</p>
+<p>输入一个递增排序的数组和一个数字S，在数组中查找两个数，是的他们的和正好是S，如果有多对数字的和等于S，输出两个数的乘积最小的。</p>
+
+<p>输出描述:</p>
+
+<p>对应每个测试案例，输出两个数，小的先输出。</p>
 
 <p><br/></p>
 
@@ -281,9 +285,7 @@
 
 <hr />
 
-<p>通过一个辅助栈 minStack 来存放当前栈 dataStack 中的最小值。</p>
-
-<p>如果新压入的元素比 minStack 的栈顶小，则压入新元素到 minStack ，否则将 minStack 的栈顶再次压入 minStack 。可见， dataStack 和 minStack 中元素的数量始终一致。</p>
+<p>因为数组是有序的，所以可通过一前一后的方式求解符合要求的两个数，不需要暴力解决。</p>
 
 <p><br/></p>
 
@@ -291,33 +293,37 @@
 
 <hr />
 
-<pre><code>import java.util.Stack;
+<pre><code>import java.util.ArrayList;
 
 public class Solution {
-    Stack&lt;Integer&gt; dataStack = new Stack&lt;Integer&gt;();
-    Stack&lt;Integer&gt; minStack = new Stack&lt;Integer&gt;();
-    
-    public void push(int node) {
-        dataStack.push(node);
-        if(minStack.empty() || minStack.peek()&gt;node){
-            minStack.push(node);
+    public ArrayList&lt;Integer&gt; FindNumbersWithSum(int [] array,int sum) {
+        if(array==null){
+            return null;
         }
-        else{
-            minStack.push(minStack.peek());
+        ArrayList&lt;Integer&gt; retList = new ArrayList&lt;Integer&gt;();
+        int start = 0;
+        int end = array.length-1;
+        int min = Integer.MAX_VALUE;
+        
+        while(start&lt;end){
+            int tmp = array[start]+array[end];
+            if(tmp&lt;sum){
+                start++;
+            }
+            else if(tmp&gt;sum){
+                end--;
+            }
+            else{
+                if(array[start]*array[end]&lt;min){
+                    min = array[start]*array[end];
+                    retList.add(0,array[start]);
+                    retList.add(1,array[end]);
+                }
+                start++;
+            }
         }
-    }
-    
-    public void pop() {
-        dataStack.pop();
-        minStack.pop();
-    }
-    
-    public int top() {
-        return dataStack.peek();
-    }
-    
-    public int min() {
-        return minStack.peek();
+        
+        return retList;
     }
 }
 </code></pre>
@@ -328,13 +334,13 @@ public class Solution {
 <div class="prev-next-post pure-g">
   <div class="pure-u-1-24" style="text-align: left;">
     
-    <a href="https://HauyuChen.github.io/post/%E5%92%8C%E4%B8%BAs%E7%9A%84%E4%B8%A4%E4%B8%AA%E6%95%B0%E5%AD%97/"><i class="fa fa-chevron-left"></i></a>
+    <a href="https://HauyuChen.github.io/post/es-concurrent_op/"><i class="fa fa-chevron-left"></i></a>
     
   </div>
   <div class="pure-u-10-24">
     
     <nav class="prev">
-      <a href="https://HauyuChen.github.io/post/%E5%92%8C%E4%B8%BAs%E7%9A%84%E4%B8%A4%E4%B8%AA%E6%95%B0%E5%AD%97/">和为S的两个数字</a>
+      <a href="https://HauyuChen.github.io/post/es-concurrent_op/">Elasticsearch的乐观并发控制</a>
     </nav>
     
   </div>
@@ -344,13 +350,13 @@ public class Solution {
   <div class="pure-u-10-24">
     
     <nav class="next">
-      <a href="https://HauyuChen.github.io/post/%E7%AC%AC%E4%B8%80%E4%B8%AA%E5%8F%AA%E5%87%BA%E7%8E%B0%E4%B8%80%E6%AC%A1%E7%9A%84%E5%AD%97%E7%AC%A6/">第一个只出现一次的字符</a>
+      <a href="https://HauyuChen.github.io/post/%E5%8C%85%E5%90%ABmin%E5%87%BD%E6%95%B0%E7%9A%84%E6%A0%88/">包含min函数的栈</a>
     </nav>
     
   </div>
   <div class="pure-u-1-24" style="text-align: right;">
     
-    <a href="https://HauyuChen.github.io/post/%E7%AC%AC%E4%B8%80%E4%B8%AA%E5%8F%AA%E5%87%BA%E7%8E%B0%E4%B8%80%E6%AC%A1%E7%9A%84%E5%AD%97%E7%AC%A6/"><i class="fa fa-chevron-right"></i></a>
+    <a href="https://HauyuChen.github.io/post/%E5%8C%85%E5%90%ABmin%E5%87%BD%E6%95%B0%E7%9A%84%E6%A0%88/"><i class="fa fa-chevron-right"></i></a>
     
   </div>
 </div>
