@@ -7,7 +7,7 @@
   <meta name="description" content="剑指Offer题解（Java实现）">
   <meta name="generator" content="Hugo 0.24.1" />
 
-  <title>包含min函数的栈 &middot; Hov&#39;s Blog</title>
+  <title>机器人的运动范围 &middot; Hov&#39;s Blog</title>
 
   <script>
 	var _hmt = _hmt || [];
@@ -221,7 +221,7 @@
 
 
 <div class="header">
-  <h1>包含min函数的栈</h1>
+  <h1>机器人的运动范围</h1>
   <h2>剑指Offer题解（Java实现）</h2>
 </div>
 <div class="content">
@@ -230,7 +230,7 @@
 
   <div>
     <i class="fa fa-calendar fa-fw"></i>
-    <time>2018-03-15</time>
+    <time>2018-03-11</time>
   </div>
 
   
@@ -273,7 +273,9 @@
 
 <hr />
 
-<p>定义栈的数据结构，请在该类型中实现一个能够得到栈最小元素的min函数。</p>
+<p>地上有一个 m 行和 n 列的方格。一个机器人从坐标 0,0 的格子开始移动，每一次只能向左，右，上，下四个方向移动一格，但是不能进入行坐标和列坐标的数位之和大于 k 的格子。</p>
+
+<p>例如，当 k 为 18 时，机器人能够进入方格（35,37），因为 3+5+3+7 = 18 。但是，它不能进入方格（35,38），因为 3+5+3+8 = 19 。请问该机器人能够达到多少个格子？</p>
 
 <p><br/></p>
 
@@ -281,9 +283,9 @@
 
 <hr />
 
-<p>通过一个辅助栈 minStack 来存放当前栈 dataStack 中的最小值。</p>
+<p>可把题意理解为机器人在 m*n 的矩阵上移动。判断能不能进入一个坐标的条件是该坐标在矩阵范围内且坐标的数位之和不大于 k 。</p>
 
-<p>如果新压入的元素比 minStack 的栈顶小，则压入新元素到 minStack ，否则将 minStack 的栈顶再次压入 minStack 。可见， dataStack 和 minStack 中元素的数量始终一致。</p>
+<p>通过一个访问标志数组记录机器人走过的位置，初始全为 0 ，机器人每走过一个坐标，相应位置 1 。如此一来，当机器人走入一个坐标，count + 1，然后分别向上下左右四个方向回溯，把四个方向的计数相加即为机器人能达到的所有范围。</p>
 
 <p><br/></p>
 
@@ -291,35 +293,47 @@
 
 <hr />
 
-<pre><code>import java.util.Stack;
+<pre><code>public class Solution {
+    public int movingCount(int threshold, int rows, int cols)
+    {
+        if(threshold&lt;0 || rows&lt;0 || cols&lt;0){
+            return 0;
+        }
+        int[] isVisited = new int[rows*cols];
+        for(int row=0;row&lt;rows;row++){
+            for(int col=0;col&lt;cols;col++){
+                isVisited[row*cols+col] = 0;
+            }
+        }
+        return movingCountCore(threshold,0,0,rows,cols,isVisited);
+    }
+    
+    private int movingCountCore(int k,int row,int col,int rows,int cols,int[] isVisited){
 
-public class Solution {
-    Stack&lt;Integer&gt; dataStack = new Stack&lt;Integer&gt;();
-    Stack&lt;Integer&gt; minStack = new Stack&lt;Integer&gt;();
+       if(row&gt;=0&amp;&amp;row&lt;rows &amp;&amp; col&gt;=0&amp;&amp;col&lt;cols &amp;&amp; isVisited[row*cols+col]!=1 &amp;&amp; getSum(row)+getSum(col)&lt;=k){
+           isVisited[row*cols+col] = 1;
+           return 1 + movingCountCore(k,row+1,col,rows,cols,isVisited)
+                   + movingCountCore(k,row-1,col,rows,cols,isVisited)
+                   + movingCountCore(k,row,col+1,rows,cols,isVisited)
+                   + movingCountCore(k,row,col-1,rows,cols,isVisited);
+       }
+       else{
+           return 0;
+       }
+   }
+
+   private int getSum(int num){
+       int sum = 0;
+       while(num&gt;0){
+           sum += num%10;
+           num /= 10;
+       }
+       return sum;
+   }
     
-    public void push(int node) {
-        dataStack.push(node);
-        if(minStack.empty() || minStack.peek()&gt;node){
-            minStack.push(node);
-        }
-        else{
-            minStack.push(minStack.peek());
-        }
-    }
     
-    public void pop() {
-        dataStack.pop();
-        minStack.pop();
-    }
-    
-    public int top() {
-        return dataStack.peek();
-    }
-    
-    public int min() {
-        return minStack.peek();
-    }
 }
+
 </code></pre>
 
 <p><br/></p>
@@ -328,13 +342,13 @@ public class Solution {
 <div class="prev-next-post pure-g">
   <div class="pure-u-1-24" style="text-align: left;">
     
-    <a href="https://HauyuChen.github.io/post/%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%9A%84%E8%BF%90%E5%8A%A8%E8%8C%83%E5%9B%B4/"><i class="fa fa-chevron-left"></i></a>
+    <a href="https://HauyuChen.github.io/post/%E5%92%8C%E4%B8%BAs%E7%9A%84%E4%B8%A4%E4%B8%AA%E6%95%B0%E5%AD%97/"><i class="fa fa-chevron-left"></i></a>
     
   </div>
   <div class="pure-u-10-24">
     
     <nav class="prev">
-      <a href="https://HauyuChen.github.io/post/%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%9A%84%E8%BF%90%E5%8A%A8%E8%8C%83%E5%9B%B4/">机器人的运动范围</a>
+      <a href="https://HauyuChen.github.io/post/%E5%92%8C%E4%B8%BAs%E7%9A%84%E4%B8%A4%E4%B8%AA%E6%95%B0%E5%AD%97/">和为S的两个数字</a>
     </nav>
     
   </div>
@@ -344,13 +358,13 @@ public class Solution {
   <div class="pure-u-10-24">
     
     <nav class="next">
-      <a href="https://HauyuChen.github.io/post/%E7%AC%AC%E4%B8%80%E4%B8%AA%E5%8F%AA%E5%87%BA%E7%8E%B0%E4%B8%80%E6%AC%A1%E7%9A%84%E5%AD%97%E7%AC%A6/">第一个只出现一次的字符</a>
+      <a href="https://HauyuChen.github.io/post/%E5%8C%85%E5%90%ABmin%E5%87%BD%E6%95%B0%E7%9A%84%E6%A0%88/">包含min函数的栈</a>
     </nav>
     
   </div>
   <div class="pure-u-1-24" style="text-align: right;">
     
-    <a href="https://HauyuChen.github.io/post/%E7%AC%AC%E4%B8%80%E4%B8%AA%E5%8F%AA%E5%87%BA%E7%8E%B0%E4%B8%80%E6%AC%A1%E7%9A%84%E5%AD%97%E7%AC%A6/"><i class="fa fa-chevron-right"></i></a>
+    <a href="https://HauyuChen.github.io/post/%E5%8C%85%E5%90%ABmin%E5%87%BD%E6%95%B0%E7%9A%84%E6%A0%88/"><i class="fa fa-chevron-right"></i></a>
     
   </div>
 </div>
