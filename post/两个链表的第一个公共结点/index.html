@@ -7,7 +7,7 @@
   <meta name="description" content="剑指Offer题解（Java实现）">
   <meta name="generator" content="Hugo 0.24.1" />
 
-  <title>链表中倒数第k个结点 &middot; Hov&#39;s Blog</title>
+  <title>两个链表的第一个公共结点 &middot; Hov&#39;s Blog</title>
 
   <script>
 	var _hmt = _hmt || [];
@@ -221,7 +221,7 @@
 
 
 <div class="header">
-  <h1>链表中倒数第k个结点</h1>
+  <h1>两个链表的第一个公共结点</h1>
   <h2>剑指Offer题解（Java实现）</h2>
 </div>
 <div class="content">
@@ -267,19 +267,31 @@
 
 <hr />
 
+<p><br/></p>
+
 <h1 id="1-题目描述">1 题目描述</h1>
 
-<p>输入一个链表，输出该链表中倒数第 k 个结点。</p>
+<hr />
+
+<p>输入两个链表，找出它们的第一个公共结点。</p>
 
 <p><br/></p>
 
 <h1 id="2-思路">2 思路</h1>
 
-<p>通过两个指针一前一后走，一个指针先走 k-1 步。这题重要在于对程序鲁棒性的考虑，注意考虑输入链表为空、 k 大于链表的总长度、 k 小于 1 的情况。</p>
+<hr />
+
+<ol>
+<li>先分别求出两个链表的长度 len1 、 len2 ；</li>
+<li>长度较长的链表先走 |len1-len2| 步；</li>
+<li>接下来两个链表一起走，直到结点相同即为结果。</li>
+</ol>
 
 <p><br/></p>
 
 <h1 id="3-代码实现">3 代码实现</h1>
+
+<hr />
 
 <pre><code>/*
 public class ListNode {
@@ -291,25 +303,45 @@ public class ListNode {
     }
 }*/
 public class Solution {
-    public ListNode FindKthToTail(ListNode head,int k) {
-        if(head==null||k&lt;1){
-            return null;
-        }
-        ListNode p1 = head;
-        ListNode p2 = head;
+    public ListNode FindFirstCommonNode(ListNode pHead1, ListNode pHead2) {
+         if(pHead1==null || pHead2==null){
+             return null;
+         }
         
-        for(int i=0;i&lt;k-1;i++){
-            if(p2.next==null){
-                return null;
+        ListNode tmpNode1 = pHead1;
+        ListNode tmpNode2 = pHead2;
+        int len1 = 0;
+        int len2 = 0;
+        while(tmpNode1!=null){
+            len1++;
+            tmpNode1 = tmpNode1.next;
+        }
+        while(tmpNode2!=null){
+            len2++;
+            tmpNode2 = tmpNode2.next;
+        }
+        
+        if(len1&gt;len2){
+            for(int i=0;i&lt;len1-len2;i++){
+                pHead1 = pHead1.next;
             }
-            p2 = p2.next;
+        }
+        else{
+            for(int i=0;i&lt;len2-len1;i++){
+                pHead2 = pHead2.next;
+            }
+        }
+        while(pHead1!=null &amp;&amp; pHead2!=null){
+            if(pHead1.val==pHead2.val){
+                return pHead1;
+            }
+            else{
+                pHead1 = pHead1.next;
+                pHead2 = pHead2.next;
+            }
         }
         
-        while(p2.next!=null){
-            p1 = p1.next;
-            p2 = p2.next;
-        }
-        return p1;
+        return null;
     }
 }
 </code></pre>
@@ -320,13 +352,13 @@ public class Solution {
 <div class="prev-next-post pure-g">
   <div class="pure-u-1-24" style="text-align: left;">
     
-    <a href="https://HauyuChen.github.io/post/%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%9A%84%E8%BF%90%E5%8A%A8%E8%8C%83%E5%9B%B4/"><i class="fa fa-chevron-left"></i></a>
+    <a href="https://HauyuChen.github.io/post/%E9%93%BE%E8%A1%A8%E4%B8%AD%E5%80%92%E6%95%B0%E7%AC%ACk%E4%B8%AA%E7%BB%93%E7%82%B9/"><i class="fa fa-chevron-left"></i></a>
     
   </div>
   <div class="pure-u-10-24">
     
     <nav class="prev">
-      <a href="https://HauyuChen.github.io/post/%E6%9C%BA%E5%99%A8%E4%BA%BA%E7%9A%84%E8%BF%90%E5%8A%A8%E8%8C%83%E5%9B%B4/">机器人的运动范围</a>
+      <a href="https://HauyuChen.github.io/post/%E9%93%BE%E8%A1%A8%E4%B8%AD%E5%80%92%E6%95%B0%E7%AC%ACk%E4%B8%AA%E7%BB%93%E7%82%B9/">链表中倒数第k个结点</a>
     </nav>
     
   </div>
@@ -336,13 +368,13 @@ public class Solution {
   <div class="pure-u-10-24">
     
     <nav class="next">
-      <a href="https://HauyuChen.github.io/post/%E4%B8%A4%E4%B8%AA%E9%93%BE%E8%A1%A8%E7%9A%84%E7%AC%AC%E4%B8%80%E4%B8%AA%E5%85%AC%E5%85%B1%E7%BB%93%E7%82%B9/">两个链表的第一个公共结点</a>
+      <a href="https://HauyuChen.github.io/post/%E5%8C%85%E5%90%ABmin%E5%87%BD%E6%95%B0%E7%9A%84%E6%A0%88/">包含min函数的栈</a>
     </nav>
     
   </div>
   <div class="pure-u-1-24" style="text-align: right;">
     
-    <a href="https://HauyuChen.github.io/post/%E4%B8%A4%E4%B8%AA%E9%93%BE%E8%A1%A8%E7%9A%84%E7%AC%AC%E4%B8%80%E4%B8%AA%E5%85%AC%E5%85%B1%E7%BB%93%E7%82%B9/"><i class="fa fa-chevron-right"></i></a>
+    <a href="https://HauyuChen.github.io/post/%E5%8C%85%E5%90%ABmin%E5%87%BD%E6%95%B0%E7%9A%84%E6%A0%88/"><i class="fa fa-chevron-right"></i></a>
     
   </div>
 </div>
