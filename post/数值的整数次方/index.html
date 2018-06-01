@@ -7,7 +7,7 @@
   <meta name="description" content="剑指Offer题解（Java实现）">
   <meta name="generator" content="Hugo 0.24.1" />
 
-  <title>平衡二叉树 &middot; Hov&#39;s Blog</title>
+  <title>数值的整数次方 &middot; Hov&#39;s Blog</title>
 
   <script>
 	var _hmt = _hmt || [];
@@ -221,7 +221,7 @@
 
 
 <div class="header">
-  <h1>平衡二叉树</h1>
+  <h1>数值的整数次方</h1>
   <h2>剑指Offer题解（Java实现）</h2>
 </div>
 <div class="content">
@@ -230,7 +230,7 @@
 
   <div>
     <i class="fa fa-calendar fa-fw"></i>
-    <time>2018-03-02</time>
+    <time>2018-03-03</time>
   </div>
 
   
@@ -273,7 +273,7 @@
 
 <hr />
 
-<p>输入一棵二叉树，判断该二叉树是否是平衡二叉树。</p>
+<p>给定一个 double 类型的浮点数 base 和 int 类型的整数 exponent 。求 base 的 exponent 次方。</p>
 
 <p><br/></p>
 
@@ -281,9 +281,12 @@
 
 <hr />
 
-<p>本题一个简单的思路是分别计算左右子树的深度，然后判断是否平衡。但这样会造成重复的计算。</p>
+<p>本题要求根据 base、exponent 求 base 的 exponent 次幂。注意考虑几种情形：</p>
 
-<p>这里采用后序遍历的思路，避免重复计算子树的深度。这里我做了一个小设计，isBalance 方法返回 -1 时表示该二叉树不平衡，返回其它值则表示该二叉树的深度。</p>
+<ol>
+<li>base 为 0 ；</li>
+<li>exponent为负或 0 。</li>
+</ol>
 
 <p><br/></p>
 
@@ -292,30 +295,26 @@
 <hr />
 
 <pre><code>public class Solution {
-    public boolean IsBalanced_Solution(TreeNode root) {
-        if(root==null){
-            return true;
+    public double Power(double base, int exponent) {
+        if(base==0 &amp;&amp; exponent&lt;0){
+            return 0.0;
         }
-        if(isBalance(root)==-1){
-            return false;
+        int flag = 0;
+        double ret = 1.0;
+        
+        if(exponent&lt;0){
+            exponent = 0-exponent;
+            flag = 1;
         }
-        return true;
-    }
-    
-    private int isBalance(TreeNode root){
-        if(root==null){
-            return 0;
+        for(int i=0;i&lt;exponent;i++){
+            ret *= base;
         }
-        int left = isBalance(root.left);
-        int right = isBalance(root.right);
-        if(left!=-1 &amp;&amp; right!=-1){
-            int diff = left-right;
-            if(diff&gt;=-1&amp;&amp;diff&lt;=1){
-                return 1 + (left&gt;right?left:right);
-            }
+        
+        if(flag==1){
+            return 1.0/ret;
         }
-        return -1;
-    }
+        return ret;
+  }
 }
 </code></pre>
 
@@ -325,13 +324,13 @@
 <div class="prev-next-post pure-g">
   <div class="pure-u-1-24" style="text-align: left;">
     
-    <a href="https://HauyuChen.github.io/post/es-concurrent_op/"><i class="fa fa-chevron-left"></i></a>
+    <a href="https://HauyuChen.github.io/post/%E5%B9%B3%E8%A1%A1%E4%BA%8C%E5%8F%89%E6%A0%91/"><i class="fa fa-chevron-left"></i></a>
     
   </div>
   <div class="pure-u-10-24">
     
     <nav class="prev">
-      <a href="https://HauyuChen.github.io/post/es-concurrent_op/">Elasticsearch的乐观并发控制</a>
+      <a href="https://HauyuChen.github.io/post/%E5%B9%B3%E8%A1%A1%E4%BA%8C%E5%8F%89%E6%A0%91/">平衡二叉树</a>
     </nav>
     
   </div>
@@ -341,13 +340,13 @@
   <div class="pure-u-10-24">
     
     <nav class="next">
-      <a href="https://HauyuChen.github.io/post/%E6%95%B0%E5%80%BC%E7%9A%84%E6%95%B4%E6%95%B0%E6%AC%A1%E6%96%B9/">数值的整数次方</a>
+      <a href="https://HauyuChen.github.io/post/%E5%92%8C%E4%B8%BAs%E7%9A%84%E4%B8%A4%E4%B8%AA%E6%95%B0%E5%AD%97/">和为S的两个数字</a>
     </nav>
     
   </div>
   <div class="pure-u-1-24" style="text-align: right;">
     
-    <a href="https://HauyuChen.github.io/post/%E6%95%B0%E5%80%BC%E7%9A%84%E6%95%B4%E6%95%B0%E6%AC%A1%E6%96%B9/"><i class="fa fa-chevron-right"></i></a>
+    <a href="https://HauyuChen.github.io/post/%E5%92%8C%E4%B8%BAs%E7%9A%84%E4%B8%A4%E4%B8%AA%E6%95%B0%E5%AD%97/"><i class="fa fa-chevron-right"></i></a>
     
   </div>
 </div>
