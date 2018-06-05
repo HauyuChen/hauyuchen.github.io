@@ -7,7 +7,7 @@
   <meta name="description" content="剑指Offer题解（Java实现）">
   <meta name="generator" content="Hugo 0.24.1" />
 
-  <title>数值的整数次方 &middot; Hov&#39;s Blog</title>
+  <title>数组中出现次数超过一半的数字 &middot; Hov&#39;s Blog</title>
 
   <script>
 	var _hmt = _hmt || [];
@@ -221,7 +221,7 @@
 
 
 <div class="header">
-  <h1>数值的整数次方</h1>
+  <h1>数组中出现次数超过一半的数字</h1>
   <h2>剑指Offer题解（Java实现）</h2>
 </div>
 <div class="content">
@@ -230,7 +230,7 @@
 
   <div>
     <i class="fa fa-calendar fa-fw"></i>
-    <time>2018-03-03</time>
+    <time>2018-03-06</time>
   </div>
 
   
@@ -273,7 +273,7 @@
 
 <hr />
 
-<p>给定一个 double 类型的浮点数 base 和 int 类型的整数 exponent 。求 base 的 exponent 次方。</p>
+<p>数组中有一个数字出现的次数超过数组长度的一半，请找出这个数字。例如输入一个长度为9的数组{1,2,3,2,2,2,5,4,2}。由于数字2在数组中出现了5次，超过数组长度的一半，因此输出2。如果不存在则输出0。</p>
 
 <p><br/></p>
 
@@ -281,12 +281,9 @@
 
 <hr />
 
-<p>本题要求根据 base、exponent 求 base 的 exponent 次幂。注意考虑几种情形：</p>
+<p>看到这道题时想起了算法课讲到的查找最小 ｋ 的线性时间复杂度算法。如解法一，找到数组中出现次数过半的数，其实就是判断有序数组的中位数是否出现次数过半。有了这个前提，我们可以通过快速排序中的 Partition 来找到数组有序时的中位数，而不需要对数组排序，最后判断这个数出现的次数是否过半即可。</p>
 
-<ol>
-<li>base 为 0 ；</li>
-<li>exponent为负或 0 。</li>
-</ol>
+<p>解法二用的是一种比较巧妙的思路，通过找到本题的规律求解。</p>
 
 <p><br/></p>
 
@@ -294,27 +291,88 @@
 
 <hr />
 
+<h2 id="解法一">解法一：</h2>
+
 <pre><code>public class Solution {
-    public double Power(double base, int exponent) {
-        if(base==0 &amp;&amp; exponent&lt;0){
-            return 0.0;
+    public int MoreThanHalfNum_Solution(int [] array) {
+        if(array==null){
+            return 0;
         }
-        int flag = 0;
-        double ret = 1.0;
+        int mid = array.length/2;
+        int start = 0;
+        int end = array.length-1;
+        int pivot = partition(array,start,end);
         
-        if(exponent&lt;0){
-            exponent = 0-exponent;
-            flag = 1;
-        }
-        for(int i=0;i&lt;exponent;i++){
-            ret *= base;
+        while(pivot!=mid){
+            if(pivot&lt;mid){
+                start = pivot+1;
+                pivot = partition(array,start,end);
+            }else{
+                end = pivot-1;
+                pivot = partition(array,start,end);
+            }
         }
         
-        if(flag==1){
-            return 1.0/ret;
+        int count = 0;
+        for(int i=0;i&lt;array.length;i++){
+            if(array[pivot]==array[i]){
+                count++;
+            }
         }
-        return ret;
-  }
+        
+        return count&gt;mid?array[pivot]:0;
+    }
+    
+    private int partition(int[] array,int start,int end){
+        int pivot = array[start];
+        while(start&lt;end){
+            while(start&lt;end &amp;&amp; array[end]&gt;=pivot){
+                end--;
+            }
+            array[start] = array[end];
+            while(start&lt;end &amp;&amp; array[start]&lt;=pivot){
+                start++;
+            }
+            array[end] = array[start];
+        }
+        array[start] = pivot;
+        return start;
+    }
+}
+</code></pre>
+
+<h2 id="解法二">解法二：</h2>
+
+<pre><code>public class Solution {
+    public int MoreThanHalfNum_Solution(int [] array) {
+        if(array==null){
+            return 0;
+        }
+        
+        int index = 0;
+        int count = 1;
+        for(int i=1;i&lt;array.length;i++){
+            if(count==0){
+                index = i;
+                count = 1;
+            }
+            if(array[index]==array[i]){
+                count++;
+            }
+            else{
+                count--;
+            }
+        }
+        
+        int times = 0;
+        for(int i=0;i&lt;array.length;i++){
+            if(array[index]==array[i]){
+                times++;
+            }
+        }
+
+        return times&gt;array.length/2?array[index]:0;
+    }
 }
 </code></pre>
 
@@ -324,13 +382,13 @@
 <div class="prev-next-post pure-g">
   <div class="pure-u-1-24" style="text-align: left;">
     
-    <a href="https://HauyuChen.github.io/post/%E5%B9%B3%E8%A1%A1%E4%BA%8C%E5%8F%89%E6%A0%91/"><i class="fa fa-chevron-left"></i></a>
+    <a href="https://HauyuChen.github.io/post/%E6%95%B0%E5%80%BC%E7%9A%84%E6%95%B4%E6%95%B0%E6%AC%A1%E6%96%B9/"><i class="fa fa-chevron-left"></i></a>
     
   </div>
   <div class="pure-u-10-24">
     
     <nav class="prev">
-      <a href="https://HauyuChen.github.io/post/%E5%B9%B3%E8%A1%A1%E4%BA%8C%E5%8F%89%E6%A0%91/">平衡二叉树</a>
+      <a href="https://HauyuChen.github.io/post/%E6%95%B0%E5%80%BC%E7%9A%84%E6%95%B4%E6%95%B0%E6%AC%A1%E6%96%B9/">数值的整数次方</a>
     </nav>
     
   </div>
@@ -340,13 +398,13 @@
   <div class="pure-u-10-24">
     
     <nav class="next">
-      <a href="https://HauyuChen.github.io/post/%E6%95%B0%E7%BB%84%E4%B8%AD%E5%87%BA%E7%8E%B0%E6%AC%A1%E6%95%B0%E8%B6%85%E8%BF%87%E4%B8%80%E5%8D%8A%E7%9A%84%E6%95%B0%E5%AD%97/">数组中出现次数超过一半的数字</a>
+      <a href="https://HauyuChen.github.io/post/%E6%95%B0%E5%AD%97%E5%9C%A8%E6%8E%92%E5%BA%8F%E6%95%B0%E7%BB%84%E4%B8%AD%E5%87%BA%E7%8E%B0%E7%9A%84%E6%AC%A1%E6%95%B0/">数字在排序数组中出现的次数</a>
     </nav>
     
   </div>
   <div class="pure-u-1-24" style="text-align: right;">
     
-    <a href="https://HauyuChen.github.io/post/%E6%95%B0%E7%BB%84%E4%B8%AD%E5%87%BA%E7%8E%B0%E6%AC%A1%E6%95%B0%E8%B6%85%E8%BF%87%E4%B8%80%E5%8D%8A%E7%9A%84%E6%95%B0%E5%AD%97/"><i class="fa fa-chevron-right"></i></a>
+    <a href="https://HauyuChen.github.io/post/%E6%95%B0%E5%AD%97%E5%9C%A8%E6%8E%92%E5%BA%8F%E6%95%B0%E7%BB%84%E4%B8%AD%E5%87%BA%E7%8E%B0%E7%9A%84%E6%AC%A1%E6%95%B0/"><i class="fa fa-chevron-right"></i></a>
     
   </div>
 </div>
