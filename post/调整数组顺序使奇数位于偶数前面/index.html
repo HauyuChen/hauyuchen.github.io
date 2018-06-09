@@ -7,7 +7,7 @@
   <meta name="description" content="剑指Offer题解（Java实现）">
   <meta name="generator" content="Hugo 0.24.1" />
 
-  <title>两个链表的第一个公共结点 &middot; Hov&#39;s Blog</title>
+  <title>调整数组顺序使奇数位于偶数前面 &middot; Hov&#39;s Blog</title>
 
   <script>
 	var _hmt = _hmt || [];
@@ -221,7 +221,7 @@
 
 
 <div class="header">
-  <h1>两个链表的第一个公共结点</h1>
+  <h1>调整数组顺序使奇数位于偶数前面</h1>
   <h2>剑指Offer题解（Java实现）</h2>
 </div>
 <div class="content">
@@ -273,7 +273,7 @@
 
 <hr />
 
-<p>输入两个链表，找出它们的第一个公共结点。</p>
+<p>输入一个整数数组，实现一个函数来调整该数组中数字的顺序，使得所有的奇数位于数组的前半部分，所有的偶数位于位于数组的后半部分，并保证奇数和奇数，偶数和偶数之间的相对位置不变。</p>
 
 <p><br/></p>
 
@@ -281,11 +281,10 @@
 
 <hr />
 
-<ol>
-<li>先分别求出两个链表的长度 len1 、 len2 ；</li>
-<li>长度较长的链表先走 |len1-len2| 步；</li>
-<li>接下来两个链表一起走，直到结点相同即为结果。</li>
-</ol>
+<ul>
+<li>直接借用冒泡排序的算法实现的话，时间复杂度是 O(N^2) ；</li>
+<li>如果借用辅助数组，时间复杂度可以降为 O(N) ，但需要额外空间。</li>
+</ul>
 
 <p><br/></p>
 
@@ -293,55 +292,17 @@
 
 <hr />
 
-<pre><code>/*
-public class ListNode {
-    int val;
-    ListNode next = null;
-
-    ListNode(int val) {
-        this.val = val;
-    }
-}*/
-public class Solution {
-    public ListNode FindFirstCommonNode(ListNode pHead1, ListNode pHead2) {
-         if(pHead1==null || pHead2==null){
-             return null;
-         }
-        
-        ListNode tmpNode1 = pHead1;
-        ListNode tmpNode2 = pHead2;
-        int len1 = 0;
-        int len2 = 0;
-        while(tmpNode1!=null){
-            len1++;
-            tmpNode1 = tmpNode1.next;
-        }
-        while(tmpNode2!=null){
-            len2++;
-            tmpNode2 = tmpNode2.next;
-        }
-        
-        if(len1&gt;len2){
-            for(int i=0;i&lt;len1-len2;i++){
-                pHead1 = pHead1.next;
+<pre><code>public class Solution {
+    public void reOrderArray(int [] array) {
+        for(int i=0;i&lt;array.length-1;i++){
+            for(int j=0;j&lt;array.length-1-i;j++){
+                if(array[j]%2==0 &amp;&amp; array[j+1]%2==1){
+                    int tmp = array[j];
+                    array[j] = array[j+1];
+                    array[j+1] = tmp;
+                }
             }
         }
-        else{
-            for(int i=0;i&lt;len2-len1;i++){
-                pHead2 = pHead2.next;
-            }
-        }
-        while(pHead1!=null &amp;&amp; pHead2!=null){
-            if(pHead1.val==pHead2.val){
-                return pHead1;
-            }
-            else{
-                pHead1 = pHead1.next;
-                pHead2 = pHead2.next;
-            }
-        }
-        
-        return null;
     }
 }
 </code></pre>
@@ -352,13 +313,13 @@ public class Solution {
 <div class="prev-next-post pure-g">
   <div class="pure-u-1-24" style="text-align: left;">
     
-    <a href="https://HauyuChen.github.io/post/%E8%B0%83%E6%95%B4%E6%95%B0%E7%BB%84%E9%A1%BA%E5%BA%8F%E4%BD%BF%E5%A5%87%E6%95%B0%E4%BD%8D%E4%BA%8E%E5%81%B6%E6%95%B0%E5%89%8D%E9%9D%A2/"><i class="fa fa-chevron-left"></i></a>
+    <a href="https://HauyuChen.github.io/post/%E9%93%BE%E8%A1%A8%E4%B8%AD%E5%80%92%E6%95%B0%E7%AC%ACk%E4%B8%AA%E7%BB%93%E7%82%B9/"><i class="fa fa-chevron-left"></i></a>
     
   </div>
   <div class="pure-u-10-24">
     
     <nav class="prev">
-      <a href="https://HauyuChen.github.io/post/%E8%B0%83%E6%95%B4%E6%95%B0%E7%BB%84%E9%A1%BA%E5%BA%8F%E4%BD%BF%E5%A5%87%E6%95%B0%E4%BD%8D%E4%BA%8E%E5%81%B6%E6%95%B0%E5%89%8D%E9%9D%A2/">调整数组顺序使奇数位于偶数前面</a>
+      <a href="https://HauyuChen.github.io/post/%E9%93%BE%E8%A1%A8%E4%B8%AD%E5%80%92%E6%95%B0%E7%AC%ACk%E4%B8%AA%E7%BB%93%E7%82%B9/">链表中倒数第k个结点</a>
     </nav>
     
   </div>
@@ -368,13 +329,13 @@ public class Solution {
   <div class="pure-u-10-24">
     
     <nav class="next">
-      <a href="https://HauyuChen.github.io/post/%E5%8C%85%E5%90%ABmin%E5%87%BD%E6%95%B0%E7%9A%84%E6%A0%88/">包含min函数的栈</a>
+      <a href="https://HauyuChen.github.io/post/%E4%B8%A4%E4%B8%AA%E9%93%BE%E8%A1%A8%E7%9A%84%E7%AC%AC%E4%B8%80%E4%B8%AA%E5%85%AC%E5%85%B1%E7%BB%93%E7%82%B9/">两个链表的第一个公共结点</a>
     </nav>
     
   </div>
   <div class="pure-u-1-24" style="text-align: right;">
     
-    <a href="https://HauyuChen.github.io/post/%E5%8C%85%E5%90%ABmin%E5%87%BD%E6%95%B0%E7%9A%84%E6%A0%88/"><i class="fa fa-chevron-right"></i></a>
+    <a href="https://HauyuChen.github.io/post/%E4%B8%A4%E4%B8%AA%E9%93%BE%E8%A1%A8%E7%9A%84%E7%AC%AC%E4%B8%80%E4%B8%AA%E5%85%AC%E5%85%B1%E7%BB%93%E7%82%B9/"><i class="fa fa-chevron-right"></i></a>
     
   </div>
 </div>
