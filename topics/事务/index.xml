@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>事务 on Hov&#39;s Blog</title>
+    <link>https://HauyuChen.github.io/topics/%E4%BA%8B%E5%8A%A1/</link>
+    <description>Recent content in 事务 on Hov&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>&amp;copy; 2017. All rights reserved.</copyright>
+    <lastBuildDate>Sun, 10 Jun 2018 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://HauyuChen.github.io/topics/%E4%BA%8B%E5%8A%A1/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Spring 事务管理初探</title>
+      <link>https://HauyuChen.github.io/post/spring_transcationmanager/</link>
+      <pubDate>Sun, 10 Jun 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://HauyuChen.github.io/post/spring_transcationmanager/</guid>
+      <description>&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>
