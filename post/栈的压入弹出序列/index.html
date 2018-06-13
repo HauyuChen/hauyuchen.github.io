@@ -7,7 +7,7 @@
   <meta name="description" content="剑指Offer题解（Java实现）">
   <meta name="generator" content="Hugo 0.24.1" />
 
-  <title>包含min函数的栈 &middot; Hov&#39;s Blog</title>
+  <title>栈的压入、弹出序列 &middot; Hov&#39;s Blog</title>
 
   <script>
 	var _hmt = _hmt || [];
@@ -221,7 +221,7 @@
 
 
 <div class="header">
-  <h1>包含min函数的栈</h1>
+  <h1>栈的压入、弹出序列</h1>
   <h2>剑指Offer题解（Java实现）</h2>
 </div>
 <div class="content">
@@ -230,7 +230,7 @@
 
   <div>
     <i class="fa fa-calendar fa-fw"></i>
-    <time>2018-03-15</time>
+    <time>2018-03-13</time>
   </div>
 
   
@@ -273,7 +273,7 @@
 
 <hr />
 
-<p>定义栈的数据结构，请在该类型中实现一个能够得到栈最小元素的min函数。</p>
+<p>输入两个整数序列，第一个序列表示栈的压入顺序，请判断第二个序列是否为该栈的弹出顺序。假设压入栈的所有数字均不相等。例如序列1,2,3,4,5是某栈的压入顺序，序列4，5,3,2,1是该压栈序列对应的一个弹出序列，但4,3,5,1,2就不可能是该压栈序列的弹出序列。（注意：这两个序列的长度是相等的）</p>
 
 <p><br/></p>
 
@@ -281,9 +281,18 @@
 
 <hr />
 
-<p>通过一个辅助栈 minStack 来存放当前栈 dataStack 中的最小值。</p>
+<ol>
+<li>如果 popA 当前元素等于 stack 栈顶元素，则 stack 栈顶出栈，继续考虑 popA 的下一元素；</li>
+<li>否则，若 pushA 当前元素不等于 popA 当前元素，则将 pushA 当前元素入栈；直到 pushA 当前元素等于 popA 当前元素；</li>
+<li>pushA 当前元素等于 popA 当前元素，则继续考虑 popA 和 pushA 的下一元素。</li>
+</ol>
 
-<p>如果新压入的元素比 minStack 的栈顶小，则压入新元素到 minStack ，否则将 minStack 的栈顶再次压入 minStack 。可见， dataStack 和 minStack 中元素的数量始终一致。</p>
+<p>注：</p>
+
+<ol>
+<li>这里我设置了一个哨兵 isMod ，若思路中的三个步骤都不符合，说明不是该压栈序列的弹出序列，提前结束，返回 false ；</li>
+<li>若最后 stack 非空，返回 false 。</li>
+</ol>
 
 <p><br/></p>
 
@@ -294,32 +303,45 @@
 <pre><code>import java.util.Stack;
 
 public class Solution {
-    Stack&lt;Integer&gt; dataStack = new Stack&lt;Integer&gt;();
-    Stack&lt;Integer&gt; minStack = new Stack&lt;Integer&gt;();
-    
-    public void push(int node) {
-        dataStack.push(node);
-        if(minStack.empty() || minStack.peek()&gt;node){
-            minStack.push(node);
+    public boolean IsPopOrder(int [] pushA,int [] popA) {
+        if(pushA.length!=popA.length){
+            return false;
         }
-        else{
-            minStack.push(minStack.peek());
+        
+        Stack&lt;Integer&gt; stack = new Stack&lt;Integer&gt;();
+        boolean isMod = false;
+        int indexOfPushA = 0;
+        
+        for(int i=0;i&lt;popA.length;i++){
+            isMod = false;
+            if(!stack.empty() &amp;&amp; popA[i]==stack.peek()){
+                stack.pop();
+                continue;
+            }
+            
+            while(indexOfPushA!=pushA.length &amp;&amp; popA[i]!=pushA[indexOfPushA]){
+                stack.push(pushA[indexOfPushA]);
+                indexOfPushA++;
+                isMod = true;
+            }
+            if(indexOfPushA!=pushA.length &amp;&amp; popA[i]==pushA[indexOfPushA]){
+                indexOfPushA++;
+                isMod = true;
+            }
+            
+            if(isMod==false){
+                return false;
+            }
         }
-    }
-    
-    public void pop() {
-        dataStack.pop();
-        minStack.pop();
-    }
-    
-    public int top() {
-        return dataStack.peek();
-    }
-    
-    public int min() {
-        return minStack.peek();
+                
+        if(!stack.empty()){
+            return false;
+        }
+        
+        return true;
     }
 }
+
 </code></pre>
 
 <p><br/></p>
@@ -328,13 +350,13 @@ public class Solution {
 <div class="prev-next-post pure-g">
   <div class="pure-u-1-24" style="text-align: left;">
     
-    <a href="https://HauyuChen.github.io/post/%E6%A0%88%E7%9A%84%E5%8E%8B%E5%85%A5%E5%BC%B9%E5%87%BA%E5%BA%8F%E5%88%97/"><i class="fa fa-chevron-left"></i></a>
+    <a href="https://HauyuChen.github.io/post/%E4%B8%A4%E4%B8%AA%E9%93%BE%E8%A1%A8%E7%9A%84%E7%AC%AC%E4%B8%80%E4%B8%AA%E5%85%AC%E5%85%B1%E7%BB%93%E7%82%B9/"><i class="fa fa-chevron-left"></i></a>
     
   </div>
   <div class="pure-u-10-24">
     
     <nav class="prev">
-      <a href="https://HauyuChen.github.io/post/%E6%A0%88%E7%9A%84%E5%8E%8B%E5%85%A5%E5%BC%B9%E5%87%BA%E5%BA%8F%E5%88%97/">栈的压入、弹出序列</a>
+      <a href="https://HauyuChen.github.io/post/%E4%B8%A4%E4%B8%AA%E9%93%BE%E8%A1%A8%E7%9A%84%E7%AC%AC%E4%B8%80%E4%B8%AA%E5%85%AC%E5%85%B1%E7%BB%93%E7%82%B9/">两个链表的第一个公共结点</a>
     </nav>
     
   </div>
@@ -344,13 +366,13 @@ public class Solution {
   <div class="pure-u-10-24">
     
     <nav class="next">
-      <a href="https://HauyuChen.github.io/post/%E7%AC%AC%E4%B8%80%E4%B8%AA%E5%8F%AA%E5%87%BA%E7%8E%B0%E4%B8%80%E6%AC%A1%E7%9A%84%E5%AD%97%E7%AC%A6/">第一个只出现一次的字符</a>
+      <a href="https://HauyuChen.github.io/post/%E5%8C%85%E5%90%ABmin%E5%87%BD%E6%95%B0%E7%9A%84%E6%A0%88/">包含min函数的栈</a>
     </nav>
     
   </div>
   <div class="pure-u-1-24" style="text-align: right;">
     
-    <a href="https://HauyuChen.github.io/post/%E7%AC%AC%E4%B8%80%E4%B8%AA%E5%8F%AA%E5%87%BA%E7%8E%B0%E4%B8%80%E6%AC%A1%E7%9A%84%E5%AD%97%E7%AC%A6/"><i class="fa fa-chevron-right"></i></a>
+    <a href="https://HauyuChen.github.io/post/%E5%8C%85%E5%90%ABmin%E5%87%BD%E6%95%B0%E7%9A%84%E6%A0%88/"><i class="fa fa-chevron-right"></i></a>
     
   </div>
 </div>
