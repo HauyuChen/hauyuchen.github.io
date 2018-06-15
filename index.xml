@@ -1491,6 +1491,15 @@
     </item>
     
     <item>
+      <title>技术书单</title>
+      <link>https://HauyuChen.github.io/booklist/</link>
+      <pubDate>Sun, 12 Jun 2016 19:38:48 +0000</pubDate>
+      
+      <guid>https://HauyuChen.github.io/booklist/</guid>
+      <description>已读 Java 核心技术（卷Ⅰ） 深入理解 Java 虚拟机 Java 并发编程的艺术 浪潮之巅（上下册） 大数据时代 Linux 鸟哥的私房菜 剑指 Offer Hadoop 权威指南 从 Paxos 到 ZooKeeper（分</description>
+    </item>
+    
+    <item>
       <title>【LeetCode】13. Roman to Integer</title>
       <link>https://HauyuChen.github.io/post/013-roman-to-integer/</link>
       <pubDate>Sun, 12 Jun 2016 00:00:00 +0000</pubDate>
