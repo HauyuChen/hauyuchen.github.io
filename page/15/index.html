@@ -243,6 +243,63 @@
     
       <article>
   <header>
+    <h2><a href="https://HauyuChen.github.io/post/338-counting-bits/">【LeetCode】338. Counting Bits</a></h2>
+
+    <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>2017-01-12</time>
+  </div>
+
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-folder fa-fw"></i>
+    
+      <a class="post-taxonomy-tag" href="https://HauyuChen.github.io/tags/%E7%AE%97%E6%B3%95">算法</a>
+    
+  </div>
+  
+  
+
+  
+  
+  
+  <div>
+	<i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/%E7%AE%97%E6%B3%95">算法</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/leetcode">LeetCode</a>
+    
+  </div>
+  
+  
+  
+</div>
+
+  </header>
+
+  <p>
+  题目描述： Given a non negative integer number num. For every numbers i in the range 0 ≤ i ≤ num calculate the number of 1&rsquo;s in their binary representation and return them as an array. Example: For num = 5 you should return [0,1,1,2,1,2]. Follow up: It is very easy to come up with a solution with run time O(n*sizeof(integer)). But can you do it in
+  </p>
+
+  
+  <footer>
+    <a href="https://HauyuChen.github.io/post/338-counting-bits/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
+  </footer>
+  
+</article>
+
+    
+  
+    
+      <article>
+  <header>
     <h2><a href="https://HauyuChen.github.io/post/268-missing-number/">【LeetCode】268. Missing Number</a></h2>
 
     <div class="post-meta">
@@ -738,59 +795,6 @@
 
   <p>
   题目描述： Reverse a singly linked list. 代码实现： /** * Definition for singly-linked list. * struct ListNode { * int val; * ListNode *next; * ListNode(int x) : val(x), next(NULL) {} * }; */ class Solution { public: ListNode* reverseList(ListNode* head) { ListNode* pPre=nullptr; ListNode* pNode=head; ListNode* pRet=nullptr; while(pNode!=nullptr){ ListNode* pNext=pNode-&gt;next; if(pNext==nullptr){ pRet=pNode; } pNode-&gt;next=pPre; pPre=pNode; pNode=pNext; } return pRet; } };
-  </p>
-
-  
-</article>
-
-    
-  
-    
-      <article>
-  <header>
-    <h2><a href="https://HauyuChen.github.io/post/217-contains-duplicate/">【LeetCode】217. Contains Duplicate</a></h2>
-
-    <div class="post-meta">
-
-  <div>
-    <i class="fa fa-calendar fa-fw"></i>
-    <time>2017-01-07</time>
-  </div>
-
-  
-
-  
-  
-  
-  <div>
-    <i class="fa fa-folder fa-fw"></i>
-    
-      <a class="post-taxonomy-tag" href="https://HauyuChen.github.io/tags/%E7%AE%97%E6%B3%95">算法</a>
-    
-  </div>
-  
-  
-
-  
-  
-  
-  <div>
-	<i class="fa fa-tags fa-fw"></i>
-    
-      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/%E7%AE%97%E6%B3%95">算法</a>&nbsp;&#47;
-    
-      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/leetcode">LeetCode</a>
-    
-  </div>
-  
-  
-  
-</div>
-
-  </header>
-
-  <p>
-  题目描述： Given an array of integers, find if the array contains any duplicates. Your function should return true if any value appears at least twice in the array, and it should return false if every element is distinct. 代码实现： class Solution { public: bool containsDuplicate(vector&lt;int&gt;&amp; nums) { unordered_set&lt;int&gt; set; for(int num:nums){ if(set.count(num)){ return true; } set.insert(num); } return false; } };
   </p>
 
   
