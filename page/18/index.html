@@ -4,10 +4,10 @@
 <head>
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="剑指Offer题解（Java实现）">
+  <meta name="description" content="">
   <meta name="generator" content="Hugo 0.24.1" />
 
-  <title>字符串的排列 &middot; Hov&#39;s Blog</title>
+  <title>Hov&#39;s Blog</title>
 
   <script>
 	var _hmt = _hmt || [];
@@ -46,6 +46,8 @@
   <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet" type="text/css">
 
   
+  
+  <link rel="alternate" type="application/rss+xml" title="Hov&#39;s Blog" href="https://HauyuChen.github.io/index.xml" />
   
 
   
@@ -129,6 +131,10 @@
   <div class="pure-menu social">
 
   <ul class="pure-menu-list">
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://HauyuChen.github.io/index.xml"><i class="fa fa-rss fa-fw"></i>RSS</a>
+    </li>
     
 
     
@@ -227,16 +233,23 @@
 
 
 <div class="header">
-  <h1>字符串的排列</h1>
-  <h2>剑指Offer题解（Java实现）</h2>
+  <h1>Hov&#39;s Blog</h1>
+  <h2>To code,  To record,  To recall.</h2>
+  
 </div>
-<div class="content">
 
-  <div class="post-meta">
+<div class="content">
+  
+    
+      <article>
+  <header>
+    <h2><a href="https://HauyuChen.github.io/post/zb-zigbee-guide/">【ZigBee系列】1.浅析ZigBee工程</a></h2>
+
+    <div class="post-meta">
 
   <div>
     <i class="fa fa-calendar fa-fw"></i>
-    <time>2018-03-22</time>
+    <time>2016-05-17</time>
   </div>
 
   
@@ -247,7 +260,7 @@
   <div>
     <i class="fa fa-folder fa-fw"></i>
     
-      <a class="post-taxonomy-tag" href="https://HauyuChen.github.io/tags/%E7%AE%97%E6%B3%95">算法</a>
+      <a class="post-taxonomy-tag" href="https://HauyuChen.github.io/tags/zigbee">zigbee</a>
     
   </div>
   
@@ -259,9 +272,11 @@
   <div>
 	<i class="fa fa-tags fa-fw"></i>
     
-      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/%E7%AE%97%E6%B3%95">算法</a>&nbsp;&#47;
+      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/zigbee">ZigBee</a>&nbsp;&#47;
     
-      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/%E5%89%91%E6%8C%87offer">剑指Offer</a>
+      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/%E7%89%A9%E8%81%94%E7%BD%91">物联网</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/%E6%97%A0%E7%BA%BF%E4%BC%A0%E6%84%9F%E5%99%A8">无线传感器</a>
     
   </div>
   
@@ -269,129 +284,35 @@
   
 </div>
 
-  <p></p>
+  </header>
 
-<hr />
-
-<p><br/></p>
-
-<h1 id="1-题目描述">1 题目描述</h1>
-
-<hr />
-
-<p>输入一个字符串,按字典序打印出该字符串中字符的所有排列。例如输入字符串 abc ,则打印出由字符 a,b,c 所能排列出来的所有字符串 abc,acb,bac,bca,cab 和 cba。</p>
-
-<p>输入描述:</p>
-
-<p>输入一个字符串,长度不超过9(可能有字符重复),字符只包括大小写字母。</p>
-
-<p><br/></p>
-
-<h1 id="2-思路">2 思路</h1>
-
-<hr />
-
-<p>这是一道全排列的题，全排列的核心在 for 循环部分的代码，for 循环是从头开始遍历，对于每一个字符，对其后面的序列递归全排列。为了不影响其它排列，用两个 swap 来恢复。也就是说，先求所有可能出现在第一个位置的字符，然后第一个字符固定后，求后面所有字符的全排列。</p>
-
-<p><br/></p>
-
-<h1 id="3-代码实现">3 代码实现</h1>
-
-<hr />
-
-<pre><code>import java.util.ArrayList;
-import java.util.TreeSet;
-
-public class Solution {
-    public ArrayList&lt;String&gt; Permutation(String str) {
-        ArrayList&lt;String&gt; retList = new ArrayList&lt;String&gt;();
-        if(str==null || str.length()==0){
-            return retList;
-        }
-        TreeSet&lt;String&gt; tmpSet = new TreeSet&lt;String&gt;();
-        char[] chars = str.toCharArray();
-        permutationCore(chars,0,tmpSet);
-        retList.addAll(tmpSet);
-        return retList;
-    }
-    
-    private void permutationCore(char[] chars,int index,TreeSet&lt;String&gt; tmpSet){
-        if(chars==null || chars.length==0 || index&lt;0 || index&gt;=chars.length){
-            return ;
-        }
-        if(index == chars.length-1){
-            tmpSet.add(String.valueOf(chars));
-        }
-        else{
-            for(int i=index;i&lt;chars.length;i++){
-                swap(chars,index,i);
-                permutationCore(chars,index+1,tmpSet);
-                swap(chars,index,i);
-            }
-        }
-    }
-    
-    private void swap(char[] chars,int m,int n){
-        char ch = chars[m];
-        chars[m] = chars[n];
-        chars[n] = ch;
-    }
-}
-</code></pre>
-
-<p><br/></p>
+  <p>
+  作者注： ZigBee 系列共三篇，首先讲解 ZigBee 工程的结构，然后通过两个具体项目熟悉 ZigBee 的应用。在学习本系列内容前，您需要掌握单片机相关知识、 ZigBee 基础知识，希望
+  </p>
 
   
-<div class="prev-next-post pure-g">
-  <div class="pure-u-1-24" style="text-align: left;">
-    
-    <a href="https://HauyuChen.github.io/post/%E5%B7%A6%E6%97%8B%E8%BD%AC%E5%AD%97%E7%AC%A6%E4%B8%B2/"><i class="fa fa-chevron-left"></i></a>
-    
-  </div>
-  <div class="pure-u-10-24">
-    
-    <nav class="prev">
-      <a href="https://HauyuChen.github.io/post/%E5%B7%A6%E6%97%8B%E8%BD%AC%E5%AD%97%E7%AC%A6%E4%B8%B2/">左旋转字符串</a>
-    </nav>
-    
-  </div>
-  <div class="pure-u-2-24">
-    &nbsp;
-  </div>
-  <div class="pure-u-10-24">
-    
-    <nav class="next">
-      <a href="https://HauyuChen.github.io/post/%E7%AC%AC%E4%B8%80%E4%B8%AA%E5%8F%AA%E5%87%BA%E7%8E%B0%E4%B8%80%E6%AC%A1%E7%9A%84%E5%AD%97%E7%AC%A6/">第一个只出现一次的字符</a>
-    </nav>
-    
-  </div>
-  <div class="pure-u-1-24" style="text-align: right;">
-    
-    <a href="https://HauyuChen.github.io/post/%E7%AC%AC%E4%B8%80%E4%B8%AA%E5%8F%AA%E5%87%BA%E7%8E%B0%E4%B8%80%E6%AC%A1%E7%9A%84%E5%AD%97%E7%AC%A6/"><i class="fa fa-chevron-right"></i></a>
-    
-  </div>
-</div>
-
-
-
+  <footer>
+    <a href="https://HauyuChen.github.io/post/zb-zigbee-guide/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
+  </footer>
   
-<div id="disqus_thread"></div>
-<script type="text/javascript">
+</article>
 
-(function() {
     
-    
-    if (window.location.hostname == "localhost")
-        return;
+  
 
-    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-    var disqus_shortname = "http-hov-space";
-    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-})();
-</script>
-<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-<a href="http://disqus.com/" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+	
+
+
+<nav class="pagination" role="pagination">
+  
+  <a href="https://HauyuChen.github.io/page/17/"><i class="fa fa-chevron-left"></i></a>
+  
+  <span>&nbsp;18 / 18&nbsp;</span>
+  
+  <i class="fa fa-chevron-right"></i>
+  
+</nav>
+
 
 
 </div>

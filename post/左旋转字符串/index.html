@@ -7,7 +7,7 @@
   <meta name="description" content="剑指Offer题解（Java实现）">
   <meta name="generator" content="Hugo 0.24.1" />
 
-  <title>字符串的排列 &middot; Hov&#39;s Blog</title>
+  <title>左旋转字符串 &middot; Hov&#39;s Blog</title>
 
   <script>
 	var _hmt = _hmt || [];
@@ -227,7 +227,7 @@
 
 
 <div class="header">
-  <h1>字符串的排列</h1>
+  <h1>左旋转字符串</h1>
   <h2>剑指Offer题解（Java实现）</h2>
 </div>
 <div class="content">
@@ -279,11 +279,7 @@
 
 <hr />
 
-<p>输入一个字符串,按字典序打印出该字符串中字符的所有排列。例如输入字符串 abc ,则打印出由字符 a,b,c 所能排列出来的所有字符串 abc,acb,bac,bca,cab 和 cba。</p>
-
-<p>输入描述:</p>
-
-<p>输入一个字符串,长度不超过9(可能有字符重复),字符只包括大小写字母。</p>
+<p>汇编语言中有一种移位指令叫做循环左移（ROL），现在有个简单的任务，就是用字符串模拟这个指令的运算结果。对于一个给定的字符序列S，请你把其循环左移K位后的序列输出。例如，字符序列S=”abcXYZdef”,要求输出循环左移3位后的结果，即“XYZdefabc”。是不是很简单？OK，搞定它！</p>
 
 <p><br/></p>
 
@@ -291,7 +287,10 @@
 
 <hr />
 
-<p>这是一道全排列的题，全排列的核心在 for 循环部分的代码，for 循环是从头开始遍历，对于每一个字符，对其后面的序列递归全排列。为了不影响其它排列，用两个 swap 来恢复。也就是说，先求所有可能出现在第一个位置的字符，然后第一个字符固定后，求后面所有字符的全排列。</p>
+<ol>
+<li>当 n 大于 str 的长度，先对 strLen 取模；</li>
+<li>将 str 的前 n 个字符拼接在后（strLen-n）个字符之后。</li>
+</ol>
 
 <p><br/></p>
 
@@ -299,42 +298,38 @@
 
 <hr />
 
-<pre><code>import java.util.ArrayList;
-import java.util.TreeSet;
+<h2 id="解法一">解法一：</h2>
 
-public class Solution {
-    public ArrayList&lt;String&gt; Permutation(String str) {
-        ArrayList&lt;String&gt; retList = new ArrayList&lt;String&gt;();
-        if(str==null || str.length()==0){
-            return retList;
+<pre><code>public class Solution {
+    public String LeftRotateString(String str,int n) {
+        int strLen = str.length();
+        if(strLen==0){
+            return str;
         }
-        TreeSet&lt;String&gt; tmpSet = new TreeSet&lt;String&gt;();
-        char[] chars = str.toCharArray();
-        permutationCore(chars,0,tmpSet);
-        retList.addAll(tmpSet);
-        return retList;
+
+        n %= strLen;
+        
+        String tmpStr = str.substring(0,n);
+        String retStr = str.substring(n,strLen);
+        
+        return retStr+tmpStr;
     }
-    
-    private void permutationCore(char[] chars,int index,TreeSet&lt;String&gt; tmpSet){
-        if(chars==null || chars.length==0 || index&lt;0 || index&gt;=chars.length){
-            return ;
+}
+</code></pre>
+
+<h2 id="解法二">解法二：</h2>
+
+<pre><code>public class Solution {
+    public String LeftRotateString(String str,int n) {
+        int strLen = str.length();
+        if(strLen==0){
+            return str;
         }
-        if(index == chars.length-1){
-            tmpSet.add(String.valueOf(chars));
-        }
-        else{
-            for(int i=index;i&lt;chars.length;i++){
-                swap(chars,index,i);
-                permutationCore(chars,index+1,tmpSet);
-                swap(chars,index,i);
-            }
-        }
-    }
-    
-    private void swap(char[] chars,int m,int n){
-        char ch = chars[m];
-        chars[m] = chars[n];
-        chars[n] = ch;
+
+        n %= strLen;
+        str += str;
+        
+        return str.substring(n,n+strLen);
     }
 }
 </code></pre>
@@ -345,13 +340,13 @@ public class Solution {
 <div class="prev-next-post pure-g">
   <div class="pure-u-1-24" style="text-align: left;">
     
-    <a href="https://HauyuChen.github.io/post/%E5%B7%A6%E6%97%8B%E8%BD%AC%E5%AD%97%E7%AC%A6%E4%B8%B2/"><i class="fa fa-chevron-left"></i></a>
+    <a href="https://HauyuChen.github.io/post/%E5%8C%85%E5%90%ABmin%E5%87%BD%E6%95%B0%E7%9A%84%E6%A0%88/"><i class="fa fa-chevron-left"></i></a>
     
   </div>
   <div class="pure-u-10-24">
     
     <nav class="prev">
-      <a href="https://HauyuChen.github.io/post/%E5%B7%A6%E6%97%8B%E8%BD%AC%E5%AD%97%E7%AC%A6%E4%B8%B2/">左旋转字符串</a>
+      <a href="https://HauyuChen.github.io/post/%E5%8C%85%E5%90%ABmin%E5%87%BD%E6%95%B0%E7%9A%84%E6%A0%88/">包含min函数的栈</a>
     </nav>
     
   </div>
@@ -361,13 +356,13 @@ public class Solution {
   <div class="pure-u-10-24">
     
     <nav class="next">
-      <a href="https://HauyuChen.github.io/post/%E7%AC%AC%E4%B8%80%E4%B8%AA%E5%8F%AA%E5%87%BA%E7%8E%B0%E4%B8%80%E6%AC%A1%E7%9A%84%E5%AD%97%E7%AC%A6/">第一个只出现一次的字符</a>
+      <a href="https://HauyuChen.github.io/post/%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9A%84%E6%8E%92%E5%88%97/">字符串的排列</a>
     </nav>
     
   </div>
   <div class="pure-u-1-24" style="text-align: right;">
     
-    <a href="https://HauyuChen.github.io/post/%E7%AC%AC%E4%B8%80%E4%B8%AA%E5%8F%AA%E5%87%BA%E7%8E%B0%E4%B8%80%E6%AC%A1%E7%9A%84%E5%AD%97%E7%AC%A6/"><i class="fa fa-chevron-right"></i></a>
+    <a href="https://HauyuChen.github.io/post/%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9A%84%E6%8E%92%E5%88%97/"><i class="fa fa-chevron-right"></i></a>
     
   </div>
 </div>
