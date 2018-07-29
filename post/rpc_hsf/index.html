@@ -1,0 +1,1067 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="generator" content="Hugo 0.24.1" />
+
+  <title>浅析分布式服务框架实现原理（以HSF为例） &middot; Hov&#39;s Blog</title>
+
+  <script>
+	var _hmt = _hmt || [];
+	(function() {
+	  var hm = document.createElement("script");
+	  hm.src = "https://hm.baidu.com/hm.js?dd096f3aba9332e2640cda59d3786695";
+	  var s = document.getElementsByTagName("script")[0]; 
+	  s.parentNode.insertBefore(hm, s);
+	})();
+	</script>	
+  
+  
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/0.6.2/pure-min.css">
+
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/0.6.2/grids-responsive-old-ie-min.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/0.6.2/grids-responsive-min.css">
+  <!--<![endif]-->
+
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="https://HauyuChen.github.io/css/side-menu-old-ie.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="https://HauyuChen.github.io/css/side-menu.css">
+  <!--<![endif]-->
+
+  <link rel="stylesheet" href="https://HauyuChen.github.io/css/blackburn.css">
+
+  
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  
+  <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet" type="text/css">
+
+  
+  
+
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/styles/androidstudio.min.css">
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  
+
+  <link rel="shortcut icon" href="https://HauyuChen.github.io/img/favicon.ico" type="image/x-icon" />
+
+  
+  
+
+
+</head>
+
+
+<body>
+
+<div id="layout">
+
+  
+<a href="#menu" id="menuLink" class="menu-link">
+  
+  <span></span>
+</a>
+<div id="menu">
+
+  <a class="pure-menu-heading brand" href="https://HauyuChen.github.io/">
+  <img src="https://HauyuChen.github.io/img/Hov.jpg" width="125px">
+</a>
+
+  <div class="pure-menu">
+    <ul class="pure-menu-list">
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="https://HauyuChen.github.io/"><i class='fa fa-home fa-fw'></i>主页</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="https://HauyuChen.github.io/post/"><i class='fa fa-list fa-fw'></i>所有文章</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="https://HauyuChen.github.io/tags/"><i class='fa fa-folder fa-fw'></i>文章分类</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="https://HauyuChen.github.io/topics/"><i class='fa fa-tags fa-fw'></i>关键词</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="https://HauyuChen.github.io/booklist/"><i class='fa fa-list fa-fw'></i>技术书单</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="https://HauyuChen.github.io/about-me/"><i class='fa fa-user fa-fw'></i>关于我</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="https://HauyuChen.github.io/about-site/"><i class='fa fa-home fa-fw'></i>关于本站</a>
+      
+        </li>
+      
+    </ul>
+  </div>
+
+  <div class="pure-menu social">
+
+  <ul class="pure-menu-list">
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://github.com/HauyuChen" target="_blank"><i class="fa fa-github-square fa-fw"></i>GitHub</a>
+    </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+	</ul>
+	<ul class="pure-menu-list">
+	
+	<li class="pure-menu-item">
+      <a class="pure-menu-link" href="http://blog.csdn.net/u014134180" target="_blank"><i class="fa fa-lastfm-square fa-fw"></i>友链：Wu_Being</a>
+    </li>
+  </ul>
+  
+</div>
+
+
+  <div>
+
+
+</div>
+
+</div>
+
+
+  <div id="main">
+
+
+<div class="header">
+  <h1>浅析分布式服务框架实现原理（以HSF为例）</h1>
+  <h2></h2>
+</div>
+<div class="content">
+
+  <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>2018-07-26</time>
+  </div>
+
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-folder fa-fw"></i>
+    
+      <a class="post-taxonomy-tag" href="https://HauyuChen.github.io/tags/%E5%88%86%E5%B8%83%E5%BC%8F">分布式</a>
+    
+  </div>
+  
+  
+
+  
+  
+  
+  <div>
+	<i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/rpc">RPC</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/%E5%88%86%E5%B8%83%E5%BC%8F">分布式</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-topic" href="https://HauyuChen.github.io/topics/hsf">HSF</a>
+    
+  </div>
+  
+  
+  
+</div>
+
+  <p></p>
+
+<hr />
+
+<p><em>版权声明：本文由 Hov 所有，发布于 <a href="http://chenhy.com">https://chenhy.com</a> ，转载请注明出处。<br/></em></p>
+
+<hr />
+
+<p><em>笔者注：Dubbo 作为阿里巴巴对外开源的分布式服务框架，在开源社区人尽皆知，但实际上 Dubbo 在阿里内部却很少使用，同类型产品 HSF 在阿里内部承担了 90% 以上服务调用任务。本文简要介绍了 RPC 的概念，并以HSF 为例，在源码层面理解分布式服务框架的实现原理。读者可用 Dubbo 替换 HSF 来理解文章内容，本文对 Dubbo 等框架同样具有参考意义。</em></p>
+
+<hr />
+
+<p><br/></p>
+
+<h1 id="0-前言">0 前言</h1>
+
+<p>HSF（High-speed Service Framework，高速服务框架）是阿里内部广泛使用的分布式服务框架。我的理解是，HSF 是一个增强版的 RPC 框架，其在 RPC 的基础上增加了服务治理的能力（如 ConfigServer 等），并优化了通信实现（如协议约定等），这使得 HSF 可以高效组织阿里内部众多应用服务。同时，HSF 采用了观察者模式的发布订阅模型，服务方注册服务，消费方订阅服务，实现服务方与消费方的解耦。</p>
+
+<p>本文将从以下三个思路展开：</p>
+
+<ol>
+<li>RPC 是什么？需要解决什么问题？</li>
+<li>HSF 对 RPC 做了哪些改进？</li>
+<li>HSF 发布服务的实现原理？</li>
+</ol>
+
+<p>本文基于 HSF 2.1.1.1 版本，所述内容仅为个人思考，见解粗浅，有误之处还望批评指正。</p>
+
+<p><br/></p>
+
+<h1 id="1-rpc-是什么-需要解决什么问题">1 RPC 是什么？需要解决什么问题？</h1>
+
+<p>我们试想这样一个场景，方法 A 需要调用方法 B。如果方法 A、B 在同一个进程中，那么方法 A 直接本地调用方法 B 即可。问题来了，在分布式场景下，方法 A 和方法 B 可能不在同一台主机（如方法 A 跑在主机 HostA，方法 B 跑在主机 HostB），这时方法 A 怎么调用方法 B 呢？</p>
+
+<p><br/>
+<div align=center><img src="https://raw.githubusercontent.com/HauyuChen/PicsBox/master/hsf01.png"/></div>
+<br/></p>
+
+<p>一种解决思路是通过网络。</p>
+
+<p>事实上，基于网络的服务调用我们已经接触不少。比如在浏览器请求一个页面，这个页面就是远程服务器对我们提供的服务，可以把这个过程理解为基于 HTTP 的网络调用。</p>
+
+<p>RPC 也是一种网络调用，其实质是一种基于网络的进程通信方式。我们知道网络通信的前提是协议，RPC 关于协议的约定比较灵活，其可基于 HTTP 实现，也可由通信双方约定上层协议，下层直接基于 TCP 实现，如 HSF 就定义了私有协议。</p>
+
+<p><br/>
+<div align=center><img src="https://raw.githubusercontent.com/HauyuChen/PicsBox/master/hsf02.png"/></div>
+<br/></p>
+
+<p>上图展现了 RPC 的基本架构，总的来说，一个 RPC 框架至少需要解决以下三个问题：</p>
+
+<ol>
+<li>通信：不同主机之间的数据传输需要借助网络，RPC 可通过 Socket 实现通信，直接基于 TCP 协议进行数据传输。这也是为什么有了 HTTP，我们还需要 RPC 的原因，因为 RPC 在某些场景下提高了通信效率。</li>
+<li>寻址：调用的本质是点到点通信，因此通信双方首先需要知道彼此的地址信息。在大规模集群场景下，双方互相感知地址信息不再是简单的互通有无的过程，事实上 HSF 就是为解决这样的场景而设计的。</li>
+<li>序列化：调用过程需要传递参数，参数对象要序列化为字节才能进行传输。同理，接收方需要对字节进行反序列化。序列化协议的选择也是区分 RPC 框架好坏的因素之一。</li>
+</ol>
+
+<p><br/></p>
+
+<h1 id="2-hsf-对-rpc-做了哪些改进">2 HSF 对 RPC 做了哪些改进？</h1>
+
+<p>HSF 官方对 HSF 的定义是分布式服务框架，本质上 HSF 也是一个 RPC 框架。不同于普通的 RPC 框架，HSF 在服务治理方面加入了更多的考虑。</p>
+
+<p>基于这样的目的，HSF 架构增加了几个角色，正是这些角色大大增强了 HSF 的能力。</p>
+
+<p>下面是我梳理的 HSF 架构图。</p>
+
+<p><br/>
+<div align=center><img src="https://raw.githubusercontent.com/HauyuChen/PicsBox/master/hsf04.png"/></div>
+<br/></p>
+
+<p>其中，</p>
+
+<ul>
+<li>服务提供方（必须）：接收请求并提供服务，相当于 RPC Server。服务提供方启动后需向地址注册中心注册服务，公布其服务地址信息。</li>
+<li>服务消费方（必须）：发起请求并消费服务，相当于 RPC Client。服务消费方启动后可向地址注册中心订阅服务，获取服务地址信息。</li>
+<li>地址注册中心（必须）：HSF 的核心，负责接收服务提供方（Provider）的地址信息，向服务消费方（ Consumer） 推送地址信息。地址注册中心作为第三方中介，将服务提供方与服务消费方解耦。</li>
+<li>元数据存储中心（可选）：记录 HSF 服务的元数据，包括方法列表、参数结构等。</li>
+<li>持久化配置中心（可选）：记录 HSF 服务的治理规则，包括路由规则、归组规则、权重规则等。</li>
+<li>HSF 运维平台（可选）：为提高 HSF 服务开发效率而设计，提供服务查询、治理规则管理等功能。</li>
+</ul>
+
+<p>虽然 HSF 本质上是一个 RPC 框架，但其已超越普通 RPC 框架的范畴。当应用规模达到上万应用几十万个服务时，RPC 调用反而不是核心难题，更为重要的是对这些服务的高效组织。这也是 HSF 的主要发力点，HSF 对普通 RPC 的改进主要有以下两点：</p>
+
+<p><strong>1）服务治理</strong></p>
+
+<p>服务治理是 HSF 的一大亮点，其不只是通过发布订阅模型实现服务感知，还包括负载均衡等一系列机制。</p>
+
+<ul>
+<li>服务检索：查询服务，包括服务提供者、服务消费者等信息；</li>
+<li>服务测试：我们可以直接在 HSF OPS 上测试服务，无需编写 Consumer；</li>
+<li>服务路由：根据调用的服务信息，服务消费方可路由到服务提供方指定的机器（因为一个服务通常由多台主机同时提供服务）。</li>
+</ul>
+
+<p><strong>2）通信协议</strong></p>
+
+<p>HSF 协议是四层的私有协议，相比七层协议（如 HTTP 等）具有一定的优势。即使与四层协议 Dubbo 相比，HSF 的协议尺寸更短小，这意味着节省了网络传输内容，性能自然更好一些。</p>
+
+<p>HSF 协议格式：</p>
+
+<pre><code>+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+
+|  BYTE  |        |        |        |        |        |        |        |        |        |        |        |        |        |        |        |
++--------------------------------------------+--------+-----------------+--------+--------+--------+--------+--------+--------+-----------------+
+|  magic | version| type   |  serial|     extends bytes        |                   request id                                          |        |
++--------+-----------------------------------------------------------------------------------------+--------------------------------------------+
+|     timeout mills        |       serivice name length        |          method name length       |        methods args number        |        |
++--------------------------------------------------------------------------------------------------------------------------------------+--------+
+|   parameter type length  |       arguments bytes length      |         request props bytes length|                                            |
++--------------------------+-----------------------------------+------------------------------------                                            |
+|                                      PAYLOAD                                                                                                  |
++-----------------------------------------------------------------------------------------------------------------------------------------------+
+</code></pre>
+
+<p><br/></p>
+
+<h1 id="3-hsf-发布服务的实现原理">3 HSF 发布服务的实现原理？</h1>
+
+<p>我们先回忆一下如何发布 HSF 服务。</p>
+
+<p>例如，本地有一个名字为 accountService 的 Bean：</p>
+
+<pre><code>&lt;bean id=&quot;accountService&quot; class=&quot;com.taobao.cun.hov.service.AccountServiceImpl&quot;&gt;&lt;/bean&gt;
+</code></pre>
+
+<p>AccountServiceImpl 是接口 AccountService 的实现类。如果想让 AccountService 对外提供服务，只需定义一个 HSFSpringProviderBean 设置 serviceInterface 指向接口，并设置 target 属性引用实现类 accountService 即可，如下：</p>
+
+<pre><code>&lt;bean id=&quot;accountServiceProvider&quot;class=&quot;com.taobao.hsf.app.spring.util.HSFSpringProviderBean&quot; init-method=&quot;init&quot;&gt;
+    &lt;!--[设置] 发布服务的接口--&gt;
+    &lt;property name=&quot;serviceInterface&quot; value=&quot;com.taobao.cun.hov.service.AccountService&quot;/&gt;
+    &lt;!--[设置] 服务的实现对象 target必须配置[ref]，为需要发布为HSF服务的spring bean id--&gt;
+    &lt;property =&quot;target&quot; ref=&quot;accountService&quot;/&gt;
+    &lt;!--[设置] 服务的版本--&gt;
+    &lt;property name=&quot;serviceVersion&quot; value=&quot;1.0.0&quot;/&gt;
+    &lt;!--[设置] 服务的归组--&gt;
+    &lt;property name=&quot;serviceGroup&quot; value=&quot;HSF&quot;/&gt;
+    &lt;!--[设置] 服务的响应时间--&gt;
+    &lt;property name=&quot;clientTimeout&quot; value=&quot;3000&quot;/&gt;
+    &lt;!--[设置] 服务传输业务对象时的序列化类型--&gt;
+    &lt;property name=&quot;preferSerializeType&quot; value=&quot;hessian2&quot;/&gt;
+&lt;/bean&gt;
+</code></pre>
+
+<p>当程序启动， AccountService 就可以作为 HSF Provider 对外提供服务了。我们通过 HSFSpringProviderBean 引用一个普通的 Bean ，最终将该 Bean 注册为 HSF Provider。</p>
+
+<p><br/>
+<div align=center><img src="https://raw.githubusercontent.com/HauyuChen/PicsBox/master/hsf05.png"/></div>
+<br/></p>
+
+<p>这里我认为有三个问题值得思考：</p>
+
+<ol>
+<li>为什么定义 HSFSpringProviderBean 就可以发布服务？</li>
+<li>HSF 服务是如何发布的？</li>
+<li>服务发布成功后，本地 Server 如何处理远程调用？</li>
+</ol>
+
+<p>基于这三个问题，我梳理了一下大致流程，主线大致如下：</p>
+
+<p><br/>
+<div align=center><img src="https://raw.githubusercontent.com/HauyuChen/PicsBox/master/hsf07.png"/></div>
+<br/></p>
+
+<p>在源码层面，大致流程如下：</p>
+
+<p><br/>
+<div align=center><img src="https://raw.githubusercontent.com/HauyuChen/PicsBox/master/hsf03.png"/></div>
+<br/></p>
+
+<p>下面试着分析上面的三个问题：</p>
+
+<blockquote>
+<ol>
+<li>为什么定义 HSFSpringProviderBean 就可以发布服务？</li>
+<li>HSF 服务是如何发布的？</li>
+<li>服务发布成功后，本地 Server 如何处理远程调用？</li>
+</ol>
+</blockquote>
+
+<h2 id="3-1-为什么定义-hsfspringproviderbean-就可以发布服务">3.1 为什么定义 HSFSpringProviderBean 就可以发布服务？</h2>
+
+<p>HSFSpringProviderBean  是一个 Spring Bean，其行为受 Spring 管控。这里主要从两个角度切入：</p>
+
+<blockquote>
+<p>A. Spring 容器初始化时发生了什么？</p>
+
+<p>B. HSFSpringProviderBean 初始化时发生了什么？</p>
+</blockquote>
+
+<h3 id="a-spring-容器初始化时发生了什么">A. Spring 容器初始化时发生了什么？</h3>
+
+<p>A1）调用 setApplicationContext 方法 。</p>
+
+<p>HSFSpringProviderBean 实现了 ApplicationContextAware 接口，这意味着 Spring 容器初始化后，HSFSpringProviderBean 中的 setApplicationContext 方法将被调用，同时获取 Spring 容器  ApplicationContext 。</p>
+
+<pre><code>/* HSFSpringProviderBean.java */
+
+public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
+    ...
+    if (applicationContext instanceof AbstractApplicationContext) {
+            ...
+            Method method = AbstractApplicationContext.class.getDeclaredMethod(&quot;addListener&quot;,
+                        new Class&lt;?&gt;[] { ApplicationListener.class }); // 兼容Spring2.0.1
+            method.setAccessible(true);
+            method.invoke(applicationContext, new Object[] { new HSFApplicationListener() });
+            isInSpringContainer = true;
+    }
+}
+</code></pre>
+
+<p>A2）注册监听器 HSFApplicationListener。</p>
+
+<p>在 setApplicationContext 中注册监听器（实例化 HSFApplicationListener）。</p>
+
+<pre><code>/* HSFSpringProviderBean.java */
+
+public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
+        ...
+        method.invoke(applicationContext, new Object[] { new HSFApplicationListener() });
+        ...
+    }
+}
+</code></pre>
+
+<p>A3）监听 Spring 事件，触发 onApplicationEvent 方法。</p>
+
+<p>HSFApplicationListener 实现了 ApplicationListener，并重写了 onApplicationEvent 方法，在 onApplicationEvent 方法中处理事件。</p>
+
+<pre><code>/* HSFSpringProviderBean.java */
+
+private final class HSFApplicationListener implements ApplicationListener {
+    @Override
+    public void onApplicationEvent(ApplicationEvent event) {
+        if (event instanceof ContextRefreshedEvent) {
+            HSFSpringProviderBean.this.providerBean.publish();
+            setAppInitedStatus();
+        } else if (event instanceof ContextClosedEvent) {
+            if (AppInfoUtils.appRunning.compareAndSet(true, false)) {
+                providerBean.shutdownHSFServer();
+            }
+        }
+    }
+}
+</code></pre>
+
+<p>A4）如果发生 ContextClosedEvent 事件，更新服务状态，关闭 HSF Server。</p>
+
+<pre><code>/* HSFSpringProviderBean.java */
+
+public void onApplicationEvent(ApplicationEvent event) {
+    if (event instanceof ContextClosedEvent) {
+        if (AppInfoUtils.appRunning.compareAndSet(true, false)) {
+            providerBean.shutdownHSFServer();
+        }
+    }
+}
+</code></pre>
+
+<p>A5）如果发生 ContextRefreshedEvent 事件，发布服务，并更新 HSF 服务状态。</p>
+
+<pre><code>/* HSFSpringProviderBean.java */
+
+public void onApplicationEvent(ApplicationEvent event) {
+    if (event instanceof ContextRefreshedEvent) {
+        HSFSpringProviderBean.this.providerBean.publish();
+        setAppInitedStatus();
+    }
+}
+
+private void setAppInitedStatus() {
+    // 最后一个HsfspringBean发布完的时候才设置状态(providerBean都初始化完成了，但是可能会publish失败)
+    if (0 == (--AppInfoUtils.hsfSpringBeanCountDown)) {
+        if (AppInfoUtils.appRunning.compareAndSet(false, true)) {
+            LOGGER.info(...);
+        }
+    }
+}
+</code></pre>
+
+<h3 id="b-hsfspringproviderbean-初始化时发生了什么">B. HSFSpringProviderBean 初始化时发生了什么？</h3>
+
+<p>事实上，HSFSpringProviderBean 只是 HSF 提供给 Spring 的一个兼容类，真正的实现是交由 HSFApiProviderBean 完成的。因此，HSFSpringProviderBean 初始化时会先获取 HSFApiProviderBean 实例。</p>
+
+<p>B1）实例化 HSFApiProviderBean。</p>
+
+<pre><code>/* HSFSpringProviderBean.java */
+
+public final class HSFSpringProviderBean implements InitializingBean, ApplicationContextAware {
+    ...
+    private final HSFApiProviderBean providerBean = new HSFApiProviderBean();
+    ...
+}
+</code></pre>
+
+<p>在 HSFApiProviderBean 的构造方法中，设置服务元数据 ServiceMetadata 的相关属性，包括版本号、组别、超时时间等。</p>
+
+<pre><code>/* HSFApiProviderBean.java */
+
+private final ServiceMetadata metadata = new ServiceMetadata(true);
+...
+public HSFApiProviderBean() {
+    metadata.setVersion(&quot;1.0.0&quot;);
+    metadata.setGroup(&quot;HSF&quot;); // 服务所属的组别, 默认的组别名称为HSF
+    metadata.addProperty(TRConstants.TIMEOUT_TYPE_KEY, &quot;3000&quot;); // 默认客户端调用超时时间：3s
+    metadata.addProperty(TRConstants.IDLE_TIMEOUT_KEY, &quot;10&quot;); // 默认客户端连接空闲超时时间：10秒
+    metadata.addProperty(TRConstants.SERIALIZE_TYPE_KEY, HSFConstants.HESSIAN_SERIALIZE); // 序列化类型，默认为HESSIAN
+    metadata.addProperty(HSFConstants.RPC_VERSION, &quot;2.0&quot;);
+    metadata.addProperty(HSFConstants.PREFER_SERIALIZIER,
+             HSFServiceContainer.getInstance(ConfigurationService.class).getPreferedSerializer());
+}
+</code></pre>
+
+<p>B2）调用 afterPropertiesSet 方法。</p>
+
+<p>HSFSpringProviderBean 实现了 InitializingBean，这意味着 Bean 被初始化时，Spring 设置完该 Bean 的所有属性后，将触发 afterPropertiesSet 方法。</p>
+
+<pre><code>/* HSFSpringProviderBean.java */
+
+public final class HSFSpringProviderBean implements InitializingBean, ApplicationContextAware {
+    ...
+    public void afterPropertiesSet() throws Exception {
+        init();     // B3:调用init()
+    }
+}
+</code></pre>
+
+<p>翻看前面定义 Bean 的代码（官方示例）：</p>
+
+<pre><code>&lt;bean id=&quot;accountService&quot;class=&quot;com.taobao.hsf.app.spring.util.HSFSpringProviderBean&quot; init-method=&quot;init&quot;&gt;
+</code></pre>
+
+<p>值得注意的是，init-method 不指定也不影响 HSF 发布服务，因为该 Bean 实现了 InitializingBean 接口，同时配置了 init-method ，系统会先调用 afterPropertiesSet ，再调用 init-method 指定的方法。</p>
+
+<p>B3）init 方法先判断是否已经初始化。若已初始化，则结束流程；否则，执行初始化。</p>
+
+<pre><code>/* HSFSpringProviderBean.java */
+
+public void init() throws Exception {
+    // B3-1:避免被初始化多次
+    if (!providerBean.getInited().compareAndSet(false, true)) { return; }
+    LoggerInit.initHSFLog();            // B3-2:初始化HSF日志
+    AppInfoUtils.initAppName(providerBean.getMetadata());   // B3-3:初始化AppName
+    SpasInit.initSpas();                // B3-4:初始化Spas
+    providerBean.checkConfig();         // B3-5:检查配置
+    publishIfNotInSpringContainer();    // B3-6：发布服务
+}
+
+private void publishIfNotInSpringContainer() {
+    if (!isInSpringContainer) {
+        LOGGER.warn(&quot;[SpringProviderBean]不是在Spring容器中创建, 不推荐使用&quot;);
+        providerBean.publish();
+    }
+}
+</code></pre>
+
+<p>其中，</p>
+
+<ul>
+<li>B3-2：初始化 HSF 日志，主要初始化日志输出地址、日志编码等；</li>
+<li>B3-3：初始化AppName；</li>
+<li>B3-4：初始化Spas；</li>
+<li>B3-5：检查配置，初始化服务名称，校验 serviceInterface、target、writeMode 等信息；</li>
+<li>B3-6：发布服务，若 providerBean 不在 Spring 容器中，则发布 HSF 服务。</li>
+</ul>
+
+<p>至此，Spring 层面的流程已经走完，再往下是 HSF 的具体实现（参见 3.2 节）。</p>
+
+<h2 id="3-2-hsf-服务是如何发布的">3.2 HSF 服务是如何发布的？</h2>
+
+<p>前面的流程主要完成了一些初始化工作，但无论是哪种初始化方式，发布 HSF 服务的起点总是从 HSFApiProviderBean 开始，并通过 publish 方法发布服务。</p>
+
+<h3 id="c-发布服务">C. 发布服务</h3>
+
+<p>C1）HSF 服务发布入口： HSFApiProviderBean.publish() 。</p>
+
+<pre><code>/* HSFApiProviderBean.java */
+
+public void publish() {
+    // 防止一个服务被发布多次
+    if (!isPublished.compareAndSet(false, true)) { return; }
+    ...
+    // C2：获取ProcessService实例，将服务元数据metadata作为参数，调用publish方法
+    HSFServiceContainer.getInstance(ProcessService.class).publish(metadata);
+}
+</code></pre>
+
+<p>C2）根据 metadata 获取 RPC 协议，调用相应的 RPC 服务完成服务发布。</p>
+
+<pre><code>/* ProcessComponent.java */
+    
+@Override
+public void publish(ServiceMetadata metadata) throws HSFException {
+    ...
+    // C2-1：根据相应的RPC服务实现完成服务发布
+    rpcProtocolService.registerProvider(rpcProtocolType, metadata);
+    ...
+    hookService.prePublish(metadata);
+    ...
+    if (!metadata.isDelayedPublish()) {
+        // C2-2：向ConfigServer注册服务，发布元数据
+        metadataService.publish(metadata);
+    }
+    ...
+    hookService.afterPublish(metadata);
+    // 存储元数据
+    metadataInfoStoreService.store(metadata);
+}
+</code></pre>
+
+<p>其中，</p>
+
+<ul>
+<li>C2-1：调用 RPCProtocolTemplateComponent.registerProvider()，发布服务。</li>
+</ul>
+
+<pre><code>/* RPCProtocolTemplateComponent.java */
+
+@Override
+public void registerProvider(String protocol, ServiceMetadata metadata) throws HSFException {
+    // C3：调用RemotingRPCProtocolComponent.registerProvider()
+    rpcService.registerProvider(metadata);
+}
+</code></pre>
+
+<ul>
+<li>C2-2：调用 metadataComponent.publish()，向 ConfigServer 注册服务，发布元数据。</li>
+</ul>
+
+<pre><code>/* MetadataComponent.java */
+
+public synchronized void publish(ServiceMetadata metadata) {
+    ...
+    metadataAddressService.publish(metadata);
+    ...
+}
+</code></pre>
+
+<p>C3）调用 RemotingRPCProtocolComponent.registerProvider() 。</p>
+
+<pre><code>/* RemotingRPCProtocolComponent.java */
+
+public void registerProvider(ServiceMetadata metadata) throws HSFException {
+    // C3-1：启动HSF SERVER
+    if (isProviderStarted.compareAndSet(false, true)) {
+        providerServer.startHSFServer();
+        ...
+    }
+
+    // C3-2：分配线程池
+    int corePoolSize = metadata.getCorePoolSize();
+    int maxPoolSize = metadata.getMaxPoolSize();
+    if (corePoolSize &gt; 0 &amp;&amp; maxPoolSize &gt; 0 &amp;&amp; maxPoolSize &gt;= corePoolSize) {
+        providerServer.allocThreadPool(metadata.getUniqueName(), corePoolSize, maxPoolSize);
+    }
+
+    // C3-3：注册对象到HSF Server
+    providerServer.addMetadata(metadata.getUniqueName(), metadata, metadata.getTarget());
+    // providerServer.addWorker(metadata.getUniqueName(), metadata.getTarget());
+}
+</code></pre>
+
+<p>其中，</p>
+
+<ul>
+<li>C3-1：调用 HSFProviderServer.startHSFServer()，启动 HSF 服务器。</li>
+</ul>
+
+<pre><code>/* HSFProviderServer.java */
+
+synchronized public void startHSFServer() throws HSFException {
+    ...
+    // C4：启动服务器，监听端口
+    server.start(configService.getHSFServerPort());
+    ...
+}
+</code></pre>
+
+<ul>
+<li>C3-2：调用 HSFProviderServer.allocThreadPool()，分配线程池。</li>
+</ul>
+
+<pre><code>/* HSFProviderServer.java */
+
+public void allocThreadPool(String serviceUniqueName, int corePoolSize, int maxPoolSize) throws HSFException {
+    threadPoolManager.allocThreadpool(serviceUniqueName, corePoolSize, maxPoolSize);
+}
+</code></pre>
+
+<ul>
+<li>C3-3：调用 HSFProviderServer.addMetadata()，注册对象到HSF Server。</li>
+</ul>
+
+<pre><code>/* HSFProviderServer.java */
+
+public void addMetadata(String serviceUniqueName, ServiceMetadata metadata, Object workerPOJO) {
+    ApplicationModel.instance().initProviderService(serviceUniqueName, new ProviderServiceModel(serviceUniqueName, metadata, workerPOJO));
+}
+</code></pre>
+
+<p>C4）NettyServer.start()：本地开始监听端口，处理请求。</p>
+
+<pre><code>/* NettyServer.java */
+
+public void start(int listenPort) throws Exception {
+    ServerBootstrap bootstrap = new ServerBootstrap();
+    ...
+    long tryBind = 3;
+    while (tryBind &gt; 0) {   // 三次不成功则失败
+        ChannelFuture cf = bootstrap.bind(new InetSocketAddress(bindHost, listenPort));
+        cf.await();
+        if (cf.isSuccess()) {
+            LOGGER.warn(&quot;Server started,listen at: &quot; + listenPort);
+            return;
+        } else {
+            tryBind--;
+        }
+    }
+}
+</code></pre>
+
+<p>至此，HSF 服务已经发布完毕，本地监听端口，等待并处理远程调用请求。</p>
+
+<h2 id="3-3-服务发布成功后-本地-server-如何处理远程调用">3.3 服务发布成功后，本地 Server 如何处理远程调用？</h2>
+
+<p>通过前面的步骤，Server (HSF Provider) 已经启动，并监听相应的端口等待 Client  (HSF Consumer) 连接。</p>
+
+<h3 id="d-处理请求">D. 处理请求</h3>
+
+<p>D1）当有新请求时，将触发 NettyServerHandler 的 messageReceived 方法。</p>
+
+<pre><code>/* NettyServerHandler.java */
+
+public void messageReceived(final ChannelHandlerContext ctx, MessageEvent e) throws Exception {
+    ...
+    handleRequest(ctx, message);    // D2
+}
+</code></pre>
+
+<p>D2）调用 handleRequest 方法，从 ChannelHandlerContext 获取连接并处理。</p>
+
+<pre><code>/* NettyServerHandler.java */
+
+private void handleRequest(final ChannelHandlerContext ctx, final Object message) {
+    final Connection conneciton = new NettyConnection(ctx.getChannel());
+    if (message instanceof List) {
+        List&lt;BaseRequest&gt; messages = (List&lt;BaseRequest&gt;) message;
+        for (Object messageObject : messages) {
+            processOneRequest(messageObject, conneciton);   // D3
+        }
+    } else {
+        processOneRequest(message, conneciton);             // D3
+    }
+}
+</code></pre>
+
+<p>D3）调用 processOneRequest 方法，处理单个请求。</p>
+
+<pre><code>/* NettyServerHandler.java */
+
+private void processOneRequest(final Object message, final Connection conneciton) {
+    BaseRequest request = (BaseRequest) message;
+    ServerHandler&lt;BaseRequest&gt; serverhandler = (ServerHandler&lt;BaseRequest&gt;) request.getServerHandler();
+
+    if (serverhandler.getExecutor(request) == null) {
+        BaseResponse responseWrapper = serverhandler.handleRequest(request, conneciton);
+        conneciton.writeReponseToChannel(responseWrapper);
+    } else {
+        // D4：启动线程，处理请求
+        serverhandler.getExecutor(request).execute(new HandlerRunnable(conneciton, request, serverhandler));
+    }
+    RemotingRuntimeInfoHolder.getInstance().increasecountProcessRequests();
+}
+</code></pre>
+
+<p>D4）启动线程 HandlerRunnable，执行 run 方法。</p>
+
+<pre><code>/* NettyServerHandler.java */
+
+ private static class HandlerRunnable implements Runnable {
+    ...
+    public void run() {
+        ...
+        BaseResponse responseWrapper = serverHandler.handleRequest(message, connection);  // D5
+        ...
+        connection.writeReponseToChannel(responseWrapper);  // D8
+    }
+ }
+</code></pre>
+
+<p>D5）调用 RPCServerHandler.handleRequest()，根据相应的 RPC 协议处理请求。</p>
+
+<pre><code>/* RPCServerHandler.java */
+
+public void handleRequest(RpcRequest request, Connection connection, long startTime) {
+    ...
+    ServerOutput output = new RpcOutput(connection, request, startTime);
+    this.rpcRequestProcessor.handleRequest(RemotingUtil.convert(request), output);  // D6
+    ...
+}
+</code></pre>
+
+<p>D6）调用 ProviderProcessor.handleRequest() 。</p>
+
+<pre><code> /* ProviderProcessor.java */
+ 
+public void handleRequest(final HSFRequest hsfRequest, final ServerOutput outputStream) {
+    final String serviceUniqueName = hsfRequest.getTargetServiceUniqueName();
+    final String methodName = hsfRequest.getMethodName();
+    final Connection connection = outputStream.getConnection();
+    final String clientIp = connection.getPeerIP();
+
+        ProviderServiceModel psm = ApplicationModel.instance().getProvidedServiceModel(serviceUniqueName);
+       
+        HSFResponse hsfResponse = null;
+
+        if (hsfResponse == null) {
+            // 取请求序列化协议
+            final byte protocol = hsfRequest.getSerializeType();
+            // 可以给请求处理逻辑增加扩展点或装饰器，TOP请求的额外处理逻辑可以通过实现扩展点或装饰器来实现。
+            if (TRConstants.TOP_SERIALIZE == protocol) {
+                hsfResponse = handleTopRequest(hsfRequest, serviceUniqueName, methodName, outputStream);
+            } else {
+                hsfResponse = handleRequest0(hsfRequest, outputStream, null, null); // D7
+            }
+
+            // 业务请求处理完成，清除ThreadLocal数据
+            ThreadLocalUtil.remove();
+
+            if (hsfResponse != null) {
+                handleEagleEyeResponseSend(hsfResponse);
+                int responseSize = outputStream.writeHSFResponse(hsfResponse);
+                logService.responseSize(responseSize);
+            }
+        }
+    }
+</code></pre>
+
+<p>D7）调用 ProviderProcessor.handleRequest0() 。</p>
+
+<pre><code>/* ProviderProcessor.java */
+ 
+private HSFResponse handleRequest0(final HSFRequest hsfRequest, final ServerOutput output,
+                                       final Object[] originalArgs, final String[] originalArgTypes) {
+    final String serviceUniqueName = hsfRequest.getTargetServiceUniqueName();
+    // D7-1：获取服务
+    final ProviderServiceModel serviceModel = applicationModel.getProvidedServiceModel(serviceUniqueName);  
+    final HSFResponse hsfResponse = new HSFResponse();
+    final String remoteHost = output.getConnection().getPeerIP();
+    ...
+    if (null == serviceModel) { // 服务不存在
+        hsfResponse.setErrorMsg(&quot;[HSF-Provider] 未找到业务服务，服务名称：&quot; + serviceUniqueName);
+        return hsfResponse;
+    }
+    ...
+    ClassLoader tcl = Thread.currentThread().getContextClassLoader();
+    ProviderMethodModel methodModel = null;
+    // D7-2：获取方法名
+    String methodName = hsfRequest.getMethodName();         
+    ...
+    if (needInvoke) {
+        // D7-3：获取方法参数
+        Object[] methodArgs = hsfRequest.getMethodArgs();
+        
+        // 调用业务应用时，切换为应用class loader
+        Thread.currentThread().setContextClassLoader(serviceModel.getMetadata().getServicePojoClassLoader());
+        // D7-4：通过动态代理处理请求并获取结果
+        Object appResp = workerMethod.invoke(serviceModel.getServiceInstance(), methodArgs);
+        ...
+        // D7-5：设置返回值
+        hsfResponse.setAppResponse(appResp);
+        retobj = appResp;
+    }
+        
+    return hsfResponse;
+}
+</code></pre>
+
+<p>其中，</p>
+
+<ul>
+<li>D7-1：根据请求中的服务名称获取相应的服务；</li>
+<li>D7-2：获取方法名；</li>
+<li>D7-3：获取方法参数；</li>
+<li>D7-4：通过动态代理处理请求并获取结果；</li>
+<li>D7-5：设置返回值。</li>
+</ul>
+
+<p>D8）调用 writeReponseToChannel 方法，将结果写入 channel ，返回结果。</p>
+
+<pre><code>/* NettyConnection.java */
+
+public void writeReponseToChannel(final BaseResponse response) {
+    if (response != null) {
+        ChannelFuture wf = channel.writeAndFlush(response);
+        wf.addListener(new ChannelFutureListener() {
+            public void operationComplete(ChannelFuture future) throws Exception {
+                if (!future.isSuccess()) {
+                    LOGGER.error(...);
+                }
+                if (!channel.isActive()) {
+                    channel.close();
+                }
+            }
+        });
+    }
+}
+</code></pre>
+
+<p>至此，HSF Provider 已经将远程调用的处理结果返回给 HSF Consumer。</p>
+
+<p><br/></p>
+
+<h1 id="4-总结">4 总结</h1>
+
+<p>软件工程领域始终不变的目标就是高内聚低耦合。事实上，无论是 Spring、TDDL、Dubbo，还是 HSF，它们的设计初衷都是解耦。HSF 作为分布式服务框架，通过 ConfigServer 将服务提供方和服务消费方解耦，是发布订阅模型的典型应用。</p>
+
+<p>总的来说，实现 HSF 服务发布至少需要满足以下几点：</p>
+
+<ol>
+<li>本地接口：有一个接口处理服务请求（target 所引用的 Bean），HSF 将其称为 Worker；</li>
+<li>网络通信：通过网络编程实现客户端与服务端的通信，如 Netty；</li>
+<li>服务治理：Provider 向 ConfigServer 注册服务地址信息、发布服务元数据。</li>
+</ol>
+
+<p>从 HSF 的源码不难发现，虽然前面经过层层封装，但归根到底还是借助 Netty 实现客户端与服务端的通信。因此，借助观察者模式（发布订阅模型）+ 网络编程，我们是否也能实现自己的 MINI 版 HSF 呢。</p>
+
+<p><br/></p>
+
+<h1 id="参考资料">参考资料：</h1>
+
+<ul>
+<li><a href="http://mw.alibaba-inc.com/products/hsf/_book/?spm=a1zco.detail-hsf.2853836.3.273d4ef0n7xTJ8">HSF 官方文档</a></li>
+<li><a href="http://site.alibaba.net/middleware-container/hsf-guide/index.html">深入理解HSF分布式服务框架</a></li>
+</ul>
+
+<p><br/></p>
+
+  
+<div class="prev-next-post pure-g">
+  <div class="pure-u-1-24" style="text-align: left;">
+    
+    <a href="https://HauyuChen.github.io/post/spring_transcationmanager/"><i class="fa fa-chevron-left"></i></a>
+    
+  </div>
+  <div class="pure-u-10-24">
+    
+    <nav class="prev">
+      <a href="https://HauyuChen.github.io/post/spring_transcationmanager/">Spring 事务管理初探</a>
+    </nav>
+    
+  </div>
+  <div class="pure-u-2-24">
+    &nbsp;
+  </div>
+  <div class="pure-u-10-24">
+    
+  </div>
+  <div class="pure-u-1-24" style="text-align: right;">
+    
+  </div>
+</div>
+
+
+
+  
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+
+(function() {
+    
+    
+    if (window.location.hostname == "localhost")
+        return;
+
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    var disqus_shortname = "http-hov-space";
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com/" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+</div>
+
+</div>
+</div>
+<script src="https://HauyuChen.github.io/js/ui.js"></script>
+
+
+
+
+</body>
+</html>
+
