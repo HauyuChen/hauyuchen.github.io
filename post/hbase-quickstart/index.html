@@ -541,73 +541,9 @@ ROW           COLUMN+CELL
 
 <p>（下表引自：<a href="https://www.ibm.com/developerworks/cn/analytics/library/ba-cn-bigdata-hbase/index.html">HBase 深入浅出</a>）</p>
 
-<table>
-<thead>
-<tr>
-<th></th>
-<th align="left">RDBMS</th>
-<th align="left">HBase</th>
-</tr>
-</thead>
-
-<tbody>
-<tr>
-<td>硬件架构</td>
-<td align="left">传统的多核系统，硬件成本昂贵</td>
-<td align="left">类似于 Hadoop 的分布式集群，硬件成本低廉</td>
-</tr>
-
-<tr>
-<td>容错性</td>
-<td align="left">一般需要额外硬件设备实现 HA 机制</td>
-<td align="left">由软件架构实现，因为多节点，所以不担心单点故障</td>
-</tr>
-
-<tr>
-<td>数据库大小</td>
-<td align="left">GB、TB</td>
-<td align="left">PB</td>
-</tr>
-
-<tr>
-<td>数据排布</td>
-<td align="left">以行和列组织</td>
-<td align="left">稀疏的、分布的多维的 Map</td>
-</tr>
-
-<tr>
-<td>数据类型</td>
-<td align="left">丰富的数据类型</td>
-<td align="left">Bytes</td>
-</tr>
-
-<tr>
-<td>事务支持</td>
-<td align="left">全面的 ACID 支持，对 Row 和表</td>
-<td align="left">ACID 只支持单个 Row 级别</td>
-</tr>
-
-<tr>
-<td>查询语言</td>
-<td align="left">SQL</td>
-<td align="left">只支持 Java API （除非与其他框架一起使用，如 Phoenix、Hive）</td>
-</tr>
-
-<tr>
-<td>索引</td>
-<td align="left">支持</td>
-<td align="left">只支持 Row-key（除非与其他技术一起应用，如 Phoenix、Hive）</td>
-</tr>
-
-<tr>
-<td>吞吐量</td>
-<td align="left">数千查询/每秒</td>
-<td align="left">百万查询/每秒</td>
-</tr>
-</tbody>
-</table>
-
-<p><br/></p>
+<p><br/>
+<div align=center><img src="https://raw.githubusercontent.com/HauyuChen/PicsBox/master/hbase11.png"/></div>
+<br/>                                           |</p>
 
 <h1 id="3-hbase-相关操作-crud">3 HBase 相关操作（CRUD）</h1>
 
