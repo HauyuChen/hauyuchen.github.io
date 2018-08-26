@@ -7,7 +7,7 @@
   <meta name="description" content="">
   <meta name="generator" content="Hugo 0.24.1" />
 
-  <title>十分钟了解HBase &middot; Hov&#39;s Blog</title>
+  <title>HBase 初探：架构 &#43; 原理 &#43; 对比 &#43; 实践 &middot; Hov&#39;s Blog</title>
 
   <script>
 	var _hmt = _hmt || [];
@@ -227,7 +227,7 @@
 
 
 <div class="header">
-  <h1>十分钟了解HBase</h1>
+  <h1>HBase 初探：架构 &#43; 原理 &#43; 对比 &#43; 实践</h1>
   <h2></h2>
 </div>
 <div class="content">
@@ -236,7 +236,7 @@
 
   <div>
     <i class="fa fa-calendar fa-fw"></i>
-    <time>2018-08-04</time>
+    <time>2018-08-25</time>
   </div>
 
   
@@ -279,7 +279,7 @@
 
 <hr />
 
-<p>因工作需要使用 HBase，因此调研了 HBase 相关的内容。本文的写作目的不仅是对前期学习成果的沉淀，也希望能帮助到工作繁忙但又想了解 HBase 的同学。在本文写作过程中，将穿插 MySQL 相关内容，希望能帮助理解 HBase 。</p>
+<p>因工作需要使用 HBase，因此调研了 HBase 相关的内容。本文的写作目的不仅仅是对前期学习成果的沉淀，也希望能帮助到工作繁忙但又想了解 HBase 的同学。在本文写作过程中，将穿插 MySQL 相关内容，希望能帮助理解 HBase 。</p>
 
 <p>本文主要讨论以下几个问题，所述内容仅为个人思考，见解有限，有误之处还望批评指正。</p>
 
@@ -410,7 +410,7 @@
 
 <p><strong><em>“HBase 是分布式数据库，那数据怎么路由？”</em></strong></p>
 
-<p>数据路由借助 hbase：meta 表完成，hbase：meta 表存放在 ZooKeeper，记录的是所有 Region 的元数据信息。</p>
+<p>数据路由借助 hbase:meta 表完成，hbase:meta 记录的是所有 Region 的元数据信息，hbase:meta 的位置记录在 ZooKeeper 。</p>
 
 <p><em>注：一些比较老的帖子可能会提到 .root 和  .meta 两个表。事实上， .root 和  .meta 两个表是 HBase 0.96 版本之前的设计。在 0.96 版本后，.root 表已经被移除，.meta 表更名为 hbase：meta。</em></p>
 
@@ -441,11 +441,14 @@
 <li>HBase 客户端根据地址直接请求 Region Server 完成数据读写。</li>
 </ol>
 
-<p><em>注：数据路由并不涉及Master，也就是说 DML 操作不需要 Master 参与。借助 ZooKeeper，客户端直接与 Region Server 通信，完成数据路由、读写。</em></p>
+<p><em>注 1：数据路由并不涉及Master，也就是说 DML 操作不需要 Master 参与。借助 hbase:meta，客户端直接与 Region Server 通信，完成数据路由、读写。</em></p>
+
+<p><em>注 2：客户端获取 hbase:meta 地址后，会缓存该地址信息，以此减少对 ZooKeeper 的访问。同时，客户端根据 RowKey 查找 hbase:meta，获取对应的 Region Server 地址后，也会缓存该地址，以此减少对 hbase:meta 的访问。因为 hbase:meta 是存放在 Region Server 的一张表，其大小可能很大，因此不会缓存 hbase:meta 的完整内容。</em></p>
 
 <p><br/>
-<div align=center><img  src="https://raw.githubusercontent.com/HauyuChen/PicsBox/master/hbase08.png"/></div>
-<br/></p>
+<div align=center><img  src="https://raw.githubusercontent.com/HauyuChen/PicsBox/master/hbase0001.png"/></div></p>
+
+<p><br/></p>
 
 <h2 id="1-5-hbase-适用场景">1.5 HBase 适用场景</h2>
 

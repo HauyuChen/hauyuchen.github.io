@@ -7,15 +7,15 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2017. All rights reserved.</copyright>
-    <lastBuildDate>Sat, 04 Aug 2018 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 25 Aug 2018 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://HauyuChen.github.io/topics/%E6%95%B0%E6%8D%AE%E5%BA%93/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>十分钟了解HBase</title>
+      <title>HBase 初探：架构 &#43; 原理 &#43; 对比 &#43; 实践</title>
       <link>https://HauyuChen.github.io/post/hbase-quickstart/</link>
-      <pubDate>Sat, 04 Aug 2018 00:00:00 +0000</pubDate>
+      <pubDate>Sat, 25 Aug 2018 00:00:00 +0000</pubDate>
       
       <guid>https://HauyuChen.github.io/post/hbase-quickstart/</guid>
       <description>&lt;p&gt;&lt;/p&gt;</description>
